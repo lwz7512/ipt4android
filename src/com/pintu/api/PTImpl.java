@@ -52,8 +52,8 @@ public class PTImpl implements PTApi {
 		
 		ArrayList<BasicNameValuePair> params= new ArrayList<BasicNameValuePair>();
 		
-		BasicNameValuePair methodParam = new BasicNameValuePair("method","upload");
-		BasicNameValuePair statusParam = new BasicNameValuePair("status",status);
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",PTApi.UPLOADPICTURE);
+		BasicNameValuePair statusParam = new BasicNameValuePair("description",status);
 		
 		params.add(statusParam);
 		params.add(methodParam);
