@@ -36,7 +36,7 @@ import org.json.JSONObject;
 
 
 /**
- * Ä£·ÂJSONObjectµÄXMLÊµÏÖ
+ * æ¨¡ä»¿JSONObjectçš„XMLå®ç°
  * @author jmx
  *
  */
@@ -46,7 +46,7 @@ class XmlObject{
 		this.str = s;
 	}
 	
-	//FIXME: ÕâÀïÓÃµÄÊÇÒ»¸ö×¨ÓĞµÄuglyÊµÏÖ
+	//FIXME: è¿™é‡Œç”¨çš„æ˜¯ä¸€ä¸ªä¸“æœ‰çš„uglyå®ç°
 	public String getString(String name) throws Exception {
 		Pattern p = Pattern.compile(String.format("<%s>(.*?)</%s>", name, name));
 		Matcher m = p.matcher(this.str);
@@ -63,7 +63,7 @@ class XmlObject{
 	}
 }
 /**
- * ·şÎñÆ÷ÏìÓ¦µÄ´íÎóĞÅÏ¢
+ * æœåŠ¡å™¨å“åº”çš„é”™è¯¯ä¿¡æ¯
  */
 public class RefuseError implements java.io.Serializable {
     
@@ -81,16 +81,16 @@ public class RefuseError implements java.io.Serializable {
     public RefuseError(Response res) throws HttpException {
     	String error = res.asString();
     	try{
-    		//ÏÈ³¢ÊÔ×÷Îªjson object½øĞĞ´¦Àí
+    		//å…ˆå°è¯•ä½œä¸ºjson objectè¿›è¡Œå¤„ç†
     		JSONObject json = new JSONObject(error);
     		init(json);
     	}catch(Exception e1){
-    		//Èç¹ûÊ§°Ü£¬Ôò×÷ÎªXMLÔÙ½øĞĞ´¦Àí
+    		//å¦‚æœå¤±è´¥ï¼Œåˆ™ä½œä¸ºXMLå†è¿›è¡Œå¤„ç†
     		try{
     			 XmlObject xml = new XmlObject(error);
     			 init(xml);
     		}catch(Exception e2){
-    			//ÔÙÊ§°Ü¾Í×÷ÎªÆÕÍ¨×Ö·û´®½øĞĞ´¦Àí£¬Õâ¸ö´¦Àí±£Ö¤²»»á³ö´í
+    			//å†å¤±è´¥å°±ä½œä¸ºæ™®é€šå­—ç¬¦ä¸²è¿›è¡Œå¤„ç†ï¼Œè¿™ä¸ªå¤„ç†ä¿è¯ä¸ä¼šå‡ºé”™
     			init(error);
     		}
     	}

@@ -31,6 +31,7 @@ import org.apache.http.protocol.ExecutionContext;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.protocol.HttpContext;
 
+import com.pintu.PintuApp;
 import com.pintu.util.DebugTimer;
 
 import android.util.Log;
@@ -46,10 +47,15 @@ public class SimpleHttpClient implements HttpClientInterface{
 		mClient = new DefaultHttpClient();
 	}
 	
-	//±©Â¶Î¨Ò»Ò»¸öpost·½·¨
+	private String getUser() {
+		return PintuApp.user;
+	}
+	
+	//æš´éœ²å”¯ä¸€ä¸€ä¸ªpostæ–¹æ³•
 	public Response post(String url, ArrayList<BasicNameValuePair> params, File file, boolean authenticate){
 		Response res = null;
 		try {
+			params.add(new BasicNameValuePair("user",getUser()));
 			res = httpRequest(url, params, file, authenticate, HttpPost.METHOD_NAME);
 		} catch (HttpException e) {
 			// TODO Auto-generated catch block
@@ -57,10 +63,11 @@ public class SimpleHttpClient implements HttpClientInterface{
 		}
 		return res;
 	}
-	//±©Â¶Î¨Ò»Ò»¸öget·½·¨
+	//æš´éœ²å”¯ä¸€ä¸€ä¸ªgetæ–¹æ³•
 	public Response get(String url, ArrayList<BasicNameValuePair> params,boolean authenticated) {
 		Response res = null;
 		try {
+			params.add(new BasicNameValuePair("user",getUser()));
 			res = httpRequest(url, params, null, authenticated, HttpGet.METHOD_NAME);
 		} catch (HttpException e) {
 			// TODO Auto-generated catch block
@@ -84,20 +91,20 @@ public class SimpleHttpClient implements HttpClientInterface{
      *            HttpGet.METHOD_NAME
      *            HttpDelete.METHOD_NAME
      * @return Response from server
-     * @throws HttpException ´ËÒì³£°ü×°ÁËÒ»ÏµÁĞµ×²ãÒì³£ <br /><br />
-     *          1. µ×²ãÒì³£, ¿ÉÊ¹ÓÃgetCause()²é¿´: <br />
-     *              <li>URISyntaxException, ÓÉ`new URI` Òı·¢µÄ.</li>
-     *              <li>IOException, ÓÉ`createMultipartEntity` »ò `UrlEncodedFormEntity` Òı·¢µÄ.</li>
-     *              <li>IOExceptionºÍClientProtocolException, ÓÉ`HttpClient.execute` Òı·¢µÄ.</li><br />
+     * @throws HttpException æ­¤å¼‚å¸¸åŒ…è£…äº†ä¸€ç³»åˆ—åº•å±‚å¼‚å¸¸ <br /><br />
+     *          1. åº•å±‚å¼‚å¸¸, å¯ä½¿ç”¨getCause()æŸ¥çœ‹: <br />
+     *              <li>URISyntaxException, ç”±`new URI` å¼•å‘çš„.</li>
+     *              <li>IOException, ç”±`createMultipartEntity` æˆ– `UrlEncodedFormEntity` å¼•å‘çš„.</li>
+     *              <li>IOExceptionå’ŒClientProtocolException, ç”±`HttpClient.execute` å¼•å‘çš„.</li><br />
      *         
-     *          2. µ±ÏìÓ¦Âë²»Îª200Ê±±¨³öµÄ¸÷ÖÖ×ÓÀàÒì³£:
-     *             <li>HttpRequestException, Í¨³£·¢ÉúÔÚÇëÇóµÄ´íÎó,ÈçÇëÇó´íÎóÁË ÍøÖ·µ¼ÖÂ404µÈ, Å×³ö´ËÒì³£,
-     *             Ê×ÏÈ¼ì²érequest log, È·ÈÏ²»ÊÇÈËÎª´íÎóµ¼ÖÂÇëÇóÊ§°Ü</li>
-     *             <li>HttpAuthException, Í¨³£·¢ÉúÔÚAuthÊ§°Ü, ¼ì²éÓÃÓÚÑéÖ¤µÇÂ¼µÄÓÃ»§Ãû/ÃÜÂë/KEYµÈ</li>
-     *             <li>HttpRefusedException, Í¨³£·¢ÉúÔÚ·şÎñÆ÷½ÓÊÜµ½ÇëÇó, µ«¾Ü¾øÇëÇó, ¿ÉÊÇ¶àÖÖÔ­Òò, ¾ßÌåÔ­Òò
-     *             ·şÎñÆ÷»á·µ»Ø¾Ü¾øÀíÓÉ, µ÷ÓÃHttpRefusedException#getError#getMessage²é¿´</li>
-     *             <li>HttpServerException, Í¨³£·¢ÉúÔÚ·şÎñÆ÷·¢Éú´íÎóÊ±, ¼ì²é·şÎñÆ÷¶ËÊÇ·ñÔÚÕı³£Ìá¹©·şÎñ</li>
-     *             <li>HttpException, ÆäËûÎ´Öª´íÎó.</li>
+     *          2. å½“å“åº”ç ä¸ä¸º200æ—¶æŠ¥å‡ºçš„å„ç§å­ç±»å¼‚å¸¸:
+     *             <li>HttpRequestException, é€šå¸¸å‘ç”Ÿåœ¨è¯·æ±‚çš„é”™è¯¯,å¦‚è¯·æ±‚é”™è¯¯äº† ç½‘å€å¯¼è‡´404ç­‰, æŠ›å‡ºæ­¤å¼‚å¸¸,
+     *             é¦–å…ˆæ£€æŸ¥request log, ç¡®è®¤ä¸æ˜¯äººä¸ºé”™è¯¯å¯¼è‡´è¯·æ±‚å¤±è´¥</li>
+     *             <li>HttpAuthException, é€šå¸¸å‘ç”Ÿåœ¨Authå¤±è´¥, æ£€æŸ¥ç”¨äºéªŒè¯ç™»å½•çš„ç”¨æˆ·å/å¯†ç /KEYç­‰</li>
+     *             <li>HttpRefusedException, é€šå¸¸å‘ç”Ÿåœ¨æœåŠ¡å™¨æ¥å—åˆ°è¯·æ±‚, ä½†æ‹’ç»è¯·æ±‚, å¯æ˜¯å¤šç§åŸå› , å…·ä½“åŸå› 
+     *             æœåŠ¡å™¨ä¼šè¿”å›æ‹’ç»ç†ç”±, è°ƒç”¨HttpRefusedException#getError#getMessageæŸ¥çœ‹</li>
+     *             <li>HttpServerException, é€šå¸¸å‘ç”Ÿåœ¨æœåŠ¡å™¨å‘ç”Ÿé”™è¯¯æ—¶, æ£€æŸ¥æœåŠ¡å™¨ç«¯æ˜¯å¦åœ¨æ­£å¸¸æä¾›æœåŠ¡</li>
+     *             <li>HttpException, å…¶ä»–æœªçŸ¥é”™è¯¯.</li>
      */
     private Response httpRequest(String url, ArrayList<BasicNameValuePair> postParams,
             File file, boolean authenticated, String httpMethod) throws HttpException {
@@ -169,15 +176,15 @@ public class SimpleHttpClient implements HttpClientInterface{
      * @param httpMethod
      *            "GET","POST","DELETE"
      * @param uri
-     *            ÇëÇóµÄURI
+     *            è¯·æ±‚çš„URI
      * @param file
-     *            ¿ÉÎªnull
+     *            å¯ä¸ºnull
      * @param postParams
-     *            POST²ÎÊı
+     *            POSTå‚æ•°
      * @return httpMethod Request implementations for the various HTTP methods
      *         like GET and POST.
      * @throws HttpException
-     *             createMultipartEntity »ò UrlEncodedFormEntityÒı·¢µÄIOException
+     *             createMultipartEntity æˆ– UrlEncodedFormEntityå¼•å‘çš„IOException
      */
     private HttpUriRequest createMethod(String httpMethod, URI uri, File file,
             ArrayList<BasicNameValuePair> postParams) throws HttpException {
@@ -233,18 +240,18 @@ public class SimpleHttpClient implements HttpClientInterface{
      * Handle Status code
      * 
      * @param statusCode
-     *            ÏìÓ¦µÄ×´Ì¬Âë
+     *            å“åº”çš„çŠ¶æ€ç 
      * @param res
-     *            ·şÎñÆ÷ÏìÓ¦
+     *            æœåŠ¡å™¨å“åº”
      * @throws HttpException
-     *             µ±ÏìÓ¦Âë²»Îª200Ê±¶¼»á±¨³ö´ËÒì³£:<br />
-     *             <li>HttpRequestException, Í¨³£·¢ÉúÔÚÇëÇóµÄ´íÎó,ÈçÇëÇó´íÎóÁË ÍøÖ·µ¼ÖÂ404µÈ, Å×³ö´ËÒì³£,
-     *             Ê×ÏÈ¼ì²érequest log, È·ÈÏ²»ÊÇÈËÎª´íÎóµ¼ÖÂÇëÇóÊ§°Ü</li>
-     *             <li>HttpAuthException, Í¨³£·¢ÉúÔÚAuthÊ§°Ü, ¼ì²éÓÃÓÚÑéÖ¤µÇÂ¼µÄÓÃ»§Ãû/ÃÜÂë/KEYµÈ</li>
-     *             <li>HttpRefusedException, Í¨³£·¢ÉúÔÚ·şÎñÆ÷½ÓÊÜµ½ÇëÇó, µ«¾Ü¾øÇëÇó, ¿ÉÊÇ¶àÖÖÔ­Òò, ¾ßÌåÔ­Òò
-     *             ·şÎñÆ÷»á·µ»Ø¾Ü¾øÀíÓÉ, µ÷ÓÃHttpRefusedException#getError#getMessage²é¿´</li>
-     *             <li>HttpServerException, Í¨³£·¢ÉúÔÚ·şÎñÆ÷·¢Éú´íÎóÊ±, ¼ì²é·şÎñÆ÷¶ËÊÇ·ñÔÚÕı³£Ìá¹©·şÎñ</li>
-     *             <li>HttpException, ÆäËûÎ´Öª´íÎó.</li>
+     *             å½“å“åº”ç ä¸ä¸º200æ—¶éƒ½ä¼šæŠ¥å‡ºæ­¤å¼‚å¸¸:<br />
+     *             <li>HttpRequestException, é€šå¸¸å‘ç”Ÿåœ¨è¯·æ±‚çš„é”™è¯¯,å¦‚è¯·æ±‚é”™è¯¯äº† ç½‘å€å¯¼è‡´404ç­‰, æŠ›å‡ºæ­¤å¼‚å¸¸,
+     *             é¦–å…ˆæ£€æŸ¥request log, ç¡®è®¤ä¸æ˜¯äººä¸ºé”™è¯¯å¯¼è‡´è¯·æ±‚å¤±è´¥</li>
+     *             <li>HttpAuthException, é€šå¸¸å‘ç”Ÿåœ¨Authå¤±è´¥, æ£€æŸ¥ç”¨äºéªŒè¯ç™»å½•çš„ç”¨æˆ·å/å¯†ç /KEYç­‰</li>
+     *             <li>HttpRefusedException, é€šå¸¸å‘ç”Ÿåœ¨æœåŠ¡å™¨æ¥å—åˆ°è¯·æ±‚, ä½†æ‹’ç»è¯·æ±‚, å¯æ˜¯å¤šç§åŸå› , å…·ä½“åŸå› 
+     *             æœåŠ¡å™¨ä¼šè¿”å›æ‹’ç»ç†ç”±, è°ƒç”¨HttpRefusedException#getError#getMessageæŸ¥çœ‹</li>
+     *             <li>HttpServerException, é€šå¸¸å‘ç”Ÿåœ¨æœåŠ¡å™¨å‘ç”Ÿé”™è¯¯æ—¶, æ£€æŸ¥æœåŠ¡å™¨ç«¯æ˜¯å¦åœ¨æ­£å¸¸æä¾›æœåŠ¡</li>
+     *             <li>HttpException, å…¶ä»–æœªçŸ¥é”™è¯¯.</li>
      */
     private void handleResponseStatusCode(int statusCode, Response res)
             throws HttpException {
@@ -285,15 +292,15 @@ public class SimpleHttpClient implements HttpClientInterface{
     }
     
     /**
-     * ´´½¨¿É´øÒ»¸öFileµÄMultipartEntity
+     * åˆ›å»ºå¯å¸¦ä¸€ä¸ªFileçš„MultipartEntity
      * 
      * @param filename
-     *            ÎÄ¼şÃû
+     *            æ–‡ä»¶å
      * @param file
-     *            ÎÄ¼ş
+     *            æ–‡ä»¶
      * @param postParams
-     *            ÆäËûPOST²ÎÊı
-     * @return ´øÎÄ¼şºÍÆäËû²ÎÊıµÄEntity
+     *            å…¶ä»–POSTå‚æ•°
+     * @return å¸¦æ–‡ä»¶å’Œå…¶ä»–å‚æ•°çš„Entity
      * @throws UnsupportedEncodingException
      */
     private MultipartEntity createMultipartEntity(String filename, File file,
@@ -311,13 +318,13 @@ public class SimpleHttpClient implements HttpClientInterface{
     }
 
     /**
-     * Òì³£×Ô¶¯»Ö¸´´¦Àí, Ê¹ÓÃHttpRequestRetryHandler½Ó¿ÚÊµÏÖÇëÇóµÄÒì³£»Ö¸´
+     * å¼‚å¸¸è‡ªåŠ¨æ¢å¤å¤„ç†, ä½¿ç”¨HttpRequestRetryHandleræ¥å£å®ç°è¯·æ±‚çš„å¼‚å¸¸æ¢å¤
      */
     private static HttpRequestRetryHandler requestRetryHandler = new HttpRequestRetryHandler() {
-        // ×Ô¶¨ÒåµÄ»Ö¸´²ßÂÔ
+        // è‡ªå®šä¹‰çš„æ¢å¤ç­–ç•¥
         public boolean retryRequest(IOException exception, int executionCount,
                 HttpContext context) {
-            // ÉèÖÃ»Ö¸´²ßÂÔ£¬ÔÚ·¢ÉúÒì³£Ê±ºò½«×Ô¶¯ÖØÊÔN´Î
+            // è®¾ç½®æ¢å¤ç­–ç•¥ï¼Œåœ¨å‘ç”Ÿå¼‚å¸¸æ—¶å€™å°†è‡ªåŠ¨é‡è¯•Næ¬¡
             if (executionCount >= RETRIED_TIME) {
                 // Do not retry if over max retry count
                 return false;
@@ -342,7 +349,7 @@ public class SimpleHttpClient implements HttpClientInterface{
     };
     
     /**
-     * ½âÎöHTTP´íÎóÂë
+     * è§£æHTTPé”™è¯¯ç 
      * 
      * @param statusCode
      * @return

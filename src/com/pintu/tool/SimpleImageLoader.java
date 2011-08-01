@@ -9,11 +9,11 @@ import com.pintu.PintuApp;
 public class SimpleImageLoader {
     
     public static void display(final ImageView imageView, String url) {
-        //ÒòÎªÓĞ¶à¸ö×é¼ş£¬ĞèÒªÓÃµØÖ·Æ¥Åä×é¼ş
+        //å› ä¸ºæœ‰å¤šä¸ªç»„ä»¶ï¼Œéœ€è¦ç”¨åœ°å€åŒ¹é…ç»„ä»¶
     	imageView.setTag(url);
         Bitmap image = PintuApp.mImageLoader.get(url, createImageViewCallback(imageView, url));
-        //Èç¹û»º´æÖĞÓĞ¾Íµ÷ÓÃÏÂÃæÕâ¾ä
-        //Èç¹ûÃ»ÓĞ£¬ÏÈÊ¹ÓÃÄ¬ÈÏÍ¼ÏÔÊ¾£¬ËæºóÈ¡µ½Í¼Æ¬ºóÊ¹ÓÃ»Øµ÷·½·¨refresh        
+        //å¦‚æœç¼“å­˜ä¸­æœ‰å°±è°ƒç”¨ä¸‹é¢è¿™å¥
+        //å¦‚æœæ²¡æœ‰ï¼Œå…ˆä½¿ç”¨é»˜è®¤å›¾æ˜¾ç¤ºï¼Œéšåå–åˆ°å›¾ç‰‡åä½¿ç”¨å›è°ƒæ–¹æ³•refresh        
         imageView.setImageBitmap(image);
     }
     

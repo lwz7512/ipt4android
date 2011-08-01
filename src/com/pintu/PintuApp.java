@@ -14,6 +14,8 @@ public class PintuApp extends Application {
 	public static PTApi mApi;
 	public static LazyImageLoader mImageLoader;
 	
+	public static String user = "lwz7512@gmail.com";
+	
 	
 	public void onCreate(){
 		super.onCreate();

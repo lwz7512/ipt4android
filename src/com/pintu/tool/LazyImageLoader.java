@@ -31,7 +31,7 @@ public class LazyImageLoader {
     private GetImageTask mTask = new GetImageTask();
 
     /**
-     * È¡Í¼Æ¬, ¿ÉÄÜÖ±½Ó´ÓcacheÖĞ·µ»Ø, »òÏÂÔØÍ¼Æ¬ºó·µ»Ø
+     * å–å›¾ç‰‡, å¯èƒ½ç›´æ¥ä»cacheä¸­è¿”å›, æˆ–ä¸‹è½½å›¾ç‰‡åè¿”å›
      * 
      * @param url
      * @param callback
@@ -42,7 +42,7 @@ public class LazyImageLoader {
         if (mImageManager.isContains(url)) {
             bitmap = mImageManager.get(url);
         } else {
-        	// bitmap²»´æÔÚ£¬Æô¶¯Task½øĞĞÏÂÔØ
+        	// bitmapä¸å­˜åœ¨ï¼Œå¯åŠ¨Taskè¿›è¡Œä¸‹è½½
             mCallbackManager.put(url, callback);
             startDownloadThread(url);
         }
@@ -180,7 +180,7 @@ public class LazyImageLoader {
             Log.v(TAG, "call url=" + url);
             List<ImageLoaderCallback> callbackList = mCallbackMap.get(url);
             if (callbackList == null) {
-                // FIXME: ÓĞÊ±»áµ½´ïÕâÀï£¬Ô­ÒòÎÒ»¹Ã»ÏëÃ÷°×
+                // FIXME: æœ‰æ—¶ä¼šåˆ°è¾¾è¿™é‡Œï¼ŒåŸå› æˆ‘è¿˜æ²¡æƒ³æ˜ç™½
                 Log.e(TAG, "callbackList=null");
                 return;
             }

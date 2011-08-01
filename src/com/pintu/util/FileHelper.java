@@ -6,7 +6,7 @@ import java.io.IOException;
 import android.os.Environment;
 
 /**
- * 对SD卡文件的管理
+ * 瀵筍D鍗℃枃浠剁殑绠＄悊
  * @author ch.linghu
  *
  */

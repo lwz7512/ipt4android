@@ -49,8 +49,8 @@ import com.pintu.http.Response;
  */
 public class ImageManager implements ImageCache {
     private static final String TAG = "ImageManager";
-    // Ä¿Ç°×î´ó¿í¶ÈÖ§³Ö596px, ³¬¹ıÔòÍ¬±ÈËõĞ¡
-    // ×î´ó¸ß¶ÈÎª1192px, ³¬¹ı´ÓÖĞ½ØÈ¡
+    // ç›®å‰æœ€å¤§å®½åº¦æ”¯æŒ596px, è¶…è¿‡åˆ™åŒæ¯”ç¼©å°
+    // æœ€å¤§é«˜åº¦ä¸º1192px, è¶…è¿‡ä»ä¸­æˆªå–
     public static final int DEFAULT_COMPRESS_QUALITY = 90;
     public static final int IMAGE_MAX_WIDTH  = 596;
     public static final int IMAGE_MAX_HEIGHT = 1192;
@@ -75,7 +75,7 @@ public class ImageManager implements ImageCache {
 		return bitmap;
 	}
 
-	//FIXME, ÕâÀï½«À´Í³Ò»¸Ä³É´æÎÄ¼şµ½SD¿¨²»´æÏµÍ³ÖĞ
+	//FIXME, è¿™é‡Œå°†æ¥ç»Ÿä¸€æ”¹æˆå­˜æ–‡ä»¶åˆ°SDå¡ä¸å­˜ç³»ç»Ÿä¸­
 	public ImageManager(Context context) {
         mContext = context;
         mCache = new HashMap<String, SoftReference<Bitmap>>();
@@ -152,7 +152,7 @@ public class ImageManager implements ImageCache {
     }
     
     /**
-     * ÏÂÔØÔ¶³ÌÍ¼Æ¬ -> ×ª»»ÎªBitmap -> Ğ´Èë»º´æÆ÷.
+     * ä¸‹è½½è¿œç¨‹å›¾ç‰‡ -> è½¬æ¢ä¸ºBitmap -> å†™å…¥ç¼“å­˜å™¨.
      * @param url
      * @param quality image quality 1~100
      * @throws HttpException 
@@ -174,7 +174,7 @@ public class ImageManager implements ImageCache {
     }
     
     /**
-     * ÖØÔØ put(String url, int quality)
+     * é‡è½½ put(String url, int quality)
      * @param url
      * @throws HttpException 
      */
@@ -183,11 +183,11 @@ public class ImageManager implements ImageCache {
     }
     
     /**
-     * ½«±¾µØFile -> ×ª»»ÎªBitmap -> Ğ´Èë»º´æÆ÷.
-     * Èç¹ûÍ¼Æ¬´óĞ¡³¬¹ıMAX_WIDTH/MAX_HEIGHT, Ôò½«»á¶ÔÍ¼Æ¬Ëõ·Å.
+     * å°†æœ¬åœ°File -> è½¬æ¢ä¸ºBitmap -> å†™å…¥ç¼“å­˜å™¨.
+     * å¦‚æœå›¾ç‰‡å¤§å°è¶…è¿‡MAX_WIDTH/MAX_HEIGHT, åˆ™å°†ä¼šå¯¹å›¾ç‰‡ç¼©æ”¾.
      * 
      * @param file
-     * @param quality å›¾ç‰‡è´¨é‡(0~100)
+     * @param quality é¥å‰§å¢–ç’ã„©å™º(0~100)
      * @param forceOverride 
      * @throws IOException
      */
@@ -214,7 +214,7 @@ public class ImageManager implements ImageCache {
     }
     
     /**
-     * ½«BitmapĞ´Èë»º´æÆ÷.
+     * å°†Bitmapå†™å…¥ç¼“å­˜å™¨.
      * @param filePath file path
      * @param bitmap
      * @param quality 1~100
@@ -228,7 +228,7 @@ public class ImageManager implements ImageCache {
     }
     
     /**
-     * ÖØÔØ put(String file, Bitmap bitmap, int quality)
+     * é‡è½½ put(String file, Bitmap bitmap, int quality)
      * @param filePath file path
      * @param bitmap
      * @param quality 1~100
@@ -239,7 +239,7 @@ public class ImageManager implements ImageCache {
     }
 
     /**
-     * ½«BitmapĞ´Èë±¾µØ»º´æÎÄ¼ş.
+     * å°†Bitmapå†™å…¥æœ¬åœ°ç¼“å­˜æ–‡ä»¶.
      * @param file URL/PATH
      * @param bitmap
      * @param quality
@@ -308,14 +308,14 @@ public class ImageManager implements ImageCache {
     }
     
     /**
-     * åˆ¤æ–­ç¼“å­˜ç?¸­æ˜¯å¦å­˜åœ¨è¯¥æ–‡ä»¶å¯¹åº”çš„bitmap
+     * é’ã‚†æŸ‡ç¼‚æ’³ç“¨é«?è…‘é„îˆšæƒç€›æ¨ºæ¹ªç’‡ãƒ¦æƒæµ è·ºî‡®æ´æ—‚æ®‘bitmap
      */
     public boolean isContains(String file) {
     	return mCache.containsKey(file);
     }
     
     /**
-     * è·å¾—æŒ‡å®šfile/URLå¯¹åº”çš„Bitmapï¼Œé¦–å…ˆæ‰¾æœ¬åœ°æ–‡ä»¶ï¼Œå¦‚æœæœ‰ç›´æ¥ä½¿ç”¨ï¼Œå¦åˆ™å»ç½‘ä¸Šè·å–
+     * é‘¾å³°ç·±é¸å›§ç•¾file/URLç€µç‘°ç°²é¨å‡šitmapé”›å²„î›»éå Ÿå£˜éˆî„€æ¹´é‚å›¦æ¬¢é”›å±½î›§é‹æ»„æ¹é©å­˜å¸´æµ£è·¨æ•¤é”›å±½æƒé’æ¬å¹“ç¼ƒæˆœç¬‚é‘¾å³°å½‡
      * @param file file URL/file PATH
      * @param bitmap
      * @param quality
@@ -333,14 +333,14 @@ public class ImageManager implements ImageCache {
         	String url = file;
             bitmap = downloadImage2(url);
             
-            // æ³¨é‡Šæ‰ä»¥æµ‹è¯•æ–°çš„å†™å…¥æ–‡ä»¶æ–¹æ³•
+            // å¨‰ã„©å™´éºå¤‰äº’å¨´å¬­ç˜¯é‚æ‰®æ®‘éæ¬å†é‚å›¦æ¬¢é‚è§„ç¡¶
             //put(file, bitmap); // file Cache
             return bitmap;
         }
     }
     
     /**
-     * ä»ç¼“å­˜å™¨ä¸­è¯»å–æ–‡ä»?
+     * æµ åº£ç´¦ç€›æ¨ºæ«’æ¶“î…¡î‡°é™æ ¨æƒæµ ?
      * @param file file URL/file PATH
      * @param bitmap
      * @param quality
@@ -416,8 +416,8 @@ public class ImageManager implements ImageCache {
      * Compress and resize the Image
      * 
      * <br />
-     * ÒòÎª²»ÂÛÍ¼Æ¬´óĞ¡ºÍ³ß´çÈçºÎ, ¶¼»á¶ÔÍ¼Æ¬½øĞĞÒ»´ÎÓĞËğÑ¹Ëõ, ËùÒÔ±¾µØÑ¹ËõÓ¦¸Ã
-     * ¿¼ÂÇÍ¼Æ¬½«»á±»¶ş´ÎÑ¹ËõËùÔì³ÉµÄÍ¼Æ¬ÖÊÁ¿ËğºÄ
+     * å› ä¸ºä¸è®ºå›¾ç‰‡å¤§å°å’Œå°ºå¯¸å¦‚ä½•, éƒ½ä¼šå¯¹å›¾ç‰‡è¿›è¡Œä¸€æ¬¡æœ‰æŸå‹ç¼©, æ‰€ä»¥æœ¬åœ°å‹ç¼©åº”è¯¥
+     * è€ƒè™‘å›¾ç‰‡å°†ä¼šè¢«äºŒæ¬¡å‹ç¼©æ‰€é€ æˆçš„å›¾ç‰‡è´¨é‡æŸè€—
      * 
      * @param targetFile
      * @param quality, 0~100, recommend 100
@@ -459,7 +459,7 @@ public class ImageManager implements ImageCache {
     }
     
     /**
-     * ±£³Ö³¤¿í±ÈËõĞ¡Bitmap
+     * ä¿æŒé•¿å®½æ¯”ç¼©å°Bitmap
      * 
      * @param bitmap
      * @param maxWidth
@@ -480,7 +480,7 @@ public class ImageManager implements ImageCache {
         int newWidth  = originWidth;
         int newHeight = originHeight;
         
-        // ÈôÍ¼Æ¬¹ı¿í, Ôò±£³Ö³¤¿í±ÈËõ·ÅÍ¼Æ¬
+        // è‹¥å›¾ç‰‡è¿‡å®½, åˆ™ä¿æŒé•¿å®½æ¯”ç¼©æ”¾å›¾ç‰‡
         if (originWidth > maxWidth) {
             newWidth = maxWidth;
             
@@ -490,7 +490,7 @@ public class ImageManager implements ImageCache {
             bitmap = Bitmap.createScaledBitmap(bitmap, newWidth, newHeight, true);
         }
         
-        //ÈôÍ¼Æ¬¹ı³¤, Ôò´ÓÖĞ²¿½ØÈ¡
+        //è‹¥å›¾ç‰‡è¿‡é•¿, åˆ™ä»ä¸­éƒ¨æˆªå–
         if (newHeight > maxHeight) {
             newHeight = maxHeight;
             

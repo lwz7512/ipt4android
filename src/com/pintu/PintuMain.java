@@ -73,9 +73,9 @@ public class PintuMain extends Activity {
     // Task
     private GenericTask mSendTask;
 	
-    //Òª·¢ËÍµÄÍ¼Æ¬ÎÄ¼ş
+    //è¦å‘é€çš„å›¾ç‰‡æ–‡ä»¶
     private File mFile;
-	//Ôİ´æµÄÍ¼Æ¬µØÖ·
+	//æš‚å­˜çš„å›¾ç‰‡åœ°å€
     private Uri mImageUri;
     
     
@@ -88,13 +88,13 @@ public class PintuMain extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //ÉèÖÃ²¼¾Ö
+        //è®¾ç½®å¸ƒå±€
         setContentView(R.layout.write);
         
-        //»ñÈ¡²¼¾ÖÖĞµÄÊÓ¾õ¶ÔÏó
+        //è·å–å¸ƒå±€ä¸­çš„è§†è§‰å¯¹è±¡
         getViews();
         
-        //ÎªËùÓĞÊÓ¾õ¶ÔÏóÌí¼ÓÊÂ¼ş¼àÌı·½·¨
+        //ä¸ºæ‰€æœ‰è§†è§‰å¯¹è±¡æ·»åŠ äº‹ä»¶ç›‘å¬æ–¹æ³•
         addEventListeners();
         
     }
@@ -160,43 +160,43 @@ public class PintuMain extends Activity {
     
     
     private void getViews(){
-        //·µ»Ø°´Å¥
+        //è¿”å›æŒ‰é’®
         mBackButton = (Button) this.findViewById(R.id.top_back);
-        //·¢ËÍ
+        //å‘é€
         mTopSendButton = (Button) this.findViewById(R.id.top_send_btn);
         
-        //½ø¶ÈÎÄ×Ö
+        //è¿›åº¦æ–‡å­—
         mProgressText = (TextView) findViewById(R.id.progress_text);
-        //ÄÚÈİÊäÈë¿ò
+        //å†…å®¹è¾“å…¥æ¡†
         mTweetEditText = (EditText) findViewById(R.id.tweet_edit);
-        //ÅÄÕÕ
+        //æ‹ç…§
         mCameraButton = (ImageButton) findViewById(R.id.camera_button);
-        //²åÈëÍ¼Æ¬
+        //æ’å…¥å›¾ç‰‡
         chooseImagesButton = (ImageButton) findViewById(R.id.choose_images_button);
         
-        //Ô¤ÀÀÍ¼Æ¬
+        //é¢„è§ˆå›¾ç‰‡
         mPreview = (ImageView) findViewById(R.id.preview);
-        //É¾³ıÍ¼Æ¬
+        //åˆ é™¤å›¾ç‰‡
         imageDelete = (ImageView) findViewById(R.id.image_delete);
         
-        //×ÖÊı¸üĞÂ
+        //å­—æ•°æ›´æ–°
         mTweetEdit = new TweetEdit(mTweetEditText,
                 (TextView) findViewById(R.id.chars_text));
 
-        //TODO, Ìí¼ÓÆäËû±íµ¥...    	
+        //TODO, æ·»åŠ å…¶ä»–è¡¨å•...    	
     }
     
     
     private void addEventListeners(){
-    	//·µ»Ø
+    	//è¿”å›
         mBackButton.setOnClickListener(mGoListener);
-        //·¢ËÍ
+        //å‘é€
         mTopSendButton.setOnClickListener(sendListener);        
-        //²åÈëÍ¼Æ¬
+        //æ’å…¥å›¾ç‰‡
         chooseImagesButton.setOnClickListener(insertImgListener);
-    	//µ÷ÓÃµÚÈı·½ÅÄÕÕÓ¦ÓÃÅÄÕÕ
+    	//è°ƒç”¨ç¬¬ä¸‰æ–¹æ‹ç…§åº”ç”¨æ‹ç…§
         mCameraButton.setOnClickListener(takeShotListener);
-        //É¾³ıËùÑ¡Í¼Æ¬
+        //åˆ é™¤æ‰€é€‰å›¾ç‰‡
         imageDelete.setOnClickListener(deleteListener);
         
         //TODO, ...
@@ -211,7 +211,7 @@ public class PintuMain extends Activity {
 
         withPic = true;
         
-        //ÖØÖÃÒª·¢ËÍµÄÎÄ¼ş¶ÔÏó
+        //é‡ç½®è¦å‘é€çš„æ–‡ä»¶å¯¹è±¡
         mFile = null;
 
         if (uri.getScheme().equals("content")) {
@@ -231,7 +231,7 @@ public class PintuMain extends Activity {
     }
     
     private void changeStyleWithPic() {
-        // ĞŞ¸Ä²¼¾Ö £¬ÒÔÇ° Í¼Æ¬¾ÓÖĞ£¬ÏÖÔÚÔÚ×ó±ß
+        // ä¿®æ”¹å¸ƒå±€ ï¼Œä»¥å‰ å›¾ç‰‡å±…ä¸­ï¼Œç°åœ¨åœ¨å·¦è¾¹
         // mPreview.setLayoutParams(
         // new RelativeLayout.LayoutParams(LayoutParams.FILL_PARENT,
         // LayoutParams.FILL_PARENT)
@@ -251,7 +251,7 @@ public class PintuMain extends Activity {
     }
 
     /**
-     * ÖÆ×÷Î¢ËõÍ¼
+     * åˆ¶ä½œå¾®ç¼©å›¾
      * 
      * @param uri
      * @param size
@@ -349,7 +349,7 @@ public class PintuMain extends Activity {
 
             if (result == TaskResult.AUTH_ERROR) {
                 logout();
-            } else if (result == TaskResult.OK) {//³É¹¦·¢ËÍ
+            } else if (result == TaskResult.OK) {//æˆåŠŸå‘é€
                 onSendSuccess();
             } else if (result == TaskResult.IO_ERROR) {
                 onSendFailure();
@@ -383,15 +383,15 @@ public class PintuMain extends Activity {
                 mSendTask.setListener(mSendTaskListener);
 
                 TaskParams params = new TaskParams();
-                //·¢ËÍÄ£Ê½
+                //å‘é€æ¨¡å¼
                 params.put("mode", mode);
-                //·¢ËÍÎÄ¼ş
+                //å‘é€æ–‡ä»¶
                 params.put("file", mFile);
-                //·¢ËÍÎÄ×Ö
+                //å‘é€æ–‡å­—
                 params.put("status", status);
-                //°ÑAPIÒ²·Å½øÈ¥
+                //æŠŠAPIä¹Ÿæ”¾è¿›å»
                 params.put("api", PintuApp.mApi);
-                //Ö´ĞĞ·¢ËÍÈÎÎñ
+                //æ‰§è¡Œå‘é€ä»»åŠ¡
                 mSendTask.execute(params);
                 
             } else {
@@ -411,7 +411,7 @@ public class PintuMain extends Activity {
     }
     
     private void logout() {
-    	//ÕâÀï¿ÉÒÔ²»¼Ó¶¯×÷£¬ÓĞÈËÈÏÎªÕâÑù×öÓÃ»§ÌåÑé²»ºÃ£¡
+    	//è¿™é‡Œå¯ä»¥ä¸åŠ åŠ¨ä½œï¼Œæœ‰äººè®¤ä¸ºè¿™æ ·åšç”¨æˆ·ä½“éªŒä¸å¥½ï¼
     }
     
     private void onSendSuccess(){
@@ -425,10 +425,10 @@ public class PintuMain extends Activity {
 
         updateProgress("");
 
-        // ·¢ËÍ³É¹¦¾Í×Ô¶¯¹Ø±Õ½çÃæ
+        // å‘é€æˆåŠŸå°±è‡ªåŠ¨å…³é—­ç•Œé¢
         finish();
 
-        // ¹Ø±ÕÈí¼üÅÌ
+        // å…³é—­è½¯é”®ç›˜
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(mTweetEdit.getEditText().getWindowToken(),0);
 
@@ -458,7 +458,7 @@ public class PintuMain extends Activity {
     private void openPhotoLibraryMenu() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("image/*");
-        //¿ªÆô»­ÀÈ
+        //å¼€å¯ç”»å»Š
         startActivityForResult(intent, REQUEST_PHOTO_LIBRARY);
     }    
     
@@ -466,11 +466,11 @@ public class PintuMain extends Activity {
         try {
             // TODO: API < 1.6, images size too small
             File mImageFile = new File(FileHelper.getBasePath(), "upload.jpg");
-            //´æÏÂÀ´£¬ºóÃæÈ¡ÅÄÕÕ½á¹ûÊ±ÓÃ
+            //å­˜ä¸‹æ¥ï¼Œåé¢å–æ‹ç…§ç»“æœæ—¶ç”¨
             mImageUri = Uri.fromFile(mImageFile);
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
-            //¿ªÆôµÚÈı·½ÅÄÕÕ³ÌĞò
+            //å¼€å¯ç¬¬ä¸‰æ–¹æ‹ç…§ç¨‹åº
             startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
         } catch (Exception e) {
             Log.e(TAG, e.getMessage());
@@ -478,7 +478,7 @@ public class PintuMain extends Activity {
     }    
     
     /**
-     * ÅÄÕÕºÍÏà²áÑ¡È¡¶¯×÷£ºstartActivityForResult ºóµÄ»Øµ÷·½·¨
+     * æ‹ç…§å’Œç›¸å†Œé€‰å–åŠ¨ä½œï¼šstartActivityForResult åçš„å›è°ƒæ–¹æ³•
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -487,7 +487,7 @@ public class PintuMain extends Activity {
         Log.d(TAG, ">>> onActivityResult... to getPic");
         
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            //²âÊÔÏÂÊÇ·ñÄÜ´ÓÅÄÕÕÓ¦ÓÃ·µ»ØÍ¼Æ¬µØÖ·
+            //æµ‹è¯•ä¸‹æ˜¯å¦èƒ½ä»æ‹ç…§åº”ç”¨è¿”å›å›¾ç‰‡åœ°å€
         	Bundle bundle = data.getExtras();
         	if(bundle!=null){
         		Uri newShot = bundle.getParcelable(MediaStore.EXTRA_OUTPUT);
@@ -495,13 +495,13 @@ public class PintuMain extends Activity {
         		Log.d(TAG, ">>> NEW Shot is: "+newFile);
         	}
             Log.d(TAG, ">>> SAVED IMG PATH IS: "+mImageUri.getPath());
-        	//»ñÈ¡Ïà»ú·µ»ØµÄÍ¼Æ¬£¬ÆäÊµÇ°ÃæÒÑ¾­±£´æÁË        	 
+        	//è·å–ç›¸æœºè¿”å›çš„å›¾ç‰‡ï¼Œå…¶å®å‰é¢å·²ç»ä¿å­˜äº†        	 
             getPic(mImageUri);
             
         } else if (requestCode == REQUEST_PHOTO_LIBRARY
                 && resultCode == RESULT_OK) {
             
-            //»ñÈ¡Ïà²á·µ»ØµÄÍ¼Æ¬
+            //è·å–ç›¸å†Œè¿”å›çš„å›¾ç‰‡
             getPic(data.getData());
             
         }

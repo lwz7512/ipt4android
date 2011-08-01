@@ -49,9 +49,15 @@ public class PTImpl implements PTApi {
 
 	@Override
 	public void updateStatus(String status, File image) {
+		
 		ArrayList<BasicNameValuePair> params= new ArrayList<BasicNameValuePair>();
-		BasicNameValuePair param = new BasicNameValuePair("status",status);
-		params.add(param);
+		
+		BasicNameValuePair methodParam = new BasicNameValuePair("method","upload");
+		BasicNameValuePair statusParam = new BasicNameValuePair("status",status);
+		
+		params.add(statusParam);
+		params.add(methodParam);
+		
 		client.post(getBaseURL(), params, image, false);
 	}
 

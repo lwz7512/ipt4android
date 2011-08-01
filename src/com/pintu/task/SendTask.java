@@ -42,7 +42,7 @@ public class SendTask extends GenericTask {
 
             case TYPE_PHOTO:
                 if (null != mFile) {                    
-                    //·¢ËÍÄÚÈİ
+                    //å‘é€å›¾ç‰‡
                 	api.updateStatus(status, mFile);
                 } else {
                     Log.e("SendTask", "Cann't send status in PICTURE mode, photo is null");
