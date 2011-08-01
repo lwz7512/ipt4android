@@ -13,17 +13,18 @@ public class PTImpl implements PTApi {
 	private SimpleHttpClient client;
 	
 	//localhost ip used by emulator!
-	private String host = "http://10.0.2.2:8080";
+//	private String host = "http://10.0.2.2:8080";
 	
 	//WIFI IP used by mobile phone!
+	private String host = "http://10.127.0.8:8080";
 	
 	//remote host IP used in product environment
 	
 	//Real service context
-//	private String service = "/ipintu/pintuapi";
+	private String service = "/ipintu/pintuapi";
 	
 	//local test servlet
-	private String service = "/ipintu/upload";
+//	private String service = "/ipintu/upload";
 	
 	
 	
