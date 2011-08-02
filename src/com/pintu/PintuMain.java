@@ -15,18 +15,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.MediaStore.MediaColumns;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pintu.task.GenericTask;
 import com.pintu.task.SendTask;
@@ -35,7 +33,6 @@ import com.pintu.task.TaskListener;
 import com.pintu.task.TaskParams;
 import com.pintu.task.TaskResult;
 import com.pintu.util.FileHelper;
-import com.pintu.widget.TweetEdit;
 
 public class PintuMain extends Activity {
 
@@ -51,11 +48,12 @@ public class PintuMain extends Activity {
     private Button mBackButton;
     private Button mTopSendButton;
 
-    
-    // View
-    private TweetEdit mTweetEdit;
-    private EditText mTweetEditText;
-    private TextView mProgressText;
+    //标签
+    private EditText tagsEditText;
+    // 描述文字
+    private EditText descEditText;
+    //邀请品图选项
+    private CheckBox allowStory;
     private ImageButton chooseImagesButton;
     private ImageButton mCameraButton;
     private ProgressDialog dialog;
@@ -64,7 +62,6 @@ public class PintuMain extends Activity {
     // Picture
     private boolean withPic=false ;
     private ImageView mPreview;
-    private ImageView imageDelete;
     
     
     private long startTime = -1;
@@ -99,35 +96,6 @@ public class PintuMain extends Activity {
         
     }
     
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(TAG, "onPause.");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d(TAG, "onRestart.");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(TAG, "onResume.");
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d(TAG, "onStart.");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(TAG, "onStop.");
-    }
 
     @Override
     protected void onDestroy() {
@@ -165,25 +133,20 @@ public class PintuMain extends Activity {
         //发送
         mTopSendButton = (Button) this.findViewById(R.id.top_send_btn);
         
-        //进度文字
-        mProgressText = (TextView) findViewById(R.id.progress_text);
+        //预览图片
+        mPreview = (ImageView) findViewById(R.id.preview);
+        //标签输入
+        tagsEditText = (EditText) findViewById(R.id.tags);
         //内容输入框
-        mTweetEditText = (EditText) findViewById(R.id.tweet_edit);
+        descEditText = (EditText) findViewById(R.id.description);
+        //邀请品图
+        allowStory = (CheckBox) findViewById(R.id.allowstory);
+        
         //拍照
         mCameraButton = (ImageButton) findViewById(R.id.camera_button);
         //插入图片
         chooseImagesButton = (ImageButton) findViewById(R.id.choose_images_button);
         
-        //预览图片
-        mPreview = (ImageView) findViewById(R.id.preview);
-        //删除图片
-        imageDelete = (ImageView) findViewById(R.id.image_delete);
-        
-        //字数更新
-        mTweetEdit = new TweetEdit(mTweetEditText,
-                (TextView) findViewById(R.id.chars_text));
-
-        //TODO, 添加其他表单...    	
     }
     
     
@@ -196,18 +159,11 @@ public class PintuMain extends Activity {
         chooseImagesButton.setOnClickListener(insertImgListener);
     	//调用第三方拍照应用拍照
         mCameraButton.setOnClickListener(takeShotListener);
-        //删除所选图片
-        imageDelete.setOnClickListener(deleteListener);
-        
-        //TODO, ...
         
     }
     
     
     private void getPic(Uri uri) {
-
-        // layout for picture mode
-        changeStyleWithPic();
 
         withPic = true;
         
@@ -230,17 +186,6 @@ public class PintuMain extends Activity {
 
     }
     
-    private void changeStyleWithPic() {
-        // 修改布局 ，以前 图片居中，现在在左边
-        // mPreview.setLayoutParams(
-        // new RelativeLayout.LayoutParams(LayoutParams.FILL_PARENT,
-        // LayoutParams.FILL_PARENT)
-        // );
-        mPreview.setVisibility(View.VISIBLE);
-        imageDelete.setVisibility(View.VISIBLE);
-        mTweetEditText.setLayoutParams(new LinearLayout.LayoutParams(
-                LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT, 2f));
-    }
     
     private String getRealPathFromURI(Uri contentUri) {
         String[] proj = { MediaColumns.DATA };
@@ -323,18 +268,7 @@ public class PintuMain extends Activity {
             openImageCaptureMenu();
         }    	
     }; 
-    
-    private OnClickListener deleteListener = new OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            Intent intent = getIntent();
-            intent.setAction(null);
-            withPic = false;
-            mPreview.setVisibility(View.INVISIBLE);
-            imageDelete.setVisibility(View.INVISIBLE);
-        }
-    };    
+      
     
     private TaskListener mSendTaskListener = new TaskAdapter() {
         @Override
@@ -370,14 +304,15 @@ public class PintuMain extends Activity {
                 && mSendTask.getStatus() == GenericTask.Status.RUNNING) {
             return;
         } else {
-            String status = mTweetEdit.getText().toString();
+        	
+            String description = descEditText.getText().toString();
+            String tags = tagsEditText.getText().toString();
+            boolean storyable = allowStory.isChecked();
 
-            if (!TextUtils.isEmpty(status) || withPic) {
+            if (withPic || mFile!=null) {
+            	
                 int mode = SendTask.TYPE_NORMAL;
-
-                if (withPic) {
-                    mode = SendTask.TYPE_PHOTO;
-                }
+                if (withPic) mode = SendTask.TYPE_PHOTO;
 
                 mSendTask = new SendTask();
                 mSendTask.setListener(mSendTaskListener);
@@ -387,8 +322,12 @@ public class PintuMain extends Activity {
                 params.put("mode", mode);
                 //发送文件
                 params.put("file", mFile);
-                //发送文字
-                params.put("status", status);
+                //描述文字
+                params.put("description", description);
+                //标签文字
+                params.put("tags", tags);  
+                //是否运行品评
+                params.put("allowStory", storyable?"1":"0");
                 //把API也放进去
                 params.put("api", PintuApp.mApi);
                 //执行发送任务
@@ -423,20 +362,18 @@ public class PintuMain extends Activity {
         updateProgress(getString(R.string.page_status_update_success));
         enableEntry();
 
-        updateProgress("");
-
         // 发送成功就自动关闭界面
         finish();
 
         // 关闭软键盘
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(mTweetEdit.getEditText().getWindowToken(),0);
+        imm.hideSoftInputFromWindow(descEditText.getWindowToken(),0);
 
     	
     }
     
-    private void updateProgress(String progress) {
-        mProgressText.setText(progress);
+    private void updateProgress(String message) {
+    	Toast.makeText(this, message,Toast.LENGTH_SHORT).show();
     }
 
     private void onSendFailure() {
@@ -446,12 +383,12 @@ public class PintuMain extends Activity {
         enableEntry();
     }
     private void enableEntry() {
-        mTweetEdit.setEnabled(true);
+    	descEditText.setEnabled(true);
         chooseImagesButton.setEnabled(true);
     }
 
     private void disableEntry() {
-        mTweetEdit.setEnabled(false);
+    	descEditText.setEnabled(false);
         chooseImagesButton.setEnabled(false);
     }
 

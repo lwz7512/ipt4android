@@ -48,7 +48,7 @@ public class SimpleHttpClient implements HttpClientInterface{
 	}
 	
 	private String getUser() {
-		return PintuApp.user;
+		return PintuApp.userID;
 	}
 	
 	//暴露唯一一个post方法

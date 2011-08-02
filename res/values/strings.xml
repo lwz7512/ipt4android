@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<!-- 爱品图专属文字 -->
     <string name="hello">Hello World, PintuMain!</string>
     <string name="app_name">爱品图</string>
+    <string name="allow_story">是否邀请他人品图</string>
+    <string name="description">添加图画描述</string>
+    <string name="tags">添加多个标签用空格分隔</string>
+    
     <!-- 页面Title -->
     <string name="page_title_home">首页</string>
     <string name="page_title_direct_messages">我的私信</string>

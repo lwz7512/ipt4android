@@ -13,8 +13,8 @@ public class PintuApp extends Application {
 	public static Context mContext;
 	public static PTApi mApi;
 	public static LazyImageLoader mImageLoader;
-	
-	public static String user = "lwz7512@gmail.com";
+	//模拟登录用户
+	public static String userID = "abcdefghijklmnop";
 	
 	
 	public void onCreate(){

@@ -12,11 +12,12 @@ public interface PTApi {
 	public static final String APPLYFORUSER = "applyForUser";
 	
 	public static final String OTHERMETHOD = "otherMethod";
-	
+
+	//贴一张图
+	public void postPicture(File pic, String tags,String desc, String allowStory);
 	
 	public String composeImgUrl(String type, String imgId);
 
 	public Response getImgByUrl(String url);
 	
-	public void updateStatus(String status, File image);
 }

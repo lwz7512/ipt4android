@@ -7,62 +7,59 @@ import android.util.Log;
 import com.pintu.api.PTApi;
 import com.pintu.http.HttpException;
 
-
 public class SendTask extends GenericTask {
 
-    public static final int TYPE_NORMAL = 0;
-    public static final int TYPE_REPLY = 1;
-    public static final int TYPE_REPOST = 2;
-    public static final int TYPE_PHOTO = 3;
-    
-    
+	public static final int TYPE_NORMAL = 0;
+	public static final int TYPE_REPLY = 1;
+	public static final int TYPE_REPOST = 2;
+	public static final int TYPE_PHOTO = 3;
 
-    @Override
-    protected TaskResult _doInBackground(TaskParams... params) {
-        TaskParams param = params[0];
-        try {
-            
-        	File mFile = (File)param.get("file");
-        	String status = param.getString("status");
-        	PTApi api = (PTApi)param.get("api"); 
-            int mode = param.getInt("mode");
+	@Override
+	protected TaskResult _doInBackground(TaskParams... params) {
+		TaskParams param = params[0];
+		try {
 
-//            Log.d(TAG, "Send Status. Mode : " + mode);
+			PTApi api = (PTApi) param.get("api");
+			int mode = param.getInt("mode");
 
-            // Send status in different way
-            switch (mode) {
+			// Log.d(TAG, "Send Status. Mode : " + mode);
 
-            case TYPE_REPLY:
-                
-                break;
+			switch (mode) {
 
-            case TYPE_REPOST:
-                
-            	break;
+			case TYPE_REPLY:
 
-            case TYPE_PHOTO:
-                if (null != mFile) {                    
-                    //发送图片
-                	api.updateStatus(status, mFile);
-                } else {
-                    Log.e("SendTask", "Cann't send status in PICTURE mode, photo is null");
-                }
-                break;
+				break;
 
-            case TYPE_NORMAL:
-            
-            default:
-                break;
-            }
-        } catch (HttpException e) {
-//            Log.e(TAG, e.getMessage(), e);
+			case TYPE_REPOST:
 
-            return TaskResult.IO_ERROR;
-        }
+				break;
 
-        return TaskResult.OK;
-    }
- 
-     
+			case TYPE_PHOTO:
+				File mFile = (File) param.get("file");
+				String tags = param.getString("tags");
+				String description = param.getString("description");
+				String allowStory = param.getString("allowStory");
+				if (null != mFile) {
+					// 发送图片
+					api.postPicture(mFile, tags, description, allowStory);
+				} else {
+					Log.e("SendTask",
+							"Cann't send status in PICTURE mode, photo is null");
+				}
+				break;
+
+			case TYPE_NORMAL:
+
+			default:
+				break;
+			}
+		} catch (HttpException e) {
+			// Log.e(TAG, e.getMessage(), e);
+
+			return TaskResult.IO_ERROR;
+		}
+
+		return TaskResult.OK;
+	}
 
 }
