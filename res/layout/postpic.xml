@@ -20,7 +20,8 @@
         android:textSize="15dp" 
         android:layout_marginLeft="2dp" 
         android:layout_marginRight="2dp"        
-       android:hint="@string/tags"
+        android:hint="@string/tags"
+        android:maxLength="16"
        />	
 	<!-- 图片描述 -->
 	<EditText android:id="@+id/description" 
@@ -31,6 +32,7 @@
 		android:layout_marginRight="2dp"		
 		android:textSize="15dp" 
 		android:gravity="top" 
+		android:maxLength="32"
 		android:imeOptions="actionSend|flagNoEnterAction"
 		/>
 	<!-- 是否邀请品图 -->	

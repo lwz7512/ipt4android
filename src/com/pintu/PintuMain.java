@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -26,6 +25,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.pintu.activity.FullScreenActivity;
 import com.pintu.task.GenericTask;
 import com.pintu.task.SendTask;
 import com.pintu.task.TaskAdapter;
@@ -34,7 +34,7 @@ import com.pintu.task.TaskParams;
 import com.pintu.task.TaskResult;
 import com.pintu.util.FileHelper;
 
-public class PintuMain extends Activity {
+public class PintuMain extends FullScreenActivity {
 
 
     private static final String TAG = "PintuMain";
@@ -77,16 +77,15 @@ public class PintuMain extends Activity {
     
     
     
-    
-    
-    
+//--------------------  Construction UI Logic -----------------------------------------    
+        
 	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //设置布局
-        setContentView(R.layout.write);
+        setContentView(R.layout.postpic);
         
         //获取布局中的视觉对象
         getViews();

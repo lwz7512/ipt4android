@@ -78,7 +78,7 @@ public final class R {
         public static final int ic_toolbar_media_focused=0x7f020020;
         public static final int ic_toolbar_media_pressed=0x7f020021;
         public static final int icon=0x7f020022;
-        public static final int label_color=0x7f02006f;
+        public static final int label_color=0x7f020070;
         public static final int loading_blue_16_f0=0x7f020023;
         public static final int loading_blue_16_f1=0x7f020024;
         public static final int loading_blue_16_f10=0x7f020025;
@@ -124,7 +124,7 @@ public final class R {
         public static final int search=0x7f02004d;
         public static final int search_pressed=0x7f02004e;
         public static final int send_message_block=0x7f02004f;
-        public static final int status_color=0x7f020070;
+        public static final int status_color=0x7f020071;
         public static final int tiny_square=0x7f020050;
         public static final int tiny_square_pressed=0x7f020051;
         public static final int tiny_square_selector=0x7f020052;
@@ -153,30 +153,34 @@ public final class R {
         public static final int top_refresh_f17=0x7f020069;
         public static final int top_refresh_f18=0x7f02006a;
         public static final int top_refresh_pressed=0x7f02006b;
-        public static final int transparent_button_background=0x7f02006c;
-        public static final int tweet_color=0x7f020072;
-        public static final int tweet_meta_color=0x7f020073;
-        public static final int tweet_user_color=0x7f020071;
-        public static final int user_default_photo=0x7f02006d;
-        public static final int write_corner=0x7f02006e;
+        public static final int topbar_itemselector=0x7f02006c;
+        public static final int transparent_button_background=0x7f02006d;
+        public static final int tweet_color=0x7f020073;
+        public static final int tweet_meta_color=0x7f020074;
+        public static final int tweet_user_color=0x7f020072;
+        public static final int user_default_photo=0x7f02006e;
+        public static final int write_corner=0x7f02006f;
     }
     public static final class id {
+        public static final int Container=0x7f090004;
         public static final int LinearLayout01=0x7f090000;
-        public static final int allowstory=0x7f090007;
-        public static final int camera_button=0x7f090009;
-        public static final int choose_images_button=0x7f09000a;
-        public static final int description=0x7f090006;
-        public static final int layout_root=0x7f090003;
-        public static final int post_button_bar=0x7f090008;
-        public static final int preview=0x7f090004;
-        public static final int tags=0x7f090005;
+        public static final int allowstory=0x7f090009;
+        public static final int camera_button=0x7f09000b;
+        public static final int choose_images_button=0x7f09000c;
+        public static final int description=0x7f090008;
+        public static final int gvTopBar=0x7f090003;
+        public static final int layout_root=0x7f090005;
+        public static final int post_button_bar=0x7f09000a;
+        public static final int preview=0x7f090006;
+        public static final int tags=0x7f090007;
         public static final int top_back=0x7f090001;
         public static final int top_send_btn=0x7f090002;
     }
     public static final class layout {
-        public static final int header_write=0x7f030000;
-        public static final int main=0x7f030001;
-        public static final int write=0x7f030002;
+        public static final int header_back=0x7f030000;
+        public static final int header_write=0x7f030001;
+        public static final int headswitch=0x7f030002;
+        public static final int postpic=0x7f030003;
     }
     public static final class string {
         public static final int allow_story=0x7f070002;
