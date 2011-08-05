@@ -6,11 +6,19 @@
     <uses-sdk android:minSdkVersion="7" />
 	<supports-screens android:anyDensity="true"/>
     <application android:name="PintuApp" android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:name=".PintuMain"
-                  android:label="@string/app_name">
+        <activity android:name=".activity.HomeGallery">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- 
+        <activity android:name=".PintuMain"
+                  android:label="@string/app_name"
+                  android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="com.pintu.activity.main"/>
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND"/>
@@ -19,7 +27,7 @@
                 <data android:mimeType="text/plain"/>
             </intent-filter>            
         </activity>
-		
+		 -->
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
