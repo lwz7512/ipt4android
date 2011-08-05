@@ -197,7 +197,7 @@ public class SimpleHttpClient implements HttpClientInterface{
             HttpPost post = new HttpPost(uri);
             // See this: http://groups.google.com/group/twitter-development-talk/browse_thread/thread/e178b1d3d63d8e3b
             post.getParams().setBooleanParameter("http.protocol.expect-continue", false);
-
+            
             try {
                 HttpEntity entity = null;
                 if (null != file) {

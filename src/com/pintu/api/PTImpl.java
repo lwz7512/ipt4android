@@ -7,24 +7,25 @@ import org.apache.http.message.BasicNameValuePair;
 
 import com.pintu.http.Response;
 import com.pintu.http.SimpleHttpClient;
+import com.pintu.util.UTF8Formater;
 
 public class PTImpl implements PTApi {
 	
 	private SimpleHttpClient client;
 	
 	//localhost ip used by emulator!
-	private String host = "http://10.0.2.2:8080";
+//	private String host = "http://10.0.2.2:8080";
 	
 	//WIFI IP used by mobile phone!
-//	private String host = "http://10.127.0.8:8080";
+	private String host = "http://10.127.0.6:8080";
 	
 	//remote host IP used in product environment
 	
 	//Real service context
-//	private String service = "/ipintu/pintuapi";
+	private String service = "/ipintu/pintuapi";
 	
 	//local test servlet
-	private String service = "/ipintu/upload";
+//	private String service = "/ipintu/upload";
 	
 	
 	
@@ -54,7 +55,9 @@ public class PTImpl implements PTApi {
 		ArrayList<BasicNameValuePair> params= new ArrayList<BasicNameValuePair>();
 		
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",PTApi.UPLOADPICTURE);
+		tags = UTF8Formater.changeToUnicode(tags);
 		BasicNameValuePair tagsParam = new BasicNameValuePair("tags",tags);
+		desc = UTF8Formater.changeToUnicode(desc);
 		BasicNameValuePair descParam = new BasicNameValuePair("description",desc);
 		BasicNameValuePair storyableParam = new BasicNameValuePair("allowStory",allowStory);
 		

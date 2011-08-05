@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/layout_root" android:orientation="vertical"
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
-	android:background="#e7e7e7" android:padding="3dp">
+	android:background="#e7e7e7" >
 
 	<!-- Header -->
     <include layout="@layout/header_write"/>
@@ -10,24 +10,25 @@
 	<!-- 图片预览 -->
 	<ImageView android:id="@+id/preview" 
 	    android:layout_width="wrap_content"
-		android:layout_height="130dp"		
+		android:layout_height="150dp"		
 		android:src="@drawable/mockpic_gray"/>
 	<!-- 图片标签 -->
 	<EditText
         android:id="@+id/tags"
         android:layout_width="fill_parent"
-        android:layout_height="50dp"        
+        android:layout_height="50dp"               
         android:textSize="15dp" 
         android:layout_marginLeft="2dp" 
         android:layout_marginRight="2dp"        
         android:hint="@string/tags"
         android:maxLength="16"
        />	
-	<!-- 图片描述 -->
+	<!-- 图片描述, amazing layout_weight attribute! -->
 	<EditText android:id="@+id/description" 
 	    android:hint="@string/description"
 	    android:layout_width="fill_parent"
-		android:layout_height="100dp" 
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1"		
 		android:layout_marginLeft="2dp" 
 		android:layout_marginRight="2dp"		
 		android:textSize="15dp" 
@@ -37,11 +38,12 @@
 		/>
 	<!-- 是否邀请品图 -->	
 	<CheckBox android:id="@+id/allowstory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/allow_story" 
-        android:layout_weight="1"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="@string/allow_story"         
         android:textColor="#FF000000"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
         android:checked="true"/>
 
 	<LinearLayout android:id="@+id/post_button_bar"
