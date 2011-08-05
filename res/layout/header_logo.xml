@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 顶部条 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"     
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"     
       android:layout_width="fill_parent"
       android:layout_height="47dp"
       android:background="@drawable/bg_header"
       android:gravity="center_vertical"
-      android:layout_alignParentTop="true"
+      android:layout_alignParentTop="true"    
       >
       
        <!-- Post Image Button -->
@@ -14,13 +14,19 @@
 			android:layout_width="wrap_content" 
 			android:layout_height="wrap_content"
 			android:src="@drawable/top_msg_selector"            
-          />
+            android:layout_alignParentLeft="true"            
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="2dp"
+           />
           
          <!-- LOGO -->
          <ImageView android:id="@+id/logo" 
 	    	android:layout_width="wrap_content"
 			android:layout_height="150dp"		
-			android:src="@drawable/icon"/>
+			android:src="@drawable/icon"
+			android:layout_centerHorizontal="true"
+			android:layout_centerVertical="true"
+			/>
            
         <!-- 刷新按钮 -->
         <ImageButton
@@ -28,16 +34,20 @@
             android:background="@null"
 			android:layout_width="wrap_content" 
 			android:layout_height="wrap_content"
-			android:src="@drawable/top_refresh_selector"            
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"			
+			android:layout_marginRight="2dp" 
+			android:src="@drawable/top_refresh_selector"          
            /> 
         <!-- 旋转 -->
         <ProgressBar 
             android:id="@+id/top_refresh_progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"            
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"			
+			android:layout_marginRight="2dp" 
             style="?android:progressBarStyleSmall"
             android:visibility="gone"
         />                     
-</LinearLayout>
+</RelativeLayout>

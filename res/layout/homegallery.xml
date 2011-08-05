@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	  xmlns:android="http://schemas.android.com/apk/res/android"
+	  android:orientation="vertical"
+	  android:layout_width="match_parent"
+	  android:layout_height="match_parent"
+	  android:background="#e7e7e7" >
+  
+  	<!-- Header -->
+    <include layout="@layout/header_logo"/>
+    
+    <!-- Amazing attribute:  android:layout_weight="1"-->
+   <GridView xmlns:android="http://schemas.android.com/apk/res/android" 
+    	android:id="@+id/ptgallery"
+		android:layout_width="fill_parent" 
+		android:layout_height="fill_parent"    	
+    	android:verticalSpacing="4dp"    
+    	android:horizontalSpacing="2dp"
+    	android:numColumns="auto_fit"
+    	android:columnWidth="74dp"
+    	android:stretchMode="columnWidth"        	
+    	android:layout_weight="1"
+    />
+    
+   <!-- footer TODO: 更换背景色 -->
+   <include  layout="@layout/footer_home" />   
+    
+</LinearLayout>
