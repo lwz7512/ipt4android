@@ -1,6 +1,9 @@
 package com.pintu.activity;
 
+import com.pintu.PintuApp;
+
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Window;
@@ -28,5 +31,10 @@ public abstract class FullScreenActivity extends Activity {
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		
 	}	
+	
+	
+    public SharedPreferences getPreferences() {
+        return PintuApp.mPref;
+    }
 	
 } //end of class

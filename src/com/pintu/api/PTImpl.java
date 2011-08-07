@@ -17,7 +17,7 @@ public class PTImpl implements PTApi {
 //	private String host = "http://10.0.2.2:8080";
 	
 	//WIFI IP used by mobile phone!
-	private String host = "http://10.127.0.6:8080";
+	private String host = "http://10.127.0.11:8080";
 	
 	//remote host IP used in product environment
 	
