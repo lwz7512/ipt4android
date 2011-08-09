@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 
 import com.pintu.http.HttpException;
 import com.pintu.http.Response;
@@ -43,9 +44,8 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public String composeImgUrl(String type, String imgId) {
-		// TODO Auto-generated method stub
-		return null;
+	public String composeImgUrl(String imgId) {
+		return getBaseURL()+"?method="+PTApi.GETIMAGEFILE+"&picId="+imgId;
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public String getCommunityPicsByTime(String startTime, String endTime) {
+	public JSONArray getCommunityPicsByTime(String startTime, String endTime) throws HttpException {
 		
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		
@@ -84,16 +84,9 @@ public class PTImpl implements PTApi {
 		params.add(methodParam);
 		params.add(startTimeParam);
 		params.add(endTimeParam);
-		
-		try {
-			String result = client.get(getBaseURL(), params, false).asString();
-			return result;
-		} catch (HttpException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return null;
+				
+		Response resp =  client.get(getBaseURL(), params, false);
+		return resp.asJSONArray();
 	}
 
 } // end of class

@@ -16,7 +16,7 @@ public class PintuApp extends Application {
 
 	public static Context mContext;
 	public static PTApi mApi;
-	public static LazyImageLoader mImageLoader;
+	
 	public static SharedPreferences mPref;
 	
 	//模拟登录用户
@@ -28,8 +28,7 @@ public class PintuApp extends Application {
 		super.onCreate();
 		
 		mContext = this.getApplicationContext();
-		mApi = new PTImpl();
-		mImageLoader = new LazyImageLoader();
+		mApi = new PTImpl();		
 		mPref = PreferenceManager.getDefaultSharedPreferences(this);
 		//保存一个上次登录时间，哪里用呢？
 		rememberLastLogin();

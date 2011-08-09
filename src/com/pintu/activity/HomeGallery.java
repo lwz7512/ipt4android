@@ -19,6 +19,7 @@ import com.pintu.util.DateTimeHelper;
 import com.pintu.util.Preferences;
 
 import android.content.Intent;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +27,7 @@ import android.view.View.OnClickListener;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 public class HomeGallery extends FullScreenActivity {
 	
@@ -83,7 +85,8 @@ public class HomeGallery extends FullScreenActivity {
 	
 	private void addEventListeners(){
 		postImg.setOnClickListener(postImgListener);
-		//TODO, add other ...
+		//TODO, 添加点击画廊看详情的动作
+		
 	}
 	
 	private OnClickListener postImgListener = new OnClickListener(){
@@ -137,39 +140,50 @@ public class HomeGallery extends FullScreenActivity {
     
     private TaskListener mRetrieveTaskListener = new TaskAdapter() {
     	public void onPreExecute(GenericTask task){
-    		//TODO, 显示进度条
+    		progressbar.setVisibility(View.VISIBLE);
     	}
-    	public void onPostExecute(GenericTask task, TaskResult result) {
-    		//TODO, 根据result结果处理
+    	public void onPostExecute(GenericTask task, TaskResult result) {    		
     		if(result==TaskResult.OK){
-    			//TODO, 隐藏进度条
-    			
-    			//TODO, 保存画廊更新时间
-    			
+    			progressbar.setVisibility(View.GONE);    			
+    			//保存画廊更新时间
+    			Editor pref = PintuApp.mPref.edit();
+    			pref.putLong(Preferences.LAST_GALLERY_REFRESH_TIME, DateTimeHelper.getNowTime());
     		}else if(result==TaskResult.FAILED){
-    			
+    			HomeGallery.this.updateProgress("Gallery retrieve thumbnail failed!");
     		}else if(result==TaskResult.IO_ERROR){
-    			
+    			HomeGallery.this.updateProgress("Gallery retrieve thumbnail IO Error!");
     		}
-    	};
+    	}    	
     	
+    	//结果拿到了，填充视图并入库
     	public void deliverRetreivedList(List<Object> results){
     		// 刷新列表
     		List<TPicDesc> items =new ArrayList<TPicDesc>();
     		for(Object o:results){
     			items.add((TPicDesc) o);
     		}
+    		//为画廊更新数据
     		gridAdptr.refresh(items);
     		
     		//TODO, 更新数据库
     		
-    	};
+    	}
 
 		@Override
 		public String getName() {
 			return "RetrieveGalleryTask";
 		}
     	
-    };
+    }; //end of mRetrieveTaskListener
+    
+    
+    
+    
+    
+    
+	private void updateProgress(String message) {
+		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+	}
+	
 
 } //end of class

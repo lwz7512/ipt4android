@@ -98,7 +98,7 @@ public class LazyImageLoader {
                         } // no more, shutdown
                     }
 
-                    // Bitmap bitmap = ImageCache.mDefaultBitmap;
+                    // FIXME, 真正的调用图片管理器的下载方法
                     final Bitmap bitmap = mImageManager.safeGet(url);
 
                     // use handler to process callback

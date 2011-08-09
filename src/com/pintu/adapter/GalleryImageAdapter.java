@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.pintu.tool.LazyImageLoader.ImageLoaderCallback;
+import com.pintu.tool.SimpleImageLoader;
 import com.pintu.PintuApp;
 import com.pintu.R;
 import com.pintu.api.PTApi;
@@ -32,15 +33,13 @@ public class GalleryImageAdapter extends BaseAdapter {
 	//画廊使用的列表数据
 	private List<TPicDesc>  cells;
 	
-	private ImageLoaderCallback callback = new ImageLoaderCallback(){
-		public void refresh(String url, Bitmap bitmap){
-			GalleryImageAdapter.this.refresh();
-		}
-	};
+	
 
 	public GalleryImageAdapter(Context c) {
 		mContext = c;
+		//初始化一个空的画廊数据容器
 		cells = new ArrayList<TPicDesc>();
+		//获得屏幕尺寸
 		((Activity) c).getWindowManager().getDefaultDisplay().getMetrics(dm); 
 	}
 
@@ -60,7 +59,7 @@ public class GalleryImageAdapter extends BaseAdapter {
 		ImageView imageView;
 		if (convertView == null) {
 			imageView = new StateImage(mContext);			
-			//xml布局设置列数为4列
+			//xml布局设置列数为4列，不要随便改
 			int cellWidth = dm.widthPixels/4-horiGap;
 			imageView.setLayoutParams(new GridView.LayoutParams(LayoutParams.FILL_PARENT, cellWidth));
 			imageView.setAdjustViewBounds(false);
@@ -71,9 +70,10 @@ public class GalleryImageAdapter extends BaseAdapter {
 		}
 		
 		TPicDesc thumbnail = cells.get(position);
-		String tbnlUrl = PintuApp.mApi.composeImgUrl(PTApi.THUMBNAIL_PIC, thumbnail.thumbnailId);
-		Bitmap tbnlPic = PintuApp.mImageLoader.get(tbnlUrl, callback);
-		imageView.setImageBitmap(tbnlPic);
+		//根据ID获取URL路径
+		String tbnlUrl = PintuApp.mApi.composeImgUrl(thumbnail.thumbnailId);
+		//获取图片
+		SimpleImageLoader.display(imageView, tbnlUrl);
 
 		return imageView;
 	}

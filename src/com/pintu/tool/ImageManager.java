@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2009 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.pintu.tool;
 
 import java.io.BufferedInputStream;
@@ -75,7 +59,6 @@ public class ImageManager implements ImageCache {
 		return bitmap;
 	}
 
-	//FIXME, 这里将来统一改成存文件到SD卡不存系统中
 	public ImageManager(Context context) {
         mContext = context;
         mCache = new HashMap<String, SoftReference<Bitmap>>();
@@ -151,67 +134,6 @@ public class ImageManager implements ImageCache {
         return BitmapFactory.decodeFile(file);
     }
     
-    /**
-     * 下载远程图片 -> 转换为Bitmap -> 写入缓存器.
-     * @param url
-     * @param quality image quality 1~100
-     * @throws HttpException 
-     */
-    public void put(String url, int quality, boolean forceOverride) throws HttpException {
-        if (!forceOverride && contains(url)) {
-            // Image already exists.
-            return;
-
-            // TODO: write to file if not present.
-        }
-
-        Bitmap bitmap = downloadImage(url);
-        if (bitmap != null) {
-            put(url, bitmap, quality); // file cache
-        } else {
-            Log.w(TAG, "Retrieved bitmap is null.");
-        }
-    }
-    
-    /**
-     * 重载 put(String url, int quality)
-     * @param url
-     * @throws HttpException 
-     */
-    public void put(String url) throws HttpException {
-        put(url, DEFAULT_COMPRESS_QUALITY, false);
-    }
-    
-    /**
-     * 将本地File -> 转换为Bitmap -> 写入缓存器.
-     * 如果图片大小超过MAX_WIDTH/MAX_HEIGHT, 则将会对图片缩放.
-     * 
-     * @param file
-     * @param quality 鍥剧墖璐ㄩ噺(0~100)
-     * @param forceOverride 
-     * @throws IOException
-     */
-    public void put(File file, int quality, boolean forceOverride) throws IOException {
-        if (!file.exists()) {
-            Log.w(TAG, file.getName() + " is not exists.");
-            return;
-        }
-        if (!forceOverride && contains(file.getPath())) {
-            // Image already exists.
-            Log.d(TAG, file.getName() + " is exists");
-            return;
-            // TODO: write to file if not present.
-        }
-
-        Bitmap bitmap = BitmapFactory.decodeFile(file.getPath());
-        //bitmap = resizeBitmap(bitmap, MAX_WIDTH, MAX_HEIGHT);
-
-        if (bitmap == null) {
-            Log.w(TAG, "Retrieved bitmap is null.");
-        } else {
-            put(file.getPath(), bitmap, quality);
-        }
-    }
     
     /**
      * 将Bitmap写入缓存器.
@@ -308,14 +230,14 @@ public class ImageManager implements ImageCache {
     }
     
     /**
-     * 鍒ゆ柇缂撳瓨鐫?腑鏄惁瀛樺湪璇ユ枃浠跺搴旂殑bitmap
+     * 判断缓存着中是否存在该文件对应的bitmap
      */
     public boolean isContains(String file) {
     	return mCache.containsKey(file);
     }
     
     /**
-     * 鑾峰緱鎸囧畾file/URL瀵瑰簲鐨凚itmap锛岄鍏堟壘鏈湴鏂囦欢锛屽鏋滄湁鐩存帴浣跨敤锛屽惁鍒欏幓缃戜笂鑾峰彇
+     * 获得指定file/URL对应的Bitmap，首先找本地文件，如果有直接使用，否则去网上获取
      * @param file file URL/file PATH
      * @param bitmap
      * @param quality
@@ -333,14 +255,14 @@ public class ImageManager implements ImageCache {
         	String url = file;
             bitmap = downloadImage2(url);
             
-            // 娉ㄩ噴鎺変互娴嬭瘯鏂扮殑鍐欏叆鏂囦欢鏂规硶
+            // 注释掉以测试新的写入文件方法
             //put(file, bitmap); // file Cache
             return bitmap;
         }
     }
     
     /**
-     * 浠庣紦瀛樺櫒涓鍙栨枃浠?
+     * 从缓存器中读取文件
      * @param file file URL/file PATH
      * @param bitmap
      * @param quality
@@ -412,52 +334,7 @@ public class ImageManager implements ImageCache {
         }
     }
     
-    /**
-     * Compress and resize the Image
-     * 
-     * <br />
-     * 因为不论图片大小和尺寸如何, 都会对图片进行一次有损压缩, 所以本地压缩应该
-     * 考虑图片将会被二次压缩所造成的图片质量损耗
-     * 
-     * @param targetFile
-     * @param quality, 0~100, recommend 100
-     * @return
-     * @throws IOException
-     */
-    public File compressImage(File targetFile, int quality) throws IOException {
-        String filepath = targetFile.getAbsolutePath();
-
-        // 1. Calculate scale
-        int scale = 1;
-        BitmapFactory.Options o = new BitmapFactory.Options();
-        o.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(filepath, o);
-        if (o.outWidth > IMAGE_MAX_WIDTH || o.outHeight > IMAGE_MAX_HEIGHT) {
-            scale = (int) Math.pow( 2.0,
-                    (int) Math.round(Math.log(IMAGE_MAX_WIDTH
-                            / (double) Math.max(o.outHeight, o.outWidth))
-                            / Math.log(0.5)));
-            //scale = 2;
-        }
-        Log.d(TAG, scale + " scale");
-
-        // 2. File -> Bitmap (Returning a smaller image)
-        o.inJustDecodeBounds = false;
-        o.inSampleSize = scale;
-        Bitmap bitmap = BitmapFactory.decodeFile(filepath, o);
-
-        // 2.1. Resize Bitmap
-        //bitmap = resizeBitmap(bitmap, IMAGE_MAX_WIDTH, IMAGE_MAX_HEIGHT);
-
-        // 3. Bitmap -> File
-        writeFile(filepath, bitmap, quality);
-
-        // 4. Get resized Image File
-        String filePath = getMd5(targetFile.getPath());
-        File compressedImage = mContext.getFileStreamPath(filePath);
-        return compressedImage;
-    }
-    
+     
     /**
      * 保持长宽比缩小Bitmap
      * 
@@ -490,7 +367,7 @@ public class ImageManager implements ImageCache {
             bitmap = Bitmap.createScaledBitmap(bitmap, newWidth, newHeight, true);
         }
         
-        //若图片过长, 则从中部截取
+        // 若图片过长, 则从中部截取
         if (newHeight > maxHeight) {
             newHeight = maxHeight;
             
@@ -503,5 +380,113 @@ public class ImageManager implements ImageCache {
         
         return bitmap;
     }
+
+    
+    /**
+     * Compress and resize the Image
+     * 
+     * <br />
+     * 因为不论图片大小和尺寸如何, 饭否都会对图片进行一次有损压缩, 所以本地压缩应该
+     * 考虑图片将会被二次压缩所造成的图片质量损耗
+     * 
+     * @param targetFile
+     * @param quality, 0~100, recommend 100
+     * @return
+     * @throws IOException
+     */
+//    public File compressImage(File targetFile, int quality) throws IOException {
+//        String filepath = targetFile.getAbsolutePath();
+//
+//        // 1. Calculate scale
+//        int scale = 1;
+//        BitmapFactory.Options o = new BitmapFactory.Options();
+//        o.inJustDecodeBounds = true;
+//        BitmapFactory.decodeFile(filepath, o);
+//        if (o.outWidth > IMAGE_MAX_WIDTH || o.outHeight > IMAGE_MAX_HEIGHT) {
+//            scale = (int) Math.pow( 2.0,
+//                    (int) Math.round(Math.log(IMAGE_MAX_WIDTH
+//                            / (double) Math.max(o.outHeight, o.outWidth))
+//                            / Math.log(0.5)));
+//            //scale = 2;
+//        }
+//        Log.d(TAG, scale + " scale");
+//
+//        // 2. File -> Bitmap (Returning a smaller image)
+//        o.inJustDecodeBounds = false;
+//        o.inSampleSize = scale;
+//        Bitmap bitmap = BitmapFactory.decodeFile(filepath, o);
+//
+//        // 2.1. Resize Bitmap
+//        //bitmap = resizeBitmap(bitmap, IMAGE_MAX_WIDTH, IMAGE_MAX_HEIGHT);
+//
+//        // 3. Bitmap -> File
+//        writeFile(filepath, bitmap, quality);
+//
+//        // 4. Get resized Image File
+//        String filePath = getMd5(targetFile.getPath());
+//        File compressedImage = mContext.getFileStreamPath(filePath);
+//        return compressedImage;
+//    }
+    
+    
+    /**
+     * 下载远程图片 -> 转换为Bitmap -> 写入缓存器.
+     * @param url
+     * @param quality image quality 1～100
+     * @throws HttpException 
+     */
+//    public void put(String url, int quality, boolean forceOverride) throws HttpException {
+//        if (!forceOverride && contains(url)) {
+//            // Image already exists.
+//            return;
+//
+//        }
+//
+//        Bitmap bitmap = downloadImage(url);
+//        if (bitmap != null) {
+//            put(url, bitmap, quality); // file cache
+//        } else {
+//            Log.w(TAG, "Retrieved bitmap is null.");
+//        }
+//    }
+    
+    /**
+     * 重载 put(String url, int quality)
+     * @param url
+     * @throws HttpException 
+     */
+//    public void put(String url) throws HttpException {
+//        put(url, DEFAULT_COMPRESS_QUALITY, false);
+//    }
+    
+    /**
+     * 将本地File -> 转换为Bitmap -> 写入缓存器.
+     * 如果图片大小超过MAX_WIDTH/MAX_HEIGHT, 则将会对图片缩放.
+     * 
+     * @param file
+     * @param quality 图片质量(0~100)
+     * @param forceOverride 
+     * @throws IOException
+     */
+//    public void put(File file, int quality, boolean forceOverride) throws IOException {
+//        if (!file.exists()) {
+//            Log.w(TAG, file.getName() + " is not exists.");
+//            return;
+//        }
+//        if (!forceOverride && contains(file.getPath())) {
+//            // Image already exists.
+//            Log.d(TAG, file.getName() + " is exists");
+//            return;
+//        }
+//
+//        Bitmap bitmap = BitmapFactory.decodeFile(file.getPath());
+//        //bitmap = resizeBitmap(bitmap, MAX_WIDTH, MAX_HEIGHT);
+//
+//        if (bitmap == null) {
+//            Log.w(TAG, "Retrieved bitmap is null.");
+//        } else {
+//            put(file.getPath(), bitmap, quality);
+//        }
+//    }
 
 }

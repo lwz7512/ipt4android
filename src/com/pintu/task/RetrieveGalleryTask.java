@@ -9,6 +9,7 @@ import org.json.JSONObject;
 
 import com.pintu.api.PTApi;
 import com.pintu.data.TPicDesc;
+import com.pintu.http.HttpException;
 
 import android.util.Log;
 
@@ -26,27 +27,36 @@ public class RetrieveGalleryTask extends GenericTask {
     @Override
     protected TaskResult _doInBackground(TaskParams... params) {
     	TaskParams param = params[0];
-        //TODO, 根据参数查询缩略图
+        //根据参数查询缩略图
     	PTApi api = (PTApi) param.get("api");
     	String startTime = param.get("startTime").toString();
     	String endTime = param.get("endTime").toString();
     	//向底层发请求
-    	String galleryJsonStr = api.getCommunityPicsByTime(startTime, endTime);
-    	jsonToTPicDesc(galleryJsonStr);
+    	JSONArray jsPics = null;
+		try {
+			jsPics = api.getCommunityPicsByTime(startTime, endTime);
+		} catch (HttpException e) {
+			e.printStackTrace();
+			return TaskResult.FAILED;
+		}
+		if(jsPics==null){
+			jsonToTPicDesc(jsPics);			
+		}else{
+			return TaskResult.FAILED;
+		}
     	
         return TaskResult.OK;
     }
     
-    private void jsonToTPicDesc(String jsonStr){
-    	if(jsonStr!=null){
+    private void jsonToTPicDesc(JSONArray jsPics){
+    	if(jsPics!=null){
     		try {
-    			JSONArray jsObjs = new JSONArray(jsonStr);
     			retrievedPics = new ArrayList<Object>();
-    			for(int i=0;i<jsObjs.length();i++){
+    			for(int i=0;i<jsPics.length();i++){
     				TPicDesc item  = new TPicDesc();
-    				item.tpId = jsObjs.getJSONObject(i).getString("tpId");
-    				item.thumbnailId = jsObjs.getJSONObject(i).getString("thumbnailId");
-    				item.status = jsObjs.getJSONObject(i).getString("status");
+    				item.tpId = jsPics.getJSONObject(i).getString("tpId");
+    				item.thumbnailId = jsPics.getJSONObject(i).getString("thumbnailId");
+    				item.status = jsPics.getJSONObject(i).getString("status");
     				retrievedPics.add(item);
     			}
 			} catch (JSONException e) {
