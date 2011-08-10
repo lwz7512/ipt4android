@@ -8,11 +8,14 @@ import com.pintu.api.PTApi;
 import com.pintu.http.HttpException;
 
 public class SendTask extends GenericTask {
-
+	
 	public static final int TYPE_NORMAL = 0;
 	public static final int TYPE_REPLY = 1;
 	public static final int TYPE_REPOST = 2;
 	public static final int TYPE_PHOTO = 3;
+	
+	private static final String TAG = "SendTask";
+	private String postResult;
 
 	@Override
 	protected TaskResult _doInBackground(TaskParams... params) {
@@ -60,6 +63,28 @@ public class SendTask extends GenericTask {
 		}
 
 		return TaskResult.OK;
+		
+	} //end of doInBackground
+	
+	protected void onPostExecute(TaskResult result){
+	   	//必须继承父类动作
+    	super.onPostExecute(result);
+ 
+    	if(result==TaskResult.OK){
+    		if(this.getListener()!=null && postResult!=null){
+    			//回调监听方法传结果
+    			this.getListener().deliverResponseString(postResult);
+    		}else{
+    			//listener is null or retrieved pics is null!
+    			Log.d(TAG, "listener is null or retrieved pics is null!");
+    		}
+    	}else{
+    		//ERROR!
+    		Log.d(TAG, "Fetching  data ERROR!");
+    	}
+
 	}
+	
+	
 
 }

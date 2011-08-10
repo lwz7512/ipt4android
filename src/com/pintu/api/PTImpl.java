@@ -16,18 +16,18 @@ public class PTImpl implements PTApi {
 	private SimpleHttpClient client;
 
 	// localhost ip used by emulator!
-	// private String host = "http://10.0.2.2:8080";
+	 private String host = "http://10.0.2.2:8080";
+	 // local test servlet
+	 private String service = "/ipintu/upload";
 
 	// WIFI IP used by mobile phone!
-	private String host = "http://10.127.0.11:8080";
+//	private String host = "http://10.127.0.11:8080";
+	 // Real service context
+//	private String service = "/ipintu/pintuapi";
 
-	// remote host IP used in product environment
+	//TODO,  remote host IP used in product environment
 
-	// Real service context
-	private String service = "/ipintu/pintuapi";
 
-	// local test servlet
-	// private String service = "/ipintu/upload";
 
 	public PTImpl() {
 		client = new SimpleHttpClient();
@@ -39,8 +39,7 @@ public class PTImpl implements PTApi {
 
 	@Override
 	public Response getImgByUrl(String url) {
-		// TODO Auto-generated method stub
-		return null;
+		return client.get(getBaseURL(), null, false);
 	}
 
 	@Override
@@ -49,8 +48,7 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public void postPicture(File pic, String tags, String desc,
-			String allowStory) {
+	public String postPicture(File pic, String tags, String desc, String allowStory) {
 
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 
@@ -69,7 +67,15 @@ public class PTImpl implements PTApi {
 		params.add(descParam);
 		params.add(storyableParam);
 
-		client.post(getBaseURL(), params, pic, false);
+		Response resp = client.post(getBaseURL(), params, pic, false);
+		
+		try {
+			return resp.asString();
+		} catch (HttpException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;		
 	}
 
 	@Override

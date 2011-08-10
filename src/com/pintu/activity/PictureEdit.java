@@ -270,6 +270,11 @@ public class PictureEdit extends FullScreenActivity {
 				onSendFailure();
 			}
 		}
+		
+		public void deliverResponseString(String response){
+			//TODO, 明天测下这里，主要是看是否有中文乱码问题
+			if(response!=null) PictureEdit.this.updateProgress(response);
+		}
 
 		@Override
 		public String getName() {

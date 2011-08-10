@@ -253,6 +253,7 @@ public class ImageManager implements ImageCache {
             return bitmap;
         } else { //get from web
         	String url = file;
+        	//TODO, 真正的下载文件方法
             bitmap = downloadImage2(url);
             
             // 注释掉以测试新的写入文件方法

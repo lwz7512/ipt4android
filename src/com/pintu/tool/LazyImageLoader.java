@@ -23,8 +23,7 @@ public class LazyImageLoader {
     public static final String EXTRA_BITMAP = "extra_bitmap";
     public static final String EXTRA_IMAGE_URL = "extra_image_url";
 
-    private ImageManager mImageManager = new ImageManager(
-            PintuApp.mContext);
+    private ImageManager mImageManager = new ImageManager(PintuApp.mContext);
     private BlockingQueue<String> mUrlList = new ArrayBlockingQueue<String>(50);
     private CallbackManager mCallbackManager = new CallbackManager();
 
@@ -32,7 +31,7 @@ public class LazyImageLoader {
 
     /**
      * 取图片, 可能直接从cache中返回, 或下载图片后返回
-     * 
+     * TODO, 唯一一个对外暴露的方法
      * @param url
      * @param callback
      * @return
@@ -74,11 +73,27 @@ public class LazyImageLoader {
         }
     }
     
-    // Low-level interface to get ImageManager
-    public ImageManager getImageManager() {
-        return mImageManager;
-    }
-
+//------------ handler for  UI refresh -----------------------------
+ 
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+            case HANDLER_MESSAGE_ID:
+                final Bundle bundle = msg.getData();
+                String url = bundle.getString(EXTRA_IMAGE_URL);
+                Bitmap bitmap = (Bitmap) (bundle.get(EXTRA_BITMAP));
+                // callback
+                mCallbackManager.call(url, bitmap);
+                break;
+            default:
+                // do nothing.
+            }
+        }
+    };    
+    
+    
+//----------------- GetImageTask ---------------------------------------------
     private class GetImageTask extends Thread {
         private volatile boolean mTaskTerminated = false;
         private static final int TIMEOUT = 3 * 60;
@@ -134,28 +149,10 @@ public class LazyImageLoader {
         }
     }
 
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-            case HANDLER_MESSAGE_ID:
-                final Bundle bundle = msg.getData();
-                String url = bundle.getString(EXTRA_IMAGE_URL);
-                Bitmap bitmap = (Bitmap) (bundle.get(EXTRA_BITMAP));
 
-                // callback
-                mCallbackManager.call(url, bitmap);
-                break;
-            default:
-                // do nothing.
-            }
-        }
-    };
 
-    public interface ImageLoaderCallback {
-        void refresh(String url, Bitmap bitmap);
-    }
-
+//-------------------- CallbackManager ------------------------------------
+    
     public static class CallbackManager {
         private static final String TAG = "CallbackManager";
         private ConcurrentHashMap<String, List<ImageLoaderCallback>> mCallbackMap;
@@ -194,5 +191,11 @@ public class LazyImageLoader {
             mCallbackMap.remove(url);
         }
 
+    } //end of CallbackManager
+    
+    public interface ImageLoaderCallback {
+        void refresh(String url, Bitmap bitmap);
     }
+    
+    
 }

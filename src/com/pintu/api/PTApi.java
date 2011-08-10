@@ -21,7 +21,7 @@ public interface PTApi {
 	public static final String GETIMAGEFILE = "getImageFile";
 
 	//贴一张图
-	public void postPicture(File pic, String tags,String desc, String allowStory);
+	public String postPicture(File pic, String tags,String desc, String allowStory);
 	//根据编号合成URL地址，图片类型可以从编号后缀解析出来
 	public String composeImgUrl(String imgId);
 	//获取一个图片响应，图形包含在响应流中

@@ -12,4 +12,9 @@ public interface TaskListener {
 	//添加一个返回列表数据的接口
 	//lwz7512 @ 2011/08/08
 	void deliverRetreivedList(List<Object> results);
+	//添加一个服务端返回字符串的接口，这个比较常用
+	//lwz7512 @ 2011/08/10
+	void deliverResponseString(String response);
+	
+	
 }
