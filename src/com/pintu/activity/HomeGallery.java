@@ -59,15 +59,14 @@ public class HomeGallery extends FullScreenActivity {
 		getViews();
 		//添加事件监听
 		addEventListeners();
-		//读取画廊数据
-		retrieveGallery();
+		//读取数据库数据
+		retrieveGalleryFromDB();
 	}
     	
     @Override//Activity life cycle method
     protected void onDestroy() {
         Log.d(TAG, "onDestroy.");
         super.onDestroy();
-
         taskManager.cancelAll();
     }
 	
@@ -84,7 +83,10 @@ public class HomeGallery extends FullScreenActivity {
 	}
 	
 	private void addEventListeners(){
+		
 		postImg.setOnClickListener(postImgListener);
+		refresh.setOnClickListener(refreshListener);
+		
 		//TODO, 添加点击画廊看详情的动作
 		
 	}
@@ -98,7 +100,13 @@ public class HomeGallery extends FullScreenActivity {
 			}
 	};
 	
-	private void retrieveGallery(){
+	private OnClickListener refreshListener = new OnClickListener(){
+		public void onClick(View v){
+			retrieveRemoteGallery();
+		}
+	};
+	
+	private void retrieveRemoteGallery(){
 		long lastRefreshTime = PintuApp.mPref.getLong(Preferences.LAST_GALLERY_REFRESH_TIME, 0);
 		long nowTime = DateTimeHelper.getNowTime();
 		long diff = nowTime - lastRefreshTime;
@@ -141,10 +149,10 @@ public class HomeGallery extends FullScreenActivity {
     private TaskListener mRetrieveTaskListener = new TaskAdapter() {
     	public void onPreExecute(GenericTask task){
     		progressbar.setVisibility(View.VISIBLE);
+    		refresh.setVisibility(View.GONE);
     	}
     	public void onPostExecute(GenericTask task, TaskResult result) {    		
     		if(result==TaskResult.OK){
-    			progressbar.setVisibility(View.GONE);    			
     			//保存画廊更新时间
     			Editor pref = PintuApp.mPref.edit();
     			pref.putLong(Preferences.LAST_GALLERY_REFRESH_TIME, DateTimeHelper.getNowTime());
@@ -153,6 +161,8 @@ public class HomeGallery extends FullScreenActivity {
     		}else if(result==TaskResult.IO_ERROR){
     			HomeGallery.this.updateProgress("Gallery retrieve thumbnail IO Error!");
     		}
+			progressbar.setVisibility(View.GONE);  
+			refresh.setVisibility(View.VISIBLE);
     	}    	
     	
     	//结果拿到了，填充视图并入库
@@ -163,9 +173,9 @@ public class HomeGallery extends FullScreenActivity {
     			items.add((TPicDesc) o);
     		}
     		//为画廊更新数据
-    		gridAdptr.refresh(items);
+    		gridAdptr.refresh(items);   		
+    		//TODO, 更新数据库，将items入库，
     		
-    		//TODO, 更新数据库
     		
     	}
 
@@ -176,7 +186,10 @@ public class HomeGallery extends FullScreenActivity {
     	
     }; //end of mRetrieveTaskListener
     
-    
+   
+    private void retrieveGalleryFromDB(){
+    	//TODO, 等数据访问完成后填写
+    }
     
     
     

@@ -3,6 +3,8 @@ package com.pintu;
 
 import com.pintu.api.PTApi;
 import com.pintu.api.PTImpl;
+import com.pintu.db.CacheDao;
+import com.pintu.db.CacheImpl;
 import com.pintu.tool.LazyImageLoader;
 import com.pintu.util.DateTimeHelper;
 import com.pintu.util.Preferences;
@@ -16,7 +18,7 @@ public class PintuApp extends Application {
 
 	public static Context mContext;
 	public static PTApi mApi;
-	
+	public static CacheDao dbApi;
 	public static SharedPreferences mPref;
 	
 	//模拟登录用户
@@ -28,8 +30,10 @@ public class PintuApp extends Application {
 		super.onCreate();
 		
 		mContext = this.getApplicationContext();
-		mApi = new PTImpl();		
+		mApi = new PTImpl();	
+		dbApi = new CacheImpl(this);
 		mPref = PreferenceManager.getDefaultSharedPreferences(this);
+		 
 		//保存一个上次登录时间，哪里用呢？
 		rememberLastLogin();
 	}

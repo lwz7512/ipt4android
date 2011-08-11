@@ -18,12 +18,12 @@ public class PTImpl implements PTApi {
 	// localhost ip used by emulator!
 	 private String host = "http://10.0.2.2:8080";
 	 // local test servlet
-	 private String service = "/ipintu/upload";
+//	 private String service = "/ipintu/upload";
 
 	// WIFI IP used by mobile phone!
 //	private String host = "http://10.127.0.11:8080";
 	 // Real service context
-//	private String service = "/ipintu/pintuapi";
+	private String service = "/ipintu/pintuapi";
 
 	//TODO,  remote host IP used in product environment
 
@@ -38,8 +38,8 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public Response getImgByUrl(String url) {
-		return client.get(getBaseURL(), null, false);
+	public Response getImgByUrl(String url) throws HttpException {
+		return client.get(getBaseURL(), false);
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public String postPicture(File pic, String tags, String desc, String allowStory) {
+	public String postPicture(File pic, String tags, String desc, String allowStory) throws HttpException {
 
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 
@@ -90,8 +90,8 @@ public class PTImpl implements PTApi {
 		params.add(methodParam);
 		params.add(startTimeParam);
 		params.add(endTimeParam);
-				
-		Response resp =  client.get(getBaseURL(), params, false);
+		//所有的请求，除了下载下载图片文件，都采用post的方式提交		
+		Response resp =  client.post(getBaseURL(), params, null,false);
 		return resp.asJSONArray();
 	}
 

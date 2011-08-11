@@ -52,28 +52,13 @@ public class SimpleHttpClient implements HttpClientInterface{
 	}
 	
 	//暴露唯一一个post方法
-	public Response post(String url, ArrayList<BasicNameValuePair> params, File file, boolean authenticate){
-		Response res = null;
-		try {
+	public Response post(String url, ArrayList<BasicNameValuePair> params, File file, boolean authenticate) throws HttpException{
 			params.add(new BasicNameValuePair("user",getUser()));
-			res = httpRequest(url, params, file, authenticate, HttpPost.METHOD_NAME);
-		} catch (HttpException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return res;
+			return httpRequest(url, params, file, authenticate, HttpPost.METHOD_NAME);
 	}
 	//暴露唯一一个get方法
-	public Response get(String url, ArrayList<BasicNameValuePair> params,boolean authenticated) {
-		Response res = null;
-		try {
-			params.add(new BasicNameValuePair("user",getUser()));
-			res = httpRequest(url, params, null, authenticated, HttpGet.METHOD_NAME);
-		} catch (HttpException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return res;
+	public Response get(String url, boolean authenticated) throws HttpException {		
+			return httpRequest(url, null, null, authenticated, HttpGet.METHOD_NAME);			
 	}	
 	
     /**

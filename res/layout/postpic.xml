@@ -22,6 +22,7 @@
         android:layout_marginRight="2dp"        
         android:hint="@string/tags"
         android:maxLength="16"
+        android:imeOptions="actionNext"
        />	
 	<!-- 图片描述, amazing layout_weight attribute! -->
 	<EditText android:id="@+id/description" 

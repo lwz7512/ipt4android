@@ -44,7 +44,7 @@ public class SendTask extends GenericTask {
 				String allowStory = param.getString("allowStory");
 				if (null != mFile) {
 					// 发送图片
-					api.postPicture(mFile, tags, description, allowStory);
+					postResult = api.postPicture(mFile, tags, description, allowStory);
 				} else {
 					Log.e("SendTask",
 							"Cann't send status in PICTURE mode, photo is null");
@@ -72,6 +72,7 @@ public class SendTask extends GenericTask {
  
     	if(result==TaskResult.OK){
     		if(this.getListener()!=null && postResult!=null){
+    			Log.d(TAG, ">>> call deliverResponseString: \n"+postResult);
     			//回调监听方法传结果
     			this.getListener().deliverResponseString(postResult);
     		}else{

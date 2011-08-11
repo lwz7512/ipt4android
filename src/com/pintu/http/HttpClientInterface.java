@@ -22,9 +22,11 @@ public interface HttpClientInterface {
     public static final int BAD_GATEWAY = 502;
     /** Service Unavailable: The Weibo servers are up, but overloaded with requests. Try again later. The search and trend methods use this to indicate when you are being rate limited. */
     public static final int SERVICE_UNAVAILABLE = 503;
-    
-    public static final int CONNECTION_TIMEOUT_MS = 30 * 1000;
-    public static final int SOCKET_TIMEOUT_MS = 30 * 1000;
+ 
+    //改成20秒了，30秒太长了
+    //lwz7512 @ 2010/08/10
+    public static final int CONNECTION_TIMEOUT_MS = 20 * 1000;
+    public static final int SOCKET_TIMEOUT_MS = 20 * 1000;
     
     public static final int RETRIEVE_LIMIT = 20;
     public static final int RETRIED_TIME = 3;

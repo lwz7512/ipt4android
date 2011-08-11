@@ -272,8 +272,8 @@ public class PictureEdit extends FullScreenActivity {
 		}
 		
 		public void deliverResponseString(String response){
-			//TODO, 明天测下这里，主要是看是否有中文乱码问题
-			if(response!=null) PictureEdit.this.updateProgress(response);
+			//测过了中文没问题
+//			if(response!=null) PictureEdit.this.updateProgress(response);
 		}
 
 		@Override
@@ -346,7 +346,7 @@ public class PictureEdit extends FullScreenActivity {
 	}
 
 	private void updateProgress(String message) {
-		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 	}
 
 	private void onSendFailure() {

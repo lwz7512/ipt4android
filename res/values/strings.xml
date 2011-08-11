@@ -19,7 +19,7 @@
     <string name="page_status_updating">正在发送...</string>
     <string name="page_status_deleting">正在删除...</string>
     <string name="page_status_update_success">发送成功.</string>
-    <string name="page_status_unable_to_update">无法发送信息...</string>
+    <string name="page_status_unable_to_update">不好意思服务暂不可用</string>
     <string name="page_status_timeout">网络超时.</string>
     <string name="page_status_same_page">您正在此页.</string>
     <string name="page_dm_texting_is_null">请输入私信内容.</string>

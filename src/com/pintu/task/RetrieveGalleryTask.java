@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.pintu.PintuApp;
 import com.pintu.api.PTApi;
 import com.pintu.data.TPicDesc;
 import com.pintu.http.HttpException;
@@ -57,6 +58,9 @@ public class RetrieveGalleryTask extends GenericTask {
     				item.tpId = jsPics.getJSONObject(i).getString("tpId");
     				item.thumbnailId = jsPics.getJSONObject(i).getString("thumbnailId");
     				item.status = jsPics.getJSONObject(i).getString("status");
+    				//根据ID获取URL路径
+    				String tbnlUrl = PintuApp.mApi.composeImgUrl(item.thumbnailId);
+    				item.url = tbnlUrl;
     				retrievedPics.add(item);
     			}
 			} catch (JSONException e) {

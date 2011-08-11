@@ -47,8 +47,8 @@ public class GalleryImageAdapter extends BaseAdapter {
 		return cells.size();
 	}
 
-	public Object getItem(int position) {
-		return position;
+	public TPicDesc getItem(int position) {
+		return cells.get(position);
 	}
 
 	public long getItemId(int position) {
@@ -69,11 +69,9 @@ public class GalleryImageAdapter extends BaseAdapter {
 			imageView = (ImageView) convertView;
 		}
 		
-		TPicDesc thumbnail = cells.get(position);
-		//根据ID获取URL路径
-		String tbnlUrl = PintuApp.mApi.composeImgUrl(thumbnail.thumbnailId);
+		TPicDesc thumbnail = cells.get(position);		
 		//获取图片
-		SimpleImageLoader.display(imageView, tbnlUrl);
+		SimpleImageLoader.display(imageView, thumbnail.url);
 
 		return imageView;
 	}
@@ -89,6 +87,8 @@ public class GalleryImageAdapter extends BaseAdapter {
 		this.notifyDataSetChanged();
 	}
 	
-
+	public List<TPicDesc> getCells(){
+		return cells;
+	}
 
 } //end of class
