@@ -25,8 +25,16 @@ public class Response {
     public Response(HttpResponse res) {
         mResponse = res;
     }
+    
+    
+    //ADD BY lwz7512 @ 2011/08/12
+    public HttpResponse getHttpResponse() {
+		return mResponse;
+	}
 
-    /**
+
+
+	/**
      * Convert Response to inputStream
      * 
      * @return InputStream or null

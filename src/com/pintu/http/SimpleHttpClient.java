@@ -57,8 +57,8 @@ public class SimpleHttpClient implements HttpClientInterface{
 			return httpRequest(url, params, file, authenticate, HttpPost.METHOD_NAME);
 	}
 	//暴露唯一一个get方法
-	public Response get(String url, boolean authenticated) throws HttpException {		
-			return httpRequest(url, null, null, authenticated, HttpGet.METHOD_NAME);			
+	public Response get(String url, boolean authenticated) throws HttpException{		
+			return httpRequest(url, null, null, authenticated, HttpGet.METHOD_NAME);
 	}	
 	
     /**

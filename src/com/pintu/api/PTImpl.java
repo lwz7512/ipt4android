@@ -1,10 +1,19 @@
 package com.pintu.api;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.ParseException;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
+
+import android.util.Log;
 
 import com.pintu.http.HttpException;
 import com.pintu.http.Response;
@@ -12,6 +21,8 @@ import com.pintu.http.SimpleHttpClient;
 import com.pintu.util.UTF8Formater;
 
 public class PTImpl implements PTApi {
+	
+	private static String TAG = "PTImpl";
 
 	private SimpleHttpClient client;
 
@@ -38,8 +49,12 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public Response getImgByUrl(String url) throws HttpException {
-		return client.get(getBaseURL(), false);
+	public Response getImgByUrl(String url) throws HttpException{
+		//FIXME, 这个地方犯了个错误花了3个小时多才发现：
+		//url参数没传到get中，get里面用的是getBaseURL()
+		//低级错误啊！痛心啊！
+		//lwz7512 @ 2011/08/12
+		return client.get(url, false);		
 	}
 
 	@Override
@@ -79,7 +94,7 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public JSONArray getCommunityPicsByTime(String startTime, String endTime) throws HttpException {
+	public JSONArray getCommunityPicsByTime(String startTime, String endTime) throws HttpException, JSONException {
 		
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		
@@ -92,7 +107,10 @@ public class PTImpl implements PTApi {
 		params.add(endTimeParam);
 		//所有的请求，除了下载下载图片文件，都采用post的方式提交		
 		Response resp =  client.post(getBaseURL(), params, null,false);
-		return resp.asJSONArray();
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json Gallery: "+jsonStr);
+		return new JSONArray(jsonStr);
 	}
+	
 
 } // end of class

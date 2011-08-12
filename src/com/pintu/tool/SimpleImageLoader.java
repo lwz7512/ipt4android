@@ -23,7 +23,8 @@ public class SimpleImageLoader {
             @Override
             public void refresh(String url, Bitmap bitmap) {
                 if (url.equals(imageView.getTag())) {
-                    imageView.setImageBitmap(bitmap);
+                	if(bitmap!=null)
+                		imageView.setImageBitmap(bitmap);
                 }
             }
         };

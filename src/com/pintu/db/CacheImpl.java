@@ -34,10 +34,9 @@ public class CacheImpl implements CacheDao {
 		Query q = new Query(ptdb);
 		int successRecord = 0;
 		try{
-			ptdb.beginTransaction();
-			int tblength = thumbnails.size();
-			for(int i= tblength-1;i>=0;i--){
-				TPicDesc pic = thumbnails.get(i);
+			ptdb.beginTransaction();	
+			//不分顺序插入
+			for(TPicDesc pic : thumbnails){
 				long result = q.into(PintuTables.ThumbnailTable.TABLE_NAME)
 						.values(thumbnailToContentValues(pic))
 						.insert();				
@@ -48,10 +47,18 @@ public class CacheImpl implements CacheDao {
                     Log.v(TAG, String.format("Insert a thumbnail into database : %s", pic.thumbnailId));
                 }
 			}
-		}catch(Exception e){
-			//do nothing...
+			ptdb.setTransactionSuccessful();
 		}finally{
 			ptdb.endTransaction();
+		}
+		
+		//判断是否超过最大记录数，如果超过就删除超过部分
+		int beyondSize = cachedThumbnailSize()-PintuTables.ThumbnailTable.MAX_ROW_NUMBER;
+		if(beyondSize>0){
+			Log.d(TAG, ">>> Beyond max thumbnail size, to delete: "+beyondSize);
+			deleteOldThumbnails(beyondSize);
+		}else{
+			Log.d(TAG, ">>> not beyond max thumbnail size..");
 		}
 		
 		return successRecord;
@@ -63,9 +70,15 @@ public class CacheImpl implements CacheDao {
 		 v.put(PintuTables.ThumbnailTable.Columns.THUMBNAIL_ID, pic.thumbnailId);
 		 v.put(PintuTables.ThumbnailTable.Columns.STATUS, pic.status);
 		 v.put(PintuTables.ThumbnailTable.Columns.URL, pic.url);
-		 //毫秒数转换
-		 long creationTime = Long.valueOf(pic.creationTime);
-		 Date ctDate = new Date(creationTime); 
+		 String creationTime = pic.creationTime;
+		 //有生成时间为空的情况？
+		 if(creationTime==null)
+			 creationTime = String.valueOf(new Date().getTime());	
+		 //FIXME, 好像模拟器上数据库时间比本地小8个小时，补上时差？
+		 //8小时毫秒数
+		 long eightHourMiliSeconds = 8*60*60*1000;
+		 Date ctDate = new Date(Long.valueOf(creationTime)+eightHourMiliSeconds);
+//		 Date ctDate = new Date(Long.valueOf(creationTime));
 		 String sqlDate = dateFormat.format(ctDate);
 		 v.put(PintuTables.ThumbnailTable.Columns.CREATION_TIME, sqlDate);		 
 		 
@@ -77,6 +90,7 @@ public class CacheImpl implements CacheDao {
 		 List<TPicDesc> list = new ArrayList<TPicDesc>();
 		 Query q = new Query(ptdb);
 		 Cursor c = q.from(PintuTables.ThumbnailTable.TABLE_NAME)
+				 			.orderBy(PintuTables.ThumbnailTable.Columns.CREATION_TIME+" DESC")
 				 			.select();
 	        try {
 	            while (c.moveToNext()) {
@@ -102,7 +116,7 @@ public class CacheImpl implements CacheDao {
 			 long ldte = dateFormat.parse(savedTime).getTime();
 			 pic.creationTime = String.valueOf(ldte);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+			// do nothing temporally...
 			e.printStackTrace();
 		}
 		 
@@ -134,7 +148,8 @@ public class CacheImpl implements CacheDao {
 	    		  q.from(PintuTables.ThumbnailTable.TABLE_NAME)
 	    		    .where(PintuTables.ThumbnailTable.Columns.TP_ID+"=?",id)
 	    		    .delete();
-	    	  }	    	  	    	  
+	    	  }	
+	    	  ptdb.setTransactionSuccessful();
 	      }finally{
 	    	  ptdb.endTransaction();
 	      }

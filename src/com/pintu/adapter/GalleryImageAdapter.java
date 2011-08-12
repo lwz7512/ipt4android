@@ -1,6 +1,7 @@
 package com.pintu.adapter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.pintu.tool.LazyImageLoader.ImageLoaderCallback;
@@ -33,6 +34,8 @@ public class GalleryImageAdapter extends BaseAdapter {
 	//画廊使用的列表数据
 	private List<TPicDesc>  cells;
 	
+	//画廊图片最大个数
+	private int maxThumbnailNum = 32;
 	
 
 	public GalleryImageAdapter(Context c) {
@@ -79,6 +82,7 @@ public class GalleryImageAdapter extends BaseAdapter {
 	//为画廊指定数据
 	public void refresh(List<TPicDesc> items){
 		this.cells = items;
+		//更新视图
 		this.notifyDataSetChanged();
 	}
 	

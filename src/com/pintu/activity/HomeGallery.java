@@ -46,7 +46,7 @@ public class HomeGallery extends FullScreenActivity {
 	
     // Refresh data at startup if last refresh was this long ago or greater.
 	// 默认5分钟后才能刷新，小于这个间隔不给取
-    private static final long REFRESH_THRESHOLD = 5 * 60 * 1000;
+    private static final long REFRESH_THRESHOLD = 1 * 60 * 1000;
     
     protected TaskManager taskManager = new TaskManager();
 
@@ -117,12 +117,12 @@ public class HomeGallery extends FullScreenActivity {
 			shouldRetrieve = false;
 		}
 		if(shouldRetrieve){
-			doRetrieve();
+			doRetrieve(lastRefreshTime,nowTime);
 		}
 		
 	}
 	
-    public void doRetrieve() {
+    public void doRetrieve(long startTime, long endTime) {
         Log.d(TAG, "Attempting retrieve gallery data...");
 
         if (mRetrieveTask != null
@@ -131,14 +131,11 @@ public class HomeGallery extends FullScreenActivity {
         } else {
             mRetrieveTask = new RetrieveGalleryTask();
             mRetrieveTask.setListener(mRetrieveTaskListener);
-  
-            long lastRefreshTime = PintuApp.mPref.getLong(Preferences.LAST_GALLERY_REFRESH_TIME, 0);
-    		long nowTime = DateTimeHelper.getNowTime();
-            
+              
             TaskParams params = new TaskParams();
             params.put("api", PintuApp.mApi);
-            params.put("startTime", lastRefreshTime);
-            params.put("endTime", nowTime);
+            params.put("startTime", startTime);
+            params.put("endTime", endTime);
             mRetrieveTask.execute(params);
 
             // Add Task to manager
@@ -156,10 +153,14 @@ public class HomeGallery extends FullScreenActivity {
     			//保存画廊更新时间
     			Editor pref = PintuApp.mPref.edit();
     			pref.putLong(Preferences.LAST_GALLERY_REFRESH_TIME, DateTimeHelper.getNowTime());
+    			//必须得提交设置，否则不生效
+    			pref.commit();
     		}else if(result==TaskResult.FAILED){
     			HomeGallery.this.updateProgress("Gallery retrieve thumbnail failed!");
     		}else if(result==TaskResult.IO_ERROR){
     			HomeGallery.this.updateProgress("Gallery retrieve thumbnail IO Error!");
+    		}else if(result==TaskResult.JSON_PARSE_ERROR){
+    			HomeGallery.this.updateProgress("Gallery data parse Error!");
     		}
 			progressbar.setVisibility(View.GONE);  
 			refresh.setVisibility(View.VISIBLE);
@@ -172,11 +173,12 @@ public class HomeGallery extends FullScreenActivity {
     		for(Object o:results){
     			items.add((TPicDesc) o);
     		}
-    		//为画廊更新数据
-    		gridAdptr.refresh(items);   		
-    		//TODO, 更新数据库，将items入库，
+    		//先入库，更合理
+    		int successNum = PintuApp.dbApi.insertThumbnails(items);
+    		Log.i(TAG, ">>> inserted db record size: "+successNum);
     		
-    		
+    		//刷库更新画廊，这样最简单
+    		retrieveGalleryFromDB();
     	}
 
 		@Override
@@ -188,7 +190,9 @@ public class HomeGallery extends FullScreenActivity {
     
    
     private void retrieveGalleryFromDB(){
-    	//TODO, 等数据访问完成后填写
+		List<TPicDesc> items = PintuApp.dbApi.getCachedThumbnails();
+		gridAdptr.refresh(items);
+		Log.i(TAG, ">>> cached recode size: "+items.size());    	
     }
     
     

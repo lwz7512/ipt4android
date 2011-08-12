@@ -39,8 +39,12 @@ public class RetrieveGalleryTask extends GenericTask {
 		} catch (HttpException e) {
 			e.printStackTrace();
 			return TaskResult.FAILED;
+		} catch (JSONException e) {
+			e.printStackTrace();
+			return TaskResult.JSON_PARSE_ERROR;
 		}
-		if(jsPics==null){
+		//我靠，这里必须得判断一下
+		if(jsPics!=null){
 			jsonToTPicDesc(jsPics);			
 		}else{
 			return TaskResult.FAILED;
@@ -58,14 +62,15 @@ public class RetrieveGalleryTask extends GenericTask {
     				item.tpId = jsPics.getJSONObject(i).getString("tpId");
     				item.thumbnailId = jsPics.getJSONObject(i).getString("thumbnailId");
     				item.status = jsPics.getJSONObject(i).getString("status");
+    				item.creationTime = jsPics.getJSONObject(i).getString("creationTime");
     				//根据ID获取URL路径
     				String tbnlUrl = PintuApp.mApi.composeImgUrl(item.thumbnailId);
     				item.url = tbnlUrl;
     				retrievedPics.add(item);
     			}
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
+				Log.w(TAG, ">>> json Array getJSONObject Exception!");
 			}
     	}else{
     		Log.w(TAG, ">>> json data is null!");
