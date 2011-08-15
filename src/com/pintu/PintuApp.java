@@ -16,10 +16,16 @@ import android.preference.PreferenceManager;
 
 public class PintuApp extends Application {
 
+	//应用上下文
 	public static Context mContext;
+	//远程访问接口
 	public static PTApi mApi;
+	//本地数据存储接口
 	public static CacheDao dbApi;
+	//本地设置存储
 	public static SharedPreferences mPref;
+	//图片加载器
+	public static LazyImageLoader mImageLoader;
 	
 	//模拟登录用户
 	public static String userID = "abcdefghijklmnop";
@@ -33,7 +39,8 @@ public class PintuApp extends Application {
 		mApi = new PTImpl();	
 		dbApi = new CacheImpl(this);
 		mPref = PreferenceManager.getDefaultSharedPreferences(this);
-		 
+		mImageLoader  = new LazyImageLoader(this);
+		
 		//保存一个上次登录时间，哪里用呢？
 		rememberLastLogin();
 	}

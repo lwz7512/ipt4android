@@ -165,6 +165,14 @@ public class CacheImpl implements CacheDao {
 		return ptdb.rawQuery("SELECT COUNT(*) FROM "+PintuTables.ThumbnailTable.TABLE_NAME, null).getCount();
 	}
 
+	@Override
+	public void clearData() {
+		
+		ptdb.execSQL("DELETE FROM " + PintuTables.ThumbnailTable.TABLE_NAME);
+		
+		
+	}
+
 	
 	
 	

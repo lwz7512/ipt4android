@@ -1,5 +1,7 @@
 package com.pintu.tool;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.Thread.State;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,25 +22,41 @@ import com.pintu.http.HttpException;
 
 public class LazyImageLoader {
     private static final String TAG = "ProfileImageCacheManager";
-    public static final int HANDLER_MESSAGE_ID = 1;
-    public static final String EXTRA_BITMAP = "extra_bitmap";
-    public static final String EXTRA_IMAGE_URL = "extra_image_url";
+    private static final int HANDLER_MESSAGE_ID = 1;
+    private static final String EXTRA_BITMAP = "extra_bitmap";
+    private static final String EXTRA_IMAGE_URL = "extra_image_url";
 
-    private ImageManager mImageManager = new ImageManager(PintuApp.mContext);
     private BlockingQueue<String> mUrlList = new ArrayBlockingQueue<String>(50);
     private CallbackManager mCallbackManager = new CallbackManager();
-
     private GetImageTask mTask = new GetImageTask();
 
+    private ImageManager mImageManager;
+    
+    public LazyImageLoader(Context ctxt){
+    	mImageManager = new ImageManager(ctxt);
+    }
+    
+    
+    //新增接口清除缓存图片
+    //lwz7512 @ 2011.08.15 
+    public void clearCache(){
+    	mImageManager.clear();
+    }
+    //发送前压缩图片，节省流量和响应时间
+    public File compreseImage(File targetFile) {
+    	return mImageManager.compressImage(targetFile, ImageManager.DEFAULT_COMPRESS_QUALITY);
+    }
+    
+    
     /**
      * 取图片, 可能直接从cache中返回, 或下载图片后返回
-     * TODO, 唯一一个对外暴露的方法
      * @param url
      * @param callback
      * @return
      */
     public Bitmap get(String url, ImageLoaderCallback callback) {
-        Bitmap bitmap = ImageCache.mDefaultBitmap;
+        Bitmap bitmap = ImageManager.mDefaultBitmap;
+        //先找缓存
         if (mImageManager.isContains(url)) {
             bitmap = mImageManager.get(url);
         } else {

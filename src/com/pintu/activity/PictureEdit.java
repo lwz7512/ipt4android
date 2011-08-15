@@ -31,6 +31,7 @@ import com.pintu.task.TaskAdapter;
 import com.pintu.task.TaskListener;
 import com.pintu.task.TaskParams;
 import com.pintu.task.TaskResult;
+import com.pintu.tool.SimpleImageLoader;
 import com.pintu.util.FileHelper;
 
 public class PictureEdit extends FullScreenActivity {
@@ -284,39 +285,36 @@ public class PictureEdit extends FullScreenActivity {
 
 	private void doSend() {
 		Log.d(TAG, "dosend  " + withPic);
-		startTime = System.currentTimeMillis();
 
-		if (mSendTask != null
-				&& mSendTask.getStatus() == GenericTask.Status.RUNNING) {
-			return;
+		if (mSendTask != null 
+				&& mSendTask.getStatus() == GenericTask.Status.RUNNING)
+			return;		
+
+		String description = descEditText.getText().toString();
+		String tags = tagsEditText.getText().toString();
+		boolean storyable = allowStory.isChecked();
+
+		if (withPic || mFile != null) {
+
+			int mode = SendTask.TYPE_NORMAL;
+			if (withPic) mode = SendTask.TYPE_PHOTO;
+
+			mSendTask = new SendTask();
+			mSendTask.setListener(mSendTaskListener);
+
+			TaskParams params = new TaskParams();
+			params.put("mode", mode);
+			params.put("file", mFile);
+			params.put("description", description);
+			params.put("tags", tags);
+			params.put("allowStory", storyable ? "1" : "0");
+			params.put("api", PintuApp.mApi);
+			mSendTask.execute(params);
+
 		} else {
-
-			String description = descEditText.getText().toString();
-			String tags = tagsEditText.getText().toString();
-			boolean storyable = allowStory.isChecked();
-
-			if (withPic || mFile != null) {
-
-				int mode = SendTask.TYPE_NORMAL;
-				if (withPic)
-					mode = SendTask.TYPE_PHOTO;
-
-				mSendTask = new SendTask();
-				mSendTask.setListener(mSendTaskListener);
-
-				TaskParams params = new TaskParams();
-				params.put("mode", mode);
-				params.put("file", mFile);
-				params.put("description", description);
-				params.put("tags", tags);
-				params.put("allowStory", storyable ? "1" : "0");
-				params.put("api", PintuApp.mApi);
-				mSendTask.execute(params);
-
-			} else {
-				updateProgress(getString(R.string.page_text_is_null));
-			}
+			updateProgress(getString(R.string.page_text_is_null));
 		}
+		
 	}
 
 	private void onSendBegin() {
@@ -357,11 +355,13 @@ public class PictureEdit extends FullScreenActivity {
 	}
 
 	private void enableEntry() {
+		tagsEditText.setEnabled(true);
 		descEditText.setEnabled(true);
 		chooseImagesButton.setEnabled(true);
 	}
 
 	private void disableEntry() {
+		tagsEditText.setEnabled(false);
 		descEditText.setEnabled(false);
 		chooseImagesButton.setEnabled(false);
 	}

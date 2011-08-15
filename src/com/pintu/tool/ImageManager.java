@@ -11,7 +11,6 @@ import java.lang.ref.SoftReference;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 
 import android.content.Context;
@@ -23,6 +22,7 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import com.pintu.PintuApp;
+import com.pintu.R;
 import com.pintu.http.HttpException;
 import com.pintu.http.Response;
 
@@ -31,33 +31,28 @@ import com.pintu.http.Response;
  * Manages retrieval and storage of icon images. Use the put method to download
  * and store images. Use the get method to retrieve images from the manager.
  */
-public class ImageManager implements ImageCache {
-    private static final String TAG = "ImageManager";
-    // 目前最大宽度支持596px, 超过则同比缩小
-    // 最大高度为1192px, 超过从中截取
-    public static final int DEFAULT_COMPRESS_QUALITY = 90;
-    public static final int IMAGE_MAX_WIDTH  = 596;
-    public static final int IMAGE_MAX_HEIGHT = 1192;
+public class ImageManager  {
+	
+	private static final String TAG = "ImageManager";
+	
+	//lazyImageLoader使用的静态变量
+    public static Bitmap mDefaultBitmap = ImageManager.drawableToBitmap(PintuApp.mContext.getResources().getDrawable(R.drawable.user_default_photo));
+    public static final int DEFAULT_COMPRESS_QUALITY = 90;    
+    
+    //品图移动客户端上传图片大小限制：1200/800
+    //超过这个大小，宽高各裁剪一半，为原来的1/4
+    private static final int IMAGE_MAX_WIDTH  = 1200;
+    private static final int IMAGE_MAX_HEIGHT = 800;    
 
     private Context mContext;
     // In memory cache.
     private Map<String, SoftReference<Bitmap>> mCache;
     // MD5 hasher.
     private MessageDigest mDigest;
+    
+    
+    
 
-	public static Bitmap drawableToBitmap(Drawable drawable) {
-		Bitmap bitmap = Bitmap
-				.createBitmap(
-						drawable.getIntrinsicWidth(),
-						drawable.getIntrinsicHeight(),
-						drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
-								: Bitmap.Config.RGB_565);
-		Canvas canvas = new Canvas(bitmap);
-		drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable
-				.getIntrinsicHeight());
-		drawable.draw(canvas);
-		return bitmap;
-	}
 
 	public ImageManager(Context context) {
         mContext = context;
@@ -71,20 +66,77 @@ public class ImageManager implements ImageCache {
         }
     }
 
-    public void setContext(Context context) {
-        mContext = context;
+    /**
+     * 有点冗余的查找方法：
+     * 在没有执行get方法的情况下比较有效
+     * 
+     * @param file file URL/file PATH
+     * @param bitmap
+     * @param quality
+     * @throws HttpException 
+     */
+    public Bitmap safeGet(String file) throws HttpException {
+        Bitmap bitmap = lookupFile(file); // first try file.
+        
+        if (bitmap != null) {
+            synchronized (this) { 
+            	//找到文件了才缓存，而不是下载完缓存
+                mCache.put(file, new SoftReference<Bitmap>(bitmap));
+            }
+            return bitmap;
+        } else { //get from web
+        	String url = file;
+        	//真正的下载文件方法，并写文件；
+            bitmap = downloadImage2(url);
+            //这里不做缓存，思路有点怪异啊
+            return bitmap;
+        }
     }
+    
+    /**
+     * 从缓存器和文件系统中读取图片
+     * @param file file URL/file PATH
+     * @param bitmap
+     * @param quality
+     */
+    public Bitmap get(String file) {
+        SoftReference<Bitmap> ref;
+        Bitmap bitmap;
 
-    private String getHashString(MessageDigest digest) {
-        StringBuilder builder = new StringBuilder();
-
-        for (byte b : digest.digest()) {
-            builder.append(Integer.toHexString((b >> 4) & 0xf));
-            builder.append(Integer.toHexString(b & 0xf));
+        // Look in memory first.
+        synchronized (this) {
+            ref = mCache.get(file);
         }
 
-        return builder.toString();
+        if (ref != null) {
+            bitmap = ref.get();
+
+            if (bitmap != null) {
+                return bitmap;
+            }
+        }
+
+        // Now try file.
+        bitmap = lookupFile(file);
+
+        if (bitmap != null) {
+            synchronized (this) {
+            	//找到文件了才缓存，而不是下载完缓存
+                mCache.put(file, new SoftReference<Bitmap>(bitmap));
+            }
+            return bitmap;
+        }
+
+        //莫名其妙的丢失  
+        //upload: see profileImageCacheManager line 96
+        Log.w(TAG, "Image is missing: " + file);
+        
+        //找不着先用默认图片顶着
+        return mDefaultBitmap;
     }
+	
+	
+
 
     // MD5 hases are used to generate filenames based off a URL.
     private String getMd5(String url) {
@@ -93,6 +145,16 @@ public class ImageManager implements ImageCache {
         return getHashString(mDigest);
     }
 
+    private String getHashString(MessageDigest digest) {
+    	StringBuilder builder = new StringBuilder();
+    	
+    	for (byte b : digest.digest()) {
+    		builder.append(Integer.toHexString((b >> 4) & 0xf));
+    		builder.append(Integer.toHexString(b & 0xf));
+    	}
+    	
+    	return builder.toString();
+    }
     // Looks to see if an image is in the file system.
     private Bitmap lookupFile(String url) {
         String hashedUrl = getMd5(url);
@@ -115,86 +177,23 @@ public class ImageManager implements ImageCache {
         }
     }
     
-    /**
-     * Downloads a file
-     * @param url
-     * @return
-     * @throws HttpException 
-     */
-    public Bitmap downloadImage(String url) throws HttpException {
-        Log.d(TAG, "Fetching image: " + url);
-        Response res = PintuApp.mApi.getImgByUrl(url);
-        return BitmapFactory.decodeStream(new BufferedInputStream(res.asStream()));
-    }
+
     
-    public Bitmap downloadImage2(String url) throws HttpException {
+    private Bitmap downloadImage2(String url) throws HttpException {
         Log.d(TAG, "[NEW]Fetching image: " + url);
         final Response res = PintuApp.mApi.getImgByUrl(url);
         String file = writeToFile(res.asStream(), getMd5(url));
         return BitmapFactory.decodeFile(file);
-    }
+    }    
     
-    
-    /**
-     * 将Bitmap写入缓存器.
-     * @param filePath file path
-     * @param bitmap
-     * @param quality 1~100
+ 
+     /**
+     * 普通的写文件操作：
+     * 根据下载的字节流和加密字符串写文件
+     * @param is
+     * @param filename URL地址加密后的字符串
+     * @return
      */
-    public void put(String file, Bitmap bitmap, int quality) {
-        synchronized (this) {
-            mCache.put(file, new SoftReference<Bitmap>(bitmap));
-        }
-
-        writeFile(file, bitmap, quality);
-    }
-    
-    /**
-     * 重载 put(String file, Bitmap bitmap, int quality)
-     * @param filePath file path
-     * @param bitmap
-     * @param quality 1~100
-     */
-    @Override
-    public void put(String file, Bitmap bitmap) {
-        put(file, bitmap, DEFAULT_COMPRESS_QUALITY);
-    }
-
-    /**
-     * 将Bitmap写入本地缓存文件.
-     * @param file URL/PATH
-     * @param bitmap
-     * @param quality
-     */
-    private void writeFile(String file, Bitmap bitmap, int quality) {
-        if (bitmap == null) {
-            Log.w(TAG, "Can't write file. Bitmap is null.");
-            return;
-        }
-
-        BufferedOutputStream bos = null;
-        try {
-            String hashedUrl = getMd5(file);
-            bos = new BufferedOutputStream(
-                    mContext.openFileOutput(hashedUrl, Context.MODE_PRIVATE));
-            bitmap.compress(Bitmap.CompressFormat.JPEG, quality, bos); // PNG
-            Log.d(TAG, "Writing file: " + file);
-        } catch (IOException ioe) {
-            Log.e(TAG, ioe.getMessage());
-        } finally {
-            try {
-                if (bos != null) {
-                    bitmap.recycle();
-                    bos.flush();
-                    bos.close();
-                }
-                //bitmap.recycle();
-            } catch (IOException e) {
-                Log.e(TAG, "Could not close file.");
-            }
-        }
-    }
-    
     private String writeToFile(InputStream is, String filename) {
         Log.d("LDS", "new write to file");
         BufferedInputStream in = null;
@@ -225,86 +224,13 @@ public class ImageManager implements ImageCache {
         return mContext.getFilesDir() + "/" + filename;
     }
     
-    public Bitmap get(File file) {
-        return get(file.getPath());
-    }
+    
     
     /**
      * 判断缓存着中是否存在该文件对应的bitmap
      */
     public boolean isContains(String file) {
     	return mCache.containsKey(file);
-    }
-    
-    /**
-     * 获得指定file/URL对应的Bitmap，首先找本地文件，如果有直接使用，否则去网上获取
-     * @param file file URL/file PATH
-     * @param bitmap
-     * @param quality
-     * @throws HttpException 
-     */
-    public Bitmap safeGet(String file) throws HttpException {
-        Bitmap bitmap = lookupFile(file); // first try file.
-        
-        if (bitmap != null) {
-            synchronized (this) { // memory cache
-                mCache.put(file, new SoftReference<Bitmap>(bitmap));
-            }
-            return bitmap;
-        } else { //get from web
-        	String url = file;
-        	//TODO, 真正的下载文件方法
-            bitmap = downloadImage2(url);
-            
-            // 注释掉以测试新的写入文件方法
-            //put(file, bitmap); // file Cache
-            return bitmap;
-        }
-    }
-    
-    /**
-     * 从缓存器中读取文件
-     * @param file file URL/file PATH
-     * @param bitmap
-     * @param quality
-     */
-    public Bitmap get(String file) {
-        SoftReference<Bitmap> ref;
-        Bitmap bitmap;
-
-        // Look in memory first.
-        synchronized (this) {
-            ref = mCache.get(file);
-        }
-
-        if (ref != null) {
-            bitmap = ref.get();
-
-            if (bitmap != null) {
-                return bitmap;
-            }
-        }
-
-        // Now try file.
-        bitmap = lookupFile(file);
-
-        if (bitmap != null) {
-            synchronized (this) {
-                mCache.put(file, new SoftReference<Bitmap>(bitmap));
-            }
-
-            return bitmap;
-        }
-
-        //TODO: why?  
-        //upload: see profileImageCacheManager line 96
-        Log.w(TAG, "Image is missing: " + file);
-        // return the default photo
-        return mDefaultBitmap;
-    }
-
-    public boolean contains(String url) {
-        return get(url) != mDefaultBitmap;
     }
 
     public void clear() {
@@ -318,116 +244,106 @@ public class ImageManager implements ImageCache {
             mCache.clear();
         }
     }
-
-    public void cleanup(HashSet<String> keepers) {
-        String[] files = mContext.fileList();
-        HashSet<String> hashedUrls = new HashSet<String>();
-
-        for (String imageUrl : keepers) {
-            hashedUrls.add(getMd5(imageUrl));
-        }
-
-        for (String file : files) {
-            if (!hashedUrls.contains(file)) {
-                Log.d(TAG, "Deleting unused file: " + file);
-                mContext.deleteFile(file);
-            }
-        }
-    }
-    
-     
-    /**
-     * 保持长宽比缩小Bitmap
-     * 
-     * @param bitmap
-     * @param maxWidth
-     * @param maxHeight
-     * @param quality 1~100
-     * @return
-     */
-    public Bitmap resizeBitmap(Bitmap bitmap, int maxWidth, int maxHeight) {
-        
-        int originWidth  = bitmap.getWidth();
-        int originHeight = bitmap.getHeight();
-        
-        // no need to resize
-        if (originWidth < maxWidth && originHeight < maxHeight) { 
-            return bitmap;
-        }
-        
-        int newWidth  = originWidth;
-        int newHeight = originHeight;
-        
-        // 若图片过宽, 则保持长宽比缩放图片
-        if (originWidth > maxWidth) {
-            newWidth = maxWidth;
-            
-            double i = originWidth * 1.0 / maxWidth;
-            newHeight = (int) Math.floor(originHeight / i);
-        
-            bitmap = Bitmap.createScaledBitmap(bitmap, newWidth, newHeight, true);
-        }
-        
-        // 若图片过长, 则从中部截取
-        if (newHeight > maxHeight) {
-            newHeight = maxHeight;
-            
-        	int half_diff = (int)((originHeight - maxHeight)  / 2.0);
-            bitmap = Bitmap.createBitmap(bitmap, 0, half_diff, newWidth, newHeight);
-        }
-        
-        Log.d(TAG, newWidth + " width");
-        Log.d(TAG, newHeight + " height");
-        
-        return bitmap;
-    }
-
+ 
     
     /**
      * Compress and resize the Image
-     * 
-     * <br />
-     * 因为不论图片大小和尺寸如何, 饭否都会对图片进行一次有损压缩, 所以本地压缩应该
-     * 考虑图片将会被二次压缩所造成的图片质量损耗
-     * 
+     * 从相册或者相机中传递过来的图片文件：
+     * 为减小上传文件尺寸，做无损压缩处理
      * @param targetFile
      * @param quality, 0~100, recommend 100
      * @return
      * @throws IOException
      */
-//    public File compressImage(File targetFile, int quality) throws IOException {
-//        String filepath = targetFile.getAbsolutePath();
-//
-//        // 1. Calculate scale
-//        int scale = 1;
-//        BitmapFactory.Options o = new BitmapFactory.Options();
-//        o.inJustDecodeBounds = true;
-//        BitmapFactory.decodeFile(filepath, o);
-//        if (o.outWidth > IMAGE_MAX_WIDTH || o.outHeight > IMAGE_MAX_HEIGHT) {
-//            scale = (int) Math.pow( 2.0,
-//                    (int) Math.round(Math.log(IMAGE_MAX_WIDTH
-//                            / (double) Math.max(o.outHeight, o.outWidth))
-//                            / Math.log(0.5)));
-//            //scale = 2;
-//        }
-//        Log.d(TAG, scale + " scale");
-//
-//        // 2. File -> Bitmap (Returning a smaller image)
-//        o.inJustDecodeBounds = false;
-//        o.inSampleSize = scale;
-//        Bitmap bitmap = BitmapFactory.decodeFile(filepath, o);
-//
-//        // 2.1. Resize Bitmap
-//        //bitmap = resizeBitmap(bitmap, IMAGE_MAX_WIDTH, IMAGE_MAX_HEIGHT);
-//
-//        // 3. Bitmap -> File
-//        writeFile(filepath, bitmap, quality);
-//
-//        // 4. Get resized Image File
-//        String filePath = getMd5(targetFile.getPath());
-//        File compressedImage = mContext.getFileStreamPath(filePath);
-//        return compressedImage;
-//    }
+    public File compressImage(File targetFile, int quality)  {
+        String filepath = targetFile.getAbsolutePath();
+
+        // 1. Calculate scale
+        int scale = 1;
+        BitmapFactory.Options o = new BitmapFactory.Options();
+        o.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(filepath, o);
+        if (o.outWidth > IMAGE_MAX_WIDTH || o.outHeight > IMAGE_MAX_HEIGHT) {        	
+        	//缩小为1/4
+            scale = 2;
+        	Log.d(TAG, scale + " scale");
+        }
+
+        // 2. File -> Bitmap (Returning a smaller image)
+        o.inJustDecodeBounds = false;
+        o.inSampleSize = scale;
+        Bitmap bitmap = BitmapFactory.decodeFile(filepath, o);
+
+        // 3. Bitmap -> File
+        String compressedFile = writeCompressedFile(filepath, bitmap, quality);
+        File compressedImage = mContext.getFileStreamPath(compressedFile);
+        
+        return compressedImage;
+    }
+    
+    /**
+     * 将Bitmap写入应用目录.
+     * @param file URL/PATH
+     * @param bitmap
+     * @param quality
+     */
+    private String writeCompressedFile(String file, Bitmap bitmap, int quality) {
+        if (bitmap == null) {
+            Log.w(TAG, "Can't write file. Bitmap is null.");
+            return null;
+        }
+        String hashedUrl = null;
+        //分析文件名
+        String imgType = null;
+        if(file.endsWith("jpg")){
+        	imgType = ".jpg";
+        }else if(file.endsWith("png")){
+        	imgType = ".png";
+        }
+        BufferedOutputStream bos = null;
+        try {
+        	hashedUrl = getMd5(file);
+            //补充文件名后缀，否则上传时出错
+            if(imgType!=null) hashedUrl += imgType;
+            bos = new BufferedOutputStream(
+                    mContext.openFileOutput(hashedUrl, Context.MODE_PRIVATE));
+            //压缩文件到私有目录下
+            bitmap.compress(Bitmap.CompressFormat.JPEG, quality, bos); // PNG
+            Log.d(TAG, "Writing file: " + file);
+        } catch (IOException ioe) {
+            Log.e(TAG, ioe.getMessage());
+        } finally {
+            try {
+                if (bos != null) {
+                    bitmap.recycle();
+                    bos.flush();
+                    bos.close();
+                }
+                //bitmap.recycle();
+            } catch (IOException e) {
+                Log.e(TAG, "Could not close file.");
+            }
+        }
+        return hashedUrl;
+    }
+    
+    private static Bitmap drawableToBitmap(Drawable drawable) {
+    	Bitmap bitmap = Bitmap
+    			.createBitmap(
+    					drawable.getIntrinsicWidth(),
+    					drawable.getIntrinsicHeight(),
+    					drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
+    							: Bitmap.Config.RGB_565);
+    	Canvas canvas = new Canvas(bitmap);
+    	drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable
+    			.getIntrinsicHeight());
+    	drawable.draw(canvas);
+    	return bitmap;
+    }
+  
+    
+    
+// ---------------------Currently  useless methods, DO NOT DELETE! ----------------------
     
     
     /**
@@ -489,5 +405,106 @@ public class ImageManager implements ImageCache {
 //            put(file.getPath(), bitmap, quality);
 //        }
 //    }
+    
 
+//  public Bitmap get(File file) {
+//      return get(file.getPath());
+//  }
+    
+    /**
+     * 保持长宽比缩小Bitmap
+     * 
+     * @param bitmap
+     * @param maxWidth
+     * @param maxHeight
+     * @param quality 1~100
+     * @return
+     */
+//    public Bitmap resizeBitmap(Bitmap bitmap, int maxWidth, int maxHeight) {
+//        
+//        int originWidth  = bitmap.getWidth();
+//        int originHeight = bitmap.getHeight();
+//        
+//        // no need to resize
+//        if (originWidth < maxWidth && originHeight < maxHeight) { 
+//            return bitmap;
+//        }
+//        
+//        int newWidth  = originWidth;
+//        int newHeight = originHeight;
+//        
+//        // 若图片过宽, 则保持长宽比缩放图片
+//        if (originWidth > maxWidth) {
+//            newWidth = maxWidth;
+//            
+//            double i = originWidth * 1.0 / maxWidth;
+//            newHeight = (int) Math.floor(originHeight / i);
+//        
+//            bitmap = Bitmap.createScaledBitmap(bitmap, newWidth, newHeight, true);
+//        }
+//        
+//        // 若图片过长, 则从中部截取
+//        if (newHeight > maxHeight) {
+//            newHeight = maxHeight;
+//            
+//        	int half_diff = (int)((originHeight - maxHeight)  / 2.0);
+//            bitmap = Bitmap.createBitmap(bitmap, 0, half_diff, newWidth, newHeight);
+//        }
+//        
+//        Log.d(TAG, newWidth + " width");
+//        Log.d(TAG, newHeight + " height");
+//        
+//        return bitmap;
+//    }
+
+//  public void cleanup(HashSet<String> keepers) {
+//  String[] files = mContext.fileList();
+//  HashSet<String> hashedUrls = new HashSet<String>();
+//
+//  for (String imageUrl : keepers) {
+//      hashedUrls.add(getMd5(imageUrl));
+//  }
+//
+//  for (String file : files) {
+//      if (!hashedUrls.contains(file)) {
+//          Log.d(TAG, "Deleting unused file: " + file);
+//          mContext.deleteFile(file);
+//      }
+//  }
+//}
+
+    /**
+     * Downloads a file
+     * @param url
+     * @return
+     * @throws HttpException 
+     */
+//    public Bitmap downloadImage(String url) throws HttpException {
+//        Log.d(TAG, "Fetching image: " + url);
+//        Response res = PintuApp.mApi.getImgByUrl(url);
+//        return BitmapFactory.decodeStream(new BufferedInputStream(res.asStream()));
+//    }
+
+//    public void setContext(Context context) {
+//        mContext = context;
+//    }
+
+
+//  public boolean contains(String url) {
+//      return get(url) != mDefaultBitmap;
+//  }   
+    
+    /** 以前用该方法是配合downloadImage，后来不用了
+	 * 重载 put(String file, Bitmap bitmap, int quality)
+	 * @param filePath file path
+	 * @param bitmap
+	 * @param quality 1~100
+	 */
+//	public void put(String file, Bitmap bitmap) {
+//		synchronized (this) {
+//			mCache.put(file, new SoftReference<Bitmap>(bitmap));
+//		}
+//		writeFile(file, bitmap, DEFAULT_COMPRESS_QUALITY);
+//	}
+    
 }

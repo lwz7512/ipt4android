@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.pintu.api.PTApi;
 import com.pintu.http.HttpException;
+import com.pintu.tool.SimpleImageLoader;
 
 public class SendTask extends GenericTask {
 	
@@ -43,6 +44,14 @@ public class SendTask extends GenericTask {
 				String description = param.getString("description");
 				String allowStory = param.getString("allowStory");
 				if (null != mFile) {
+					//尝试无损压缩图片，以减小上传文件尺寸，
+					//图片质量90%，宽高范围：1200/800，超范围缩小3/4
+					//可以大幅减小文件尺寸
+					try{
+						mFile = SimpleImageLoader.compressRawImage(mFile);					
+					}catch(Exception e){
+						Log.e("SendTask","Compress image file Error!");
+					}
 					// 发送图片
 					postResult = api.postPicture(mFile, tags, description, allowStory);
 				} else {

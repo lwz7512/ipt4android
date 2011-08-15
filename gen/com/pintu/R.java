@@ -184,11 +184,6 @@ public final class R {
         public static final int camera_button=0x7f090014;
         public static final int choose_images_button=0x7f090015;
         public static final int description=0x7f090011;
-        public static final int footer_btn_fav=0x7f090003;
-        public static final int footer_btn_more=0x7f090004;
-        public static final int footer_btn_reply=0x7f090001;
-        public static final int footer_btn_retweet=0x7f090002;
-        public static final int footer_btn_share=0x7f090000;
         public static final int gvTopBar=0x7f09000b;
         public static final int layout_root=0x7f09000e;
         public static final int logo=0x7f090007;
@@ -201,6 +196,11 @@ public final class R {
         public static final int top_back=0x7f090005;
         public static final int top_refresh_progressBar=0x7f090009;
         public static final int top_send_btn=0x7f09000a;
+        public static final int tv_community=0x7f090002;
+        public static final int tv_gallery=0x7f090000;
+        public static final int tv_hotpic=0x7f090001;
+        public static final int tv_market=0x7f090003;
+        public static final int tv_mine=0x7f090004;
     }
     public static final class layout {
         public static final int footer_home=0x7f030000;
@@ -210,120 +210,126 @@ public final class R {
         public static final int headswitch=0x7f030004;
         public static final int homegallery=0x7f030005;
         public static final int main=0x7f030006;
-        public static final int postpic=0x7f030007;
-        public static final int test=0x7f030008;
+        public static final int picdetail=0x7f030007;
+        public static final int postpic=0x7f030008;
+        public static final int test=0x7f030009;
     }
     public static final class string {
         public static final int allow_story=0x7f070002;
         public static final int app_name=0x7f070001;
-        public static final int cmenu_add_fav=0x7f070024;
-        public static final int cmenu_clipboard=0x7f070028;
-        public static final int cmenu_del_fav=0x7f070025;
-        public static final int cmenu_delete=0x7f070026;
-        public static final int cmenu_direct_message=0x7f070023;
-        public static final int cmenu_more=0x7f070029;
+        public static final int cmenu_add_fav=0x7f070029;
+        public static final int cmenu_clipboard=0x7f07002d;
+        public static final int cmenu_del_fav=0x7f07002a;
+        public static final int cmenu_delete=0x7f07002b;
+        public static final int cmenu_direct_message=0x7f070028;
+        public static final int cmenu_more=0x7f07002e;
         /**  context menu 
          */
-        public static final int cmenu_reply=0x7f070021;
-        public static final int cmenu_retweet=0x7f070022;
-        public static final int cmenu_share=0x7f070027;
-        public static final int cmenu_user_addfriend_prefix=0x7f07002c;
-        public static final int cmenu_user_delfriend_prefix=0x7f07002e;
-        public static final int cmenu_user_friend_suffix=0x7f07002d;
-        public static final int cmenu_user_profile_prefix=0x7f07002a;
-        public static final int cmenu_user_send_prefix=0x7f07002f;
-        public static final int cmenu_user_senddm_suffix=0x7f070030;
-        public static final int cmenu_user_sendmention_suffix=0x7f070031;
-        public static final int cmenu_user_status=0x7f07002b;
+        public static final int cmenu_reply=0x7f070026;
+        public static final int cmenu_retweet=0x7f070027;
+        public static final int cmenu_share=0x7f07002c;
+        public static final int cmenu_user_addfriend_prefix=0x7f070031;
+        public static final int cmenu_user_delfriend_prefix=0x7f070033;
+        public static final int cmenu_user_friend_suffix=0x7f070032;
+        public static final int cmenu_user_profile_prefix=0x7f07002f;
+        public static final int cmenu_user_send_prefix=0x7f070034;
+        public static final int cmenu_user_senddm_suffix=0x7f070035;
+        public static final int cmenu_user_sendmention_suffix=0x7f070036;
+        public static final int cmenu_user_status=0x7f070030;
+        public static final int community=0x7f070007;
         public static final int description=0x7f070003;
         /**  错误提示 
          */
-        public static final int error_not_authorized=0x7f070016;
-        public static final int error_server_down=0x7f070017;
+        public static final int error_not_authorized=0x7f07001b;
+        public static final int error_server_down=0x7f07001c;
+        public static final int gallery=0x7f070005;
         /**  爱品图专属文字 
          */
         public static final int hello=0x7f070000;
-        public static final int login_label_password=0x7f070033;
-        public static final int login_label_signin=0x7f070034;
+        public static final int hotpic=0x7f070006;
+        public static final int login_label_password=0x7f070038;
+        public static final int login_label_signin=0x7f070039;
         /**  Login页面 
          */
-        public static final int login_label_username=0x7f070032;
-        public static final int login_register_link=0x7f070039;
-        public static final int login_status_failure=0x7f07003a;
-        public static final int login_status_invalid_username_or_password=0x7f070037;
-        public static final int login_status_logging_in=0x7f070035;
-        public static final int login_status_network_or_connection_error=0x7f070038;
-        public static final int login_status_null_username_or_password=0x7f070036;
-        public static final int omenu_about=0x7f07001f;
-        public static final int omenu_exit=0x7f070020;
-        public static final int omenu_preferences=0x7f07001c;
-        public static final int omenu_refresh=0x7f07001b;
-        public static final int omenu_search=0x7f07001e;
-        public static final int omenu_settings=0x7f07001d;
+        public static final int login_label_username=0x7f070037;
+        public static final int login_register_link=0x7f07003e;
+        public static final int login_status_failure=0x7f07003f;
+        public static final int login_status_invalid_username_or_password=0x7f07003c;
+        public static final int login_status_logging_in=0x7f07003a;
+        public static final int login_status_network_or_connection_error=0x7f07003d;
+        public static final int login_status_null_username_or_password=0x7f07003b;
+        public static final int market=0x7f070008;
+        public static final int mine=0x7f070009;
+        public static final int omenu_about=0x7f070024;
+        public static final int omenu_exit=0x7f070025;
+        public static final int omenu_preferences=0x7f070021;
+        public static final int omenu_refresh=0x7f070020;
+        public static final int omenu_search=0x7f070023;
+        public static final int omenu_settings=0x7f070022;
         /**  options menu 
          */
-        public static final int omenu_signout=0x7f07001a;
-        public static final int page_dm_texting_is_null=0x7f070012;
-        public static final int page_dm_user_is_null=0x7f070014;
-        public static final int page_is_the_person_following_you=0x7f070015;
+        public static final int omenu_signout=0x7f07001f;
+        public static final int page_dm_texting_is_null=0x7f070017;
+        public static final int page_dm_user_is_null=0x7f070019;
+        public static final int page_is_the_person_following_you=0x7f07001a;
         /**  按钮提示 
          */
-        public static final int page_label_get_more=0x7f070018;
-        public static final int page_label_go_back=0x7f070019;
-        public static final int page_status_deleting=0x7f07000d;
+        public static final int page_label_get_more=0x7f07001d;
+        public static final int page_label_go_back=0x7f07001e;
+        public static final int page_status_deleting=0x7f070012;
         /**  状态条提示  
          */
-        public static final int page_status_refreshing=0x7f07000b;
-        public static final int page_status_same_page=0x7f070011;
-        public static final int page_status_timeout=0x7f070010;
-        public static final int page_status_unable_to_update=0x7f07000f;
-        public static final int page_status_update_success=0x7f07000e;
-        public static final int page_status_updating=0x7f07000c;
-        public static final int page_text_is_null=0x7f070013;
-        public static final int page_title_browse=0x7f070009;
-        public static final int page_title_direct_messages=0x7f070006;
-        public static final int page_title_favorites=0x7f070007;
+        public static final int page_status_refreshing=0x7f070010;
+        public static final int page_status_same_page=0x7f070016;
+        public static final int page_status_timeout=0x7f070015;
+        public static final int page_status_unable_to_update=0x7f070014;
+        public static final int page_status_update_success=0x7f070013;
+        public static final int page_status_updating=0x7f070011;
+        public static final int page_text_is_null=0x7f070018;
+        public static final int page_title_browse=0x7f07000e;
+        public static final int page_title_direct_messages=0x7f07000b;
+        public static final int page_title_favorites=0x7f07000c;
         /**  页面Title 
          */
-        public static final int page_title_home=0x7f070005;
-        public static final int page_title_mentions=0x7f070008;
-        public static final int page_title_write=0x7f07000a;
-        public static final int pref_network_type_3g=0x7f070048;
-        public static final int pref_network_type_cmnet=0x7f070046;
-        public static final int pref_network_type_cmwap=0x7f070047;
-        public static final int pref_network_type_summary=0x7f070049;
-        public static final int pref_network_type_title=0x7f070045;
-        public static final int pref_photo_preview_type_middle=0x7f07004c;
+        public static final int page_title_home=0x7f07000a;
+        public static final int page_title_mentions=0x7f07000d;
+        public static final int page_title_write=0x7f07000f;
+        public static final int pref_network_type_3g=0x7f07004d;
+        public static final int pref_network_type_cmnet=0x7f07004b;
+        public static final int pref_network_type_cmwap=0x7f07004c;
+        public static final int pref_network_type_summary=0x7f07004e;
+        public static final int pref_network_type_title=0x7f07004a;
+        public static final int pref_photo_preview_type_middle=0x7f070051;
         /**  图片设置 
          */
-        public static final int pref_photo_preview_type_none=0x7f07004a;
-        public static final int pref_photo_preview_type_original=0x7f07004d;
+        public static final int pref_photo_preview_type_none=0x7f07004f;
+        public static final int pref_photo_preview_type_original=0x7f070052;
         /**  NOTE:缩略图尺寸在这里没有实用价值，在array.xml中被屏蔽 
          */
-        public static final int pref_photo_preview_type_thumbnail=0x7f07004b;
+        public static final int pref_photo_preview_type_thumbnail=0x7f070050;
         /**  网络监测与设置 
          */
-        public static final int pref_title_network=0x7f070044;
+        public static final int pref_title_network=0x7f070049;
         public static final int tags=0x7f070004;
-        public static final int tweet_created_at_beautify_day=0x7f070052;
-        public static final int tweet_created_at_beautify_hour=0x7f070051;
-        public static final int tweet_created_at_beautify_min=0x7f070050;
+        public static final int tweet_created_at_beautify_day=0x7f070057;
+        public static final int tweet_created_at_beautify_hour=0x7f070056;
+        public static final int tweet_created_at_beautify_min=0x7f070055;
         /**  时间 
          */
-        public static final int tweet_created_at_beautify_prefix=0x7f07004e;
-        public static final int tweet_created_at_beautify_sec=0x7f07004f;
-        public static final int tweet_created_at_beautify_suffix=0x7f070053;
-        public static final int write_label_choose_a_picture=0x7f070040;
-        public static final int write_label_choose_images=0x7f07003d;
-        public static final int write_label_insert_picture=0x7f070041;
+        public static final int tweet_created_at_beautify_prefix=0x7f070053;
+        public static final int tweet_created_at_beautify_sec=0x7f070054;
+        public static final int tweet_created_at_beautify_suffix=0x7f070058;
+        public static final int write_label_choose_a_picture=0x7f070045;
+        public static final int write_label_choose_images=0x7f070042;
+        public static final int write_label_insert_picture=0x7f070046;
         /**  Write页面 
          */
-        public static final int write_label_send=0x7f07003b;
-        public static final int write_label_send_hint=0x7f07003c;
-        public static final int write_label_send_in_background=0x7f07003e;
-        public static final int write_label_take_a_picture=0x7f07003f;
-        public static final int write_label_you_can_type_prefix=0x7f070042;
-        public static final int write_label_you_can_type_suffix=0x7f070043;
+        public static final int write_label_send=0x7f070040;
+        public static final int write_label_send_hint=0x7f070041;
+        public static final int write_label_send_in_background=0x7f070043;
+        public static final int write_label_take_a_picture=0x7f070044;
+        public static final int write_label_you_can_type_prefix=0x7f070047;
+        public static final int write_label_you_can_type_suffix=0x7f070048;
     }
     public static final class style {
         public static final int Button=0x7f080016;
