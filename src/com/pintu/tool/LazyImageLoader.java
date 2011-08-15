@@ -92,9 +92,10 @@ public class LazyImageLoader {
         }
     }
     
-//------------ handler for  UI refresh -----------------------------
+//TODO, ------------ handler for  GetImageTask, to  refresh UI ------------
  
-    Handler handler = new Handler() {
+    //注意：在一个上下文中，只能有一个Handler，一个Handler对应一个线程
+   private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -113,6 +114,7 @@ public class LazyImageLoader {
     
     
 //----------------- GetImageTask ---------------------------------------------
+  
     private class GetImageTask extends Thread {
         private volatile boolean mTaskTerminated = false;
         private static final int TIMEOUT = 3 * 60;
@@ -132,7 +134,7 @@ public class LazyImageLoader {
                         } // no more, shutdown
                     }
 
-                    // FIXME, 真正的调用图片管理器的下载方法
+                    //TODO, 真正的调用图片管理器的下载方法
                     final Bitmap bitmap = mImageManager.safeGet(url);
 
                     // use handler to process callback
@@ -166,7 +168,8 @@ public class LazyImageLoader {
         public void shutDown() throws InterruptedException {
             mTaskTerminated = true;
         }
-    }
+        
+    } //end of  GetImageTask
 
 
 
