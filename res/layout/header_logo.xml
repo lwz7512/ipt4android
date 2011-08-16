@@ -13,20 +13,21 @@
             android:background="@null"
 			android:layout_width="wrap_content" 
 			android:layout_height="wrap_content"
-			android:src="@drawable/top_msg_selector"            
+			android:src="@drawable/icon"            
             android:layout_alignParentLeft="true"            
             android:layout_centerVertical="true"
             android:layout_marginLeft="2dp"
            />
           
-         <!-- LOGO -->
-         <ImageView android:id="@+id/logo" 
-	    	android:layout_width="wrap_content"
-			android:layout_height="wrap_content"		
-			android:src="@drawable/icon"
-			android:layout_centerHorizontal="true"
+        <!-- 首页标题 -->
+        <TextView android:id="@+id/home_title"            
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
 			android:layout_centerVertical="true"
-			/>
+			style="@style/normalText.Big.While"
+			android:text="@string/gallery"			        
+           /> 
            
         <!-- 刷新按钮 -->
         <ImageButton

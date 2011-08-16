@@ -5,13 +5,15 @@
       android:versionName="1.0">
     <uses-sdk android:minSdkVersion="7" />
 	<supports-screens android:anyDensity="true"/>
-    <application android:name="PintuApp" android:icon="@drawable/icon" android:label="@string/app_name">
+    <application android:name="PintuApp" android:icon="@drawable/icon" android:label="@string/app_name">        
+        <!-- 首页画廊 -->
         <activity android:name=".activity.HomeGallery">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>        
+        </activity> 
+        <!-- 贴图编辑 -->          
         <activity android:name=".activity.PictureEdit">
             <intent-filter>
                 <action android:name="com.pintu.activity.sendpic"/>
@@ -23,7 +25,15 @@
                 <data android:mimeType="image/*"/>
                 <data android:mimeType="text/plain"/>
             </intent-filter>            
-        </activity>		 
+        </activity> 
+        <!-- 贴图详情，路径可不能写错啊 -->       
+        <activity android:name=".activity.DetailPicture">
+            <intent-filter>
+                <action android:name="com.pintu.activity.viewdetails"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>
+        <!-- add other activity... -->		 
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>

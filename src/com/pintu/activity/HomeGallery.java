@@ -31,24 +31,30 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class HomeGallery extends FullScreenActivity {
 	
 	static final String TAG = "HomeGallery";
 	
-	private ImageButton postImg;
 	
-	private GridView gallery;
-	private GalleryImageAdapter gridAdptr;
-	
-	private ImageButton refresh;
-	
+	//Header
+	private ImageButton refresh;	
 	private ProgressBar progressbar;
 	
+	//Grid
+	private GridView gallery;
+	
+	//Footer
+	private TextView tv_post;
+	
+	private GalleryImageAdapter gridAdptr;
 	private GenericTask mRetrieveTask;
 	
     // Refresh data at startup if last refresh was this long ago or greater.
@@ -78,25 +84,38 @@ public class HomeGallery extends FullScreenActivity {
     }
 	
 	private void getViews(){
-		postImg = (ImageButton)findViewById(R.id.post_image_btn);
+		
+		refresh = (ImageButton)findViewById(R.id.refresh_btn);
+		progressbar = (ProgressBar)findViewById(R.id.top_refresh_progressBar);
 		
 		gallery = (GridView)findViewById(R.id.ptgallery);
 		//初始化画廊数据
 		gridAdptr = new GalleryImageAdapter(this);
 		gallery.setAdapter(gridAdptr);
 		
-		refresh = (ImageButton)findViewById(R.id.refresh_btn);
-		progressbar = (ProgressBar)findViewById(R.id.top_refresh_progressBar);
+		tv_post = (TextView)findViewById(R.id.tv_post);
 	}
 	
-	private void addEventListeners(){
+	private void addEventListeners(){		
+		refresh.setOnClickListener(refreshListener);		
+		gallery.setOnItemClickListener(cellClickListener);
 		
-		postImg.setOnClickListener(postImgListener);
-		refresh.setOnClickListener(refreshListener);
-		
-		//TODO, 添加点击画廊看详情的动作
-		
+		tv_post.setOnClickListener(postImgListener);
 	}
+	
+	private OnItemClickListener cellClickListener = new OnItemClickListener() {
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			// 将截图ID取出来，送到详情活动中查询
+			TPicDesc cellSelected = gridAdptr.getItem(position);
+			String tpId = cellSelected.tpId;
+			Intent it = new Intent();
+			it.setClass(HomeGallery.this, DetailPicture.class);			
+			it.putExtra("tpId", tpId);
+			//打开详情活动
+			startActivity(it);
+		}		
+	};
 	
 	private OnClickListener postImgListener = new OnClickListener(){
 			public void onClick(View v){
@@ -211,7 +230,7 @@ public class HomeGallery extends FullScreenActivity {
 	}
 	
 	
-//TODO,	------------------- option menu definition ---------------------------------
+//------------------- option menu definition ---------------------------------
 
     protected static final int OPTIONS_MENU_ID_LOGOUT = 1;
     protected static final int OPTIONS_MENU_ID_PREFERENCES = 2;
