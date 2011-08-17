@@ -29,13 +29,12 @@ public class RetrieveGalleryTask extends GenericTask {
     protected TaskResult _doInBackground(TaskParams... params) {
     	TaskParams param = params[0];
         //根据参数查询缩略图
-    	PTApi api = (PTApi) param.get("api");
     	String startTime = param.get("startTime").toString();
     	String endTime = param.get("endTime").toString();
     	//向底层发请求
     	JSONArray jsPics = null;
 		try {
-			jsPics = api.getCommunityPicsByTime(startTime, endTime);
+			jsPics = PintuApp.mApi.getCommunityPicsByTime(startTime, endTime);
 		} catch (HttpException e) {
 			e.printStackTrace();
 			return TaskResult.FAILED;
@@ -64,7 +63,7 @@ public class RetrieveGalleryTask extends GenericTask {
     				item.status = jsPics.getJSONObject(i).getString("status");
     				item.creationTime = jsPics.getJSONObject(i).getString("creationTime");
     				//根据ID获取URL路径
-    				String tbnlUrl = PintuApp.mApi.composeImgUrl(item.thumbnailId);
+    				String tbnlUrl = PintuApp.mApi.composeImgUrlById(item.thumbnailId);
     				item.url = tbnlUrl;
     				retrievedPics.add(item);
     			}

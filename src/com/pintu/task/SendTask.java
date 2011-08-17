@@ -4,6 +4,7 @@ import java.io.File;
 
 import android.util.Log;
 
+import com.pintu.PintuApp;
 import com.pintu.api.PTApi;
 import com.pintu.http.HttpException;
 import com.pintu.tool.SimpleImageLoader;
@@ -23,10 +24,10 @@ public class SendTask extends GenericTask {
 		TaskParams param = params[0];
 		try {
 
-			PTApi api = (PTApi) param.get("api");
 			int mode = param.getInt("mode");
 
-			// Log.d(TAG, "Send Status. Mode : " + mode);
+			//TODO, 将来要发送故事、评论、投票、消息、贴条子等操作。。。
+			//以及还有转发。。。
 
 			switch (mode) {
 
@@ -53,7 +54,7 @@ public class SendTask extends GenericTask {
 						Log.e("SendTask","Compress image file Error!");
 					}
 					// 发送图片
-					postResult = api.postPicture(mFile, tags, description, allowStory);
+					postResult = PintuApp.mApi.postPicture(mFile, tags, description, allowStory);
 				} else {
 					Log.e("SendTask",
 							"Cann't send status in PICTURE mode, photo is null");

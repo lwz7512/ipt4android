@@ -308,7 +308,6 @@ public class PictureEdit extends FullScreenActivity {
 			params.put("description", description);
 			params.put("tags", tags);
 			params.put("allowStory", storyable ? "1" : "0");
-			params.put("api", PintuApp.mApi);
 			mSendTask.execute(params);
 
 		} else {

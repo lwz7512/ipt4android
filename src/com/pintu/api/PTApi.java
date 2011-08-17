@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.apache.http.client.ClientProtocolException;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.pintu.http.HttpException;
 import com.pintu.http.Response;
@@ -22,14 +23,23 @@ public interface PTApi {
 	public static final String GETGALLERYBYTIME = "getGalleryByTime";
 	
 	public static final String GETIMAGEFILE = "getImageFile";
+	
+	public static final String GETIMAGEBYPATH = "getImageByPath";
+	
+	public static final String GETPICDETAIL = "getPicDetail";
 
 	//贴一张图
 	public String postPicture(File pic, String tags,String desc, String allowStory) throws HttpException;
 	//根据编号合成URL地址，图片类型可以从编号后缀解析出来
-	public String composeImgUrl(String imgId);
+	public String composeImgUrlById(String imgId);
+	//根据文件磁盘路径获取该图片的请求url
+	public String composeImgUrlByPath(String imgPath);
 	//获取一个图片响应，图形包含在响应流中
 	public Response getImgByUrl(String url) throws HttpException ;
 	//获取指定时间的画廊数据
 	public JSONArray getCommunityPicsByTime(String startTime, String endTime) throws HttpException, JSONException;
+	//获得贴图详情数据
+	public JSONObject getPictureDetailsById(String tpId) throws HttpException,JSONException;
+	
 	
 }

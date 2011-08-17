@@ -1,124 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"  	
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:background="@color/body_background">
-  
-   <!-- Header -->
-   <include layout="@layout/header_back"/>
-   <!-- 个人栏 -->
-   <RelativeLayout 
-        android:layout_width="fill_parent"
-        android:layout_height="56dp"
-        android:paddingTop="10dp"
-        android:paddingRight="15dp"
-        android:paddingLeft="10dp">
-        <!-- profile image -->
-		<FrameLayout android:id="@+id/profile_image_wrapper"
-			   android:layout_width="48dp"
-			   android:layout_height="48dp"
-			   android:layout_marginRight="10dp"
-	           android:layout_alignParentLeft="true">
-		     <ImageView
-	         	 android:id="@+id/profile_image"
-		         android:src="@drawable/user_default_photo"
-	             android:layout_width="fill_parent"
-		         android:layout_height="fill_parent"/>
-		     <!-- image corner -->
-		     <ImageView
-		         android:background="@drawable/images_border_radius"
-		         android:layout_width="fill_parent"
-		         android:layout_height="fill_parent"/>
-	 	</FrameLayout>
-  
-        <!-- 用户名 -->
-        <TextView android:id="@+id/user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/profile_image_wrapper"            
-            android:text="user name"
-            style="@style/LinkText.Bold.Huge"/>
-        <!-- 用户资料 -->
-        <TextView android:id="@+id/user_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/user_name"
-            android:layout_alignLeft="@id/user_name"
-            android:text="user level"
-            style="@style/normalText.span"/>
-        <!-- 发布时间 ，加一个marginTop使得它与user_name对齐-->    
-        <TextView android:id="@+id/created_at"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="4dp"
-                android:text="2011/08/16"
-                style="@style/normalText.span"/>            
-        <!-- More -->
-        <ImageButton android:id="@+id/person_more"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_alignParentRight="true"            
-            android:layout_marginRight="8dp"
-            android:layout_below="@id/created_at"                       
-            android:src="@drawable/status_arr_selector" 
-            android:background="@null"/>
-    </RelativeLayout>
-    <!-- 分割线 -->
-	<View android:id="@+id/spacer" 
-		android:background="@drawable/tweet_details_divider"
-		android:clickable="true" 
-		android:layout_width="fill_parent"
-		android:layout_height="20dip" 
-		android:minHeight="20dip" />    
-    <!-- 消息图片 -->
-    <ImageView android:id="@+id/t_picture"
-         android:layout_width="fill_parent"
-         android:layout_height="fill_parent"
-         android:scaleType="centerInside"
-         android:src="@drawable/twitter_follow_me"
-         android:layout_margin="10dp"
-         android:padding="10dp"
-         android:maxWidth="460px"
-         android:layout_weight="1"/>
-     <!-- 信息属性 -->
-     <RelativeLayout 
-            android:layout_width="fill_parent"
-            android:layout_height="44dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="25dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="10dp">
-            <!-- 图片来源 -->
-            <TextView android:id="@+id/send_source"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentBottom="true"
-                android:text="from..."
-                style="@style/normalText.span"/>
-            <!-- 品图数目 -->   
-            <Button android:id="@+id/storynum" 
-             	android:layout_width="wrap_content"
-             	android:layout_height="wrap_content"
-			    android:layout_toLeftOf="@+id/commentnum" 
-			    android:layout_marginRight="5dp"            	             	
-				android:drawablePadding="5dip"	
-				android:drawableLeft="@drawable/notify_tweet_template"			
-			    android:text="xx"
-			    style="@style/Button"/>
-            <!-- 评论数目 -->   
-            <Button android:id="@+id/commentnum" 
-             	android:layout_width="wrap_content"
-             	android:layout_height="wrap_content"
-             	android:layout_alignParentRight="true"             	
-				android:drawablePadding="5dip"	
-				android:drawableLeft="@drawable/notify_mention"		
-			    android:text="xx"
-			    style="@style/Button"/>             	  
-   </RelativeLayout>		       
-   <!-- footer TODO: 更换背景色 -->
-   <include android:id="@+id/footer" layout="@layout/footer_detail" />    
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" android:background="@color/body_background">
+	<!-- Header -->
+	<include layout="@layout/header_back" />
+	<!-- 需要滚动视图来展现描述和标签内容 -->
+	<ScrollView android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:layout_weight="1">
+		<!-- 滚动视图中只能有唯一一个视图 -->
+		<LinearLayout android:orientation="vertical"
+			android:layout_width="fill_parent" android:layout_height="fill_parent">
+			<!-- 个人栏 -->
+			<RelativeLayout android:layout_width="fill_parent"
+				android:layout_height="56dp" android:paddingTop="10dp"
+				android:paddingRight="15dp" android:paddingLeft="10dp">
+				<!-- profile image -->
+				<FrameLayout android:id="@+id/profile_image_wrapper"
+					android:layout_width="48dp" android:layout_height="48dp"
+					android:layout_marginRight="10dp" android:layout_alignParentLeft="true">
+					<ImageView android:id="@+id/profile_image" android:src="@drawable/user_default_photo"
+						android:layout_width="fill_parent" android:layout_height="fill_parent" />
+					<!-- image corner -->
+					<ImageView android:background="@drawable/images_border_radius"
+						android:layout_width="fill_parent" android:layout_height="fill_parent" />
+				</FrameLayout>
+				<!-- 用户名 -->
+				<TextView android:id="@+id/user_name" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:layout_toRightOf="@id/profile_image_wrapper"
+					android:text="user name" style="@style/LinkText.Bold.Huge" />
+				<!-- 用户资料 -->
+				<TextView android:id="@+id/user_info" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:layout_below="@id/user_name"
+					android:layout_alignLeft="@id/user_name" android:text="user level"
+					style="@style/normalText.span" />
+				<!-- 发布时间 ，加一个marginTop使得它与user_name对齐 -->
+				<TextView android:id="@+id/created_at"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentRight="true" android:layout_marginRight="8dp"
+					android:layout_marginTop="4dp" android:text="2011/08/16"
+					style="@style/normalText.span" />
+				<!-- More -->
+				<ImageButton android:id="@+id/person_more"
+					android:layout_width="wrap_content" android:layout_height="fill_parent"
+					android:layout_alignParentRight="true" android:layout_marginRight="8dp"
+					android:layout_below="@id/created_at" android:src="@drawable/status_arr_selector"
+					android:background="@null" />
+			</RelativeLayout>
+			<!-- 分割线 -->
+			<View android:id="@+id/spacer" android:background="@drawable/tweet_details_divider"
+				android:clickable="true" android:layout_width="fill_parent"
+				android:layout_height="20dip" android:minHeight="20dip" />
+			<!-- 消息图片 -->
+			<ImageView android:id="@+id/t_picture"
+				android:layout_width="fill_parent" android:layout_height="fill_parent"
+				android:scaleType="centerInside" android:src="@drawable/twitter_follow_me"
+				android:layout_margin="10dp" android:padding="10dp"
+				android:maxWidth="460px" android:layout_weight="1" />
+			<!-- 描述和标签 -->
+			<LinearLayout android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:orientation="vertical"
+				android:paddingLeft="10dp">
+				<!-- 标签 -->
+				<TextView android:id="@+id/tv_tags" android:layout_width="fill_parent"
+					android:layout_height="wrap_content" android:text="Tags"
+					style="@style/normalText.span" />
+				<!-- 描述 -->
+				<TextView android:id="@+id/tv_description"
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+					android:text="Description" style="@style/normalText.span" />
+			</LinearLayout>
+			<!-- 信息属性 -->
+			<RelativeLayout android:layout_width="fill_parent"
+				android:layout_height="44dp" android:paddingLeft="10dp"
+				android:paddingRight="25dp" android:paddingTop="5dp"
+				android:paddingBottom="10dp">
+				<!-- 图片来源 -->
+				<TextView android:id="@+id/send_source"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:layout_alignParentBottom="true" android:text="from..."
+					style="@style/normalText.span" />
+				<!-- 品图数目 -->
+				<Button android:id="@+id/storynum" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:layout_toLeftOf="@+id/commentnum"
+					android:layout_marginRight="5dp" android:drawablePadding="5dip"
+					android:drawableLeft="@drawable/notify_tweet_template"
+					android:text="0" style="@style/Button" />
+				<!-- 评论数目 -->
+				<Button android:id="@+id/commentnum" android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true" android:drawablePadding="5dip"
+					android:drawableLeft="@drawable/notify_mention" android:text="0"
+					style="@style/Button" />
+			</RelativeLayout>
+		</LinearLayout>
+	</ScrollView>
+	<!-- footer TODO: 更换背景色 -->
+	<include android:id="@+id/footer" layout="@layout/footer_detail" />
 </LinearLayout>

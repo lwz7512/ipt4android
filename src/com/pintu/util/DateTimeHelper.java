@@ -57,7 +57,7 @@ public class DateTimeHelper {
     }
 
     public static final DateFormat AGO_FULL_DATE_FORMATTER = new SimpleDateFormat(
-            "yyyy-MM-dd HH:mm");
+            "yyyy-MM-dd HH:mm:ss");
 
     public static String getRelativeDate(Date date,Context mctx) {
         Date now = new Date();

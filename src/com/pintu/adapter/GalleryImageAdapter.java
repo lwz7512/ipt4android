@@ -73,7 +73,8 @@ public class GalleryImageAdapter extends BaseAdapter {
 		}
 		
 		TPicDesc thumbnail = cells.get(position);		
-		//获取图片
+		//获取图片，这个url是在RetrieveGalleryTask中取回数据后，
+		//根据thumbnail编号拼接而成，详见该任务的数据处理
 		SimpleImageLoader.display(imageView, thumbnail.url);
 
 		return imageView;

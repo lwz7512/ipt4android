@@ -2,6 +2,8 @@ package com.pintu.task;
 
 import java.util.List;
 
+import org.json.JSONObject;
+
 public abstract class TaskAdapter implements TaskListener {
 
     public void onPreExecute(GenericTask task) {};
@@ -12,6 +14,6 @@ public abstract class TaskAdapter implements TaskListener {
     public  void deliverRetreivedList(List<Object> results){};
     //新加的返回字符串的回调方法，以方便得到服务端返回字符串
     public void deliverResponseString(String response){};
-    
-    
+    //处理服务端返回JSON对象的方法
+    public void deliveryResponseJson(JSONObject json){};
 }

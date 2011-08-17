@@ -53,13 +53,18 @@ public class HomeGallery extends FullScreenActivity {
 	
 	//Footer
 	private TextView tv_post;
+	private TextView tv_hotpic;
+	private TextView tv_community;
+	private TextView tv_market;
+	private TextView tv_mine;
+	
 	
 	private GalleryImageAdapter gridAdptr;
 	private GenericTask mRetrieveTask;
 	
     // Refresh data at startup if last refresh was this long ago or greater.
 	// 默认5分钟后才能刷新，小于这个间隔不给取
-    private static final long REFRESH_THRESHOLD = 1 * 60 * 1000;
+    private static final long REFRESH_THRESHOLD = 5 * 60 * 1000;
     
     protected TaskManager taskManager = new TaskManager();
 
@@ -94,6 +99,11 @@ public class HomeGallery extends FullScreenActivity {
 		gallery.setAdapter(gridAdptr);
 		
 		tv_post = (TextView)findViewById(R.id.tv_post);
+		tv_hotpic = (TextView)findViewById(R.id.tv_hotpic);
+		tv_community = (TextView)findViewById(R.id.tv_community);
+		tv_market = (TextView)findViewById(R.id.tv_market);
+		tv_mine = (TextView)findViewById(R.id.tv_mine);
+		
 	}
 	
 	private void addEventListeners(){		
@@ -101,6 +111,8 @@ public class HomeGallery extends FullScreenActivity {
 		gallery.setOnItemClickListener(cellClickListener);
 		
 		tv_post.setOnClickListener(postImgListener);
+		//TODO, ADD OTHER HOME MENU LISTENER...
+		
 	}
 	
 	private OnItemClickListener cellClickListener = new OnItemClickListener() {
@@ -149,7 +161,7 @@ public class HomeGallery extends FullScreenActivity {
 		
 	}
 	
-    public void doRetrieve(long startTime, long endTime) {
+    private void doRetrieve(long startTime, long endTime) {
         Log.d(TAG, "Attempting retrieve gallery data...");
 
         if (mRetrieveTask != null
@@ -160,7 +172,6 @@ public class HomeGallery extends FullScreenActivity {
             mRetrieveTask.setListener(mRetrieveTaskListener);
               
             TaskParams params = new TaskParams();
-            params.put("api", PintuApp.mApi);
             params.put("startTime", startTime);
             params.put("endTime", endTime);
             mRetrieveTask.execute(params);
@@ -183,11 +194,11 @@ public class HomeGallery extends FullScreenActivity {
     			//必须得提交设置，否则不生效
     			pref.commit();
     		}else if(result==TaskResult.FAILED){
-    			HomeGallery.this.updateProgress("Gallery retrieve thumbnail failed!");
+    			updateProgress("Gallery retrieve thumbnail failed!");
     		}else if(result==TaskResult.IO_ERROR){
-    			HomeGallery.this.updateProgress("Gallery retrieve thumbnail IO Error!");
+    			updateProgress("Gallery retrieve thumbnail IO Error!");
     		}else if(result==TaskResult.JSON_PARSE_ERROR){
-    			HomeGallery.this.updateProgress("Gallery data parse Error!");
+    			updateProgress("Gallery data parse Error!");
     		}
 			progressbar.setVisibility(View.GONE);  
 			refresh.setVisibility(View.VISIBLE);

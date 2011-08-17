@@ -36,7 +36,8 @@ public class ImageManager  {
 	private static final String TAG = "ImageManager";
 	
 	//lazyImageLoader使用的静态变量
-    public static Bitmap mDefaultBitmap = ImageManager.drawableToBitmap(PintuApp.mContext.getResources().getDrawable(R.drawable.user_default_photo));
+    public static Bitmap mDefaultBitmap = ImageManager
+    		.drawableToBitmap(PintuApp.mContext.getResources().getDrawable(R.drawable.user_default_photo));
     public static final int DEFAULT_COMPRESS_QUALITY = 90;    
     
     //品图移动客户端上传图片大小限制：1200/800
@@ -86,7 +87,7 @@ public class ImageManager  {
             return bitmap;
         } else { //get from web
         	String url = file;
-        	//真正的下载文件方法，并写文件；
+        	//TODO, 真正的下载文件方法，并写文件；
             bitmap = downloadImage2(url);
             //这里不做缓存，思路有点怪异啊
             return bitmap;

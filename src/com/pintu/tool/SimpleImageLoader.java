@@ -12,7 +12,8 @@ public class SimpleImageLoader {
 	
 	
 
-	//对外暴露的第一个方法
+	//对外暴露的第一个方法，调用路径：
+	//LazyImageLoader-->GetImageTask-->ImageManager-->PintuApp.mApi.getImgByUrl(url)
     public static void display(final ImageView imageView, String url) {
         //因为有多个组件，需要用地址匹配组件
     	imageView.setTag(url);

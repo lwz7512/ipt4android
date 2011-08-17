@@ -20,6 +20,8 @@
     <string name="forward">转发</string>
     <string name="report">举报</string>
     <string name="picdetails">贴图详情</string>
+    <string name="level_zh">级别</string>
+    <string name="score_zh">积分</string>
     
     
     <!-- 页面Title -->
