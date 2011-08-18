@@ -37,9 +37,13 @@ public class CacheImpl implements CacheDao {
 			ptdb.beginTransaction();	
 			//不分顺序插入
 			for(TPicDesc pic : thumbnails){
-				long result = q.into(PintuTables.ThumbnailTable.TABLE_NAME)
-						.values(thumbnailToContentValues(pic))
-						.insert();				
+				long result = -1;
+				//检查是否有重复记录，没有才入库，否则发生约束冲突
+				if(!checkThumbnailExist(pic.tpId)){
+					result = q.into(PintuTables.ThumbnailTable.TABLE_NAME)
+							.values(thumbnailToContentValues(pic))
+							.insert();														
+				}				
                 if (-1 == result) {
                     Log.e(TAG, "cann't insert the thumbnail : " + pic.thumbnailId);
                 } else {
@@ -62,6 +66,17 @@ public class CacheImpl implements CacheDao {
 		}
 		
 		return successRecord;
+	}
+	
+	private boolean checkThumbnailExist(String tpId){
+        StringBuilder sql = new StringBuilder();
+        sql.append("SELECT COUNT(*) FROM ").append(PintuTables.ThumbnailTable.TABLE_NAME).append(" WHERE ")
+                .append(PintuTables.ThumbnailTable.Columns.TP_ID).append(" =?");
+
+		Cursor c = ptdb.rawQuery(sql.toString(), new String[] { tpId });
+		boolean exist = c.getCount()>1?true:false;
+		c.close();
+		return exist;
 	}
 	
 	 private ContentValues thumbnailToContentValues(TPicDesc pic){
