@@ -62,13 +62,14 @@ public class DateTimeHelper {
     public static String getRelativeDate(Date date,Context mctx) {
         Date now = new Date();
 
-        String prefix = mctx.getString(R.string.tweet_created_at_beautify_prefix);
+//        String prefix = mctx.getString(R.string.tweet_created_at_beautify_prefix);
+        String prefix = "";
         String sec = mctx.getString(R.string.tweet_created_at_beautify_sec);
         String min = mctx.getString(R.string.tweet_created_at_beautify_min);
         String hour = mctx.getString(R.string.tweet_created_at_beautify_hour);
         String day = mctx.getString(R.string.tweet_created_at_beautify_day);
         String suffix = mctx.getString(R.string.tweet_created_at_beautify_suffix);
-
+               
         // Seconds.
         long diff = (now.getTime() - date.getTime()) / 1000;
 

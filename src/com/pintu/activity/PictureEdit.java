@@ -14,13 +14,16 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.MediaStore.MediaColumns;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.pintu.PintuApp;
@@ -148,8 +151,20 @@ public class PictureEdit extends FullScreenActivity {
 		}
 
 		Bitmap thumbnail = createThumbnailBitmap(uri, MAX_BITMAP_SIZE);
+		int picWidth = thumbnail.getWidth();
+		int picHeight = thumbnail.getHeight();
+		
+		//这里必须编码设置一下布局，否则无法居中
+		//xml布局文件中无法达到这种效果，老跑偏
+		//lwz7512 @ 2011/08/18
+		LinearLayout.LayoutParams	layouts = new LinearLayout.LayoutParams(picWidth,picHeight);
+		layouts.bottomMargin = 10;
+		layouts.topMargin = 10;
+		layouts.gravity = Gravity.CENTER;
+		mPreview.setLayoutParams(layouts);
+		
 		mPreview.setImageBitmap(thumbnail);
-
+		
 		if (mFile == null) {
 			updateProgress("Could not locate picture file. Sorry!");
 			disableEntry();

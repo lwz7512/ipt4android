@@ -8,7 +8,7 @@ public class TPicDetails {
 	//贴图ID
 	public String id;
 	//贴图作者
-	public String owner;	
+	public String userName;	
 	//用户头像文件路径
 	public String avatarImgPath;
 	//用户积分
@@ -16,7 +16,6 @@ public class TPicDetails {
 	//用户等级
 	public String level;
 
-	//发布时间，可以保存为毫秒数
 	//到达客户端时，再格式化为xx分钟或者xx小时前
 	public String publishTime;	
 	//贴图标签
@@ -34,7 +33,7 @@ public class TPicDetails {
 	public String rawImgId;
 	
 	//品图（故事）数目
-	public String storyNum;
+	public String storiesNum;
 	//评论数目
 	public String commentsNum;
 	
@@ -42,7 +41,7 @@ public class TPicDetails {
 	public static TPicDetails parseJsonToObj(JSONObject json) throws JSONException{
 		TPicDetails details = new TPicDetails();
 		details.id = json.getString("id");
-		details.owner = json.getString("owner");
+		details.userName = json.getString("userName");
 		details.avatarImgPath = json.getString("avatarImgPath");
 		details.score = json.getString("score");
 		details.level = json.getString("level");		
@@ -53,7 +52,7 @@ public class TPicDetails {
 		details.mobImgId = json.getString("mobImgId");
 		details.rawImgId = json.getString("rawImgId");
 		details.rawImgId = json.getString("rawImgId");
-		details.storyNum = json.getString("storyNum");
+		details.storiesNum = json.getString("storiesNum");
 		details.commentsNum = json.getString("commentsNum");
 		
 		return details;

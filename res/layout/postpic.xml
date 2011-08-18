@@ -11,6 +11,9 @@
 	<ImageView android:id="@+id/preview" 
 	    android:layout_width="wrap_content"
 		android:layout_height="150dp"	
+		android:layout_marginTop="10dp"
+		android:layout_marginBottom="10dp"		
+		android:maxWidth="460px" 
 		android:scaleType="centerInside"	
 		android:src="@drawable/mockpic_gray"/>
 	<!-- 图片标签 -->

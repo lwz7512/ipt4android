@@ -58,7 +58,7 @@ public class PTImpl implements PTApi {
 
 	@Override
 	public String composeImgUrlById(String imgId) {
-		return getBaseURL() + "?method=" + PTApi.GETIMAGEFILE + "&picId="
+		return getBaseURL() + "?method=" + PTApi.GETIMAGEFILE + "&tpId="
 				+ imgId;
 	}
 

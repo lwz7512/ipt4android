@@ -274,6 +274,7 @@ public class DetailPicture extends FullScreenActivity {
 					//格式化化为XXX以前，而不是显示绝对时间
 					pubDate = DateTimeHelper.AGO_FULL_DATE_FORMATTER.parse(details.publishTime);
 					details.publishTime = DateTimeHelper.getRelativeDate(pubDate, DetailPicture.this);
+					details.userName = getShortUserName(details.userName);
 					updateUIwithPicDetails(details);
 				}else{
 					updateProgress("details is null can not update UI!");
@@ -292,6 +293,15 @@ public class DetailPicture extends FullScreenActivity {
 		}    	
     };
     
+    private String getShortUserName(String userName){
+    	String showName = userName;
+    	if(userName.contains("@")){
+    		int atPos = userName.indexOf("@");
+    		showName = userName.substring(0, atPos);
+    	}
+    	return showName;
+    }
+    
     
     private void updateUIwithPicDetails(TPicDetails details){
     	
@@ -302,19 +312,21 @@ public class DetailPicture extends FullScreenActivity {
     	//显示品图手机图片
     	SimpleImageLoader.display(t_picture, tpicUrl);
     	
-    	user_name.setText(details.owner);
-    	String userInfo = getText(R.string.level_zh)+" "+details.level;
-    	userInfo += getText(R.string.score_zh)+" "+details.score;
+    	user_name.setText(details.userName);
+    	String userInfo = getText(R.string.level_zh)+"  "+details.level;
+    	//等级和积分之间空4个格
+    	userInfo += "    ";
+    	userInfo += getText(R.string.score_zh)+"  "+details.score;
     	user_info.setText(userInfo);
     	//显示格式化后的相对时间
     	created_at.setText(details.publishTime);
     	tv_tags.setText(details.tags);
     	tv_description.setText(details.description);
     	//TODO, ADD PIC SOURCE LATER...
-    	send_source.setText("Android Client");
+    	send_source.setText("AndroidClient");
     	
-    	if(details.storyNum!=null && Integer.valueOf(details.storyNum)>0){
-    		storynum.setText(details.storyNum);    		
+    	if(details.storiesNum!=null && Integer.valueOf(details.storiesNum)>0){
+    		storynum.setText(details.storiesNum);    		
     	}
     	if(details.commentsNum!=null && Integer.valueOf(details.commentsNum)>0){
     		commentnum.setText(details.commentsNum);

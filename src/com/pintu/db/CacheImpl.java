@@ -74,11 +74,7 @@ public class CacheImpl implements CacheDao {
 		 //有生成时间为空的情况？
 		 if(creationTime==null)
 			 creationTime = String.valueOf(new Date().getTime());	
-		 //FIXME, 好像模拟器上数据库时间比本地小8个小时，补上时差？
-		 //8小时毫秒数
-		 long eightHourMiliSeconds = 8*60*60*1000;
-		 Date ctDate = new Date(Long.valueOf(creationTime)+eightHourMiliSeconds);
-//		 Date ctDate = new Date(Long.valueOf(creationTime));
+		 Date ctDate = new Date(Long.valueOf(creationTime));
 		 String sqlDate = dateFormat.format(ctDate);
 		 v.put(PintuTables.ThumbnailTable.Columns.CREATION_TIME, sqlDate);		 
 		 
@@ -158,11 +154,11 @@ public class CacheImpl implements CacheDao {
 
 	@Override
 	public int cachedThumbnailSize() {
-//		Query q = new Query(ptdb);	
-//		return q.from(PintuTables.ThumbnailTable.TABLE_NAME, 
-//				new String[]{PintuTables.ThumbnailTable.Columns.TP_ID})
-//				.select().getCount();		
-		return ptdb.rawQuery("SELECT COUNT(*) FROM "+PintuTables.ThumbnailTable.TABLE_NAME, null).getCount();
+		Cursor c = ptdb.rawQuery("SELECT COUNT(*) FROM "+PintuTables.ThumbnailTable.TABLE_NAME, null);
+		int size = c.getCount();
+		c.close();
+		
+		return size;
 	}
 
 	@Override
