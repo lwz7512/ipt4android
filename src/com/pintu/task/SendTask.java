@@ -12,9 +12,10 @@ import com.pintu.tool.SimpleImageLoader;
 public class SendTask extends GenericTask {
 	
 	public static final int TYPE_NORMAL = 0;
-	public static final int TYPE_REPLY = 1;
-	public static final int TYPE_REPOST = 2;
-	public static final int TYPE_PHOTO = 3;
+	public static final int TYPE_PHOTO = 1;
+	public static final int TYPE_STORY = 2;
+	public static final int TYPE_COMMENT = 3;
+	public static final int TYPE_VOTE = 4;
 	
 	private static final String TAG = "SendTask";
 	private String postResult;
@@ -31,11 +32,14 @@ public class SendTask extends GenericTask {
 
 			switch (mode) {
 
-			case TYPE_REPLY:
+			case TYPE_STORY:
+				String story = param.getString("story");
+				String follow = param.getString("follow");
+				PintuApp.mApi.postStory(follow, story);
 
 				break;
 
-			case TYPE_REPOST:
+			case TYPE_COMMENT:
 
 				break;
 

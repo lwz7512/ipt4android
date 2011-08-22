@@ -54,6 +54,8 @@ public class SimpleHttpClient implements HttpClientInterface{
 	//暴露唯一一个post方法
 	public Response post(String url, ArrayList<BasicNameValuePair> params, File file, boolean authenticate) throws HttpException{
 			params.add(new BasicNameValuePair("user",getUser()));
+			params.add(new BasicNameValuePair("owner",getUser()));
+			params.add(new BasicNameValuePair("source","android"));
 			return httpRequest(url, params, file, authenticate, HttpPost.METHOD_NAME);
 	}
 	//暴露唯一一个get方法

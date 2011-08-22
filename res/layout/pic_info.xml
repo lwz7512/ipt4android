@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="60dp"
+	android:layout_margin="10dp">
+	<!-- 品图图片 -->
+	<ImageView android:id="@+id/pic_to_storied"
+		android:layout_width="60dp" android:layout_height="60dp"
+		android:layout_marginRight="10dp" android:src="@@drawable/images_border_radius" />
+	<!-- 用户名 -->
+	<TextView android:id="@+id/pic_author" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_toRightOf="@id/pic_to_storied"
+		android:text="..." style="@style/LinkText.Bold.Huge" />
+	<!-- 发布时间 ，加一个marginTop使得它与user_name对齐 -->
+	<TextView android:id="@+id/pub_time" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_marginTop="10dp"
+		android:layout_alignLeft="@id/pic_author" android:layout_below="@id/pic_author"
+		android:text="..." style="@style/normalText.span" />
+</RelativeLayout>

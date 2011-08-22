@@ -1,6 +1,8 @@
 package com.pintu.activity;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -17,7 +19,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -26,7 +27,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.pintu.PintuApp;
 import com.pintu.R;
 import com.pintu.task.GenericTask;
 import com.pintu.task.SendTask;
@@ -34,7 +34,6 @@ import com.pintu.task.TaskAdapter;
 import com.pintu.task.TaskListener;
 import com.pintu.task.TaskParams;
 import com.pintu.task.TaskResult;
-import com.pintu.tool.SimpleImageLoader;
 import com.pintu.util.FileHelper;
 
 public class PictureEdit extends FullScreenActivity {
@@ -282,7 +281,9 @@ public class PictureEdit extends FullScreenActivity {
 				logout();
 			} else if (result == TaskResult.OK) {// 成功发送
 				onSendSuccess();
-			} else if (result == TaskResult.IO_ERROR) {
+			} else if(result == TaskResult.FAILED){
+				onSendFailure();
+			}else if (result == TaskResult.IO_ERROR) {
 				onSendFailure();
 			}
 		}
@@ -418,7 +419,26 @@ public class PictureEdit extends FullScreenActivity {
 		}
 	}
 
-	
+    private File bitmapToFile(Bitmap bitmap) {
+        try {
+            File file = new File(FileHelper.getBasePath(), "upload.jpg");
+            FileOutputStream out = new FileOutputStream(file);
+            if (bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)) {
+                out.flush();
+                out.close();
+            }
+            return file;
+        } catch (FileNotFoundException e) {
+            Log.e(TAG, "Sorry, the file can not be created. " + e.getMessage());
+            return null;
+        } catch (IOException e) {
+            Log.e(TAG,
+                    "IOException occurred when save upload file. "
+                            + e.getMessage());
+            return null;
+        }
+    }
+
 	
 	
 	

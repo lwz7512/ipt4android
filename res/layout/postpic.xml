@@ -3,10 +3,8 @@
 	android:id="@+id/layout_root" android:orientation="vertical"
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
 	android:background="#e7e7e7" >
-
 	<!-- Header -->
     <include layout="@layout/header_write"/>
-	
 	<!-- 图片预览 -->
 	<ImageView android:id="@+id/preview" 
 	    android:layout_width="wrap_content"
@@ -39,7 +37,7 @@
 		android:textSize="15dp" 
 		android:gravity="top" 
 		android:maxLength="32"
-		android:imeOptions="actionSend|flagNoEnterAction"
+		android:imeOptions="actionDone"
 		/>
 	<!-- 是否邀请品图 -->	
 	<CheckBox android:id="@+id/allowstory"

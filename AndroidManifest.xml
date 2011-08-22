@@ -27,12 +27,50 @@
             </intent-filter>            
         </activity> 
         <!-- 贴图详情，路径可不能写错啊 -->       
-        <activity android:name=".activity.DetailPicture">
+        <activity android:name=".activity.PictureDetails">
             <intent-filter>
-                <action android:name="com.pintu.activity.viewdetails"/>
+                <action android:name="com.pintu.activity.picdetails"/>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>        
         </activity>
+        <!-- 品图（故事）编辑 -->
+        <activity android:name=".activity.StoryEdit"
+        				android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="com.pintu.activity.storyedit"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity> 
+        <!-- 添加评论 -->       
+        <activity android:name=".activity.CommentEdit"
+        			   android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="com.pintu.activity.commentedit"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>
+        <!-- 故事列表 -->
+        <activity android:name=".activity.StoryList">
+            <intent-filter>
+                <action android:name="com.pintu.activity.storyies"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>
+        <!-- 评论列表 -->
+        <activity android:name=".activity.CommentList">
+            <intent-filter>
+                <action android:name="com.pintu.activity.comments"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>
+        <!-- 故事详情 -->
+        <activity android:name=".activity.StoryDetails">
+            <intent-filter>
+                <action android:name="com.pintu.activity.storydetails"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>
+        
         <!-- add other activity... -->		 
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>

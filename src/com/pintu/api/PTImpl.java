@@ -137,4 +137,24 @@ public class PTImpl implements PTApi {
 		return new JSONObject(jsonStr);
 	}
 
+	@Override
+	public String postStory(String follow, String story) throws HttpException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.ADDSTORY);
+		BasicNameValuePair tpIdParam = new BasicNameValuePair("follow", follow);
+		//中文编码下，解决乱码问题
+		story = UTF8Formater.changeToUnicode(story);
+		BasicNameValuePair contentParam = new BasicNameValuePair("content", story);
+
+		params.add(methodParam);
+		params.add(tpIdParam);
+		params.add(contentParam);
+		
+		Response resp = client.post(getBaseURL(), params, null, false);
+
+		return resp.asString();
+	}
+
 } // end of class

@@ -122,7 +122,7 @@ public class HomeGallery extends FullScreenActivity {
 			TPicDesc cellSelected = gridAdptr.getItem(position);
 			String tpId = cellSelected.tpId;
 			Intent it = new Intent();
-			it.setClass(HomeGallery.this, DetailPicture.class);			
+			it.setClass(HomeGallery.this, PictureDetails.class);			
 			it.putExtra("tpId", tpId);
 			//打开详情活动
 			startActivity(it);

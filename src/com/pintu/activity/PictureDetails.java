@@ -31,7 +31,7 @@ import com.pintu.task.TaskResult;
 import com.pintu.tool.SimpleImageLoader;
 import com.pintu.util.DateTimeHelper;
 
-public class DetailPicture extends FullScreenActivity {
+public class PictureDetails extends FullScreenActivity {
 
 	private static String TAG = "DetailPicture";
 	
@@ -46,7 +46,7 @@ public class DetailPicture extends FullScreenActivity {
 	//Body
 	//头像
 	private ImageView profile_image;
-	//用户名
+	//贴图作者
 	private TextView user_name;
 	//用户资料
 	private TextView user_info;
@@ -132,14 +132,22 @@ public class DetailPicture extends FullScreenActivity {
 	
 	private void addEventListeners(){
 		top_back.setOnClickListener(mGoListener);
+		//查看作者详情
 		person_more.setOnClickListener(viewUserAction);
+		//查看故事列表
 		storynum.setOnClickListener(storyListAction);
+		//查看评论列表
 		commentnum.setOnClickListener(commentsAction);
 		
+		//添加品图故事
 		tv_taste.setOnClickListener(toTasteActivity);
+		//添加评论
 		tv_comment.setOnClickListener(toCommentsActivity);
+		//收藏，不跳转吧？
 		tv_favorite.setOnClickListener(toFavoriteActivity);
+		//转发，不跳转吧？
 		tv_forward.setOnClickListener(toFowardActivity);
+		//具备，跳转吗？似乎应该写点说明
 		tv_report.setOnClickListener(toReportActivity);
 	}
 	
@@ -149,6 +157,7 @@ public class DetailPicture extends FullScreenActivity {
 		}
 	};
 	
+	//查看故事列表
 	private OnClickListener storyListAction = new OnClickListener(){
 		@Override
 		public void onClick(View v) {
@@ -157,6 +166,7 @@ public class DetailPicture extends FullScreenActivity {
 		}		
 	};
 	
+	//查看评论列表
 	private OnClickListener commentsAction = new OnClickListener(){
 		@Override
 		public void onClick(View v) {
@@ -165,6 +175,7 @@ public class DetailPicture extends FullScreenActivity {
 		}		
 	};
 	
+	//查看作者详情
 	private OnClickListener viewUserAction = new OnClickListener(){
 		@Override
 		public void onClick(View v){
@@ -172,13 +183,26 @@ public class DetailPicture extends FullScreenActivity {
 		}
 	};
 	
+	//添加品图故事
 	private OnClickListener toTasteActivity = new OnClickListener(){
 		@Override
 		public void onClick(View v){
 			//TODO, Forward to user activity...
+			Intent it = new Intent();
+			it.setClass(PictureDetails.this, StoryEdit.class);
+			String tpicUrl = null;
+			if(details!=null){
+				tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
+				it.putExtra("tpicUrl", tpicUrl);
+				it.putExtra("author", details.userName);
+				it.putExtra("pubTime", details.publishTime);	
+				it.putExtra("tpId", details.id);
+			}
+			startActivity(it);
 		}
 	};
 	
+	//添加评论
 	private OnClickListener toCommentsActivity = new OnClickListener(){
 		@Override
 		public void onClick(View v){
@@ -186,6 +210,7 @@ public class DetailPicture extends FullScreenActivity {
 		}
 	};
 	
+	//收藏，不跳转吧？
 	private OnClickListener toFavoriteActivity = new OnClickListener(){
 		@Override
 		public void onClick(View v){
@@ -193,6 +218,7 @@ public class DetailPicture extends FullScreenActivity {
 		}
 	};
 	
+	//转发，不跳转吧？
 	private OnClickListener toFowardActivity = new OnClickListener(){
 		@Override
 		public void onClick(View v){
@@ -200,6 +226,7 @@ public class DetailPicture extends FullScreenActivity {
 		}
 	};
 	
+	//举报，跳转吗？似乎应该写点说明
 	private OnClickListener toReportActivity = new OnClickListener(){
 		@Override
 		public void onClick(View v){
@@ -269,11 +296,12 @@ public class DetailPicture extends FullScreenActivity {
 		public void deliveryResponseJson(JSONObject json){			
 			try {
 				Date pubDate;
+				//保存下来，跳转时要用来传参
 				details = TPicDetails.parseJsonToObj(json);
 				if(details!=null){
 					//格式化化为XXX以前，而不是显示绝对时间
 					pubDate = DateTimeHelper.AGO_FULL_DATE_FORMATTER.parse(details.publishTime);
-					details.publishTime = DateTimeHelper.getRelativeDate(pubDate, DetailPicture.this);
+					details.publishTime = DateTimeHelper.getRelativeDate(pubDate, PictureDetails.this);
 					details.userName = getShortUserName(details.userName);
 					updateUIwithPicDetails(details);
 				}else{

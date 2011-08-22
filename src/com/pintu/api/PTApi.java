@@ -27,6 +27,17 @@ public interface PTApi {
 	public static final String GETIMAGEBYPATH = "getImageByPath";
 	
 	public static final String GETPICDETAIL = "getPicDetail";
+	
+	public static final String ADDSTORY = "addStory";
+	
+	public static final String ADDCOMMENT ="addComment";
+	
+	public static final String GETSTORIESOFPIC ="getStoriesOfPic";
+	
+	public static final String GETCOMMENTSOFPIC ="getCommentsOfPic";
+	
+	public static final String  ADDVOTE= "addVote";
+	
 
 	//贴一张图
 	public String postPicture(File pic, String tags,String desc, String allowStory) throws HttpException;
@@ -40,6 +51,7 @@ public interface PTApi {
 	public JSONArray getCommunityPicsByTime(String startTime, String endTime) throws HttpException, JSONException;
 	//获得贴图详情数据
 	public JSONObject getPictureDetailsById(String tpId) throws HttpException,JSONException;
-	
+	//添加故事
+	public String postStory(String follow, String story) throws HttpException;
 	
 }
