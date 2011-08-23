@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="wrap_content" android:paddingLeft="10dp"
+	android:paddingRight="10dp">
+	<!-- 故事作者 -->
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="20dp">
+		<TextView android:id="@+id/story_author"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true" style="@style/LinkText.Bold.Big" />
+		<TextView android:id="@+id/story_pubtime"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentRight="true" />
+	</RelativeLayout>
+	<!-- 故事内容，左边空出60dp，与图片对齐 -->
+	<TextView android:id="@+id/story_txt" android:layout_height="40dp"
+		android:layout_width="fill_parent" android:textSize="15sp"
+		android:textColor="@drawable/tweet_color" android:lineSpacingExtra="2sp"
+		android:layout_marginLeft="60dp" android:text="story..." />
+	<!-- 投票，左边空出60dp，与图片对齐 -->
+	<LinearLayout android:paddingTop="10dp"
+		android:paddingBottom="0dp" android:orientation="horizontal"
+		android:layout_width="fill_parent" android:layout_height="42dp"
+		android:layout_marginLeft="60dp">
+		<!-- 喜欢数目 -->
+		<TextView android:id="@+id/heart_num" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:drawableLeft="@drawable/heart"
+			android:drawablePadding="10dp" android:layout_weight="1"
+			android:text="0" />
+		<!-- 送花数目 -->
+		<TextView android:id="@+id/flower_num" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:drawableLeft="@drawable/flower"
+			android:drawablePadding="10dp" android:layout_weight="1"
+			android:text="0" />
+		<!-- 鸡蛋数目 -->
+		<TextView android:id="@+id/egg_num" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:drawableLeft="@drawable/egg"
+			android:drawablePadding="10dp" android:layout_weight="1"
+			android:text="0" />
+		<!-- 经典数目 -->
+		<TextView android:id="@+id/classic_num" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:drawableLeft="@drawable/classic"
+			android:drawablePadding="10dp" android:layout_weight="1"
+			android:text="0" />
+	</LinearLayout>
+</LinearLayout>

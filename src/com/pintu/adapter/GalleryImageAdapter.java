@@ -1,20 +1,10 @@
 package com.pintu.adapter;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-
-import com.pintu.tool.LazyImageLoader.ImageLoaderCallback;
-import com.pintu.tool.SimpleImageLoader;
-import com.pintu.PintuApp;
-import com.pintu.R;
-import com.pintu.api.PTApi;
-import com.pintu.data.TPicDesc;
-import com.pintu.widget.StateImage;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +12,10 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+
+import com.pintu.data.TPicDesc;
+import com.pintu.tool.SimpleImageLoader;
+import com.pintu.widget.StateImage;
 
 public class GalleryImageAdapter extends BaseAdapter {
 	

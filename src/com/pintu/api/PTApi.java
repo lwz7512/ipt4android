@@ -53,5 +53,9 @@ public interface PTApi {
 	public JSONObject getPictureDetailsById(String tpId) throws HttpException,JSONException;
 	//添加故事
 	public String postStory(String follow, String story) throws HttpException;
+	//获取故事列表
+	public JSONArray getStoriesByTpId(String tpId) throws HttpException,JSONException;
+	
+	
 	
 }

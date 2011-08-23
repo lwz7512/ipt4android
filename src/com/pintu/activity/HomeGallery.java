@@ -205,7 +205,7 @@ public class HomeGallery extends FullScreenActivity {
     	}    	
     	
     	//结果拿到了，填充视图并入库
-    	public void deliverRetreivedList(List<Object> results){
+    	public void deliverRetrievedList(List<Object> results){
     		// 刷新列表
     		List<TPicDesc> items =new ArrayList<TPicDesc>();
     		for(Object o:results){

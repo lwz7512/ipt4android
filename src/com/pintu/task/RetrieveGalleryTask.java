@@ -53,7 +53,6 @@ public class RetrieveGalleryTask extends GenericTask {
     }
     
     private void jsonToTPicDesc(JSONArray jsPics){
-    	if(jsPics!=null){
     		try {
     			retrievedPics = new ArrayList<Object>();
     			for(int i=0;i<jsPics.length();i++){
@@ -71,9 +70,6 @@ public class RetrieveGalleryTask extends GenericTask {
 				e.printStackTrace();
 				Log.w(TAG, ">>> json Array getJSONObject Exception!");
 			}
-    	}else{
-    		Log.w(TAG, ">>> json data is null!");
-    	}
     }
     
     protected void onPostExecute(TaskResult result){
@@ -83,7 +79,7 @@ public class RetrieveGalleryTask extends GenericTask {
     	if(result==TaskResult.OK){
     		if(this.getListener()!=null && retrievedPics!=null){
     			//回调监听方法传结果
-    			this.getListener().deliverRetreivedList(retrievedPics);
+    			this.getListener().deliverRetrievedList(retrievedPics);
     		}else{
     			//listener is null or retrieved pics is null!
     			Log.d(TAG, "listener is null or retrieved pics is null!");

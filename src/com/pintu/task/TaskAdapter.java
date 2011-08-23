@@ -11,7 +11,7 @@ public abstract class TaskAdapter implements TaskListener {
     public void onProgressUpdate(GenericTask task, Object param) {};
     public void onCancelled(GenericTask task) {};    
     //新加的返回泛型数据的回调方法，被onPostExecute执行，实例要重载来处理
-    public  void deliverRetreivedList(List<Object> results){};
+    public  void deliverRetrievedList(List<Object> results){};
     //新加的返回字符串的回调方法，以方便得到服务端返回字符串
     public void deliverResponseString(String response){};
     //处理服务端返回JSON对象的方法

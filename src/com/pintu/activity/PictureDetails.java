@@ -157,12 +157,48 @@ public class PictureDetails extends FullScreenActivity {
 		}
 	};
 	
+	//添加品图故事
+	private OnClickListener toTasteActivity = new OnClickListener(){
+		@Override
+		public void onClick(View v){
+			Intent it = new Intent();
+			//准备启动故事编辑
+			it.setClass(PictureDetails.this, StoryEdit.class);
+			String tpicUrl = null;
+			if(details!=null){
+				tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
+				it.putExtra("tpicUrl", tpicUrl);
+				it.putExtra("author", details.author);
+				it.putExtra("pubTime", details.publishTime);	
+				it.putExtra("tpId", details.id);
+				//启动故事编辑
+				startActivity(it);
+			}else{
+				updateProgress("picture is blank, waiting for it to add story...");
+			}
+		}
+	};
+	
+	
 	//查看故事列表
 	private OnClickListener storyListAction = new OnClickListener(){
 		@Override
-		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			
+		public void onClick(View v) {			
+			String tpicUrl = null;
+			Intent it = new Intent();
+			//准备启动StoryList
+			it.setClass(PictureDetails.this, StoryList.class);
+			if(details!=null && details.id!=null){
+				tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
+				it.putExtra("tpicUrl", tpicUrl);
+				it.putExtra("author", details.author);
+				it.putExtra("pubTime", details.publishTime);	
+				it.putExtra("tpId", details.id);
+				//启动故事列表
+				startActivity(it);				
+			}else{
+				updateProgress("picture is blank, waiting for it to view stories...");
+			}
 		}		
 	};
 	
@@ -183,24 +219,6 @@ public class PictureDetails extends FullScreenActivity {
 		}
 	};
 	
-	//添加品图故事
-	private OnClickListener toTasteActivity = new OnClickListener(){
-		@Override
-		public void onClick(View v){
-			//TODO, Forward to user activity...
-			Intent it = new Intent();
-			it.setClass(PictureDetails.this, StoryEdit.class);
-			String tpicUrl = null;
-			if(details!=null){
-				tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
-				it.putExtra("tpicUrl", tpicUrl);
-				it.putExtra("author", details.userName);
-				it.putExtra("pubTime", details.publishTime);	
-				it.putExtra("tpId", details.id);
-			}
-			startActivity(it);
-		}
-	};
 	
 	//添加评论
 	private OnClickListener toCommentsActivity = new OnClickListener(){
@@ -295,14 +313,12 @@ public class PictureDetails extends FullScreenActivity {
 		//Update UI elements with TPicDetails
 		public void deliveryResponseJson(JSONObject json){			
 			try {
-				Date pubDate;
 				//保存下来，跳转时要用来传参
 				details = TPicDetails.parseJsonToObj(json);
 				if(details!=null){
 					//格式化化为XXX以前，而不是显示绝对时间
-					pubDate = DateTimeHelper.AGO_FULL_DATE_FORMATTER.parse(details.publishTime);
-					details.publishTime = DateTimeHelper.getRelativeDate(pubDate, PictureDetails.this);
-					details.userName = getShortUserName(details.userName);
+					details.publishTime = DateTimeHelper.getRelativeTimeByFormatDate(details.publishTime, PictureDetails.this);
+					details.author = getShortUserName(details.author);
 					updateUIwithPicDetails(details);
 				}else{
 					updateProgress("details is null can not update UI!");
@@ -340,7 +356,7 @@ public class PictureDetails extends FullScreenActivity {
     	//显示品图手机图片
     	SimpleImageLoader.display(t_picture, tpicUrl);
     	
-    	user_name.setText(details.userName);
+    	user_name.setText(details.author);
     	String userInfo = getText(R.string.level_zh)+"  "+details.level;
     	//等级和积分之间空4个格
     	userInfo += "    ";

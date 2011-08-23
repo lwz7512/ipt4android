@@ -8,7 +8,7 @@ public class TPicDetails {
 	//贴图ID
 	public String id;
 	//贴图作者
-	public String userName;	
+	public String author;	
 	//用户头像文件路径
 	public String avatarImgPath;
 	//用户积分
@@ -41,7 +41,7 @@ public class TPicDetails {
 	public static TPicDetails parseJsonToObj(JSONObject json) throws JSONException{
 		TPicDetails details = new TPicDetails();
 		details.id = json.getString("id");
-		details.userName = json.getString("userName");
+		details.author = json.getString("author");
 		details.avatarImgPath = json.getString("avatarImgPath");
 		details.score = json.getString("score");
 		details.level = json.getString("level");		

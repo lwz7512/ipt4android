@@ -90,6 +90,28 @@ public class StoryEdit extends FullScreenActivity {
 		story_edit.addTextChangedListener(mTextWatcher);
 		clear_story_btn.setOnClickListener(popupCleanListener);
 	}
+	
+	private void showPicInfo() {
+		// 只能在活动创建时获取参数
+		Intent received = getIntent();
+		Bundle extras = received.getExtras();
+		// Must has extras
+		if (null == extras) {
+			Log.e(TAG, this.getClass().getName() + " must has extras.");
+			finish();
+			return;
+		}
+		String tpicUrl = extras.getString("tpicUrl");
+		String author = extras.getString("author");
+		String pubTime = extras.getString("pubTime");
+		// 保存一个原图ID，作为发送故事的重要参数
+		tpId = extras.getString("tpId");
+
+		SimpleImageLoader.display(pic_to_storied, tpicUrl);
+		pic_author.setText(author);
+		pub_time.setText(pubTime);
+	}
+
 
 	private TextWatcher mTextWatcher = new TextWatcher() {
 		@Override
@@ -246,26 +268,6 @@ public class StoryEdit extends FullScreenActivity {
 		updateProgress(getString(R.string.page_status_unable_to_update));
 	}
 
-	private void showPicInfo() {
-		// 只能在活动创建时获取参数
-		Intent received = getIntent();
-		Bundle extras = received.getExtras();
-		// Must has extras
-		if (null == extras) {
-			Log.e(TAG, this.getClass().getName() + " must has extras.");
-			finish();
-			return;
-		}
-		String tpicUrl = extras.getString("tpicUrl");
-		String author = extras.getString("author");
-		String pubTime = extras.getString("pubTime");
-		// 保存一个原图ID，作为发送故事的重要参数
-		tpId = extras.getString("tpId");
-
-		SimpleImageLoader.display(pic_to_storied, tpicUrl);
-		pic_author.setText(author);
-		pub_time.setText(pubTime);
-	}
 
 	protected void onDestroy() {
 		super.onDestroy();

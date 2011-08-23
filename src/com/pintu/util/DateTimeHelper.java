@@ -97,6 +97,13 @@ public class DateTimeHelper {
 
         return AGO_FULL_DATE_FORMATTER.format(date);
     }
+    
+    //新加的整合格式方法，字符串到字符串
+    //lwz7512 @ 2011/08/24
+    public static  String getRelativeTimeByFormatDate(String publishTime, Context ctx) throws ParseException{
+    	Date pubDate = AGO_FULL_DATE_FORMATTER.parse(publishTime);
+    	return getRelativeDate(pubDate,ctx);
+    }
 
     public static long getNowTime() {
         return Calendar.getInstance().getTime().getTime();

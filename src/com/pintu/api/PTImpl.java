@@ -72,8 +72,7 @@ public class PTImpl implements PTApi {
 	public String postPicture(File pic, String tags, String desc,
 			String allowStory) throws HttpException {
 
-		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
-
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>(); 
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.UPLOADPICTURE);
 		tags = UTF8Formater.changeToUnicode(tags);
@@ -100,14 +99,12 @@ public class PTImpl implements PTApi {
 			throws HttpException, JSONException {
 
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
-
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.GETGALLERYBYTIME);
 		BasicNameValuePair startTimeParam = new BasicNameValuePair("startTime",
 				startTime);
 		BasicNameValuePair endTimeParam = new BasicNameValuePair("endTime",
 				endTime);
-
 		params.add(methodParam);
 		params.add(startTimeParam);
 		params.add(endTimeParam);
@@ -122,11 +119,9 @@ public class PTImpl implements PTApi {
 	public JSONObject getPictureDetailsById(String tpId) throws HttpException,
 			JSONException {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
-
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.GETPICDETAIL);
 		BasicNameValuePair tpIdParam = new BasicNameValuePair("tpId", tpId);
-
 		params.add(methodParam);
 		params.add(tpIdParam);
 
@@ -140,14 +135,12 @@ public class PTImpl implements PTApi {
 	@Override
 	public String postStory(String follow, String story) throws HttpException {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
-
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.ADDSTORY);
 		BasicNameValuePair tpIdParam = new BasicNameValuePair("follow", follow);
 		//中文编码下，解决乱码问题
 		story = UTF8Formater.changeToUnicode(story);
 		BasicNameValuePair contentParam = new BasicNameValuePair("content", story);
-
 		params.add(methodParam);
 		params.add(tpIdParam);
 		params.add(contentParam);
@@ -155,6 +148,23 @@ public class PTImpl implements PTApi {
 		Response resp = client.post(getBaseURL(), params, null, false);
 
 		return resp.asString();
+	}
+
+	@Override
+	public JSONArray getStoriesByTpId(String tpId) throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETSTORIESOFPIC);
+		BasicNameValuePair tpIdParam = new BasicNameValuePair("tpId", tpId);
+		
+		params.add(methodParam);
+		params.add(tpIdParam);
+		
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json Stories: " + jsonStr);
+		
+		return new JSONArray(jsonStr);
 	}
 
 } // end of class
