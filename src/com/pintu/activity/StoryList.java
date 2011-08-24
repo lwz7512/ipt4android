@@ -27,6 +27,7 @@ import com.pintu.task.TaskManager;
 import com.pintu.task.TaskParams;
 import com.pintu.task.TaskResult;
 import com.pintu.tool.SimpleImageLoader;
+import com.pintu.widget.StateListView;
 
 public class StoryList extends FullScreenActivity {
 
@@ -46,7 +47,7 @@ public class StoryList extends FullScreenActivity {
 	private TextView pub_time;
 
 	//故事列表
-	private ListView story_votes;
+	private StateListView story_votes;
 	private StoryVoteAdapter svAdptr;
 	
 	// 发送故事的目标图编号
@@ -88,7 +89,7 @@ public class StoryList extends FullScreenActivity {
 		
 		svAdptr = new StoryVoteAdapter(this);
 		svAdptr.setVoteListener(voteListener);
-		story_votes = (ListView) findViewById(R.id.story_votes);
+		story_votes = (StateListView) findViewById(R.id.story_votes);
 		story_votes.setAdapter(svAdptr);
 		
 	}
@@ -96,8 +97,9 @@ public class StoryList extends FullScreenActivity {
 	private VoteActionListener voteListener = new VoteActionListener(){
 		@Override
 		public void send(String storyId, String type) {
-			// TODO 处理投票
-			updateProgress("This is: "+type);
+			//TODO, 只有在列表静止状态下，才处理投票提交
+			if(story_votes.isStatic())
+				updateProgress("This is: "+type);
 		}		
 	};
 	

@@ -29,7 +29,7 @@ public class GalleryImageAdapter extends BaseAdapter {
 	private List<TPicDesc>  cells;
 	
 	//画廊图片最大个数
-	private int maxThumbnailNum = 32;
+//	private int maxThumbnailNum = 32;
 	
 
 	public GalleryImageAdapter(Context c) {
@@ -53,7 +53,7 @@ public class GalleryImageAdapter extends BaseAdapter {
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		ImageView imageView;
+		StateImage imageView;
 		if (convertView == null) {
 			imageView = new StateImage(mContext);			
 			//xml布局设置列数为4列，不要随便改
@@ -63,10 +63,15 @@ public class GalleryImageAdapter extends BaseAdapter {
 			imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 			imageView.setPadding(0, 0, 0, 0);
 		} else {
-			imageView = (ImageView) convertView;
+			imageView = (StateImage) convertView;
 		}
 		
-		TPicDesc thumbnail = cells.get(position);		
+		TPicDesc thumbnail = cells.get(position);	
+		String picState = thumbnail.status;
+		if(picState!=null && !picState.equals("")){
+			//设置图片的状态
+			imageView.setState(Integer.valueOf(picState));			
+		}
 		//获取图片，这个url是在RetrieveGalleryTask中取回数据后，
 		//根据thumbnail编号拼接而成，详见该任务的数据处理
 		SimpleImageLoader.display(imageView, thumbnail.url);
