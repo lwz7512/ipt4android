@@ -201,13 +201,25 @@ public class PTImpl implements PTApi {
 
 		return new JSONArray(jsonStr);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
+	@Override
+	public String postVote(String follow, String type, String amount)
+			throws HttpException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.ADDVOTE);
+		BasicNameValuePair foloParam = new BasicNameValuePair("follow", follow);
+		BasicNameValuePair typeParam = new BasicNameValuePair("type", type);
+		BasicNameValuePair amtParam = new BasicNameValuePair("amount", amount);
+
+		params.add(methodParam);
+		params.add(foloParam);
+		params.add(typeParam);
+		params.add(amtParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+
+		return resp.asString();
+	}
 
 } // end of class

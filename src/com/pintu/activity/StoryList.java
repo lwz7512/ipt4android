@@ -3,6 +3,8 @@ package com.pintu.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONObject;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +23,7 @@ import com.pintu.adapter.StoryVoteAdapter.VoteActionListener;
 import com.pintu.data.StoryInfo;
 import com.pintu.task.GenericTask;
 import com.pintu.task.RetrieveStoriesTask;
+import com.pintu.task.SendTask;
 import com.pintu.task.TaskAdapter;
 import com.pintu.task.TaskListener;
 import com.pintu.task.TaskManager;
@@ -29,7 +32,7 @@ import com.pintu.task.TaskResult;
 import com.pintu.tool.SimpleImageLoader;
 import com.pintu.widget.StateListView;
 
-public class StoryList extends FullScreenActivity {
+public class StoryList extends TempletActivity {
 
 	private static String TAG = "StoryList";
 
@@ -52,29 +55,19 @@ public class StoryList extends FullScreenActivity {
 
 	// 发送故事的目标图编号
 	private String tpId;
+	
+	//发送投票的目标故事编号
+	private String storyId;
+	//投票种类
+	private String voteType;
 
-	// 获取故事列表任务
-	private GenericTask mRetrieveTask;
-	//发送投票的任务
-	protected GenericTask mSendTask;
-	//管理当前视图内任务的销毁
-	protected TaskManager taskManager = new TaskManager();
 
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.stories);
-
-		// 获得组件引用
-		getViews();
-		// 添加事件监听
-		addEventListeners();
-		// 展示图片信息
-		showPicInfo();
-		// 获取故事列表
-		getStories();
+	@Override
+	protected int getLayout() {
+		return R.layout.stories;
 	}
 
-	private void getViews() {
+	protected void getViews() {
 		top_back = (Button) findViewById(R.id.top_back);
 
 		tv_title = (TextView) findViewById(R.id.tv_title);
@@ -93,17 +86,26 @@ public class StoryList extends FullScreenActivity {
 		story_votes.setAdapter(svAdptr);
 
 	}
+	
+	@Override
+	protected void justDoIt() {
+		// 展示图片信息
+		showPicInfo();
+		// 获取故事列表
+		getStories();
+	}
+
 
 	private VoteActionListener voteListener = new VoteActionListener() {
 		@Override
 		public void send(String storyId, String type) {
-			// TODO, 只有在列表静止状态下，才处理投票提交
+			//只有在列表静止状态下，才处理投票提交
 			if (story_votes.isStatic())
-				updateProgress("This is: " + type);
+				postVoteForStory(storyId, type); 
 		}
 	};
 
-	private void addEventListeners() {
+	protected void addEventListeners() {
 		top_back.setOnClickListener(mGoListener);
 	}
 
@@ -144,61 +146,96 @@ public class StoryList extends FullScreenActivity {
 
 	}
 
-	private void doRetrieve() {
-		Log.d(TAG, "Attempting retrieve gallery data...");
+	protected void doRetrieve() {
+		this.checkTaskStatus();
 
-		if (mRetrieveTask != null
-				&& mRetrieveTask.getStatus() == GenericTask.Status.RUNNING) {
-			return;
-		} else {
-			mRetrieveTask = new RetrieveStoriesTask();
-			mRetrieveTask.setListener(mRetrieveTaskListener);
+		mRetrieveTask = new RetrieveStoriesTask();
+		mRetrieveTask.setListener(mRetrieveTaskListener);
 
-			TaskParams params = new TaskParams();
-			params.put("tpId", tpId);
-			mRetrieveTask.execute(params);
+		TaskParams params = new TaskParams();
+		params.put("tpId", tpId);
+		mRetrieveTask.execute(params);
 
-			// Add Task to manager
-			taskManager.addTask(mRetrieveTask);
+		this.manageTask(mRetrieveTask);
+	}
+	
+	private void postVoteForStory(String storyId, String vote){
+		this.storyId = storyId;
+		this.voteType = vote;
+		if(storyId!=null && vote!=null){
+			doSend();
 		}
 	}
+	
 
-	private TaskListener mRetrieveTaskListener = new TaskAdapter() {
-		@Override
-		public void onPreExecute(GenericTask task) {
-			details_prgrsBar.setVisibility(View.VISIBLE);
-		}
+	@Override
+	protected void doSend() {
+		this.checkTaskStatus();
+		
+		int mode = SendTask.TYPE_VOTE;
+		mSendTask = new SendTask();
+		mSendTask.setListener(mSendTaskListener);
 
-		@Override
-		public void onPostExecute(GenericTask task, TaskResult result) {
-			if (result == TaskResult.OK) {// 成功发送
-				// do nothing currently...
-			} else if (result == TaskResult.IO_ERROR) {
-				updateProgress(getString(R.string.page_status_unable_to_update));
-			} else if (result == TaskResult.JSON_PARSE_ERROR) {
-				updateProgress("Response to json data parse Error!");
-			}
-			details_prgrsBar.setVisibility(View.GONE);
-		}
-
-		public void deliverRetrievedList(List<Object> results) {
-			ArrayList<StoryInfo> stories = new ArrayList<StoryInfo>();
-			for (Object o : results) {
-				stories.add((StoryInfo) o);
-			}
-			// 更新视图列表
-			svAdptr.refresh(stories);
-		}
-
-	};
-
-	protected void onDestroy() {
-		super.onDestroy();
-		taskManager.cancelAll();
+		TaskParams params = new TaskParams();
+		params.put("mode", mode);
+		params.put("type", voteType);
+		params.put("follow", storyId);
+		params.put("amount","1");
+		mSendTask.execute(params);
+		
+		this.manageTask(mSendTask);
 	}
 
-	private void updateProgress(String message) {
-		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+	@Override
+	protected void onSendBegin() {
+		details_prgrsBar.setVisibility(View.VISIBLE);
+	}
+
+	@Override
+	protected void onSendSuccess() {
+		details_prgrsBar.setVisibility(View.GONE);
+	}
+
+	@Override
+	protected void onSendFailure() {
+		updateProgress(getString(R.string.page_status_unable_to_update));
+		details_prgrsBar.setVisibility(View.GONE);
+	}
+
+	@Override
+	protected void onRetrieveBegin() {
+		details_prgrsBar.setVisibility(View.VISIBLE);
+	}
+
+	@Override
+	protected void onRetrieveSuccess() {
+		details_prgrsBar.setVisibility(View.GONE);
+	}
+
+	@Override
+	protected void onRetrieveFailure() {
+		updateProgress(getString(R.string.page_status_unable_to_update));
+		details_prgrsBar.setVisibility(View.GONE);
+	}
+
+	@Override
+	protected void onParseJSONResultFailue() {
+		updateProgress("Response to json data parse Error!");
+	}
+
+	@Override
+	protected void refreshListView(List<Object> results) {
+		ArrayList<StoryInfo> stories = new ArrayList<StoryInfo>();
+		for (Object o : results) {
+			stories.add((StoryInfo) o);
+		}
+		// 更新视图列表
+		svAdptr.refresh(stories);
+	}
+
+	@Override
+	protected void refreshMultView(JSONObject json) {
+		// do nothing, but, do not kill me...
 	}
 
 } // end of class

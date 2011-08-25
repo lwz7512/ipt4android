@@ -59,8 +59,8 @@ public interface PTApi {
 	public String postComment(String follow, String comment) throws HttpException;
 	//获取评价列表
 	public JSONArray getCommensByTpId(String tpId) throws HttpException,JSONException;
-	
-	
+	//发送投票
+	public String postVote(String follow, String type, String amount) throws HttpException;
 	
 	
 	
