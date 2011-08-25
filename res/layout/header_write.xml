@@ -27,5 +27,15 @@
            style="@style/simple_button"
            android:text="@string/write_label_send"
            /> 
+        <!-- 旋转 -->
+        <ProgressBar android:id="@+id/sending_prgrsBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"            
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"			
+			android:layout_marginRight="10dp" 
+            style="?android:progressBarStyleSmall"
+            android:visibility="gone"
+        />                               
                              
 </RelativeLayout>

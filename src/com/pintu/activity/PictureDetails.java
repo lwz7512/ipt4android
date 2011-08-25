@@ -179,6 +179,28 @@ public class PictureDetails extends FullScreenActivity {
 		}
 	};
 	
+	//添加评论
+	private OnClickListener toCommentsActivity = new OnClickListener(){
+		@Override
+		public void onClick(View v){
+			Intent it = new Intent();
+			//准备启动故事编辑
+			it.setClass(PictureDetails.this, CommentEdit.class);
+			String tpicUrl = null;
+			if(details!=null){
+				tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
+				it.putExtra("tpicUrl", tpicUrl);
+				it.putExtra("author", details.author);
+				it.putExtra("pubTime", details.publishTime);	
+				it.putExtra("tpId", details.id);
+				//启动故事编辑
+				startActivity(it);
+			}else{
+				updateProgress("picture is blank, waiting for it to add story...");
+			}
+
+		}
+	};
 	
 	//查看故事列表
 	private OnClickListener storyListAction = new OnClickListener(){
@@ -206,8 +228,7 @@ public class PictureDetails extends FullScreenActivity {
 	private OnClickListener commentsAction = new OnClickListener(){
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			
+
 		}		
 	};
 	
@@ -220,13 +241,6 @@ public class PictureDetails extends FullScreenActivity {
 	};
 	
 	
-	//添加评论
-	private OnClickListener toCommentsActivity = new OnClickListener(){
-		@Override
-		public void onClick(View v){
-			//TODO, Forward to user activity...
-		}
-	};
 	
 	//收藏，不跳转吧？
 	private OnClickListener toFavoriteActivity = new OnClickListener(){
@@ -331,10 +345,6 @@ public class PictureDetails extends FullScreenActivity {
 				e.printStackTrace();
 			}							 		
 		}
-		@Override
-		public String getName() {
-			return "PicDetailsTask";
-		}    	
     };
     
     private String getShortUserName(String userName){
@@ -367,7 +377,7 @@ public class PictureDetails extends FullScreenActivity {
     	tv_tags.setText(details.tags);
     	tv_description.setText(details.description);
     	//TODO, ADD PIC SOURCE LATER...
-    	send_source.setText("AndroidClient");
+    	send_source.setText("Android");
     	
     	if(details.storiesNum!=null && Integer.valueOf(details.storiesNum)>0){
     		storynum.setText(details.storiesNum);    		

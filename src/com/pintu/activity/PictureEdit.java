@@ -71,17 +71,17 @@ public class PictureEdit extends FullScreenActivity {
 	// temporal saved image
 	private Uri mImageUri;
 
-
-	// -------------------- Construction UI Logic  ---------------------------------------
+	// -------------------- Construction UI Logic
+	// ---------------------------------------
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.postpic);
-		//获取组件引用
+		// 获取组件引用
 		getViews();
-		//添加事件监听
+		// 添加事件监听
 		addEventListeners();
 
 	}
@@ -152,18 +152,19 @@ public class PictureEdit extends FullScreenActivity {
 		Bitmap thumbnail = createThumbnailBitmap(uri, MAX_BITMAP_SIZE);
 		int picWidth = thumbnail.getWidth();
 		int picHeight = thumbnail.getHeight();
-		
-		//这里必须编码设置一下布局，否则无法居中
-		//xml布局文件中无法达到这种效果，老跑偏
-		//lwz7512 @ 2011/08/18
-		LinearLayout.LayoutParams	layouts = new LinearLayout.LayoutParams(picWidth,picHeight);
+
+		// 这里必须编码设置一下布局，否则无法居中
+		// xml布局文件中无法达到这种效果，老跑偏
+		// lwz7512 @ 2011/08/18
+		LinearLayout.LayoutParams layouts = new LinearLayout.LayoutParams(
+				picWidth, picHeight);
 		layouts.bottomMargin = 10;
 		layouts.topMargin = 10;
 		layouts.gravity = Gravity.CENTER;
 		mPreview.setLayoutParams(layouts);
-		
+
 		mPreview.setImageBitmap(thumbnail);
-		
+
 		if (mFile == null) {
 			updateProgress("Could not locate picture file. Sorry!");
 			disableEntry();
@@ -281,30 +282,26 @@ public class PictureEdit extends FullScreenActivity {
 				logout();
 			} else if (result == TaskResult.OK) {// 成功发送
 				onSendSuccess();
-			} else if(result == TaskResult.FAILED){
+			} else if (result == TaskResult.FAILED) {
 				onSendFailure();
-			}else if (result == TaskResult.IO_ERROR) {
+			} else if (result == TaskResult.IO_ERROR) {
 				onSendFailure();
 			}
 		}
-		
-		public void deliverResponseString(String response){
-			//测过了中文没问题
-//			if(response!=null) PictureEdit.this.updateProgress(response);
+
+		public void deliverResponseString(String response) {
+			// 测过了中文没问题
+			// if(response!=null) PictureEdit.this.updateProgress(response);
 		}
 
-		@Override
-		public String getName() {
-			return "SendTask";
-		}
 	};
 
 	private void doSend() {
 		Log.d(TAG, "dosend  " + withPic);
 
-		if (mSendTask != null 
+		if (mSendTask != null
 				&& mSendTask.getStatus() == GenericTask.Status.RUNNING)
-			return;		
+			return;
 
 		String description = descEditText.getText().toString();
 		String tags = tagsEditText.getText().toString();
@@ -313,7 +310,8 @@ public class PictureEdit extends FullScreenActivity {
 		if (withPic || mFile != null) {
 
 			int mode = SendTask.TYPE_NORMAL;
-			if (withPic) mode = SendTask.TYPE_PHOTO;
+			if (withPic)
+				mode = SendTask.TYPE_PHOTO;
 
 			mSendTask = new SendTask();
 			mSendTask.setListener(mSendTaskListener);
@@ -329,7 +327,7 @@ public class PictureEdit extends FullScreenActivity {
 		} else {
 			updateProgress(getString(R.string.page_text_is_null));
 		}
-		
+
 	}
 
 	private void onSendBegin() {
@@ -419,27 +417,24 @@ public class PictureEdit extends FullScreenActivity {
 		}
 	}
 
-    private File bitmapToFile(Bitmap bitmap) {
-        try {
-            File file = new File(FileHelper.getBasePath(), "upload.jpg");
-            FileOutputStream out = new FileOutputStream(file);
-            if (bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)) {
-                out.flush();
-                out.close();
-            }
-            return file;
-        } catch (FileNotFoundException e) {
-            Log.e(TAG, "Sorry, the file can not be created. " + e.getMessage());
-            return null;
-        } catch (IOException e) {
-            Log.e(TAG,
-                    "IOException occurred when save upload file. "
-                            + e.getMessage());
-            return null;
-        }
-    }
+	private File bitmapToFile(Bitmap bitmap) {
+		try {
+			File file = new File(FileHelper.getBasePath(), "upload.jpg");
+			FileOutputStream out = new FileOutputStream(file);
+			if (bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)) {
+				out.flush();
+				out.close();
+			}
+			return file;
+		} catch (FileNotFoundException e) {
+			Log.e(TAG, "Sorry, the file can not be created. " + e.getMessage());
+			return null;
+		} catch (IOException e) {
+			Log.e(TAG,
+					"IOException occurred when save upload file. "
+							+ e.getMessage());
+			return null;
+		}
+	}
 
-	
-	
-	
 } // end of class

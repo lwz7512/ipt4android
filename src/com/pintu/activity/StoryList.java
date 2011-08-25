@@ -32,13 +32,13 @@ import com.pintu.widget.StateListView;
 public class StoryList extends FullScreenActivity {
 
 	private static String TAG = "StoryList";
-	
+
 	// Header
-	//返回按钮
+	// 返回按钮
 	private Button top_back;
-	//顶部标题
+	// 顶部标题
 	private TextView tv_title;
-	//加载进度条
+	// 加载进度条
 	private ProgressBar details_prgrsBar;
 
 	// Pic info
@@ -46,65 +46,63 @@ public class StoryList extends FullScreenActivity {
 	private TextView pic_author;
 	private TextView pub_time;
 
-	//故事列表
+	// 故事列表
 	private StateListView story_votes;
 	private StoryVoteAdapter svAdptr;
-	
+
 	// 发送故事的目标图编号
 	private String tpId;
 
-	
-	//获取故事列表任务
+	// 获取故事列表任务
 	private GenericTask mRetrieveTask;
 
 	protected TaskManager taskManager = new TaskManager();
 
-	
-	protected void onCreate(Bundle savedInstanceState){
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.stories);
-		
-		//获得组件引用
+
+		// 获得组件引用
 		getViews();
-		//添加事件监听
+		// 添加事件监听
 		addEventListeners();
-		//展示图片信息
+		// 展示图片信息
 		showPicInfo();
-		//获取故事列表
+		// 获取故事列表
 		getStories();
 	}
-	
+
 	private void getViews() {
 		top_back = (Button) findViewById(R.id.top_back);
-		
+
 		tv_title = (TextView) findViewById(R.id.tv_title);
-		//标题文字设置
+		// 标题文字设置
 		tv_title.setText(R.string.storylist);
-		
+
 		details_prgrsBar = (ProgressBar) findViewById(R.id.details_prgrsBar);
-		
+
 		pic_to_storied = (ImageView) findViewById(R.id.pic_to_storied);
 		pic_author = (TextView) findViewById(R.id.pic_author);
 		pub_time = (TextView) findViewById(R.id.pub_time);
-		
+
 		svAdptr = new StoryVoteAdapter(this);
 		svAdptr.setVoteListener(voteListener);
 		story_votes = (StateListView) findViewById(R.id.story_votes);
 		story_votes.setAdapter(svAdptr);
-		
+
 	}
-	
-	private VoteActionListener voteListener = new VoteActionListener(){
+
+	private VoteActionListener voteListener = new VoteActionListener() {
 		@Override
 		public void send(String storyId, String type) {
-			//TODO, 只有在列表静止状态下，才处理投票提交
-			if(story_votes.isStatic())
-				updateProgress("This is: "+type);
-		}		
+			// TODO, 只有在列表静止状态下，才处理投票提交
+			if (story_votes.isStatic())
+				updateProgress("This is: " + type);
+		}
 	};
-	
+
 	private void addEventListeners() {
-		top_back.setOnClickListener(mGoListener);		
+		top_back.setOnClickListener(mGoListener);
 	}
 
 	private OnClickListener mGoListener = new OnClickListener() {
@@ -133,78 +131,72 @@ public class StoryList extends FullScreenActivity {
 		pic_author.setText(author);
 		pub_time.setText(pubTime);
 	}
-	
-	private void getStories(){
-		if(tpId!=null){
+
+	private void getStories() {
+		if (tpId != null) {
 			doRetrieve(tpId);
-		}else{
+		} else {
 			updateProgress("Warning, tpId is null!");
 			Log.e(TAG, "Warning, tpId is null!");
 		}
-		
+
 	}
-    private void doRetrieve(String tpId) {
-        Log.d(TAG, "Attempting retrieve gallery data...");
 
-        if (mRetrieveTask != null
-                && mRetrieveTask.getStatus() == GenericTask.Status.RUNNING) {
-            return;
-        } else {
-            mRetrieveTask = new RetrieveStoriesTask();
-            mRetrieveTask.setListener(mRetrieveTaskListener);
-              
-            TaskParams params = new TaskParams();
-            params.put("tpId", tpId);
-            mRetrieveTask.execute(params);
+	private void doRetrieve(String tpId) {
+		Log.d(TAG, "Attempting retrieve gallery data...");
 
-            // Add Task to manager
-            taskManager.addTask(mRetrieveTask);
-        }
-    }
-	
-    private TaskListener mRetrieveTaskListener = new TaskAdapter() {
+		if (mRetrieveTask != null
+				&& mRetrieveTask.getStatus() == GenericTask.Status.RUNNING) {
+			return;
+		} else {
+			mRetrieveTask = new RetrieveStoriesTask();
+			mRetrieveTask.setListener(mRetrieveTaskListener);
+
+			TaskParams params = new TaskParams();
+			params.put("tpId", tpId);
+			mRetrieveTask.execute(params);
+
+			// Add Task to manager
+			taskManager.addTask(mRetrieveTask);
+		}
+	}
+
+	private TaskListener mRetrieveTaskListener = new TaskAdapter() {
 		@Override
 		public void onPreExecute(GenericTask task) {
 			details_prgrsBar.setVisibility(View.VISIBLE);
 		}
+
 		@Override
 		public void onPostExecute(GenericTask task, TaskResult result) {
 			if (result == TaskResult.OK) {// 成功发送
-				//do nothing currently...				
+				// do nothing currently...
 			} else if (result == TaskResult.IO_ERROR) {
 				updateProgress(getString(R.string.page_status_unable_to_update));
-			}else if(result==TaskResult.JSON_PARSE_ERROR){
-    			updateProgress("Response to json data parse Error!");
-    		}
+			} else if (result == TaskResult.JSON_PARSE_ERROR) {
+				updateProgress("Response to json data parse Error!");
+			}
 			details_prgrsBar.setVisibility(View.GONE);
 		}
-		
-		public void deliverRetrievedList(List<Object> results){
+
+		public void deliverRetrievedList(List<Object> results) {
 			ArrayList<StoryInfo> stories = new ArrayList<StoryInfo>();
-			for(Object o : results){
-				stories.add((StoryInfo)o);
+			for (Object o : results) {
+				stories.add((StoryInfo) o);
 			}
-			//更新视图列表
+			// 更新视图列表
 			svAdptr.refresh(stories);
 		}
-				
-		@Override
-		public String getName() {
-			return "StoriesTask";
-		}    	
 
-    };
-	
-	protected void onDestroy(){
+	};
+
+	protected void onDestroy() {
 		super.onDestroy();
 		taskManager.cancelAll();
 	}
-	
+
 	private void updateProgress(String message) {
 		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 	}
-	
-	
-	
-	
-} //end of class
+
+} // end of class

@@ -72,7 +72,7 @@ public class PTImpl implements PTApi {
 	public String postPicture(File pic, String tags, String desc,
 			String allowStory) throws HttpException {
 
-		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>(); 
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.UPLOADPICTURE);
 		tags = UTF8Formater.changeToUnicode(tags);
@@ -138,33 +138,62 @@ public class PTImpl implements PTApi {
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.ADDSTORY);
 		BasicNameValuePair tpIdParam = new BasicNameValuePair("follow", follow);
-		//中文编码下，解决乱码问题
+		// 中文编码下，解决乱码问题
 		story = UTF8Formater.changeToUnicode(story);
-		BasicNameValuePair contentParam = new BasicNameValuePair("content", story);
+		BasicNameValuePair contentParam = new BasicNameValuePair("content",
+				story);
 		params.add(methodParam);
 		params.add(tpIdParam);
 		params.add(contentParam);
-		
+
 		Response resp = client.post(getBaseURL(), params, null, false);
 
 		return resp.asString();
 	}
 
 	@Override
-	public JSONArray getStoriesByTpId(String tpId) throws HttpException, JSONException {
+	public JSONArray getStoriesByTpId(String tpId) throws HttpException,
+			JSONException {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.GETSTORIESOFPIC);
 		BasicNameValuePair tpIdParam = new BasicNameValuePair("tpId", tpId);
-		
+
 		params.add(methodParam);
 		params.add(tpIdParam);
-		
+
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
 		Log.d(TAG, ">>> json Stories: " + jsonStr);
-		
+
 		return new JSONArray(jsonStr);
+	}
+
+	@Override
+	public String postComment(String follow, String comment)
+			throws HttpException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.ADDCOMMENT);
+		BasicNameValuePair tpIdParam = new BasicNameValuePair("follow", follow);
+		// 中文编码下，解决乱码问题
+		comment = UTF8Formater.changeToUnicode(comment);
+		BasicNameValuePair contentParam = new BasicNameValuePair("content",
+				comment);
+		params.add(methodParam);
+		params.add(tpIdParam);
+		params.add(contentParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+
+		return resp.asString();
+	}
+
+	@Override
+	public JSONArray getCommensByTpId(String tpId) throws HttpException,
+			JSONException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 } // end of class

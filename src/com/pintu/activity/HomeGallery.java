@@ -217,12 +217,7 @@ public class HomeGallery extends FullScreenActivity {
     		
     		//刷库更新画廊，这样最简单
     		retrieveGalleryFromDB();
-    	}
-
-		@Override
-		public String getName() {
-			return "RetrieveGalleryTask";
-		}
+    	}	
     	
     }; //end of mRetrieveTaskListener
     

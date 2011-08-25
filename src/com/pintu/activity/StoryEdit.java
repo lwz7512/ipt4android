@@ -20,13 +20,17 @@ import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
 public class StoryEdit extends FullScreenActivity {
@@ -37,6 +41,7 @@ public class StoryEdit extends FullScreenActivity {
 	// Header
 	private Button top_back;
 	private Button top_send_btn;
+	private ProgressBar sending_prgrsBar;
 
 	// Pic info
 	private ImageView pic_to_storied;
@@ -51,7 +56,6 @@ public class StoryEdit extends FullScreenActivity {
 
 	// Task
 	private GenericTask mSendTask;
-	private ProgressDialog dialog;
 
 	// 发送故事的目标图编号
 	private String tpId;
@@ -71,14 +75,15 @@ public class StoryEdit extends FullScreenActivity {
 	private void getViews() {
 		top_back = (Button) findViewById(R.id.top_back);
 		top_send_btn = (Button) findViewById(R.id.top_send_btn);
-
+		sending_prgrsBar = (ProgressBar) findViewById(R.id.sending_prgrsBar);
+		
 		pic_to_storied = (ImageView) findViewById(R.id.pic_to_storied);
 		pic_author = (TextView) findViewById(R.id.pic_author);
 		pub_time = (TextView) findViewById(R.id.pub_time);
 
 		story_edit = (EditText) findViewById(R.id.story_edit);
 		storytxt_left_hint = (TextView) findViewById(R.id.storytxt_left_hint);
-		//保存初始文字颜色
+		// 保存初始文字颜色
 		originTextColor = storytxt_left_hint.getTextColors().getDefaultColor();
 		clear_story_btn = (LinearLayout) findViewById(R.id.clear_story_btn);
 	}
@@ -86,11 +91,13 @@ public class StoryEdit extends FullScreenActivity {
 	private void addEventListeners() {
 		top_back.setOnClickListener(mGoListener);
 		top_send_btn.setOnClickListener(sendListener);
-		//更新剩余文字提示
+		// 更新剩余文字提示
 		story_edit.addTextChangedListener(mTextWatcher);
+		//添加键盘完成按键动作监听
+		story_edit.setOnEditorActionListener(editorActionListener);
 		clear_story_btn.setOnClickListener(popupCleanListener);
 	}
-	
+
 	private void showPicInfo() {
 		// 只能在活动创建时获取参数
 		Intent received = getIntent();
@@ -112,7 +119,6 @@ public class StoryEdit extends FullScreenActivity {
 		pub_time.setText(pubTime);
 	}
 
-
 	private TextWatcher mTextWatcher = new TextWatcher() {
 		@Override
 		public void afterTextChanged(Editable e) {
@@ -128,6 +134,17 @@ public class StoryEdit extends FullScreenActivity {
 		public void onTextChanged(CharSequence s, int start, int before,
 				int count) {
 		}
+	};
+	
+	private OnEditorActionListener editorActionListener = new OnEditorActionListener(){
+		@Override
+		public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+			//如果按下完成键，就执行发送动作
+			if(actionId == EditorInfo.IME_ACTION_DONE){
+				doSend();
+			}
+			return false;
+		}		
 	};
 
 	public void updateCharsRemain() {
@@ -155,39 +172,38 @@ public class StoryEdit extends FullScreenActivity {
 	private OnClickListener popupCleanListener = new OnClickListener() {
 		public void onClick(View v) {
 			int storyLength = story_edit.getText().toString().length();
-			if(storyLength>0){
-				clearContentWarning();    				
+			if (storyLength > 0) {
+				clearContentWarning();
 			}
 		}
 	};
-	
-	private void clearContentWarning(){
-    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    	builder.setTitle("提示");
-    	builder.setMessage("清除全部文字吗?");
-    	builder.setPositiveButton("确定", okListener);
-    	builder.setNegativeButton("取消",cancelListener);
-    	
-    	Dialog dialog = builder.create();
-        dialog.show();
+
+	private void clearContentWarning() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("提示");
+		builder.setMessage("清除全部文字吗?");
+		builder.setPositiveButton("确定", okListener);
+		builder.setNegativeButton("取消", cancelListener);
+
+		Dialog dialog = builder.create();
+		dialog.show();
 
 	}
-	
-    private final DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener(){
+
+	private final DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener() {
 		@Override
 		public void onClick(DialogInterface dialog, int which) {
-			story_edit.getText().clear();			
+			story_edit.getText().clear();
 		}
-    };
-    
-    private final DialogInterface.OnClickListener cancelListener = new DialogInterface.OnClickListener(){
+	};
+
+	private final DialogInterface.OnClickListener cancelListener = new DialogInterface.OnClickListener() {
 		@Override
 		public void onClick(DialogInterface dialog, int which) {
-			dialog.dismiss();			
+			dialog.dismiss();
 		}
-    };
-	
-	
+	};
+
 	private void doSend() {
 		Log.d(TAG, "dosend story... ");
 
@@ -198,11 +214,11 @@ public class StoryEdit extends FullScreenActivity {
 		String storyContent = story_edit.getText().toString();
 		if (storyContent.length() > 0) {
 
-			if(storyContent.length()>STORYLENGTH){
-				updateProgress("Beyong the length limit: "+STORYLENGTH);
+			if (storyContent.length() > STORYLENGTH) {
+				updateProgress("Beyong the length limit: " + STORYLENGTH);
 				return;
 			}
-			
+
 			int mode = SendTask.TYPE_STORY;
 			mSendTask = new SendTask();
 			mSendTask.setListener(mSendTaskListener);
@@ -239,35 +255,23 @@ public class StoryEdit extends FullScreenActivity {
 			}
 		}
 
-		@Override
-		public String getName() {
-			return "SendStoryTask";
-		}
 	};
 
 	private void onSendBegin() {
-		dialog = ProgressDialog.show(this, "",
-				getString(R.string.page_status_updating), true);
-		if (dialog != null) {
-			dialog.setCancelable(false);
-		}
+		sending_prgrsBar.setVisibility(View.VISIBLE);
+		top_send_btn.setVisibility(View.GONE);
 	}
 
 	private void onSendSuccess() {
-		if (dialog != null) {
-			dialog.setMessage(getString(R.string.page_status_update_success));
-			dialog.dismiss();
-		}
-		updateProgress(getString(R.string.page_status_update_success));
+		sending_prgrsBar.setVisibility(View.GONE);
+		top_send_btn.setVisibility(View.VISIBLE);
+		//关闭当前窗口
 		finish();
 	}
 
 	private void onSendFailure() {
-		dialog.setMessage(getString(R.string.page_status_unable_to_update));
-		dialog.dismiss();
 		updateProgress(getString(R.string.page_status_unable_to_update));
 	}
-
 
 	protected void onDestroy() {
 		super.onDestroy();

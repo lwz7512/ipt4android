@@ -35,7 +35,6 @@ public abstract class GenericTask extends
 		if (mListener != null) {
 			mListener.onCancelled(this);
 		}
-		Log.d(TAG, mListener.getName() + " has been Cancelled.");
 	}
 
 	@Override

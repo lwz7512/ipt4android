@@ -5,7 +5,6 @@ import java.util.List;
 import org.json.JSONObject;
 
 public interface TaskListener {
-	String getName();
 	
 	void onPreExecute(GenericTask task);
 	void onPostExecute(GenericTask task, TaskResult result);

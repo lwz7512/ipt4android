@@ -1,34 +1,100 @@
 package com.pintu.activity;
 
-import android.os.Bundle;
+import java.util.List;
 
-public class CommentList extends FullScreenActivity {
+import org.json.JSONObject;
 
-	protected void onCreate(Bundle savedInstanceState){
-		super.onCreate(savedInstanceState);
-		
-		//获得组件引用
-		getViews();
-		//添加事件监听
-		addEventListeners();
-		
+public class CommentList extends TempletActivity {
+
+	@Override
+	protected int getLayout() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
-	
-	private void addEventListeners() {
+
+	@Override
+	protected void getViews() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private void getViews() {
+	@Override
+	protected void addEventListeners() {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	protected void onDestroy(){
-		super.onDestroy();
+
+	@Override
+	protected void justDoIt() {
+		// TODO Auto-generated method stub
 		
 	}
-	
-	
+
+	@Override
+	protected void doSend() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void onSendBegin() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void onSendSuccess() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void onSendFailure() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void doRetrieve(String arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void onRetrieveBegin() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void onRetrieveSuccess() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void onRetrieveFailure() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void onParseJSONResultFailue() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void refreshListView(List<Object> results) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void refreshMultView(JSONObject json) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 } //end of class

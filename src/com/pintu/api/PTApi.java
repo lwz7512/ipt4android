@@ -55,7 +55,14 @@ public interface PTApi {
 	public String postStory(String follow, String story) throws HttpException;
 	//获取故事列表
 	public JSONArray getStoriesByTpId(String tpId) throws HttpException,JSONException;
+	//发送评价
+	public String postComment(String follow, String comment) throws HttpException;
+	//获取评价列表
+	public JSONArray getCommensByTpId(String tpId) throws HttpException,JSONException;
 	
 	
 	
-}
+	
+	
+	
+} //end of  interface
