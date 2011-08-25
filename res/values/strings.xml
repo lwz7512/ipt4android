@@ -27,6 +27,12 @@
 	<string name="gallery">首页画廊</string>
 	<string name="picdetails">贴图详情</string>
 	<string name="storylist">品图列表</string>
+	<string name="commentlist">评论列表</string>
+
+	<!-- 专属提示 -->
+	<string name="comment_length_note">
+				您已经达到了评论的最大长度32，如果继续，建议发表到品图内容中
+	</string>
 
 	<!-- 状态条提示 -->
 	<string name="page_status_refreshing">正在获取...</string>

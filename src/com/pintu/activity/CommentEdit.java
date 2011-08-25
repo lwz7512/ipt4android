@@ -6,6 +6,8 @@ import org.json.JSONObject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -39,6 +41,7 @@ public class CommentEdit extends TempletActivity {
 
 	// Content
 	private EditText comment_edit;
+	private static int COMMENTLENGTH = 32;
 
 	// 发送评论的目标图编号
 	private String tpId;
@@ -68,6 +71,8 @@ public class CommentEdit extends TempletActivity {
 		top_send_btn.setOnClickListener(sendListener);
 		//添加键盘完成按键动作监听
 		comment_edit.setOnEditorActionListener(editorActionListener);		
+		//做输入长度提示
+		comment_edit.addTextChangedListener(mTextWatcher);
 	}
 
 	//视图创建完成后要调用该方法	
@@ -120,11 +125,36 @@ public class CommentEdit extends TempletActivity {
 			return false;
 		}		
 	};
+	
+	private TextWatcher mTextWatcher = new TextWatcher() {
+		@Override
+		public void afterTextChanged(Editable e) {
+			noteUserForLength(e);
+		}
+
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count,
+				int after) {
+		}
+
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before,
+				int count) {
+		}
+	};
+	
+	private void noteUserForLength(Editable e){
+		int currentLength = e.length();
+		if(currentLength==COMMENTLENGTH){
+			updateProgress(R.string.comment_length_note);
+		}
+	}
+
 
 	@Override
 	protected void doSend() {
 		//先检查任务是否在执行，是则退出
-		checkTaskStatus();
+		this.checkTaskStatus();
 		
 		String comment = comment_edit.getText().toString();
 		if (comment.length() > 0) {			
@@ -147,6 +177,8 @@ public class CommentEdit extends TempletActivity {
 			updateProgress("Write content first!");
 		}
 
+		//将新建任务添加到管理器中，方便销毁
+		this.manageTask(mSendTask);
 		
 	}
 
@@ -168,40 +200,43 @@ public class CommentEdit extends TempletActivity {
 	protected void onSendFailure() {
 		updateProgress(getString(R.string.page_status_unable_to_update));		
 	}
+	
 
+//	------  下面的方法这里用不着，但是别删了，因为他们是父类抽象方法的实现 ------
+	
 	@Override
-	protected void doRetrieve(String arg) {
-		//do nothing here...		
+	protected void doRetrieve() {
+		//do nothing, but leave it stay here don't kill me...		
 	}
 
 	@Override
 	protected void onRetrieveBegin() {
-		//do nothing here...		
+		//do nothing, but leave it stay here don't kill me...		
 	}
 
 	@Override
 	protected void onRetrieveSuccess() {
-		//do nothing here...
+		//do nothing, but leave it stay here don't kill me...
 	}
 
 	@Override
 	protected void onRetrieveFailure() {		
-		//do nothing here...		
+		//do nothing, but leave it stay here don't kill me...		
 	}
 
 	@Override
 	protected void onParseJSONResultFailue() {
-		//do nothing here...		
+		//do nothing, but leave it stay here don't kill me...		
 	}
 
 	@Override
 	protected void refreshListView(List<Object> results) {
-		//do nothing here...		
+		//do nothing, but leave it stay here don't kill me...		
 	}
 
 	@Override
 	protected void refreshMultView(JSONObject json) {
-		//do nothing here...		
+		//do nothing, but leave it stay here don't kill me...		
 	}
 
 	

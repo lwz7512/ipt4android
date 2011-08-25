@@ -14,9 +14,9 @@ import com.pintu.http.HttpException;
 
 public class RetrieveStoriesTask extends GenericTask {
 
-	static final String TAG = "RetrieveStoriesTask";
+	private static final String TAG = "RetrieveStoriesTask";
 	
-    //存放取回的数据
+    //存放整理好的故事
     private List<Object> retrievedStories;
 
 	
@@ -69,9 +69,7 @@ public class RetrieveStoriesTask extends GenericTask {
 		}
 	}
 	
-    protected void onPostExecute(TaskResult result){
-    	//必须继承父类动作
-    	super.onPostExecute(result);
+    protected void _onPostExecute(TaskResult result){
     	
     	if(result==TaskResult.OK){
     		if(this.getListener()!=null && retrievedStories!=null){

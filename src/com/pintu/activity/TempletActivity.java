@@ -18,6 +18,7 @@ public abstract class TempletActivity extends FullScreenActivity {
 	// Task
 	protected GenericTask mSendTask;
 	protected GenericTask mRetrieveTask;
+	//管理当前视图内任务的销毁
 	protected TaskManager taskManager = new TaskManager();
 
 	
@@ -60,7 +61,7 @@ public abstract class TempletActivity extends FullScreenActivity {
 	// 发送失败
 	protected abstract void onSendFailure();	
 	// 查询请求
-	protected abstract void doRetrieve(String arg);
+	protected abstract void doRetrieve();
 	//开始取数据
 	protected abstract void onRetrieveBegin();
 	//取数据成功
@@ -69,9 +70,9 @@ public abstract class TempletActivity extends FullScreenActivity {
 	protected abstract void onRetrieveFailure();
 	//解析JSON结果出错
 	protected abstract void onParseJSONResultFailue();
-	//根据列表数据刷新列表
+	//根据列表数据更新列表视图
 	protected abstract void refreshListView(List<Object> results);
-	//根据JSON对象刷新视图内容
+	//根据JSON对象更新视图内容
 	protected abstract void refreshMultView(JSONObject json);
 
 
@@ -137,8 +138,17 @@ public abstract class TempletActivity extends FullScreenActivity {
 		}
 
 	}
+	
+	protected void manageTask(GenericTask task){
+		if(task!=null)
+			taskManager.addTask(task);
+	}
 
 	protected void updateProgress(String message) {
+		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+	}
+	
+	protected void updateProgress(int message) {
 		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 	}
 

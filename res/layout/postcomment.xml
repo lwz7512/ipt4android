@@ -7,7 +7,7 @@
 	<!-- 图片摘要 -->
 	<include layout="@layout/pic_info" />
 	
-	<!-- 评论输入框最多让输入32个字，这里为了简化开发，就不做提示了 -->
+	<!-- 评论输入框最多让输入32个字 -->
 	<EditText android:id="@+id/comment_edit" android:layout_width="fill_parent"
 		android:layout_height="fill_parent" android:gravity="top"
 		android:maxLength="32" android:imeOptions="actionDone" />

@@ -72,9 +72,7 @@ public class RetrieveGalleryTask extends GenericTask {
 			}
     }
     
-    protected void onPostExecute(TaskResult result){
-    	//必须继承父类动作
-    	super.onPostExecute(result);
+    protected void _onPostExecute(TaskResult result){
     	
     	if(result==TaskResult.OK){
     		if(this.getListener()!=null && retrievedPics!=null){

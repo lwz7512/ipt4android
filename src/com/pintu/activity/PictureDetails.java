@@ -228,7 +228,22 @@ public class PictureDetails extends FullScreenActivity {
 	private OnClickListener commentsAction = new OnClickListener(){
 		@Override
 		public void onClick(View v) {
-
+			String tpicUrl = null;
+			Intent it = new Intent();
+			//准备启动StoryList
+			it.setClass(PictureDetails.this, CommentList.class);
+			if(details!=null && details.id!=null){
+				tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
+				it.putExtra("tpicUrl", tpicUrl);
+				it.putExtra("author", details.author);
+				it.putExtra("pubTime", details.publishTime);	
+				it.putExtra("tpId", details.id);
+				//启动故事列表
+				startActivity(it);				
+			}else{
+				updateProgress("picture is blank, waiting for it to view stories...");
+			}
+			
 		}		
 	};
 	

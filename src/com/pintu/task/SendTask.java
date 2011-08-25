@@ -99,21 +99,17 @@ public class SendTask extends GenericTask {
 
 	} // end of doInBackground
 
-	protected void onPostExecute(TaskResult result) {
-		// 必须继承父类动作
-		super.onPostExecute(result);
+	protected void _onPostExecute(TaskResult result) {
 
 		if (result == TaskResult.OK) {
 			if (this.getListener() != null && postResult != null) {
 				Log.d(TAG, ">>> call deliverResponseString: \n" + postResult);
 				// 回调监听方法传结果
 				this.getListener().deliverResponseString(postResult);
-			} else {
-				// listener is null or retrieved pics is null!
+			} else {				
 				Log.d(TAG, "listener is null or retrieved pics is null!");
 			}
-		} else {
-			// ERROR!
+		} else {			
 			Log.d(TAG, "Fetching  data ERROR!");
 		}
 

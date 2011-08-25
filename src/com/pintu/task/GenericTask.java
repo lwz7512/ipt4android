@@ -14,7 +14,10 @@ public abstract class GenericTask extends
 	private Feedback mFeedback = null;
 	private boolean isCancelable = true;
 
+	//子类负责实现，一般来自执行请求
 	abstract protected TaskResult _doInBackground(TaskParams... params);
+	//子类专用来做返回数据解析，并传给TaskListener中的回调接口
+	abstract protected void _onPostExecute(TaskResult result);
 
 	public void setListener(TaskListener taskListener) {
 		mListener = taskListener;
@@ -41,9 +44,15 @@ public abstract class GenericTask extends
 	protected void onPostExecute(TaskResult result) {
 		super.onPostExecute(result);
 
+		//该监听器不做数据方面的处理，只是操作状态和错误提示
 		if (mListener != null) {
 			mListener.onPostExecute(this, result);
 		}
+		
+		//做数据解析，具体数据解析和更新视图
+		//在该方法中操作相应的TaskListener接口方法
+		//2011/08/25 added by lwz7512
+		_onPostExecute(result);
 
 		if (mFeedback != null) {
 			mFeedback.success("");

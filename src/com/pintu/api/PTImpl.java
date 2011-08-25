@@ -29,11 +29,6 @@ public class PTImpl implements PTApi {
 
 	// localhost ip used by emulator!
 	private String host = "http://10.0.2.2:8080";
-	// local test servlet
-	// private String service = "/ipintu/upload";
-
-	// WIFI IP used by mobile phone!
-	// private String host = "http://10.127.0.11:8080";
 	// Real service context
 	private String service = "/ipintu/pintuapi";
 
@@ -192,8 +187,27 @@ public class PTImpl implements PTApi {
 	@Override
 	public JSONArray getCommensByTpId(String tpId) throws HttpException,
 			JSONException {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETCOMMENTSOFPIC);
+		BasicNameValuePair tpIdParam = new BasicNameValuePair("tpId", tpId);
+
+		params.add(methodParam);
+		params.add(tpIdParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json Stories: " + jsonStr);
+
+		return new JSONArray(jsonStr);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 } // end of class

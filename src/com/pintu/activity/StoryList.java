@@ -55,7 +55,9 @@ public class StoryList extends FullScreenActivity {
 
 	// 获取故事列表任务
 	private GenericTask mRetrieveTask;
-
+	//发送投票的任务
+	protected GenericTask mSendTask;
+	//管理当前视图内任务的销毁
 	protected TaskManager taskManager = new TaskManager();
 
 	protected void onCreate(Bundle savedInstanceState) {
@@ -134,7 +136,7 @@ public class StoryList extends FullScreenActivity {
 
 	private void getStories() {
 		if (tpId != null) {
-			doRetrieve(tpId);
+			doRetrieve();
 		} else {
 			updateProgress("Warning, tpId is null!");
 			Log.e(TAG, "Warning, tpId is null!");
@@ -142,7 +144,7 @@ public class StoryList extends FullScreenActivity {
 
 	}
 
-	private void doRetrieve(String tpId) {
+	private void doRetrieve() {
 		Log.d(TAG, "Attempting retrieve gallery data...");
 
 		if (mRetrieveTask != null

@@ -25,8 +25,8 @@ public class StoryVoteAdapter extends BaseAdapter {
 	private VoteActionListener voteListener;
 
 	public StoryVoteAdapter(Context c) {
-		mInflater = LayoutInflater.from(c);
 		ctxt = c;
+		mInflater = LayoutInflater.from(c);
 		items = new ArrayList<StoryInfo>();
 	}
 
@@ -46,12 +46,13 @@ public class StoryVoteAdapter extends BaseAdapter {
 	}
 
 	private static class ViewHolder {
-		
+		//存下来为投票作参数
 		public String storyId;
 		
 		public TextView story_author;
 		public TextView story_pubtime;
 
+		//设置点击开关，只能点一次
 		boolean flowerFlag = false;
 		boolean eggFlag = false;
 		boolean heartFlag = false;
@@ -90,7 +91,7 @@ public class StoryVoteAdapter extends BaseAdapter {
 		ViewHolder holder = (ViewHolder) view.getTag();
 		// 添加投票交互
 		if (voteListener != null)
-			addVoteAction(holder);
+				addVoteAction(holder);
 
 		StoryInfo si = items.get(position);
 		//保存故事ID，以便投票使用
@@ -122,7 +123,9 @@ public class StoryVoteAdapter extends BaseAdapter {
 
 		holder.heart_num.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				//不能连续点
 				if (!fv.heartFlag) {
+					//通知外面投票点击了
 					voteListener.send(fv.storyId, "heart");
 					addVoteNum(fv.heart_num);
 					fv.heartFlag = true;
@@ -131,7 +134,9 @@ public class StoryVoteAdapter extends BaseAdapter {
 		});
 		holder.classic_num.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				//不能连续点
 				if (!fv.starFlag) {
+					//通知外面投票点击了
 					voteListener.send(fv.storyId, "star");
 					addVoteNum(fv.classic_num);
 					fv.starFlag = true;
@@ -140,7 +145,9 @@ public class StoryVoteAdapter extends BaseAdapter {
 		});
 		holder.egg_num.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				//不能连续点
 				if (!fv.eggFlag) {
+					//通知外面投票点击了
 					voteListener.send(fv.storyId, "egg");
 					addVoteNum(fv.egg_num);
 					fv.eggFlag = true;
@@ -150,7 +157,9 @@ public class StoryVoteAdapter extends BaseAdapter {
 		});
 		holder.flower_num.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				//不能连续点
 				if (!fv.flowerFlag) {
+					//通知外面投票点击了
 					voteListener.send(fv.storyId, "flower");
 					addVoteNum(fv.flower_num);
 					fv.flowerFlag = true;
@@ -160,6 +169,7 @@ public class StoryVoteAdapter extends BaseAdapter {
 
 	}
 
+	//给投票文字加一
 	private void addVoteNum(TextView vote) {
 		Activity parent = (Activity) ctxt;
 		final TextView fv = vote;

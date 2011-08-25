@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="wrap_content" android:paddingLeft="10dp"
+	android:paddingRight="10dp">
+	<!-- 评论人 -->
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="20dp">
+		<TextView android:id="@+id/comment_author"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true" style="@style/LinkText.Bold.Big" />
+		<TextView android:id="@+id/comment_pubtime"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentRight="true" />
+	</RelativeLayout>
+	<!-- 评论内容，左边空出60dp，与图片对齐 -->
+	<TextView android:id="@+id/comment_txt" android:layout_height="wrap_content"
+		android:layout_width="fill_parent" android:textSize="15sp"
+		android:textColor="@drawable/tweet_color" android:lineSpacingExtra="2sp"
+		android:layout_marginLeft="60dp" android:text="comment..." />
+</LinearLayout>
