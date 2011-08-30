@@ -23,8 +23,8 @@ public abstract class TempletActivity extends FullScreenActivity {
 	//管理当前视图内任务的销毁
 	protected TaskManager taskManager = new TaskManager();
 
-	//1小时时间间隔
-	protected long oneHourMiliSeconds = 1*60*60*1000;
+	//10分钟时间间隔
+	protected long temMinutesMiliSeconds = 10*60*1000;
 	
 	//TODO, ----------------  模板Activity 生命周方法 -------------------------------
 

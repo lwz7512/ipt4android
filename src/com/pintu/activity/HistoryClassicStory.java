@@ -40,9 +40,9 @@ public class HistoryClassicStory extends TempletActivity implements SubMainCallB
 		long lastVisitTime = this.getPreferences().getLong(Preferences.LAST_VISIT_TIME, 0);
 		long now = DateTimeHelper.getNowTime();
 		long diff = now - lastVisitTime;	
-		//如果登录超过1小时就允许重新取数据了
+		//如果登录超过10分钟就允许重新取数据了
 		//第一次使用应用肯定要从远程取
-		if(diff>oneHourMiliSeconds || lastVisitTime==0){
+		if(diff>temMinutesMiliSeconds || lastVisitTime==0){
 			//取远程数据
 			doRetrieve();
 		}

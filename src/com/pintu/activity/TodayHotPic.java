@@ -36,6 +36,9 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 	//ProgressBar
 	private ProgressBar pb;
 	
+	//pic in local db
+	private List<TPicDetails>cachedHotPics;
+	
 	@Override
 	protected int getLayout() {
 		return R.layout.todayhot;
@@ -72,11 +75,10 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 	@Override
 	protected void justDoIt() {
 		//首先尝试取缓存数据
-		List<TPicDetails>cachedHotPics = PintuApp.dbApi.getCachedHotPics();
+		cachedHotPics = PintuApp.dbApi.getCachedHotPics();
 		if(cachedHotPics!=null && cachedHotPics.size()>0){
 			hpAdptr.refresh(cachedHotPics);			
-		}
-		
+		}		
 	}
 	
 	@Override
@@ -84,12 +86,12 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 		long lastVisitTime = this.getPreferences().getLong(Preferences.LAST_VISIT_TIME, 0);
 		long now = DateTimeHelper.getNowTime();
 		long diff = now - lastVisitTime;	
-		//如果登录超过1小时就允许重新取数据了
+		//如果登录超过10分钟就允许重新取数据了
 		//或者第一次使用应用肯定要从远程取
-		if(diff>oneHourMiliSeconds || lastVisitTime==0){
+		if(diff>temMinutesMiliSeconds || lastVisitTime==0 || cachedHotPics.size()==0){
 			//取远程数据
 			doRetrieve();
-		}				
+		}
 	}
 
 	
@@ -153,6 +155,10 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 		ArrayList<TPicDetails> hotpics = new ArrayList<TPicDetails>();
 		for(Object o : results){
 			hotpics.add((TPicDetails) o);
+		}
+		if(hotpics.size()==0){
+			updateProgress("No hot pictures in system currently!");
+			return;
 		}
 		//先入库缓存
 		PintuApp.dbApi.insertHotPics(hotpics);

@@ -372,7 +372,7 @@ public class PictureDetails extends FullScreenActivity {
     	SimpleImageLoader.display(profile_image, profileUrl);
     	String tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
     	//显示品图手机图片
-    	SimpleImageLoader.display(t_picture, tpicUrl);
+    	SimpleImageLoader.displayForLarge(t_picture, tpicUrl);
     	
     	user_name.setText(details.author);
     	String userInfo = getText(R.string.level_zh)+"  "+details.level;

@@ -84,7 +84,7 @@ public class HotPicsAdapter extends BaseAdapter {
     	SimpleImageLoader.display(holder.hotpic_author_img, profileUrl);
     	String tpicUrl = PintuApp.mApi.composeImgUrlById(tpic.mobImgId);
     	//显示品图手机图片
-    	SimpleImageLoader.display(holder.hot_pic_image, tpicUrl);
+    	SimpleImageLoader.displayForLarge(holder.hot_pic_image, tpicUrl);
 		
 		return view;
 	}
