@@ -51,14 +51,7 @@ public class RetrieveCommentsTask extends GenericTask {
 		retrievedComments = new ArrayList<Object>();
 		try{
 			for(int i=0;i<jsComments.length();i++){
-				CommentInfo ci = new CommentInfo();
-				ci.author = jsComments.getJSONObject(i).getString("author");
-				ci.content = jsComments.getJSONObject(i).getString("content");
-				ci.follow = jsComments.getJSONObject(i).getString("follow");
-				ci.id = jsComments.getJSONObject(i).getString("id");
-				ci.owner = jsComments.getJSONObject(i).getString("owner");
-				ci.publishTime = jsComments.getJSONObject(i).getString("publishTime");
-				
+				CommentInfo ci = CommentInfo.parseJsonToObj(jsComments.getJSONObject(i));				
 				retrievedComments.add(ci);
 			}			
 		}catch(JSONException e){

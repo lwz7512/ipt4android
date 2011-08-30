@@ -16,7 +16,9 @@ import android.util.Log;
 
 
 public class RetrieveGalleryTask extends GenericTask {
-	static final String TAG = "RetrieveGalleryTask";
+	
+	private static  String TAG = "RetrieveGalleryTask";
+	
     private String _errorMsg;
     //存放取回的数据
     private List<Object> retrievedPics;

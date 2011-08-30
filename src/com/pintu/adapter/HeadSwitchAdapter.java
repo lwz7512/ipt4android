@@ -1,12 +1,18 @@
 package com.pintu.adapter;
 
 
+import com.pintu.R;
+
 import android.content.Context;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 /**
  * 
  * @author GV
@@ -15,21 +21,30 @@ import android.widget.ImageView;
 public class HeadSwitchAdapter extends BaseAdapter {
 	
 	private Context mContext; 
-	private ImageView[] imgItems;
+	private TextView[] imgItems;
 	private int selResId;
 	
-    public HeadSwitchAdapter(Context c,int[] picIds,int width,int height,int selResId) { 
+    public HeadSwitchAdapter(Context c,int[] picIds,int[] txts,int height,int selResId) { 
         mContext = c; 
         this.selResId=selResId;
-        imgItems=new ImageView[picIds.length];
+        imgItems=new TextView[picIds.length];
         for(int i=0;i<picIds.length;i++){
-        	imgItems[i] = new ImageView(mContext); 
-        	//设置ImageView宽高
-        	imgItems[i].setLayoutParams(new GridView.LayoutParams(width, height)); 
-        	imgItems[i].setAdjustViewBounds(false); 
-        	//imgItems[i].setScaleType(ImageView.ScaleType.CENTER_CROP); 
+        	imgItems[i] = new TextView(mContext); 
+        	imgItems[i].setLayoutParams(
+        			new GridView.LayoutParams(LayoutParams.WRAP_CONTENT, height)); 
         	imgItems[i].setPadding(2, 2, 2, 2); 
-        	imgItems[i].setImageResource(picIds[i]); 
+        	imgItems[i].setText(txts[i]); 
+        	imgItems[i].setTextColor(R.drawable.tweet_color);
+        	imgItems[i].setGravity(Gravity.CENTER_VERTICAL);
+        	if(picIds.length>2){
+        		//如果大于2个菜单就将图标置于顶部
+        		imgItems[i].setCompoundDrawablesWithIntrinsicBounds(0, picIds[i], 0, 0);        		
+        		imgItems[i].setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+        	}else{
+        		//如果只有2个菜单就将图标置于左边
+        		imgItems[i].setCompoundDrawablesWithIntrinsicBounds(picIds[i], 0, 0, 0);        		
+        		imgItems[i].setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+        	}
         }
     } 
  
@@ -47,11 +62,11 @@ public class HeadSwitchAdapter extends BaseAdapter {
 
     
     public View getView(int position, View convertView, ViewGroup parent) { 
-        ImageView imageView; 
+    	TextView imageView; 
         if (convertView == null) { 
         	imageView=imgItems[position];
         } else { 
-            imageView = (ImageView) convertView; 
+            imageView = (TextView) convertView; 
         } 
         return imageView; 
     } 

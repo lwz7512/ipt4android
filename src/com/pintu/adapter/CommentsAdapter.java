@@ -7,6 +7,7 @@ import com.pintu.R;
 import com.pintu.data.CommentInfo;
 import com.pintu.data.StoryInfo;
 import com.pintu.util.DateTimeHelper;
+import com.pintu.util.IptHelper;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -63,7 +64,7 @@ public class CommentsAdapter extends BaseAdapter {
 		ViewHolder holder = (ViewHolder) view.getTag();
 		CommentInfo ci = comments.get(position);
 		
-		String author = getShortUserName(ci.author);
+		String author = IptHelper.getShortUserName(ci.author);
 		//显示评论人，没必要提供点击查看此人了，就此打住
 		holder.comment_author.setText(author);
 		
@@ -82,16 +83,6 @@ public class CommentsAdapter extends BaseAdapter {
 		
 		return view;
 	}
-	
-	private String getShortUserName(String userName) {
-		String showName = userName;
-		if (userName.contains("@")) {
-			int atPos = userName.indexOf("@");
-			showName = userName.substring(0, atPos);
-		}
-		return showName;
-	}
-
 	
 	private static class ViewHolder {
 		

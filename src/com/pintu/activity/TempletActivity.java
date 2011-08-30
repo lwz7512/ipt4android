@@ -12,6 +12,8 @@ import com.pintu.task.TaskAdapter;
 import com.pintu.task.TaskListener;
 import com.pintu.task.TaskManager;
 import com.pintu.task.TaskResult;
+import com.pintu.util.DateTimeHelper;
+import com.pintu.util.Preferences;
 
 public abstract class TempletActivity extends FullScreenActivity {
 
@@ -21,6 +23,8 @@ public abstract class TempletActivity extends FullScreenActivity {
 	//管理当前视图内任务的销毁
 	protected TaskManager taskManager = new TaskManager();
 
+	//1小时时间间隔
+	protected long oneHourMiliSeconds = 1*60*60*1000;
 	
 	//TODO, ----------------  模板Activity 生命周方法 -------------------------------
 
@@ -34,6 +38,11 @@ public abstract class TempletActivity extends FullScreenActivity {
 			addEventListeners();
 			// 初始化动作，取数据或者为当前视图填充内容
 			justDoIt();
+		}
+		
+		protected void onResume(){
+			super.onResume();
+			doItLater();
 		}
 
 		protected void onDestroy() {
@@ -52,6 +61,8 @@ public abstract class TempletActivity extends FullScreenActivity {
 	protected abstract void addEventListeners();
 	//初始化的动作
 	protected abstract void justDoIt();
+	//延后动作
+	protected abstract void doItLater();
 	// 发送请求
 	protected abstract void doSend();
 	// 请求开始
@@ -151,5 +162,11 @@ public abstract class TempletActivity extends FullScreenActivity {
 	protected void updateProgress(int message) {
 		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 	}
+	
+    protected void rememberLastVisit(){
+    	long existTime = DateTimeHelper.getNowTime();
+    	this.getPreferences().edit().putLong(Preferences.LAST_VISIT_TIME, existTime).commit();
+    }
+
 
 }

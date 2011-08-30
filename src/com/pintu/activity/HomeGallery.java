@@ -1,6 +1,7 @@
 package com.pintu.activity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.pintu.PintuApp;
@@ -86,6 +87,9 @@ public class HomeGallery extends FullScreenActivity {
         Log.d(TAG, "onDestroy.");
         super.onDestroy();
         taskManager.cancelAll();
+        //记下本次结束访问的时间
+        //下次启动时，作为其他视图是否获取数据的依据
+        rememberLastVisit();
     }
 	
 	private void getViews(){
@@ -111,9 +115,20 @@ public class HomeGallery extends FullScreenActivity {
 		gallery.setOnItemClickListener(cellClickListener);
 		
 		tv_post.setOnClickListener(postImgListener);
+		tv_hotpic.setOnClickListener(hotpicListener);
 		//TODO, ADD OTHER HOME MENU LISTENER...
 		
 	}
+	
+	private OnClickListener hotpicListener = new OnClickListener(){
+		@Override
+		public void onClick(View v) {
+			Intent intent = new Intent();
+			//启动热图界面
+			intent.setClass(HomeGallery.this, HotPicStory.class);
+			startActivity(intent);
+		}		
+	};
 	
 	private OnItemClickListener cellClickListener = new OnItemClickListener() {
 		@Override
@@ -145,7 +160,7 @@ public class HomeGallery extends FullScreenActivity {
 	};
 	
 	private void retrieveRemoteGallery(){
-		long lastRefreshTime = PintuApp.mPref.getLong(Preferences.LAST_GALLERY_REFRESH_TIME, 0);
+		long lastRefreshTime = this.getPreferences().getLong(Preferences.LAST_GALLERY_REFRESH_TIME, 0);
 		long nowTime = DateTimeHelper.getNowTime();
 		long diff = nowTime - lastRefreshTime;
 		boolean shouldRetrieve;
@@ -189,7 +204,7 @@ public class HomeGallery extends FullScreenActivity {
     	public void onPostExecute(GenericTask task, TaskResult result) {    		
     		if(result==TaskResult.OK){
     			//保存画廊更新时间
-    			Editor pref = PintuApp.mPref.edit();
+    			Editor pref = getPreferences().edit();
     			pref.putLong(Preferences.LAST_GALLERY_REFRESH_TIME, DateTimeHelper.getNowTime());
     			//必须得提交设置，否则不生效
     			pref.commit();
@@ -229,11 +244,17 @@ public class HomeGallery extends FullScreenActivity {
     }
     
     
-    
-    
 	private void updateProgress(String message) {
 		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 	}
+	
+    private void rememberLastVisit(){
+    	long existTime = DateTimeHelper.getNowTime();
+    	this.getPreferences().edit().putLong(Preferences.LAST_VISIT_TIME, existTime).commit();
+    	Log.d(TAG, "lastVisit: "+DateTimeHelper.getRelativeDate(new Date(), this));
+    }
+    
+
 	
 	
 //------------------- option menu definition ---------------------------------
@@ -337,9 +358,7 @@ public class HomeGallery extends FullScreenActivity {
     	PintuApp.dbApi.clearData();
 
         // Clear SharedPreferences
-        SharedPreferences.Editor editor = PintuApp.mPref.edit();
-        editor.clear();
-        editor.commit();
+        this.getPreferences().edit().clear().commit();
 
         // 提供用户手动情况所有缓存选项
         SimpleImageLoader.clearAll();

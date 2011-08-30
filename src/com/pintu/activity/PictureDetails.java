@@ -30,6 +30,7 @@ import com.pintu.task.TaskParams;
 import com.pintu.task.TaskResult;
 import com.pintu.tool.SimpleImageLoader;
 import com.pintu.util.DateTimeHelper;
+import com.pintu.util.IptHelper;
 
 public class PictureDetails extends FullScreenActivity {
 
@@ -347,7 +348,7 @@ public class PictureDetails extends FullScreenActivity {
 				if(details!=null){
 					//格式化化为XXX以前，而不是显示绝对时间
 					details.publishTime = DateTimeHelper.getRelativeTimeByFormatDate(details.publishTime, PictureDetails.this);
-					details.author = getShortUserName(details.author);
+					details.author = IptHelper.getShortUserName(details.author);
 					updateUIwithPicDetails(details);
 				}else{
 					updateProgress("details is null can not update UI!");
@@ -362,14 +363,6 @@ public class PictureDetails extends FullScreenActivity {
 		}
     };
     
-    private String getShortUserName(String userName){
-    	String showName = userName;
-    	if(userName.contains("@")){
-    		int atPos = userName.indexOf("@");
-    		showName = userName.substring(0, atPos);
-    	}
-    	return showName;
-    }
     
     
     private void updateUIwithPicDetails(TPicDetails details){

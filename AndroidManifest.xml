@@ -70,7 +70,27 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>        
         </activity>
-        
+        <!-- 热图与经典 -->
+        <activity android:name=".activity.HotPicStory">
+            <intent-filter>
+                <action android:name="com.pintu.activity.hotpicstory"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>        
+        <!-- 今日热图 -->
+        <activity android:name=".activity.TodayHotPic">
+            <intent-filter>
+                <action android:name="com.pintu.activity.todayhot"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>        
+        <!-- 经典故事 -->
+        <activity android:name=".activity.HistoryClassicStory">
+            <intent-filter>
+                <action android:name="com.pintu.activity.classicstory"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>        
         <!-- add other activity... -->		 
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>

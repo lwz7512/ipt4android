@@ -108,4 +108,10 @@ public class DateTimeHelper {
     public static long getNowTime() {
         return Calendar.getInstance().getTime().getTime();
     }
+    
+    public static String longTimeToDate(long miliseconds){
+    	Date dt = new Date(miliseconds);
+    	return AGO_FULL_DATE_FORMATTER.format(dt);
+    }
+    
 }

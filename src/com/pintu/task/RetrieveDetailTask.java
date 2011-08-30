@@ -10,7 +10,8 @@ import com.pintu.http.HttpException;
 import android.util.Log;
 
 public class RetrieveDetailTask extends GenericTask {
-	static final String TAG = "RetrieveDetailTask";
+	
+	private static String TAG = "RetrieveDetailTask";
 	
 	private JSONObject picDetails; 
 	

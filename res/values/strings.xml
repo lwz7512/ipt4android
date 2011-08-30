@@ -6,6 +6,7 @@
 	<string name="allow_story">是否邀请他人品图</string>
 	<string name="description">添加图画描述</string>
 	<string name="tags">添加多个标签用空格分隔</string>
+	
 	<!-- 画廊主菜单 -->
 	<string name="postpic">贴图</string>
 	<string name="hotpic">热图</string>
@@ -22,12 +23,16 @@
 	<string name="level_zh">级别</string>
 	<string name="score_zh">积分</string>
 
-
 	<!-- 页面Title -->
 	<string name="gallery">首页画廊</string>
 	<string name="picdetails">贴图详情</string>
 	<string name="storylist">品图列表</string>
 	<string name="commentlist">评论列表</string>
+	<string name="hotpicsview">热图浏览</string>	
+	
+	<!-- 切换按钮文字 -->
+	<string name="todayhotpic">今日热图</string>
+	<string name="historyclassic">经典品图</string>
 
 	<!-- 专属提示 -->
 	<string name="comment_length_note">
@@ -47,6 +52,7 @@
 	<string name="page_dm_user_is_null">请输入收信人.</string>
 	<string name="page_is_the_person_following_you">无法发送私信，通过客户端只能给互相关注的人发私信。</string>
 	<!-- 错误提示 -->
+	<string name="json_parse_error">数据解析出错</string>
 	<string name="error_not_authorized">帐号验证失败，请重新登录.</string>
 	<string name="error_server_down">服务器暂时无法响应.</string>
 	<!-- 按钮提示 -->

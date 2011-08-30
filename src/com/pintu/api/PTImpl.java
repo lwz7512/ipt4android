@@ -222,4 +222,32 @@ public class PTImpl implements PTApi {
 		return resp.asString();
 	}
 
+	@Override
+	public JSONArray getHotPicToday() throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETHOTPICTURE);
+		params.add(methodParam);
+		
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json pics: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+
+	@Override
+	public JSONArray getHistoryClassicStroies() throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETClASSICALPINTU);
+		params.add(methodParam);
+		
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json Stories: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+
 } // end of class

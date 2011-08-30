@@ -14,7 +14,7 @@ import com.pintu.http.HttpException;
 
 public class RetrieveStoriesTask extends GenericTask {
 
-	private static final String TAG = "RetrieveStoriesTask";
+	private static  String TAG = "RetrieveStoriesTask";
 	
     //存放整理好的故事
     private List<Object> retrievedStories;
@@ -49,18 +49,7 @@ public class RetrieveStoriesTask extends GenericTask {
 		retrievedStories = new ArrayList<Object>();
 		try{
 			for(int i=0;i<jsStories.length();i++){
-				StoryInfo si = new StoryInfo();
-				si.author = jsStories.getJSONObject(i).getString("author");
-				si.content = jsStories.getJSONObject(i).getString("content");
-				si.classical = jsStories.getJSONObject(i).getInt("classical");
-				si.egg = jsStories.getJSONObject(i).getInt("egg");
-				si.flower = jsStories.getJSONObject(i).getInt("flower");
-				si.heart = jsStories.getJSONObject(i).getInt("heart");
-				si.star = jsStories.getJSONObject(i).getInt("star");
-				si.follow = jsStories.getJSONObject(i).getString("follow");
-				si.id = jsStories.getJSONObject(i).getString("id");
-				si.owner =  jsStories.getJSONObject(i).getString("owner");
-				si.publishTime =  jsStories.getJSONObject(i).getString("publishTime");
+				StoryInfo si = StoryInfo.parseJsonToObj(jsStories.getJSONObject(i));
 				retrievedStories.add(si);
 			}			
 		}catch(JSONException e){

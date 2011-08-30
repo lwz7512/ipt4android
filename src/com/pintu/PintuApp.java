@@ -13,9 +13,12 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 public class PintuApp extends Application {
 
+	private static String TAG = "PintuApp";
+	
 	//应用上下文
 	public static Context mContext;
 	//远程访问接口
@@ -41,17 +44,8 @@ public class PintuApp extends Application {
 		mPref = PreferenceManager.getDefaultSharedPreferences(this);
 		mImageLoader  = new LazyImageLoader(this);
 		
-		//保存一个上次登录时间，哪里用呢？
-		rememberLastLogin();
 	}
 	
-	private void rememberLastLogin(){
-		long lastLogin = mPref.getLong(Preferences.LAST_LOGIN_TIME, 0);
-		if(lastLogin==0){
-			long firstLogin = DateTimeHelper.getNowTime();
-			mPref.edit().putLong(Preferences.LAST_LOGIN_TIME, firstLogin);
-		}
-	}
 	
 	public void onLowMemory(){
 		super.onLowMemory();

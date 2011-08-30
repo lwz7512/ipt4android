@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="fill_parent">	
-		<!-- Header -->
-    <include layout="@layout/header_back"/>
-	
-		<GridView android:layout_height="wrap_content" android:id="@+id/gvTopBar"
-			android:layout_alignParentTop="true" android:layout_width="fill_parent"
-			android:fadingEdgeLength="5dip" android:fadingEdge="vertical">
-		</GridView>
-		<FrameLayout android:id="@+id/Container"
-			android:layout_width="fill_parent"
-			android:layout_height="fill_parent">
-		</FrameLayout>
+	android:layout_height="fill_parent" 
+	android:background="@color/body_background">
+	<!-- Header -->
+	<include layout="@layout/header_back" />
+	<!-- Activity Container -->
+	<FrameLayout android:id="@+id/Container" 
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:layout_weight="1">
+	</FrameLayout>
+	<!-- Footer image bar -->
+	<GridView android:id="@+id/gvTopBar" android:layout_width="fill_parent"
+		android:layout_height="50dp" android:fadingEdgeLength="5dip"
+		android:fadingEdge="vertical" 
+		android:background="@drawable/send_message_block">
+	</GridView>
 </LinearLayout>

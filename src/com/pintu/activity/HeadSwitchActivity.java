@@ -2,7 +2,9 @@ package com.pintu.activity;
 
 import com.pintu.R;
 import com.pintu.adapter.HeadSwitchAdapter;
+import com.pintu.adapter.SubMainCallBack;
 
+import android.app.Activity;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -12,11 +14,15 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridView;
+import android.widget.ProgressBar;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.TextView;
 
 public abstract class HeadSwitchActivity extends ActivityGroup {
 
@@ -24,13 +30,20 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	private HeadSwitchAdapter topImgAdapter;
 	// 装载sub Activity的容器
 	private FrameLayout container;
+	//当前活动
+	private SubMainCallBack activity;
 	
-	private int iconSize= 48;
+	private int iconSize= 36;
 	private int[] iconArray;
-		
+	private int[] txtArray;
+	
+	private Button top_back;
+	private ProgressBar 	details_prgrsBar;
 
 	//TODO, 子类必须重载这个方法来填充图标资源
 	public abstract  int[] initNavIcons();
+	//TODO, 子类必须重载这个方法来提供菜单文字
+	public abstract  int[] initNavTxts();
 	//TODO, 子类需要重载这个方法来切换视图
 	public abstract Intent switchByIndex(int index);
 	
@@ -41,10 +54,20 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		//然后设置布局
 		setContentView(R.layout.headswitch);
 				
+		top_back = (Button) findViewById(R.id.top_back);
+		top_back.setOnClickListener(mGoListener);		
+		details_prgrsBar = (ProgressBar) findViewById(R.id.details_prgrsBar);
+		
 		//生成导航栏
 		setupNavBar();
-
 	}
+	
+	private OnClickListener mGoListener = new OnClickListener() {
+		public void onClick(View v) {
+			finish();
+		}
+	};
+
 	
 	private void setupFullScreen(){
 		//系统状态条
@@ -60,7 +83,7 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	private void setupNavBar(){
 		//初始化导航图标资源
 		iconArray = initNavIcons();
-		
+		txtArray = initNavTxts();
 		//必须有图标文件才行
 		if(iconArray==null) return;
 		
@@ -76,7 +99,7 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		gvTopBar.setVerticalSpacing(0);
 		// 项目点击事件
 		gvTopBar.setOnItemClickListener(new ItemClickEvent());
-		topImgAdapter = new HeadSwitchAdapter(this, iconArray, iconSize, iconSize,R.drawable.topbar_itemselector);
+		topImgAdapter = new HeadSwitchAdapter(this, iconArray, txtArray, iconSize,R.drawable.topbar_itemselector);
 		// 设置菜单Adapter
 		gvTopBar.setAdapter(topImgAdapter);
 		//默认打开第0页
@@ -106,30 +129,14 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		Window subActivity = getLocalActivityManager().startActivity("subActivity", intent);
 		//容器添加View
 		container.addView(subActivity.getDecorView(),LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
+		//保存当前视图
+		activity = getCurrentAct();
+		activity.addProgress(details_prgrsBar);
 	}
 	
-//	public Intent sample_switchByIndex(int index){
-//		Intent result;
-//		switch(index){
-//		case 0:
-//			result = new Intent(this,TargetActivity);
-//			break;
-//		case 1:
-//			result = new Intent(this,TargetActivity);
-//			break;
-//		//...
-//			
-//		}
-//		return result;
-//	}
-
-//	public int[] sample_initNavIcons(){
-//		return { 
-//			R.drawable.topbar_home,
-//			R.drawable.topbar_user, 
-//			R.drawable.topbar_shoppingcart,
-//			R.drawable.topbar_note };
-//	}
+	private SubMainCallBack getCurrentAct(){
+		return (SubMainCallBack) getLocalActivityManager().getActivity("subActivity");
+	}
 	
 	
 } //end of class

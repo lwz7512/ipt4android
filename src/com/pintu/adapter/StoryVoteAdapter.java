@@ -7,6 +7,7 @@ import java.util.List;
 import com.pintu.R;
 import com.pintu.data.StoryInfo;
 import com.pintu.util.DateTimeHelper;
+import com.pintu.util.IptHelper;
 
 import android.app.Activity;
 import android.content.Context;
@@ -97,7 +98,7 @@ public class StoryVoteAdapter extends BaseAdapter {
 		//保存故事ID，以便投票使用
 		holder.storyId = si.id;
 		// 显示作者
-		String author = getShortUserName(si.author);
+		String author = IptHelper.getShortUserName(si.author);
 		holder.story_author.setText(author);
 		// 显示发布时间
 		String pubRelativeTime;
@@ -183,15 +184,7 @@ public class StoryVoteAdapter extends BaseAdapter {
 			}
 		});
 	}
-
-	private String getShortUserName(String userName) {
-		String showName = userName;
-		if (userName.contains("@")) {
-			int atPos = userName.indexOf("@");
-			showName = userName.substring(0, atPos);
-		}
-		return showName;
-	}
+	
 
 	public void refresh(List<StoryInfo> stories) {
 		this.items = stories;

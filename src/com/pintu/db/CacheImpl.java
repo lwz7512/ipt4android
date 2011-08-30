@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.pintu.data.StoryInfo;
 import com.pintu.data.TPicDesc;
+import com.pintu.data.TPicDetails;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -180,8 +182,94 @@ public class CacheImpl implements CacheDao {
 	public void clearData() {
 		
 		ptdb.execSQL("DELETE FROM " + PintuTables.ThumbnailTable.TABLE_NAME);
+		ptdb.execSQL("DELETE FROM " + PintuTables.HotpicTable.TABLE_NAME);
 		
+	}
+
+	@Override
+	public void insertHotPics(List<TPicDetails> hotpics) {
+		//先删除已缓存的东西
+		ptdb.execSQL("DELETE FROM " + PintuTables.HotpicTable.TABLE_NAME);
 		
+		Query q = new Query(ptdb);
+		try{
+			ptdb.beginTransaction();	
+			//不分顺序插入
+			for(TPicDetails pic : hotpics){
+				long result = -1;				
+					result = q.into(PintuTables.HotpicTable.TABLE_NAME)
+								.values(hotPicToContentValues(pic))
+								.insert();																			
+                if (-1 == result) {
+                    Log.e(TAG, "cann't insert the hotpic : " + pic.id);
+                } else {
+                    Log.v(TAG, String.format("Insert a hotpic into database : %s", pic.id));
+                }
+			}
+			ptdb.setTransactionSuccessful();
+		}finally{
+			ptdb.endTransaction();
+		}
+
+	}
+	
+	 private ContentValues hotPicToContentValues(TPicDetails pic){
+		 ContentValues v = new ContentValues();
+		 v.put(PintuTables.HotpicTable.Columns.ID, pic.id);
+		 v.put(PintuTables.HotpicTable.Columns.AUTHOR, pic.author);
+		 v.put(PintuTables.HotpicTable.Columns.AVATARIMGPATH, pic.avatarImgPath);
+		 v.put(PintuTables.HotpicTable.Columns.MOBIMGID, pic.mobImgId);
+		 v.put(PintuTables.HotpicTable.Columns.STORIESNUM, pic.storiesNum);
+		 v.put(PintuTables.HotpicTable.Columns.COMMENTSNUM, pic.commentsNum);
+		 v.put(PintuTables.HotpicTable.Columns.CREATION_TIME, pic.publishTime);		 
+		 
+		 return v;
+	 }
+
+
+	@Override
+	public List<TPicDetails> getCachedHotPics() {
+		 List<TPicDetails> list = new ArrayList<TPicDetails>();
+		 Query q = new Query(ptdb);
+		 Cursor c = q.from(PintuTables.HotpicTable.TABLE_NAME)
+				 			.orderBy(PintuTables.HotpicTable.Columns.CREATION_TIME+" DESC")
+				 			.select();
+	        try {
+	            while (c.moveToNext()) {
+	                list.add(cursorToHotPic(c));
+	            }
+	        } finally {
+	            c.close();
+	        }
+		
+		 return list;
+	}
+	
+	 private TPicDetails cursorToHotPic(Cursor c){
+		 TPicDetails pic = new TPicDetails();
+		 pic.id = c.getString(c.getColumnIndex(PintuTables.HotpicTable.Columns.ID));
+		 pic.author = c.getString(c.getColumnIndex(PintuTables.HotpicTable.Columns.AUTHOR));
+		 pic.avatarImgPath = c.getString(c.getColumnIndex(PintuTables.HotpicTable.Columns.AVATARIMGPATH));
+		 pic.mobImgId = c.getString(c.getColumnIndex(PintuTables.HotpicTable.Columns.MOBIMGID));
+		 pic.storiesNum = c.getString(c.getColumnIndex(PintuTables.HotpicTable.Columns.STORIESNUM));
+		 pic.commentsNum = c.getString(c.getColumnIndex(PintuTables.HotpicTable.Columns.COMMENTSNUM));		 
+		 pic.publishTime = c.getString(c.getColumnIndex(PintuTables.HotpicTable.Columns.CREATION_TIME)); 
+		
+		 
+		 return pic;
+	 }
+
+
+	@Override
+	public void insertClassicStories(List<StoryInfo> storyies) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<StoryInfo> getCachedClassicStories() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
