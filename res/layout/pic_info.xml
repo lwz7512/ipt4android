@@ -5,7 +5,7 @@
 	<!-- 品图图片 -->
 	<ImageView android:id="@+id/pic_to_storied"
 		android:layout_width="60dp" android:layout_height="60dp"
-		android:layout_marginRight="10dp" android:src="@@drawable/images_border_radius" />
+		android:layout_marginRight="10dp" />
 	<!-- 用户名 -->
 	<TextView android:id="@+id/pic_author" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:layout_toRightOf="@id/pic_to_storied"

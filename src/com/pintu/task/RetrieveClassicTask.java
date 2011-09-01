@@ -12,22 +12,16 @@ import com.pintu.PintuApp;
 import com.pintu.data.StoryInfo;
 import com.pintu.http.HttpException;
 
-public class RetrieveStoriesTask extends GenericTask {
+public class RetrieveClassicTask extends GenericTask {
 
-	private static  String TAG = "RetrieveStoriesTask";
-	
-    //存放整理好的故事
-    private List<Object> retrievedStories;
-
+	private static String TAG = "RetrieveClassicTask";
+	private List<Object> retrievedStories;
 	
 	@Override
 	protected TaskResult _doInBackground(TaskParams... params) {
-    	TaskParams param = params[0];
-        //根据参数查询缩略图
-    	String tpId = param.get("tpId").toString();
-    	JSONArray jsStories = null;
+		JSONArray jsStories = null;
 		try {
-			jsStories = PintuApp.mApi.getStoriesByTpId(tpId);
+			jsStories = PintuApp.mApi.getHistoryClassicStroies();
 		} catch (HttpException e) {
 			e.printStackTrace();
 			return TaskResult.FAILED;
@@ -37,14 +31,15 @@ public class RetrieveStoriesTask extends GenericTask {
 		}
 		
 		if(jsStories!=null){
-			jsonStroyToObjs(jsStories);
+			jsonStroyToObjs(jsStories);			
 		}else{
 			return TaskResult.FAILED;
-		}		
-    	
+		}
+
+
 		return TaskResult.OK;
 	}
-	
+
 	private void jsonStroyToObjs(JSONArray jsStories){
 		retrievedStories = new ArrayList<Object>();
 		try{
@@ -57,9 +52,10 @@ public class RetrieveStoriesTask extends GenericTask {
 			Log.w(TAG, ">>> json Array getJSONObject Exception!");
 		}
 	}
-	
-    protected void _onPostExecute(TaskResult result){    	
-    	if(result==TaskResult.OK){
+
+	@Override
+	protected void _onPostExecute(TaskResult result) {
+	   	if(result==TaskResult.OK){
     		if(this.getListener()!=null && retrievedStories!=null){
     			//回调监听方法传结果
     			this.getListener().deliverRetrievedList(retrievedStories);
@@ -71,7 +67,6 @@ public class RetrieveStoriesTask extends GenericTask {
     		//ERROR!
     		Log.d(TAG, "Fetching  data ERROR!");
     	}
-    }
-
+ 	}
 
 }

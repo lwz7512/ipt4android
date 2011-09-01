@@ -11,13 +11,13 @@ public class CommunityTrends extends HeadSwitchActivity {
 	}
 
 	@Override
-	public Intent switchByIndex(int index) {
+	public int[] initNavTxts() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
-	public int[] initNavTxts() {
+	public Intent switchByIndex(int index) {
 		// TODO Auto-generated method stub
 		return null;
 	}

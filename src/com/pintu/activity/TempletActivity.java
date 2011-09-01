@@ -20,72 +20,87 @@ public abstract class TempletActivity extends FullScreenActivity {
 	// Task
 	protected GenericTask mSendTask;
 	protected GenericTask mRetrieveTask;
-	//管理当前视图内任务的销毁
+	// 管理当前视图内任务的销毁
 	protected TaskManager taskManager = new TaskManager();
 
-	//10分钟时间间隔
-	protected long temMinutesMiliSeconds = 10*60*1000;
-	
-	//TODO, ----------------  模板Activity 生命周方法 -------------------------------
+	// 10分钟时间间隔
+	protected long tenMinutesMiliSeconds = 10 * 60 * 1000;
+	// 1小时时间间隔
+	protected long oneHourMiliSeconds = 1*60*60*1000;
 
-		protected void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-			// 设置布局
-			setContentView(getLayout());
-			// 获得组件引用
-			getViews();
-			// 添加交互动作
-			addEventListeners();
-			// 初始化动作，取数据或者为当前视图填充内容
-			justDoIt();
-		}
-		
-		protected void onResume(){
-			super.onResume();
-			doItLater();
-		}
+	// TODO, ---------------- 模板Activity 生命周方法 -------------------------------
 
-		protected void onDestroy() {
-			super.onDestroy();
-			taskManager.cancelAll();
-		}
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		// 设置布局
+		setContentView(getLayout());
+		// 获得组件引用
+		getViews();
+		// 添加交互动作
+		addEventListeners();
+		// 初始化动作，取数据或者为当前视图填充内容
+		justDoIt();
+	}
 
-	
-//TODO, ------------ 子类必须实现的15个模板方法 ---------------------------------
-	
+	protected void onResume() {
+		super.onResume();
+		doItLater();
+	}
+
+	protected void onDestroy() {
+		super.onDestroy();
+		taskManager.cancelAll();
+	}
+
+	// TODO, ------------ 子类必须实现的15个模板方法 ---------------------------------
+
 	// 创建活动相关方法
 	protected abstract int getLayout();
-	//获得视图引用
+
+	// 获得视图引用
 	protected abstract void getViews();
-	//添加交互
+
+	// 添加交互
 	protected abstract void addEventListeners();
-	//初始化的动作
+
+	// 初始化的动作
 	protected abstract void justDoIt();
-	//延后动作
+
+	// 延后动作
 	protected abstract void doItLater();
+
 	// 发送请求
 	protected abstract void doSend();
+
 	// 请求开始
 	protected abstract void onSendBegin();
+
 	// 发送成功
 	protected abstract void onSendSuccess();
+
 	// 发送失败
-	protected abstract void onSendFailure();	
+	protected abstract void onSendFailure();
+
 	// 查询请求
 	protected abstract void doRetrieve();
-	//开始取数据
-	protected abstract void onRetrieveBegin();
-	//取数据成功
-	protected abstract void onRetrieveSuccess();
-	//取数据失败
-	protected abstract void onRetrieveFailure();
-	//解析JSON结果出错
-	protected abstract void onParseJSONResultFailue();
-	//根据列表数据更新列表视图
-	protected abstract void refreshListView(List<Object> results);
-	//根据JSON对象更新视图内容
-	protected abstract void refreshMultView(JSONObject json);
 
+	// 开始取数据
+	protected abstract void onRetrieveBegin();
+
+	// 取数据成功
+	protected abstract void onRetrieveSuccess();
+
+	// 取数据失败
+	protected abstract void onRetrieveFailure();
+
+	// 解析JSON结果出错
+	protected abstract void onParseJSONResultFailue();
+
+	// 根据列表数据更新列表视图
+	protected abstract void refreshListView(List<Object> results);
+
+	// 根据JSON对象更新视图内容
+	protected abstract void refreshMultView(JSONObject json);
 
 	protected TaskListener mSendTaskListener = new TaskAdapter() {
 		@Override
@@ -105,7 +120,6 @@ public abstract class TempletActivity extends FullScreenActivity {
 		}
 
 	};
-
 
 	protected TaskListener mRetrieveTaskListener = new TaskAdapter() {
 		@Override
@@ -149,24 +163,25 @@ public abstract class TempletActivity extends FullScreenActivity {
 		}
 
 	}
-	
-	protected void manageTask(GenericTask task){
-		if(task!=null)
+
+	protected void manageTask(GenericTask task) {
+		if (task != null)
 			taskManager.addTask(task);
 	}
 
 	protected void updateProgress(String message) {
 		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 	}
-	
+
 	protected void updateProgress(int message) {
 		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 	}
-	
-    protected void rememberLastVisit(){
-    	long existTime = DateTimeHelper.getNowTime();
-    	this.getPreferences().edit().putLong(Preferences.LAST_VISIT_TIME, existTime).commit();
-    }
 
+	protected void rememberLastVisit() {
+		long now = DateTimeHelper.getNowTime();
+		this.getPreferences().edit()
+				.putLong(Preferences.LAST_VISIT_TIME, now)
+				.commit();
+	}
 
 }

@@ -7,12 +7,19 @@ public class StoryInfo {
 
 	// 品图（故事）唯一标识
 	public String id;
-	// 贴图ID，对应于TPicItem.id
+	/**
+	 *  贴图ID，对应于TPicItem.id
+	 */
 	public String follow;
 	// 品图作者ID
 	public String owner;
 	//品图作者名称
 	public String author;
+	
+	//新加属性作者头像
+	//2011/08/31
+	public String avatarImgPath;
+	
 	// 发表时间
 	public String publishTime;
 	// 品图内容
@@ -41,8 +48,9 @@ public class StoryInfo {
 		si.follow = json.getString("follow");
 		si.id = json.getString("id");
 		si.owner =  json.getString("owner");
-		si.publishTime =  json.getString("publishTime");
-
+		si.publishTime =  json.getString("publishTime");		
+		si.avatarImgPath = json.getString("avatarImgPath");
+		
 		return si;
 	}
 

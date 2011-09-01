@@ -45,16 +45,19 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 	}
 
 	@Override
-	protected void getViews() {
-		
+	protected void getViews() {		
 		hotpicList = (ListView) findViewById(R.id.hotpics_lv);
 		hpAdptr = new HotPicsAdapter(this);
-		hotpicList.setAdapter(hpAdptr);
-		hotpicList.setOnItemClickListener(itemClickListener);
+		hotpicList.setAdapter(hpAdptr);		
 	}
 	
-	private OnItemClickListener itemClickListener = new OnItemClickListener(){
 
+	@Override
+	protected void addEventListeners() {
+		hotpicList.setOnItemClickListener(itemClickListener);
+	}
+		
+	private OnItemClickListener itemClickListener = new OnItemClickListener(){
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
@@ -62,16 +65,10 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 			TPicDetails tpic = (TPicDetails) hpAdptr.getItem(position);
 			String tpId = tpic.id;
 			
-		}
-		
+		}		
 	};
 
-	@Override
-	protected void addEventListeners() {
-		//do nothing...
-	}
-		
-
+	
 	@Override
 	protected void justDoIt() {
 		//首先尝试取缓存数据
@@ -88,32 +85,12 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 		long diff = now - lastVisitTime;	
 		//如果登录超过10分钟就允许重新取数据了
 		//或者第一次使用应用肯定要从远程取
-		if(diff>temMinutesMiliSeconds || lastVisitTime==0 || cachedHotPics.size()==0){
+		if(diff>tenMinutesMiliSeconds || lastVisitTime==0 || cachedHotPics.size()==0){
 			//取远程数据
 			doRetrieve();
 		}
 	}
 
-	
-	@Override
-	protected void doSend() {
-		// do nothing, but keep me here ...
-	}
-
-	@Override
-	protected void onSendBegin() {
-		// do nothing, but keep me here ...
-	}
-
-	@Override
-	protected void onSendSuccess() {
-		// do nothing, but keep me here ...
-	}
-
-	@Override
-	protected void onSendFailure() {
-		// do nothing, but keep me here ...
-	}
 
 	@Override
 	protected void doRetrieve() {
@@ -179,8 +156,40 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 
 	@Override
 	public void refresh() {
-		// TODO Auto-generated method stub
-		
+		// 10分钟后切换进来后会自动重取
+		//该方法是预留给主活动标题栏中的刷新按钮调用的
+	}
+
+	@Override
+	public void putObj(String key, Object value) {
+		//用sqlite缓存了，不用这么缓存		
+	}
+
+	@Override
+	public Object getObj(String key) {
+		//用sqlite缓存了，不用这么缓存
+		return null;
+	}
+
+	
+	@Override
+	protected void doSend() {
+		// do nothing, but keep me here ...
+	}
+
+	@Override
+	protected void onSendBegin() {
+		// do nothing, but keep me here ...
+	}
+
+	@Override
+	protected void onSendSuccess() {
+		// do nothing, but keep me here ...
+	}
+
+	@Override
+	protected void onSendFailure() {
+		// do nothing, but keep me here ...
 	}
 
 

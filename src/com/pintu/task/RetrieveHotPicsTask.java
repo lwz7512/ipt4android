@@ -31,7 +31,11 @@ public class RetrieveHotPicsTask extends GenericTask {
 			return TaskResult.JSON_PARSE_ERROR;
 		}
 
-		jsonPicToDetails(jsPics);
+		if(jsPics!=null){
+			jsonPicToDetails(jsPics);			
+		}else{
+			return TaskResult.FAILED;
+		}
 
 		return TaskResult.OK;
 	}

@@ -78,7 +78,7 @@ public class HomeGallery extends FullScreenActivity {
 		getViews();
 		//添加事件监听
 		addEventListeners();
-		//读取数据库数据
+		//首先尝试读取数据库缓存
 		retrieveGalleryFromDB();
 	}
     	
@@ -116,9 +116,43 @@ public class HomeGallery extends FullScreenActivity {
 		
 		tv_post.setOnClickListener(postImgListener);
 		tv_hotpic.setOnClickListener(hotpicListener);
-		//TODO, ADD OTHER HOME MENU LISTENER...
+		tv_community.setOnClickListener(communityListener);
+		tv_market.setOnClickListener(marketListener);
+		tv_mine.setOnClickListener(mineListener);
 		
 	}
+
+	private OnClickListener mineListener = new OnClickListener(){
+		@Override
+		public void onClick(View v) {
+			Intent intent = new Intent();
+			//启动俺滴界面
+			intent.setClass(HomeGallery.this, AndiAssets.class);
+			startActivity(intent);
+		}		
+	};
+	
+	
+	private OnClickListener marketListener = new OnClickListener(){
+		@Override
+		public void onClick(View v) {
+			Intent intent = new Intent();
+			//启动夜市界面
+			intent.setClass(HomeGallery.this, MarketExchange.class);
+			startActivity(intent);
+		}		
+	};
+	
+	
+	private OnClickListener communityListener = new OnClickListener(){
+		@Override
+		public void onClick(View v) {
+			Intent intent = new Intent();
+			//启动社区界面
+			intent.setClass(HomeGallery.this, CommunityTrends.class);
+			startActivity(intent);
+		}		
+	};
 	
 	private OnClickListener hotpicListener = new OnClickListener(){
 		@Override
@@ -239,8 +273,13 @@ public class HomeGallery extends FullScreenActivity {
    
     private void retrieveGalleryFromDB(){
 		List<TPicDesc> items = PintuApp.dbApi.getCachedThumbnails();
-		gridAdptr.refresh(items);
-		Log.i(TAG, ">>> cached recode size: "+items.size());    	
+		Log.i(TAG, ">>> cached recode size: "+items.size()); 
+		//如果没有缓存数据就访问远程
+		if(items.size()==0){
+			retrieveRemoteGallery();
+		}else{
+			gridAdptr.refresh(items);			
+		}
     }
     
     

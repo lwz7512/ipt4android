@@ -31,7 +31,7 @@ public class PintuApp extends Application {
 	public static LazyImageLoader mImageLoader;
 	
 	//模拟登录用户
-	public static String userID = "abcdefghijklmnop";
+	public static String userID = "a053beae20125b5b";
 	
 	
 	

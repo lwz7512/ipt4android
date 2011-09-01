@@ -24,7 +24,7 @@ public interface CacheDao {
 	//获取缓存的热图
 	public List<TPicDetails> getCachedHotPics();
 	//缓存经典故事
-	public void insertClassicStories(List<StoryInfo> storyies);
+	public void insertClassicStories(List<StoryInfo> stories);
 	//获取缓存的经典
 	public List<StoryInfo> getCachedClassicStories();
 	

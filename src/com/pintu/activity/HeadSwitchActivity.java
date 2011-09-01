@@ -1,5 +1,8 @@
 package com.pintu.activity;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.pintu.R;
 import com.pintu.adapter.HeadSwitchAdapter;
 import com.pintu.adapter.SubMainCallBack;
@@ -39,6 +42,9 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	
 	private Button top_back;
 	private ProgressBar 	details_prgrsBar;
+	
+	//存放一个数据容器，作为子活动存取临时数据的目标
+	protected Map<String, Object> sharedRepository;
 
 	//TODO, 子类必须重载这个方法来填充图标资源
 	public abstract  int[] initNavIcons();
@@ -60,6 +66,9 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		
 		//生成导航栏
 		setupNavBar();
+		
+		//初始化数据仓库
+		sharedRepository = new HashMap<String, Object>();
 	}
 	
 	private OnClickListener mGoListener = new OnClickListener() {
@@ -134,7 +143,7 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		activity.addProgress(details_prgrsBar);
 	}
 	
-	private SubMainCallBack getCurrentAct(){
+	private SubMainCallBack getCurrentAct(){		
 		return (SubMainCallBack) getLocalActivityManager().getActivity("subActivity");
 	}
 	

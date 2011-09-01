@@ -99,6 +99,7 @@ public class PintuDB {
         private static void createAllTables(SQLiteDatabase db) {
         	db.execSQL(PintuTables.ThumbnailTable.getCreateSQL());
         	db.execSQL(PintuTables.HotpicTable.getCreateSQL());
+        	db.execSQL(PintuTables.ClassicStoryTable.getCreateSQL());
         	//TODO, Create other table...
         	
         }
