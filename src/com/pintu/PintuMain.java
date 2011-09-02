@@ -2,7 +2,7 @@ package com.pintu;
 
 import android.os.Bundle;
 
-import com.pintu.activity.FullScreenActivity;
+import com.pintu.activity.base.FullScreenActivity;
 
 public class PintuMain extends FullScreenActivity {
 

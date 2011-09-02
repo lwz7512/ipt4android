@@ -8,6 +8,7 @@ import com.pintu.PintuApp;
 import com.pintu.R;
 import com.pintu.adapter.GalleryImageAdapter;
 import com.pintu.activity.PictureEdit;
+import com.pintu.activity.base.FullScreenActivity;
 import com.pintu.data.TPicDesc;
 import com.pintu.task.GenericTask;
 import com.pintu.task.RetrieveGalleryTask;

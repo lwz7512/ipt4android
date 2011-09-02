@@ -1,4 +1,4 @@
-package com.pintu.activity;
+package com.pintu.activity.base;
 
 import com.pintu.PintuApp;
 

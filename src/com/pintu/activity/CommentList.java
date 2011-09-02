@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.pintu.R;
+import com.pintu.activity.base.TempletActivity;
 import com.pintu.adapter.CommentsAdapter;
 import com.pintu.adapter.StoryVoteAdapter;
 import com.pintu.data.CommentInfo;

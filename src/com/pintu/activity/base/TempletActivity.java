@@ -1,4 +1,4 @@
-package com.pintu.activity;
+package com.pintu.activity.base;
 
 import java.util.List;
 

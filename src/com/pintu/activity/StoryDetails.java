@@ -1,5 +1,7 @@
 package com.pintu.activity;
 
+import com.pintu.activity.base.FullScreenActivity;
+
 import android.os.Bundle;
 
 public class StoryDetails extends FullScreenActivity {

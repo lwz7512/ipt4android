@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.pintu.PintuApp;
 import com.pintu.R;
+import com.pintu.activity.base.FullScreenActivity;
 import com.pintu.data.TPicDetails;
 import com.pintu.task.GenericTask;
 import com.pintu.task.RetrieveDetailTask;

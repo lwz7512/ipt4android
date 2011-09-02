@@ -2,6 +2,7 @@ package com.pintu.activity;
 
 
 import com.pintu.R;
+import com.pintu.activity.base.HeadSwitchActivity;
 
 import android.content.Intent;
 import android.os.Bundle;

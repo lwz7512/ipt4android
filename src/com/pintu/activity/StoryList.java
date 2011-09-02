@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pintu.R;
+import com.pintu.activity.base.TempletActivity;
 import com.pintu.adapter.StoryVoteAdapter;
 import com.pintu.adapter.StoryVoteAdapter.VoteActionListener;
 import com.pintu.data.StoryInfo;

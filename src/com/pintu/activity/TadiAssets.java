@@ -1,5 +1,7 @@
 package com.pintu.activity;
 
+import com.pintu.activity.base.HeadSwitchActivity;
+
 import android.content.Intent;
 
 public class TadiAssets extends HeadSwitchActivity {

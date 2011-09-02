@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
 import com.pintu.R;
+import com.pintu.activity.base.TempletActivity;
 import com.pintu.task.SendTask;
 import com.pintu.task.TaskParams;
 import com.pintu.tool.SimpleImageLoader;

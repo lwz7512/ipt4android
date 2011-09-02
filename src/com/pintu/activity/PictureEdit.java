@@ -28,6 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.pintu.R;
+import com.pintu.activity.base.FullScreenActivity;
 import com.pintu.task.GenericTask;
 import com.pintu.task.SendTask;
 import com.pintu.task.TaskAdapter;

@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.pintu.PintuApp;
 import com.pintu.R;
+import com.pintu.activity.base.TempletActivity;
 import com.pintu.adapter.HotPicsAdapter;
 import com.pintu.adapter.SubMainCallBack;
 import com.pintu.data.TPicDetails;

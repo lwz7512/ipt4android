@@ -1,6 +1,7 @@
 package com.pintu.activity;
 
 import com.pintu.R;
+import com.pintu.activity.base.FullScreenActivity;
 import com.pintu.task.GenericTask;
 import com.pintu.task.SendTask;
 import com.pintu.task.TaskAdapter;

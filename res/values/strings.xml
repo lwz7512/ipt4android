@@ -33,6 +33,17 @@
 	<!-- 切换按钮文字 -->
 	<string name="todayhotpic">今日热图</string>
 	<string name="historyclassic">经典品图</string>
+	<string name="xuetang">品图学堂</string>
+	<string name="event">社区事件</string>
+	<string name="daren">社区达人</string>
+	<string name="industry">行业动态</string>
+	<string name="marketshopping">可购商品</string>
+	<string name="marketnote">张贴便条</string>
+	<string name="assets">资产</string>
+	<string name="picutues">贴图</string>
+	<string name="pintu">品图</string>
+	<string name="messages">消息</string>
+	
 
 	<!-- 专属提示 -->
 	<string name="comment_length_note">

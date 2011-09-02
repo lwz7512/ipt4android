@@ -1,6 +1,6 @@
 package com.pintu.adapter;
 
-import com.pintu.activity.HeadSwitchActivity;
+import com.pintu.activity.base.HeadSwitchActivity;
 
 import android.widget.ProgressBar;
 
