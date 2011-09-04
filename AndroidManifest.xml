@@ -90,8 +90,108 @@
                 <action android:name="com.pintu.activity.classicstory"/>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>        
+        </activity>  
+        <!-- 社区动态 -->
+        <activity android:name=".activity.CommunityTrends">
+            <intent-filter>
+                <action android:name="com.pintu.activity.community"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>  
+        <!-- 品图学堂 -->
+        <activity android:name=".activity.CmntClassRoom">
+            <intent-filter>
+                <action android:name="com.pintu.activity.classroom"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>  
+        <!-- 社区事件 -->
+        <activity android:name=".activity.CmntEvent">
+            <intent-filter>
+                <action android:name="com.pintu.activity.event"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>  
+        <!-- 社区达人 -->
+        <activity android:name=".activity.CmntDaren">
+            <intent-filter>
+                <action android:name="com.pintu.activity.daren"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>  
+        <!-- 行业动态 -->
+        <activity android:name=".activity.CmntNews">
+            <intent-filter>
+                <action android:name="com.pintu.activity.news"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
         </activity>        
+        <!-- 夜市兑换 -->
+        <activity android:name=".activity.MarketExchange">
+            <intent-filter>
+                <action android:name="com.pintu.activity.market"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>  
+        <!-- 可购商品 -->
+        <activity android:name=".activity.MarketShopping">
+            <intent-filter>
+                <action android:name="com.pintu.activity.shopping"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>  
+        <!-- 张贴条子 -->
+        <activity android:name=".activity.MarketNote">
+            <intent-filter>
+                <action android:name="com.pintu.activity.notes"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>  
+        <!-- 俺滴家当 -->
+        <activity android:name=".activity.AndiAssets">
+            <intent-filter>
+                <action android:name="com.pintu.activity.adassets"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>  
+        <!-- 俺滴资产 -->
+        <activity android:name=".activity.AndiWealth">
+            <intent-filter>
+                <action android:name="com.pintu.activity.adwealth"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>  
+        <!-- 俺滴贴图 -->
+        <activity android:name=".activity.AndiPics">
+            <intent-filter>
+                <action android:name="com.pintu.activity.adpics"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>  
+        <!-- 俺滴品图 -->
+        <activity android:name=".activity.AndiPintu">
+            <intent-filter>
+                <action android:name="com.pintu.activity.adpintu"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>  
+        <!-- 俺滴收藏 -->
+        <activity android:name=".activity.AndiFavorite">
+            <intent-filter>
+                <action android:name="com.pintu.activity.favorite"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>  
+        <!-- 俺滴消息 -->
+        <activity android:name=".activity.AndiMessage">
+            <intent-filter>
+                <action android:name="com.pintu.activity.message"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>  
+                      
         <!-- add other activity... -->		 
+        
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>

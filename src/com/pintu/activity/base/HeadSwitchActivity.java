@@ -36,7 +36,6 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	//当前活动
 	private SubMainCallBack activity;
 	
-	private int iconSize= 36;
 	private int[] iconArray;
 	private int[] txtArray;
 	
@@ -108,7 +107,7 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		gvTopBar.setVerticalSpacing(0);
 		// 项目点击事件
 		gvTopBar.setOnItemClickListener(new ItemClickEvent());
-		topImgAdapter = new HeadSwitchAdapter(this, iconArray, txtArray, iconSize,R.drawable.topbar_itemselector);
+		topImgAdapter = new HeadSwitchAdapter(this, iconArray, txtArray, R.drawable.topbar_itemselector);
 		// 设置菜单Adapter
 		gvTopBar.setAdapter(topImgAdapter);
 		//默认打开第0页

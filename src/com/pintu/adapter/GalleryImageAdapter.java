@@ -58,7 +58,7 @@ public class GalleryImageAdapter extends BaseAdapter {
 			imageView = new StateImage(mContext);			
 			//xml布局设置列数为4列，不要随便改
 			int cellWidth = dm.widthPixels/4-horiGap;
-			imageView.setLayoutParams(new GridView.LayoutParams(LayoutParams.FILL_PARENT, cellWidth));
+			imageView.setLayoutParams(new GridView.LayoutParams(cellWidth, LayoutParams.FILL_PARENT));
 			imageView.setAdjustViewBounds(false);
 			imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 			imageView.setPadding(0, 0, 0, 0);
