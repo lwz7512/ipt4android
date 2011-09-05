@@ -228,7 +228,7 @@ public class PTImpl implements PTApi {
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.GETHOTPICTURE);
 		params.add(methodParam);
-		
+
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
 		Log.d(TAG, ">>> json pics: " + jsonStr);
@@ -237,17 +237,116 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public JSONArray getHistoryClassicStroies() throws HttpException, JSONException {
+	public JSONArray getHistoryClassicStroies() throws HttpException,
+			JSONException {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.GETClASSICALPINTU);
 		params.add(methodParam);
-		
+
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
 		Log.d(TAG, ">>> json Stories: " + jsonStr);
 
 		return new JSONArray(jsonStr);
+	}
+
+	@Override
+	public void markThePic(String userId, String picId) throws HttpException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.MARKTHEPIC);
+		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
+		BasicNameValuePair picParam = new BasicNameValuePair("picId", picId);
+
+		params.add(methodParam);
+		params.add(userParam);
+		params.add(picParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> mark the pic: " + jsonStr);
+	}
+
+	@Override
+	public JSONArray getFavoriteTpics(String userId, String pageNum)
+			throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETFAVORITEPICS);
+		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
+		BasicNameValuePair pageParam = new BasicNameValuePair("pageNum",
+				pageNum);
+
+		params.add(methodParam);
+		params.add(userParam);
+		params.add(pageParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json favorites: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+
+	@Override
+	public JSONArray getTpicsByUser(String userId, String pageNum)
+			throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETTPICSBYUSER);
+		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
+		BasicNameValuePair pageParam = new BasicNameValuePair("pageNum",
+				pageNum);
+
+		params.add(methodParam);
+		params.add(userParam);
+		params.add(pageParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json tpics: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+
+	@Override
+	public JSONArray getStoriesByUser(String userId, String pageNum)
+			throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETSTORIESBYUSER);
+		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
+		BasicNameValuePair pageParam = new BasicNameValuePair("pageNum",
+				pageNum);
+
+		params.add(methodParam);
+		params.add(userParam);
+		params.add(pageParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json stories: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+
+	@Override
+	public JSONObject getUserEstate(String userId) throws HttpException,
+			JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETUSERESTATE);
+		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
+
+		params.add(methodParam);
+		params.add(userParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json user Details: " + jsonStr);
+
+		return new JSONObject(jsonStr);
 	}
 
 } // end of class
