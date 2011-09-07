@@ -7,6 +7,8 @@ public class TPicDetails {
 	
 	//贴图ID
 	public String id;
+	//作者ID
+	public String owner;
 	//贴图作者
 	public String author;	
 	//用户头像文件路径
@@ -18,6 +20,10 @@ public class TPicDetails {
 
 	//到达客户端时，再格式化为xx分钟或者xx小时前
 	public String publishTime;	
+	
+	//用于显示的相对时间
+	public String relativeTime;
+	
 	//贴图标签
 	public String tags;
 	//贴图描述
@@ -40,20 +46,21 @@ public class TPicDetails {
 	
 	public static TPicDetails parseJsonToObj(JSONObject json) throws JSONException{
 		TPicDetails details = new TPicDetails();
-		details.id = json.getString("id");
-		details.author = json.getString("author");
-		details.avatarImgPath = json.getString("avatarImgPath");
-		details.score = json.getString("score");
-		details.level = json.getString("level");		
-		details.publishTime = json.getString("publishTime");
-		details.tags = json.getString("tags");
-		details.description = json.getString("description");
+		details.id = json.optString("id");
+		details.owner = json.optString("owner");
+		details.author = json.optString("author");
+		details.avatarImgPath = json.optString("avatarImgPath");
+		details.score = json.optString("score");
+		details.level = json.optString("level");		
+		details.publishTime = json.optString("publishTime");
+		details.tags = json.optString("tags");
+		details.description = json.optString("description");
 		details.allowStory = json.getInt("allowStory");		
-		details.mobImgId = json.getString("mobImgId");
-		details.rawImgId = json.getString("rawImgId");
-		details.rawImgId = json.getString("rawImgId");
-		details.storiesNum = json.getString("storiesNum");
-		details.commentsNum = json.getString("commentsNum");
+		details.mobImgId = json.optString("mobImgId");
+		details.rawImgId = json.optString("rawImgId");
+		details.rawImgId = json.optString("rawImgId");
+		details.storiesNum = json.optString("storiesNum");
+		details.commentsNum = json.optString("commentsNum");
 		
 		return details;
 	}

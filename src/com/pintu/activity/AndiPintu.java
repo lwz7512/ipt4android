@@ -4,12 +4,19 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import com.pintu.R;
 import com.pintu.activity.base.TempletActivity;
 import com.pintu.adapter.SubMainCallBack;
 
+/**
+ * 数据处理逻辑：
+ * 
+ * @author lwz
+ *
+ */
 public class AndiPintu extends TempletActivity implements SubMainCallBack {
 
 
@@ -115,7 +122,7 @@ public class AndiPintu extends TempletActivity implements SubMainCallBack {
 	}
 
 	@Override
-	public void refresh() {
+	public void refresh(ImageButton refreshBtn) {
 		// TODO Auto-generated method stub
 
 	}

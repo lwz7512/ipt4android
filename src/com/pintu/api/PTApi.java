@@ -50,6 +50,13 @@ public interface PTApi {
 	
 	public static final String GETUSERESTATE = "getUserEstate";
 	
+	public static final String SENDMSG = "sendMsg";
+	
+	public static final String GETUSERMSG  = "getUserMsg";
+	
+	public static final String CHANGEMSGSTATE = "changeMsgState";
+
+	
 	//TODO, ADD OTHER REMOTE METHODS...
 		
 	
@@ -91,8 +98,12 @@ public interface PTApi {
 	//查看某人的故事
 	public JSONArray getStoriesByUser(String userId, String pageNum) throws HttpException, JSONException;
 	
-	
-	
+	//发送消息
+	public String postMessage(String userId, String receiver, String content) throws HttpException;
+	//获取最新消息
+	public JSONArray getNewMessages(String userId) throws HttpException, JSONException;
+	//更新消息为已读
+	public String updateMsgReaded(String msgId) throws HttpException;
 	
 	
 	

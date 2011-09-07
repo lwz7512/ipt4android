@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import com.pintu.R;
@@ -114,7 +115,7 @@ public class CmntClassRoom extends TempletActivity implements SubMainCallBack {
 	}
 
 	@Override
-	public void refresh() {
+	public void refresh(ImageButton refreshBtn) {
 		// TODO Auto-generated method stub
 
 	}

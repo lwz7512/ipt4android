@@ -4,13 +4,22 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import com.pintu.R;
 import com.pintu.activity.base.TempletActivity;
 import com.pintu.adapter.SubMainCallBack;
 
+/**
+ * 数据处理逻辑：
+ * 临时存放数据到父活动，只允许查询一次，除非退出父活动
+ * @author lwz
+ *
+ */
 public class AndiWealth extends TempletActivity implements SubMainCallBack {
+	//存放数据的KEY
+	private static final String ANDIWEALTH_DATA = "andiwealth";
 
 
 	@Override
@@ -115,7 +124,7 @@ public class AndiWealth extends TempletActivity implements SubMainCallBack {
 	}
 
 	@Override
-	public void refresh() {
+	public void refresh(ImageButton refreshBtn) {
 		// TODO Auto-generated method stub
 
 	}

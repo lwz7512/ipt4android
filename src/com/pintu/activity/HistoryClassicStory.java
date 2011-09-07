@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
@@ -150,7 +151,7 @@ public class HistoryClassicStory extends TempletActivity implements SubMainCallB
 	}
 
 	@Override
-	public void refresh() {
+	public void refresh(ImageButton refreshBtn) {
 		// 10分钟后切换进来后会自动重取
 		// 该方法是预留给主活动标题栏中的刷新按钮调用的
 	}

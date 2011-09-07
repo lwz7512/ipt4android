@@ -4,15 +4,32 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.pintu.R;
 import com.pintu.activity.base.TempletActivity;
+import com.pintu.adapter.FavoPicsAdapter;
 import com.pintu.adapter.SubMainCallBack;
+import com.pintu.data.TPicItem;
 
+/**
+ * 数据处理逻辑：
+ * 先取缓存显示，调用刷新方法时，判断时间间隔
+ * 超过1分钟了，允许重新查询
+ * @author lwz
+ *
+ */
 public class AndiFavorite extends TempletActivity implements SubMainCallBack {
 
-
+	
+	private ListView markpics_lv;
+	private FavoPicsAdapter fpAdptr;
+	
 	@Override
 	protected int getLayout() {
 		return R.layout.adfavorite;
@@ -20,15 +37,27 @@ public class AndiFavorite extends TempletActivity implements SubMainCallBack {
 
 	@Override
 	protected void getViews() {
-		// TODO Auto-generated method stub
-
+		fpAdptr = new FavoPicsAdapter(this);
+		markpics_lv = (ListView) findViewById(R.id.markpics_lv);
+		markpics_lv.setAdapter(fpAdptr);
 	}
 
 	@Override
 	protected void addEventListeners() {
-		// TODO Auto-generated method stub
+		markpics_lv.setOnItemClickListener(listener);
 
 	}
+	
+	private OnItemClickListener listener = new OnItemClickListener() {
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
+			// TODO 跳转到查看图片详情
+			TPicItem selectedPic = (TPicItem) fpAdptr.getItem(position);
+			String picId = selectedPic.id;
+			
+		}		
+	};
 
 	@Override
 	protected void justDoIt() {
@@ -115,7 +144,7 @@ public class AndiFavorite extends TempletActivity implements SubMainCallBack {
 	}
 
 	@Override
-	public void refresh() {
+	public void refresh(ImageButton refreshBtn) {
 		// TODO Auto-generated method stub
 
 	}

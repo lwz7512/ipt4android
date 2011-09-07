@@ -23,10 +23,12 @@ public abstract class TempletActivity extends FullScreenActivity {
 	// 管理当前视图内任务的销毁
 	protected TaskManager taskManager = new TaskManager();
 
+	// 1分钟时间间隔
+	protected long oneMinutesMiliSeconds = 1 * 60 * 1000;
 	// 10分钟时间间隔
 	protected long tenMinutesMiliSeconds = 10 * 60 * 1000;
 	// 1小时时间间隔
-	protected long oneHourMiliSeconds = 1*60*60*1000;
+	protected long oneHourMiliSeconds = 1 * 60 * 60 * 1000;
 
 	// TODO, ---------------- 模板Activity 生命周方法 -------------------------------
 
@@ -63,10 +65,12 @@ public abstract class TempletActivity extends FullScreenActivity {
 	// 添加交互
 	protected abstract void addEventListeners();
 
-	// 初始化的动作
+	// 初始化的动作，一般是用来获取缓存数据并更新视图
 	protected abstract void justDoIt();
 
-	// 延后动作
+	// 延后动作，一般是用来判断是否该获取远程数据
+	// 如果该获取了，就调用doRetrieve
+	// 延后获取是为了等待进度条对象可用
 	protected abstract void doItLater();
 
 	// 发送请求
@@ -179,9 +183,16 @@ public abstract class TempletActivity extends FullScreenActivity {
 
 	protected void rememberLastVisit() {
 		long now = DateTimeHelper.getNowTime();
-		this.getPreferences().edit()
-				.putLong(Preferences.LAST_VISIT_TIME, now)
+		this.getPreferences().edit().putLong(Preferences.LAST_VISIT_TIME, now)
 				.commit();
+	}
+
+	protected long elapsedFromLastVisit() {
+		long lastVisitTime = this.getPreferences().getLong(
+				Preferences.LAST_VISIT_TIME, 0);
+		long now = DateTimeHelper.getNowTime();
+		long diff = now - lastVisitTime;
+		return diff;
 	}
 
 }

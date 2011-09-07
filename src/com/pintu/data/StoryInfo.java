@@ -36,20 +36,20 @@ public class StoryInfo {
 	//经典数目
 	public int star;
 	
-	public static StoryInfo parseJsonToObj(JSONObject json) throws JSONException{
+	public static StoryInfo parseJsonToObj(JSONObject json) {
 		StoryInfo si = new StoryInfo();
-		si.author = json.getString("author");
-		si.content = json.getString("content");
-		si.classical = json.getInt("classical");
-		si.egg = json.getInt("egg");
-		si.flower = json.getInt("flower");
-		si.heart = json.getInt("heart");
-		si.star = json.getInt("star");
-		si.follow = json.getString("follow");
-		si.id = json.getString("id");
-		si.owner =  json.getString("owner");
-		si.publishTime =  json.getString("publishTime");		
-		si.avatarImgPath = json.getString("avatarImgPath");
+		si.avatarImgPath = json.optString("avatarImgPath");
+		si.author = json.optString("author");
+		si.content = json.optString("content");
+		si.classical = json.optInt("classical");
+		si.egg = json.optInt("egg");
+		si.flower = json.optInt("flower");
+		si.heart = json.optInt("heart");
+		si.star = json.optInt("star");
+		si.follow = json.optString("follow");
+		si.id = json.optString("id");
+		si.owner =  json.optString("owner");
+		si.publishTime =  json.optString("publishTime");		
 		
 		return si;
 	}

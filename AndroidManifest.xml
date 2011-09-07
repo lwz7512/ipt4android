@@ -189,7 +189,35 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>        
         </activity>  
-                      
+        <!-- 他滴资料 -->
+        <activity android:name=".activity.TadiAssets">
+            <intent-filter>
+                <action android:name="com.pintu.activity.tadi"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>  
+        <!-- 他的轮廓 -->
+        <activity android:name=".activity.TadiProfile">
+            <intent-filter>
+                <action android:name="com.pintu.activity.profile"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>  
+        <!-- 他滴图片 -->
+        <activity android:name=".activity.TadiPics">
+            <intent-filter>
+                <action android:name="com.pintu.activity.tadipics"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>  
+        <!-- 他滴品图 -->
+        <activity android:name=".activity.TadiPintu">
+            <intent-filter>
+                <action android:name="com.pintu.activity.tadipintu"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>        
+        </activity>                        
+        
         <!-- add other activity... -->		 
         
     </application>

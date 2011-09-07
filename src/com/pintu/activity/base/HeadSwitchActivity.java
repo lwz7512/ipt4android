@@ -23,6 +23,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
@@ -41,9 +42,14 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	
 	private Button top_back;
 	private ProgressBar 	details_prgrsBar;
+	private ImageButton comn_refresh_btn;
 	
 	//存放一个数据容器，作为子活动存取临时数据的目标
 	protected Map<String, Object> sharedRepository;
+	
+	//当前标签页索引键，子类也要用来保存退出时的状态
+	//依靠它来打开相应的标签
+	protected static final String TABINDEX = "tabindex";
 
 	//TODO, 子类必须重载这个方法来填充图标资源
 	public abstract  int[] initNavIcons();
@@ -51,6 +57,11 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	public abstract  int[] initNavTxts();
 	//TODO, 子类需要重载这个方法来切换视图
 	public abstract Intent switchByIndex(int index);
+	
+	//显示刷新按钮供子类使用
+	protected void showRefreshBtn(){
+		comn_refresh_btn.setVisibility(View.VISIBLE);
+	}
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -61,13 +72,24 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 				
 		top_back = (Button) findViewById(R.id.top_back);
 		top_back.setOnClickListener(mGoListener);		
+		
+		comn_refresh_btn = (ImageButton) findViewById(R.id.comn_refresh_btn);
+		comn_refresh_btn.setOnClickListener(refreshListener);
+		
 		details_prgrsBar = (ProgressBar) findViewById(R.id.details_prgrsBar);
 		
-		//生成导航栏
-		setupNavBar();
+		//生成导航栏，并打开保存索引的标签
+		int savedIndex = savedInstanceState.getInt(TABINDEX);
+		setupNavBar(savedIndex);
 		
 		//初始化数据仓库
 		sharedRepository = new HashMap<String, Object>();
+	}
+	
+	protected void onDestroy(){
+		super.onDestroy();
+		//退出时清理缓存数据
+		sharedRepository.clear();
 	}
 	
 	private OnClickListener mGoListener = new OnClickListener() {
@@ -76,6 +98,11 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		}
 	};
 
+	private OnClickListener refreshListener = new OnClickListener() {
+		public void onClick(View v) {
+			activity.refresh(comn_refresh_btn);
+		}
+	};
 	
 	private void setupFullScreen(){
 		//系统状态条
@@ -88,7 +115,7 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	}
 	
 	
-	private void setupNavBar(){
+	private void setupNavBar(int savedIndex){
 		//初始化导航图标资源
 		iconArray = initNavIcons();
 		txtArray = initNavTxts();
@@ -109,9 +136,10 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		gvTopBar.setOnItemClickListener(new ItemClickEvent());
 		topImgAdapter = new HeadSwitchAdapter(this, iconArray, txtArray, R.drawable.topbar_itemselector);
 		// 设置菜单Adapter
-		gvTopBar.setAdapter(topImgAdapter);
-		//默认打开第0页
-		switchActivity(0);
+		gvTopBar.setAdapter(topImgAdapter);		
+		
+		//根据保存的标签索引来对应打开
+		switchActivity(savedIndex);
 		
 	}
 	
@@ -131,7 +159,7 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		//获取子类给出的视图
 		Intent intent =switchByIndex(id);
 		if(intent==null) return;
-		
+		//只创建一个活动
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		//Activity 转为 View
 		Window subActivity = getLocalActivityManager().startActivity("subActivity", intent);
@@ -139,6 +167,7 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		container.addView(subActivity.getDecorView(),LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
 		//保存当前视图
 		activity = getCurrentAct();
+		//为子活动添加查询进度条控制
 		activity.addProgress(details_prgrsBar);
 	}
 	

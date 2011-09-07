@@ -22,8 +22,10 @@ import com.pintu.PintuApp;
 import com.pintu.R;
 import com.pintu.activity.base.FullScreenActivity;
 import com.pintu.data.TPicDetails;
+import com.pintu.data.TPicItem;
 import com.pintu.task.GenericTask;
 import com.pintu.task.RetrieveDetailTask;
+import com.pintu.task.SendTask;
 import com.pintu.task.TaskAdapter;
 import com.pintu.task.TaskListener;
 import com.pintu.task.TaskManager;
@@ -84,11 +86,14 @@ public class PictureDetails extends FullScreenActivity {
 		
 	//获取详情任务
 	private GenericTask mRetrieveTask;
+	//发送请求任务
+	private GenericTask mSendTask; 
 	protected TaskManager taskManager = new TaskManager();
 	
 	//保存一个详情对象吧，方便以后下载原始图
 	private TPicDetails details = null;
-	
+	//当前查看的图片
+	private String tpId;
 	
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -99,6 +104,17 @@ public class PictureDetails extends FullScreenActivity {
 		addEventListeners();
 		//获得画廊传递过来的贴图id
 		shouldRetrieve();
+		//初始化收藏按钮，先从本地缓存中查询是否已经收藏
+		//如果已经收藏了，就置为不可用，如果没有置为可用
+		initNavBtns();
+	}
+	
+	private void initNavBtns(){
+		boolean isExist = PintuApp.dbApi.hasAlreadyMarked(tpId);
+		if(isExist){
+			tv_favorite.setEnabled(false);
+			tv_favorite.setTextColor(0xFF999999);
+		}
 	}
 	
 	protected void onDestroy(){
@@ -140,17 +156,23 @@ public class PictureDetails extends FullScreenActivity {
 		storynum.setOnClickListener(storyListAction);
 		//查看评论列表
 		commentnum.setOnClickListener(commentsAction);
-		
 		//添加品图故事
 		tv_taste.setOnClickListener(toTasteActivity);
 		//添加评论
 		tv_comment.setOnClickListener(toCommentsActivity);
-		//收藏，不跳转吧？
+		//收藏，不跳转
 		tv_favorite.setOnClickListener(toFavoriteActivity);
+		
 		//转发，不跳转吧？
 		tv_forward.setOnClickListener(toFowardActivity);
+		//FIXME, 先不做转发，禁用掉吧
+		tv_forward.setEnabled(false);
+		tv_forward.setTextColor(0xFF999999);
 		//具备，跳转吗？似乎应该写点说明
 		tv_report.setOnClickListener(toReportActivity);
+		//FIXME, 先不做举报，禁用掉吧
+		tv_report.setEnabled(false);
+		tv_report.setTextColor(0xFF999999);
 	}
 	
 	private OnClickListener mGoListener = new OnClickListener() {
@@ -171,7 +193,7 @@ public class PictureDetails extends FullScreenActivity {
 				tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
 				it.putExtra("tpicUrl", tpicUrl);
 				it.putExtra("author", details.author);
-				it.putExtra("pubTime", details.publishTime);	
+				it.putExtra("pubTime", details.relativeTime);	
 				it.putExtra("tpId", details.id);
 				//启动故事编辑
 				startActivity(it);
@@ -193,7 +215,7 @@ public class PictureDetails extends FullScreenActivity {
 				tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
 				it.putExtra("tpicUrl", tpicUrl);
 				it.putExtra("author", details.author);
-				it.putExtra("pubTime", details.publishTime);	
+				it.putExtra("pubTime", details.relativeTime);	
 				it.putExtra("tpId", details.id);
 				//启动故事编辑
 				startActivity(it);
@@ -216,7 +238,7 @@ public class PictureDetails extends FullScreenActivity {
 				tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
 				it.putExtra("tpicUrl", tpicUrl);
 				it.putExtra("author", details.author);
-				it.putExtra("pubTime", details.publishTime);	
+				it.putExtra("pubTime", details.relativeTime);	
 				it.putExtra("tpId", details.id);
 				//启动故事列表
 				startActivity(it);				
@@ -238,7 +260,7 @@ public class PictureDetails extends FullScreenActivity {
 				tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
 				it.putExtra("tpicUrl", tpicUrl);
 				it.putExtra("author", details.author);
-				it.putExtra("pubTime", details.publishTime);	
+				it.putExtra("pubTime", details.relativeTime);	
 				it.putExtra("tpId", details.id);
 				//启动故事列表
 				startActivity(it);				
@@ -254,18 +276,92 @@ public class PictureDetails extends FullScreenActivity {
 		@Override
 		public void onClick(View v){
 			//TODO, Forward to user activity...
+			if(details!=null){
+				String userId = details.owner;
+				
+			}
 		}
 	};
-	
-	
 	
 	//收藏，不跳转吧？
 	private OnClickListener toFavoriteActivity = new OnClickListener(){
 		@Override
 		public void onClick(View v){
-			//TODO, Forward to user activity...
+			//必须是取回详情才能收藏
+			if(details!=null){
+				doSend();
+			}
 		}
 	};
+	
+	private void doSend(){
+		
+		if (mSendTask != null
+				&& mSendTask.getStatus() == GenericTask.Status.RUNNING)
+			return;
+		
+		int mode = SendTask.TYPE_MARK;
+		mSendTask = new SendTask();
+		mSendTask.setListener(mSendTaskListener);
+
+		TaskParams params = new TaskParams();
+		params.put("mode", mode);
+		params.put("picId", tpId);
+		//取本地用户
+		params.put("userId", PintuApp.userID);
+		if (tpId != null) {
+			mSendTask.execute(params);
+		} else {
+			updateProgress("Target pic id is null!");
+		}
+		
+		taskManager.addTask(mSendTask);
+	}
+
+	private TaskListener mSendTaskListener = new TaskAdapter() {
+		@Override
+		public void onPreExecute(GenericTask task) {
+			onSendBegin();
+		}
+
+		@Override
+		public void onPostExecute(GenericTask task, TaskResult result) {
+			if (result == TaskResult.OK) {
+				onSendSuccess();
+			} else if (result == TaskResult.FAILED) {
+				onSendFailure();
+			} else if (result == TaskResult.IO_ERROR) {
+				onSendFailure();
+			}
+		}
+
+	};
+
+	private void onSendBegin() {
+		details_prgrsBar.setVisibility(View.VISIBLE);
+		//锁定收藏按钮
+		tv_favorite.setEnabled(false);
+		tv_favorite.setTextColor(0xFF999999);
+		
+		//先把它存起来再说
+		TPicItem pic = new TPicItem();
+		pic.id = details.id;
+		pic.mobImgId = details.mobImgId;
+		pic.owner = details.owner;
+		pic.publishTime = details.publishTime;
+		PintuApp.dbApi.insertOneMarkedPic(pic);
+	}
+
+	private void onSendSuccess() {
+		details_prgrsBar.setVisibility(View.GONE);
+		updateProgress(getString(R.string.marksuccess));		
+	}
+
+	private void onSendFailure() {
+		details_prgrsBar.setVisibility(View.GONE);
+		updateProgress(getString(R.string.page_status_unable_to_update));
+	}
+
 	
 	//转发，不跳转吧？
 	private OnClickListener toFowardActivity = new OnClickListener(){
@@ -285,7 +381,6 @@ public class PictureDetails extends FullScreenActivity {
 	
 	
 	
-	
 	private void shouldRetrieve(){
 		Intent intent = getIntent();
 		Bundle extras = intent.getExtras();
@@ -295,14 +390,14 @@ public class PictureDetails extends FullScreenActivity {
 			finish();
 			return;
 		}
-		String tpId = extras.getString("tpId");
+		//保存下来做按钮状态处理
+		tpId = extras.getString("tpId");
 		if(tpId!=null){
 			doRetrieve(tpId);
 		}else{
 			updateProgress("Warning, tpId is null!");
 			Log.e(TAG, "Warning, tpId is null!");
 		}
-		
 	}
 
     private void doRetrieve(String tpId) {
@@ -346,19 +441,13 @@ public class PictureDetails extends FullScreenActivity {
 			try {
 				//保存下来，跳转时要用来传参
 				details = TPicDetails.parseJsonToObj(json);
-				if(details!=null){
-					//格式化化为XXX以前，而不是显示绝对时间
-					details.publishTime = DateTimeHelper.getRelativeTimeByFormatDate(details.publishTime, PictureDetails.this);
-					details.author = IptHelper.getShortUserName(details.author);
+				if(details!=null){					
 					updateUIwithPicDetails(details);
 				}else{
 					updateProgress("details is null can not update UI!");
 				}
 			} catch (JSONException e) {
 				updateProgress("Parse json to details Error!");
-				e.printStackTrace();
-			}catch (ParseException e) {
-				updateProgress("Parse publishTime to Date Error!");
 				e.printStackTrace();
 			}							 		
 		}
@@ -374,15 +463,22 @@ public class PictureDetails extends FullScreenActivity {
     	String tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
     	//显示品图手机图片
     	SimpleImageLoader.displayForLarge(t_picture, tpicUrl);
-    	
+    	details.author = IptHelper.getShortUserName(details.author);
     	user_name.setText(details.author);
     	String userInfo = getText(R.string.level_zh)+"  "+details.level;
     	//等级和积分之间空4个格
     	userInfo += "    ";
     	userInfo += getText(R.string.score_zh)+"  "+details.score;
     	user_info.setText(userInfo);
+    	//格式化化为XXX以前，而不是显示绝对时间
+    	try {
+    		details.relativeTime = DateTimeHelper.getRelativeTimeByFormatDate(details.publishTime, this);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
     	//显示格式化后的相对时间
-    	created_at.setText(details.publishTime);
+    	created_at.setText(details.relativeTime);
     	tv_tags.setText(details.tags);
     	tv_description.setText(details.description);
     	//TODO, ADD PIC SOURCE LATER...

@@ -349,4 +349,59 @@ public class PTImpl implements PTApi {
 		return new JSONObject(jsonStr);
 	}
 
+	@Override
+	public String postMessage(String userId, String receiver, String content)
+			throws HttpException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.SENDMSG);
+		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
+		BasicNameValuePair targetParam = new BasicNameValuePair("receiver", receiver);
+		// 中文编码下，解决乱码问题
+		content  = UTF8Formater.changeToUnicode(content);		
+		BasicNameValuePair contentParam = new BasicNameValuePair("content", content);
+
+		params.add(methodParam);
+		params.add(userParam);
+		params.add(targetParam);
+		params.add(contentParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> post the msg: " + jsonStr);
+		return jsonStr;
+	}
+
+	@Override
+	public JSONArray getNewMessages(String userId) throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETUSERMSG);
+		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
+
+		params.add(methodParam);
+		params.add(userParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json msgs: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+
+	@Override
+	public String updateMsgReaded(String msgId) throws HttpException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.CHANGEMSGSTATE);
+		BasicNameValuePair msgParam = new BasicNameValuePair("msgId", msgId);
+
+		params.add(methodParam);
+		params.add(msgParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+
+		return resp.asString();
+	}
+
 } // end of class

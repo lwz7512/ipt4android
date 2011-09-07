@@ -16,9 +16,14 @@ public class SendTask extends GenericTask {
 	public static final int TYPE_STORY = 2;
 	public static final int TYPE_COMMENT = 3;
 	public static final int TYPE_VOTE = 4;
+	//消息
 	public static final int TYPE_MESSAGE = 5;
+	//TODO, 帖子，这块后期考虑吧，估计得设计跟帖机制
 	public static final int TYPE_NOTE = 6;
-	
+	//收藏
+	public static final int TYPE_MARK = 7;
+	//学堂知识
+	public static final int TYPE_XUETANG = 8;
 
 	private static final String TAG = "SendTask";
 	private String postResult;
@@ -77,6 +82,12 @@ public class SendTask extends GenericTask {
 				PintuApp.mApi.postVote(follow, type, amount);
 				
 				break;
+				
+			case TYPE_MARK:
+				String picId = param.getString("picId");
+				String userId = param.getString("userId");
+				PintuApp.mApi.markThePic(userId, picId);
+				break;
 			
 			case TYPE_MESSAGE:
 				//TODO, POST MESSAGE ...
@@ -88,6 +99,10 @@ public class SendTask extends GenericTask {
 				
 				break;
 				
+			case TYPE_XUETANG:
+				//TODO, XUTANG ...
+				
+				break;
 
 			default:
 				break;

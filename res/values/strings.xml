@@ -49,6 +49,7 @@
 	<string name="comment_length_note">
 				您已经达到了评论的最大长度32，如果继续，建议发表到品图内容中
 	</string>
+	<string name="marksuccess">收藏成功</string>
 
 	<!-- 状态条提示 -->
 	<string name="page_status_refreshing">正在获取...</string>

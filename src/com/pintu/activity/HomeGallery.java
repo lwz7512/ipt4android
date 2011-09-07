@@ -256,11 +256,19 @@ public class HomeGallery extends FullScreenActivity {
     	
     	//结果拿到了，填充视图并入库
     	public void deliverRetrievedList(List<Object> results){
-    		// 刷新列表
+    		
+    		//如果没有取到数据就不处理了
+    		if(results.size()==0){
+    			updateProgress("No pictures in System, Try later...");
+    			return;
+    		}
+    		
+    		// 准备缓存数据
     		List<TPicDesc> items =new ArrayList<TPicDesc>();
     		for(Object o:results){
     			items.add((TPicDesc) o);
-    		}
+    		}    		    	
+    		
     		//先入库，更合理
     		int successNum = PintuApp.dbApi.insertThumbnails(items);
     		Log.i(TAG, ">>> inserted db record size: "+successNum);
