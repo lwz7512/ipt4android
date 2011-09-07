@@ -528,7 +528,10 @@ public class CacheImpl implements CacheDao {
 				.append(PintuTables.MyPicsTable.Columns.ID).append(" =?");
 
 		Cursor c = ptdb.rawQuery(sql.toString(), new String[] { picId });
-		boolean exist = c.getCount() > 0 ? true : false;
+		boolean exist = false;
+		while(c.moveToNext()){
+			exist = c.getInt(0)>0;
+		}
 		c.close();
 		return exist;
 	}
@@ -538,15 +541,19 @@ public class CacheImpl implements CacheDao {
 	 * 
 	 * 读取指定页数数据示例： SQL:Select * From TABLE_NAME Limit 9 Offset 10;
 	 * 表示从TABLE_NAME表获取数据，跳过10行，取9行
+	 * @param pageNum 页码数，从1开始取
+	 * @return List<TPicItem> 图片列表
 	 */
 	@Override
 	public List<TPicItem> getCachedMyPics(int pageNum) {
+		if(pageNum<1) return null;
+		
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM ").append(PintuTables.MyPicsTable.TABLE_NAME)
 				.append(" ORDER BY ")
 				.append(PintuTables.MyPicsTable.Columns.CREATION_TIME)
 				.append(" DESC").append(" LIMIT ").append(25)
-				.append(" OFFSET ").append(pageNum * 25);
+				.append(" OFFSET ").append((pageNum-1) * 25);
 
 		Cursor c = ptdb.rawQuery(sql.toString(), null);
 		List<TPicItem> list = new ArrayList<TPicItem>();
@@ -624,15 +631,20 @@ public class CacheImpl implements CacheDao {
 		return v;
 	}
 
+	/**
+	 * 页码数，从1开始取，每页最多25条
+	 */
 	@Override
 	public List<StoryInfo> getCachedMyStories(int pageNum) {
+		if(pageNum<1) return null;
+		
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM ")
 				.append(PintuTables.MyStoriesTable.TABLE_NAME)
 				.append(" ORDER BY ")
 				.append(PintuTables.MyStoriesTable.Columns.CREATION_TIME)
 				.append(" DESC").append(" LIMIT ").append(25)
-				.append(" OFFSET ").append(pageNum * 25);
+				.append(" OFFSET ").append((pageNum-1) * 25);
 
 		Cursor c = ptdb.rawQuery(sql.toString(), null);
 		List<StoryInfo> list = new ArrayList<StoryInfo>();
@@ -699,15 +711,20 @@ public class CacheImpl implements CacheDao {
 
 	}
 
+	/**
+	 * 页码数从1开始取，每页最多25条
+	 */
 	@Override
 	public List<Message> getCachedMyMsgs(int pageNum) {
+		if(pageNum<1) return null;
+		
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM ")
 				.append(PintuTables.MyMessageTable.TABLE_NAME)
 				.append(" ORDER BY ")
 				.append(PintuTables.MyMessageTable.Columns.CREATION_TIME)
 				.append(" DESC").append(" LIMIT ").append(25)
-				.append(" OFFSET ").append(pageNum * 25);
+				.append(" OFFSET ").append((pageNum-1) * 25);
 
 		Cursor c = ptdb.rawQuery(sql.toString(), null);
 		List<Message> list = new ArrayList<Message>();
