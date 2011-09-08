@@ -104,7 +104,7 @@ public class StoryVoteAdapter extends BaseAdapter {
 		String pubRelativeTime;
 		try {
 			pubRelativeTime = DateTimeHelper.getRelativeTimeByFormatDate(
-					si.publishTime, ctxt);
+					si.publishTime);
 			holder.story_pubtime.setText(pubRelativeTime);
 		} catch (ParseException e) {			
 			e.printStackTrace();

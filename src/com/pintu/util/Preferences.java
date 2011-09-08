@@ -14,4 +14,9 @@ public class Preferences {
 	//进入画廊时记录，多视图切换时取回作为是否取新数据的条件
 	public static String LAST_VISIT_TIME = "lastVisitTime";
 	
+	//当前标签页索引键，子类也要用来保存退出时的状态
+	//依靠它来打开相应的标签
+	public static final String MYASSETS_INDEX = "myassets_index";
+
+	
 }

@@ -72,7 +72,7 @@ public class CommentsAdapter extends BaseAdapter {
 		String pubRelativeTime;
 		try {
 			pubRelativeTime = DateTimeHelper.getRelativeTimeByFormatDate(
-					ci.publishTime, ctxt);
+					ci.publishTime);
 			//评论时间
 			holder.comment_pubtime.setText(pubRelativeTime);
 		} catch (ParseException e) {			

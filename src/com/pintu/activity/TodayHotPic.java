@@ -129,13 +129,13 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 
 	@Override
 	protected void refreshListView(List<Object> results) {
+		if(results.size()==0){
+			updateProgress("No hot pictures in system currently!");
+			return;
+		}
 		ArrayList<TPicDetails> hotpics = new ArrayList<TPicDetails>();
 		for(Object o : results){
 			hotpics.add((TPicDetails) o);
-		}
-		if(hotpics.size()==0){
-			updateProgress("No hot pictures in system currently!");
-			return;
 		}
 		//先入库缓存
 		PintuApp.dbApi.insertHotPics(hotpics);

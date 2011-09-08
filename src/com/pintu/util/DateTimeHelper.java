@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import com.pintu.PintuApp;
 import com.pintu.R;
 
 import android.content.Context;
@@ -59,9 +60,10 @@ public class DateTimeHelper {
     public static final DateFormat AGO_FULL_DATE_FORMATTER = new SimpleDateFormat(
             "yyyy-MM-dd HH:mm:ss");
 
-    public static String getRelativeDate(Date date,Context mctx) {
+    public static String getRelativeDate(Date date) {
         Date now = new Date();
 
+        Context mctx = PintuApp.mContext;
 //        String prefix = mctx.getString(R.string.tweet_created_at_beautify_prefix);
         String prefix = "";
         String sec = mctx.getString(R.string.tweet_created_at_beautify_sec);
@@ -100,9 +102,9 @@ public class DateTimeHelper {
     
     //新加的整合格式方法，字符串到字符串
     //lwz7512 @ 2011/08/24
-    public static  String getRelativeTimeByFormatDate(String publishTime, Context ctx) throws ParseException{
+    public static  String getRelativeTimeByFormatDate(String publishTime) throws ParseException{
     	Date pubDate = AGO_FULL_DATE_FORMATTER.parse(publishTime);
-    	return getRelativeDate(pubDate,ctx);
+    	return getRelativeDate(pubDate);
     }
 
     public static long getNowTime() {

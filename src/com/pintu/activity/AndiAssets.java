@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.pintu.R;
 import com.pintu.activity.base.HeadSwitchActivity;
+import com.pintu.util.Preferences;
 
 /**
  * 主模块“俺滴”对应的活动容器
@@ -19,14 +20,21 @@ public class AndiAssets extends HeadSwitchActivity {
 	
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
+		
 		//子活动顶部都有个刷新按钮，可以用来刷新数据，默认是显示缓存数据的
 		this.showRefreshBtn();
+		//打开保存索引的标签
+		int savedIndex = this.getLastVisitIndex(Preferences.MYASSETS_INDEX);
+		//根据保存的标签索引来对应打开
+		this.switchActivity(savedIndex);
+
 	}
 	
-	protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
+	protected void onDestroy(){
+        super.onDestroy();
+        
         //保存退出时查看的标签页索引，以便下次进入时打开
-        outState.putInt(TABINDEX, currentTabIndex);
+        this.rememberLastVisitIndex(Preferences.MYASSETS_INDEX, currentTabIndex);
 	}
 	
 	

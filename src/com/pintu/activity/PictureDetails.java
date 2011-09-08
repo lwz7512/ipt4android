@@ -472,7 +472,7 @@ public class PictureDetails extends FullScreenActivity {
     	user_info.setText(userInfo);
     	//格式化化为XXX以前，而不是显示绝对时间
     	try {
-    		details.relativeTime = DateTimeHelper.getRelativeTimeByFormatDate(details.publishTime, this);
+    		details.relativeTime = DateTimeHelper.getRelativeTimeByFormatDate(details.publishTime);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

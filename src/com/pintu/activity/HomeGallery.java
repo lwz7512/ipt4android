@@ -299,7 +299,7 @@ public class HomeGallery extends FullScreenActivity {
     private void rememberLastVisit(){
     	long existTime = DateTimeHelper.getNowTime();
     	this.getPreferences().edit().putLong(Preferences.LAST_VISIT_TIME, existTime).commit();
-    	Log.d(TAG, "lastVisit: "+DateTimeHelper.getRelativeDate(new Date(), this));
+    	Log.d(TAG, "lastVisit: "+DateTimeHelper.getRelativeDate(new Date()));
     }
     
 

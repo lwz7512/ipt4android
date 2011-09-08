@@ -3,9 +3,11 @@ package com.pintu.activity.base;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.pintu.PintuApp;
 import com.pintu.R;
 import com.pintu.adapter.HeadSwitchAdapter;
 import com.pintu.adapter.SubMainCallBack;
+import com.pintu.util.Preferences;
 
 import android.app.Activity;
 import android.app.ActivityGroup;
@@ -47,9 +49,6 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	//存放一个数据容器，作为子活动存取临时数据的目标
 	protected Map<String, Object> sharedRepository;
 	
-	//当前标签页索引键，子类也要用来保存退出时的状态
-	//依靠它来打开相应的标签
-	protected static final String TABINDEX = "tabindex";
 
 	//TODO, 子类必须重载这个方法来填充图标资源
 	public abstract  int[] initNavIcons();
@@ -78,9 +77,8 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		
 		details_prgrsBar = (ProgressBar) findViewById(R.id.details_prgrsBar);
 		
-		//生成导航栏，并打开保存索引的标签
-		int savedIndex = savedInstanceState.getInt(TABINDEX);
-		setupNavBar(savedIndex);
+		//建立底部导航栏
+		setupNavBar();
 		
 		//初始化数据仓库
 		sharedRepository = new HashMap<String, Object>();
@@ -115,7 +113,7 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	}
 	
 	
-	private void setupNavBar(int savedIndex){
+	private void setupNavBar(){
 		//初始化导航图标资源
 		iconArray = initNavIcons();
 		txtArray = initNavTxts();
@@ -137,10 +135,7 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		topImgAdapter = new HeadSwitchAdapter(this, iconArray, txtArray, R.drawable.topbar_itemselector);
 		// 设置菜单Adapter
 		gvTopBar.setAdapter(topImgAdapter);		
-		
-		//根据保存的标签索引来对应打开
-		switchActivity(savedIndex);
-		
+				
 	}
 	
 	private class ItemClickEvent implements OnItemClickListener {
@@ -153,9 +148,12 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	 * 根据ID打开指定的Activity
 	 * @param id GridView选中项的序号
 	 */
-	private void switchActivity(int id){
-		topImgAdapter.SetFocus(id);//选中项获得高亮
-		container.removeAllViews();//必须先清除容器中所有的View
+	protected void switchActivity(int id){
+		//选中项获得高亮
+		topImgAdapter.SetFocus(id);
+		//必须先清除容器中所有的View
+		container.removeAllViews();
+		
 		//获取子类给出的视图
 		Intent intent =switchByIndex(id);
 		if(intent==null) return;
@@ -173,6 +171,15 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	
 	private SubMainCallBack getCurrentAct(){		
 		return (SubMainCallBack) getLocalActivityManager().getActivity("subActivity");
+	}
+	
+	
+	protected void rememberLastVisitIndex(String type, int tabIndex){
+		PintuApp.mPref.edit().putInt(type, tabIndex).commit();
+	}
+	
+	protected int getLastVisitIndex(String type){
+		return PintuApp.mPref.getInt(type, 0);
 	}
 	
 	
