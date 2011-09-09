@@ -31,6 +31,11 @@ public abstract class TempletActivity extends FullScreenActivity {
 	protected long tenMinutesMiliSeconds = 10 * 60 * 1000;
 	// 1小时时间间隔
 	protected long oneHourMiliSeconds = 1 * 60 * 60 * 1000;
+	
+	//请求父活动刷新的标志
+	public boolean AUTOREFRESH = false;
+
+	
 
 	// TODO, ---------------- 模板Activity 生命周方法 -------------------------------
 

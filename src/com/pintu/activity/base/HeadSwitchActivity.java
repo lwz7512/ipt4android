@@ -16,6 +16,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -31,6 +32,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
 
 public abstract class HeadSwitchActivity extends ActivityGroup {
+	
+	private static final String TAG = "HeadSwitchActivity";
 
 	private GridView gvTopBar;
 	private HeadSwitchAdapter topImgAdapter;
@@ -47,7 +50,7 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	private ImageButton comn_refresh_btn;
 	
 	//存放一个数据容器，作为子活动存取临时数据的目标
-	protected Map<String, Object> sharedRepository;
+	protected Map<String, Object> sharedRepo;
 	
 
 	//TODO, 子类必须重载这个方法来填充图标资源
@@ -81,13 +84,22 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		setupNavBar();
 		
 		//初始化数据仓库
-		sharedRepository = new HashMap<String, Object>();
+		sharedRepo = new HashMap<String, Object>();
+	}
+	
+	public void cacheRepo(String key, Object value){
+		Log.d(TAG, "Cache the: "+key);
+		sharedRepo.put(key, value);
+	}
+	
+	public Object getRepo(String key){
+		return sharedRepo.get(key);
 	}
 	
 	protected void onDestroy(){
 		super.onDestroy();
 		//退出时清理缓存数据
-		sharedRepository.clear();
+		sharedRepo.clear();
 	}
 	
 	private OnClickListener mGoListener = new OnClickListener() {
@@ -163,10 +175,17 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		Window subActivity = getLocalActivityManager().startActivity("subActivity", intent);
 		//容器添加View
 		container.addView(subActivity.getDecorView(),LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
+		
 		//保存当前视图
 		activity = getCurrentAct();
 		//为子活动添加查询进度条控制
 		activity.addProgress(details_prgrsBar);
+		
+		//如果发现子活动请求刷新，就执行刷新方法
+		TempletActivity subAct = (TempletActivity) activity;
+		if(subAct.AUTOREFRESH){
+			activity.refresh(comn_refresh_btn);
+		}
 	}
 	
 	private SubMainCallBack getCurrentAct(){		

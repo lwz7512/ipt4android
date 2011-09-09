@@ -41,25 +41,41 @@ public class SimpleHttpClient implements HttpClientInterface{
 	
     private static final String TAG = "SimpleHttpClient";
 	
+    private String userId;
 	private DefaultHttpClient mClient;
 
-	public SimpleHttpClient() {
+	public SimpleHttpClient(String userId) {
+		this.userId = userId;
 		mClient = new DefaultHttpClient();
 	}
 	
-	private String getUser() {
-		return PintuApp.userID;
-	}
-	
-	//暴露唯一一个post方法
+	/**
+	 * 暴露唯一一个post方法，所有的提交或者查询都走这个方法
+	 * @param url
+	 * @param params
+	 * @param file
+	 * @param authenticate
+	 * @return
+	 * @throws HttpException
+	 */
 	public Response post(String url, ArrayList<BasicNameValuePair> params, File file, boolean authenticate) throws HttpException{
-			//用户本人
-			params.add(new BasicNameValuePair("user",getUser()));
-			params.add(new BasicNameValuePair("owner",getUser()));
+			//发送图片会用到这个参数
+			params.add(new BasicNameValuePair("user",userId));
+			//发送故事、评论、投票会用到这个参数
+			params.add(new BasicNameValuePair("owner",userId));
+			//所有的提交都会用到这个参数
 			params.add(new BasicNameValuePair("source","android"));
+			
 			return httpRequest(url, params, file, authenticate, HttpPost.METHOD_NAME);
 	}
-	//暴露唯一一个get方法
+	
+	/**
+	 * 暴露唯一一个get方法，用来获取图片字节流
+	 * @param url
+	 * @param authenticated
+	 * @return
+	 * @throws HttpException
+	 */
 	public Response get(String url, boolean authenticated) throws HttpException{		
 			return httpRequest(url, null, null, authenticated, HttpGet.METHOD_NAME);
 	}	

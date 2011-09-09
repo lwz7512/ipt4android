@@ -58,7 +58,6 @@ public class TPicDetails {
 		details.allowStory = json.getInt("allowStory");		
 		details.mobImgId = json.optString("mobImgId");
 		details.rawImgId = json.optString("rawImgId");
-		details.rawImgId = json.optString("rawImgId");
 		details.storiesNum = json.optString("storiesNum");
 		details.commentsNum = json.optString("commentsNum");
 		

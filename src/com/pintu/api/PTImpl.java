@@ -21,6 +21,15 @@ import com.pintu.http.Response;
 import com.pintu.http.SimpleHttpClient;
 import com.pintu.util.UTF8Formater;
 
+/**
+ * 此类为远程查询方法的实现：
+ * 用于构造httpclient需要的参数并提交
+ * 此类不主动获取用户，从接口方法中得到
+ * 如果接口方法中没有用户，则使用httpclient中内置用户
+ * 2011/09/09
+ * @author lwz
+ *
+ */
 public class PTImpl implements PTApi {
 
 	private static String TAG = "PTImpl";
@@ -34,8 +43,8 @@ public class PTImpl implements PTApi {
 
 	// TODO, remote host IP used in product environment
 
-	public PTImpl() {
-		client = new SimpleHttpClient();
+	public PTImpl(String userId) {
+		client = new SimpleHttpClient(userId);
 	}
 
 	private String getBaseURL() {
@@ -63,6 +72,9 @@ public class PTImpl implements PTApi {
 				+ imgPath;
 	}
 
+	/**
+	 * 这里不指定用户，而在client中指定
+	 */
 	@Override
 	public String postPicture(File pic, String tags, String desc,
 			String allowStory) throws HttpException {

@@ -8,7 +8,11 @@ import com.pintu.api.PTApi;
 import com.pintu.http.HttpException;
 
 import android.util.Log;
-
+/**
+ * 取回图片详情内容
+ * @author lwz
+ *
+ */
 public class RetrieveDetailTask extends GenericTask {
 	
 	private static String TAG = "RetrieveDetailTask";

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 个人栏 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="90dp"
+	android:paddingTop="10dp" android:paddingRight="15dp"
+	android:paddingLeft="10dp">
+	<!-- profile image -->
+	<FrameLayout android:id="@+id/profile_image_wrapper"
+		android:layout_width="48dp" android:layout_height="48dp"
+		android:layout_marginRight="10dp" android:layout_alignParentLeft="true">
+		<ImageView android:id="@+id/profile_image" android:src="@drawable/user_default_photo"
+			android:layout_width="fill_parent" android:layout_height="fill_parent" />
+		<!-- image corner -->
+		<ImageView android:background="@drawable/images_border_radius"
+			android:layout_width="fill_parent" android:layout_height="fill_parent" />
+	</FrameLayout>
+	<!-- 用户名 -->
+	<TextView android:id="@+id/user_name" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_toRightOf="@id/profile_image_wrapper"
+		android:text="..." style="@style/LinkText.Bold.Huge" />
+	<!-- 等级 -->
+	<TextView android:id="@+id/user_level" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@id/user_name"
+		android:layout_alignLeft="@id/user_name" style="@style/normalText.span" />
+	<!-- 积分 -->
+	<TextView android:id="@+id/user_score" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@id/user_name"
+		android:layout_toRightOf="@id/user_level" android:layout_marginLeft="20dp"
+		style="@style/normalText.span" />
+	<!-- 可用积分 -->
+	<TextView android:id="@+id/user_remainscore"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_below="@id/user_name" android:layout_toRightOf="@id/user_score"
+		android:layout_marginLeft="20dp" style="@style/normalText.span" />
+	<!-- 贴图数 -->
+	<TextView android:id="@+id/user_picnum" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@id/user_level"
+		android:layout_alignLeft="@id/user_level" style="@style/normalText.span" />
+	<!-- 品图数 -->
+	<TextView android:id="@+id/user_storynum"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_below="@id/user_level" android:layout_toRightOf="@id/user_picnum"
+		android:layout_marginLeft="20dp" style="@style/normalText.span" />
+</RelativeLayout>

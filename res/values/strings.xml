@@ -44,7 +44,14 @@
 	<string name="pintu">品图</string>
 	<string name="messages">消息</string>
 	
-
+	<!-- 我的资产页面文字 -->
+	<string name="userlevel">等级</string>
+	<string name="totalscore">总积分</string>
+	<string name="excgscore">可用积分</string>
+	<string name="picnum">贴图数</string>
+	<string name="storynum">品图数</string>
+	<string name="shellunit">个</string>
+	
 	<!-- 专属提示 -->
 	<string name="comment_length_note">
 				您已经达到了评论的最大长度32，如果继续，建议发表到品图内容中

@@ -110,7 +110,7 @@ public class AndiFavorite extends TempletActivity implements SubMainCallBack {
 		TaskParams param = new TaskParams();
 		//查询前页码增加
 		pageNum ++;
-		param.put("userId", PintuApp.userID);
+		param.put("userId", PintuApp.getUser());
 		param.put("pageNum", pageNum);
 		this.mRetrieveTask.execute(param);
 		

@@ -17,6 +17,10 @@ public class Preferences {
 	//当前标签页索引键，子类也要用来保存退出时的状态
 	//依靠它来打开相应的标签
 	public static final String MYASSETS_INDEX = "myassets_index";
-
+	//社区动态标签组
+	public static final String CMNT_INDEX = "cmnt_index";
+	//夜市标签组
+	public static final String MARKET_INDEX = "market_index";
+	
 	
 }

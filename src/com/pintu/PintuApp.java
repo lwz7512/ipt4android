@@ -31,7 +31,7 @@ public class PintuApp extends Application {
 	public static LazyImageLoader mImageLoader;
 	
 	//模拟登录用户
-	public static String userID = "a053beae20125b5b";
+	private static String userID = "a053beae20125b5b";
 	
 	
 	
@@ -39,13 +39,17 @@ public class PintuApp extends Application {
 		super.onCreate();
 		
 		mContext = this.getApplicationContext();
-		mApi = new PTImpl();	
+		mApi = new PTImpl(getUser());	
 		dbApi = new CacheImpl(this);
 		mPref = PreferenceManager.getDefaultSharedPreferences(this);
 		mImageLoader  = new LazyImageLoader(this);
 		
 	}
 	
+	public static String getUser() {
+		return userID;
+	}
+
 	
 	public void onLowMemory(){
 		super.onLowMemory();

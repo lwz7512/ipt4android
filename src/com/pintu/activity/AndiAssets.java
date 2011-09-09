@@ -8,36 +8,35 @@ import com.pintu.activity.base.HeadSwitchActivity;
 import com.pintu.util.Preferences;
 
 /**
- * 主模块“俺滴”对应的活动容器
- * 用于对5个子活动的切换，并保存最后一次切换的索引
+ * 主模块“俺滴”对应的活动容器 用于对5个子活动的切换，并保存最后一次切换的索引
+ * 
  * @author lwz
- *
+ * 
  */
 public class AndiAssets extends HeadSwitchActivity {
 
+	//当前标签页的索引
 	private int currentTabIndex = 0;
-	
-	
-	protected void onCreate(Bundle savedInstanceState){
+
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		//子活动顶部都有个刷新按钮，可以用来刷新数据，默认是显示缓存数据的
+
+		// 子活动顶部都有个刷新按钮，可以用来刷新数据，默认是显示缓存数据的
 		this.showRefreshBtn();
-		//打开保存索引的标签
+		// 打开保存索引的标签
 		int savedIndex = this.getLastVisitIndex(Preferences.MYASSETS_INDEX);
-		//根据保存的标签索引来对应打开
+		// 根据保存的标签索引来对应打开
 		this.switchActivity(savedIndex);
 
 	}
-	
-	protected void onDestroy(){
-        super.onDestroy();
-        
-        //保存退出时查看的标签页索引，以便下次进入时打开
-        this.rememberLastVisitIndex(Preferences.MYASSETS_INDEX, currentTabIndex);
+
+	protected void onDestroy() {
+		super.onDestroy();
+
+		// 保存退出时查看的标签页索引，以便下次进入时打开
+		this.rememberLastVisitIndex(Preferences.MYASSETS_INDEX, currentTabIndex);
 	}
-	
-	
+
 	@Override
 	public int[] initNavIcons() {
 		int[] icons = { R.drawable.assets, R.drawable.picutures,

@@ -308,7 +308,7 @@ public class PictureDetails extends FullScreenActivity {
 		params.put("mode", mode);
 		params.put("picId", tpId);
 		//取本地用户
-		params.put("userId", PintuApp.userID);
+		params.put("userId", PintuApp.getUser());
 		if (tpId != null) {
 			mSendTask.execute(params);
 		} else {
@@ -455,10 +455,9 @@ public class PictureDetails extends FullScreenActivity {
     
     
     
-    private void updateUIwithPicDetails(TPicDetails details){
-    	
-    	String profileUrl = PintuApp.mApi.composeImgUrlByPath(details.avatarImgPath);
+    private void updateUIwithPicDetails(TPicDetails details){    	
     	//显示头像
+    	String profileUrl = PintuApp.mApi.composeImgUrlByPath(details.avatarImgPath);
     	SimpleImageLoader.display(profile_image, profileUrl);
     	String tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
     	//显示品图手机图片
