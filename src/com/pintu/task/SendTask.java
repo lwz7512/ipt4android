@@ -76,10 +76,13 @@ public class SendTask extends GenericTask {
 				break;
 
 			case TYPE_VOTE:
+				//故事作者，方便通知他有人投票了
+				String receiver = param.getString("receiver");
+				//故事编号
 				String follow = param.getString("follow");
 				String type = param.getString("type");
 				String amount = param.getString("amount");
-				PintuApp.mApi.postVote(follow, type, amount);
+				PintuApp.mApi.postVote(receiver, follow, type, amount);
 				
 				break;
 				

@@ -215,16 +215,18 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public String postVote(String follow, String type, String amount)
+	public String postVote(String receiver, String follow, String type, String amount)
 			throws HttpException {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.ADDVOTE);
+		BasicNameValuePair recvParam = new BasicNameValuePair("receiver", receiver);
 		BasicNameValuePair foloParam = new BasicNameValuePair("follow", follow);
 		BasicNameValuePair typeParam = new BasicNameValuePair("type", type);
 		BasicNameValuePair amtParam = new BasicNameValuePair("amount", amount);
 
-		params.add(methodParam);
+		params.add(methodParam);		
+		params.add(recvParam);
 		params.add(foloParam);
 		params.add(typeParam);
 		params.add(amtParam);
@@ -342,6 +344,24 @@ public class PTImpl implements PTApi {
 
 		return new JSONArray(jsonStr);
 	}
+	
+	@Override
+	public JSONObject getUserDetail(String userId) throws HttpException,
+			JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETUSERDETAIL);
+		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
+
+		params.add(methodParam);
+		params.add(userParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json user Details: " + jsonStr);
+
+		return new JSONObject(jsonStr);
+	}
 
 	@Override
 	public JSONObject getUserEstate(String userId) throws HttpException,
@@ -356,7 +376,7 @@ public class PTImpl implements PTApi {
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json user Details: " + jsonStr);
+		Log.d(TAG, ">>> json user Estate: " + jsonStr);
 
 		return new JSONObject(jsonStr);
 	}
@@ -416,4 +436,6 @@ public class PTImpl implements PTApi {
 		return resp.asString();
 	}
 
+
+	
 } // end of class

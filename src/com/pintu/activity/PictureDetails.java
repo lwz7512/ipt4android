@@ -275,10 +275,13 @@ public class PictureDetails extends FullScreenActivity {
 	private OnClickListener viewUserAction = new OnClickListener(){
 		@Override
 		public void onClick(View v){
-			//TODO, Forward to user activity...
 			if(details!=null){
 				String userId = details.owner;
-				
+				Intent it = new Intent();
+				it.setClass(PictureDetails.this, TadiAssets.class);
+				it.putExtra("userId", userId);
+				//打开作者详情模块
+				startActivity(it);
 			}
 		}
 	};
@@ -294,12 +297,15 @@ public class PictureDetails extends FullScreenActivity {
 		}
 	};
 	
+	/**
+	 * 本地用户收藏动作
+	 */
 	private void doSend(){
 		
 		if (mSendTask != null
 				&& mSendTask.getStatus() == GenericTask.Status.RUNNING)
 			return;
-		
+		//收藏此图片
 		int mode = SendTask.TYPE_MARK;
 		mSendTask = new SendTask();
 		mSendTask.setListener(mSendTaskListener);
@@ -473,14 +479,12 @@ public class PictureDetails extends FullScreenActivity {
     	try {
     		details.relativeTime = DateTimeHelper.getRelativeTimeByFormatDate(details.publishTime);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
     	//显示格式化后的相对时间
     	created_at.setText(details.relativeTime);
     	tv_tags.setText(details.tags);
     	tv_description.setText(details.description);
-    	//TODO, ADD PIC SOURCE LATER...
     	send_source.setText("Android");
     	
     	if(details.storiesNum!=null && Integer.valueOf(details.storiesNum)>0){

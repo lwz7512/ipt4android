@@ -50,6 +50,8 @@ public interface PTApi {
 	
 	public static final String GETUSERESTATE = "getUserEstate";
 	
+	public static final String GETUSERDETAIL = "getUserDetail";
+	
 	public static final String SENDMSG = "sendMsg";
 	
 	public static final String GETUSERMSG  = "getUserMsg";
@@ -81,12 +83,15 @@ public interface PTApi {
 	//获取评价列表
 	public JSONArray getCommensByTpId(String tpId) throws HttpException,JSONException;
 	//发送投票
-	public String postVote(String follow, String type, String amount) throws HttpException;
+	public String postVote(String receiver, String follow, String type, String amount) throws HttpException;
 	//获取今日热图
 	public JSONArray getHotPicToday() throws HttpException, JSONException;
 	//获取历史经典故事
 	public JSONArray getHistoryClassicStroies() throws HttpException, JSONException;
 	
+	//获得用户基本资料
+	public JSONObject getUserDetail(String userId) throws HttpException, JSONException;
+		
 	//获得用户资产，包括用户详细资料
 	public JSONObject getUserEstate(String userId) throws HttpException, JSONException;
 	//收藏喜欢的图片

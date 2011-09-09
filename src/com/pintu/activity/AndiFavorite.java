@@ -17,6 +17,7 @@ import com.pintu.R;
 import com.pintu.activity.base.TempletActivity;
 import com.pintu.adapter.FavoPicsAdapter;
 import com.pintu.adapter.SubMainCallBack;
+import com.pintu.api.PTApi;
 import com.pintu.data.TPicDetails;
 import com.pintu.data.TPicItem;
 import com.pintu.task.RetrieveFavoritesTask;
@@ -38,7 +39,7 @@ public class AndiFavorite extends TempletActivity implements SubMainCallBack {
 	private ImageButton refreshBtn;
 	//当前页码数目
 	private int pageNum = 0;
-	
+	//上次获取记录数
 	private int lastFetchNum = 0;
 	
 	@Override
@@ -107,12 +108,14 @@ public class AndiFavorite extends TempletActivity implements SubMainCallBack {
 		
 		this.mRetrieveTask = new RetrieveFavoritesTask();
 		this.mRetrieveTask.setListener(mRetrieveTaskListener);
-		TaskParams param = new TaskParams();
+		TaskParams params = new TaskParams();
 		//查询前页码增加
 		pageNum ++;
-		param.put("userId", PintuApp.getUser());
-		param.put("pageNum", pageNum);
-		this.mRetrieveTask.execute(param);
+		params.put("userId", PintuApp.getUser());
+		params.put("pageNum", pageNum);
+		//指明是查询收藏图片
+		params.put("method", PTApi.GETFAVORITEPICS);
+		this.mRetrieveTask.execute(params);
 		
 		this.manageTask(mRetrieveTask);
 	}

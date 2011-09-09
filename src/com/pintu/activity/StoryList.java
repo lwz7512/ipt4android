@@ -21,6 +21,7 @@ import com.pintu.R;
 import com.pintu.activity.base.TempletActivity;
 import com.pintu.adapter.StoryVoteAdapter;
 import com.pintu.adapter.StoryVoteAdapter.VoteActionListener;
+import com.pintu.api.PTApi;
 import com.pintu.data.StoryInfo;
 import com.pintu.task.GenericTask;
 import com.pintu.task.RetrieveStoriesTask;
@@ -54,9 +55,12 @@ public class StoryList extends TempletActivity {
 	private StateListView story_votes;
 	private StoryVoteAdapter svAdptr;
 
-	// 发送故事的目标图编号
+	// 获取故事列表的目标图编号
 	private String tpId;
 	
+	
+	//故事作者
+	private String owner;
 	//发送投票的目标故事编号
 	private String storyId;
 	//投票种类
@@ -99,12 +103,25 @@ public class StoryList extends TempletActivity {
 
 	private VoteActionListener voteListener = new VoteActionListener() {
 		@Override
-		public void send(String storyId, String type) {
+		public void send(String owner, String storyId, String type) {
 			//只有在列表静止状态下，才处理投票提交
 			if (story_votes.isStatic())
-				postVoteForStory(storyId, type); 
+				postVoteForStory(owner, storyId, type); 
 		}
 	};
+	
+	private void postVoteForStory(String owner, String storyId, String vote){
+		this.owner = owner;
+		this.storyId = storyId;
+		this.voteType = vote;
+		if(storyId!=null && vote!=null && owner!=null){
+			doSend();
+		}else{
+			this.updateProgress("Can not vote, missing info! ");
+		}
+	}
+	
+
 
 	protected void addEventListeners() {
 		top_back.setOnClickListener(mGoListener);
@@ -155,17 +172,10 @@ public class StoryList extends TempletActivity {
 
 		TaskParams params = new TaskParams();
 		params.put("tpId", tpId);
+		params.put("method", PTApi.GETSTORIESOFPIC);
 		mRetrieveTask.execute(params);
 
 		this.manageTask(mRetrieveTask);
-	}
-	
-	private void postVoteForStory(String storyId, String vote){
-		this.storyId = storyId;
-		this.voteType = vote;
-		if(storyId!=null && vote!=null){
-			doSend();
-		}
 	}
 	
 
@@ -179,6 +189,8 @@ public class StoryList extends TempletActivity {
 
 		TaskParams params = new TaskParams();
 		params.put("mode", mode);
+		//后台依据receiver来发送投票消息给故事作者
+		params.put("receiver", owner);
 		params.put("type", voteType);
 		params.put("follow", storyId);
 		params.put("amount","1");

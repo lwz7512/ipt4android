@@ -9,6 +9,7 @@ import org.json.JSONException;
 import android.util.Log;
 
 import com.pintu.PintuApp;
+import com.pintu.api.PTApi;
 import com.pintu.data.TPicItem;
 import com.pintu.http.HttpException;
 
@@ -17,16 +18,22 @@ public class RetrieveFavoritesTask extends GenericTask {
 	private static String TAG = "RetrieveFavoritesTask";
 	
 	private List<Object> retrievedPics;
-
+	
 	@Override
 	protected TaskResult _doInBackground(TaskParams... params) {
-		
 		JSONArray jsPics = null;
 		TaskParams param = params[0];
 		String userId = param.get("userId").toString();
 		String pageNum = param.get("pageNum").toString();
+		//根据查询方法不同，供不同的活动使用
+		String method = param.get("method").toString();
+		
 		try {
-			jsPics = PintuApp.mApi.getFavoriteTpics(userId, pageNum);
+			if(method.equals(PTApi.GETFAVORITEPICS)){
+				jsPics = PintuApp.mApi.getFavoriteTpics(userId, pageNum);
+			}else if(method.equals(PTApi.GETTPICSBYUSER)){
+				jsPics = PintuApp.mApi.getTpicsByUser(userId, pageNum);				
+			}
 		} catch (HttpException e) {
 			e.printStackTrace();
 			return TaskResult.FAILED;
@@ -43,7 +50,7 @@ public class RetrieveFavoritesTask extends GenericTask {
 
 		return TaskResult.OK;
 	}
-	
+
 	private void jsonPicToItems(JSONArray jsPics) {
 		retrievedPics = new ArrayList<Object>();
 		try {
@@ -59,7 +66,7 @@ public class RetrieveFavoritesTask extends GenericTask {
 
 	}
 
-
+	
 	@Override
 	protected void _onPostExecute(TaskResult result) {
     	if(result==TaskResult.OK){
