@@ -76,9 +76,14 @@ public class AndiPintu extends TempletActivity implements SubMainCallBack {
 	
 	@Override
 	protected void justDoIt() {
-		List<StoryInfo> stories = PintuApp.dbApi.getCachedMyStories(1);
+		String owner = PintuApp.getUser();
+		List<StoryInfo> stories = PintuApp.dbApi.getCachedMyStories(owner,1);
 		if(stories.size()>0){
 			storyAdptr.refresh(stories);
+		}
+		//如果缓存没有数据，就请求主活动刷新该应用
+		if(stories.size()==0){
+			this.AUTOREFRESH = true;
 		}
 	}
 
@@ -181,7 +186,8 @@ public class AndiPintu extends TempletActivity implements SubMainCallBack {
 		//先入库缓存
 		PintuApp.dbApi.insertMyStories(stories);
 		//再从库中取出
-		List<StoryInfo>cachedStories = PintuApp.dbApi.getCachedMyStories(1);
+		String owner = PintuApp.getUser();
+		List<StoryInfo>cachedStories = PintuApp.dbApi.getCachedMyStories(owner, 1);
 		this.storyAdptr.refresh(cachedStories);
 	}
 
@@ -200,8 +206,9 @@ public class AndiPintu extends TempletActivity implements SubMainCallBack {
 	public void refresh(ImageButton refreshBtn) {
 		this.refreshBtn = refreshBtn;
 		long diff = this.elapsedFromLastVisit();
-		if(diff>this.tenSecsMiliSeconds){
+		if(diff>this.tenSecsMiliSeconds || this.AUTOREFRESH){
 			this.doRetrieve();
+			this.AUTOREFRESH = false;
 		}else{
 			this.updateProgress("10 sec Later to Refresh ...");
 		}

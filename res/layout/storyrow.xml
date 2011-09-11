@@ -3,22 +3,17 @@
 	android:layout_width="match_parent" android:layout_height="wrap_content"
 	android:paddingLeft="10dp" android:paddingRight="10dp"
 	android:paddingTop="10dp">
-	<!-- 发布时间右对齐 -->
-	<TextView android:id="@+id/story_pubtime"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:layout_alignParentRight="true" style="@style/normalText.span"
-		android:text="time..." />
 	<!-- 故事内容，与作者对齐 -->
 	<TextView android:id="@+id/story_content"
-		android:layout_height="wrap_content" android:layout_width="fill_parent"
-		android:layout_below="@id/story_pubtime"
+		android:layout_height="wrap_content" android:layout_width="fill_parent"	
 		android:layout_alignParentLeft="true" android:textColor="@drawable/tweet_color"
 		android:lineSpacingExtra="2sp" android:textSize="15sp" android:text="story..." />
 	<!-- 投票列表，左边空出地方来，放图片 -->
 	<LinearLayout android:id="@+id/votes"
 		android:layout_width="fill_parent" android:layout_height="32dp"
 		android:orientation="horizontal" android:layout_below="@id/story_content" 
-		android:layout_marginLeft="60dp" android:paddingLeft="10dp">
+		android:layout_marginLeft="60dp" android:paddingLeft="10dp"
+		android:layout_marginTop="10dp">
 		<!-- 喜欢数目 -->
 		<TextView android:id="@+id/heart_num" android:layout_width="wrap_content"
 			android:layout_height="wrap_content" android:drawableLeft="@drawable/heart"
@@ -45,5 +40,10 @@
 		android:layout_width="60dp" android:layout_height="60dp"
 		android:layout_below="@id/story_content" 
 		android:layout_alignParentLeft="true"/>
-
+	<!-- 发布时间右对齐，底部与缩略图对齐 -->
+	<TextView android:id="@+id/story_pubtime"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_alignParentRight="true" 
+		android:layout_below="@id/votes"
+		android:text="..." />
 </RelativeLayout>

@@ -545,11 +545,13 @@ public class CacheImpl implements CacheDao {
 	 * @return List<TPicItem> 图片列表
 	 */
 	@Override
-	public List<TPicItem> getCachedMyPics(int pageNum) {
+	public List<TPicItem> getCachedMyPics(String owner, int pageNum) {
 		if(pageNum<1) return null;
 		
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM ").append(PintuTables.MyPicsTable.TABLE_NAME)
+				.append(" WHERE ").append(PintuTables.MyPicsTable.Columns.OWNER)
+				.append("='").append(owner).append("'")
 				.append(" ORDER BY ")
 				.append(PintuTables.MyPicsTable.Columns.CREATION_TIME)
 				.append(" DESC").append(" LIMIT ").append(25)
@@ -618,8 +620,8 @@ public class CacheImpl implements CacheDao {
 		ContentValues v = new ContentValues();
 		v.put(PintuTables.MyStoriesTable.Columns.ID, story.id);
 		v.put(PintuTables.MyStoriesTable.Columns.CONTENT, story.content);
+		v.put(PintuTables.MyStoriesTable.Columns.OWNER, story.owner);
 		v.put(PintuTables.MyStoriesTable.Columns.FOLLOW, story.follow);
-
 		v.put(PintuTables.MyStoriesTable.Columns.EGG, story.egg);
 		v.put(PintuTables.MyStoriesTable.Columns.FLOWER, story.flower);
 		v.put(PintuTables.MyStoriesTable.Columns.HEART, story.heart);
@@ -635,12 +637,14 @@ public class CacheImpl implements CacheDao {
 	 * 页码数，从1开始取，每页最多25条
 	 */
 	@Override
-	public List<StoryInfo> getCachedMyStories(int pageNum) {
+	public List<StoryInfo> getCachedMyStories(String owner, int pageNum) {
 		if(pageNum<1) return null;
 		
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM ")
 				.append(PintuTables.MyStoriesTable.TABLE_NAME)
+				.append(" WHERE ").append(PintuTables.MyStoriesTable.Columns.OWNER)
+				.append("='").append(owner).append("'")
 				.append(" ORDER BY ")
 				.append(PintuTables.MyStoriesTable.Columns.CREATION_TIME)
 				.append(" DESC").append(" LIMIT ").append(25)
@@ -664,6 +668,8 @@ public class CacheImpl implements CacheDao {
 				.getColumnIndex(PintuTables.MyStoriesTable.Columns.ID));
 		story.content = c.getString(c
 				.getColumnIndex(PintuTables.MyStoriesTable.Columns.CONTENT));
+		story.owner = c.getString(c
+				.getColumnIndex(PintuTables.MyStoriesTable.Columns.OWNER));
 		story.follow = c.getString(c
 				.getColumnIndex(PintuTables.MyStoriesTable.Columns.FOLLOW));
 		story.egg = c.getInt(c

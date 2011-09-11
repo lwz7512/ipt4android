@@ -48,7 +48,7 @@ public class AndiPics extends TempletActivity implements SubMainCallBack {
 	@Override
 	protected void getViews() {
 		fpAdptr = new FavoPicsAdapter(this);
-		adpics_lv = (ListView) findViewById(R.id.markpics_lv);
+		adpics_lv = (ListView) findViewById(R.id.adpics_lv);
 		adpics_lv.setAdapter(fpAdptr);
 	}
 
@@ -72,9 +72,14 @@ public class AndiPics extends TempletActivity implements SubMainCallBack {
 	@Override
 	protected void justDoIt() {
 		//先看缓存中有没
-		List<TPicItem> pics = PintuApp.dbApi.getCachedFavoritePics();
+		String owner = PintuApp.getUser();
+		List<TPicItem> pics = PintuApp.dbApi.getCachedMyPics(owner, 1);
 		if(pics.size()>0)
 			fpAdptr.refresh(pics);
+		
+		// 如果缓存中没数据，请求主活动来调用刷新方法
+		if(pics.size()==0)
+			this.AUTOREFRESH = true;
 	}
 
 	@Override
@@ -176,7 +181,8 @@ public class AndiPics extends TempletActivity implements SubMainCallBack {
 		//先入库缓存
 		PintuApp.dbApi.insertMyPics(pics);
 		//再从库中取出
-		List<TPicItem>cachedPics = PintuApp.dbApi.getCachedMyPics(1);
+		String owner = PintuApp.getUser();
+		List<TPicItem>cachedPics = PintuApp.dbApi.getCachedMyPics(owner, 1);
 		this.fpAdptr.refresh(cachedPics);
 	}
 
@@ -195,8 +201,10 @@ public class AndiPics extends TempletActivity implements SubMainCallBack {
 	public void refresh(ImageButton refreshBtn) {
 		this.refreshBtn = refreshBtn;
 		long diff = this.elapsedFromLastVisit();
-		if(diff>this.tenSecsMiliSeconds){
+		//过了时间间隔，或者无缓存数据都可以查询
+		if(diff>this.tenSecsMiliSeconds || this.AUTOREFRESH){
 			this.doRetrieve();
+			this.AUTOREFRESH = false;
 		}else{
 			this.updateProgress("10 sec Later to Refresh ...");
 		}

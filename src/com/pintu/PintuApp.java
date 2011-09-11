@@ -46,6 +46,7 @@ public class PintuApp extends Application {
 		
 	}
 	
+	//获得本地登录用户
 	public static String getUser() {
 		return userID;
 	}

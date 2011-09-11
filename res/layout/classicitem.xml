@@ -18,7 +18,7 @@
 		<!-- 发布时间右对齐 -->
 		<TextView android:id="@+id/classic_pubtime"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_alignParentRight="true" style="@style/normalText.span"
+			android:layout_alignParentRight="true"
 			android:text="time..." />
 		<!-- 故事内容，与作者对齐 -->
 		<TextView android:id="@+id/classic_story_txt"

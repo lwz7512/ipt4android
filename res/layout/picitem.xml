@@ -19,18 +19,17 @@
 		<!-- 发布时间右对齐 -->
 		<TextView android:id="@+id/hotpic_pubtime"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_alignParentRight="true" style="@style/normalText.span"
-			android:text="time..." />
+			android:layout_alignParentRight="true" android:text="time..." />
 		<!-- 真正的热图，晕死，又忘了写宽度，结果运行异常找了半天原因 如果高度或者宽度其中之一没有声明，就会报错：RuntimeException 
 			blockLayoutRequests=false -->
 		<ImageView android:id="@+id/hot_pic_image"
 			android:layout_height="200dp" android:layout_width="wrap_content"
-			android:src="@drawable/mockpic_gray" android:layout_below="@id/hotpic_author_name"			
+			android:src="@drawable/mockpic_gray" android:layout_below="@id/hotpic_author_name"
 			android:layout_alignLeft="@id/hotpic_author_name" />
-			
-		<RelativeLayout android:layout_width="fill_parent" 
+
+		<RelativeLayout android:layout_width="fill_parent"
 			android:layout_height="wrap_content" android:layout_below="@id/hot_pic_image"
-			android:layout_alignLeft="@id/hot_pic_image" >
+			android:layout_alignLeft="@id/hot_pic_image">
 			<!-- 评论数靠右端 -->
 			<TextView android:id="@+id/hot_pic_commentnum"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"

@@ -155,6 +155,8 @@ public class PintuTables {
 		public static class Columns {		
 			//贴图对象唯一编号
 			public static final String ID = "id";
+			//因为跟收藏图片共用数据结构，所以这里也需要owner字段
+			public static final String OWNER = "owner";
 			public static final String MOBIMGID = "mobImgId";
 			//标准时间格式yyyy-MM-dd HH:mm:ss
 			public static final String CREATION_TIME = "creationTime";
@@ -163,6 +165,7 @@ public class PintuTables {
 		public static String getCreateSQL() {
             String createString = TABLE_NAME + "( "             		
             		+ Columns.ID + " TEXT PRIMARY KEY, "
+            		+ Columns.OWNER + " TEXT, "
             		+ Columns.MOBIMGID + " TEXT, "
                     + Columns.CREATION_TIME + " DATE " + ");";
 
@@ -173,7 +176,7 @@ public class PintuTables {
         }
 		public static String[] getIndexColumns() {
 			return new String[] {
-					Columns.ID,Columns.MOBIMGID,Columns.CREATION_TIME
+					Columns.ID,Columns.OWNER,Columns.MOBIMGID,Columns.CREATION_TIME
 			};
 		}
 		
@@ -185,6 +188,8 @@ public class PintuTables {
 		public static class Columns {			
 			public static final String ID = "id";
 			public static final String CONTENT = "content";
+			//加上这个字段吧，将来好处理按用户查询
+			public static final String OWNER = "owner";
 			//图片ID
 			public static final String FOLLOW = "follow";
 			public static final String FLOWER = "flower";
@@ -199,6 +204,7 @@ public class PintuTables {
             String createString = TABLE_NAME + "( "             		
             		+ Columns.ID + " TEXT PRIMARY KEY, "
             		+ Columns.CONTENT + " TEXT, "
+            		+ Columns.OWNER + " TEXT, "
                     + Columns.FOLLOW + " TEXT, "
             		+ Columns.FLOWER + " TEXT, "
             		+ Columns.HEART + " TEXT, "
@@ -213,7 +219,7 @@ public class PintuTables {
         }
 		public static String[] getIndexColumns() {
 			return new String[] {
-					Columns.ID,Columns.CONTENT,Columns.FOLLOW,
+					Columns.ID,Columns.CONTENT,Columns.OWNER,Columns.FOLLOW,
 					Columns.FLOWER,Columns.HEART,Columns.EGG,Columns.STAR, 
 					Columns.CREATION_TIME
 			};

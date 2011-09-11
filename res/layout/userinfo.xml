@@ -7,7 +7,8 @@
 	<!-- profile image -->
 	<FrameLayout android:id="@+id/profile_image_wrapper"
 		android:layout_width="48dp" android:layout_height="48dp"
-		android:layout_marginRight="10dp" android:layout_alignParentLeft="true">
+		android:layout_marginRight="10dp" android:layout_alignParentLeft="true"
+		android:layout_marginTop="6dp">
 		<ImageView android:id="@+id/profile_image" android:src="@drawable/user_default_photo"
 			android:layout_width="fill_parent" android:layout_height="fill_parent" />
 		<!-- image corner -->

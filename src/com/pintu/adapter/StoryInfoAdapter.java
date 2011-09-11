@@ -50,7 +50,7 @@ public class StoryInfoAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View view = null;
 		if (convertView == null){
-			view = mInflater.inflate(R.layout.storydetail, parent, false);
+			view = mInflater.inflate(R.layout.storyrow, parent, false);
 			ViewHolder holder = new ViewHolder();
 			holder.pic_thumbnail = (ImageView) view.findViewById(R.id.pic_thumbnail);
 			holder.story_pubtime = (TextView) view.findViewById(R.id.story_pubtime);

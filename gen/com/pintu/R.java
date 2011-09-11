@@ -284,11 +284,11 @@ public final class R {
         public static final int silvershell=0x7f090009;
         public static final int silvershell_num=0x7f09000a;
         public static final int spacer=0x7f09003c;
-        public static final int story_author=0x7f090063;
-        public static final int story_content=0x7f09005d;
+        public static final int story_author=0x7f09005c;
+        public static final int story_content=0x7f090063;
         public static final int story_edit=0x7f090055;
-        public static final int story_pubtime=0x7f09005c;
-        public static final int story_txt=0x7f090064;
+        public static final int story_pubtime=0x7f09005d;
+        public static final int story_txt=0x7f09005e;
         public static final int story_votes=0x7f09005b;
         public static final int storynum=0x7f090041;
         public static final int storytxt_left_hint=0x7f090057;
@@ -317,7 +317,7 @@ public final class R {
         public static final int user_remainscore=0x7f09006b;
         public static final int user_score=0x7f09006a;
         public static final int user_storynum=0x7f09006d;
-        public static final int votes=0x7f09005e;
+        public static final int votes=0x7f090064;
         public static final int wealthset=0x7f090004;
     }
     public static final class layout {
@@ -355,8 +355,8 @@ public final class R {
         public static final int shopping=0x7f03001f;
         public static final int simplepic=0x7f030020;
         public static final int stories=0x7f030021;
-        public static final int storydetail=0x7f030022;
-        public static final int storyitem=0x7f030023;
+        public static final int storyitem=0x7f030022;
+        public static final int storyrow=0x7f030023;
         public static final int test=0x7f030024;
         public static final int todayhot=0x7f030025;
         public static final int userinfo=0x7f030026;
