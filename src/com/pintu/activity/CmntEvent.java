@@ -8,8 +8,8 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import com.pintu.R;
+import com.pintu.activity.base.SubMainCallBack;
 import com.pintu.activity.base.TempletActivity;
-import com.pintu.adapter.SubMainCallBack;
 
 public class CmntEvent extends TempletActivity implements
 		SubMainCallBack {

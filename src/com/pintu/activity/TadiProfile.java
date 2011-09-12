@@ -16,8 +16,8 @@ import android.widget.TextView;
 import com.pintu.PintuApp;
 import com.pintu.R;
 import com.pintu.activity.base.HeadSwitchActivity;
+import com.pintu.activity.base.SubMainCallBack;
 import com.pintu.activity.base.TempletActivity;
-import com.pintu.adapter.SubMainCallBack;
 import com.pintu.data.UserInfo;
 import com.pintu.task.RetrieveUserInfoTask;
 import com.pintu.task.TaskParams;
@@ -53,7 +53,7 @@ public class TadiProfile extends TempletActivity implements SubMainCallBack {
 
 	@Override
 	protected int getLayout() {
-		return R.layout.userinfo;
+		return R.layout.userdetails;
 	}
 
 	@Override

@@ -261,6 +261,8 @@ public final class R {
         public static final int hotpics_lv=0x7f090068;
         public static final int layout_root=0x7f09004d;
         public static final int markpics_lv=0x7f090000;
+        public static final int myspace=0x7f090069;
+        public static final int mystage=0x7f09006a;
         public static final int person_more=0x7f09003b;
         public static final int pic_author=0x7f090034;
         public static final int pic_thumbnail=0x7f090011;
@@ -311,12 +313,12 @@ public final class R {
         public static final int tv_taste=0x7f090017;
         public static final int tv_title=0x7f090022;
         public static final int user_info=0x7f090039;
-        public static final int user_level=0x7f090069;
+        public static final int user_level=0x7f09006b;
         public static final int user_name=0x7f090038;
-        public static final int user_picnum=0x7f09006c;
-        public static final int user_remainscore=0x7f09006b;
-        public static final int user_score=0x7f09006a;
-        public static final int user_storynum=0x7f09006d;
+        public static final int user_picnum=0x7f09006e;
+        public static final int user_remainscore=0x7f09006d;
+        public static final int user_score=0x7f09006c;
+        public static final int user_storynum=0x7f09006f;
         public static final int votes=0x7f090064;
         public static final int wealthset=0x7f090004;
     }
@@ -359,7 +361,8 @@ public final class R {
         public static final int storyrow=0x7f030023;
         public static final int test=0x7f030024;
         public static final int todayhot=0x7f030025;
-        public static final int userinfo=0x7f030026;
+        public static final int userdetails=0x7f030026;
+        public static final int userinfo=0x7f030027;
     }
     public static final class string {
         public static final int allow_story=0x7f070002;

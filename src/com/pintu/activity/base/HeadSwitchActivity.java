@@ -3,13 +3,6 @@ package com.pintu.activity.base;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.pintu.PintuApp;
-import com.pintu.R;
-import com.pintu.adapter.HeadSwitchAdapter;
-import com.pintu.adapter.SubMainCallBack;
-import com.pintu.util.Preferences;
-
-import android.app.Activity;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -19,17 +12,20 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.TextView;
+
+import com.pintu.PintuApp;
+import com.pintu.R;
+import com.pintu.adapter.HeadSwitchAdapter;
 
 public abstract class HeadSwitchActivity extends ActivityGroup {
 	

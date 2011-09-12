@@ -1,4 +1,4 @@
-package com.pintu.adapter;
+package com.pintu.activity.base;
 
 
 import android.widget.ImageButton;

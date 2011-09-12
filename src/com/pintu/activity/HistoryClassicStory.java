@@ -14,9 +14,9 @@ import android.widget.ProgressBar;
 
 import com.pintu.PintuApp;
 import com.pintu.R;
+import com.pintu.activity.base.SubMainCallBack;
 import com.pintu.activity.base.TempletActivity;
 import com.pintu.adapter.ClassicStoryAdapter;
-import com.pintu.adapter.SubMainCallBack;
 import com.pintu.data.StoryInfo;
 import com.pintu.data.TPicDetails;
 import com.pintu.task.RetrieveClassicTask;

@@ -35,11 +35,17 @@
 		android:layout_marginLeft="20dp" style="@style/normalText.span" />
 	<!-- 贴图数 -->
 	<TextView android:id="@+id/user_picnum" android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:layout_below="@id/user_level"
-		android:layout_alignLeft="@id/user_level" style="@style/normalText.span" />
+	android:layout_height="wrap_content" android:layout_below="@id/user_level"
+	android:layout_alignLeft="@id/user_level" style="@style/normalText.span" />
 	<!-- 品图数 -->
 	<TextView android:id="@+id/user_storynum"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
 		android:layout_below="@id/user_level" android:layout_toRightOf="@id/user_picnum"
 		android:layout_marginLeft="20dp" style="@style/normalText.span" />
+	<!-- 分割线 -->
+	<View android:id="@+id/spacer" android:background="@drawable/tweet_details_divider"
+		android:clickable="true" android:layout_width="fill_parent"
+		android:layout_height="20dip" android:minHeight="20dip" 
+		android:layout_below="@id/user_picnum"
+		android:layout_alignParentLeft="true"/>
 </RelativeLayout>

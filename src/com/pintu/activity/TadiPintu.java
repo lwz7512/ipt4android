@@ -17,10 +17,10 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.pintu.R;
 import com.pintu.activity.base.HeadSwitchActivity;
+import com.pintu.activity.base.SubMainCallBack;
 import com.pintu.activity.base.TempletActivity;
 import com.pintu.adapter.FavoPicsAdapter;
 import com.pintu.adapter.StoryInfoAdapter;
-import com.pintu.adapter.SubMainCallBack;
 import com.pintu.api.PTApi;
 import com.pintu.data.StoryInfo;
 import com.pintu.data.TPicItem;
