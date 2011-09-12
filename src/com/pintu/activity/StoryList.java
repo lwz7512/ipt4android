@@ -251,9 +251,5 @@ public class StoryList extends TempletActivity {
 		// do nothing, but, do not kill me...
 	}
 
-	@Override
-	protected void doItLater() {
-		//do nothing, but leave it stay here don't kill me...		
-	}
 
 } // end of class

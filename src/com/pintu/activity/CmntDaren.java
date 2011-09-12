@@ -38,11 +38,6 @@ public class CmntDaren extends TempletActivity implements
 
 	}
 
-	@Override
-	protected void doItLater() {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	protected void doSend() {

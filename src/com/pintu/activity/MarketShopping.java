@@ -37,11 +37,6 @@ public class MarketShopping extends TempletActivity implements SubMainCallBack {
 
 	}
 
-	@Override
-	protected void doItLater() {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	protected void doSend() {

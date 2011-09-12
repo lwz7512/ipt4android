@@ -111,15 +111,6 @@ public class TadiProfile extends TempletActivity implements SubMainCallBack {
 	}
 
 
-	/**
-	 * 在此方法中执行是为了等待进度条传进来
-	 */
-	@Override
-	protected void doItLater() {
-		if (this.getObj(TADIPROFILE_DATA) == null) {
-			shouldRetrieve();
-		}
-	}
 	
 	private void shouldRetrieve(){
 		Intent intent = getIntent();
@@ -129,7 +120,7 @@ public class TadiProfile extends TempletActivity implements SubMainCallBack {
 			Log.e(TAG, this.getClass().getName() + " must has extras.");
 			return;
 		}
-		//保存下来做按钮状态处理
+		//保存得到的用户
 		currentUser = extras.getString("userId");
 		if(currentUser!=null){
 			doRetrieve();
@@ -229,6 +220,10 @@ public class TadiProfile extends TempletActivity implements SubMainCallBack {
 	@Override
 	public void addProgress(ProgressBar pb) {
 		this.pb = pb;
+		
+		if (this.getObj(TADIPROFILE_DATA) == null) {
+			shouldRetrieve();
+		}
 	}
 
 	@Override

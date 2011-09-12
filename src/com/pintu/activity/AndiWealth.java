@@ -121,10 +121,6 @@ public class AndiWealth extends TempletActivity implements SubMainCallBack {
 
 	}
 
-	@Override
-	protected void doItLater() {
-		// do nothing...
-	}
 
 	@Override
 	protected void doSend() {

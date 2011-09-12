@@ -80,17 +80,6 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 		}		
 	}
 	
-	@Override
-	protected void doItLater() {
-		//如果登录超过10分钟就允许重新取数据了
-		//或者第一次使用应用肯定要从远程取
-		long diff = this.elapsedFromLastVisit();
-		if(diff>tenMinutesMiliSeconds || cachedHotPics.size()==0){
-			//取远程数据
-			doRetrieve();
-		}
-	}
-
 
 	@Override
 	protected void doRetrieve() {
@@ -152,6 +141,14 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 	@Override
 	public void addProgress(ProgressBar pb) {
 		this.pb = pb;
+		
+		//如果登录超过10分钟就允许重新取数据了
+		//或者第一次使用应用肯定要从远程取
+		long diff = this.elapsedFromLastVisit();
+		if(diff>tenMinutesMiliSeconds || cachedHotPics.size()==0){
+			//取远程数据
+			doRetrieve();
+		}
 	}
 
 	@Override

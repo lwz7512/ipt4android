@@ -84,12 +84,6 @@ public class TadiPintu extends TempletActivity implements SubMainCallBack {
 		}			
 	}
 
-	@Override
-	protected void doItLater() {
-		if(this.getObj(TADIPINTU_DATA)==null){
-			shouldRetrieve();
-		}
-	}
 	
 	private void shouldRetrieve(){
 		Intent intent = getIntent();
@@ -144,7 +138,7 @@ public class TadiPintu extends TempletActivity implements SubMainCallBack {
 		//只查1页
 		params.put("pageNum", 1);
 		//指明是按用户查询图片
-		params.put("method", PTApi.GETTPICSBYUSER);
+		params.put("method", PTApi.GETSTORIESBYUSER);
 		this.mRetrieveTask.execute(params);
 		
 		this.manageTask(mRetrieveTask);
@@ -155,7 +149,7 @@ public class TadiPintu extends TempletActivity implements SubMainCallBack {
 		if(this.pb!=null){
 			this.pb.setVisibility(View.VISIBLE);			
 		}else{
-			this.updateProgress("Loading My favorite pics...");
+			this.updateProgress("Loading TADI pintu...");
 		}
 		
 	}
@@ -205,6 +199,10 @@ public class TadiPintu extends TempletActivity implements SubMainCallBack {
 	@Override
 	public void addProgress(ProgressBar pb) {
 		this.pb = pb;
+		
+		if(this.getObj(TADIPINTU_DATA)==null){
+			shouldRetrieve();
+		}
 	}
 
 	@Override

@@ -77,10 +77,6 @@ public class AndiFavorite extends TempletActivity implements SubMainCallBack {
 		fpAdptr.refresh(pics);
 	}
 
-	@Override
-	protected void doItLater() {
-		//不自动取了，手动刷新取
-	}
 
 	@Override
 	protected void doSend() {

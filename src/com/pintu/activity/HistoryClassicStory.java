@@ -73,20 +73,6 @@ public class HistoryClassicStory extends TempletActivity implements SubMainCallB
 		}		
 	}
 
-	@Override
-	protected void doItLater() {
-		long lastVisitTime = this.getPreferences().getLong(
-				Preferences.LAST_VISIT_TIME, 0);
-		long now = DateTimeHelper.getNowTime();
-		long diff = now - lastVisitTime;
-		// 经典是1小时计算一次
-		// 第一次使用应用肯定要从远程取
-		if (diff > oneHourMiliSeconds || lastVisitTime == 0 || cachedStories.size()==0) {
-			// 取远程数据
-			doRetrieve();
-		}
-	}
-
 
 	@Override
 	protected void doRetrieve() {
@@ -148,6 +134,18 @@ public class HistoryClassicStory extends TempletActivity implements SubMainCallB
 	@Override
 	public void addProgress(ProgressBar pb) {
 		this.pb = pb;
+		
+		long lastVisitTime = this.getPreferences().getLong(
+				Preferences.LAST_VISIT_TIME, 0);
+		long now = DateTimeHelper.getNowTime();
+		long diff = now - lastVisitTime;
+		// 经典是1小时计算一次
+		// 第一次使用应用肯定要从远程取
+		if (diff > oneHourMiliSeconds || lastVisitTime == 0 || cachedStories.size()==0) {
+			// 取远程数据
+			doRetrieve();
+		}
+
 	}
 
 	@Override

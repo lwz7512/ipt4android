@@ -152,6 +152,8 @@ public class PictureDetails extends FullScreenActivity {
 		top_back.setOnClickListener(mGoListener);
 		//查看作者详情
 		person_more.setOnClickListener(viewUserAction);
+		//头像上也加上查看动作
+		profile_image.setOnClickListener(viewUserAction);
 		//查看故事列表
 		storynum.setOnClickListener(storyListAction);
 		//查看评论列表

@@ -87,10 +87,6 @@ public class AndiPintu extends TempletActivity implements SubMainCallBack {
 		}
 	}
 
-	@Override
-	protected void doItLater() {
-		//不自动取了，手动刷新取
-	}
 
 	@Override
 	protected void doSend() {

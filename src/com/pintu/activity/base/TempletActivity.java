@@ -53,7 +53,7 @@ public abstract class TempletActivity extends FullScreenActivity {
 
 	protected void onResume() {
 		super.onResume();
-		doItLater();
+//		doItLater();
 	}
 
 	protected void onDestroy() {
@@ -78,7 +78,8 @@ public abstract class TempletActivity extends FullScreenActivity {
 	// 延后动作，一般是用来判断是否该获取远程数据
 	// 如果该获取了，就调用doRetrieve
 	// 延后获取是为了等待进度条对象可用
-	protected abstract void doItLater();
+	//FIXME, 有时进度条获取不到，所以这个方法暂时废弃
+//	protected abstract void doItLater();
 
 	// 发送请求
 	protected abstract void doSend();
