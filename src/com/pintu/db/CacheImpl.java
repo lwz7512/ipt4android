@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.pintu.data.Message;
+import com.pintu.data.TMsg;
 import com.pintu.data.StoryInfo;
 import com.pintu.data.TPicDesc;
 import com.pintu.data.TPicDetails;
@@ -688,14 +688,15 @@ public class CacheImpl implements CacheDao {
 	}
 
 	@Override
-	public void insertMyMsgs(List<Message> msgs) {
+	public int insertMyMsgs(List<TMsg> msgs) {
 		this.checkBlankList(msgs);
 
+		int inserted = 0;
 		Query q = new Query(ptdb);
 		try {
 			ptdb.beginTransaction();
 			// 不分顺序插入
-			for (Message msg : msgs) {
+			for (TMsg msg : msgs) {
 				// 如果已经缓存了，就跳过
 				if (checkMsgExist(msg.id))
 					continue;
@@ -706,6 +707,7 @@ public class CacheImpl implements CacheDao {
 				if (-1 == result) {
 					Log.e(TAG, "cann't insert the msg : " + msg.id);
 				} else {
+					inserted ++;
 					Log.v(TAG, String.format("Insert a msg into database : %s",
 							msg.id));
 				}
@@ -714,26 +716,29 @@ public class CacheImpl implements CacheDao {
 		} finally {
 			ptdb.endTransaction();
 		}
-
+		
+		return inserted;
 	}
 
 	/**
 	 * 页码数从1开始取，每页最多25条
 	 */
 	@Override
-	public List<Message> getCachedMyMsgs(int pageNum) {
+	public List<TMsg> getUnreadedMsgs(int pageNum) {
 		if(pageNum<1) return null;
 		
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM ")
 				.append(PintuTables.MyMessageTable.TABLE_NAME)
+				.append(" WHERE ").append(PintuTables.MyMessageTable.Columns.READED)
+				.append("='0'")
 				.append(" ORDER BY ")
 				.append(PintuTables.MyMessageTable.Columns.CREATION_TIME)
 				.append(" DESC").append(" LIMIT ").append(25)
 				.append(" OFFSET ").append((pageNum-1) * 25);
 
 		Cursor c = ptdb.rawQuery(sql.toString(), null);
-		List<Message> list = new ArrayList<Message>();
+		List<TMsg> list = new ArrayList<TMsg>();
 		try {
 			while (c.moveToNext()) {
 				list.add(cursorToMessage(c));
@@ -760,32 +765,41 @@ public class CacheImpl implements CacheDao {
 		return exist;
 	}
 
-	private ContentValues msgToContentValues(Message msg) {
+	private ContentValues msgToContentValues(TMsg msg) {
 		ContentValues v = new ContentValues();
 		v.put(PintuTables.MyMessageTable.Columns.ID, msg.id);
 		v.put(PintuTables.MyMessageTable.Columns.CONTENT, msg.content);
 		v.put(PintuTables.MyMessageTable.Columns.SENDER, msg.sender);
+		v.put(PintuTables.MyMessageTable.Columns.SENDERNAME, msg.senderName);
+		v.put(PintuTables.MyMessageTable.Columns.SENDERAVATAR, msg.senderAvatar);
 		v.put(PintuTables.MyMessageTable.Columns.RECEIVER, msg.receiver);
+		v.put(PintuTables.MyMessageTable.Columns.RECEIVERNAME, msg.receiverName);
 		v.put(PintuTables.MyMessageTable.Columns.READED, msg.readed);
 		v.put(PintuTables.MyMessageTable.Columns.CREATION_TIME,
-				msg.creationTime);
+				msg.writeTime);
 
 		return v;
 	}
 
-	private Message cursorToMessage(Cursor c) {
-		Message msg = new Message();
+	private TMsg cursorToMessage(Cursor c) {
+		TMsg msg = new TMsg();
 		msg.id = c.getString(c
 				.getColumnIndex(PintuTables.MyMessageTable.Columns.ID));
 		msg.content = c.getString(c
 				.getColumnIndex(PintuTables.MyMessageTable.Columns.CONTENT));
 		msg.sender = c.getString(c
 				.getColumnIndex(PintuTables.MyMessageTable.Columns.SENDER));
+		msg.senderName = c.getString(c
+				.getColumnIndex(PintuTables.MyMessageTable.Columns.SENDERNAME));
+		msg.senderAvatar = c.getString(c
+				.getColumnIndex(PintuTables.MyMessageTable.Columns.SENDERAVATAR));
 		msg.receiver = c.getString(c
 				.getColumnIndex(PintuTables.MyMessageTable.Columns.RECEIVER));
+		msg.receiverName = c.getString(c
+				.getColumnIndex(PintuTables.MyMessageTable.Columns.RECEIVERNAME));
 		msg.readed = c.getString(c
 				.getColumnIndex(PintuTables.MyMessageTable.Columns.READED));
-		msg.creationTime = c
+		msg.writeTime = c
 				.getString(c
 						.getColumnIndex(PintuTables.MyMessageTable.Columns.CREATION_TIME));
 
@@ -796,8 +810,36 @@ public class CacheImpl implements CacheDao {
 	public void updateMsgReaded(String msgId) {
 		Query q = new Query(ptdb);
 		ContentValues v = new ContentValues();
-		v.put(PintuTables.MyMessageTable.Columns.ID, msgId);
-		q.setTable(PintuTables.MyMessageTable.TABLE_NAME).values(v).update();
+		v.put(PintuTables.MyMessageTable.Columns.READED, "1");	
+		
+		q.from(PintuTables.MyMessageTable.TABLE_NAME)
+		  .where("id=?", msgId)
+		  .values(v)
+		  .update();
+	}
+
+	@Override
+	public List<TMsg> getMoreMsgs(int pageNum) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT * FROM ")
+				.append(PintuTables.MyMessageTable.TABLE_NAME)				
+				.append(" ORDER BY ")
+				.append(PintuTables.MyMessageTable.Columns.CREATION_TIME)
+				.append(" DESC").append(" LIMIT ").append(25)
+				.append(" OFFSET ").append((pageNum-1) * 25);
+
+		Cursor c = ptdb.rawQuery(sql.toString(), null);
+		List<TMsg> list = new ArrayList<TMsg>();
+		try {
+			while (c.moveToNext()) {
+				list.add(cursorToMessage(c));
+			}
+		} finally {
+			c.close();
+		}
+		return list;
+
+		
 	}
 
 

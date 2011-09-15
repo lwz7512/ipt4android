@@ -108,7 +108,7 @@ public interface PTApi {
 	//获取最新消息
 	public JSONArray getNewMessages(String userId) throws HttpException, JSONException;
 	//更新消息为已读
-	public String updateMsgReaded(String msgId) throws HttpException;
+	public String updateMsgReaded(String msgIds) throws HttpException;
 	
 	
 	

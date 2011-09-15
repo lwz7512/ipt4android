@@ -213,30 +213,25 @@ public class StoryEdit extends FullScreenActivity {
 			return;
 
 		String storyContent = story_edit.getText().toString();
-		if (storyContent.length() > 0) {
-
-			if (storyContent.length() > STORYLENGTH) {
-				updateProgress("Beyong the length limit: " + STORYLENGTH);
-				return;
-			}
-
-			int mode = SendTask.TYPE_STORY;
-			mSendTask = new SendTask();
-			mSendTask.setListener(mSendTaskListener);
-
-			TaskParams params = new TaskParams();
-			params.put("mode", mode);
-			params.put("story", storyContent);
-			params.put("follow", tpId);
-			if (tpId != null) {
-				mSendTask.execute(params);
-			} else {
-				updateProgress("Target pic id is null!");
-			}
-
-		} else {
+		if (storyContent.length() == 0) {
 			updateProgress("Write content first!");
+			return;
+		} 
+
+		int mode = SendTask.TYPE_STORY;
+		mSendTask = new SendTask();
+		mSendTask.setListener(mSendTaskListener);
+
+		TaskParams params = new TaskParams();
+		params.put("mode", mode);
+		params.put("story", storyContent);
+		params.put("follow", tpId);
+		if (tpId != null) {
+			mSendTask.execute(params);
+		} else {
+			updateProgress("Target pic id is null!");
 		}
+
 	}
 
 	private TaskListener mSendTaskListener = new TaskAdapter() {

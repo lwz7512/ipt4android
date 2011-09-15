@@ -4,12 +4,31 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences.Editor;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.pintu.PintuApp;
 import com.pintu.R;
-import com.pintu.adapter.GalleryImageAdapter;
-import com.pintu.activity.PictureEdit;
 import com.pintu.activity.base.FullScreenActivity;
+import com.pintu.adapter.GalleryImageAdapter;
 import com.pintu.data.TPicDesc;
+import com.pintu.service.MsgService;
 import com.pintu.task.GenericTask;
 import com.pintu.task.RetrieveGalleryTask;
 import com.pintu.task.TaskAdapter;
@@ -20,26 +39,6 @@ import com.pintu.task.TaskResult;
 import com.pintu.tool.SimpleImageLoader;
 import com.pintu.util.DateTimeHelper;
 import com.pintu.util.Preferences;
-
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.ImageButton;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class HomeGallery extends FullScreenActivity {
 	
@@ -64,6 +63,7 @@ public class HomeGallery extends FullScreenActivity {
 	private GalleryImageAdapter gridAdptr;
 	private GenericTask mRetrieveTask;
 	
+	
     // Refresh data at startup if last refresh was this long ago or greater.
 	// 默认1分钟后才能刷新，小于这个间隔不给取
     private static final long REFRESH_THRESHOLD = 1 * 60 * 1000;
@@ -81,13 +81,37 @@ public class HomeGallery extends FullScreenActivity {
 		addEventListeners();
 		//首先尝试读取数据库缓存
 		retrieveGalleryFromDB();
+		//启动服务
+		startRetrieveMsgs();
 	}
+    
+    private void startRetrieveMsgs(){
+    	Intent it = new Intent();
+    	it.setClass(this, MsgService.class);
+    	startService(it);
+    }
+    
+    private void retrieveGalleryFromDB(){
+		List<TPicDesc> items = PintuApp.dbApi.getCachedThumbnails();
+		Log.i(TAG, ">>> cached recode size: "+items.size()); 
+		//如果没有缓存数据就访问远程
+		if(items.size()==0){
+			retrieveRemoteGallery();
+		}else{
+			gridAdptr.refresh(items);			
+		}
+    }    
+
     	
     @Override//Activity life cycle method
     protected void onDestroy() {
         Log.d(TAG, "onDestroy.");
         super.onDestroy();
+        
         taskManager.cancelAll();
+        //取消通知
+        PintuApp.cancelNotification();
+        
         //记下本次结束访问的时间
         //下次启动时，作为其他视图是否获取数据的依据
         rememberLastVisit();
@@ -243,6 +267,7 @@ public class HomeGallery extends FullScreenActivity {
     			pref.putLong(Preferences.LAST_GALLERY_REFRESH_TIME, DateTimeHelper.getNowTime());
     			//必须得提交设置，否则不生效
     			pref.commit();
+    			
     		}else if(result==TaskResult.FAILED){
     			updateProgress("Gallery retrieve thumbnail failed!");
     		}else if(result==TaskResult.IO_ERROR){
@@ -278,18 +303,6 @@ public class HomeGallery extends FullScreenActivity {
     	}	
     	
     }; //end of mRetrieveTaskListener
-    
-   
-    private void retrieveGalleryFromDB(){
-		List<TPicDesc> items = PintuApp.dbApi.getCachedThumbnails();
-		Log.i(TAG, ">>> cached recode size: "+items.size()); 
-		//如果没有缓存数据就访问远程
-		if(items.size()==0){
-			retrieveRemoteGallery();
-		}else{
-			gridAdptr.refresh(items);			
-		}
-    }
     
     
 	private void updateProgress(String message) {

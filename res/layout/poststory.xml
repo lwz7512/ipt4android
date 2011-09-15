@@ -12,6 +12,7 @@
 		<!-- 故事内容 -->
 		<EditText android:id="@+id/story_edit" android:layout_width="fill_parent"
 			android:layout_height="fill_parent" android:gravity="top"
+			android:maxLength="63"
 			android:imeOptions="actionDone" />
 		<!-- 文字统计 -->
 		<LinearLayout android:id="@+id/clear_story_btn"  android:layout_width="46dp"

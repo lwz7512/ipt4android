@@ -2,7 +2,7 @@ package com.pintu.db;
 
 import java.util.List;
 
-import com.pintu.data.Message;
+import com.pintu.data.TMsg;
 import com.pintu.data.StoryInfo;
 import com.pintu.data.TPicDesc;
 import com.pintu.data.TPicDetails;
@@ -55,11 +55,13 @@ public interface CacheDao {
 	
 	//为安全起见：
 	//缓存自己的消息，只插入不删除，插入时要判断重复
-	public void insertMyMsgs(List<Message> msgs);
+	//返回成功插入数目，以便做通知
+	public int insertMyMsgs(List<TMsg> msgs);
 	//按页码取出缓存的自己的消息
-	public List<Message> getCachedMyMsgs(int pageNum);
+	public List<TMsg> getUnreadedMsgs(int pageNum);
 	//更新消息状态为已读
 	public void updateMsgReaded(String msgId);
-	
+	//获得更多消息，查看老的已读消息
+	public List<TMsg> getMoreMsgs(int pageNum);
 	
 }

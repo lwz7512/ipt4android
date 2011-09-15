@@ -233,7 +233,10 @@ public class PintuTables {
 		public static class Columns {			
 			public static final String ID = "id";
 			public static final String SENDER = "sender";
+			public static final String SENDERNAME = "senderName";
+			public static final String SENDERAVATAR = "senderAvatar";
 			public static final String RECEIVER = "receiver";
+			public static final String RECEIVERNAME = "receiverName";
 			public static final String CONTENT = "content";
 			public static final String READED = "readed";			
 			//标准时间格式yyyy-MM-dd HH:mm:ss
@@ -244,7 +247,10 @@ public class PintuTables {
             String createString = TABLE_NAME + "( "             		
             		+ Columns.ID + " TEXT PRIMARY KEY, "
             		+ Columns.SENDER + " TEXT, "
+            		+ Columns.SENDERNAME + " TEXT, "
+            		+ Columns.SENDERAVATAR + " TEXT, "
             		+ Columns.RECEIVER + " TEXT, "
+            		+ Columns.RECEIVERNAME + " TEXT, "
             		+ Columns.CONTENT + " TEXT, "
             		+ Columns.READED + " TEXT, "
                     + Columns.CREATION_TIME + " DATE " + ");";
@@ -256,7 +262,8 @@ public class PintuTables {
         }
 		public static String[] getIndexColumns() {
 			return new String[] {
-					Columns.ID,Columns.SENDER,Columns.RECEIVER,
+					Columns.ID,Columns.SENDER,Columns.SENDERNAME,
+					Columns.SENDERAVATAR,Columns.RECEIVER,Columns.RECEIVERNAME,
 					Columns.CONTENT,Columns.READED,Columns.CREATION_TIME
 			};
 		}

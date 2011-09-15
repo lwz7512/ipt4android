@@ -100,9 +100,14 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	
 	private OnClickListener mGoListener = new OnClickListener() {
 		public void onClick(View v) {
-			finish();
+			goWhere();
 		}
 	};
+	
+	//子类可以重载该方法以实现新的导航
+	protected void goWhere(){
+		finish();
+	}
 
 	private OnClickListener refreshListener = new OnClickListener() {
 		public void onClick(View v) {

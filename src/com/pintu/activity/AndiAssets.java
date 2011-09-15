@@ -23,13 +23,28 @@ public class AndiAssets extends HeadSwitchActivity {
 
 		// 子活动顶部都有个刷新按钮，可以用来刷新数据，默认是显示缓存数据的
 		this.showRefreshBtn();
-		// 打开保存索引的标签
+		// 打开上次退出时保存索引的标签
 		int savedIndex = this.getLastVisitIndex(Preferences.MYASSETS_INDEX);
+		
+		//检查下是否是由状态栏的消息通知来启动
+		Bundle extras = getIntent().getExtras();
+		if(extras!=null){
+			//不出意外就是4了，打开我的消息
+			savedIndex = extras.getInt(Preferences.MYASSETS_INDEX);
+		}
 		// 根据保存的标签索引来对应打开
 		this.switchActivity(savedIndex);
 
 	}
 
+	//按下返回按钮的动作
+	protected void goWhere(){
+		Intent it = new Intent();
+		it.setClass(this, HomeGallery.class);
+		startActivity(it);
+	}
+	
+	
 	protected void onDestroy() {
 		super.onDestroy();
 

@@ -18,12 +18,16 @@ public class SendTask extends GenericTask {
 	public static final int TYPE_VOTE = 4;
 	//消息
 	public static final int TYPE_MESSAGE = 5;
+	//消息状态更新
+	public static final int TYPE_MSG_READED = 6;
+	
 	//TODO, 帖子，这块后期考虑吧，估计得设计跟帖机制
-	public static final int TYPE_NOTE = 6;
+	public static final int TYPE_NOTE = 7;
 	//收藏
-	public static final int TYPE_MARK = 7;
+	public static final int TYPE_MARK = 8;
 	//学堂知识
-	public static final int TYPE_XUETANG = 8;
+	public static final int TYPE_XUETANG = 9;
+	
 
 	private static final String TAG = "SendTask";
 	private String postResult;
@@ -38,27 +42,8 @@ public class SendTask extends GenericTask {
 			switch (mode) {
 
 			case TYPE_PHOTO:
-				File mFile = (File) param.get("file");
-				String tags = param.getString("tags");
-				String description = param.getString("description");
-				String allowStory = param.getString("allowStory");
-				if (null != mFile) {
-					// 尝试无损压缩图片，以减小上传文件尺寸，
-					// 图片质量90%，宽高范围：1200/800，超范围缩小3/4
-					// 可以大幅减小文件尺寸
-					try {
-						mFile = SimpleImageLoader.compressRawImage(mFile);
-					} catch (Exception e) {
-						Log.e("SendTask", "Compress image file Error!");
-						return TaskResult.IO_ERROR;
-					}
-					// 发送图片
-					postResult = PintuApp.mApi.postPicture(mFile, tags,
-							description, allowStory);
-				} else {
-					Log.e("SendTask",
-							"Cann't send status in PICTURE mode, photo is null");
-				}
+				//发送贴图
+				sendPic(param);
 				break;
 
 			case TYPE_STORY:
@@ -93,7 +78,16 @@ public class SendTask extends GenericTask {
 				break;
 			
 			case TYPE_MESSAGE:
-				//TODO, POST MESSAGE ...
+				String msgSender = param.getString("userId");
+				String msgReceiver = param.getString("receiver");
+				String msgContent = param.getString("content");
+				PintuApp.mApi.postMessage(msgSender, msgReceiver, msgContent);
+				
+				break;
+				
+			case TYPE_MSG_READED://更新消息为已读
+				String msgIds = param.getString("msgIds");
+				PintuApp.mApi.updateMsgReaded(msgIds);
 				
 				break;
 				
@@ -119,6 +113,37 @@ public class SendTask extends GenericTask {
 		return TaskResult.OK;
 
 	} // end of doInBackground
+	
+	/**
+	 * 	尝试无损压缩图片，以减小上传文件尺寸，
+	 *  图片质量90%，宽高范围：1200/800，超范围缩小3/4
+	 *  可以大幅减小文件尺寸
+	 * @param param
+	 * @return
+	 */
+	private TaskResult sendPic(TaskParams param){
+		File mFile = (File) param.get("file");
+		if (null != mFile) {
+			try {
+				String tags = param.get("tags").toString();
+				String description = param.get("description").toString();
+				String allowStory = param.get("allowStory").toString();
+				mFile = SimpleImageLoader.compressRawImage(mFile);
+				postResult = PintuApp.mApi.postPicture(mFile, tags,description, allowStory);
+			} catch (HttpException e) {				
+				e.printStackTrace();
+				return TaskResult.FAILED;
+			} catch (Exception e) {
+				Log.e("SendTask", "Compress image file Error!");
+				return TaskResult.IO_ERROR;				
+			}
+		} else {
+			Log.e("SendTask",
+					"Cann't send status in PICTURE mode, photo is null");
+		}
+		
+		return TaskResult.OK;
+	}
 
 	protected void _onPostExecute(TaskResult result) {
 

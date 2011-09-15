@@ -422,11 +422,11 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public String updateMsgReaded(String msgId) throws HttpException {
+	public String updateMsgReaded(String msgIds) throws HttpException {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.CHANGEMSGSTATE);
-		BasicNameValuePair msgParam = new BasicNameValuePair("msgId", msgId);
+		BasicNameValuePair msgParam = new BasicNameValuePair("msgIds", msgIds);
 
 		params.add(methodParam);
 		params.add(msgParam);
