@@ -114,18 +114,24 @@
 	<string name="cmenu_user_senddm_suffix">发私信</string>
 	<string name="cmenu_user_sendmention_suffix">留言</string>
 	<!-- Login页面 -->
-	<string name="login_label_username">Email:</string>
+	<string name="login_label_username">账号:</string>
 	<string name="login_label_password">密码:</string>
 	<string name="login_label_signin">登 录</string>
 	<string name="login_status_logging_in">登录中...</string>
 	<string name="login_status_null_username_or_password">帐号和密码不能为空。</string>
-	<string name="login_status_invalid_username_or_password">帐号或密码错误，请重新输入。</string>
+	<string name="login_not_email_format">需要输入邮箱账号</string>
+	<string name="login_status_invalid_username">帐号不存在，请重新输入。</string>
+	<string name="login_status_invalid__password">密码错误，请重新输入。</string>
 	<string name="login_status_network_or_connection_error">网络错误，请稍后再试。</string>
 	<string name="login_register_link">
 		没有帐号？
 		<a href="http://fanfou.com/register">注册</a>
 	</string>
 	<string name="login_status_failure">登录失败。</string>
+	
+	<string name="login_with_sina">绑定新浪微博账号</string>
+	<string name="login_with_tx">绑定腾讯微博账号</string>	
+	
 	<!-- Write页面 -->
 	<string name="write_label_send">发送</string>
 	<string name="write_label_send_hint">你在做什么？</string>

@@ -1,246 +1,262 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.pintu"
-      android:versionCode="1"
-      android:versionName="1.0">
-    <uses-sdk android:minSdkVersion="7" />
-	<supports-screens android:anyDensity="true"/>
-    <application android:name="PintuApp" android:icon="@drawable/icon" android:label="@string/app_name">        
-        <!-- 首页画廊 -->
-        <activity android:name=".activity.HomeGallery" android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> 
-        <!-- 贴图编辑 -->          
-        <activity android:name=".activity.PictureEdit">
-            <intent-filter>
-                <action android:name="com.pintu.activity.sendpic"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="image/*"/>
-                <data android:mimeType="text/plain"/>
-            </intent-filter>            
-        </activity> 
-        <!-- 贴图详情，路径可不能写错啊 -->       
-        <activity android:name=".activity.PictureDetails">
-            <intent-filter>
-                <action android:name="com.pintu.activity.picdetails"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>
-        <!-- 品图（故事）编辑 -->
-        <activity android:name=".activity.StoryEdit"
-        				android:windowSoftInputMode="adjustResize|stateHidden">
-            <intent-filter>
-                <action android:name="com.pintu.activity.storyedit"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity> 
-        <!-- 添加评论 -->       
-        <activity android:name=".activity.CommentEdit"
-        			   android:windowSoftInputMode="adjustResize|stateHidden">
-            <intent-filter>
-                <action android:name="com.pintu.activity.commentedit"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>
-        <!-- 故事列表 -->
-        <activity android:name=".activity.StoryList">
-            <intent-filter>
-                <action android:name="com.pintu.activity.storyies"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>
-        <!-- 评论列表 -->
-        <activity android:name=".activity.CommentList">
-            <intent-filter>
-                <action android:name="com.pintu.activity.comments"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>
-        <!-- 故事详情 -->
-        <activity android:name=".activity.StoryDetails">
-            <intent-filter>
-                <action android:name="com.pintu.activity.storydetails"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>
-        <!-- 热图与经典 -->
-        <activity android:name=".activity.HotPicStory">
-            <intent-filter>
-                <action android:name="com.pintu.activity.hotpicstory"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>        
-        <!-- 今日热图 -->
-        <activity android:name=".activity.TodayHotPic">
-            <intent-filter>
-                <action android:name="com.pintu.activity.todayhot"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>        
-        <!-- 经典故事 -->
-        <activity android:name=".activity.HistoryClassicStory">
-            <intent-filter>
-                <action android:name="com.pintu.activity.classicstory"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 社区动态 -->
-        <activity android:name=".activity.CommunityTrends">
-            <intent-filter>
-                <action android:name="com.pintu.activity.community"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 品图学堂 -->
-        <activity android:name=".activity.CmntClassRoom">
-            <intent-filter>
-                <action android:name="com.pintu.activity.classroom"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 社区事件 -->
-        <activity android:name=".activity.CmntEvent">
-            <intent-filter>
-                <action android:name="com.pintu.activity.event"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 社区达人 -->
-        <activity android:name=".activity.CmntDaren">
-            <intent-filter>
-                <action android:name="com.pintu.activity.daren"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 行业动态 -->
-        <activity android:name=".activity.CmntNews">
-            <intent-filter>
-                <action android:name="com.pintu.activity.news"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>        
-        <!-- 夜市兑换 -->
-        <activity android:name=".activity.MarketExchange">
-            <intent-filter>
-                <action android:name="com.pintu.activity.market"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 可购商品 -->
-        <activity android:name=".activity.MarketShopping">
-            <intent-filter>
-                <action android:name="com.pintu.activity.shopping"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 张贴条子 -->
-        <activity android:name=".activity.MarketNote">
-            <intent-filter>
-                <action android:name="com.pintu.activity.notes"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 俺滴家当 -->
-        <!-- 打开消息通知，或者从画廊导航都会开启它
-        		，所以只能在一个任务中出现 -->
-        <activity android:name=".activity.AndiAssets" android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="com.pintu.activity.adassets"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 俺滴资产 -->
-        <activity android:name=".activity.AndiWealth">
-            <intent-filter>
-                <action android:name="com.pintu.activity.adwealth"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 俺滴贴图 -->
-        <activity android:name=".activity.AndiPics">
-            <intent-filter>
-                <action android:name="com.pintu.activity.adpics"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 俺滴品图 -->
-        <activity android:name=".activity.AndiPintu">
-            <intent-filter>
-                <action android:name="com.pintu.activity.adpintu"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 俺滴收藏 -->
-        <activity android:name=".activity.AndiFavorite">
-            <intent-filter>
-                <action android:name="com.pintu.activity.favorite"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 俺滴消息 -->
-        <activity android:name=".activity.AndiMessage">
-            <intent-filter>
-                <action android:name="com.pintu.activity.message"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 他滴资料 -->
-        <!-- 撰写消息 -->
-        <activity android:name=".activity.MsgEdit">
-            <intent-filter>
-                <action android:name="com.pintu.activity.writemsg"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 他滴资料 -->
-        <activity android:name=".activity.TadiAssets">
-            <intent-filter>
-                <action android:name="com.pintu.activity.tadi"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 他的轮廓 -->
-        <activity android:name=".activity.TadiProfile">
-            <intent-filter>
-                <action android:name="com.pintu.activity.profile"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 他滴图片 -->
-        <activity android:name=".activity.TadiPics">
-            <intent-filter>
-                <action android:name="com.pintu.activity.tadipics"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>  
-        <!-- 他滴品图 -->
-        <activity android:name=".activity.TadiPintu">
-            <intent-filter>
-                <action android:name="com.pintu.activity.tadipintu"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>        
-        </activity>                        
-        
-        <!-- add other activity... -->	
-        
-        <!-- Service  -->	 
-        <service android:name=".service.MsgService" />
-        
-    </application>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+	package="com.pintu" android:versionCode="1" android:versionName="1.0">
+	<uses-sdk android:minSdkVersion="7" />
+	<supports-screens android:anyDensity="true" />
+	<application android:name="PintuApp" android:icon="@drawable/icon"
+		android:label="@string/app_name">
+		<!-- 首页 -->
+		<activity android:name=".PintuMain">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<!-- 登录 -->
+		<activity android:name=".activity.LogonSys">
+			<intent-filter>
+				<action android:name="com.pintu.activity.logon" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 首页画廊 -->
+		<activity android:name=".activity.HomeGallery"
+			android:launchMode="singleTask">
+			<intent-filter>
+				<action android:name="android.intent.action.gallery" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 贴图编辑 -->
+		<activity android:name=".activity.PictureEdit">
+			<intent-filter>
+				<action android:name="com.pintu.activity.sendpic" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.SEND" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<data android:mimeType="image/*" />
+				<data android:mimeType="text/plain" />
+			</intent-filter>
+		</activity>
+		<!-- 贴图详情，路径可不能写错啊 -->
+		<activity android:name=".activity.PictureDetails">
+			<intent-filter>
+				<action android:name="com.pintu.activity.picdetails" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 品图（故事）编辑 -->
+		<activity android:name=".activity.StoryEdit"
+			android:windowSoftInputMode="adjustResize|stateHidden">
+			<intent-filter>
+				<action android:name="com.pintu.activity.storyedit" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 添加评论 -->
+		<activity android:name=".activity.CommentEdit"
+			android:windowSoftInputMode="adjustResize|stateHidden">
+			<intent-filter>
+				<action android:name="com.pintu.activity.commentedit" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 故事列表 -->
+		<activity android:name=".activity.StoryList">
+			<intent-filter>
+				<action android:name="com.pintu.activity.storyies" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 评论列表 -->
+		<activity android:name=".activity.CommentList">
+			<intent-filter>
+				<action android:name="com.pintu.activity.comments" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 故事详情 -->
+		<activity android:name=".activity.StoryDetails">
+			<intent-filter>
+				<action android:name="com.pintu.activity.storydetails" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 热图与经典 -->
+		<activity android:name=".activity.HotPicStory">
+			<intent-filter>
+				<action android:name="com.pintu.activity.hotpicstory" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 今日热图 -->
+		<activity android:name=".activity.TodayHotPic">
+			<intent-filter>
+				<action android:name="com.pintu.activity.todayhot" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 经典故事 -->
+		<activity android:name=".activity.HistoryClassicStory">
+			<intent-filter>
+				<action android:name="com.pintu.activity.classicstory" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 社区动态 -->
+		<activity android:name=".activity.CommunityTrends">
+			<intent-filter>
+				<action android:name="com.pintu.activity.community" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 品图学堂 -->
+		<activity android:name=".activity.CmntClassRoom">
+			<intent-filter>
+				<action android:name="com.pintu.activity.classroom" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 社区事件 -->
+		<activity android:name=".activity.CmntEvent">
+			<intent-filter>
+				<action android:name="com.pintu.activity.event" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 社区达人 -->
+		<activity android:name=".activity.CmntDaren">
+			<intent-filter>
+				<action android:name="com.pintu.activity.daren" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 行业动态 -->
+		<activity android:name=".activity.CmntNews">
+			<intent-filter>
+				<action android:name="com.pintu.activity.news" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 夜市兑换 -->
+		<activity android:name=".activity.MarketExchange">
+			<intent-filter>
+				<action android:name="com.pintu.activity.market" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 可购商品 -->
+		<activity android:name=".activity.MarketShopping">
+			<intent-filter>
+				<action android:name="com.pintu.activity.shopping" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 张贴条子 -->
+		<activity android:name=".activity.MarketNote">
+			<intent-filter>
+				<action android:name="com.pintu.activity.notes" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 俺滴家当 -->
+		<!-- 打开消息通知，或者从画廊导航都会开启它 ，所以只能在一个任务中出现 -->
+		<activity android:name=".activity.AndiAssets"
+			android:launchMode="singleTask">
+			<intent-filter>
+				<action android:name="com.pintu.activity.adassets" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 俺滴资产 -->
+		<activity android:name=".activity.AndiWealth">
+			<intent-filter>
+				<action android:name="com.pintu.activity.adwealth" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 俺滴贴图 -->
+		<activity android:name=".activity.AndiPics">
+			<intent-filter>
+				<action android:name="com.pintu.activity.adpics" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 俺滴品图 -->
+		<activity android:name=".activity.AndiPintu">
+			<intent-filter>
+				<action android:name="com.pintu.activity.adpintu" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 俺滴收藏 -->
+		<activity android:name=".activity.AndiFavorite">
+			<intent-filter>
+				<action android:name="com.pintu.activity.favorite" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 俺滴消息 -->
+		<activity android:name=".activity.AndiMessage">
+			<intent-filter>
+				<action android:name="com.pintu.activity.message" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 他滴资料 -->
+		<!-- 撰写消息 -->
+		<activity android:name=".activity.MsgEdit">
+			<intent-filter>
+				<action android:name="com.pintu.activity.writemsg" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 他滴资料 -->
+		<activity android:name=".activity.TadiAssets">
+			<intent-filter>
+				<action android:name="com.pintu.activity.tadi" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 他的轮廓 -->
+		<activity android:name=".activity.TadiProfile">
+			<intent-filter>
+				<action android:name="com.pintu.activity.profile" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 他滴图片 -->
+		<activity android:name=".activity.TadiPics">
+			<intent-filter>
+				<action android:name="com.pintu.activity.tadipics" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 他滴品图 -->
+		<activity android:name=".activity.TadiPintu">
+			<intent-filter>
+				<action android:name="com.pintu.activity.tadipintu" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+
+		<!-- add other activity... -->
+
+		<!-- Service -->
+		<service android:name=".service.MsgService" />
+
+	</application>
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.CAMERA" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-    <uses-feature android:name="android.hardware.camera" android:required="false"/>
-    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+	<uses-feature android:name="android.hardware.camera"
+		android:required="false" />
+	<uses-feature android:name="android.hardware.camera.autofocus"
+		android:required="false" />
 </manifest>

@@ -13,7 +13,7 @@
 			android:text="@string/receiver" style="@style/normalText.Big" />
 		<!-- 输入收信人，先禁用了 -->
 		<EditText android:id="@+id/receiver_edit"
-			android:layout_width="match_parent" android:layout_height="40dp"
+			android:layout_width="match_parent" android:layout_height="wrap_content"
 			android:gravity="center" android:layout_marginLeft="60dp"
 			android:imeOptions="actionNext" android:text="@string/kefu_xiaolajiao"
 			android:enabled="false" />

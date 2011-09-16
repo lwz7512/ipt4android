@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="match_parent" android:background="@drawable/background_login">
+	<!-- header -->
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="47dp" android:background="@drawable/bg_header"
+		android:gravity="center_vertical" android:layout_alignParentTop="true">
+		<!-- LOGO Image -->
+		<ImageButton android:id="@+id/post_image_btn"
+			android:background="@null" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:src="@drawable/icon"
+			android:layout_centerInParent="true" />
+	</RelativeLayout>
+	<!-- 登录框 -->
+	<LinearLayout android:id="@+id/login_div"
+		android:orientation="vertical" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:padding="15dp"
+		android:layout_margin="15dp" android:background="@drawable/background_login_div_bg">
+		<!-- account -->
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="15dp">
+			<!-- 用户名 text -->
+			<TextView android:id="@+id/login_user_input"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_marginTop="0dp" android:text="@string/login_label_username"
+				style="@style/normalText.Big" 
+				/>
+			<!-- 用户名 input -->
+			<EditText android:id="@+id/account_edit"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:layout_marginLeft="15dp" android:singleLine="true"
+				android:inputType="textEmailAddress" android:textSize="14sp" 
+				android:imeOptions="actionNext" 
+				android:hint="Email"/>
+		</LinearLayout>
+		<!-- password -->
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="15dp">
+			<!-- 密码 text -->
+			<TextView android:id="@+id/login_password_input"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_marginTop="0dp" android:text="@string/login_label_password"
+				style="@style/normalText.Big" />
+			<!-- 密码 input -->
+			<EditText android:id="@+id/password_edit"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:layout_marginLeft="15dp" android:password="true"
+				android:inputType="textPassword" android:singleLine="true"
+				android:textSize="14sp"  
+				android:imeOptions="actionDone" />
+		</LinearLayout>
+		<!-- button and hint -->
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="fill_parent" android:layout_height="wrap_content">
+			<!-- 提示栏 -->
+			<TextView android:id="@+id/hint_text"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textSize="13dp" android:textColor="#888"
+				android:layout_weight="1" />
+			<!-- 登陆 button -->
+			<Button android:id="@+id/signin_button" android:layout_width="100dp"
+				android:layout_height="wrap_content" android:layout_marginLeft="15dp"
+				android:text="@string/login_label_signin" style="@style/green_button"
+				/>
+		</LinearLayout>
+
+	</LinearLayout>
+
+
+	<!-- 绑定微博登录选项 -->
+	<LinearLayout android:id="@+id/login_option"
+		android:layout_width="match_parent" android:layout_height="match_parent"
+		android:layout_marginLeft="15dp" android:orientation="vertical">
+
+		<CheckBox android:id="@+id/login_with_sina"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:text="@string/login_with_sina" android:textColor="#FF000000"
+			android:enabled="false" />
+		<CheckBox android:id="@+id/login_with_tx"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:text="@string/login_with_tx" android:textColor="#FF000000"
+			android:enabled="false" />
+	</LinearLayout>
+
+</LinearLayout>

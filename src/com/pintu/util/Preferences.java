@@ -6,7 +6,12 @@ package com.pintu.util;
  *
  */
 public class Preferences {
-
+	
+	//记录登录用户
+	public static String LOGON_USERID = null;
+	//记录客服用户
+	public static String KEFU_USERID = "b8931b314c24dca4";
+			
 	//PintuApp中记录，注销时清0
 	public static String LAST_LOGIN_TIME = "lastLoginTime";
 	//画廊访问时记录

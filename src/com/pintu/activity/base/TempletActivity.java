@@ -61,7 +61,7 @@ public abstract class TempletActivity extends FullScreenActivity {
 		taskManager.cancelAll();
 	}
 
-	// TODO, ------------ 子类必须实现的15个模板方法 ---------------------------------
+	// ------------ 子类必须实现的15个模板方法 ---------------------------------
 
 	// 创建活动相关方法
 	protected abstract int getLayout();
@@ -74,13 +74,7 @@ public abstract class TempletActivity extends FullScreenActivity {
 
 	// 初始化的动作，一般是用来获取缓存数据并更新视图
 	protected abstract void justDoIt();
-
-	// 延后动作，一般是用来判断是否该获取远程数据
-	// 如果该获取了，就调用doRetrieve
-	// 延后获取是为了等待进度条对象可用
-	//FIXME, 有时进度条获取不到，所以这个方法暂时废弃
-//	protected abstract void doItLater();
-
+	
 	// 发送请求
 	protected abstract void doSend();
 
@@ -113,6 +107,12 @@ public abstract class TempletActivity extends FullScreenActivity {
 
 	// 根据JSON对象更新视图内容
 	protected abstract void refreshMultView(JSONObject json);
+	
+//	------------  公共方法声明结束 ------------------------------------
+	
+	//注意：非抽象方法
+	//用于提交响应，比如登录验证
+	protected void responseForSend(String response){};
 
 	protected TaskListener mSendTaskListener = new TaskAdapter() {
 		@Override
@@ -129,6 +129,10 @@ public abstract class TempletActivity extends FullScreenActivity {
 			} else if (result == TaskResult.IO_ERROR) {
 				onSendFailure();
 			}
+		}
+		
+		public void deliverResponseString(String response) {
+			responseForSend(response);
 		}
 
 	};

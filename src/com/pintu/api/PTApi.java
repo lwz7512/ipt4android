@@ -58,10 +58,14 @@ public interface PTApi {
 	
 	public static final String CHANGEMSGSTATE = "changeMsgState";
 
+	public static final String LOGON ="logon";
 	
 	//TODO, ADD OTHER REMOTE METHODS...
-		
 	
+	
+	
+	//登录成功后要更新记录在client中的用户
+	public void updateUser(String userId);
 	//贴一张图
 	public String postPicture(File pic, String tags,String desc, String allowStory) throws HttpException;
 	//根据编号合成URL地址，图片类型可以从编号后缀解析出来
@@ -109,7 +113,8 @@ public interface PTApi {
 	public JSONArray getNewMessages(String userId) throws HttpException, JSONException;
 	//更新消息为已读
 	public String updateMsgReaded(String msgIds) throws HttpException;
-	
+	//登录验证
+	public String logon(String account, String password) throws HttpException;
 	
 	
 } //end of  interface

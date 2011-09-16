@@ -52,6 +52,23 @@ public class CacheImpl implements CacheDao {
 		if (results != null && results.size() == 0)
 			return;
 	}
+	
+	private boolean checkRecordExist(String table, String id){
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT COUNT(*) FROM ")
+				.append(table)
+				.append(" WHERE ")
+				.append(" id=?");
+
+		Cursor c = ptdb.rawQuery(sql.toString(), new String[] { id });
+		boolean exist = false; 
+		if (c.moveToFirst()) {
+             exist = c.getInt(0) > 0;
+         }
+		c.close();
+		return exist;
+		
+	}
 
 	@Override
 	public int insertThumbnails(List<TPicDesc> thumbnails) {
@@ -501,8 +518,8 @@ public class CacheImpl implements CacheDao {
 			// 不分顺序插入
 			for (TPicItem pic : pics) {
 				// 如果已经缓存了，就跳过
-				if (checkMypicExist(pic.id))
-					continue;
+				boolean exist = checkRecordExist(PintuTables.MyPicsTable.TABLE_NAME,pic.id);
+				if (exist) continue;
 
 				long result = -1;
 				result = q.into(PintuTables.MyPicsTable.TABLE_NAME)
@@ -519,21 +536,6 @@ public class CacheImpl implements CacheDao {
 			ptdb.endTransaction();
 		}
 
-	}
-
-	private boolean checkMypicExist(String picId) {
-		StringBuilder sql = new StringBuilder();
-		sql.append("SELECT COUNT(*) FROM ")
-				.append(PintuTables.MyPicsTable.TABLE_NAME).append(" WHERE ")
-				.append(PintuTables.MyPicsTable.Columns.ID).append(" =?");
-
-		Cursor c = ptdb.rawQuery(sql.toString(), new String[] { picId });
-		boolean exist = false;
-		while(c.moveToNext()){
-			exist = c.getInt(0)>0;
-		}
-		c.close();
-		return exist;
 	}
 
 	/**
@@ -580,8 +582,8 @@ public class CacheImpl implements CacheDao {
 			// 不分顺序插入
 			for (StoryInfo story : stories) {
 				// 如果已经缓存了，就跳过
-				if (checkStoryExist(story.id))
-					continue;
+				boolean exist = checkRecordExist(PintuTables.MyStoriesTable.TABLE_NAME,story.id);
+				if (exist) continue;
 
 				long result = -1;
 				result = q.into(PintuTables.MyStoriesTable.TABLE_NAME)
@@ -600,21 +602,6 @@ public class CacheImpl implements CacheDao {
 
 	}
 
-	private boolean checkStoryExist(String storyId) {
-		StringBuilder sql = new StringBuilder();
-		sql.append("SELECT COUNT(*) FROM ")
-				.append(PintuTables.MyStoriesTable.TABLE_NAME)
-				.append(" WHERE ")
-				.append(PintuTables.MyStoriesTable.Columns.ID).append(" =?");
-
-		Cursor c = ptdb.rawQuery(sql.toString(), new String[] { storyId });
-		boolean exist = false; 
-		if (c.moveToFirst()) {
-             exist = c.getInt(0) > 0;
-         }
-		c.close();
-		return exist;
-	}
 
 	private ContentValues myStoryToContentValues(StoryInfo story) {
 		ContentValues v = new ContentValues();
@@ -698,8 +685,8 @@ public class CacheImpl implements CacheDao {
 			// 不分顺序插入
 			for (TMsg msg : msgs) {
 				// 如果已经缓存了，就跳过
-				if (checkMsgExist(msg.id))
-					continue;
+				boolean exist = checkRecordExist(PintuTables.MyMessageTable.TABLE_NAME,msg.id);
+				if (exist) continue;
 
 				long result = -1;
 				result = q.into(PintuTables.MyMessageTable.TABLE_NAME)
@@ -749,21 +736,7 @@ public class CacheImpl implements CacheDao {
 		return list;
 	}
 
-	private boolean checkMsgExist(String msgId) {
-		StringBuilder sql = new StringBuilder();
-		sql.append("SELECT COUNT(*) FROM ")
-				.append(PintuTables.MyMessageTable.TABLE_NAME)
-				.append(" WHERE ")
-				.append(PintuTables.MyMessageTable.Columns.ID).append(" =?");
 
-		Cursor c = ptdb.rawQuery(sql.toString(), new String[] { msgId });
-		boolean exist = false; 
-		if (c.moveToFirst()) {
-             exist = c.getInt(0) > 0;
-         }
-		c.close();
-		return exist;
-	}
 
 	private ContentValues msgToContentValues(TMsg msg) {
 		ContentValues v = new ContentValues();

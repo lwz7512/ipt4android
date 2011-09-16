@@ -424,8 +424,6 @@ public class HomeGallery extends FullScreenActivity {
         // 提供用户手动情况所有缓存选项
         SimpleImageLoader.clearAll();
 
-        // TODO: cancel notifications.        
-
         //close ui
         finish();
     }

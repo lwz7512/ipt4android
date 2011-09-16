@@ -11,6 +11,7 @@ import com.pintu.tool.SimpleImageLoader;
 
 public class SendTask extends GenericTask {
 
+	//登录
 	public static final int TYPE_NORMAL = 0;
 	public static final int TYPE_PHOTO = 1;
 	public static final int TYPE_STORY = 2;
@@ -40,6 +41,12 @@ public class SendTask extends GenericTask {
 			int mode = param.getInt("mode");
 
 			switch (mode) {
+			
+			case TYPE_NORMAL:
+				//登录验证
+				String account = param.getString("account");
+				String password = param.getString("password");
+				postResult = PintuApp.mApi.logon(account, password);
 
 			case TYPE_PHOTO:
 				//发送贴图

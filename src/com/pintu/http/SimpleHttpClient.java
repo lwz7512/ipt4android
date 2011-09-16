@@ -58,7 +58,14 @@ public class SimpleHttpClient implements HttpClientInterface{
 		this.userId = userId;
 		createHttpClient();
 	}
+		
 	
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+
+
 	private void createHttpClient(){
         // Create and initialize HTTP parameters
         HttpParams params = new BasicHttpParams();

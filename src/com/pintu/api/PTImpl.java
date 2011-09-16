@@ -46,6 +46,11 @@ public class PTImpl implements PTApi {
 	public PTImpl(String userId) {
 		client = new SimpleHttpClient(userId);
 	}
+	
+	//登录成功后要更新记录在client中的用户
+	public void updateUser(String userId){
+		client.setUserId(userId);
+	}
 
 	private String getBaseURL() {
 		return host + service;
@@ -430,6 +435,23 @@ public class PTImpl implements PTApi {
 
 		params.add(methodParam);
 		params.add(msgParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+
+		return resp.asString();
+	}
+
+	@Override
+	public String logon(String account, String password) throws HttpException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.LOGON);
+		BasicNameValuePair actParam = new BasicNameValuePair("account", account);
+		BasicNameValuePair pwdParam = new BasicNameValuePair("password", password);
+
+		params.add(methodParam);
+		params.add(actParam);
+		params.add(pwdParam);
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 
