@@ -27,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.pintu.PintuApp;
 import com.pintu.R;
 import com.pintu.activity.base.FullScreenActivity;
 import com.pintu.task.GenericTask;
@@ -79,12 +80,28 @@ public class PictureEdit extends FullScreenActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		//要先判断是否已登录
+		shouldEdit();
+		
 		setContentView(R.layout.postpic);
 		// 获取组件引用
 		getViews();
 		// 添加事件监听
 		addEventListeners();
 
+	}
+	
+	private void shouldEdit(){
+		boolean userLogged = PintuApp.getUser()==null?false:true;
+		if(!userLogged){
+			Intent it = new Intent();
+			it.setClass(this, LogonSys.class);
+			//启动登录
+			startActivity(it);
+			//关闭当前
+			finish();
+		}		
 	}
 
 	@Override
