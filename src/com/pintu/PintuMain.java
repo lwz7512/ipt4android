@@ -26,7 +26,7 @@ public class PintuMain extends FullScreenActivity {
 	}
 	
 	private void forwardTo(){
-		boolean logoned = PintuApp.getUser()==null?false:true;
+		boolean logoned = PintuApp.isLoggedin();
 		Intent it = new Intent();
 		if(logoned){
 			it.setClass(this, HomeGallery.class);

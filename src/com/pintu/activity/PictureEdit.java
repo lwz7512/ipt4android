@@ -82,6 +82,8 @@ public class PictureEdit extends FullScreenActivity {
 		super.onCreate(savedInstanceState);
 		
 		//要先判断是否已登录
+		//因为通过画廊的分享功能
+		//可以直接打开该活动
 		shouldEdit();
 		
 		setContentView(R.layout.postpic);
@@ -93,7 +95,7 @@ public class PictureEdit extends FullScreenActivity {
 	}
 	
 	private void shouldEdit(){
-		boolean userLogged = PintuApp.getUser()==null?false:true;
+		boolean userLogged = PintuApp.isLoggedin();
 		if(!userLogged){
 			Intent it = new Intent();
 			it.setClass(this, LogonSys.class);

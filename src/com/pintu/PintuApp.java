@@ -53,6 +53,10 @@ public class PintuApp extends Application {
 		mApi.updateUser(userId);
 		mPref.edit().putString(Preferences.LOGON_USERID, userId).commit();
 	}
+	
+	public static boolean isLoggedin(){
+		return getUser()==null?false:true;
+	}
 
 	// 获得本地登录用户
 	public static String getUser() {
