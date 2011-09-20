@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.os.Process;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -112,12 +113,14 @@ public class HomeGallery extends FullScreenActivity {
         super.onDestroy();
         
         taskManager.cancelAll();
-        //取消通知
-        PintuApp.cancelNotification();
         
         //记下本次结束访问的时间
         //下次启动时，作为其他视图是否获取数据的依据
         rememberLastVisit();
+        
+        //杀掉应用进程
+        //这个真好使，所有的线程和异步任务都干掉了！
+        Process.killProcess(Process.myPid());
     }
 	
 	private void getViews(){

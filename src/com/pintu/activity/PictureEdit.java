@@ -117,7 +117,7 @@ public class PictureEdit extends FullScreenActivity {
 			mSendTask.cancel(true);
 		}
 
-		// Don't need to cancel FollowersTask (assuming it ends properly).
+		mSendTask = null;
 
 		if (dialog != null) {
 			dialog.dismiss();
