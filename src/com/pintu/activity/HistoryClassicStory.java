@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -57,10 +58,14 @@ public class HistoryClassicStory extends TempletActivity implements SubMainCallB
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			// TODO 添加点击查看图片详情的动作
+			// 添加点击查看图片详情的动作
 			StoryInfo story = (StoryInfo) csAdptr.getItem(position);
 			String tpId = story.follow;
-
+			Intent it = new Intent();
+			it.setClass(HistoryClassicStory.this, PictureDetails.class);			
+			it.putExtra("tpId", tpId);
+			//打开详情活动
+			startActivity(it);
 		}
 	};
 

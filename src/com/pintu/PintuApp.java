@@ -36,7 +36,7 @@ public class PintuApp extends Application {
 
 		//系统级的工具准备
 		mContext = this.getApplicationContext();
-		mPref = PreferenceManager.getDefaultSharedPreferences(this);
+		mPref = this.getSharedPreferences(TAG, 0);
 		mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		
 		//应用级工具准备
@@ -55,18 +55,18 @@ public class PintuApp extends Application {
 	}
 	
 	public static boolean isLoggedin(){
-		return getUser()==null?false:true;
+		return getUser().equals("")?false:true;
 	}
 
 	// 获得本地登录用户
 	public static String getUser() {
-		return mPref.getString(Preferences.LOGON_USERID, null);
+		return mPref.getString(Preferences.LOGON_USERID, "");
 	}
 
 
 	// 获得客服用户
 	public static String getKefu() {
-		return mPref.getString(Preferences.KEFU_USERID, null);
+		return mPref.getString(Preferences.KEFU_USERID, "");
 	}
 
 	public static void cancelNotification() {

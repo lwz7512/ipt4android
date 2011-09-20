@@ -85,6 +85,12 @@ public class HomeGallery extends FullScreenActivity {
 		startRetrieveMsgs();
 	}
     
+    //每次画廊处于活动状态时都尝试获取远程数据
+    protected void onStart(){
+    	super.onStart();
+    	retrieveRemoteGallery();
+    }
+    
     private void startRetrieveMsgs(){
     	Intent it = new Intent();
     	it.setClass(this, MsgService.class);
@@ -94,12 +100,9 @@ public class HomeGallery extends FullScreenActivity {
     private void retrieveGalleryFromDB(){
 		List<TPicDesc> items = PintuApp.dbApi.getCachedThumbnails();
 		Log.i(TAG, ">>> cached recode size: "+items.size()); 
-		//如果没有缓存数据就访问远程
-		if(items.size()==0){
-			retrieveRemoteGallery();
-		}else{
-			gridAdptr.refresh(items);			
-		}
+		//先读取缓存
+		if(items.size()>0)
+			gridAdptr.refresh(items);					
     }    
 
     	
@@ -333,6 +336,7 @@ public class HomeGallery extends FullScreenActivity {
     protected static final int OPTIONS_MENU_ID_IMAGE_CAPTURE = 11;
     protected static final int OPTIONS_MENU_ID_PHOTO_LIBRARY = 12;
     protected static final int OPTIONS_MENU_ID_EXIT = 13;
+    protected static final int OPTIONS_MENU_ID_HELP = 14;
 
     /**
      * 如果增加了Option Menu常量的数量，则必须重载此方法， 以保证其他人使用常量时不产生重复
@@ -348,8 +352,8 @@ public class HomeGallery extends FullScreenActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         MenuItem item;
-        item = menu.add(0, OPTIONS_MENU_ID_PREFERENCES, 0, R.string.omenu_settings);
-        item.setIcon(android.R.drawable.ic_menu_preferences);
+        item = menu.add(0, OPTIONS_MENU_ID_HELP, 0, R.string.omenu_settings);
+        item.setIcon(android.R.drawable.ic_menu_help);
 
         item = menu.add(0, OPTIONS_MENU_ID_LOGOUT, 0, R.string.omenu_signout);
         item.setIcon(android.R.drawable.ic_menu_revert);
@@ -365,20 +369,18 @@ public class HomeGallery extends FullScreenActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+    	Intent intent = null;
+    	switch (item.getItemId()) {
         case OPTIONS_MENU_ID_LOGOUT:
             logout();
             return true;
-        case OPTIONS_MENU_ID_SEARCH:
-//            onSearchRequested();
-            return true;
-        case OPTIONS_MENU_ID_PREFERENCES:
-           
+        case OPTIONS_MENU_ID_HELP:
+        	intent = new Intent().setClass(this, HowTos.class);
+        	startActivity(intent);        	
             return true;
         case OPTIONS_MENU_ID_ABOUT: 
-        	//TODO, 添加关于界面
-//        	Intent intent = new Intent().setClass(this, AboutActivity.class);
-//        	startActivity(intent);
+        	intent = new Intent().setClass(this, AboutThis.class);
+        	startActivity(intent);
             return true;
         case OPTIONS_MENU_ID_EXIT:
             finish();

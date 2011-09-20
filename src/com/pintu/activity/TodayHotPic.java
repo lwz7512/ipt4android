@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -63,10 +64,15 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			// TODO 添加点击查看详情的动作
+			// 添加点击查看详情的动作
 			TPicDetails tpic = (TPicDetails) hpAdptr.getItem(position);
 			String tpId = tpic.id;
-			
+			Intent it = new Intent();
+			it.setClass(TodayHotPic.this, PictureDetails.class);			
+			it.putExtra("tpId", tpId);
+			//打开详情活动
+			startActivity(it);
+
 		}		
 	};
 

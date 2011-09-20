@@ -6,6 +6,17 @@
 	<string name="allow_story">是否邀请他人品图</string>
 	<string name="description">添加图画描述</string>
 	<string name="tags">添加多个标签用空格分隔</string>
+	<string name="writestory">添加对图画的评价或者微小说</string>
+	<string name="writecomnt">添加对图画的评论</string>
+	<string name="about_introduce">
+		爱品图是一个为插画、动漫、平面艺术家以及广大手绘爱好者提供创意分享和交流的
+		移动互联网应用，通过该应用大家可以展示自己的作品，对他人作品进行点评，从而
+		结识更多优秀的同仁并提升自己的创造力；
+	</string>
+	<string name="about_developers">
+		\n北京远博畅享科技有限公司出品\n
+	</string>
+
 
 	<!-- 画廊主菜单 -->
 	<string name="postpic">贴图</string>
@@ -128,10 +139,10 @@
 		<a href="http://fanfou.com/register">注册</a>
 	</string>
 	<string name="login_status_failure">登录失败。</string>
-	
+
 	<string name="login_with_sina">绑定新浪微博账号</string>
-	<string name="login_with_tx">绑定腾讯微博账号</string>	
-	
+	<string name="login_with_tx">绑定腾讯微博账号</string>
+
 	<!-- Write页面 -->
 	<string name="write_label_send">发送</string>
 	<string name="write_label_send_hint">你在做什么？</string>

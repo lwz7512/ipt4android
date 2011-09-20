@@ -67,10 +67,14 @@ public class TadiPintu extends TempletActivity implements SubMainCallBack {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			// TODO 跳转到查看图片详情
+			// 跳转到查看图片详情
 			StoryInfo story = (StoryInfo) storyAdptr.getItem(position);
 			String picId = story.follow;
-			
+			Intent it = new Intent();
+			it.setClass(TadiPintu.this, PictureDetails.class);			
+			it.putExtra("tpId", picId);
+			//打开详情活动
+			startActivity(it);			
 		}		
 	};
 

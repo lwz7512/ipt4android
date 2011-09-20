@@ -8,7 +8,7 @@ package com.pintu.util;
 public class Preferences {
 	
 	//记录登录用户
-	public static String LOGON_USERID = null;
+	public static String LOGON_USERID = "userid";
 	//记录客服用户
 	public static String KEFU_USERID = "b8931b314c24dca4";
 			

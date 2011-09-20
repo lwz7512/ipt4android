@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
@@ -66,10 +67,14 @@ public class AndiPintu extends TempletActivity implements SubMainCallBack {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			// TODO 跳转到查看图片详情
+			// 跳转到查看图片详情
 			StoryInfo story = (StoryInfo) storyAdptr.getItem(position);
 			String picId = story.follow;
-			
+			Intent it = new Intent();
+			it.setClass(AndiPintu.this, PictureDetails.class);			
+			it.putExtra("tpId", picId);
+			//打开详情活动
+			startActivity(it);			
 		}		
 	};
 

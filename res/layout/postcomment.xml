@@ -10,5 +10,6 @@
 	<!-- 评论输入框最多让输入32个字 -->
 	<EditText android:id="@+id/comment_edit" android:layout_width="fill_parent"
 		android:layout_height="fill_parent" android:gravity="top"
-		android:maxLength="32" android:imeOptions="actionDone" />
+		android:maxLength="32" android:imeOptions="actionDone" 
+		android:hint="@string/writecomnt"/>
 </LinearLayout>

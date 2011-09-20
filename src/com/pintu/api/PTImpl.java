@@ -2,14 +2,19 @@ package com.pintu.api;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.ParseException;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,6 +43,8 @@ public class PTImpl implements PTApi {
 
 	// localhost ip used by emulator!
 	private String host = "http://10.0.2.2:8080";
+	//wifi ip
+//	private String host = "http://192.168.0.101:8080";
 	// Real service context
 	private String service = "/ipintu/pintuapi";
 
@@ -78,32 +85,65 @@ public class PTImpl implements PTApi {
 	}
 
 	/**
-	 * 这里不指定用户，而在client中指定
-	 */
-	@Override
-	public String postPicture(File pic, String tags, String desc,
-			String allowStory) throws HttpException {
+	 * FIXME, 这里使用了独立的客户端来上传图片
+	 * 而不与其他操作共用，以解决底层传输错误：
+	 * java.net.SocketException: Broken pipe
+	 */	
+	public String postPicture(File pic, String tags, String desc, String allowStory) throws HttpException {
+		HttpClient httpclient = new DefaultHttpClient();
+		HttpEntity resEntity = null;
+		String response = null;
+		try {
+			HttpPost httppost = new HttpPost(getBaseURL());
 
-		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
-		BasicNameValuePair methodParam = new BasicNameValuePair("method",
-				PTApi.UPLOADPICTURE);
-		tags = UTF8Formater.changeToUnicode(tags);
-		BasicNameValuePair tagsParam = new BasicNameValuePair("tags", tags);
-		desc = UTF8Formater.changeToUnicode(desc);
-		BasicNameValuePair descParam = new BasicNameValuePair("description",
-				desc);
-		BasicNameValuePair storyableParam = new BasicNameValuePair(
-				"allowStory", allowStory);
+			FileBody file = new FileBody(pic);
+			StringBody methodValue = null;
+			StringBody tagsValue = null;
+			StringBody descriptionValue = null;
+			StringBody allowStoryValue = null;
+			StringBody userValue = null;
+			try {
+				methodValue = new StringBody(PTApi.UPLOADPICTURE);
+				tagsValue = new StringBody(tags);
+				desc = UTF8Formater.changeToUnicode(desc);
+				descriptionValue = new StringBody(desc);
+				allowStoryValue = new StringBody(allowStory);
+				userValue = new StringBody(client.getUserId());
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		params.add(methodParam);
-		params.add(tagsParam);
-		params.add(descParam);
-		params.add(storyableParam);
+			MultipartEntity reqEntity = new MultipartEntity();
+			reqEntity.addPart("method", methodValue);
+			reqEntity.addPart("photo", file);
+			reqEntity.addPart("tags", tagsValue);
+			reqEntity.addPart("description", descriptionValue);
+			reqEntity.addPart("allowStory", allowStoryValue);
+			reqEntity.addPart("user", userValue);
 
-		Response resp = client.post(getBaseURL(), params, pic, false);
+			httppost.setEntity(reqEntity);
+		
+			HttpResponse resp = httpclient.execute(httppost);
+			
+			resEntity = resp.getEntity();
+			
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				httpclient.getConnectionManager().shutdown();
+			} catch (Exception ignore) {
+			}
+		}
+		
+		if (resEntity != null) {
+			response = resEntity.toString();
+		}
 
-		return resp.asString();
-
+		return response;
 	}
 
 	@Override
