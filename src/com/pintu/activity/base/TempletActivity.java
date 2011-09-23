@@ -22,11 +22,20 @@ public abstract class TempletActivity extends FullScreenActivity {
 	protected GenericTask mRetrieveTask;
 	// 管理当前视图内任务的销毁
 	protected TaskManager taskManager = new TaskManager();
-
+	
+	//10秒钟时间间隔
+	protected long tenSecsMiliSeconds = 10 * 1000;
+	// 1分钟时间间隔
+	protected long oneMinutesMiliSeconds = 1 * 60 * 1000;
 	// 10分钟时间间隔
 	protected long tenMinutesMiliSeconds = 10 * 60 * 1000;
 	// 1小时时间间隔
-	protected long oneHourMiliSeconds = 1*60*60*1000;
+	protected long oneHourMiliSeconds = 1 * 60 * 60 * 1000;
+	
+	//请求父活动刷新的标志
+	public boolean AUTOREFRESH = false;
+
+	
 
 	// TODO, ---------------- 模板Activity 生命周方法 -------------------------------
 
@@ -44,7 +53,7 @@ public abstract class TempletActivity extends FullScreenActivity {
 
 	protected void onResume() {
 		super.onResume();
-		doItLater();
+//		doItLater();
 	}
 
 	protected void onDestroy() {
@@ -52,7 +61,7 @@ public abstract class TempletActivity extends FullScreenActivity {
 		taskManager.cancelAll();
 	}
 
-	// TODO, ------------ 子类必须实现的15个模板方法 ---------------------------------
+	// ------------ 子类必须实现的15个模板方法 ---------------------------------
 
 	// 创建活动相关方法
 	protected abstract int getLayout();
@@ -63,12 +72,9 @@ public abstract class TempletActivity extends FullScreenActivity {
 	// 添加交互
 	protected abstract void addEventListeners();
 
-	// 初始化的动作
+	// 初始化的动作，一般是用来获取缓存数据并更新视图
 	protected abstract void justDoIt();
-
-	// 延后动作
-	protected abstract void doItLater();
-
+	
 	// 发送请求
 	protected abstract void doSend();
 
@@ -101,6 +107,12 @@ public abstract class TempletActivity extends FullScreenActivity {
 
 	// 根据JSON对象更新视图内容
 	protected abstract void refreshMultView(JSONObject json);
+	
+//	------------  公共方法声明结束 ------------------------------------
+	
+	//注意：非抽象方法
+	//用于提交响应，比如登录验证
+	protected void responseForSend(String response){};
 
 	protected TaskListener mSendTaskListener = new TaskAdapter() {
 		@Override
@@ -117,6 +129,10 @@ public abstract class TempletActivity extends FullScreenActivity {
 			} else if (result == TaskResult.IO_ERROR) {
 				onSendFailure();
 			}
+		}
+		
+		public void deliverResponseString(String response) {
+			responseForSend(response);
 		}
 
 	};
@@ -179,9 +195,16 @@ public abstract class TempletActivity extends FullScreenActivity {
 
 	protected void rememberLastVisit() {
 		long now = DateTimeHelper.getNowTime();
-		this.getPreferences().edit()
-				.putLong(Preferences.LAST_VISIT_TIME, now)
+		this.getPreferences().edit().putLong(Preferences.LAST_VISIT_TIME, now)
 				.commit();
+	}
+
+	protected long elapsedFromLastVisit() {
+		long lastVisitTime = this.getPreferences().getLong(
+				Preferences.LAST_VISIT_TIME, 0);
+		long now = DateTimeHelper.getNowTime();
+		long diff = now - lastVisitTime;
+		return diff;
 	}
 
 }

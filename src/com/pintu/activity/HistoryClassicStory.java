@@ -5,17 +5,19 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.pintu.PintuApp;
 import com.pintu.R;
+import com.pintu.activity.base.SubMainCallBack;
 import com.pintu.activity.base.TempletActivity;
 import com.pintu.adapter.ClassicStoryAdapter;
-import com.pintu.adapter.SubMainCallBack;
 import com.pintu.data.StoryInfo;
 import com.pintu.data.TPicDetails;
 import com.pintu.task.RetrieveClassicTask;
@@ -56,10 +58,14 @@ public class HistoryClassicStory extends TempletActivity implements SubMainCallB
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			// TODO 添加点击查看图片详情的动作
+			// 添加点击查看图片详情的动作
 			StoryInfo story = (StoryInfo) csAdptr.getItem(position);
 			String tpId = story.follow;
-
+			Intent it = new Intent();
+			it.setClass(HistoryClassicStory.this, PictureDetails.class);			
+			it.putExtra("tpId", tpId);
+			//打开详情活动
+			startActivity(it);
 		}
 	};
 
@@ -70,20 +76,6 @@ public class HistoryClassicStory extends TempletActivity implements SubMainCallB
 		if(cachedStories!=null && cachedStories.size()>0){
 			csAdptr.refresh(cachedStories);			
 		}		
-	}
-
-	@Override
-	protected void doItLater() {
-		long lastVisitTime = this.getPreferences().getLong(
-				Preferences.LAST_VISIT_TIME, 0);
-		long now = DateTimeHelper.getNowTime();
-		long diff = now - lastVisitTime;
-		// 经典是1小时计算一次
-		// 第一次使用应用肯定要从远程取
-		if (diff > oneHourMiliSeconds || lastVisitTime == 0 || cachedStories.size()==0) {
-			// 取远程数据
-			doRetrieve();
-		}
 	}
 
 
@@ -147,10 +139,22 @@ public class HistoryClassicStory extends TempletActivity implements SubMainCallB
 	@Override
 	public void addProgress(ProgressBar pb) {
 		this.pb = pb;
+		
+		long lastVisitTime = this.getPreferences().getLong(
+				Preferences.LAST_VISIT_TIME, 0);
+		long now = DateTimeHelper.getNowTime();
+		long diff = now - lastVisitTime;
+		// 经典是1小时计算一次
+		// 第一次使用应用肯定要从远程取
+		if (diff > oneHourMiliSeconds || lastVisitTime == 0 || cachedStories.size()==0) {
+			// 取远程数据
+			doRetrieve();
+		}
+
 	}
 
 	@Override
-	public void refresh() {
+	public void refresh(ImageButton refreshBtn) {
 		// 10分钟后切换进来后会自动重取
 		// 该方法是预留给主活动标题栏中的刷新按钮调用的
 	}

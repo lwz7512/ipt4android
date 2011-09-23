@@ -6,7 +6,18 @@
 	<string name="allow_story">是否邀请他人品图</string>
 	<string name="description">添加图画描述</string>
 	<string name="tags">添加多个标签用空格分隔</string>
-	
+	<string name="writestory">添加对图画的评价或者微小说</string>
+	<string name="writecomnt">添加对图画的评论</string>
+	<string name="about_introduce">
+		爱品图是一个为插画、动漫、平面艺术家以及广大手绘爱好者提供创意分享和交流的
+		移动互联网应用，通过该应用大家可以展示自己的作品，对他人作品进行点评，从而
+		结识更多优秀的同仁并提升自己的创造力；
+	</string>
+	<string name="about_developers">
+		\n北京远博畅享科技有限公司出品\n
+	</string>
+
+
 	<!-- 画廊主菜单 -->
 	<string name="postpic">贴图</string>
 	<string name="hotpic">热图</string>
@@ -28,8 +39,8 @@
 	<string name="picdetails">贴图详情</string>
 	<string name="storylist">品图列表</string>
 	<string name="commentlist">评论列表</string>
-	<string name="hotpicsview">热图浏览</string>	
-	
+	<string name="hotpicsview">热图浏览</string>
+
 	<!-- 切换按钮文字 -->
 	<string name="todayhotpic">今日热图</string>
 	<string name="historyclassic">经典品图</string>
@@ -39,16 +50,33 @@
 	<string name="industry">行业动态</string>
 	<string name="marketshopping">可购商品</string>
 	<string name="marketnote">张贴便条</string>
+	<string name="baseinfo">基本资料</string>
 	<string name="assets">资产</string>
 	<string name="picutues">贴图</string>
 	<string name="pintu">品图</string>
 	<string name="messages">消息</string>
-	
+
+	<!-- 我的资产页面文字 -->
+	<string name="userlevel">等级</string>
+	<string name="totalscore">总积分</string>
+	<string name="excgscore">可用积分</string>
+	<string name="picnum">贴图数</string>
+	<string name="storynum">品图数</string>
+	<string name="shellunit">个</string>
 
 	<!-- 专属提示 -->
 	<string name="comment_length_note">
-				您已经达到了评论的最大长度32，如果继续，建议发表到品图内容中
+		您已经达到了评论的最大长度32，如果继续，建议发表到品图内容中
 	</string>
+	<string name="marksuccess">收藏成功</string>
+
+	<!-- 通知提示 -->
+	<string name="youhave">你有</string>
+	<string name="notification">通知</string>
+
+	<!-- 编辑消息页面 -->
+	<string name="receiver">收信人</string>
+	<string name="kefu_xiaolajiao">客服小辣椒</string>
 
 	<!-- 状态条提示 -->
 	<string name="page_status_refreshing">正在获取...</string>
@@ -69,6 +97,7 @@
 	<!-- 按钮提示 -->
 	<string name="page_label_get_more">获取更多</string>
 	<string name="page_label_go_back">返回</string>
+	<string name="writemsg">撰写消息</string>
 	<!-- options menu -->
 	<string name="omenu_signout">注销</string>
 	<string name="omenu_refresh">刷新</string>
@@ -96,18 +125,24 @@
 	<string name="cmenu_user_senddm_suffix">发私信</string>
 	<string name="cmenu_user_sendmention_suffix">留言</string>
 	<!-- Login页面 -->
-	<string name="login_label_username">Email:</string>
+	<string name="login_label_username">账号:</string>
 	<string name="login_label_password">密码:</string>
 	<string name="login_label_signin">登 录</string>
 	<string name="login_status_logging_in">登录中...</string>
 	<string name="login_status_null_username_or_password">帐号和密码不能为空。</string>
-	<string name="login_status_invalid_username_or_password">帐号或密码错误，请重新输入。</string>
+	<string name="login_not_email_format">需要输入邮箱账号</string>
+	<string name="login_status_invalid_username">帐号不存在，请重新输入。</string>
+	<string name="login_status_invalid__password">密码错误，请重新输入。</string>
 	<string name="login_status_network_or_connection_error">网络错误，请稍后再试。</string>
 	<string name="login_register_link">
 		没有帐号？
 		<a href="http://fanfou.com/register">注册</a>
 	</string>
 	<string name="login_status_failure">登录失败。</string>
+
+	<string name="login_with_sina">绑定新浪微博账号</string>
+	<string name="login_with_tx">绑定腾讯微博账号</string>
+
 	<!-- Write页面 -->
 	<string name="write_label_send">发送</string>
 	<string name="write_label_send_hint">你在做什么？</string>

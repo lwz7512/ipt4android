@@ -4,15 +4,43 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import android.content.Intent;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import com.pintu.PintuApp;
 import com.pintu.R;
+import com.pintu.activity.base.SubMainCallBack;
 import com.pintu.activity.base.TempletActivity;
-import com.pintu.adapter.SubMainCallBack;
+import com.pintu.adapter.MessageAdapter;
+import com.pintu.data.TMsg;
+import com.pintu.task.SendTask;
+import com.pintu.task.TaskParams;
 
+/**
+ * 数据处理逻辑：
+ * 应用启动后，自动查询个人消息，并缓存入库
+ * 如果取到的消息入库重复或者失败，则不提醒新消息
+ * 进入此活动后取缓存的未读信息，并提交消息状态为已读
+ * 
+ * @author lwz
+ *
+ */
 public class AndiMessage extends TempletActivity implements SubMainCallBack {
 
-
+	private ListView msges_lv;
+	private MessageAdapter msgAdptr;
+	private View mListHeader;
+	private View mListFooter;
+	
+	private int pageNum = 0;
+	//新取回的消息
+	private List<TMsg> msgs;
+	
 	@Override
 	protected int getLayout() {
 		return R.layout.admsgs;
@@ -20,115 +48,164 @@ public class AndiMessage extends TempletActivity implements SubMainCallBack {
 
 	@Override
 	protected void getViews() {
-		// TODO Auto-generated method stub
-
+		msgAdptr = new MessageAdapter(this);
+		msges_lv = (ListView) findViewById(R.id.msges_lv);
+		
+		//先添加头部和尾部
+		mListHeader = View.inflate(this, R.layout.msg_header, null);
+		msges_lv.addHeaderView(mListHeader, null, true);
+		mListFooter = View.inflate(this, R.layout.listview_footer, null);
+		msges_lv.addFooterView(mListFooter, null, true);
+		
+		//最后设置适配器
+		msges_lv.setAdapter(msgAdptr);
+		
 	}
 
 	@Override
 	protected void addEventListeners() {
-		// TODO Auto-generated method stub
+		msges_lv.setOnItemClickListener(listener);
 
 	}
+	
+	private OnItemClickListener listener = new OnItemClickListener(){
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
+			//如果点击了列表顶部按钮，转向撰写活动
+			if(position==0){
+				Intent it = new Intent();
+				it.setClass(AndiMessage.this, MsgEdit.class);
+				startActivity(it);
+			}
+			//点击了更多
+			if(position == msges_lv.getCount()-1){
+				doMore();
+			}
+		}		
+	};
 
 	@Override
 	protected void justDoIt() {
-		// TODO Auto-generated method stub
-
+		//从缓存中取未读消息
+		msgs = PintuApp.dbApi.getUnreadedMsgs(1);
+		if(msgs.size()>0){
+			msgAdptr.refresh(msgs);			
+		}else{
+			//展示已读信息
+			doMore();
+			return;
+		}
+		//更新为已读，并提交远程消息状态
+		doSend();
+		
+		//更新本地状态
+		for(TMsg msg : msgs){
+			PintuApp.dbApi.updateMsgReaded(msg.id);
+		}
+		
 	}
 
-	@Override
-	protected void doItLater() {
-		// TODO Auto-generated method stub
+	private void doMore(){
+		pageNum ++;
+		List<TMsg> msgs = PintuApp.dbApi.getMoreMsgs(pageNum);
+		if(msgs.size()>0)
+			msgAdptr.append(msgs);
 
 	}
 
 	@Override
 	protected void doSend() {
-		// TODO Auto-generated method stub
-
+		this.checkTaskStatus();
+		
+		mSendTask = new SendTask();
+		mSendTask.setListener(mSendTaskListener);
+		int mode = SendTask.TYPE_MSG_READED;
+		String msgIds = readedMsgIds();
+		TaskParams params = new TaskParams();
+		params.put("msgIds" , msgIds);
+		params.put("mode", mode);
+		mSendTask.execute(params);
+		
+		this.manageTask(mSendTask);
+	}
+	
+	private String readedMsgIds(){
+		StringBuffer ids = new StringBuffer();
+		for(TMsg msg : msgs){
+			ids.append(msg.id).append(",");
+		}
+		return ids.toString();
 	}
 
 	@Override
 	protected void onSendBegin() {
-		// TODO Auto-generated method stub
-
+		//do nothing here... 
 	}
 
 	@Override
 	protected void onSendSuccess() {
-		// TODO Auto-generated method stub
-
+		//do nothing here... 
 	}
 
 	@Override
 	protected void onSendFailure() {
-		// TODO Auto-generated method stub
-
+		//do nothing here... 
 	}
 
 	@Override
 	protected void doRetrieve() {
-		// TODO Auto-generated method stub
-
+		//do nothing here ...
 	}
 
 	@Override
 	protected void onRetrieveBegin() {
-		// TODO Auto-generated method stub
-
+		//do nothing here ...
 	}
 
 	@Override
 	protected void onRetrieveSuccess() {
-		// TODO Auto-generated method stub
-
+		//do nothing here ...
 	}
 
 	@Override
 	protected void onRetrieveFailure() {
-		// TODO Auto-generated method stub
-
+		//do nothing here ...
 	}
 
 	@Override
 	protected void onParseJSONResultFailue() {
-		// TODO Auto-generated method stub
-
+		//do nothing here ...
 	}
 
 	@Override
 	protected void refreshListView(List<Object> results) {
-		// TODO Auto-generated method stub
-
+		//do nothing here ...
 	}
 
 	@Override
 	protected void refreshMultView(JSONObject json) {
-		// TODO Auto-generated method stub
-
+		//do nothing here ...
 	}
 	
 	@Override
 	public void addProgress(ProgressBar pb) {
-		// TODO Auto-generated method stub
-
+		//do nothing here ...
 	}
 
 	@Override
-	public void refresh() {
-		// TODO Auto-generated method stub
-
+	public void refresh(ImageButton refreshBtn) {
+		//do nothing here ...
 	}
 
 	@Override
 	public void putObj(String key, Object value) {
-		// TODO Auto-generated method stub
-
+		//do nothing here ...
 	}
 
 	@Override
 	public Object getObj(String key) {
-		// TODO Auto-generated method stub
+		//do nothing here ...
 		return null;
 	}
 

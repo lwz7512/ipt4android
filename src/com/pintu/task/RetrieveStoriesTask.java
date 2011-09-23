@@ -9,6 +9,7 @@ import org.json.JSONException;
 import android.util.Log;
 
 import com.pintu.PintuApp;
+import com.pintu.api.PTApi;
 import com.pintu.data.StoryInfo;
 import com.pintu.http.HttpException;
 
@@ -23,11 +24,20 @@ public class RetrieveStoriesTask extends GenericTask {
 	@Override
 	protected TaskResult _doInBackground(TaskParams... params) {
     	TaskParams param = params[0];
-        //根据参数查询缩略图
-    	String tpId = param.get("tpId").toString();
+        
+    	String method = param.get("method").toString();
     	JSONArray jsStories = null;
 		try {
-			jsStories = PintuApp.mApi.getStoriesByTpId(tpId);
+			if(method.equals(PTApi.GETSTORIESOFPIC)){
+				//取某个图的故事
+		    	String tpId = param.get("tpId").toString();
+				jsStories = PintuApp.mApi.getStoriesByTpId(tpId);				
+			}else if(method.equals(PTApi.GETSTORIESBYUSER)){
+				//取某个用户的故事
+				String userId = param.get("userId").toString();
+				String pageNum = param.get("pageNum").toString();
+				jsStories = PintuApp.mApi.getStoriesByUser(userId, pageNum);
+			}
 		} catch (HttpException e) {
 			e.printStackTrace();
 			return TaskResult.FAILED;

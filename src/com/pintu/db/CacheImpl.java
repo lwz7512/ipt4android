@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.pintu.data.TMsg;
 import com.pintu.data.StoryInfo;
 import com.pintu.data.TPicDesc;
 import com.pintu.data.TPicDetails;
+import com.pintu.data.TPicItem;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -28,6 +30,44 @@ public class CacheImpl implements CacheDao {
 		PintuDB db = PintuDB.getInstance(ctxt);
 		ptdb = db.getDb(true);
 		dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	}
+
+	@Override
+	public void clearData() {
+		ptdb.execSQL("DELETE FROM " + PintuTables.ThumbnailTable.TABLE_NAME);
+		ptdb.execSQL("DELETE FROM " + PintuTables.HotpicTable.TABLE_NAME);
+		ptdb.execSQL("DELETE FROM " + PintuTables.ClassicStoryTable.TABLE_NAME);
+		ptdb.execSQL("DELETE FROM " + PintuTables.FavoritePicsTable.TABLE_NAME);
+		ptdb.execSQL("DELETE FROM " + PintuTables.MyMessageTable.TABLE_NAME);
+		ptdb.execSQL("DELETE FROM " + PintuTables.MyPicsTable.TABLE_NAME);
+		ptdb.execSQL("DELETE FROM " + PintuTables.MyStoriesTable.TABLE_NAME);
+
+		// TODO, DELETE CACHE DATA IN TABLE...
+
+	}
+
+	private <T> void checkBlankList(List<T> results) {
+		if (results == null)
+			return;
+		if (results != null && results.size() == 0)
+			return;
+	}
+	
+	private boolean checkRecordExist(String table, String id){
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT COUNT(*) FROM ")
+				.append(table)
+				.append(" WHERE ")
+				.append(" id=?");
+
+		Cursor c = ptdb.rawQuery(sql.toString(), new String[] { id });
+		boolean exist = false; 
+		if (c.moveToFirst()) {
+             exist = c.getInt(0) > 0;
+         }
+		c.close();
+		return exist;
+		
 	}
 
 	@Override
@@ -81,8 +121,12 @@ public class CacheImpl implements CacheDao {
 				.append(PintuTables.ThumbnailTable.Columns.TP_ID).append(" =?");
 
 		Cursor c = ptdb.rawQuery(sql.toString(), new String[] { tpId });
-		boolean exist = c.getCount() > 1 ? true : false;
+		boolean exist = false; 
+		if (c.moveToFirst()) {
+             exist = c.getInt(0) > 0;
+         }
 		c.close();
+
 		return exist;
 	}
 
@@ -194,16 +238,8 @@ public class CacheImpl implements CacheDao {
 	}
 
 	@Override
-	public void clearData() {
-		ptdb.execSQL("DELETE FROM " + PintuTables.ThumbnailTable.TABLE_NAME);
-		ptdb.execSQL("DELETE FROM " + PintuTables.HotpicTable.TABLE_NAME);
-		ptdb.execSQL("DELETE FROM " + PintuTables.ClassicStoryTable.TABLE_NAME);
-		//TODO, DELETE CACHE DATA IN TABLE...
-		
-	}
-
-	@Override
 	public void insertHotPics(List<TPicDetails> hotpics) {
+		this.checkBlankList(hotpics);
 		// 先删除已缓存的东西
 		ptdb.execSQL("DELETE FROM " + PintuTables.HotpicTable.TABLE_NAME);
 
@@ -284,6 +320,7 @@ public class CacheImpl implements CacheDao {
 
 	@Override
 	public void insertClassicStories(List<StoryInfo> stories) {
+		this.checkBlankList(stories);
 		// 先删除已缓存的东西
 		ptdb.execSQL("DELETE FROM " + PintuTables.ClassicStoryTable.TABLE_NAME);
 
@@ -307,20 +344,19 @@ public class CacheImpl implements CacheDao {
 			ptdb.endTransaction();
 		}
 	}
-	
-	private ContentValues clscStoryToContentValues(StoryInfo story){
+
+	private ContentValues clscStoryToContentValues(StoryInfo story) {
 		ContentValues v = new ContentValues();
 		v.put(PintuTables.ClassicStoryTable.Columns.ID, story.id);
 		v.put(PintuTables.ClassicStoryTable.Columns.AUTHOR, story.author);
-		v.put(PintuTables.ClassicStoryTable.Columns.AVATARIMGPATH, story.avatarImgPath);
+		v.put(PintuTables.ClassicStoryTable.Columns.AVATARIMGPATH,
+				story.avatarImgPath);
 		v.put(PintuTables.ClassicStoryTable.Columns.CONTENT, story.content);
 		v.put(PintuTables.ClassicStoryTable.Columns.FOLLOW, story.follow);
 		v.put(PintuTables.HotpicTable.Columns.CREATION_TIME, story.publishTime);
 
 		return v;
-		
-	}	
-	
+	}
 
 	@Override
 	public List<StoryInfo> getCachedClassicStories() {
@@ -329,8 +365,8 @@ public class CacheImpl implements CacheDao {
 		Cursor c = q
 				.from(PintuTables.ClassicStoryTable.TABLE_NAME)
 				.orderBy(
-						PintuTables.ClassicStoryTable.Columns.CREATION_TIME + " DESC")
-				.select();
+						PintuTables.ClassicStoryTable.Columns.CREATION_TIME
+								+ " DESC").select();
 		try {
 			while (c.moveToNext()) {
 				list.add(cursorToStory(c));
@@ -341,29 +377,445 @@ public class CacheImpl implements CacheDao {
 
 		return list;
 	}
-	
+
 	private StoryInfo cursorToStory(Cursor c) {
 		StoryInfo story = new StoryInfo();
 		story.id = c.getString(c
 				.getColumnIndex(PintuTables.ClassicStoryTable.Columns.ID));
 		story.author = c.getString(c
 				.getColumnIndex(PintuTables.ClassicStoryTable.Columns.AUTHOR));
-		story.avatarImgPath = c.getString(c
-				.getColumnIndex(PintuTables.ClassicStoryTable.Columns.AVATARIMGPATH));
+		story.avatarImgPath = c
+				.getString(c
+						.getColumnIndex(PintuTables.ClassicStoryTable.Columns.AVATARIMGPATH));
 		story.content = c.getString(c
 				.getColumnIndex(PintuTables.ClassicStoryTable.Columns.CONTENT));
 		story.follow = c.getString(c
 				.getColumnIndex(PintuTables.ClassicStoryTable.Columns.FOLLOW));
-		story.publishTime = c.getString(c
-				.getColumnIndex(PintuTables.ClassicStoryTable.Columns.CREATION_TIME));
+		story.publishTime = c
+				.getString(c
+						.getColumnIndex(PintuTables.ClassicStoryTable.Columns.CREATION_TIME));
 
 		return story;
 	}
 
-	
-	
-	
-	
-	
+	@Override
+	public boolean hasAlreadyMarked(String tpId) {
+		// 检查此图是否已经被收藏，作为收藏按钮状态依据
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT COUNT(*) FROM ")
+				.append(PintuTables.FavoritePicsTable.TABLE_NAME)
+				.append(" WHERE ")
+				.append(PintuTables.FavoritePicsTable.Columns.ID).append(" =?");
 
-} //end of class
+		Cursor c = ptdb.rawQuery(sql.toString(), new String[] { tpId });
+		boolean exist = false; 
+		if (c.moveToFirst()) {
+             exist = c.getInt(0) > 0;
+         }
+		c.close();
+
+		return exist;
+	}
+
+	
+	@Override
+	public void insertOneMarkedPic(TPicItem pic) {
+		Query q = new Query(ptdb);
+		long result = -1;
+		result = q.into(PintuTables.FavoritePicsTable.TABLE_NAME)
+				.values(picItemToContentValues(pic)).insert();
+		if (-1 == result) {
+			Log.e(TAG, "cann't mark the pic : " + pic.id);
+		} else {
+			Log.v(TAG, String.format("Insert a pic into database : %s",
+					pic.id));
+		}
+	}
+
+	
+	@Override
+	public void insertMarkedPics(List<TPicItem> pics) {
+		this.checkBlankList(pics);
+		// 先删除已缓存的东西
+		ptdb.execSQL("DELETE FROM " + PintuTables.FavoritePicsTable.TABLE_NAME);
+
+		Query q = new Query(ptdb);
+		try {
+			ptdb.beginTransaction();
+			// 不分顺序插入
+			for (TPicItem pic : pics) {
+				long result = -1;
+				result = q.into(PintuTables.FavoritePicsTable.TABLE_NAME)
+						.values(picItemToContentValues(pic)).insert();
+				if (-1 == result) {
+					Log.e(TAG, "cann't mark the pic : " + pic.id);
+				} else {
+					Log.v(TAG, String.format("Insert a pic into database : %s",
+							pic.id));
+				}
+			}
+			ptdb.setTransactionSuccessful();
+		} finally {
+			ptdb.endTransaction();
+		}
+
+	}
+
+	private ContentValues picItemToContentValues(TPicItem pic) {
+		ContentValues cvs = new ContentValues();
+		cvs.put(PintuTables.FavoritePicsTable.Columns.ID, pic.id);
+		cvs.put(PintuTables.FavoritePicsTable.Columns.OWNER, pic.owner);
+		cvs.put(PintuTables.FavoritePicsTable.Columns.MOBIMGID, pic.mobImgId);
+		cvs.put(PintuTables.FavoritePicsTable.Columns.CREATION_TIME,
+				pic.publishTime);
+
+		return cvs;
+	}
+
+	@Override
+	public List<TPicItem> getCachedFavoritePics() {
+		List<TPicItem> list = new ArrayList<TPicItem>();
+		Query q = new Query(ptdb);
+		Cursor c = q
+				.from(PintuTables.FavoritePicsTable.TABLE_NAME)
+				.orderBy(
+						PintuTables.FavoritePicsTable.Columns.CREATION_TIME
+								+ " DESC").select();
+		try {
+			while (c.moveToNext()) {
+				list.add(cursorToPicItem(c));
+			}
+		} finally {
+			c.close();
+		}
+
+		return list;
+	}
+
+	private TPicItem cursorToPicItem(Cursor c) {
+		TPicItem pic = new TPicItem();
+		pic.id = c.getString(c
+				.getColumnIndex(PintuTables.FavoritePicsTable.Columns.ID));
+		pic.mobImgId = c
+				.getString(c
+						.getColumnIndex(PintuTables.FavoritePicsTable.Columns.MOBIMGID));
+		pic.owner = c.getString(c
+				.getColumnIndex(PintuTables.FavoritePicsTable.Columns.OWNER));
+		pic.publishTime = c
+				.getString(c
+						.getColumnIndex(PintuTables.FavoritePicsTable.Columns.CREATION_TIME));
+
+		return pic;
+	}
+
+	@Override
+	public void insertMyPics(List<TPicItem> pics) {
+		this.checkBlankList(pics);
+
+		Query q = new Query(ptdb);
+		try {
+			ptdb.beginTransaction();
+			// 不分顺序插入
+			for (TPicItem pic : pics) {
+				// 如果已经缓存了，就跳过
+				boolean exist = checkRecordExist(PintuTables.MyPicsTable.TABLE_NAME,pic.id);
+				if (exist) continue;
+
+				long result = -1;
+				result = q.into(PintuTables.MyPicsTable.TABLE_NAME)
+						.values(picItemToContentValues(pic)).insert();
+				if (-1 == result) {
+					Log.e(TAG, "cann't mark the pic : " + pic.id);
+				} else {
+					Log.v(TAG, String.format("Insert a pic into database : %s",
+							pic.id));
+				}
+			}
+			ptdb.setTransactionSuccessful();
+		} finally {
+			ptdb.endTransaction();
+		}
+
+	}
+
+	/**
+	 * 如果pageNum为0时，取出前25条 如果pageNum为1时，跳过25条取25，以此类推
+	 * 
+	 * 读取指定页数数据示例： SQL:Select * From TABLE_NAME Limit 9 Offset 10;
+	 * 表示从TABLE_NAME表获取数据，跳过10行，取9行
+	 * @param pageNum 页码数，从1开始取
+	 * @return List<TPicItem> 图片列表
+	 */
+	@Override
+	public List<TPicItem> getCachedMyPics(String owner, int pageNum) {
+		if(pageNum<1) return null;
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT * FROM ").append(PintuTables.MyPicsTable.TABLE_NAME)
+				.append(" WHERE ").append(PintuTables.MyPicsTable.Columns.OWNER)
+				.append("='").append(owner).append("'")
+				.append(" ORDER BY ")
+				.append(PintuTables.MyPicsTable.Columns.CREATION_TIME)
+				.append(" DESC").append(" LIMIT ").append(25)
+				.append(" OFFSET ").append((pageNum-1) * 25);
+
+		Cursor c = ptdb.rawQuery(sql.toString(), null);
+		List<TPicItem> list = new ArrayList<TPicItem>();
+		try {
+			while (c.moveToNext()) {
+				list.add(cursorToPicItem(c));
+			}
+		} finally {
+			c.close();
+		}
+
+		return list;
+	}
+
+	@Override
+	public void insertMyStories(List<StoryInfo> stories) {
+		this.checkBlankList(stories);
+
+		Query q = new Query(ptdb);
+		try {
+			ptdb.beginTransaction();
+			// 不分顺序插入
+			for (StoryInfo story : stories) {
+				// 如果已经缓存了，就跳过
+				boolean exist = checkRecordExist(PintuTables.MyStoriesTable.TABLE_NAME,story.id);
+				if (exist) continue;
+
+				long result = -1;
+				result = q.into(PintuTables.MyStoriesTable.TABLE_NAME)
+						.values(myStoryToContentValues(story)).insert();
+				if (-1 == result) {
+					Log.e(TAG, "cann't mark the story : " + story.id);
+				} else {
+					Log.v(TAG, String.format("Insert a pic into database : %s",
+							story.id));
+				}
+			}
+			ptdb.setTransactionSuccessful();
+		} finally {
+			ptdb.endTransaction();
+		}
+
+	}
+
+
+	private ContentValues myStoryToContentValues(StoryInfo story) {
+		ContentValues v = new ContentValues();
+		v.put(PintuTables.MyStoriesTable.Columns.ID, story.id);
+		v.put(PintuTables.MyStoriesTable.Columns.CONTENT, story.content);
+		v.put(PintuTables.MyStoriesTable.Columns.OWNER, story.owner);
+		v.put(PintuTables.MyStoriesTable.Columns.FOLLOW, story.follow);
+		v.put(PintuTables.MyStoriesTable.Columns.EGG, story.egg);
+		v.put(PintuTables.MyStoriesTable.Columns.FLOWER, story.flower);
+		v.put(PintuTables.MyStoriesTable.Columns.HEART, story.heart);
+		v.put(PintuTables.MyStoriesTable.Columns.STAR, story.star);
+
+		v.put(PintuTables.MyStoriesTable.Columns.CREATION_TIME,
+				story.publishTime);
+
+		return v;
+	}
+
+	/**
+	 * 页码数，从1开始取，每页最多25条
+	 */
+	@Override
+	public List<StoryInfo> getCachedMyStories(String owner, int pageNum) {
+		if(pageNum<1) return null;
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT * FROM ")
+				.append(PintuTables.MyStoriesTable.TABLE_NAME)
+				.append(" WHERE ").append(PintuTables.MyStoriesTable.Columns.OWNER)
+				.append("='").append(owner).append("'")
+				.append(" ORDER BY ")
+				.append(PintuTables.MyStoriesTable.Columns.CREATION_TIME)
+				.append(" DESC").append(" LIMIT ").append(25)
+				.append(" OFFSET ").append((pageNum-1) * 25);
+
+		Cursor c = ptdb.rawQuery(sql.toString(), null);
+		List<StoryInfo> list = new ArrayList<StoryInfo>();
+		try {
+			while (c.moveToNext()) {
+				list.add(cursorToMyStory(c));
+			}
+		} finally {
+			c.close();
+		}
+		return list;
+	}
+
+	private StoryInfo cursorToMyStory(Cursor c) {
+		StoryInfo story = new StoryInfo();
+		story.id = c.getString(c
+				.getColumnIndex(PintuTables.MyStoriesTable.Columns.ID));
+		story.content = c.getString(c
+				.getColumnIndex(PintuTables.MyStoriesTable.Columns.CONTENT));
+		story.owner = c.getString(c
+				.getColumnIndex(PintuTables.MyStoriesTable.Columns.OWNER));
+		story.follow = c.getString(c
+				.getColumnIndex(PintuTables.MyStoriesTable.Columns.FOLLOW));
+		story.egg = c.getInt(c
+				.getColumnIndex(PintuTables.MyStoriesTable.Columns.EGG));
+		story.flower = c.getInt(c
+				.getColumnIndex(PintuTables.MyStoriesTable.Columns.FLOWER));
+		story.heart = c.getInt(c
+				.getColumnIndex(PintuTables.MyStoriesTable.Columns.HEART));
+		story.star = c.getInt(c
+				.getColumnIndex(PintuTables.MyStoriesTable.Columns.STAR));
+		story.publishTime = c
+				.getString(c
+						.getColumnIndex(PintuTables.MyStoriesTable.Columns.CREATION_TIME));
+
+		return story;
+	}
+
+	@Override
+	public int insertMyMsgs(List<TMsg> msgs) {
+		this.checkBlankList(msgs);
+
+		int inserted = 0;
+		Query q = new Query(ptdb);
+		try {
+			ptdb.beginTransaction();
+			// 不分顺序插入
+			for (TMsg msg : msgs) {
+				// 如果已经缓存了，就跳过
+				boolean exist = checkRecordExist(PintuTables.MyMessageTable.TABLE_NAME,msg.id);
+				if (exist) continue;
+
+				long result = -1;
+				result = q.into(PintuTables.MyMessageTable.TABLE_NAME)
+						.values(msgToContentValues(msg)).insert();
+				if (-1 == result) {
+					Log.e(TAG, "cann't insert the msg : " + msg.id);
+				} else {
+					inserted ++;
+					Log.v(TAG, String.format("Insert a msg into database : %s",
+							msg.id));
+				}
+			}
+			ptdb.setTransactionSuccessful();
+		} finally {
+			ptdb.endTransaction();
+		}
+		
+		return inserted;
+	}
+
+	/**
+	 * 页码数从1开始取，每页最多25条
+	 */
+	@Override
+	public List<TMsg> getUnreadedMsgs(int pageNum) {
+		if(pageNum<1) return null;
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT * FROM ")
+				.append(PintuTables.MyMessageTable.TABLE_NAME)
+				.append(" WHERE ").append(PintuTables.MyMessageTable.Columns.READED)
+				.append("='0'")
+				.append(" ORDER BY ")
+				.append(PintuTables.MyMessageTable.Columns.CREATION_TIME)
+				.append(" DESC").append(" LIMIT ").append(25)
+				.append(" OFFSET ").append((pageNum-1) * 25);
+
+		Cursor c = ptdb.rawQuery(sql.toString(), null);
+		List<TMsg> list = new ArrayList<TMsg>();
+		try {
+			while (c.moveToNext()) {
+				list.add(cursorToMessage(c));
+			}
+		} finally {
+			c.close();
+		}
+		return list;
+	}
+
+
+
+	private ContentValues msgToContentValues(TMsg msg) {
+		ContentValues v = new ContentValues();
+		v.put(PintuTables.MyMessageTable.Columns.ID, msg.id);
+		v.put(PintuTables.MyMessageTable.Columns.CONTENT, msg.content);
+		v.put(PintuTables.MyMessageTable.Columns.SENDER, msg.sender);
+		v.put(PintuTables.MyMessageTable.Columns.SENDERNAME, msg.senderName);
+		v.put(PintuTables.MyMessageTable.Columns.SENDERAVATAR, msg.senderAvatar);
+		v.put(PintuTables.MyMessageTable.Columns.RECEIVER, msg.receiver);
+		v.put(PintuTables.MyMessageTable.Columns.RECEIVERNAME, msg.receiverName);
+		v.put(PintuTables.MyMessageTable.Columns.READED, msg.readed);
+		v.put(PintuTables.MyMessageTable.Columns.CREATION_TIME,
+				msg.writeTime);
+
+		return v;
+	}
+
+	private TMsg cursorToMessage(Cursor c) {
+		TMsg msg = new TMsg();
+		msg.id = c.getString(c
+				.getColumnIndex(PintuTables.MyMessageTable.Columns.ID));
+		msg.content = c.getString(c
+				.getColumnIndex(PintuTables.MyMessageTable.Columns.CONTENT));
+		msg.sender = c.getString(c
+				.getColumnIndex(PintuTables.MyMessageTable.Columns.SENDER));
+		msg.senderName = c.getString(c
+				.getColumnIndex(PintuTables.MyMessageTable.Columns.SENDERNAME));
+		msg.senderAvatar = c.getString(c
+				.getColumnIndex(PintuTables.MyMessageTable.Columns.SENDERAVATAR));
+		msg.receiver = c.getString(c
+				.getColumnIndex(PintuTables.MyMessageTable.Columns.RECEIVER));
+		msg.receiverName = c.getString(c
+				.getColumnIndex(PintuTables.MyMessageTable.Columns.RECEIVERNAME));
+		msg.readed = c.getString(c
+				.getColumnIndex(PintuTables.MyMessageTable.Columns.READED));
+		msg.writeTime = c
+				.getString(c
+						.getColumnIndex(PintuTables.MyMessageTable.Columns.CREATION_TIME));
+
+		return msg;
+	}
+
+	@Override
+	public void updateMsgReaded(String msgId) {
+		Query q = new Query(ptdb);
+		ContentValues v = new ContentValues();
+		v.put(PintuTables.MyMessageTable.Columns.READED, "1");	
+		
+		q.from(PintuTables.MyMessageTable.TABLE_NAME)
+		  .where("id=?", msgId)
+		  .values(v)
+		  .update();
+	}
+
+	@Override
+	public List<TMsg> getMoreMsgs(int pageNum) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT * FROM ")
+				.append(PintuTables.MyMessageTable.TABLE_NAME)				
+				.append(" ORDER BY ")
+				.append(PintuTables.MyMessageTable.Columns.CREATION_TIME)
+				.append(" DESC").append(" LIMIT ").append(25)
+				.append(" OFFSET ").append((pageNum-1) * 25);
+
+		Cursor c = ptdb.rawQuery(sql.toString(), null);
+		List<TMsg> list = new ArrayList<TMsg>();
+		try {
+			while (c.moveToNext()) {
+				list.add(cursorToMessage(c));
+			}
+		} finally {
+			c.close();
+		}
+		return list;
+
+		
+	}
+
+
+	// ----------- TODO, XIAOMING TO IMPLEMENT THE REMAINING...
+
+} // end of class

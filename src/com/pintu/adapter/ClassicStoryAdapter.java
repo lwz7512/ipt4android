@@ -76,7 +76,7 @@ public class ClassicStoryAdapter extends BaseAdapter {
     	SimpleImageLoader.display(holder.classic_author_img, profileUrl);
     	
 		try {
-			String relativeTime = DateTimeHelper.getRelativeTimeByFormatDate(story.publishTime, ctxt);
+			String relativeTime = DateTimeHelper.getRelativeTimeByFormatDate(story.publishTime);
 			holder.classic_pubtime.setText(relativeTime);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block

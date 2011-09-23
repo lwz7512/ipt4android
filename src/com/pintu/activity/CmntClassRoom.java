@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import com.pintu.R;
+import com.pintu.activity.base.SubMainCallBack;
 import com.pintu.activity.base.TempletActivity;
-import com.pintu.adapter.SubMainCallBack;
 
 public class CmntClassRoom extends TempletActivity implements SubMainCallBack {
 
@@ -35,11 +36,6 @@ public class CmntClassRoom extends TempletActivity implements SubMainCallBack {
 
 	}
 
-	@Override
-	protected void doItLater() {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	protected void doSend() {
@@ -114,7 +110,7 @@ public class CmntClassRoom extends TempletActivity implements SubMainCallBack {
 	}
 
 	@Override
-	public void refresh() {
+	public void refresh(ImageButton refreshBtn) {
 		// TODO Auto-generated method stub
 
 	}

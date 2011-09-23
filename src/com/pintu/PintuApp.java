@@ -1,55 +1,76 @@
 package com.pintu;
 
+import android.app.Application;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import com.pintu.api.PTApi;
 import com.pintu.api.PTImpl;
 import com.pintu.db.CacheDao;
 import com.pintu.db.CacheImpl;
 import com.pintu.tool.LazyImageLoader;
-import com.pintu.util.DateTimeHelper;
 import com.pintu.util.Preferences;
-
-import android.app.Application;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.util.Log;
 
 public class PintuApp extends Application {
 
 	private static String TAG = "PintuApp";
-	
-	//应用上下文
+
+	// 应用上下文
 	public static Context mContext;
-	//远程访问接口
+	// 远程访问接口
 	public static PTApi mApi;
-	//本地数据存储接口
+	// 本地数据存储接口
 	public static CacheDao dbApi;
-	//本地设置存储
+	// 本地设置存储
 	public static SharedPreferences mPref;
-	//图片加载器
+	// 图片加载器
 	public static LazyImageLoader mImageLoader;
-	
-	//模拟登录用户
-	public static String userID = "a053beae20125b5b";
-	
-	
-	
-	public void onCreate(){
+
+	public static NotificationManager mNotificationManager;
+
+
+	public void onCreate() {
 		super.onCreate();
-		
+
+		//系统级的工具准备
 		mContext = this.getApplicationContext();
-		mApi = new PTImpl();	
-		dbApi = new CacheImpl(this);
-		mPref = PreferenceManager.getDefaultSharedPreferences(this);
-		mImageLoader  = new LazyImageLoader(this);
+		mPref = this.getSharedPreferences(TAG, 0);
+		mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		
+		//应用级工具准备
+		mImageLoader = new LazyImageLoader(this);
+		
+		//业务级工具准备
+		mApi = new PTImpl(getUser());
+		dbApi = new CacheImpl(this);
+
+	}
+
+	// 登录成功记录用户
+	public static void rememberUser(String userId) {
+		mApi.updateUser(userId);
+		mPref.edit().putString(Preferences.LOGON_USERID, userId).commit();
 	}
 	
-	
-	public void onLowMemory(){
-		super.onLowMemory();
-		//Seemly, no need to imple...
+	public static boolean isLoggedin(){
+		return getUser().equals("")?false:true;
+	}
+
+	// 获得本地登录用户
+	public static String getUser() {
+		return mPref.getString(Preferences.LOGON_USERID, "");
+	}
+
+
+	// 获得客服用户
+	public static String getKefu() {
+		return mPref.getString(Preferences.KEFU_USERID, "");
+	}
+
+	public static void cancelNotification() {
+		mNotificationManager.cancel(R.string.messages);
 	}
 
 }

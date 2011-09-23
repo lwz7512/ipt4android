@@ -35,5 +35,19 @@
 			android:layout_marginRight="2dp" 
             style="?android:progressBarStyleSmall"
             android:visibility="gone"
-        />                               
+        />      
+        
+        <!-- 公用刷新按钮 -->
+        <ImageButton
+            android:id="@+id/comn_refresh_btn"
+            android:background="@null"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"			
+			android:layout_marginRight="2dp" 
+			android:src="@drawable/top_refresh_selector" 
+			android:visibility="gone"         
+           /> 
+                                 
 </RelativeLayout>

@@ -85,22 +85,27 @@ public class PintuDB {
         @Override
         public void onCreate(SQLiteDatabase db) {
             Log.d(TAG, "Create Database.");
-            // TODO: create tables
             createAllTables(db);
         }
         
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             Log.d(TAG, "Upgrade Database.");
-            // TODO: DROP TABLE
             onCreate(db);
         }
         
         private static void createAllTables(SQLiteDatabase db) {
         	db.execSQL(PintuTables.ThumbnailTable.getCreateSQL());
         	db.execSQL(PintuTables.HotpicTable.getCreateSQL());
-        	db.execSQL(PintuTables.ClassicStoryTable.getCreateSQL());
-        	//TODO, Create other table...
+        	db.execSQL(PintuTables.ClassicStoryTable.getCreateSQL());   
+        	
+        	db.execSQL(PintuTables.FavoritePicsTable.getCreateSQL());
+        	db.execSQL(PintuTables.MyPicsTable.getCreateSQL());
+        	db.execSQL(PintuTables.MyStoriesTable.getCreateSQL());
+        	db.execSQL(PintuTables.MyMessageTable.getCreateSQL());
+        	
+        	//TODO, 小明来建立后面的表，模仿前面的写法
+        	//注意：在使用新表前，需要先卸载该应用，重新安装运行才能创建新表
         	
         }
 

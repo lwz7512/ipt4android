@@ -4,12 +4,32 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences.Editor;
+import android.os.Bundle;
+import android.os.Process;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.pintu.PintuApp;
 import com.pintu.R;
-import com.pintu.adapter.GalleryImageAdapter;
-import com.pintu.activity.PictureEdit;
 import com.pintu.activity.base.FullScreenActivity;
+import com.pintu.adapter.GalleryImageAdapter;
 import com.pintu.data.TPicDesc;
+import com.pintu.service.MsgService;
 import com.pintu.task.GenericTask;
 import com.pintu.task.RetrieveGalleryTask;
 import com.pintu.task.TaskAdapter;
@@ -20,26 +40,6 @@ import com.pintu.task.TaskResult;
 import com.pintu.tool.SimpleImageLoader;
 import com.pintu.util.DateTimeHelper;
 import com.pintu.util.Preferences;
-
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.ImageButton;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class HomeGallery extends FullScreenActivity {
 	
@@ -64,6 +64,7 @@ public class HomeGallery extends FullScreenActivity {
 	private GalleryImageAdapter gridAdptr;
 	private GenericTask mRetrieveTask;
 	
+	
     // Refresh data at startup if last refresh was this long ago or greater.
 	// 默认1分钟后才能刷新，小于这个间隔不给取
     private static final long REFRESH_THRESHOLD = 1 * 60 * 1000;
@@ -81,16 +82,45 @@ public class HomeGallery extends FullScreenActivity {
 		addEventListeners();
 		//首先尝试读取数据库缓存
 		retrieveGalleryFromDB();
+		//启动服务
+		startRetrieveMsgs();
 	}
+    
+    //每次画廊处于活动状态时都尝试获取远程数据
+    protected void onStart(){
+    	super.onStart();
+    	retrieveRemoteGallery();
+    }
+    
+    private void startRetrieveMsgs(){
+    	Intent it = new Intent();
+    	it.setClass(this, MsgService.class);
+    	startService(it);
+    }
+    
+    private void retrieveGalleryFromDB(){
+		List<TPicDesc> items = PintuApp.dbApi.getCachedThumbnails();
+		Log.i(TAG, ">>> cached recode size: "+items.size()); 
+		//先读取缓存
+		if(items.size()>0)
+			gridAdptr.refresh(items);					
+    }    
+
     	
     @Override//Activity life cycle method
     protected void onDestroy() {
         Log.d(TAG, "onDestroy.");
         super.onDestroy();
+        
         taskManager.cancelAll();
+        
         //记下本次结束访问的时间
         //下次启动时，作为其他视图是否获取数据的依据
         rememberLastVisit();
+        
+        //杀掉应用进程
+        //这个真好使，所有的线程和异步任务都干掉了！
+        Process.killProcess(Process.myPid());
     }
 	
 	private void getViews(){
@@ -243,6 +273,7 @@ public class HomeGallery extends FullScreenActivity {
     			pref.putLong(Preferences.LAST_GALLERY_REFRESH_TIME, DateTimeHelper.getNowTime());
     			//必须得提交设置，否则不生效
     			pref.commit();
+    			
     		}else if(result==TaskResult.FAILED){
     			updateProgress("Gallery retrieve thumbnail failed!");
     		}else if(result==TaskResult.IO_ERROR){
@@ -256,11 +287,19 @@ public class HomeGallery extends FullScreenActivity {
     	
     	//结果拿到了，填充视图并入库
     	public void deliverRetrievedList(List<Object> results){
-    		// 刷新列表
+    		
+    		//如果没有取到数据就不处理了
+    		if(results.size()==0){
+    			updateProgress("No pictures in System, Try later...");
+    			return;
+    		}
+    		
+    		// 准备缓存数据
     		List<TPicDesc> items =new ArrayList<TPicDesc>();
     		for(Object o:results){
     			items.add((TPicDesc) o);
-    		}
+    		}    		    	
+    		
     		//先入库，更合理
     		int successNum = PintuApp.dbApi.insertThumbnails(items);
     		Log.i(TAG, ">>> inserted db record size: "+successNum);
@@ -271,18 +310,6 @@ public class HomeGallery extends FullScreenActivity {
     	
     }; //end of mRetrieveTaskListener
     
-   
-    private void retrieveGalleryFromDB(){
-		List<TPicDesc> items = PintuApp.dbApi.getCachedThumbnails();
-		Log.i(TAG, ">>> cached recode size: "+items.size()); 
-		//如果没有缓存数据就访问远程
-		if(items.size()==0){
-			retrieveRemoteGallery();
-		}else{
-			gridAdptr.refresh(items);			
-		}
-    }
-    
     
 	private void updateProgress(String message) {
 		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
@@ -291,7 +318,7 @@ public class HomeGallery extends FullScreenActivity {
     private void rememberLastVisit(){
     	long existTime = DateTimeHelper.getNowTime();
     	this.getPreferences().edit().putLong(Preferences.LAST_VISIT_TIME, existTime).commit();
-    	Log.d(TAG, "lastVisit: "+DateTimeHelper.getRelativeDate(new Date(), this));
+    	Log.d(TAG, "lastVisit: "+DateTimeHelper.getRelativeDate(new Date()));
     }
     
 
@@ -312,6 +339,7 @@ public class HomeGallery extends FullScreenActivity {
     protected static final int OPTIONS_MENU_ID_IMAGE_CAPTURE = 11;
     protected static final int OPTIONS_MENU_ID_PHOTO_LIBRARY = 12;
     protected static final int OPTIONS_MENU_ID_EXIT = 13;
+    protected static final int OPTIONS_MENU_ID_HELP = 14;
 
     /**
      * 如果增加了Option Menu常量的数量，则必须重载此方法， 以保证其他人使用常量时不产生重复
@@ -327,8 +355,8 @@ public class HomeGallery extends FullScreenActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         MenuItem item;
-        item = menu.add(0, OPTIONS_MENU_ID_PREFERENCES, 0, R.string.omenu_settings);
-        item.setIcon(android.R.drawable.ic_menu_preferences);
+        item = menu.add(0, OPTIONS_MENU_ID_HELP, 0, R.string.omenu_settings);
+        item.setIcon(android.R.drawable.ic_menu_help);
 
         item = menu.add(0, OPTIONS_MENU_ID_LOGOUT, 0, R.string.omenu_signout);
         item.setIcon(android.R.drawable.ic_menu_revert);
@@ -344,20 +372,18 @@ public class HomeGallery extends FullScreenActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+    	Intent intent = null;
+    	switch (item.getItemId()) {
         case OPTIONS_MENU_ID_LOGOUT:
             logout();
             return true;
-        case OPTIONS_MENU_ID_SEARCH:
-//            onSearchRequested();
-            return true;
-        case OPTIONS_MENU_ID_PREFERENCES:
-           
+        case OPTIONS_MENU_ID_HELP:
+        	intent = new Intent().setClass(this, HowTos.class);
+        	startActivity(intent);        	
             return true;
         case OPTIONS_MENU_ID_ABOUT: 
-        	//TODO, 添加关于界面
-//        	Intent intent = new Intent().setClass(this, AboutActivity.class);
-//        	startActivity(intent);
+        	intent = new Intent().setClass(this, AboutThis.class);
+        	startActivity(intent);
             return true;
         case OPTIONS_MENU_ID_EXIT:
             finish();
@@ -402,8 +428,6 @@ public class HomeGallery extends FullScreenActivity {
 
         // 提供用户手动情况所有缓存选项
         SimpleImageLoader.clearAll();
-
-        // TODO: cancel notifications.        
 
         //close ui
         finish();

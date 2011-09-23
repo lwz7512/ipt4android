@@ -2,14 +2,19 @@ package com.pintu.api;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.ParseException;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,6 +26,15 @@ import com.pintu.http.Response;
 import com.pintu.http.SimpleHttpClient;
 import com.pintu.util.UTF8Formater;
 
+/**
+ * 此类为远程查询方法的实现：
+ * 用于构造httpclient需要的参数并提交
+ * 此类不主动获取用户，从接口方法中得到
+ * 如果接口方法中没有用户，则使用httpclient中内置用户
+ * 2011/09/09
+ * @author lwz
+ *
+ */
 public class PTImpl implements PTApi {
 
 	private static String TAG = "PTImpl";
@@ -29,13 +43,20 @@ public class PTImpl implements PTApi {
 
 	// localhost ip used by emulator!
 	private String host = "http://10.0.2.2:8080";
+	//wifi ip
+//	private String host = "http://192.168.0.101:8080";
 	// Real service context
 	private String service = "/ipintu/pintuapi";
 
 	// TODO, remote host IP used in product environment
 
-	public PTImpl() {
-		client = new SimpleHttpClient();
+	public PTImpl(String userId) {
+		client = new SimpleHttpClient(userId);
+	}
+	
+	//登录成功后要更新记录在client中的用户
+	public void updateUser(String userId){
+		client.setUserId(userId);
 	}
 
 	private String getBaseURL() {
@@ -63,30 +84,66 @@ public class PTImpl implements PTApi {
 				+ imgPath;
 	}
 
-	@Override
-	public String postPicture(File pic, String tags, String desc,
-			String allowStory) throws HttpException {
+	/**
+	 * FIXME, 这里使用了独立的客户端来上传图片
+	 * 而不与其他操作共用，以解决底层传输错误：
+	 * java.net.SocketException: Broken pipe
+	 */	
+	public String postPicture(File pic, String tags, String desc, String allowStory) throws HttpException {
+		HttpClient httpclient = new DefaultHttpClient();
+		HttpEntity resEntity = null;
+		String response = null;
+		try {
+			HttpPost httppost = new HttpPost(getBaseURL());
 
-		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
-		BasicNameValuePair methodParam = new BasicNameValuePair("method",
-				PTApi.UPLOADPICTURE);
-		tags = UTF8Formater.changeToUnicode(tags);
-		BasicNameValuePair tagsParam = new BasicNameValuePair("tags", tags);
-		desc = UTF8Formater.changeToUnicode(desc);
-		BasicNameValuePair descParam = new BasicNameValuePair("description",
-				desc);
-		BasicNameValuePair storyableParam = new BasicNameValuePair(
-				"allowStory", allowStory);
+			FileBody file = new FileBody(pic);
+			StringBody methodValue = null;
+			StringBody tagsValue = null;
+			StringBody descriptionValue = null;
+			StringBody allowStoryValue = null;
+			StringBody userValue = null;
+			try {
+				methodValue = new StringBody(PTApi.UPLOADPICTURE);
+				tagsValue = new StringBody(tags);
+				desc = UTF8Formater.changeToUnicode(desc);
+				descriptionValue = new StringBody(desc);
+				allowStoryValue = new StringBody(allowStory);
+				userValue = new StringBody(client.getUserId());
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		params.add(methodParam);
-		params.add(tagsParam);
-		params.add(descParam);
-		params.add(storyableParam);
+			MultipartEntity reqEntity = new MultipartEntity();
+			reqEntity.addPart("method", methodValue);
+			reqEntity.addPart("photo", file);
+			reqEntity.addPart("tags", tagsValue);
+			reqEntity.addPart("description", descriptionValue);
+			reqEntity.addPart("allowStory", allowStoryValue);
+			reqEntity.addPart("user", userValue);
 
-		Response resp = client.post(getBaseURL(), params, pic, false);
+			httppost.setEntity(reqEntity);
+		
+			HttpResponse resp = httpclient.execute(httppost);
+			
+			resEntity = resp.getEntity();
+			
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				httpclient.getConnectionManager().shutdown();
+			} catch (Exception ignore) {
+			}
+		}
+		
+		if (resEntity != null) {
+			response = resEntity.toString();
+		}
 
-		return resp.asString();
-
+		return response;
 	}
 
 	@Override
@@ -203,16 +260,18 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public String postVote(String follow, String type, String amount)
+	public String postVote(String receiver, String follow, String type, String amount)
 			throws HttpException {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.ADDVOTE);
+		BasicNameValuePair recvParam = new BasicNameValuePair("receiver", receiver);
 		BasicNameValuePair foloParam = new BasicNameValuePair("follow", follow);
 		BasicNameValuePair typeParam = new BasicNameValuePair("type", type);
 		BasicNameValuePair amtParam = new BasicNameValuePair("amount", amount);
 
-		params.add(methodParam);
+		params.add(methodParam);		
+		params.add(recvParam);
 		params.add(foloParam);
 		params.add(typeParam);
 		params.add(amtParam);
@@ -228,7 +287,7 @@ public class PTImpl implements PTApi {
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.GETHOTPICTURE);
 		params.add(methodParam);
-		
+
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
 		Log.d(TAG, ">>> json pics: " + jsonStr);
@@ -237,12 +296,13 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public JSONArray getHistoryClassicStroies() throws HttpException, JSONException {
+	public JSONArray getHistoryClassicStroies() throws HttpException,
+			JSONException {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.GETClASSICALPINTU);
 		params.add(methodParam);
-		
+
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
 		Log.d(TAG, ">>> json Stories: " + jsonStr);
@@ -250,4 +310,194 @@ public class PTImpl implements PTApi {
 		return new JSONArray(jsonStr);
 	}
 
+	@Override
+	public void markThePic(String userId, String picId) throws HttpException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.MARKTHEPIC);
+		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
+		BasicNameValuePair picParam = new BasicNameValuePair("picId", picId);
+
+		params.add(methodParam);
+		params.add(userParam);
+		params.add(picParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> mark the pic: " + jsonStr);
+	}
+
+	@Override
+	public JSONArray getFavoriteTpics(String userId, String pageNum)
+			throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETFAVORITEPICS);
+		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
+		BasicNameValuePair pageParam = new BasicNameValuePair("pageNum",
+				pageNum);
+
+		params.add(methodParam);
+		params.add(userParam);
+		params.add(pageParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json favorites: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+
+	@Override
+	public JSONArray getTpicsByUser(String userId, String pageNum)
+			throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETTPICSBYUSER);
+		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
+		BasicNameValuePair pageParam = new BasicNameValuePair("pageNum",
+				pageNum);
+
+		params.add(methodParam);
+		params.add(userParam);
+		params.add(pageParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json tpics: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+
+	@Override
+	public JSONArray getStoriesByUser(String userId, String pageNum)
+			throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETSTORIESBYUSER);
+		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
+		BasicNameValuePair pageParam = new BasicNameValuePair("pageNum",
+				pageNum);
+
+		params.add(methodParam);
+		params.add(userParam);
+		params.add(pageParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json stories: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+	
+	@Override
+	public JSONObject getUserDetail(String userId) throws HttpException,
+			JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETUSERDETAIL);
+		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
+
+		params.add(methodParam);
+		params.add(userParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json user Details: " + jsonStr);
+
+		return new JSONObject(jsonStr);
+	}
+
+	@Override
+	public JSONObject getUserEstate(String userId) throws HttpException,
+			JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETUSERESTATE);
+		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
+
+		params.add(methodParam);
+		params.add(userParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json user Estate: " + jsonStr);
+
+		return new JSONObject(jsonStr);
+	}
+
+	@Override
+	public String postMessage(String userId, String receiver, String content)
+			throws HttpException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.SENDMSG);
+		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
+		BasicNameValuePair targetParam = new BasicNameValuePair("receiver", receiver);
+		// 中文编码下，解决乱码问题
+		content  = UTF8Formater.changeToUnicode(content);		
+		BasicNameValuePair contentParam = new BasicNameValuePair("content", content);
+
+		params.add(methodParam);
+		params.add(userParam);
+		params.add(targetParam);
+		params.add(contentParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> post the msg: " + jsonStr);
+		return jsonStr;
+	}
+
+	@Override
+	public JSONArray getNewMessages(String userId) throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETUSERMSG);
+		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
+
+		params.add(methodParam);
+		params.add(userParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json msgs: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+
+	@Override
+	public String updateMsgReaded(String msgIds) throws HttpException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.CHANGEMSGSTATE);
+		BasicNameValuePair msgParam = new BasicNameValuePair("msgIds", msgIds);
+
+		params.add(methodParam);
+		params.add(msgParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+
+		return resp.asString();
+	}
+
+	@Override
+	public String logon(String account, String password) throws HttpException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.LOGON);
+		BasicNameValuePair actParam = new BasicNameValuePair("account", account);
+		BasicNameValuePair pwdParam = new BasicNameValuePair("password", password);
+
+		params.add(methodParam);
+		params.add(actParam);
+		params.add(pwdParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+
+		return resp.asString();
+	}
+
+
+	
 } // end of class

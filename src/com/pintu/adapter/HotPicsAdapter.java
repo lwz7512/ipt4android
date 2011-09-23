@@ -70,7 +70,7 @@ public class HotPicsAdapter extends BaseAdapter {
 		String authorName = IptHelper.getShortUserName(tpic.author);
 		holder.hotpic_author_name.setText(authorName);
 		try {
-			String relativeTime = DateTimeHelper.getRelativeTimeByFormatDate(tpic.publishTime, ctxt);
+			String relativeTime = DateTimeHelper.getRelativeTimeByFormatDate(tpic.publishTime);
 			holder.hotpic_pubtime.setText(relativeTime);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block

@@ -14,5 +14,5 @@
 	<TextView android:id="@+id/pub_time" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:layout_marginTop="10dp"
 		android:layout_alignLeft="@id/pic_author" android:layout_below="@id/pic_author"
-		android:text="..." style="@style/normalText.span" />
+		android:text="..." />
 </RelativeLayout>

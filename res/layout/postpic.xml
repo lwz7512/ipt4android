@@ -18,7 +18,7 @@
 	<EditText
         android:id="@+id/tags"
         android:layout_width="fill_parent"
-        android:layout_height="50dp"               
+        android:layout_height="wrap_content"               
         android:textSize="15dp" 
         android:layout_marginLeft="2dp" 
         android:layout_marginRight="2dp"        
@@ -41,8 +41,8 @@
 		/>
 	<!-- 是否邀请品图 -->	
 	<CheckBox android:id="@+id/allowstory"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/allow_story"         
         android:textColor="#FF000000"
         android:layout_marginLeft="2dp"

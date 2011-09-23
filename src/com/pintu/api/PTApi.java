@@ -1,9 +1,7 @@
 package com.pintu.api;
 
 import java.io.File;
-import java.io.IOException;
 
-import org.apache.http.client.ClientProtocolException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,8 +40,32 @@ public interface PTApi {
 	
 	public static final String GETClASSICALPINTU= "getClassicalPintu";
 
+	public static final String MARKTHEPIC = "markThePic";
 	
+	public static final String GETFAVORITEPICS = "getFavoriteTpics";
+	
+	public static final String GETTPICSBYUSER = "getTpicsByUser";
+	
+	public static final String GETSTORIESBYUSER  = "getStoriesByUser";
+	
+	public static final String GETUSERESTATE = "getUserEstate";
+	
+	public static final String GETUSERDETAIL = "getUserDetail";
+	
+	public static final String SENDMSG = "sendMsg";
+	
+	public static final String GETUSERMSG  = "getUserMsg";
+	
+	public static final String CHANGEMSGSTATE = "changeMsgState";
 
+	public static final String LOGON ="logon";
+	
+	//TODO, ADD OTHER REMOTE METHODS...
+	
+	
+	
+	//登录成功后要更新记录在client中的用户
+	public void updateUser(String userId);
 	//贴一张图
 	public String postPicture(File pic, String tags,String desc, String allowStory) throws HttpException;
 	//根据编号合成URL地址，图片类型可以从编号后缀解析出来
@@ -65,11 +87,34 @@ public interface PTApi {
 	//获取评价列表
 	public JSONArray getCommensByTpId(String tpId) throws HttpException,JSONException;
 	//发送投票
-	public String postVote(String follow, String type, String amount) throws HttpException;
+	public String postVote(String receiver, String follow, String type, String amount) throws HttpException;
 	//获取今日热图
 	public JSONArray getHotPicToday() throws HttpException, JSONException;
 	//获取历史经典故事
 	public JSONArray getHistoryClassicStroies() throws HttpException, JSONException;
+	
+	//获得用户基本资料
+	public JSONObject getUserDetail(String userId) throws HttpException, JSONException;
+		
+	//获得用户资产，包括用户详细资料
+	public JSONObject getUserEstate(String userId) throws HttpException, JSONException;
+	//收藏喜欢的图片
+	public void markThePic(String userId, String picId) throws HttpException;
+	//查看收藏图片列表已有API
+	public JSONArray getFavoriteTpics(String userId, String pageNum) throws HttpException, JSONException;		
+	//查看某人的贴图
+	public JSONArray getTpicsByUser(String userId, String pageNum) throws HttpException, JSONException;
+	//查看某人的故事
+	public JSONArray getStoriesByUser(String userId, String pageNum) throws HttpException, JSONException;
+	
+	//发送消息
+	public String postMessage(String userId, String receiver, String content) throws HttpException;
+	//获取最新消息
+	public JSONArray getNewMessages(String userId) throws HttpException, JSONException;
+	//更新消息为已读
+	public String updateMsgReaded(String msgIds) throws HttpException;
+	//登录验证
+	public String logon(String account, String password) throws HttpException;
 	
 	
 } //end of  interface

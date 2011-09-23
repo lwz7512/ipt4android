@@ -75,9 +75,10 @@
         <item name="android:paddingRight">7dip</item>
     </style>
     
-    <style name="blue_button">
-        <item name="android:background">@drawable/blue_button_selector</item>
+    <style name="green_button">
+        <item name="android:background">@drawable/login_weibo</item>
         <item name="android:textColor">@color/simiple_button_color</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
     </style>
     

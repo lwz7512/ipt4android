@@ -18,7 +18,8 @@
 				<!-- profile image -->
 				<FrameLayout android:id="@+id/profile_image_wrapper"
 					android:layout_width="48dp" android:layout_height="48dp"
-					android:layout_marginRight="10dp" android:layout_alignParentLeft="true">
+					android:layout_marginRight="10dp" android:layout_alignParentLeft="true"
+					android:layout_marginTop="6dp">
 					<ImageView android:id="@+id/profile_image" android:src="@drawable/user_default_photo"
 						android:layout_width="fill_parent" android:layout_height="fill_parent" />
 					<!-- image corner -->
@@ -40,7 +41,7 @@
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
 					android:layout_alignParentRight="true" android:layout_marginRight="8dp"
 					android:text="..." android:layout_marginTop="2dp"
-					style="@style/normalText.span" />
+					/>
 				<!-- More -->
 				<ImageButton android:id="@+id/person_more"
 					android:layout_width="wrap_content" android:layout_height="fill_parent"

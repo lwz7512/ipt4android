@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="match_parent" android:background="@color/body_background">
+	<!-- Header -->
+	<include layout="@layout/header_write" />
+	<!-- 消息编辑 -->
+	<RelativeLayout android:layout_width="match_parent"
+		android:layout_height="match_parent" android:padding="10dp">
+		<!-- 接受人 -->
+		<TextView android:id="@+id/receiver_hint"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:text="@string/receiver" style="@style/normalText.Big" />
+		<!-- 输入收信人，先禁用了 -->
+		<EditText android:id="@+id/receiver_edit"
+			android:layout_width="match_parent" android:layout_height="wrap_content"
+			android:gravity="center" android:layout_marginLeft="60dp"
+			android:imeOptions="actionNext" android:text="@string/kefu_xiaolajiao"
+			android:enabled="false" />
+		<!-- 消息主体 -->
+		<EditText android:id="@+id/msg_content_edit"
+			android:layout_width="match_parent" android:layout_height="match_parent"
+			android:gravity="top" android:layout_weight="1"
+			android:layout_marginLeft="60dp" android:layout_below="@id/receiver_edit"
+			android:maxLength="63" android:imeOptions="actionDone" />
+
+		<!-- 字数提示 -->
+		<LinearLayout android:id="@+id/clear_story_btn"
+			android:layout_width="46dp" android:layout_height="25dp"
+			android:layout_alignParentRight="true" android:layout_marginBottom="14dp"
+			android:layout_marginRight="10dp" android:layout_alignParentBottom="true"
+			android:background="@drawable/write_corner">
+			<TextView android:id="@+id/storytxt_left_hint"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_marginRight="3dp" android:layout_marginLeft="6dp"
+				android:textSize="18sp" android:text="63" />
+			<TextView android:id="@+id/clearsign" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_alignParentTop="true"
+				android:layout_alignParentRight="true" android:layout_marginRight="2dp"
+				android:text="X" android:textColor="@color/opaque_red" />
+		</LinearLayout>
+
+	</RelativeLayout>
+
+</LinearLayout>

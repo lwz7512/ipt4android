@@ -5,21 +5,23 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.pintu.PintuApp;
 import com.pintu.R;
+import com.pintu.activity.base.SubMainCallBack;
 import com.pintu.activity.base.TempletActivity;
 import com.pintu.adapter.HotPicsAdapter;
-import com.pintu.adapter.SubMainCallBack;
 import com.pintu.data.TPicDetails;
 import com.pintu.task.RetrieveHotPicsTask;
 import com.pintu.task.TaskParams;
@@ -62,10 +64,15 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			// TODO 添加点击查看详情的动作
+			// 添加点击查看详情的动作
 			TPicDetails tpic = (TPicDetails) hpAdptr.getItem(position);
 			String tpId = tpic.id;
-			
+			Intent it = new Intent();
+			it.setClass(TodayHotPic.this, PictureDetails.class);			
+			it.putExtra("tpId", tpId);
+			//打开详情活动
+			startActivity(it);
+
 		}		
 	};
 
@@ -79,19 +86,6 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 		}		
 	}
 	
-	@Override
-	protected void doItLater() {
-		long lastVisitTime = this.getPreferences().getLong(Preferences.LAST_VISIT_TIME, 0);
-		long now = DateTimeHelper.getNowTime();
-		long diff = now - lastVisitTime;	
-		//如果登录超过10分钟就允许重新取数据了
-		//或者第一次使用应用肯定要从远程取
-		if(diff>tenMinutesMiliSeconds || lastVisitTime==0 || cachedHotPics.size()==0){
-			//取远程数据
-			doRetrieve();
-		}
-	}
-
 
 	@Override
 	protected void doRetrieve() {
@@ -130,13 +124,13 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 
 	@Override
 	protected void refreshListView(List<Object> results) {
+		if(results.size()==0){
+			updateProgress("No hot pictures in system currently!");
+			return;
+		}
 		ArrayList<TPicDetails> hotpics = new ArrayList<TPicDetails>();
 		for(Object o : results){
 			hotpics.add((TPicDetails) o);
-		}
-		if(hotpics.size()==0){
-			updateProgress("No hot pictures in system currently!");
-			return;
 		}
 		//先入库缓存
 		PintuApp.dbApi.insertHotPics(hotpics);
@@ -153,10 +147,18 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 	@Override
 	public void addProgress(ProgressBar pb) {
 		this.pb = pb;
+		
+		//如果登录超过10分钟就允许重新取数据了
+		//或者第一次使用应用肯定要从远程取
+		long diff = this.elapsedFromLastVisit();
+		if(diff>tenMinutesMiliSeconds || cachedHotPics.size()==0){
+			//取远程数据
+			doRetrieve();
+		}
 	}
 
 	@Override
-	public void refresh() {
+	public void refresh(ImageButton refreshBtn) {
 		// 10分钟后切换进来后会自动重取
 		//该方法是预留给主活动标题栏中的刷新按钮调用的
 	}
