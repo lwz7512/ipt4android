@@ -106,6 +106,7 @@
 	<string name="omenu_search">搜索</string>
 	<string name="omenu_about">关于</string>
 	<string name="omenu_exit">退出</string>
+	<string name="omenu_help">帮助</string>
 	<!-- context menu -->
 	<string name="cmenu_reply">回复</string>
 	<string name="cmenu_retweet">热图</string>

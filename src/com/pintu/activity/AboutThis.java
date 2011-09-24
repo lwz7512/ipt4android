@@ -4,6 +4,9 @@ import android.content.ComponentName;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.pintu.R;
@@ -11,14 +14,18 @@ import com.pintu.activity.base.FullScreenActivity;
 
 public class AboutThis extends FullScreenActivity {
 
-	private String versionRelease = null;
+	// Header
+	//返回按钮
+	private Button top_back;
+	//顶部标题
+	private TextView tv_title;
+	
+	
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.about);
-		
-		versionRelease=android.os.Build.VERSION.RELEASE;
-		
+				
 		// set real version
 		ComponentName comp = new ComponentName(this, getClass());
 		PackageInfo pinfo = null;
@@ -29,10 +36,22 @@ public class AboutThis extends FullScreenActivity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		top_back = (Button) findViewById(R.id.top_back);
+		top_back.setOnClickListener(mGoListener);
+		tv_title = (TextView) findViewById(R.id.tv_title);
 
 		TextView version = (TextView) findViewById(R.id.version);
-		version.setText(String.format("v %s", pinfo.versionName));
+		String appName = getText(R.string.app_name).toString();
+		version.setText(appName+" "+String.format("v %s", pinfo.versionName));			
 		
 	}
+	
+	private OnClickListener mGoListener = new OnClickListener() {
+		public void onClick(View v) {
+			finish();
+		}
+	};
+
 	
 }
