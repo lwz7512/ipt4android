@@ -36,8 +36,8 @@ public class HotPicStory extends HeadSwitchActivity {
 	@Override
 	public int[] initNavIcons() {
 		int[] icons = {
-				android.R.drawable.ic_menu_today,
-				android.R.drawable.ic_menu_recent_history};		
+				R.drawable.todayhot,
+				R.drawable.hisclassic};		
 		return icons;
 	}
 
