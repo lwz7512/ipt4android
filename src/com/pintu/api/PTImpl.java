@@ -44,7 +44,7 @@ public class PTImpl implements PTApi {
 	// localhost ip used by emulator!
 	private String host = "http://10.0.2.2:8080";
 	//wifi ip
-//	private String host = "http://192.168.0.101:8080";
+//	private String host = "http://192.168.0.100:8080";
 	// Real service context
 	private String service = "/ipintu/pintuapi";
 
