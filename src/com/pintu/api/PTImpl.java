@@ -42,7 +42,7 @@ public class PTImpl implements PTApi {
 	private SimpleHttpClient client;
 
 	// localhost ip used by emulator!
-	private String host = "http://10.0.2.2:8080";
+	private String host = "http://10.127.0.9:8080";
 	//wifi ip
 //	private String host = "http://192.168.0.100:8080";
 	// Real service context
@@ -104,9 +104,13 @@ public class PTImpl implements PTApi {
 			StringBody userValue = null;
 			try {
 				methodValue = new StringBody(PTApi.UPLOADPICTURE);
+				
+				tags = UTF8Formater.changeToUnicode(tags);
 				tagsValue = new StringBody(tags);
+				
 				desc = UTF8Formater.changeToUnicode(desc);
 				descriptionValue = new StringBody(desc);
+				
 				allowStoryValue = new StringBody(allowStory);
 				userValue = new StringBody(client.getUserId());
 			} catch (UnsupportedEncodingException e) {
