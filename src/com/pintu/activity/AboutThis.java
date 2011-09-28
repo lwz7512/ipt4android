@@ -44,6 +44,7 @@ public class AboutThis extends FullScreenActivity {
 		TextView version = (TextView) findViewById(R.id.version);
 		String appName = getText(R.string.app_name).toString();
 		version.setText(appName+" "+String.format("v %s", pinfo.versionName));			
+		tv_title.setText(R.string.about);
 		
 	}
 	

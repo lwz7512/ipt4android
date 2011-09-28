@@ -40,6 +40,7 @@
 	<string name="storylist">品图列表</string>
 	<string name="commentlist">评论列表</string>
 	<string name="hotpicsview">热图浏览</string>
+	<string name="about">关于爱品图</string>
 
 	<!-- 切换按钮文字 -->
 	<string name="todayhotpic">今日热图</string>

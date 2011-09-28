@@ -42,7 +42,7 @@ public class PTImpl implements PTApi {
 	private SimpleHttpClient client;
 
 	// localhost ip used by emulator!
-	private String host = "http://http://10.0.2.2:8080";
+	private String host = "http://10.0.2.2:8080";
 	//wifi ip
 //	private String host = "http://192.168.0.100:8080";
 	// Real service context
