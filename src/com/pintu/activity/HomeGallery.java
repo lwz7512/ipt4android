@@ -355,7 +355,7 @@ public class HomeGallery extends FullScreenActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         MenuItem item;
-        item = menu.add(0, OPTIONS_MENU_ID_HELP, 0, R.string.omenu_settings);
+        item = menu.add(0, OPTIONS_MENU_ID_HELP, 0, R.string.omenu_help);
         item.setIcon(android.R.drawable.ic_menu_help);
 
         item = menu.add(0, OPTIONS_MENU_ID_LOGOUT, 0, R.string.omenu_signout);

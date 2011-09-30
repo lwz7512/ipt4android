@@ -240,6 +240,20 @@
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
+		<!-- about -->
+		<activity android:name=".activity.AboutThis">
+			<intent-filter>
+				<action android:name="com.pintu.activity.about" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- help -->
+		<activity android:name=".activity.HowTos">
+			<intent-filter>
+				<action android:name="com.pintu.activity.help" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
 
 		<!-- add other activity... -->
 
