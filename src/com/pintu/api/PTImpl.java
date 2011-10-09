@@ -42,13 +42,16 @@ public class PTImpl implements PTApi {
 	private SimpleHttpClient client;
 
 	// localhost ip used by emulator!
-	private String host = "http://10.0.2.2:8080";
-	//wifi ip
-//	private String host = "http://192.168.0.100:8080";
+	private String emulator = "http://10.0.2.2:8080";
+	
+	//remote server used in product environment
+	private String host = "http://ipintu.com";
 	// Real service context
 	private String service = "/ipintu/pintuapi";
+	
+	//debug or release flag
+	private boolean isDebug = false;
 
-	// TODO, remote host IP used in product environment
 
 	public PTImpl(String userId) {
 		client = new SimpleHttpClient(userId);
@@ -60,7 +63,11 @@ public class PTImpl implements PTApi {
 	}
 
 	private String getBaseURL() {
-		return host + service;
+		if(isDebug){
+			return emulator + service;			
+		}else{
+			return host + service;
+		}
 	}
 
 	@Override

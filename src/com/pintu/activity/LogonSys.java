@@ -26,9 +26,9 @@ import com.pintu.task.TaskParams;
 
 public class LogonSys extends TempletActivity {
 
-	private static final String USERNOTEXIST = "USERNOTEXIST";
-	private static final String PASSWORDERROR = "PASSWORDERROR";
-	
+	private static final String USERNOTEXIST = "-1";
+	private static final String PASSWORDERROR = "0";
+		
 	private ProgressDialog dialog;
 	
 	private EditText account_edit;
