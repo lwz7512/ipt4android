@@ -109,17 +109,19 @@ public class PTImpl implements PTApi {
 			StringBody descriptionValue = null;
 			StringBody allowStoryValue = null;
 			StringBody userValue = null;
+			StringBody sourceValue = null;
 			try {
 				methodValue = new StringBody(PTApi.UPLOADPICTURE);
 				
 				tags = UTF8Formater.changeToUnicode(tags);
-				tagsValue = new StringBody(tags);
-				
+				tagsValue = new StringBody(tags);				
 				desc = UTF8Formater.changeToUnicode(desc);
-				descriptionValue = new StringBody(desc);
-				
+				descriptionValue = new StringBody(desc);				
 				allowStoryValue = new StringBody(allowStory);
+				
 				userValue = new StringBody(client.getUserId());
+				sourceValue = new StringBody("android");				
+				
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -132,6 +134,7 @@ public class PTImpl implements PTApi {
 			reqEntity.addPart("description", descriptionValue);
 			reqEntity.addPart("allowStory", allowStoryValue);
 			reqEntity.addPart("user", userValue);
+			reqEntity.addPart("source", sourceValue);
 
 			httppost.setEntity(reqEntity);
 		
