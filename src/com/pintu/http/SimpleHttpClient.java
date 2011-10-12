@@ -105,7 +105,7 @@ public class SimpleHttpClient implements HttpClientInterface {
 	public Response post(String url, ArrayList<BasicNameValuePair> params,
 			File file, boolean authenticate) throws HttpException {
 		// 发送图片会用到这个参数
-		params.add(new BasicNameValuePair("user", userId));
+		params.add(new BasicNameValuePair("userId", userId));
 		// 发送故事、评论、投票会用到这个参数
 		params.add(new BasicNameValuePair("owner", userId));
 		// 所有的提交都会用到这个参数

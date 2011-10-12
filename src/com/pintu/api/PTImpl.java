@@ -76,6 +76,7 @@ public class PTImpl implements PTApi {
 		// url参数没传到get中，get里面用的是getBaseURL()
 		// 低级错误啊！痛心啊！
 		// lwz7512 @ 2011/08/12
+		url = url+"&source=android";
 		return client.get(url, false);
 	}
 
@@ -133,7 +134,7 @@ public class PTImpl implements PTApi {
 			reqEntity.addPart("tags", tagsValue);
 			reqEntity.addPart("description", descriptionValue);
 			reqEntity.addPart("allowStory", allowStoryValue);
-			reqEntity.addPart("user", userValue);
+			reqEntity.addPart("userId", userValue);
 			reqEntity.addPart("source", sourceValue);
 
 			httppost.setEntity(reqEntity);

@@ -66,8 +66,8 @@ public class HomeGallery extends FullScreenActivity {
 	
 	
     // Refresh data at startup if last refresh was this long ago or greater.
-	// 默认1分钟后才能刷新，小于这个间隔不给取
-    private static final long REFRESH_THRESHOLD = 1 * 60 * 1000;
+	// 默认10秒后才能刷新，小于这个间隔不给取
+    private static final long REFRESH_THRESHOLD = 1 * 10 * 1000;
     
     protected TaskManager taskManager = new TaskManager();
 
@@ -233,7 +233,7 @@ public class HomeGallery extends FullScreenActivity {
 			shouldRetrieve = true;
 		}else{
 			shouldRetrieve = false;
-			this.updateProgress("One minute later to refresh...");
+			this.updateProgress("10 seconds later to refresh...");
 		}
 		if(shouldRetrieve){
 			doRetrieve(lastRefreshTime,nowTime);

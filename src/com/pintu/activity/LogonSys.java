@@ -178,12 +178,22 @@ public class LogonSys extends TempletActivity {
 		response = response.trim();
 		
 		if(USERNOTEXIST.equals(response)){//用户不存在
+			account_edit.setText("");
+			password_edit.setText("");
 			this.updateProgress(R.string.login_status_invalid_username);
 		}else if(PASSWORDERROR.equals(response)){//密码错误
+			password_edit.setText("");
 			this.updateProgress(R.string.login_status_invalid__password);
-		}else{//登录成功，拿到用户ID
+		}else{//登录成功，拿到：角色@用户ID
+			String userId;
+			if(response.indexOf("@")==-1){
+				this.updateProgress("Invalid user result!");
+				return;
+			}else{
+				userId = response.split("@")[1];
+			}
 			//记录用户ID
-			PintuApp.rememberUser(response);
+			PintuApp.rememberUser(userId);
 			//进入画廊
 			Intent homePage = new Intent();
 			homePage.setClass(this, HomeGallery.class);
