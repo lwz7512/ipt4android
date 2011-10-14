@@ -1,6 +1,8 @@
 package com.pintu.adapter;
 
+import com.pintu.PintuApp;
 import com.pintu.R;
+import com.pintu.util.IptHelper;
 
 import android.app.Activity;
 import android.content.Context;
@@ -39,7 +41,8 @@ public class HeadSwitchAdapter extends BaseAdapter {
 		for (int i = 0; i < picIds.length; i++) {
 			imgItems[i] = new TextView(mContext);
 			//这个高度必须写成与背景图相同的高度，否则选中时两种状态有偏差
-			GridView.LayoutParams glp = new GridView.LayoutParams(cellWidth, 50);
+			int footerHeightPixels = IptHelper.dip2px(PintuApp.mContext, 50);
+			GridView.LayoutParams glp = new GridView.LayoutParams(cellWidth, footerHeightPixels);
 			imgItems[i].setLayoutParams(glp);
 			imgItems[i].setCompoundDrawablePadding(2);
 			imgItems[i].setText(txts[i]);

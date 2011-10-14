@@ -89,7 +89,8 @@ public class HomeGallery extends FullScreenActivity {
     //每次画廊处于活动状态时都尝试获取远程数据
     protected void onStart(){
     	super.onStart();
-    	retrieveRemoteGallery();
+    	//不自动查询远程了，手动刷新吧
+//    	retrieveRemoteGallery();
     }
     
     private void startRetrieveMsgs(){
@@ -290,7 +291,7 @@ public class HomeGallery extends FullScreenActivity {
     		
     		//如果没有取到数据就不处理了
     		if(results.size()==0){
-    			updateProgress("No pictures in System, Try later...");
+    			updateProgress("No New pictures, Try later...");
     			return;
     		}
     		
