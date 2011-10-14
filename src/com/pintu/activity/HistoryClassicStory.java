@@ -33,6 +33,7 @@ public class HistoryClassicStory extends TempletActivity implements SubMainCallB
 	private ClassicStoryAdapter csAdptr;
 
 	private ProgressBar pb;
+	private ImageButton refreshBtn;
 	
 	private List<StoryInfo> cachedStories;
 
@@ -76,6 +77,9 @@ public class HistoryClassicStory extends TempletActivity implements SubMainCallB
 		if(cachedStories!=null && cachedStories.size()>0){
 			csAdptr.refresh(cachedStories);			
 		}		
+		if(cachedStories.size()==0){
+			this.AUTOREFRESH = true;
+		}
 	}
 
 
@@ -92,12 +96,17 @@ public class HistoryClassicStory extends TempletActivity implements SubMainCallB
 	protected void onRetrieveBegin() {
 		if (this.pb != null)
 			this.pb.setVisibility(View.VISIBLE);
+		if(this.refreshBtn!=null)
+			this.refreshBtn.setVisibility(View.GONE);
 	}
 
 	@Override
 	protected void onRetrieveSuccess() {
 		if (this.pb != null)
 			this.pb.setVisibility(View.GONE);
+		
+		if(this.refreshBtn!=null)
+			this.refreshBtn.setVisibility(View.VISIBLE);
 		// 记下取回数据的时间，下次切换时就不从远程取了
 		this.rememberLastVisit();
 	}
@@ -139,6 +148,11 @@ public class HistoryClassicStory extends TempletActivity implements SubMainCallB
 	@Override
 	public void addProgress(ProgressBar pb) {
 		this.pb = pb;
+	}
+
+	@Override
+	public void refresh(ImageButton refreshBtn) {
+		this.refreshBtn = refreshBtn;
 		
 		long lastVisitTime = this.getPreferences().getLong(
 				Preferences.LAST_VISIT_TIME, 0);
@@ -150,13 +164,6 @@ public class HistoryClassicStory extends TempletActivity implements SubMainCallB
 			// 取远程数据
 			doRetrieve();
 		}
-
-	}
-
-	@Override
-	public void refresh(ImageButton refreshBtn) {
-		// 10分钟后切换进来后会自动重取
-		// 该方法是预留给主活动标题栏中的刷新按钮调用的
 	}
 
 	@Override

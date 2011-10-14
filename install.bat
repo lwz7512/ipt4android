@@ -1,1 +1,2 @@
-adb install -rs bin/PintuMain-release.apk
+adb uninstall com.pintu
+adb install bin/PintuMain-release.apk

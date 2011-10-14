@@ -38,6 +38,7 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 	
 	//ProgressBar
 	private ProgressBar pb;
+	private ImageButton refreshBtn;
 	
 	//pic in local db
 	private List<TPicDetails>cachedHotPics;
@@ -83,7 +84,10 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 		cachedHotPics = PintuApp.dbApi.getCachedHotPics();
 		if(cachedHotPics!=null && cachedHotPics.size()>0){
 			hpAdptr.refresh(cachedHotPics);			
-		}		
+		}	
+		if(cachedHotPics.size()==0){
+			this.AUTOREFRESH = true;
+		}
 	}
 	
 
@@ -100,12 +104,18 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 	protected void onRetrieveBegin() {
 		if(this.pb!=null)
 				this.pb.setVisibility(View.VISIBLE);
+		if(this.refreshBtn!=null)
+			this.refreshBtn.setVisibility(View.GONE);
 	}
 
 	@Override
 	protected void onRetrieveSuccess() {
 		if(this.pb!=null)
 				this.pb.setVisibility(View.GONE);
+		
+		if(this.refreshBtn!=null)
+			this.refreshBtn.setVisibility(View.VISIBLE);
+		
 		//记下取回数据的时间，下次切换时就不从远程取了
 		this.rememberLastVisit();
 	}
@@ -146,8 +156,12 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 
 	@Override
 	public void addProgress(ProgressBar pb) {
-		this.pb = pb;
-		
+		this.pb = pb;		
+	}
+
+	@Override
+	public void refresh(ImageButton refreshBtn) {
+		this.refreshBtn = refreshBtn;
 		//如果登录超过10分钟就允许重新取数据了
 		//或者第一次使用应用肯定要从远程取
 		long diff = this.elapsedFromLastVisit();
@@ -155,12 +169,6 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 			//取远程数据
 			doRetrieve();
 		}
-	}
-
-	@Override
-	public void refresh(ImageButton refreshBtn) {
-		// 10分钟后切换进来后会自动重取
-		//该方法是预留给主活动标题栏中的刷新按钮调用的
 	}
 
 	@Override
