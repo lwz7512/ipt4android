@@ -396,10 +396,10 @@ public class HomeGallery extends FullScreenActivity {
     
     private  void logout() {
     	AlertDialog.Builder builder = new AlertDialog.Builder(HomeGallery.this);
-    	builder.setTitle("提示");
-    	builder.setMessage("确实要注销吗?");
-    	builder.setPositiveButton("确定", okListener);
-    	builder.setNegativeButton("取消",cancelListener);
+    	builder.setTitle(getText(R.string.note));
+    	builder.setMessage(getText(R.string.suretologout));
+    	builder.setPositiveButton(getText(R.string.yes), okListener);
+    	builder.setNegativeButton(getText(R.string.cancel),cancelListener);
     	
     	Dialog dialog = builder.create();
         dialog.show();

@@ -39,14 +39,15 @@ public class StateImage extends ImageView {
 		super.onDraw(canvas);
 
 		Rect rect = canvas.getClipBounds();
-        Paint paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setStyle(Paint.Style.STROKE);
+//        Paint paint = new Paint();
+//        paint.setAntiAlias(true);
+//        paint.setStyle(Paint.Style.STROKE);
         //这个边框宽度应该合适了
-        paint.setStrokeWidth(3);
+//        paint.setStrokeWidth(3);
         //TODO, 这里的颜色将来要根据数据变化
-        paint.setColor(colorByState());       
-        canvas.drawRect(rect, paint);
+        //先暂时不画边框了
+//        paint.setColor(colorByState());       
+//        canvas.drawRect(rect, paint);
 	}
 	
 	//RGB色值参考：http://blog.sina.com.cn/s/blog_49ad23c90100p57h.html

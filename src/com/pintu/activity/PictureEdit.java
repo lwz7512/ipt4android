@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -80,12 +81,12 @@ public class PictureEdit extends FullScreenActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		//要先判断是否已登录
-		//因为通过画廊的分享功能
-		//可以直接打开该活动
+
+		// 要先判断是否已登录
+		// 因为通过画廊的分享功能
+		// 可以直接打开该活动
 		shouldEdit();
-		
+
 		setContentView(R.layout.postpic);
 		// 获取组件引用
 		getViews();
@@ -93,17 +94,17 @@ public class PictureEdit extends FullScreenActivity {
 		addEventListeners();
 
 	}
-	
-	private void shouldEdit(){
+
+	private void shouldEdit() {
 		boolean userLogged = PintuApp.isLoggedin();
-		if(!userLogged){
+		if (!userLogged) {
 			Intent it = new Intent();
 			it.setClass(this, LogonSys.class);
-			//启动登录
+			// 启动登录
 			startActivity(it);
-			//关闭当前
+			// 关闭当前
 			finish();
-		}		
+		}
 	}
 
 	@Override
@@ -158,53 +159,42 @@ public class PictureEdit extends FullScreenActivity {
 	}
 
 	private void getPic(Uri uri) {
-
 		withPic = true;
-
-		mFile = null;
-
-		if (uri.getScheme().equals("content")) {
-			mFile = new File(getRealPathFromURI(uri));
-		} else {
-			mFile = new File(uri.getPath());
+		// FIXME, 竟然在拍照时uri和mFile都是为空！
+		//造成异常关闭
+		// 折腾了一个下午和一个晚上找原因，晕死！
+		//2011/10/15
+		if (uri == null) {
+			try {
+				mFile = new File(FileHelper.getBasePath(), "upload.jpg");
+				uri = Uri.fromFile(mFile);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
-		Bitmap thumbnail = createThumbnailBitmap(uri, MAX_BITMAP_SIZE);
-		int picWidth = thumbnail.getWidth();
-		int picHeight = thumbnail.getHeight();
+		if (uri.getScheme().equals("content")) {// 从画廊获取
+			mFile = new File(getRealPathFromURI(uri));
+		}		
 
 		// 这里必须编码设置一下布局，否则无法居中
 		// xml布局文件中无法达到这种效果，老跑偏
 		// lwz7512 @ 2011/08/18
+
+		Bitmap thumbnail = createThumbnailBitmap(uri, MAX_BITMAP_SIZE);
+
+		int picWidth = thumbnail.getWidth();
+		int picHeight = thumbnail.getHeight();
 		LinearLayout.LayoutParams layouts = new LinearLayout.LayoutParams(
 				picWidth, picHeight);
 		layouts.bottomMargin = 10;
 		layouts.topMargin = 10;
 		layouts.gravity = Gravity.CENTER;
-		mPreview.setLayoutParams(layouts);
 
+		mPreview.setLayoutParams(layouts);
 		mPreview.setImageBitmap(thumbnail);
 
-		if (mFile == null) {
-			updateProgress("Could not locate picture file. Sorry!");
-			disableEntry();
-		}
-
-	}
-
-	public static Bitmap createFitinBitmap(String path, int fitinWidth,
-			int fitinHeight) {
-		BitmapFactory.Options opts = new BitmapFactory.Options();
-		opts.inJustDecodeBounds = true;
-		BitmapFactory.decodeFile(path, opts);
-		int sampleSize1 = opts.outWidth / fitinWidth;
-		int sampleSize2 = opts.outHeight / fitinHeight;
-		opts.inSampleSize = sampleSize1 > sampleSize2 ? sampleSize1
-				: sampleSize2;
-		opts.inJustDecodeBounds = false;
-		opts.inDither = false;
-		opts.inPreferredConfig = Bitmap.Config.RGB_565;
-		return BitmapFactory.decodeFile(path, opts);
 	}
 
 	private String getRealPathFromURI(Uri contentUri) {
@@ -225,6 +215,7 @@ public class PictureEdit extends FullScreenActivity {
 		InputStream input = null;
 
 		try {
+			//这段很关键啊，能让图片变小
 			input = getContentResolver().openInputStream(uri);
 			BitmapFactory.Options options = new BitmapFactory.Options();
 			options.inJustDecodeBounds = true;
@@ -368,12 +359,10 @@ public class PictureEdit extends FullScreenActivity {
 			dialog.setMessage(getString(R.string.page_status_update_success));
 			dialog.dismiss();
 		}
-
 		updateProgress(getString(R.string.page_status_update_success));
 		enableEntry();
-
+		// 关闭当前活动，回画廊
 		finish();
-
 	}
 
 	private void updateProgress(String message) {
@@ -407,9 +396,8 @@ public class PictureEdit extends FullScreenActivity {
 
 	private void openImageCaptureMenu() {
 		try {
-			// TODO: API < 1.6, images size too small
-			File mImageFile = new File(FileHelper.getBasePath(), "upload.jpg");
-			mImageUri = Uri.fromFile(mImageFile);
+			mFile = new File(FileHelper.getBasePath(), "upload.jpg");
+			mImageUri = Uri.fromFile(mFile);
 			Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 			intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
 			startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
@@ -437,7 +425,7 @@ public class PictureEdit extends FullScreenActivity {
 		}
 	}
 
-	private File bitmapToFile(Bitmap bitmap) {
+	private static File bitmapToFile(Bitmap bitmap) {
 		try {
 			File file = new File(FileHelper.getBasePath(), "upload.jpg");
 			FileOutputStream out = new FileOutputStream(file);
@@ -456,5 +444,21 @@ public class PictureEdit extends FullScreenActivity {
 			return null;
 		}
 	}
+	
+	public static Bitmap createFitinBitmap(String path, int fitinWidth,
+			int fitinHeight) {
+		BitmapFactory.Options opts = new BitmapFactory.Options();
+		opts.inJustDecodeBounds = true;
+		BitmapFactory.decodeFile(path, opts);
+		int sampleSize1 = opts.outWidth / fitinWidth;
+		int sampleSize2 = opts.outHeight / fitinHeight;
+		opts.inSampleSize = sampleSize1 > sampleSize2 ? sampleSize1
+				: sampleSize2;
+		opts.inJustDecodeBounds = false;
+		opts.inDither = false;
+		opts.inPreferredConfig = Bitmap.Config.RGB_565;
+		return BitmapFactory.decodeFile(path, opts);
+	}
+
 
 } // end of class

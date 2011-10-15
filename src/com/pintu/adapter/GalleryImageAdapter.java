@@ -23,7 +23,7 @@ public class GalleryImageAdapter extends BaseAdapter {
 	//计算屏幕大小
 	private DisplayMetrics  dm = new DisplayMetrics(); 
 	//网格间距单位像素
-	private int horiGap = 4;
+	private int horiGap = 8;
 	
 	//画廊使用的列表数据
 	private List<TPicDesc>  cells;
@@ -53,9 +53,9 @@ public class GalleryImageAdapter extends BaseAdapter {
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		StateImage imageView;
+		ImageView imageView;
 		if (convertView == null) {
-			imageView = new StateImage(mContext);			
+			imageView = new ImageView(mContext);			
 			//xml布局设置列数为4列，不要随便改
 			int cellWidth = dm.widthPixels/4-horiGap;
 			imageView.setLayoutParams(new GridView.LayoutParams(cellWidth, cellWidth));
@@ -63,15 +63,11 @@ public class GalleryImageAdapter extends BaseAdapter {
 			imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 			imageView.setPadding(0, 0, 0, 0);
 		} else {
-			imageView = (StateImage) convertView;
+			imageView = (ImageView) convertView;
 		}
 		
 		TPicDesc thumbnail = cells.get(position);	
-		String picState = thumbnail.status;
-		if(picState!=null && !picState.equals("")){
-			//设置图片的状态
-			imageView.setState(Integer.valueOf(picState));			
-		}
+
 		//获取图片，这个url是在RetrieveGalleryTask中取回数据后，
 		//根据thumbnail编号拼接而成，详见该任务的数据处理
 		SimpleImageLoader.display(imageView, thumbnail.url);
