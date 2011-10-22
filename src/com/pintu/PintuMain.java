@@ -38,7 +38,5 @@ public class PintuMain extends FullScreenActivity {
 		//关闭欢迎页面
 		finish();
 	}
-
-
-
+	
 } // end of class

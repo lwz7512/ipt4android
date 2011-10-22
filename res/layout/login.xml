@@ -7,7 +7,7 @@
 		android:layout_height="47dp" android:background="@drawable/bg_header"
 		android:gravity="center_vertical" android:layout_alignParentTop="true">
 		<!-- LOGO Image -->
-		<ImageButton android:id="@+id/post_image_btn"
+		<ImageView android:id="@+id/post_image_btn"
 			android:background="@null" android:layout_width="wrap_content"
 			android:layout_height="wrap_content" android:src="@drawable/icon"
 			android:layout_centerInParent="true" />
