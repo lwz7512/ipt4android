@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -396,7 +398,8 @@ public class PictureEdit extends FullScreenActivity {
 
 	private void openImageCaptureMenu() {
 		try {
-			mFile = new File(FileHelper.getBasePath(), "upload.jpg");
+			String filename = _getPhotoFilename(new Date());
+			mFile = new File(FileHelper.getBasePath(), filename);
 			mImageUri = Uri.fromFile(mFile);
 			Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 			intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
@@ -404,6 +407,11 @@ public class PictureEdit extends FullScreenActivity {
 		} catch (Exception e) {
 			Log.e(TAG, e.getMessage());
 		}
+	}
+	
+	private String _getPhotoFilename(Date date){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddKms");
+		return dateFormat.format(date) + ".jpg";
 	}
 
 	/**

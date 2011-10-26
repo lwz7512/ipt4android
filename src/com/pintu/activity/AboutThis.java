@@ -20,8 +20,6 @@ public class AboutThis extends FullScreenActivity {
 	//顶部标题
 	private TextView tv_title;
 	
-	
-	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.about);
