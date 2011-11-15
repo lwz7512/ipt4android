@@ -2,28 +2,29 @@
 <!-- 底部栏 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="horizontal" android:layout_width="fill_parent"
-	android:layout_height="50dp" android:padding="0dp"
-	android:layout_alignParentBottom="true" android:background="@drawable/maintab_toolbar_bg">
+	android:layout_height="48dp" android:padding="0dp"
+	android:layout_alignParentBottom="true" 
+	android:background="@drawable/maintab_toolbar_bg">
 
 	<TextView android:id="@+id/tv_post" android:layout_width="fill_parent"
 		android:layout_height="fill_parent" android:layout_weight="1"
-		style="@style/footer_button" android:drawableTop="@drawable/detail_share_selected"
+		style="@style/footer_button" android:drawableTop="@drawable/home_tags"
 		android:text="@string/postpic" />
 	<TextView android:id="@+id/tv_hotpic" android:layout_width="fill_parent"
 		android:layout_height="fill_parent" android:layout_weight="1"
-		style="@style/footer_button" android:drawableTop="@drawable/detail_comment_selected"
+		style="@style/footer_button" android:drawableTop="@drawable/home_hot_pic"
 		android:text="@string/hotpic" />
 	<TextView android:id="@+id/tv_community" android:layout_width="fill_parent"
 		android:layout_height="fill_parent" android:layout_weight="1"
-		style="@style/footer_button" android:drawableTop="@drawable/detail_forward_selected"
+		style="@style/footer_button" android:drawableTop="@drawable/home_community"
 		android:text="@string/community" />
-	<TextView android:id="@+id/tv_market" android:layout_width="fill_parent"
+	<TextView android:id="@+id/tv_tags" android:layout_width="fill_parent"
 		android:layout_height="fill_parent" android:layout_weight="1"
-		style="@style/footer_button" android:drawableTop="@drawable/detail_fav_highlight_selected"
-		android:text="@string/market" />
+		style="@style/footer_button" android:drawableTop="@drawable/home_post_pic"
+		android:text="@string/hottags" />
 	<TextView android:id="@+id/tv_mine" android:layout_width="fill_parent"
 		android:layout_height="fill_parent" android:layout_weight="1"
-		style="@style/footer_button" android:drawableTop="@drawable/detail_more_selected"
+		style="@style/footer_button" android:drawableTop="@drawable/home_andi"
 		android:text="@string/mine" />
 
 </LinearLayout>

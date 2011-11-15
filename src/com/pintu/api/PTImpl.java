@@ -50,11 +50,19 @@ public class PTImpl implements PTApi {
 	private String service = "/ipintu/pintuapi";
 	
 	//debug or release flag
-	private boolean isDebug = false;
+	private boolean isDebug = true;
 
 
 	public PTImpl(String userId) {
 		client = new SimpleHttpClient(userId);
+	}
+	
+	public boolean isDebugMode(){
+		if(isDebug){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 	//登录成功后要更新记录在client中的用户
@@ -97,7 +105,7 @@ public class PTImpl implements PTApi {
 	 * 而不与其他操作共用，以解决底层传输错误：
 	 * java.net.SocketException: Broken pipe
 	 */	
-	public String postPicture(File pic, String tags, String desc, String allowStory) throws HttpException {
+	public String postPicture(File pic, String tags, String desc, String isOriginal) throws HttpException {
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpEntity resEntity = null;
 		String response = null;
@@ -108,7 +116,7 @@ public class PTImpl implements PTApi {
 			StringBody methodValue = null;
 			StringBody tagsValue = null;
 			StringBody descriptionValue = null;
-			StringBody allowStoryValue = null;
+			StringBody isOriginalValue = null;
 			StringBody userValue = null;
 			StringBody sourceValue = null;
 			try {
@@ -118,7 +126,7 @@ public class PTImpl implements PTApi {
 				tagsValue = new StringBody(tags);				
 				desc = UTF8Formater.changeToUnicode(desc);
 				descriptionValue = new StringBody(desc);				
-				allowStoryValue = new StringBody(allowStory);
+				isOriginalValue = new StringBody(isOriginal);
 				
 				userValue = new StringBody(client.getUserId());
 				sourceValue = new StringBody("android");				
@@ -133,7 +141,7 @@ public class PTImpl implements PTApi {
 			reqEntity.addPart("photo", file);
 			reqEntity.addPart("tags", tagsValue);
 			reqEntity.addPart("description", descriptionValue);
-			reqEntity.addPart("allowStory", allowStoryValue);
+			reqEntity.addPart("isOriginal", isOriginalValue);
 			reqEntity.addPart("userId", userValue);
 			reqEntity.addPart("source", sourceValue);
 

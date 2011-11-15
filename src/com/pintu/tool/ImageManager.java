@@ -37,7 +37,7 @@ public class ImageManager  {
 	
 	//lazyImageLoader使用的静态变量
     public static Bitmap mDefaultBitmap = ImageManager
-    		.drawableToBitmap(PintuApp.mContext.getResources().getDrawable(R.drawable.user_default_photo));
+    		.drawableToBitmap(PintuApp.mContext.getResources().getDrawable(R.drawable.greenframe));
     public static final int DEFAULT_COMPRESS_QUALITY = 90;    
     
     //品图移动客户端上传图片大小限制：1200/800

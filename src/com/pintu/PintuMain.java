@@ -3,6 +3,7 @@ package com.pintu;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Toast;
 
 import com.pintu.activity.HomeGallery;
 import com.pintu.activity.LogonSys;
@@ -22,7 +23,15 @@ public class PintuMain extends FullScreenActivity {
 				forwardTo();
 			}
 		}, SPLASH_DISPLAY_LENGHT);
-				
+			
+		checkAppStatus();
+	}
+	
+	private void checkAppStatus() {
+		if(PintuApp.mApi.isDebugMode()){
+			Toast.makeText(this, "Warning, running in DEBUG mode!", 
+					Toast.LENGTH_LONG).show();
+		}
 	}
 	
 	private void forwardTo(){

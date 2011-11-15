@@ -57,7 +57,7 @@ public class HomeGallery extends FullScreenActivity {
 	private TextView tv_post;
 	private TextView tv_hotpic;
 	private TextView tv_community;
-	private TextView tv_market;
+	private TextView tv_tags;
 	private TextView tv_mine;
 	
 	
@@ -137,7 +137,7 @@ public class HomeGallery extends FullScreenActivity {
 		tv_post = (TextView)findViewById(R.id.tv_post);
 		tv_hotpic = (TextView)findViewById(R.id.tv_hotpic);
 		tv_community = (TextView)findViewById(R.id.tv_community);
-		tv_market = (TextView)findViewById(R.id.tv_market);
+		tv_tags = (TextView)findViewById(R.id.tv_tags);
 		tv_mine = (TextView)findViewById(R.id.tv_mine);
 		
 	}
@@ -149,7 +149,7 @@ public class HomeGallery extends FullScreenActivity {
 		tv_post.setOnClickListener(postImgListener);
 		tv_hotpic.setOnClickListener(hotpicListener);
 		tv_community.setOnClickListener(communityListener);
-		tv_market.setOnClickListener(marketListener);
+		tv_tags.setOnClickListener(tagsListener);
 		tv_mine.setOnClickListener(mineListener);
 		
 	}
@@ -165,14 +165,22 @@ public class HomeGallery extends FullScreenActivity {
 	};
 	
 	
-	private OnClickListener marketListener = new OnClickListener(){
+//	private OnClickListener marketListener = new OnClickListener(){
+//		@Override
+//		public void onClick(View v) {
+//			Intent intent = new Intent();
+//			//启动夜市界面
+//			intent.setClass(HomeGallery.this, MarketExchange.class);
+//			startActivity(intent);
+//		}		
+//	};
+	
+	private OnClickListener tagsListener = new OnClickListener() {		
 		@Override
 		public void onClick(View v) {
-			Intent intent = new Intent();
-			//启动夜市界面
-			intent.setClass(HomeGallery.this, MarketExchange.class);
-			startActivity(intent);
-		}		
+			// TODO Auto-generated method stub
+			
+		}
 	};
 	
 	

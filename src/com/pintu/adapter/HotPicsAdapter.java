@@ -76,7 +76,7 @@ public class HotPicsAdapter extends BaseAdapter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		holder.hot_pic_commentnum.setText(tpic.commentsNum);
+//		holder.hot_pic_commentnum.setText(tpic.browseCount);
 		holder.hot_pic_storynum.setText(tpic.storiesNum);
 		
     	String profileUrl = PintuApp.mApi.composeImgUrlByPath(tpic.avatarImgPath);

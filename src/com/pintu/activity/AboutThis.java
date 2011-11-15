@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.pintu.R;
@@ -16,7 +17,7 @@ public class AboutThis extends FullScreenActivity {
 
 	// Header
 	//返回按钮
-	private Button top_back;
+	private ImageButton top_back;
 	//顶部标题
 	private TextView tv_title;
 	
@@ -35,7 +36,7 @@ public class AboutThis extends FullScreenActivity {
 			e.printStackTrace();
 		}
 		
-		top_back = (Button) findViewById(R.id.top_back);
+		top_back = (ImageButton) findViewById(R.id.top_back);
 		top_back.setOnClickListener(mGoListener);
 		tv_title = (TextView) findViewById(R.id.tv_title);
 

@@ -4,7 +4,7 @@ import android.app.Application;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import android.widget.Toast;
 
 import com.pintu.api.PTApi;
 import com.pintu.api.PTImpl;
@@ -45,8 +45,9 @@ public class PintuApp extends Application {
 		//业务级工具准备
 		mApi = new PTImpl(getUser());
 		dbApi = new CacheImpl(this);
-
+		
 	}
+
 
 	// 登录成功记录用户
 	public static void rememberUser(String userId) {

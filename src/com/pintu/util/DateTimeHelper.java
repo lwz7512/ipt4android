@@ -87,14 +87,14 @@ public class DateTimeHelper {
         diff /= 60;
 
         if (diff < 60) {
-            return prefix + diff + min + suffix;
+            return  diff + min + suffix;
         }
 
         // Hours.
         diff /= 60;
 
         if (diff < 24) {
-            return prefix + diff + hour + suffix;
+            return  diff + hour + suffix;
         }
 
         return AGO_FULL_DATE_FORMATTER.format(date);

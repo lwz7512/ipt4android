@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -40,7 +41,7 @@ public class StoryList extends TempletActivity {
 
 	// Header
 	// 返回按钮
-	private Button top_back;
+	private ImageButton top_back;
 	// 顶部标题
 	private TextView tv_title;
 	// 加载进度条
@@ -73,7 +74,7 @@ public class StoryList extends TempletActivity {
 	}
 
 	protected void getViews() {
-		top_back = (Button) findViewById(R.id.top_back);
+		top_back = (ImageButton) findViewById(R.id.top_back);
 
 		tv_title = (TextView) findViewById(R.id.tv_title);
 		// 标题文字设置

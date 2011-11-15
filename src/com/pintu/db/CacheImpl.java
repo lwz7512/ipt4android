@@ -272,7 +272,7 @@ public class CacheImpl implements CacheDao {
 		v.put(PintuTables.HotpicTable.Columns.AVATARIMGPATH, pic.avatarImgPath);
 		v.put(PintuTables.HotpicTable.Columns.MOBIMGID, pic.mobImgId);
 		v.put(PintuTables.HotpicTable.Columns.STORIESNUM, pic.storiesNum);
-		v.put(PintuTables.HotpicTable.Columns.COMMENTSNUM, pic.commentsNum);
+		v.put(PintuTables.HotpicTable.Columns.COMMENTSNUM, pic.browseCount);
 		v.put(PintuTables.HotpicTable.Columns.CREATION_TIME, pic.publishTime);
 
 		return v;
@@ -310,7 +310,7 @@ public class CacheImpl implements CacheDao {
 				.getColumnIndex(PintuTables.HotpicTable.Columns.MOBIMGID));
 		pic.storiesNum = c.getString(c
 				.getColumnIndex(PintuTables.HotpicTable.Columns.STORIESNUM));
-		pic.commentsNum = c.getString(c
+		pic.browseCount = c.getString(c
 				.getColumnIndex(PintuTables.HotpicTable.Columns.COMMENTSNUM));
 		pic.publishTime = c.getString(c
 				.getColumnIndex(PintuTables.HotpicTable.Columns.CREATION_TIME));

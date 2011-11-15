@@ -9,7 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -48,15 +47,15 @@ public class PictureEdit extends FullScreenActivity {
 
 	private static final int REQUEST_IMAGE_CAPTURE = 2;
 	private static final int REQUEST_PHOTO_LIBRARY = 3;
-	private static final int MAX_BITMAP_SIZE = 400;
+	private static final int MAX_BITMAP_SIZE = 300;
 
 	// Header
-	private Button mBackButton;
+	private ImageButton mBackButton;
 	private Button mTopSendButton;
 
 	private EditText tagsEditText;
 	private EditText descEditText;
-	private CheckBox allowStory;
+	private CheckBox isOriginal;
 	private ImageButton chooseImagesButton;
 	private ImageButton mCameraButton;
 	private ProgressDialog dialog;
@@ -139,13 +138,13 @@ public class PictureEdit extends FullScreenActivity {
 	}
 
 	private void getViews() {
-		mBackButton = (Button) this.findViewById(R.id.top_back);
+		mBackButton = (ImageButton) this.findViewById(R.id.top_back);
 		mTopSendButton = (Button) this.findViewById(R.id.top_send_btn);
 
 		mPreview = (ImageView) findViewById(R.id.preview);
 		tagsEditText = (EditText) findViewById(R.id.tags);
 		descEditText = (EditText) findViewById(R.id.description);
-		allowStory = (CheckBox) findViewById(R.id.allowstory);
+		isOriginal = (CheckBox) findViewById(R.id.isOriginal);
 
 		mCameraButton = (ImageButton) findViewById(R.id.camera_button);
 		chooseImagesButton = (ImageButton) findViewById(R.id.choose_images_button);
@@ -168,7 +167,8 @@ public class PictureEdit extends FullScreenActivity {
 		//2011/10/15
 		if (uri == null) {
 			try {
-				mFile = new File(FileHelper.getBasePath(), "upload.jpg");
+				String filename = _getPhotoFilename(new Date());
+				mFile = new File(FileHelper.getBasePath(), filename);
 				uri = Uri.fromFile(mFile);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -318,7 +318,7 @@ public class PictureEdit extends FullScreenActivity {
 
 		String description = descEditText.getText().toString();
 		String tags = tagsEditText.getText().toString();
-		boolean storyable = allowStory.isChecked();
+		boolean original = isOriginal.isChecked();
 
 		if (withPic || mFile != null) {
 
@@ -334,7 +334,7 @@ public class PictureEdit extends FullScreenActivity {
 			params.put("file", mFile);
 			params.put("description", description);
 			params.put("tags", tags);
-			params.put("allowStory", storyable ? "1" : "0");
+			params.put("isOriginal", original ? "1" : "0");
 			mSendTask.execute(params);
 
 		} else {

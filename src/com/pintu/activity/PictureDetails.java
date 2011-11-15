@@ -1,7 +1,6 @@
 package com.pintu.activity;
 
 import java.text.ParseException;
-import java.util.Date;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,7 +40,7 @@ public class PictureDetails extends FullScreenActivity {
 	
 	// Header
 	//返回按钮
-	private Button top_back;
+	private ImageButton top_back;
 	//顶部标题
 	private TextView tv_title;
 	//加载进度条
@@ -67,8 +66,10 @@ public class PictureDetails extends FullScreenActivity {
 	private TextView tv_description;
 	//发布来源
 	private TextView send_source;
-	//故事数（品图数），点击查看列表
-	private Button storynum;
+	//原创
+	private TextView isOriginal;
+	//浏览次数，点击查看列表
+	private TextView browseCount;
 	//评论数，点击查看列表
 	private Button commentnum;
 	
@@ -123,7 +124,7 @@ public class PictureDetails extends FullScreenActivity {
 	}
 	
 	private void getViews(){
-		top_back = (Button) findViewById(R.id.top_back);
+		top_back = (ImageButton) findViewById(R.id.top_back);
 		tv_title = (TextView) findViewById(R.id.tv_title);
 		//设置标题文字
 		tv_title.setText(R.string.picdetails);
@@ -137,8 +138,10 @@ public class PictureDetails extends FullScreenActivity {
 		t_picture = (ImageView) findViewById(R.id.t_picture);
 		tv_tags = (TextView) findViewById(R.id.tv_tags);
 		tv_description = (TextView) findViewById(R.id.tv_description);
-		send_source = (TextView) findViewById(R.id.send_source);
-		storynum = (Button) findViewById(R.id.storynum);
+		isOriginal = (TextView) findViewById(R.id.tv_isoriginal);		
+		
+		send_source = (TextView) findViewById(R.id.send_source);			
+		browseCount = (TextView) findViewById(R.id.browsenum);		
 		commentnum = (Button) findViewById(R.id.commentnum);
 		
 		tv_taste = (TextView) findViewById(R.id.tv_taste);
@@ -154,8 +157,7 @@ public class PictureDetails extends FullScreenActivity {
 		person_more.setOnClickListener(viewUserAction);
 		//头像上也加上查看动作
 		profile_image.setOnClickListener(viewUserAction);
-		//查看故事列表
-		storynum.setOnClickListener(storyListAction);
+
 		//查看评论列表
 		commentnum.setOnClickListener(commentsAction);
 		//添加品图故事
@@ -228,27 +230,6 @@ public class PictureDetails extends FullScreenActivity {
 		}
 	};
 	
-	//查看故事列表
-	private OnClickListener storyListAction = new OnClickListener(){
-		@Override
-		public void onClick(View v) {			
-			String tpicUrl = null;
-			Intent it = new Intent();
-			//准备启动StoryList
-			it.setClass(PictureDetails.this, StoryList.class);
-			if(details!=null && details.id!=null){
-				tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
-				it.putExtra("tpicUrl", tpicUrl);
-				it.putExtra("author", details.author);
-				it.putExtra("pubTime", details.relativeTime);	
-				it.putExtra("tpId", details.id);
-				//启动故事列表
-				startActivity(it);				
-			}else{
-				updateProgress("picture is blank, waiting for it to view stories...");
-			}
-		}		
-	};
 	
 	//查看评论列表
 	private OnClickListener commentsAction = new OnClickListener(){
@@ -485,19 +466,29 @@ public class PictureDetails extends FullScreenActivity {
 		}		
     	//显示格式化后的相对时间
     	created_at.setText(details.relativeTime);
-    	tv_tags.setText(details.tags);
+    	
+    	if(details.tags.equals("")){
+    		tv_tags.setVisibility(View.GONE);
+    	}else{
+    		tv_tags.setText(details.tags);    		
+    	}
+    	
     	tv_description.setText(details.description);
-    	send_source.setText("Android");
+    	String sourcePrefix = getText(R.string.picfrom).toString();
+    	send_source.setText(sourcePrefix+"  "+"Android");
     	
-    	if(details.storiesNum!=null && Integer.valueOf(details.storiesNum)>0){
-    		storynum.setText(details.storiesNum);    		
+    	if(details.storiesNum!=null){
+    		commentnum.setText(details.storiesNum);    		
     	}
-    	if(details.commentsNum!=null && Integer.valueOf(details.commentsNum)>0){
-    		commentnum.setText(details.commentsNum);
+    	if(details.browseCount!=null){
+    		String prefix = getText(R.string.browsenum).toString();
+    		browseCount.setText(prefix+"  "+details.browseCount);
     	}
     	
-    	if(details.allowStory==0){
-    		tv_taste.setEnabled(false);
+    	if(details.isOriginal==1){
+    		isOriginal.setText(R.string.original);
+    	}else{    		
+    		isOriginal.setText(R.string.notoriginal);
     	}
     	
     }

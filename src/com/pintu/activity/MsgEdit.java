@@ -16,6 +16,7 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -33,7 +34,7 @@ public class MsgEdit extends TempletActivity {
 	private static int STORYLENGTH = 63;
 	
 	// Header
-	private Button top_back;
+	private ImageButton top_back;
 	private Button top_send_btn;
 	private ProgressBar sending_prgrsBar;
 
@@ -53,7 +54,7 @@ public class MsgEdit extends TempletActivity {
 
 	@Override
 	protected void getViews() {
-		top_back = (Button) findViewById(R.id.top_back);
+		top_back = (ImageButton) findViewById(R.id.top_back);
 		top_send_btn = (Button) findViewById(R.id.top_send_btn);
 		sending_prgrsBar = (ProgressBar) findViewById(R.id.sending_prgrsBar);
 

@@ -3,7 +3,7 @@
 	<!-- 爱品图专属文字 -->
 	<string name="hello">Hello World, PintuMain!</string>
 	<string name="app_name">爱品图</string>
-	<string name="allow_story">是否邀请他人品图</string>
+	<string name="isOriginal">是否原创</string>
 	<string name="description">添加图画描述</string>
 	<string name="tags">添加多个标签用空格分隔</string>
 	<string name="writestory">添加对图画的评价或者微小说</string>
@@ -26,8 +26,8 @@
 	<!-- 画廊主菜单 -->
 	<string name="postpic">贴图</string>
 	<string name="hotpic">热图</string>
-	<string name="community">社区</string>
-	<string name="market">夜市</string>
+	<string name="community">达人</string>
+	<string name="hottags">标签</string>
 	<string name="mine">俺滴</string>
 
 	<!-- 贴图详情主菜单 -->
@@ -38,6 +38,10 @@
 	<string name="report">举报</string>
 	<string name="level_zh">级别</string>
 	<string name="score_zh">积分</string>
+	<string name="browsenum">浏览数目</string>
+	<string name="original">原创</string>
+	<string name="notoriginal">非原创</string>
+	<string name="picfrom">来自</string>
 
 	<!-- 页面Title -->
 	<string name="gallery">首页画廊</string>

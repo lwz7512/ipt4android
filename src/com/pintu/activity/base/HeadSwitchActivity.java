@@ -41,7 +41,7 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	private int[] iconArray;
 	private int[] txtArray;
 	
-	private Button top_back;
+	private ImageButton top_back;
 	private ProgressBar 	details_prgrsBar;
 	private ImageButton comn_refresh_btn;
 	
@@ -68,7 +68,7 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		//然后设置布局
 		setContentView(R.layout.headswitch);
 				
-		top_back = (Button) findViewById(R.id.top_back);
+		top_back = (ImageButton) findViewById(R.id.top_back);
 		top_back.setOnClickListener(mGoListener);		
 		
 		comn_refresh_btn = (ImageButton) findViewById(R.id.comn_refresh_btn);

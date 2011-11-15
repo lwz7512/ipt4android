@@ -1,53 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 顶部条 -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"     
-      android:layout_width="fill_parent"
-      android:layout_height="47dp"
-      android:background="@drawable/bg_header"
-      android:gravity="center_vertical"
-      android:layout_alignParentTop="true"
-      >
-      
-       <!-- BACK Button -->
-        <Button android:id="@+id/top_back"
-          android:layout_width="wrap_content"
-          android:layout_height="fill_parent"
-          android:layout_alignParentLeft="true"
-          style="@style/simple_button"
-          android:text="@string/page_label_go_back"
-          />
-           
-        <!-- 当前活动标题 -->
-        <TextView android:id="@+id/tv_title"            
-			android:layout_width="wrap_content" 
-			android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-			android:layout_centerVertical="true"
-			style="@style/normalText.Big.While"						       
-           /> 
-           
-        <!-- 旋转 -->
-        <ProgressBar android:id="@+id/details_prgrsBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"            
-			android:layout_alignParentRight="true"
-			android:layout_centerVertical="true"			
-			android:layout_marginRight="2dp" 
-            style="?android:progressBarStyleSmall"
-            android:visibility="gone"
-        />      
-        
-        <!-- 公用刷新按钮 -->
-        <ImageButton
-            android:id="@+id/comn_refresh_btn"
-            android:background="@null"
-			android:layout_width="wrap_content" 
-			android:layout_height="wrap_content"
-			android:layout_alignParentRight="true"
-			android:layout_centerVertical="true"			
-			android:layout_marginRight="2dp" 
-			android:src="@drawable/top_refresh_selector" 
-			android:visibility="gone"         
-           /> 
-                                 
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="47dp"
+	android:background="@drawable/bg_header" android:gravity="center_vertical"
+	android:layout_alignParentTop="true">
+
+	<!-- BACK ImageButton -->
+	<ImageButton android:id="@+id/top_back" android:background="@null"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true" android:layout_marginLeft="4dp"
+		android:layout_centerVertical="true" android:src="@drawable/back_selector" />
+
+	<!-- 当前活动标题 -->
+	<TextView android:id="@+id/tv_title" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_centerHorizontal="true"
+		android:layout_centerVertical="true" style="@style/normalText.Big.While" />
+
+	<!-- 旋转 -->
+	<ProgressBar android:id="@+id/details_prgrsBar"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_alignParentRight="true" android:layout_centerVertical="true"
+		android:layout_marginRight="2dp" style="?android:progressBarStyleSmall"
+		android:visibility="gone" />
+
+	<!-- 公用刷新按钮 -->
+	<ImageButton android:id="@+id/comn_refresh_btn"
+		android:background="@null" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignParentRight="true"
+		android:layout_centerVertical="true" android:layout_marginRight="2dp"
+		android:src="@drawable/top_refresh_selector" android:visibility="gone" />
+
 </RelativeLayout>

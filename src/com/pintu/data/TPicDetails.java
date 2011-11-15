@@ -29,8 +29,8 @@ public class TPicDetails {
 	//贴图描述
 	public String description;
 
-	//是否允许品图，这个比较重要
-	public int allowStory;
+	//是否为原创
+	public int isOriginal;
 		
 	//生成的移动图ID，这个ID是由pId+"_Mob"构成
 	public String mobImgId;
@@ -38,10 +38,10 @@ public class TPicDetails {
 	//生成的原始图ID，这个ID是由pId+"_Raw"构成
 	public String rawImgId;
 	
-	//品图（故事）数目
-	public String storiesNum;
 	//评论数目
-	public String commentsNum;
+	public String storiesNum;
+	//浏览数目
+	public String browseCount;
 	
 	
 	public static TPicDetails parseJsonToObj(JSONObject json) throws JSONException{
@@ -55,11 +55,15 @@ public class TPicDetails {
 		details.publishTime = json.optString("publishTime");
 		details.tags = json.optString("tags");
 		details.description = json.optString("description");
-		details.allowStory = json.getInt("allowStory");		
+		
+		int isOriginal = Integer.valueOf( json.optString("isOriginal"));
+		if(isOriginal>0) details.isOriginal =	isOriginal;
+		
 		details.mobImgId = json.optString("mobImgId");
 		details.rawImgId = json.optString("rawImgId");
+		//评论数目
 		details.storiesNum = json.optString("storiesNum");
-		details.commentsNum = json.optString("commentsNum");
+		details.browseCount = json.optString("browseCount");
 		
 		return details;
 	}

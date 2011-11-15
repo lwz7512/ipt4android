@@ -134,7 +134,7 @@ public class SendTask extends GenericTask {
 			try {
 				String tags = param.get("tags").toString();
 				String description = param.get("description").toString();
-				String allowStory = param.get("allowStory").toString();
+				String allowStory = param.get("isOriginal").toString();
 				mFile = SimpleImageLoader.compressRawImage(mFile);
 				postResult = PintuApp.mApi.postPicture(mFile, tags,description, allowStory);
 			} catch (HttpException e) {				

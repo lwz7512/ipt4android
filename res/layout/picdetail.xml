@@ -35,20 +35,17 @@
 					android:layout_height="wrap_content" android:layout_below="@id/user_name"
 					android:layout_alignLeft="@id/user_name" android:text="..."
 					style="@style/normalText.span" />
-				<!-- 发布时间，很奇怪都是数字时，比作者高，有汉字时比作者低
-						先默认让它往低走一下吧 -->
+				<!-- 发布时间，很奇怪都是数字时，比作者高，有汉字时比作者低 先默认让它往低走一下吧 -->
 				<TextView android:id="@+id/created_at"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
 					android:layout_alignParentRight="true" android:layout_marginRight="8dp"
-					android:text="..." android:layout_marginTop="2dp"
-					/>
+					android:text="..." android:layout_marginTop="2dp" />
 				<!-- More -->
 				<ImageButton android:id="@+id/person_more"
 					android:layout_width="wrap_content" android:layout_height="fill_parent"
 					android:layout_alignParentRight="true" android:layout_marginRight="8dp"
-					android:layout_marginTop="6dp"
-					android:layout_below="@id/created_at" android:src="@drawable/status_arr_selector"
-					android:background="@null" />
+					android:layout_marginTop="6dp" android:layout_below="@id/created_at"
+					android:src="@drawable/status_arr_selector" android:background="@null" />
 			</RelativeLayout>
 			<!-- 分割线 -->
 			<View android:id="@+id/spacer" android:background="@drawable/tweet_details_divider"
@@ -56,13 +53,37 @@
 				android:layout_height="20dip" android:minHeight="20dip" />
 			<!-- 消息图片 -->
 			<ImageView android:id="@+id/t_picture"
-				android:layout_width="wrap_content" android:layout_height="200dp"
-				android:layout_margin="10dp" android:maxWidth="460px" 
-				android:src="@drawable/mockpic_gray"/>
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content"
+				android:layout_margin="10dp"
+				android:src="@drawable/mockpic_gray" />
+			<!-- 信息属性 -->
+			<RelativeLayout android:layout_width="fill_parent"
+				android:layout_height="44dp" android:paddingLeft="10dp"
+				android:paddingRight="25dp" android:paddingTop="5dp"
+				android:paddingBottom="10dp">
+				<!-- 原创 -->
+				<TextView android:id="@+id/tv_isoriginal"
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+					android:text="..." style="@style/normalText.span" />
+				<!-- 浏览数目 -->
+				<TextView android:id="@+id/browsenum" 
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content" 
+					android:layout_centerHorizontal="true"	
+					android:text="..."
+					style="@style/normalText.span" />	
+				<!-- 评论数目 -->
+				<Button android:id="@+id/commentnum" android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true" android:drawablePadding="5dip"
+					android:drawableLeft="@drawable/detail_comment_selected"
+					android:text="..." style="@style/Button" />				
+			</RelativeLayout>
 			<!-- 描述和标签 -->
 			<LinearLayout android:layout_width="wrap_content"
 				android:layout_height="wrap_content" android:orientation="vertical"
-				android:paddingLeft="10dp">
+				android:paddingLeft="10dp" >
 				<!-- 标签 -->
 				<TextView android:id="@+id/tv_tags" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:text="..."
@@ -70,32 +91,14 @@
 				<!-- 描述 -->
 				<TextView android:id="@+id/tv_description"
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
-					android:text="..." style="@style/normalText.span" />
-			</LinearLayout>
-			<!-- 信息属性 -->
-			<RelativeLayout android:layout_width="fill_parent"
-				android:layout_height="44dp" android:paddingLeft="10dp"
-				android:paddingRight="25dp" android:paddingTop="5dp"
-				android:paddingBottom="10dp">
+					android:text="..." style="@style/normalText.span" 
+					android:layout_marginBottom="10dp"/>
 				<!-- 图片来源 -->
 				<TextView android:id="@+id/send_source"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:layout_alignParentLeft="true"
-					android:layout_alignParentBottom="true" android:text="from..."
-					style="@style/normalText.span" />
-				<!-- 品图数目 -->
-				<Button android:id="@+id/storynum" android:layout_width="wrap_content"
-					android:layout_height="wrap_content" android:layout_toLeftOf="@+id/commentnum"
-					android:layout_marginRight="5dp" android:drawablePadding="5dip"
-					android:drawableLeft="@drawable/notify_tweet_template"
-					android:text="0" style="@style/Button" />
-				<!-- 评论数目 -->
-				<Button android:id="@+id/commentnum" android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" android:drawablePadding="5dip"
-					android:drawableLeft="@drawable/notify_mention" android:text="0"
-					style="@style/Button" />
-			</RelativeLayout>
+					android:text="from..." style="@style/normalText.span" 
+					android:layout_marginBottom="10dp"/>
+			</LinearLayout>
 		</LinearLayout>
 	</ScrollView>
 	<!-- footer TODO: 更换背景色 -->
