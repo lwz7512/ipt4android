@@ -38,7 +38,7 @@
 			<TextView android:id="@+id/hot_pic_commenttxt"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
 				android:layout_toLeftOf="@id/hot_pic_commentnum"
-				android:layout_marginRight="10dp" android:text="@string/taste"
+				android:layout_marginRight="10dp" android:text="@string/like"
 				style="@style/normalText.span" />
 			<!-- 故事数 -->
 			<TextView android:id="@+id/hot_pic_storynum"

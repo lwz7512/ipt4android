@@ -74,8 +74,8 @@ public class PictureDetails extends FullScreenActivity {
 	private Button commentnum;
 	
 	//Footer
-	//品图
-	private TextView tv_taste;
+	//喜欢
+	private TextView tv_like;
 	//评论
 	private TextView tv_comment;
 	//收藏
@@ -144,7 +144,7 @@ public class PictureDetails extends FullScreenActivity {
 		browseCount = (TextView) findViewById(R.id.browsenum);		
 		commentnum = (Button) findViewById(R.id.commentnum);
 		
-		tv_taste = (TextView) findViewById(R.id.tv_taste);
+		tv_like = (TextView) findViewById(R.id.tv_like);
 		tv_comment = (TextView) findViewById(R.id.tv_comment);
 		tv_favorite = (TextView) findViewById(R.id.tv_favorite);
 		tv_forward = (TextView) findViewById(R.id.tv_forward);
@@ -161,7 +161,7 @@ public class PictureDetails extends FullScreenActivity {
 		//查看评论列表
 		commentnum.setOnClickListener(commentsAction);
 		//添加品图故事
-		tv_taste.setOnClickListener(toTasteActivity);
+		tv_like.setOnClickListener(toTasteActivity);
 		//添加评论
 		tv_comment.setOnClickListener(toCommentsActivity);
 		//收藏，不跳转
@@ -185,22 +185,12 @@ public class PictureDetails extends FullScreenActivity {
 		}
 	};
 	
-	//添加品图故事
+	//投票喜欢
 	private OnClickListener toTasteActivity = new OnClickListener(){
 		@Override
-		public void onClick(View v){
-			Intent it = new Intent();
-			//准备启动故事编辑
-			it.setClass(PictureDetails.this, StoryEdit.class);
-			String tpicUrl = null;
-			if(details!=null){
-				tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
-				it.putExtra("tpicUrl", tpicUrl);
-				it.putExtra("author", details.author);
-				it.putExtra("pubTime", details.relativeTime);	
-				it.putExtra("tpId", details.id);
-				//启动故事编辑
-				startActivity(it);
+		public void onClick(View v){			
+			if(details!=null){				
+				likeIt();
 			}else{
 				updateProgress("picture is blank, waiting for it to add story...");
 			}
@@ -279,6 +269,14 @@ public class PictureDetails extends FullScreenActivity {
 			}
 		}
 	};
+	
+	/**
+	 * 投票：喜欢
+	 */
+	private void likeIt(){
+		//TODO, SEND LIKE POST ...
+		
+	}
 	
 	/**
 	 * 本地用户收藏动作
