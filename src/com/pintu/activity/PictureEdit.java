@@ -39,6 +39,7 @@ import com.pintu.task.TaskListener;
 import com.pintu.task.TaskParams;
 import com.pintu.task.TaskResult;
 import com.pintu.util.FileHelper;
+import com.pintu.util.Preferences;
 
 public class PictureEdit extends FullScreenActivity {
 
@@ -159,100 +160,6 @@ public class PictureEdit extends FullScreenActivity {
 
 	}
 
-	private void getPic(Uri uri) {
-		withPic = true;
-		// FIXME, 竟然在拍照时uri和mFile都是为空！
-		//造成异常关闭
-		// 折腾了一个下午和一个晚上找原因，晕死！
-		//2011/10/15
-		if (uri == null) {
-			try {
-				String filename = _getPhotoFilename(new Date());
-				mFile = new File(FileHelper.getBasePath(), filename);
-				uri = Uri.fromFile(mFile);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-
-		if (uri.getScheme().equals("content")) {// 从画廊获取
-			mFile = new File(getRealPathFromURI(uri));
-		}		
-
-		// 这里必须编码设置一下布局，否则无法居中
-		// xml布局文件中无法达到这种效果，老跑偏
-		// lwz7512 @ 2011/08/18
-
-		Bitmap thumbnail = createThumbnailBitmap(uri, MAX_BITMAP_SIZE);
-
-		int picWidth = thumbnail.getWidth();
-		int picHeight = thumbnail.getHeight();
-		LinearLayout.LayoutParams layouts = new LinearLayout.LayoutParams(
-				picWidth, picHeight);
-		layouts.bottomMargin = 10;
-		layouts.topMargin = 10;
-		layouts.gravity = Gravity.CENTER;
-
-		mPreview.setLayoutParams(layouts);
-		mPreview.setImageBitmap(thumbnail);
-
-	}
-
-	private String getRealPathFromURI(Uri contentUri) {
-		String[] proj = { MediaColumns.DATA };
-		Cursor cursor = managedQuery(contentUri, proj, null, null, null);
-		int column_index = cursor.getColumnIndexOrThrow(MediaColumns.DATA);
-		cursor.moveToFirst();
-		return cursor.getString(column_index);
-	}
-
-	/**
-	 * 
-	 * @param uri
-	 * @param size
-	 * @return
-	 */
-	private Bitmap createThumbnailBitmap(Uri uri, int size) {
-		InputStream input = null;
-
-		try {
-			//这段很关键啊，能让图片变小
-			input = getContentResolver().openInputStream(uri);
-			BitmapFactory.Options options = new BitmapFactory.Options();
-			options.inJustDecodeBounds = true;
-			BitmapFactory.decodeStream(input, null, options);
-			input.close();
-
-			// Compute the scale.
-			int scale = 1;
-			while ((options.outWidth / scale > size)
-					|| (options.outHeight / scale > size)) {
-				scale *= 2;
-			}
-
-			options.inJustDecodeBounds = false;
-			options.inSampleSize = scale;
-
-			Log.d(TAG, "Create Thumbnail, SampleSize: " + scale);
-
-			input = getContentResolver().openInputStream(uri);
-			return BitmapFactory.decodeStream(input, null, options);
-
-		} catch (IOException e) {
-			Log.w(TAG, e);
-
-			return null;
-		} finally {
-			if (input != null) {
-				try {
-					input.close();
-				} catch (IOException e) {
-					Log.w(TAG, e);
-				}
-			}
-		}
-	}
 
 	private OnClickListener mGoListener = new OnClickListener() {
 		public void onClick(View v) {
@@ -398,7 +305,9 @@ public class PictureEdit extends FullScreenActivity {
 
 	private void openImageCaptureMenu() {
 		try {
-			String filename = _getPhotoFilename(new Date());
+			String filename = getPhotoFilename(new Date());
+			//FIXME, 记下来返回时方便获取
+			rememberCaptureFile(filename);
 			mFile = new File(FileHelper.getBasePath(), filename);
 			mImageUri = Uri.fromFile(mFile);
 			Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -409,8 +318,8 @@ public class PictureEdit extends FullScreenActivity {
 		}
 	}
 	
-	private String _getPhotoFilename(Date date){
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddKms");
+	private String getPhotoFilename(Date date){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
 		return dateFormat.format(date) + ".jpg";
 	}
 
@@ -432,8 +341,116 @@ public class PictureEdit extends FullScreenActivity {
 			getPic(data.getData());
 		}
 	}
+	
+	private void getPic(Uri uri) {
+		withPic = true;
+		// FIXME, 竟然在拍照时uri和mFile都是为空！造成异常关闭
+		// 折腾了一个下午和一个晚上找原因，晕死！
+		//2011/10/15
+		if (uri == null) {
+			try {
+				String fileName = getLastCaptureFile();
+				if(fileName==null){
+					updateProgress("Caputured image file name is null!");
+					return;
+				}
+				mFile = new File(FileHelper.getBasePath(), fileName);
+				uri = Uri.fromFile(mFile);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 
-	private static File bitmapToFile(Bitmap bitmap) {
+		if (uri.getScheme().equals("content")) {// 从画廊获取
+			mFile = new File(getRealPathFromURI(uri));
+		}		
+
+		// 这里必须编码设置一下布局，否则无法居中
+		// xml布局文件中无法达到这种效果，老跑偏
+		// lwz7512 @ 2011/08/18
+
+		Bitmap thumbnail = createThumbnailBitmap(uri, MAX_BITMAP_SIZE);
+
+		int picWidth = thumbnail.getWidth();
+		int picHeight = thumbnail.getHeight();
+		LinearLayout.LayoutParams layouts = new LinearLayout.LayoutParams(
+				picWidth, picHeight);
+		layouts.bottomMargin = 10;
+		layouts.topMargin = 10;
+		layouts.gravity = Gravity.CENTER;
+
+		mPreview.setLayoutParams(layouts);
+		mPreview.setImageBitmap(thumbnail);
+
+	}
+
+	private void rememberCaptureFile(String fileName){
+		getPreferences().edit().
+		putString(Preferences.LAST_CAPTURE_FILE, fileName).commit();
+	}
+	
+	private String getLastCaptureFile(){
+		return getPreferences().getString(Preferences.LAST_CAPTURE_FILE, null);
+	}
+	
+	private String getRealPathFromURI(Uri contentUri) {
+		String[] proj = { MediaColumns.DATA };
+		Cursor cursor = managedQuery(contentUri, proj, null, null, null);
+		int column_index = cursor.getColumnIndexOrThrow(MediaColumns.DATA);
+		cursor.moveToFirst();
+		return cursor.getString(column_index);
+	}
+
+	/**
+	 * 
+	 * @param uri
+	 * @param size
+	 * @return
+	 */
+	private Bitmap createThumbnailBitmap(Uri uri, int size) {
+		InputStream input = null;
+
+		try {
+			//这段很关键啊，能让图片变小
+			input = getContentResolver().openInputStream(uri);
+			BitmapFactory.Options options = new BitmapFactory.Options();
+			options.inJustDecodeBounds = true;
+			BitmapFactory.decodeStream(input, null, options);
+			input.close();
+
+			// Compute the scale.
+			int scale = 1;
+			while ((options.outWidth / scale > size)
+					|| (options.outHeight / scale > size)) {
+				scale *= 2;
+			}
+
+			options.inJustDecodeBounds = false;
+			options.inSampleSize = scale;
+
+			Log.d(TAG, "Create Thumbnail, SampleSize: " + scale);
+
+			input = getContentResolver().openInputStream(uri);
+			return BitmapFactory.decodeStream(input, null, options);
+
+		} catch (IOException e) {
+			Log.w(TAG, e);
+
+			return null;
+		} finally {
+			if (input != null) {
+				try {
+					input.close();
+				} catch (IOException e) {
+					Log.w(TAG, e);
+				}
+			}
+		}
+	}
+
+
+	public static File bitmapToFile(Bitmap bitmap) {
 		try {
 			File file = new File(FileHelper.getBasePath(), "upload.jpg");
 			FileOutputStream out = new FileOutputStream(file);
@@ -467,6 +484,7 @@ public class PictureEdit extends FullScreenActivity {
 		opts.inPreferredConfig = Bitmap.Config.RGB_565;
 		return BitmapFactory.decodeFile(path, opts);
 	}
+
 
 
 } // end of class

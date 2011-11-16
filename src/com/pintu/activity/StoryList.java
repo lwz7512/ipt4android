@@ -10,13 +10,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.pintu.R;
 import com.pintu.activity.base.TempletActivity;
@@ -24,14 +21,9 @@ import com.pintu.adapter.StoryVoteAdapter;
 import com.pintu.adapter.StoryVoteAdapter.VoteActionListener;
 import com.pintu.api.PTApi;
 import com.pintu.data.StoryInfo;
-import com.pintu.task.GenericTask;
 import com.pintu.task.RetrieveStoriesTask;
 import com.pintu.task.SendTask;
-import com.pintu.task.TaskAdapter;
-import com.pintu.task.TaskListener;
-import com.pintu.task.TaskManager;
 import com.pintu.task.TaskParams;
-import com.pintu.task.TaskResult;
 import com.pintu.tool.SimpleImageLoader;
 import com.pintu.widget.StateListView;
 
@@ -78,7 +70,7 @@ public class StoryList extends TempletActivity {
 
 		tv_title = (TextView) findViewById(R.id.tv_title);
 		// 标题文字设置
-		tv_title.setText(R.string.storylist);
+		tv_title.setText(R.string.commentlist);
 
 		details_prgrsBar = (ProgressBar) findViewById(R.id.details_prgrsBar);
 

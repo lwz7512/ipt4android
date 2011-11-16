@@ -96,8 +96,10 @@ public class DateTimeHelper {
         if (diff < 24) {
             return  diff + hour + suffix;
         }
+        
+        diff /=24;
 
-        return AGO_FULL_DATE_FORMATTER.format(date);
+        return diff+day+suffix;
     }
     
     //新加的整合格式方法，字符串到字符串

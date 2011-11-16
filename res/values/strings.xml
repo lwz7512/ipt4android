@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<!-- 爱品图专属文字 -->
-	<string name="hello">Hello World, PintuMain!</string>
+	<string name="slogan">爱品图，随时随地发现创意！</string>
 	<string name="app_name">爱品图</string>
 	<string name="isOriginal">是否原创</string>
 	<string name="description">添加图画描述</string>
@@ -38,10 +38,11 @@
 	<string name="report">举报</string>
 	<string name="level_zh">级别</string>
 	<string name="score_zh">积分</string>
-	<string name="browsenum">浏览数目</string>
 	<string name="original">原创</string>
 	<string name="notoriginal">非原创</string>
 	<string name="picfrom">来自</string>
+	<string name="peoplelike">人喜欢</string>
+	<string name="browsenum">人浏览</string>
 
 	<!-- 页面Title -->
 	<string name="gallery">首页画廊</string>

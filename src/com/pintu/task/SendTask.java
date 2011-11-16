@@ -5,7 +5,6 @@ import java.io.File;
 import android.util.Log;
 
 import com.pintu.PintuApp;
-import com.pintu.api.PTApi;
 import com.pintu.http.HttpException;
 import com.pintu.tool.SimpleImageLoader;
 
@@ -16,6 +15,7 @@ public class SendTask extends GenericTask {
 	public static final int TYPE_PHOTO = 1;
 	public static final int TYPE_STORY = 2;
 	public static final int TYPE_COMMENT = 3;
+	//喜欢
 	public static final int TYPE_VOTE = 4;
 	//消息
 	public static final int TYPE_MESSAGE = 5;
@@ -70,11 +70,9 @@ public class SendTask extends GenericTask {
 			case TYPE_VOTE:
 				//故事作者，方便通知他有人投票了
 				String receiver = param.getString("receiver");
-				//故事编号
-				String follow = param.getString("follow");
-				String type = param.getString("type");
-				String amount = param.getString("amount");
-				PintuApp.mApi.postVote(receiver, follow, type, amount);
+				//图片编号
+				String follow = param.getString("follow");				
+				PintuApp.mApi.postVote(receiver, follow, "cool", "1");
 				
 				break;
 				

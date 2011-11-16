@@ -18,6 +18,8 @@ public class Preferences {
 	public static String LAST_GALLERY_REFRESH_TIME = "gallerRefreshTime";
 	//进入画廊时记录，多视图切换时取回作为是否取新数据的条件
 	public static String LAST_VISIT_TIME = "lastVisitTime";
+	//上次拍照生成文件名，方便照相模式返回活动时获取
+	public static String LAST_CAPTURE_FILE = "lastCaptureFile";
 	
 	//当前标签页索引键，子类也要用来保存退出时的状态
 	//依靠它来打开相应的标签

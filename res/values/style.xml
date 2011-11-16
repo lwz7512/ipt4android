@@ -24,6 +24,8 @@
         <item name="android:textSize">18sp</item>
     </style>
     
+   
+    
     <style name="user_name" parent="LinkText.Bold.Big">
     </style>
     <style name="user_screen_name" parent="LinkText.Bold.Big">
@@ -47,7 +49,13 @@
    		<item name="android:textSize">18sp</item>
         <item name="android:textColor">#FFF</item>
     </style>
-     
+    <!-- 口号文字专用样式 -->
+      <style name="sloganText">
+      <item name="android:textStyle">bold</item>
+      <!-- 灰色：黑色和白色混和成的一种颜色 -->
+      <item name="android:textColor">#FF808080</item>
+        <item name="android:textSize">18sp</item>
+    </style>
     <!-- status bar -->
     <style name="statusbar">
         <item name="android:textSize">13sp</item>

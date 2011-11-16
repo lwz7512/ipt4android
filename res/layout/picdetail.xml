@@ -53,37 +53,36 @@
 				android:layout_height="20dip" android:minHeight="20dip" />
 			<!-- 消息图片 -->
 			<ImageView android:id="@+id/t_picture"
-				android:layout_width="wrap_content" 
-				android:layout_height="wrap_content"
-				android:layout_margin="10dp"
-				android:src="@drawable/mockpic_gray" />
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_margin="10dp" android:src="@drawable/mockpic_gray" />
 			<!-- 信息属性 -->
-			<RelativeLayout android:layout_width="fill_parent"
-				android:layout_height="44dp" android:paddingLeft="10dp"
-				android:paddingRight="25dp" android:paddingTop="5dp"
+			<LinearLayout android:orientation="horizontal"
+				android:layout_width="fill_parent" android:layout_height="44dp"
+				android:paddingLeft="10dp"  android:paddingRight="10dp"
 				android:paddingBottom="10dp">
 				<!-- 原创 -->
 				<TextView android:id="@+id/tv_isoriginal"
-					android:layout_width="fill_parent" android:layout_height="wrap_content"
-					android:text="..." style="@style/normalText.span" />
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:text="..." style="@style/normalText.span"
+					android:layout_weight="1" />
+				<!-- 喜欢数目 -->
+				<TextView android:id="@+id/tv_likenum"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:text="@string/peoplelike" style="@style/normalText.span"
+					android:layout_weight="1" />	
 				<!-- 浏览数目 -->
-				<TextView android:id="@+id/browsenum" 
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content" 
-					android:layout_centerHorizontal="true"	
-					android:text="..."
-					style="@style/normalText.span" />	
+				<TextView android:id="@+id/browsenum" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="..."
+					android:layout_weight="1" style="@style/normalText.span" />
 				<!-- 评论数目 -->
 				<Button android:id="@+id/commentnum" android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_alignParentRight="true" android:drawablePadding="5dip"
-					android:drawableLeft="@drawable/detail_comment_selected"
-					android:text="..." style="@style/Button" />				
-			</RelativeLayout>
+					android:layout_height="wrap_content" android:layout_weight="1"
+					android:text="@string/comment" style="@style/Button" />
+			</LinearLayout>
 			<!-- 描述和标签 -->
 			<LinearLayout android:layout_width="wrap_content"
 				android:layout_height="wrap_content" android:orientation="vertical"
-				android:paddingLeft="10dp" >
+				android:paddingLeft="10dp">
 				<!-- 标签 -->
 				<TextView android:id="@+id/tv_tags" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:text="..."
@@ -91,13 +90,13 @@
 				<!-- 描述 -->
 				<TextView android:id="@+id/tv_description"
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
-					android:text="..." style="@style/normalText.span" 
-					android:layout_marginBottom="10dp"/>
+					android:text="..." style="@style/normalText.span"
+					android:layout_marginBottom="10dp" />
 				<!-- 图片来源 -->
 				<TextView android:id="@+id/send_source"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:text="from..." style="@style/normalText.span" 
-					android:layout_marginBottom="10dp"/>
+					android:text="from..." style="@style/normalText.span"
+					android:layout_marginBottom="10dp" />
 			</LinearLayout>
 		</LinearLayout>
 	</ScrollView>

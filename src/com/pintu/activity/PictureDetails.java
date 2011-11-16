@@ -115,6 +115,8 @@ public class PictureDetails extends FullScreenActivity {
 		if(isExist){
 			tv_favorite.setEnabled(false);
 			tv_favorite.setTextColor(0xFF999999);
+			//换个图标更形象
+			tv_favorite.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.favorited, 0, 0);
 		}
 	}
 	
@@ -160,7 +162,7 @@ public class PictureDetails extends FullScreenActivity {
 
 		//查看评论列表
 		commentnum.setOnClickListener(commentsAction);
-		//添加品图故事
+		//赞一下
 		tv_like.setOnClickListener(toTasteActivity);
 		//添加评论
 		tv_comment.setOnClickListener(toCommentsActivity);
@@ -203,7 +205,9 @@ public class PictureDetails extends FullScreenActivity {
 		public void onClick(View v){
 			Intent it = new Intent();
 			//准备启动故事编辑
-			it.setClass(PictureDetails.this, CommentEdit.class);
+//			it.setClass(PictureDetails.this, CommentEdit.class);
+			//这里用故事当评论发了
+			it.setClass(PictureDetails.this, StoryEdit.class);
 			String tpicUrl = null;
 			if(details!=null){
 				tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
@@ -228,7 +232,9 @@ public class PictureDetails extends FullScreenActivity {
 			String tpicUrl = null;
 			Intent it = new Intent();
 			//准备启动StoryList
-			it.setClass(PictureDetails.this, CommentList.class);
+//			it.setClass(PictureDetails.this, CommentList.class);
+			//仍然是讲故事当做评论
+			it.setClass(PictureDetails.this, StoryList.class);
 			if(details!=null && details.id!=null){
 				tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
 				it.putExtra("tpicUrl", tpicUrl);
@@ -265,7 +271,7 @@ public class PictureDetails extends FullScreenActivity {
 		public void onClick(View v){
 			//必须是取回详情才能收藏
 			if(details!=null){
-				doSend();
+				doFavorite();
 			}
 		}
 	};
@@ -274,14 +280,52 @@ public class PictureDetails extends FullScreenActivity {
 	 * 投票：喜欢
 	 */
 	private void likeIt(){
-		//TODO, SEND LIKE POST ...
+		if (mSendTask != null
+				&& mSendTask.getStatus() == GenericTask.Status.RUNNING) {
+			return;
+		}
+		int mode = SendTask.TYPE_VOTE;
+		mSendTask = new SendTask();
+		mSendTask.setListener(voteTaskListener);
+
+		TaskParams params = new TaskParams();
+		params.put("mode", mode);
+		//后台依据receiver来发送投票消息给故事作者
+		params.put("receiver", details.owner);		
+		params.put("follow", tpId);		
+		mSendTask.execute(params);
 		
+		taskManager.addTask(mSendTask);
 	}
+	
+	private TaskListener voteTaskListener = new TaskAdapter() {
+		@Override
+		public void onPreExecute(GenericTask task) {
+			details_prgrsBar.setVisibility(View.VISIBLE);
+			//禁用，并换图标
+			tv_like.setEnabled(false);
+			tv_like.setTextColor(0xFF999999);
+			//换个图标更形象
+			tv_like.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.heart, 0, 0);
+		}
+
+		@Override
+		public void onPostExecute(GenericTask task, TaskResult result) {
+			if (result == TaskResult.OK) {
+				details_prgrsBar.setVisibility(View.GONE);
+			} else if (result == TaskResult.FAILED) {
+				onSendFailure();
+			} else if (result == TaskResult.IO_ERROR) {
+				onSendFailure();
+			}
+		}
+
+	};
 	
 	/**
 	 * 本地用户收藏动作
 	 */
-	private void doSend(){
+	private void doFavorite(){
 		
 		if (mSendTask != null
 				&& mSendTask.getStatus() == GenericTask.Status.RUNNING)
@@ -329,7 +373,8 @@ public class PictureDetails extends FullScreenActivity {
 		//锁定收藏按钮
 		tv_favorite.setEnabled(false);
 		tv_favorite.setTextColor(0xFF999999);
-		
+		//换个图标更形象
+		tv_favorite.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.favorited, 0, 0);
 		//先把它存起来再说
 		TPicItem pic = new TPicItem();
 		pic.id = details.id;
@@ -476,11 +521,12 @@ public class PictureDetails extends FullScreenActivity {
     	send_source.setText(sourcePrefix+"  "+"Android");
     	
     	if(details.storiesNum!=null){
-    		commentnum.setText(details.storiesNum);    		
+    		String comment = getText(R.string.comment).toString();
+    		commentnum.setText(details.storiesNum+" "+comment);    		
     	}
     	if(details.browseCount!=null){
     		String prefix = getText(R.string.browsenum).toString();
-    		browseCount.setText(prefix+"  "+details.browseCount);
+    		browseCount.setText(details.browseCount+" "+prefix);
     	}
     	
     	if(details.isOriginal==1){

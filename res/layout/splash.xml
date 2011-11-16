@@ -2,5 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/splash" android:background="@drawable/splash_background"
 	android:layout_width="fill_parent" android:layout_height="fill_parent">
-
+	<!-- 宣传口号 -->
+	<TextView android:id="@+id/product_slogan" 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:layout_centerHorizontal="true"
+		android:layout_alignParentBottom="true"
+		android:paddingBottom="10dp"
+		android:text="@string/slogan" 
+		style="@style/sloganText" />
 </RelativeLayout>

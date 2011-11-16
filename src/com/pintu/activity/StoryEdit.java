@@ -1,24 +1,12 @@
 package com.pintu.activity;
 
-import com.pintu.R;
-import com.pintu.activity.base.FullScreenActivity;
-import com.pintu.task.GenericTask;
-import com.pintu.task.SendTask;
-import com.pintu.task.TaskAdapter;
-import com.pintu.task.TaskListener;
-import com.pintu.task.TaskParams;
-import com.pintu.task.TaskResult;
-import com.pintu.tool.SimpleImageLoader;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -35,10 +23,20 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
+import com.pintu.R;
+import com.pintu.activity.base.FullScreenActivity;
+import com.pintu.task.GenericTask;
+import com.pintu.task.SendTask;
+import com.pintu.task.TaskAdapter;
+import com.pintu.task.TaskListener;
+import com.pintu.task.TaskParams;
+import com.pintu.task.TaskResult;
+import com.pintu.tool.SimpleImageLoader;
+
 public class StoryEdit extends FullScreenActivity {
 
 	private static String TAG = "StoryEdit";
-	private static int STORYLENGTH = 63;
+	private static int STORYLENGTH = 140;
 
 	// Header
 	private ImageButton top_back;
