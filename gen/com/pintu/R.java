@@ -261,6 +261,7 @@ public final class R {
         public static final int ipintu_logo=0x7f090000;
         public static final int isOriginal=0x7f09006e;
         public static final int layout_root=0x7f090067;
+        public static final int likenum=0x7f090052;
         public static final int login_div=0x7f090037;
         public static final int login_option=0x7f09003e;
         public static final int login_password_input=0x7f09003a;
@@ -326,7 +327,6 @@ public final class R {
         public static final int tv_hotpic=0x7f090021;
         public static final int tv_isoriginal=0x7f090051;
         public static final int tv_like=0x7f09001c;
-        public static final int tv_likenum=0x7f090052;
         public static final int tv_mine=0x7f090024;
         public static final int tv_post=0x7f090020;
         public static final int tv_report=0x7f09001f;
@@ -579,48 +579,51 @@ public final class R {
         public static final int youhave=0x7f070039;
     }
     public static final class style {
-        public static final int Button=0x7f080017;
-        public static final int InsetText=0x7f080016;
+        public static final int Button=0x7f080018;
+        public static final int InsetText=0x7f080017;
         /**  fonts 
          */
         public static final int LinkText=0x7f080002;
         public static final int LinkText_Bold=0x7f080003;
         public static final int LinkText_Bold_Big=0x7f080004;
         public static final int LinkText_Bold_Huge=0x7f080005;
-        public static final int Theme=0x7f080018;
-        public static final int Theme_Fanfoudroid=0x7f080019;
-        public static final int Theme_Fanfoudroid_Dark=0x7f08001a;
-        public static final int Theme_MyDialog=0x7f08001c;
-        public static final int Theme_NoBackground=0x7f08001b;
-        public static final int Theme_Transparent=0x7f08001d;
+        public static final int Theme=0x7f080019;
+        public static final int Theme_Fanfoudroid=0x7f08001a;
+        public static final int Theme_Fanfoudroid_Dark=0x7f08001b;
+        public static final int Theme_MyDialog=0x7f08001d;
+        public static final int Theme_NoBackground=0x7f08001c;
+        public static final int Theme_Transparent=0x7f08001e;
         /**  FROM: Twitter for android 2.0 
          */
-        public static final int Toolbar=0x7f080015;
-        public static final int customProgressBar=0x7f080012;
-        public static final int footer_button=0x7f080011;
+        public static final int Toolbar=0x7f080016;
+        public static final int customProgressBar=0x7f080013;
+        public static final int footer_button=0x7f080012;
         /**  FROM: android-sdk/platforms/android-10/data/res/values/style.xml 
          */
-        public static final int gProgressBar=0x7f080013;
-        public static final int gProgressBar_Horizontal=0x7f080014;
+        public static final int gProgressBar=0x7f080014;
+        public static final int gProgressBar_Horizontal=0x7f080015;
         public static final int general=0x7f080000;
-        public static final int green_button=0x7f08000f;
-        public static final int logo_button=0x7f080010;
+        public static final int green_button=0x7f080010;
+        public static final int logo_button=0x7f080011;
         public static final int normalText=0x7f080008;
         public static final int normalText_Big=0x7f080009;
+        /**  ADD ON 2011/11/17 FOR 原创 
+         */
+        public static final int normalText_Big_Green=0x7f08000c;
         /**  ADD ON 2011/08/16 FOR header_back.xml 
          */
         public static final int normalText_Big_While=0x7f08000b;
         public static final int normalText_span=0x7f08000a;
         public static final int notitle=0x7f080001;
-        /**   simple button 
+        /**  simple button 
          */
-        public static final int simple_button=0x7f08000e;
+        public static final int simple_button=0x7f08000f;
         /**  口号文字专用样式 
          */
-        public static final int sloganText=0x7f08000c;
+        public static final int sloganText=0x7f08000d;
         /**  status bar 
          */
-        public static final int statusbar=0x7f08000d;
+        public static final int statusbar=0x7f08000e;
         public static final int user_name=0x7f080006;
         public static final int user_screen_name=0x7f080007;
     }

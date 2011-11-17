@@ -1,6 +1,7 @@
 package com.pintu.activity;
 
 import java.text.ParseException;
+import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -8,6 +9,7 @@ import org.json.JSONObject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -20,11 +22,13 @@ import android.widget.Toast;
 import com.pintu.PintuApp;
 import com.pintu.R;
 import com.pintu.activity.base.FullScreenActivity;
+import com.pintu.api.PTApi;
 import com.pintu.data.TPicDetails;
 import com.pintu.data.TPicItem;
 import com.pintu.task.GenericTask;
 import com.pintu.task.RetrieveDetailTask;
 import com.pintu.task.SendTask;
+import com.pintu.task.SimpleTask;
 import com.pintu.task.TaskAdapter;
 import com.pintu.task.TaskListener;
 import com.pintu.task.TaskManager;
@@ -68,6 +72,8 @@ public class PictureDetails extends FullScreenActivity {
 	private TextView send_source;
 	//原创
 	private TextView isOriginal;
+	//喜欢人数
+	private TextView likeNum;
 	//浏览次数，点击查看列表
 	private TextView browseCount;
 	//评论数，点击查看列表
@@ -140,11 +146,12 @@ public class PictureDetails extends FullScreenActivity {
 		t_picture = (ImageView) findViewById(R.id.t_picture);
 		tv_tags = (TextView) findViewById(R.id.tv_tags);
 		tv_description = (TextView) findViewById(R.id.tv_description);
-		isOriginal = (TextView) findViewById(R.id.tv_isoriginal);		
 		
-		send_source = (TextView) findViewById(R.id.send_source);			
+		isOriginal = (TextView) findViewById(R.id.tv_isoriginal);				
+		likeNum = (TextView) findViewById(R.id.likenum);		
 		browseCount = (TextView) findViewById(R.id.browsenum);		
 		commentnum = (Button) findViewById(R.id.commentnum);
+		send_source = (TextView) findViewById(R.id.send_source);			
 		
 		tv_like = (TextView) findViewById(R.id.tv_like);
 		tv_comment = (TextView) findViewById(R.id.tv_comment);
@@ -460,7 +467,9 @@ public class PictureDetails extends FullScreenActivity {
 		@Override
 		public void onPostExecute(GenericTask task, TaskResult result) {
 			if (result == TaskResult.OK) {// 成功发送
-				//do nothing currently...				
+				//查询喜欢人数...
+				fetchLikeNumOfPic();
+				
 			} else if (result == TaskResult.IO_ERROR) {
 				updateProgress(getString(R.string.page_status_unable_to_update));
 			}else if(result==TaskResult.JSON_PARSE_ERROR){
@@ -485,7 +494,29 @@ public class PictureDetails extends FullScreenActivity {
 		}
     };
     
+    private void fetchLikeNumOfPic(){
+    	
+    	mRetrieveTask = new SimpleTask();
+    	mRetrieveTask.setListener(likeTaskListener);
+        
+        TaskParams params = new TaskParams();
+        params.put("method", PTApi.GETPICCOOLCOUNT);
+        params.put("name", "pId");
+        params.put("value", tpId);
+        mRetrieveTask.execute(params);
+
+        // Add Task to manager
+        taskManager.addTask(mRetrieveTask);
+    }
     
+    private TaskListener likeTaskListener = new TaskAdapter() {	
+		@Override
+		public void deliverResponseString(String response) {
+			String suffix = getText(R.string.peoplelike).toString();
+			String trimmed = response.trim();
+			likeNum.setText(trimmed+" "+suffix);			
+		}
+	};
     
     private void updateUIwithPicDetails(TPicDetails details){    	
     	//显示头像
@@ -530,6 +561,8 @@ public class PictureDetails extends FullScreenActivity {
     	}
     	
     	if(details.isOriginal==1){
+    		isOriginal.setTextColor(0xFF0c8918);
+    		isOriginal.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
     		isOriginal.setText(R.string.original);
     	}else{    		
     		isOriginal.setText(R.string.notoriginal);

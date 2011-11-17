@@ -60,9 +60,16 @@ public interface PTApi {
 
 	public static final String LOGON ="logon";
 	
+	public static final String GETPICCOOLCOUNT= "getPicCoolCount";
+	
 	//TODO, ADD OTHER REMOTE METHODS...
 	
 	public boolean isDebugMode();
+	
+	//通用的简单查询：
+	//提交三个参数：一个方法名称，一个参数名，一个参数值
+	//返回：一个字符串
+	public String commonQuery(String method, String name, String value) throws HttpException;
 	
 	//登录成功后要更新记录在client中的用户
 	public void updateUser(String userId);

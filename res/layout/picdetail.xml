@@ -66,7 +66,7 @@
 					android:text="..." style="@style/normalText.span"
 					android:layout_weight="1" />
 				<!-- 喜欢数目 -->
-				<TextView android:id="@+id/tv_likenum"
+				<TextView android:id="@+id/likenum"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
 					android:text="@string/peoplelike" style="@style/normalText.span"
 					android:layout_weight="1" />	

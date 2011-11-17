@@ -521,6 +521,20 @@ public class PTImpl implements PTApi {
 		return resp.asString();
 	}
 
+	@Override
+	public String commonQuery(String method, String name, String value) throws HttpException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",method);
+		BasicNameValuePair param = new BasicNameValuePair(name, value);
+
+		params.add(methodParam);
+		params.add(param);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+
+		return resp.asString();
+	}
+
 
 	
 } // end of class
