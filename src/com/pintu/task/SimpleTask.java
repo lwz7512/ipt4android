@@ -30,7 +30,7 @@ public class SimpleTask extends GenericTask {
 		if(result==TaskResult.OK){
 			if(this.getListener()!=null && response!=null){
     			//回调监听方法传结果
-    			this.getListener().deliverResponseString(response);
+    			this.getListener().deliverResponseString(response.trim());
     		}else{
     			//listener is null or retrieved pics is null!
     			Log.d(TAG, "listener is null or retrieved stories is null!");

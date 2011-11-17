@@ -1,7 +1,6 @@
 package com.pintu.activity;
 
 import java.text.ParseException;
-import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -513,8 +512,13 @@ public class PictureDetails extends FullScreenActivity {
 		@Override
 		public void deliverResponseString(String response) {
 			String suffix = getText(R.string.peoplelike).toString();
-			String trimmed = response.trim();
-			likeNum.setText(trimmed+" "+suffix);			
+			//没人投票
+			if(response.equals("0")){
+				response = getText(R.string.none).toString();
+				likeNum.setText(response+suffix);			
+			}else{
+				likeNum.setText(response+" "+suffix);			
+			}
 		}
 	};
     
