@@ -3,7 +3,9 @@ package com.pintu.tool;
 import java.io.File;
 
 import android.graphics.Bitmap;
+import android.view.Gravity;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.pintu.PintuApp;
 import com.pintu.R;
@@ -24,7 +26,17 @@ public class SimpleImageLoader {
         imageView.setImageBitmap(image);
     }
     
-    public static void displayForLarge(final ImageView imageView, String url){
+    	//对外暴露的第二个方法
+	public static void clearAll(){
+		PintuApp.mImageLoader.clearCache();
+	}
+	//对外暴露的第三个方法
+	public static File compressRawImage(File targetFile){
+		return PintuApp.mImageLoader.compreseImage(targetFile);
+	}
+    
+	//对外暴露的第四个方法
+	public static void displayForLarge(final ImageView imageView, String url){
     	imageView.setTag(url);
         Bitmap image = PintuApp.mImageLoader.get(url, createImageViewCallback(imageView, url));        
         //如果取回默认小图片，就用空白大图片先来展示  
@@ -35,24 +47,45 @@ public class SimpleImageLoader {
         }
     	
     }
-
-	//对外暴露的第二个方法
-	public static void clearAll(){
-		PintuApp.mImageLoader.clearCache();
+	
+	//对外暴露的第五个方法，查看图片详情时，用来修改图片的大小
+	public static void displayForFit(final ImageView imageView, String url){
+	   	imageView.setTag(url);
+	   	ImageLoaderCallback resize = new ImageLoaderCallback() {
+            @Override
+            public void refresh(String url, Bitmap bitmap) {
+                if (url.equals(imageView.getTag())) {
+                	if(bitmap==null) return;                	            	
+                	imageView.setImageBitmap(bitmap);
+                }
+            }
+        };
+        Bitmap bitmap = PintuApp.mImageLoader.get(url, resize);        
+        //如果取回默认小图片，就用空白大图片先来展示  
+        if(bitmap==ImageManager.mDefaultBitmap){
+        	imageView.setImageResource(R.drawable.mockpic_gray);        	
+        }else{
+        	//重新定义图片所在的布局容器
+        	//注意，应当是在线性布局下才行
+        	int picWidth = bitmap.getWidth();
+    		int picHeight = bitmap.getHeight();
+    		LinearLayout.LayoutParams layouts = new LinearLayout.LayoutParams(
+    				picWidth, picHeight);
+    		layouts.topMargin = 2;
+    		layouts.bottomMargin = 2;            		
+    		layouts.gravity = Gravity.CENTER;
+    		imageView.setLayoutParams(layouts);
+        	imageView.setImageBitmap(bitmap);
+        }
 	}
-	//对外暴露的第三个方法
-	public static File compressRawImage(File targetFile){
-		return PintuApp.mImageLoader.compreseImage(targetFile);
-	}
-    
-    
+   
     private static ImageLoaderCallback createImageViewCallback(final ImageView imageView, String url) {
         return new ImageLoaderCallback() {
             @Override
             public void refresh(String url, Bitmap bitmap) {
                 if (url.equals(imageView.getTag())) {
-                	if(bitmap!=null)
-                		imageView.setImageBitmap(bitmap);
+                	if(bitmap==null) return;                	                
+                	imageView.setImageBitmap(bitmap);
                 }
             }
         };

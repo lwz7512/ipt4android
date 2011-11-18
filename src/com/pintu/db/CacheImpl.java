@@ -36,12 +36,11 @@ public class CacheImpl implements CacheDao {
 	public void clearData() {
 		ptdb.execSQL("DELETE FROM " + PintuTables.ThumbnailTable.TABLE_NAME);
 		ptdb.execSQL("DELETE FROM " + PintuTables.HotpicTable.TABLE_NAME);
-		ptdb.execSQL("DELETE FROM " + PintuTables.ClassicStoryTable.TABLE_NAME);
+		ptdb.execSQL("DELETE FROM " + PintuTables.ClassicPics.TABLE_NAME);
 		ptdb.execSQL("DELETE FROM " + PintuTables.FavoritePicsTable.TABLE_NAME);
 		ptdb.execSQL("DELETE FROM " + PintuTables.MyMessageTable.TABLE_NAME);
 		ptdb.execSQL("DELETE FROM " + PintuTables.MyPicsTable.TABLE_NAME);
-		ptdb.execSQL("DELETE FROM " + PintuTables.MyStoriesTable.TABLE_NAME);
-
+		
 		// TODO, DELETE CACHE DATA IN TABLE...
 
 	}
@@ -250,7 +249,7 @@ public class CacheImpl implements CacheDao {
 			for (TPicDetails pic : hotpics) {
 				long result = -1;
 				result = q.into(PintuTables.HotpicTable.TABLE_NAME)
-						.values(hotPicToContentValues(pic)).insert();
+						.values(picContentValues(pic)).insert();
 				if (-1 == result) {
 					Log.e(TAG, "cann't insert the hotpic : " + pic.id);
 				} else {
@@ -265,14 +264,14 @@ public class CacheImpl implements CacheDao {
 
 	}
 
-	private ContentValues hotPicToContentValues(TPicDetails pic) {
+	private ContentValues picContentValues(TPicDetails pic) {
 		ContentValues v = new ContentValues();
 		v.put(PintuTables.HotpicTable.Columns.ID, pic.id);
 		v.put(PintuTables.HotpicTable.Columns.AUTHOR, pic.author);
 		v.put(PintuTables.HotpicTable.Columns.AVATARIMGPATH, pic.avatarImgPath);
 		v.put(PintuTables.HotpicTable.Columns.MOBIMGID, pic.mobImgId);
-		v.put(PintuTables.HotpicTable.Columns.STORIESNUM, pic.storiesNum);
-		v.put(PintuTables.HotpicTable.Columns.COMMENTSNUM, pic.browseCount);
+		v.put(PintuTables.HotpicTable.Columns.BROWSENUM, pic.browseCount);
+		v.put(PintuTables.HotpicTable.Columns.COMMENTSNUM, pic.commentNum);
 		v.put(PintuTables.HotpicTable.Columns.CREATION_TIME, pic.publishTime);
 
 		return v;
@@ -289,7 +288,7 @@ public class CacheImpl implements CacheDao {
 				.select();
 		try {
 			while (c.moveToNext()) {
-				list.add(cursorToHotPic(c));
+				list.add(cursorToPic(c));
 			}
 		} finally {
 			c.close();
@@ -298,7 +297,7 @@ public class CacheImpl implements CacheDao {
 		return list;
 	}
 
-	private TPicDetails cursorToHotPic(Cursor c) {
+	private TPicDetails cursorToPic(Cursor c) {
 		TPicDetails pic = new TPicDetails();
 		pic.id = c.getString(c
 				.getColumnIndex(PintuTables.HotpicTable.Columns.ID));
@@ -308,10 +307,10 @@ public class CacheImpl implements CacheDao {
 				.getColumnIndex(PintuTables.HotpicTable.Columns.AVATARIMGPATH));
 		pic.mobImgId = c.getString(c
 				.getColumnIndex(PintuTables.HotpicTable.Columns.MOBIMGID));
-		pic.storiesNum = c.getString(c
-				.getColumnIndex(PintuTables.HotpicTable.Columns.STORIESNUM));
-		pic.browseCount = c.getString(c
+		pic.commentNum = c.getString(c
 				.getColumnIndex(PintuTables.HotpicTable.Columns.COMMENTSNUM));
+		pic.browseCount = c.getString(c
+				.getColumnIndex(PintuTables.HotpicTable.Columns.BROWSENUM));
 		pic.publishTime = c.getString(c
 				.getColumnIndex(PintuTables.HotpicTable.Columns.CREATION_TIME));
 
@@ -319,85 +318,54 @@ public class CacheImpl implements CacheDao {
 	}
 
 	@Override
-	public void insertClassicStories(List<StoryInfo> stories) {
-		this.checkBlankList(stories);
+	public void insertClassicPics(List<TPicDetails> clscpics) {
+		this.checkBlankList(clscpics);
 		// 先删除已缓存的东西
-		ptdb.execSQL("DELETE FROM " + PintuTables.ClassicStoryTable.TABLE_NAME);
+		ptdb.execSQL("DELETE FROM " + PintuTables.ClassicPics.TABLE_NAME);
 
 		Query q = new Query(ptdb);
 		try {
 			ptdb.beginTransaction();
 			// 不分顺序插入
-			for (StoryInfo story : stories) {
+			for (TPicDetails pic : clscpics) {
 				long result = -1;
-				result = q.into(PintuTables.ClassicStoryTable.TABLE_NAME)
-						.values(clscStoryToContentValues(story)).insert();
+				result = q.into(PintuTables.ClassicPics.TABLE_NAME)
+						.values(picContentValues(pic)).insert();
 				if (-1 == result) {
-					Log.e(TAG, "cann't insert the clasic story : " + story.id);
+					Log.e(TAG, "cann't insert the hotpic : " + pic.id);
 				} else {
 					Log.v(TAG, String.format(
-							"Insert a hotpic into database : %s", story.id));
+							"Insert a hotpic into database : %s", pic.id));
 				}
 			}
 			ptdb.setTransactionSuccessful();
 		} finally {
 			ptdb.endTransaction();
 		}
-	}
 
-	private ContentValues clscStoryToContentValues(StoryInfo story) {
-		ContentValues v = new ContentValues();
-		v.put(PintuTables.ClassicStoryTable.Columns.ID, story.id);
-		v.put(PintuTables.ClassicStoryTable.Columns.AUTHOR, story.author);
-		v.put(PintuTables.ClassicStoryTable.Columns.AVATARIMGPATH,
-				story.avatarImgPath);
-		v.put(PintuTables.ClassicStoryTable.Columns.CONTENT, story.content);
-		v.put(PintuTables.ClassicStoryTable.Columns.FOLLOW, story.follow);
-		v.put(PintuTables.HotpicTable.Columns.CREATION_TIME, story.publishTime);
-
-		return v;
 	}
 
 	@Override
-	public List<StoryInfo> getCachedClassicStories() {
-		List<StoryInfo> list = new ArrayList<StoryInfo>();
+	public List<TPicDetails> getCachedClassicPics() {
+		List<TPicDetails> list = new ArrayList<TPicDetails>();
 		Query q = new Query(ptdb);
 		Cursor c = q
-				.from(PintuTables.ClassicStoryTable.TABLE_NAME)
+				.from(PintuTables.ClassicPics.TABLE_NAME)
 				.orderBy(
-						PintuTables.ClassicStoryTable.Columns.CREATION_TIME
-								+ " DESC").select();
+						PintuTables.ClassicPics.Columns.CREATION_TIME + " DESC")
+				.select();
 		try {
 			while (c.moveToNext()) {
-				list.add(cursorToStory(c));
+				list.add(cursorToPic(c));
 			}
 		} finally {
 			c.close();
 		}
 
 		return list;
+
 	}
-
-	private StoryInfo cursorToStory(Cursor c) {
-		StoryInfo story = new StoryInfo();
-		story.id = c.getString(c
-				.getColumnIndex(PintuTables.ClassicStoryTable.Columns.ID));
-		story.author = c.getString(c
-				.getColumnIndex(PintuTables.ClassicStoryTable.Columns.AUTHOR));
-		story.avatarImgPath = c
-				.getString(c
-						.getColumnIndex(PintuTables.ClassicStoryTable.Columns.AVATARIMGPATH));
-		story.content = c.getString(c
-				.getColumnIndex(PintuTables.ClassicStoryTable.Columns.CONTENT));
-		story.follow = c.getString(c
-				.getColumnIndex(PintuTables.ClassicStoryTable.Columns.FOLLOW));
-		story.publishTime = c
-				.getString(c
-						.getColumnIndex(PintuTables.ClassicStoryTable.Columns.CREATION_TIME));
-
-		return story;
-	}
-
+	
 	@Override
 	public boolean hasAlreadyMarked(String tpId) {
 		// 检查此图是否已经被收藏，作为收藏按钮状态依据
@@ -573,108 +541,6 @@ public class CacheImpl implements CacheDao {
 	}
 
 	@Override
-	public void insertMyStories(List<StoryInfo> stories) {
-		this.checkBlankList(stories);
-
-		Query q = new Query(ptdb);
-		try {
-			ptdb.beginTransaction();
-			// 不分顺序插入
-			for (StoryInfo story : stories) {
-				// 如果已经缓存了，就跳过
-				boolean exist = checkRecordExist(PintuTables.MyStoriesTable.TABLE_NAME,story.id);
-				if (exist) continue;
-
-				long result = -1;
-				result = q.into(PintuTables.MyStoriesTable.TABLE_NAME)
-						.values(myStoryToContentValues(story)).insert();
-				if (-1 == result) {
-					Log.e(TAG, "cann't mark the story : " + story.id);
-				} else {
-					Log.v(TAG, String.format("Insert a pic into database : %s",
-							story.id));
-				}
-			}
-			ptdb.setTransactionSuccessful();
-		} finally {
-			ptdb.endTransaction();
-		}
-
-	}
-
-
-	private ContentValues myStoryToContentValues(StoryInfo story) {
-		ContentValues v = new ContentValues();
-		v.put(PintuTables.MyStoriesTable.Columns.ID, story.id);
-		v.put(PintuTables.MyStoriesTable.Columns.CONTENT, story.content);
-		v.put(PintuTables.MyStoriesTable.Columns.OWNER, story.owner);
-		v.put(PintuTables.MyStoriesTable.Columns.FOLLOW, story.follow);
-		v.put(PintuTables.MyStoriesTable.Columns.EGG, story.egg);
-		v.put(PintuTables.MyStoriesTable.Columns.FLOWER, story.flower);
-		v.put(PintuTables.MyStoriesTable.Columns.HEART, story.heart);
-		v.put(PintuTables.MyStoriesTable.Columns.STAR, story.star);
-
-		v.put(PintuTables.MyStoriesTable.Columns.CREATION_TIME,
-				story.publishTime);
-
-		return v;
-	}
-
-	/**
-	 * 页码数，从1开始取，每页最多25条
-	 */
-	@Override
-	public List<StoryInfo> getCachedMyStories(String owner, int pageNum) {
-		if(pageNum<1) return null;
-		
-		StringBuilder sql = new StringBuilder();
-		sql.append("SELECT * FROM ")
-				.append(PintuTables.MyStoriesTable.TABLE_NAME)
-				.append(" WHERE ").append(PintuTables.MyStoriesTable.Columns.OWNER)
-				.append("='").append(owner).append("'")
-				.append(" ORDER BY ")
-				.append(PintuTables.MyStoriesTable.Columns.CREATION_TIME)
-				.append(" DESC").append(" LIMIT ").append(25)
-				.append(" OFFSET ").append((pageNum-1) * 25);
-
-		Cursor c = ptdb.rawQuery(sql.toString(), null);
-		List<StoryInfo> list = new ArrayList<StoryInfo>();
-		try {
-			while (c.moveToNext()) {
-				list.add(cursorToMyStory(c));
-			}
-		} finally {
-			c.close();
-		}
-		return list;
-	}
-
-	private StoryInfo cursorToMyStory(Cursor c) {
-		StoryInfo story = new StoryInfo();
-		story.id = c.getString(c
-				.getColumnIndex(PintuTables.MyStoriesTable.Columns.ID));
-		story.content = c.getString(c
-				.getColumnIndex(PintuTables.MyStoriesTable.Columns.CONTENT));
-		story.owner = c.getString(c
-				.getColumnIndex(PintuTables.MyStoriesTable.Columns.OWNER));
-		story.follow = c.getString(c
-				.getColumnIndex(PintuTables.MyStoriesTable.Columns.FOLLOW));
-		story.egg = c.getInt(c
-				.getColumnIndex(PintuTables.MyStoriesTable.Columns.EGG));
-		story.flower = c.getInt(c
-				.getColumnIndex(PintuTables.MyStoriesTable.Columns.FLOWER));
-		story.heart = c.getInt(c
-				.getColumnIndex(PintuTables.MyStoriesTable.Columns.HEART));
-		story.star = c.getInt(c
-				.getColumnIndex(PintuTables.MyStoriesTable.Columns.STAR));
-		story.publishTime = c
-				.getString(c
-						.getColumnIndex(PintuTables.MyStoriesTable.Columns.CREATION_TIME));
-
-		return story;
-	}
-
-	@Override
 	public int insertMyMsgs(List<TMsg> msgs) {
 		this.checkBlankList(msgs);
 
@@ -814,6 +680,8 @@ public class CacheImpl implements CacheDao {
 
 		
 	}
+
+
 
 
 	// ----------- TODO, XIAOMING TO IMPLEMENT THE REMAINING...

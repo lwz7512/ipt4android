@@ -59,7 +59,7 @@ public class HotPicsAdapter extends BaseAdapter {
 			//热图
 			holder.hot_pic_image = (ImageView) view.findViewById(R.id.hot_pic_image);
 			holder.hot_pic_commentnum = (TextView) view.findViewById(R.id.hot_pic_commentnum);
-			holder.hot_pic_storynum = (TextView) view.findViewById(R.id.hot_pic_storynum);			
+			holder.hot_pic_browsenum = (TextView) view.findViewById(R.id.hot_pic_browsenum);			
 			view.setTag(holder);
 		}else{
 			view = convertView;
@@ -76,8 +76,8 @@ public class HotPicsAdapter extends BaseAdapter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		holder.hot_pic_commentnum.setText(tpic.browseCount);
-		holder.hot_pic_storynum.setText(tpic.storiesNum);
+		holder.hot_pic_commentnum.setText(tpic.commentNum);
+		holder.hot_pic_browsenum.setText(tpic.browseCount);
 		
     	String profileUrl = PintuApp.mApi.composeImgUrlByPath(tpic.avatarImgPath);
     	//显示头像
@@ -97,7 +97,7 @@ public class HotPicsAdapter extends BaseAdapter {
 		public ImageView hot_pic_image;
 		
 		public TextView hot_pic_commentnum;
-		public TextView hot_pic_storynum;		
+		public TextView hot_pic_browsenum;		
 	}
 	
 	public void refresh(List<TPicDetails> hotpicData){

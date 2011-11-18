@@ -17,7 +17,6 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageButton;
@@ -132,6 +131,7 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		txtArray = initNavTxts();
 		//必须有图标文件才行
 		if(iconArray==null) return;
+		if(txtArray==null) return;
 		
 		container = (FrameLayout) findViewById(R.id.Container);
 		gvTopBar = (GridView) this.findViewById(R.id.gvTopBar);
@@ -145,7 +145,8 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 		gvTopBar.setVerticalSpacing(0);
 		// 项目点击事件
 		gvTopBar.setOnItemClickListener(new ItemClickEvent());
-		topImgAdapter = new HeadSwitchAdapter(this, iconArray, txtArray, R.drawable.topbar_itemselector);
+		//指定内容：图标、文字、高亮背景图
+		topImgAdapter = new HeadSwitchAdapter(this, iconArray, txtArray, R.drawable.greenframe);
 		// 设置菜单Adapter
 		gvTopBar.setAdapter(topImgAdapter);		
 				
@@ -162,7 +163,7 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	 * @param id GridView选中项的序号
 	 */
 	protected void switchActivity(int id){
-		//选中项获得高亮
+		//选中项获得高亮，将背景图设置到文字上去
 		topImgAdapter.SetFocus(id);
 		//必须先清除容器中所有的View
 		container.removeAllViews();

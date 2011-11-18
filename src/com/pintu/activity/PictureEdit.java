@@ -369,7 +369,6 @@ public class PictureEdit extends FullScreenActivity {
 		// 这里必须编码设置一下布局，否则无法居中
 		// xml布局文件中无法达到这种效果，老跑偏
 		// lwz7512 @ 2011/08/18
-
 		Bitmap thumbnail = createThumbnailBitmap(uri, MAX_BITMAP_SIZE);
 
 		int picWidth = thumbnail.getWidth();

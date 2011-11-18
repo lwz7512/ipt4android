@@ -12,10 +12,10 @@
 	</FrameLayout>
 	<!-- Footer image bar -->
 	<GridView android:id="@+id/gvTopBar" android:layout_width="fill_parent"
-		android:layout_height="50dp" android:fadingEdgeLength="2dip"
+		android:layout_height="48dp" android:fadingEdgeLength="2dip"
 		android:fadingEdge="vertical" android:gravity="center_vertical"		
 		android:paddingTop="1dp" android:paddingBottom="0dp"
 		android:paddingLeft="0dp" android:paddingRight="0dp"
-		android:background="@drawable/send_message_block">
+		android:background="@drawable/maintab_toolbar_bg">
 	</GridView>
 </LinearLayout>

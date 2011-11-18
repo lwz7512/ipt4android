@@ -33,15 +33,13 @@ public class CommunityTrends extends HeadSwitchActivity {
 	
 	@Override
 	public int[] initNavIcons() {
-		int[] icons = { R.drawable.xuetang, R.drawable.event, R.drawable.daren,
-				R.drawable.industry };
+		int[] icons = { R.drawable.xuetang, R.drawable.event, R.drawable.industry };
 		return icons;
 	}
 
 	@Override
 	public int[] initNavTxts() {
-		int[] txts = { R.string.xuetang, R.string.event, R.string.daren,
-				R.string.industry };
+		int[] txts = { R.string.xuetang, R.string.event, R.string.industry };
 		return txts;
 	}
 
@@ -58,13 +56,10 @@ public class CommunityTrends extends HeadSwitchActivity {
 			currentTabIndex = 1;
 			break;
 		case 2:
-			result = new Intent(this, CmntDaren.class);
+			result = new Intent(this, CmntNews.class);
 			currentTabIndex = 2;
 			break;
-		case 3:
-			result = new Intent(this, CmntNews.class);
-			currentTabIndex = 3;
-			break;
+		
 			// ...
 
 		}

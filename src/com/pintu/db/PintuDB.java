@@ -97,11 +97,10 @@ public class PintuDB {
         private static void createAllTables(SQLiteDatabase db) {
         	db.execSQL(PintuTables.ThumbnailTable.getCreateSQL());
         	db.execSQL(PintuTables.HotpicTable.getCreateSQL());
-        	db.execSQL(PintuTables.ClassicStoryTable.getCreateSQL());   
+        	db.execSQL(PintuTables.ClassicPics.getCreateSQL());   
         	
         	db.execSQL(PintuTables.FavoritePicsTable.getCreateSQL());
-        	db.execSQL(PintuTables.MyPicsTable.getCreateSQL());
-        	db.execSQL(PintuTables.MyStoriesTable.getCreateSQL());
+        	db.execSQL(PintuTables.MyPicsTable.getCreateSQL());        	
         	db.execSQL(PintuTables.MyMessageTable.getCreateSQL());
         	
         	//TODO, 小明来建立后面的表，模仿前面的写法

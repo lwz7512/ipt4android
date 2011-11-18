@@ -48,7 +48,7 @@ public class PintuTables {
 			public static final String AUTHOR = "author";
 			public static final String AVATARIMGPATH = "avatarImgPath";
 			public static final String MOBIMGID = "mobImgId";
-			public static final String STORIESNUM = "storiesNum";
+			public static final String BROWSENUM = "browseNum";
 			public static final String COMMENTSNUM = "commentsNum";	
 			//标准时间格式yyyy-MM-dd HH:mm:ss
 			public static final String CREATION_TIME = "creationTime";
@@ -60,7 +60,7 @@ public class PintuTables {
             		+ Columns.AUTHOR + " TEXT, "
                     + Columns.AVATARIMGPATH + " TEXT, "
             		+ Columns.MOBIMGID + " TEXT, "
-            		+ Columns.STORIESNUM + " TEXT, "
+            		+ Columns.BROWSENUM + " TEXT, "
             		+ Columns.COMMENTSNUM + " TEXT, "            		
                     + Columns.CREATION_TIME + " DATE " + ");";
 
@@ -72,22 +72,23 @@ public class PintuTables {
 		public static String[] getIndexColumns() {
 			return new String[] {
 					Columns.ID,Columns.AUTHOR,Columns.AVATARIMGPATH,
-					Columns.MOBIMGID,Columns.STORIESNUM,Columns.COMMENTSNUM,
+					Columns.MOBIMGID,Columns.BROWSENUM,Columns.COMMENTSNUM,
 					Columns.CREATION_TIME
 			};
 		}
 		
 	} //end of HotpicTable
 	
-	public static class ClassicStoryTable{
-		public static final String TABLE_NAME = "t_clscstory";
+	public static class ClassicPics{
+		public static final String TABLE_NAME = "t_clscpics";
 		
 		public static class Columns {			
 			public static final String ID = "id";
 			public static final String AUTHOR = "author";
 			public static final String AVATARIMGPATH = "avatarImgPath";
-			public static final String CONTENT = "content";
-			public static final String FOLLOW = "follow";
+			public static final String MOBIMGID = "mobImgId";
+			public static final String BROWSENUM = "browseNum";
+			public static final String COMMENTSNUM = "commentsNum";	
 			//标准时间格式yyyy-MM-dd HH:mm:ss
 			public static final String CREATION_TIME = "creationTime";
 		}
@@ -97,8 +98,9 @@ public class PintuTables {
             		+ Columns.ID + " TEXT PRIMARY KEY, "
             		+ Columns.AUTHOR + " TEXT, "
                     + Columns.AVATARIMGPATH + " TEXT, "
-            		+ Columns.CONTENT + " TEXT, "
-            		+ Columns.FOLLOW + " TEXT, "
+            		+ Columns.MOBIMGID + " TEXT, "
+            		+ Columns.BROWSENUM + " TEXT, "
+            		+ Columns.COMMENTSNUM + " TEXT, "            		
                     + Columns.CREATION_TIME + " DATE " + ");";
 
             return "CREATE TABLE " + createString;
@@ -109,12 +111,12 @@ public class PintuTables {
 		public static String[] getIndexColumns() {
 			return new String[] {
 					Columns.ID,Columns.AUTHOR,Columns.AVATARIMGPATH,
-					Columns.CONTENT,Columns.FOLLOW,
+					Columns.MOBIMGID,Columns.BROWSENUM,Columns.COMMENTSNUM,
 					Columns.CREATION_TIME
 			};
 		}
 		
-	} //end of ClassicStoryTable
+	} //end of ClassicPics
 	
 	public static class FavoritePicsTable{
 		public static final String TABLE_NAME = "t_favorites";
@@ -182,50 +184,6 @@ public class PintuTables {
 		
 	} //end of MyPicsTable
 	
-	public static class MyStoriesTable{
-		public static final String TABLE_NAME = "t_mystories";
-		
-		public static class Columns {			
-			public static final String ID = "id";
-			public static final String CONTENT = "content";
-			//加上这个字段吧，将来好处理按用户查询
-			public static final String OWNER = "owner";
-			//图片ID
-			public static final String FOLLOW = "follow";
-			public static final String FLOWER = "flower";
-			public static final String HEART = "heart";
-			public static final String EGG = "egg";
-			public static final String STAR = "star";			
-			//标准时间格式yyyy-MM-dd HH:mm:ss
-			public static final String CREATION_TIME = "creationTime";
-		}
-		
-		public static String getCreateSQL() {
-            String createString = TABLE_NAME + "( "             		
-            		+ Columns.ID + " TEXT PRIMARY KEY, "
-            		+ Columns.CONTENT + " TEXT, "
-            		+ Columns.OWNER + " TEXT, "
-                    + Columns.FOLLOW + " TEXT, "
-            		+ Columns.FLOWER + " TEXT, "
-            		+ Columns.HEART + " TEXT, "
-            		+ Columns.EGG + " TEXT, "
-            		+ Columns.STAR + " TEXT, "
-                    + Columns.CREATION_TIME + " DATE " + ");";
-
-            return "CREATE TABLE " + createString;
-		}
-		public static String getDropSQL() {
-            return "DROP TABLE " + TABLE_NAME;
-        }
-		public static String[] getIndexColumns() {
-			return new String[] {
-					Columns.ID,Columns.CONTENT,Columns.OWNER,Columns.FOLLOW,
-					Columns.FLOWER,Columns.HEART,Columns.EGG,Columns.STAR, 
-					Columns.CREATION_TIME
-			};
-		}
-		
-	} //end of MyPicsTable
 	
 	public static class MyMessageTable{
 		public static final String TABLE_NAME = "t_mymsges";

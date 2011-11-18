@@ -1,133 +1,62 @@
 package com.pintu.activity;
 
-import java.util.List;
-
-import org.json.JSONObject;
-
-import android.widget.ImageButton;
-import android.widget.ProgressBar;
+import android.content.Intent;
+import android.os.Bundle;
 
 import com.pintu.R;
-import com.pintu.activity.base.SubMainCallBack;
-import com.pintu.activity.base.TempletActivity;
+import com.pintu.activity.base.HeadSwitchActivity;
+import com.pintu.util.Preferences;
 
-public class CmntDaren extends TempletActivity implements
-		SubMainCallBack {
+public class CmntDaren extends HeadSwitchActivity  {
 
-
-	@Override
-	protected int getLayout() {
-		return R.layout.daren;
-	}
-
-	@Override
-	protected void getViews() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void addEventListeners() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void justDoIt() {
-		// TODO Auto-generated method stub
-
-	}
-
-
-	@Override
-	protected void doSend() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void onSendBegin() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void onSendSuccess() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void onSendFailure() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void doRetrieve() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void onRetrieveBegin() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void onRetrieveSuccess() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void onRetrieveFailure() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void onParseJSONResultFailue() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void refreshListView(List<Object> results) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void refreshMultView(JSONObject json) {
-		// TODO Auto-generated method stub
+	private int currentTabIndex = 0;
+	
+	protected void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+			
+		//打开保存索引的标签
+		int savedIndex = this.getLastVisitIndex(Preferences.CMNT_INDEX);
+		//根据保存的标签索引来对应打开
+		this.switchActivity(savedIndex);
 
 	}
 	
+	protected void onDestroy(){
+        super.onDestroy();
+        
+        //保存退出时查看的标签页索引，以便下次进入时打开
+        this.rememberLastVisitIndex(Preferences.CMNT_INDEX, currentTabIndex);
+	}
+	
 	@Override
-	public void addProgress(ProgressBar pb) {
-		// TODO Auto-generated method stub
-
+	public int[] initNavIcons() {
+		int[] icons = { R.drawable.picdaren, R.drawable.cmtdaren};
+		return icons;
 	}
 
 	@Override
-	public void refresh(ImageButton refreshBtn) {
-		// TODO Auto-generated method stub
-
+	public int[] initNavTxts() {
+		int[] txts = { R.string.picdaren, R.string.cmtdaren};
+		return txts;
 	}
 
 	@Override
-	public void putObj(String key, Object value) {
-		// TODO Auto-generated method stub
+	public Intent switchByIndex(int index) {
+		Intent result = null;
+		switch (index) {
+		case 0:
+			result = new Intent(this, PicDaren.class);
+			currentTabIndex = 0;
+			break;
+		case 1:
+			result = new Intent(this, CommentDaren.class);
+			currentTabIndex = 1;
+			break;		
 
+		}
+		return result;
 	}
 
-	@Override
-	public Object getObj(String key) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 }

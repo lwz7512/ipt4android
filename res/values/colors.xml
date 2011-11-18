@@ -21,4 +21,6 @@
   <color name="button_text">#444</color>
   <color name="action_bar">#fff</color>
   <color name="action_bar_pressed">#ffd0d0d0</color>
+  <!-- 蟹壳青：深灰绿色 -->
+  <color name="black_text">#FFbbcdc5</color>
 </resources>

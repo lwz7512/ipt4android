@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -18,7 +19,6 @@ import com.pintu.activity.base.SubMainCallBack;
 import com.pintu.activity.base.TempletActivity;
 import com.pintu.adapter.FavoPicsAdapter;
 import com.pintu.api.PTApi;
-import com.pintu.data.TPicDetails;
 import com.pintu.data.TPicItem;
 import com.pintu.task.RetrieveFavoritesTask;
 import com.pintu.task.TaskParams;
@@ -64,10 +64,14 @@ public class AndiFavorite extends TempletActivity implements SubMainCallBack {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			// TODO 跳转到查看图片详情
+			// 跳转到查看图片详情
 			TPicItem selectedPic = (TPicItem) fpAdptr.getItem(position);
 			String picId = selectedPic.id;
-			
+			Intent it = new Intent();
+			it.setClass(AndiFavorite.this, PictureDetails.class);			
+			it.putExtra("tpId", picId);
+			//打开详情活动
+			startActivity(it);
 		}		
 	};
 

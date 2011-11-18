@@ -6,16 +6,12 @@ import java.util.List;
 import org.json.JSONObject;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.pintu.PintuApp;
 import com.pintu.R;
@@ -25,8 +21,6 @@ import com.pintu.adapter.HotPicsAdapter;
 import com.pintu.data.TPicDetails;
 import com.pintu.task.RetrieveHotPicsTask;
 import com.pintu.task.TaskParams;
-import com.pintu.util.DateTimeHelper;
-import com.pintu.util.Preferences;
 
 public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 

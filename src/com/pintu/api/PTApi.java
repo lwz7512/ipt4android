@@ -38,7 +38,7 @@ public interface PTApi {
 	
 	public static final String GETHOTPICTURE = "getHotPicture";
 	
-	public static final String GETClASSICALPINTU= "getClassicalPintu";
+	public static final String GETClASSICALPICS= "classicalStatistics";
 
 	public static final String MARKTHEPIC = "markThePic";
 	
@@ -97,8 +97,8 @@ public interface PTApi {
 	public String postVote(String receiver, String follow, String type, String amount) throws HttpException;
 	//获取今日热图
 	public JSONArray getHotPicToday() throws HttpException, JSONException;
-	//获取历史经典故事
-	public JSONArray getHistoryClassicStroies() throws HttpException, JSONException;
+	//获取经典作品
+	public JSONArray getClassicPics() throws HttpException, JSONException;
 	
 	//获得用户基本资料
 	public JSONObject getUserDetail(String userId) throws HttpException, JSONException;

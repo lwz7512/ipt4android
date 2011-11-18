@@ -6,11 +6,13 @@
 
 	<!-- 左边放作者头像、用户名、发布时间 -->
 	<ImageView android:id="@+id/hotpic_author_img"
-		android:layout_marginRight="4dp" android:layout_width="60dp"
-		android:layout_height="60dp" android:src="@drawable/user_default_photo" />
+		android:layout_width="60dp" android:layout_height="60dp"
+		android:layout_marginRight="4dp" android:layout_marginTop="4dp"
+		android:src="@drawable/user_default_photo" />
 	<!-- 右边放图片相关信息 -->
 	<RelativeLayout android:layout_width="fill_parent"
-		android:layout_height="250dp" android:padding="0dp">
+		android:layout_height="250dp" android:paddingLeft="4dp"
+		android:paddingRight="4dp" android:paddingBottom="4dp">
 		<!-- 贴图作者挨着头像，左对齐 -->
 		<TextView android:id="@+id/hotpic_author_name"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -29,27 +31,28 @@
 
 		<RelativeLayout android:layout_width="fill_parent"
 			android:layout_height="wrap_content" android:layout_below="@id/hot_pic_image"
-			android:layout_alignLeft="@id/hot_pic_image">
-			<!-- 评论数靠右端 -->
+			android:layout_alignLeft="@id/hot_pic_image"
+			android:layout_marginTop="4dp" android:layout_marginRight="4dp">
+			<!-- 评论数目 靠右端 -->
 			<TextView android:id="@+id/hot_pic_commentnum"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
 				android:layout_alignParentRight="true" style="@style/normalText.span" />
-			<!-- 评论文字 -->
+			<!-- '评论' 在评论数目的左边 -->
 			<TextView android:id="@+id/hot_pic_commenttxt"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
 				android:layout_toLeftOf="@id/hot_pic_commentnum"
-				android:layout_marginRight="10dp" android:text="@string/like"
+				android:layout_marginRight="4dp" android:text="@string/comment"
 				style="@style/normalText.span" />
-			<!-- 故事数 -->
-			<TextView android:id="@+id/hot_pic_storynum"
+			<!-- 浏览数目 -->
+			<TextView android:id="@+id/hot_pic_browsenum"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
 				android:layout_toLeftOf="@id/hot_pic_commenttxt"
 				android:layout_marginRight="20dp" style="@style/normalText.span" />
-			<!-- 故事文字 -->
-			<TextView android:id="@+id/hot_pic_storytxt"
+			<!-- '浏览' 在浏览数目的左边 -->
+			<TextView android:id="@+id/hot_pic_browsetxt"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:layout_toLeftOf="@id/hot_pic_storynum"
-				android:layout_marginRight="10dp" android:text="@string/comment"
+				android:layout_toLeftOf="@id/hot_pic_browsenum"
+				android:layout_marginRight="4dp" android:text="@string/browsetxt"
 				style="@style/normalText.span" />
 		</RelativeLayout>
 

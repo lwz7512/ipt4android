@@ -123,6 +123,12 @@ public class HomeGallery extends FullScreenActivity {
         //这个真好使，所有的线程和异步任务都干掉了！
         Process.killProcess(Process.myPid());
     }
+    
+    private void rememberLastVisit(){
+    	long existTime = DateTimeHelper.getNowTime();
+    	this.getPreferences().edit().putLong(Preferences.LAST_VISIT_TIME, existTime).commit();
+    	Log.d(TAG, "lastVisit: "+DateTimeHelper.getRelativeDate(new Date()));
+    }
 	
 	private void getViews(){
 		
@@ -189,7 +195,7 @@ public class HomeGallery extends FullScreenActivity {
 		public void onClick(View v) {
 			Intent intent = new Intent();
 			//启动社区界面
-			intent.setClass(HomeGallery.this, CommunityTrends.class);
+			intent.setClass(HomeGallery.this, CmntDaren.class);
 			startActivity(intent);
 		}		
 	};
@@ -199,7 +205,7 @@ public class HomeGallery extends FullScreenActivity {
 		public void onClick(View v) {
 			Intent intent = new Intent();
 			//启动热图界面
-			intent.setClass(HomeGallery.this, HotPicStory.class);
+			intent.setClass(HomeGallery.this, HotPicClassic.class);
 			startActivity(intent);
 		}		
 	};
@@ -322,15 +328,7 @@ public class HomeGallery extends FullScreenActivity {
     
 	private void updateProgress(String message) {
 		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-	}
-	
-    private void rememberLastVisit(){
-    	long existTime = DateTimeHelper.getNowTime();
-    	this.getPreferences().edit().putLong(Preferences.LAST_VISIT_TIME, existTime).commit();
-    	Log.d(TAG, "lastVisit: "+DateTimeHelper.getRelativeDate(new Date()));
-    }
-    
-
+	}	
 	
 	
 //------------------- option menu definition ---------------------------------

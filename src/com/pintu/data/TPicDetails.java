@@ -39,7 +39,7 @@ public class TPicDetails {
 	public String rawImgId;
 	
 	//评论数目
-	public String storiesNum;
+	public String commentNum;
 	//浏览数目
 	public String browseCount;
 	
@@ -62,7 +62,7 @@ public class TPicDetails {
 		details.mobImgId = json.optString("mobImgId");
 		details.rawImgId = json.optString("rawImgId");
 		//评论数目
-		details.storiesNum = json.optString("storiesNum");
+		details.commentNum = json.optString("storiesNum");
 		details.browseCount = json.optString("browseCount");
 		
 		return details;

@@ -14,15 +14,22 @@ import com.pintu.http.HttpException;
 
 public class RetrieveHotPicsTask extends GenericTask {
 
-	private static String TAG = "RetrieveHotPicsTask";
+	private static String TAG = "RetrieveHotPicsTask";	
 	
 	private List<Object> retrievedHotpics;
-
+	
 	@Override
 	protected TaskResult _doInBackground(TaskParams... params) {
 		JSONArray jsPics = null;
+		TaskParams param = params[0];
 		try {
-			jsPics = PintuApp.mApi.getHotPicToday();
+			if(param.has("method")){
+				//查询经典作品
+				jsPics = PintuApp.mApi.getClassicPics();
+			}else{
+				//没有指定参数就是查询热图
+				jsPics = PintuApp.mApi.getHotPicToday();
+			}
 		} catch (HttpException e) {
 			e.printStackTrace();
 			return TaskResult.FAILED;

@@ -84,7 +84,7 @@
 			</intent-filter>
 		</activity>
 		<!-- 热图与经典 -->
-		<activity android:name=".activity.HotPicStory">
+		<activity android:name=".activity.HotPicClassic">
 			<intent-filter>
 				<action android:name="com.pintu.activity.hotpicstory" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -98,7 +98,7 @@
 			</intent-filter>
 		</activity>
 		<!-- 经典故事 -->
-		<activity android:name=".activity.HistoryClassicStory">
+		<activity android:name=".activity.ClassicWorks">
 			<intent-filter>
 				<action android:name="com.pintu.activity.classicstory" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -129,6 +129,20 @@
 		<activity android:name=".activity.CmntDaren">
 			<intent-filter>
 				<action android:name="com.pintu.activity.daren" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 创作达人 -->
+		<activity android:name=".activity.PicDaren">
+			<intent-filter>
+				<action android:name="com.pintu.activity.picdaren" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 评论达人 -->
+		<activity android:name=".activity.CommentDaren">
+			<intent-filter>
+				<action android:name="com.pintu.activity.cmtdaren" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>

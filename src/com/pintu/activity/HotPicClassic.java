@@ -8,7 +8,7 @@ import com.pintu.util.Preferences;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class HotPicStory extends HeadSwitchActivity {
+public class HotPicClassic extends HeadSwitchActivity {
 
 	//当前标签页的索引
 	private int currentTabIndex = 0;
@@ -59,7 +59,7 @@ public class HotPicStory extends HeadSwitchActivity {
 			currentTabIndex = 0;
 			break;
 		case 1:
-			result = new Intent(this,HistoryClassicStory.class);
+			result = new Intent(this,ClassicWorks.class);
 			currentTabIndex = 1;
 			break;
 		//...

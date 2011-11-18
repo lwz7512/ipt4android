@@ -319,11 +319,11 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public JSONArray getHistoryClassicStroies() throws HttpException,
+	public JSONArray getClassicPics() throws HttpException,
 			JSONException {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
-				PTApi.GETClASSICALPINTU);
+				PTApi.GETClASSICALPICS);
 		params.add(methodParam);
 
 		Response resp = client.post(getBaseURL(), params, null, false);

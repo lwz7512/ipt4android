@@ -29,7 +29,7 @@ public class AndiAssets extends HeadSwitchActivity {
 		//检查下是否是由状态栏的消息通知来启动
 		Bundle extras = getIntent().getExtras();
 		if(extras!=null){
-			//不出意外就是4了，打开我的消息
+			//不出意外就是3了，打开我的消息
 			savedIndex = extras.getInt(Preferences.MYASSETS_INDEX);
 		}
 		// 根据保存的标签索引来对应打开
@@ -54,15 +54,14 @@ public class AndiAssets extends HeadSwitchActivity {
 
 	@Override
 	public int[] initNavIcons() {
-		int[] icons = { R.drawable.assets, R.drawable.picutures,
-				R.drawable.pintu, R.drawable.favorites, R.drawable.messages };
+		int[] icons = { R.drawable.wealth, R.drawable.home_post_pic,
+				R.drawable.favorites, R.drawable.messages };
 		return icons;
 	}
 
 	@Override
 	public int[] initNavTxts() {
-		int[] txts = { R.string.assets, R.string.picutues, R.string.pintu,
-				R.string.favorite, R.string.messages };
+		int[] txts = { R.string.assets, R.string.picutues,R.string.favorite, R.string.messages };
 		return txts;
 	}
 
@@ -79,18 +78,13 @@ public class AndiAssets extends HeadSwitchActivity {
 			currentTabIndex = 1;
 			break;
 		case 2:
-			result = new Intent(this, AndiPintu.class);
+			result = new Intent(this, AndiFavorite.class);
 			currentTabIndex = 2;
 			break;
 		case 3:
-			result = new Intent(this, AndiFavorite.class);
-			currentTabIndex = 3;
-			break;
-		case 4:
 			result = new Intent(this, AndiMessage.class);
-			currentTabIndex = 4;
-			break;
-		// ...
+			currentTabIndex = 3;
+			break;		
 
 		}
 		return result;

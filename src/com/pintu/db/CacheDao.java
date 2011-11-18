@@ -27,9 +27,9 @@ public interface CacheDao {
 	//获取缓存的热图
 	public List<TPicDetails> getCachedHotPics();
 	//缓存经典故事
-	public void insertClassicStories(List<StoryInfo> stories);
+	public void insertClassicPics(List<TPicDetails> clscpics);
 	//获取缓存的经典
-	public List<StoryInfo> getCachedClassicStories();
+	public List<TPicDetails> getCachedClassicPics();
 
 	//查询缓存是否有收藏的图片
 	public boolean hasAlreadyMarked(String tpId);
@@ -45,13 +45,7 @@ public interface CacheDao {
 	//缓存自己的图片，只插入不删除，插入时要判断重复
 	public void insertMyPics(List<TPicItem> pics);
 	//按页码取出缓存的自己的图片
-	public List<TPicItem> getCachedMyPics(String owner, int pageNum);
-	
-	//为安全起见：
-	//缓存自己的故事，只插入不删除，插入时要判断重复
-	public void insertMyStories(List<StoryInfo> stories);	
-	//按页码取出缓存的自己的故事
-	public List<StoryInfo> getCachedMyStories(String owner, int pageNum);
+	public List<TPicItem> getCachedMyPics(String owner, int pageNum);	
 	
 	//为安全起见：
 	//缓存自己的消息，只插入不删除，插入时要判断重复

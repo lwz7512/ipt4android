@@ -6,14 +6,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +37,7 @@ import com.pintu.task.TaskManager;
 import com.pintu.task.TaskParams;
 import com.pintu.task.TaskResult;
 import com.pintu.tool.SimpleImageLoader;
+import com.pintu.tool.LazyImageLoader.ImageLoaderCallback;
 import com.pintu.util.DateTimeHelper;
 import com.pintu.util.IptHelper;
 
@@ -526,9 +530,12 @@ public class PictureDetails extends FullScreenActivity {
     	//显示头像
     	String profileUrl = PintuApp.mApi.composeImgUrlByPath(details.avatarImgPath);
     	SimpleImageLoader.display(profile_image, profileUrl);
-    	String tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
+    	//手机尺寸图片
+    	String tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);    	   
+    	
     	//显示品图手机图片
-    	SimpleImageLoader.displayForLarge(t_picture, tpicUrl);
+    	SimpleImageLoader.displayForFit(t_picture, tpicUrl);    	
+    	
     	details.author = IptHelper.getShortUserName(details.author);
     	user_name.setText(details.author);
     	String userInfo = getText(R.string.level_zh)+"  "+details.level;
@@ -555,9 +562,9 @@ public class PictureDetails extends FullScreenActivity {
     	String sourcePrefix = getText(R.string.picfrom).toString();
     	send_source.setText(sourcePrefix+"  "+"Android");
     	
-    	if(details.storiesNum!=null){
+    	if(details.commentNum!=null){
     		String comment = getText(R.string.comment).toString();
-    		commentnum.setText(details.storiesNum+" "+comment);    		
+    		commentnum.setText(details.commentNum+" "+comment);    		
     	}
     	if(details.browseCount!=null){
     		String prefix = getText(R.string.browsenum).toString();
