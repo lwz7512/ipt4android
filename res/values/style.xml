@@ -38,10 +38,11 @@
 
 	<style name="normalText.Big">
 		<item name="android:textSize">18sp</item>
+		<item name="android:textStyle">bold</item>
 	</style>
 
 	<style name="normalText.span">
-		<item name="android:textColor">#333</item>
+		<item name="android:textColor">#999</item>
 	</style>
 
 	<!-- ADD ON 2011/08/16 FOR header_back.xml -->
@@ -55,6 +56,7 @@
 		<!-- 绿沈（沉）：深绿 -->
 		<item name="android:textColor">#FF0c8918</item>
 	</style>
+	
 	<!-- 口号文字专用样式 -->
 	<style name="sloganText">
 		<item name="android:textStyle">bold</item>

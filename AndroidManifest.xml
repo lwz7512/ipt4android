@@ -62,13 +62,6 @@
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
-		<!-- 故事列表 -->
-		<activity android:name=".activity.StoryList">
-			<intent-filter>
-				<action android:name="com.pintu.activity.storyies" />
-				<category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
-		</activity>
 		<!-- 评论列表 -->
 		<activity android:name=".activity.CommentList">
 			<intent-filter>
@@ -97,7 +90,7 @@
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
-		<!-- 经典故事 -->
+		<!-- 经典作品 -->
 		<activity android:name=".activity.ClassicWorks">
 			<intent-filter>
 				<action android:name="com.pintu.activity.classicstory" />
@@ -143,6 +136,13 @@
 		<activity android:name=".activity.CommentDaren">
 			<intent-filter>
 				<action android:name="com.pintu.activity.cmtdaren" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 标签 -->
+		<activity android:name=".activity.TagList">
+			<intent-filter>
+				<action android:name="com.pintu.activity.tags" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
@@ -196,14 +196,7 @@
 				<action android:name="com.pintu.activity.adpics" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
-		</activity>
-		<!-- 俺滴品图 -->
-		<activity android:name=".activity.AndiPintu">
-			<intent-filter>
-				<action android:name="com.pintu.activity.adpintu" />
-				<category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
-		</activity>
+		</activity>		
 		<!-- 俺滴收藏 -->
 		<activity android:name=".activity.AndiFavorite">
 			<intent-filter>
@@ -244,13 +237,6 @@
 		<activity android:name=".activity.TadiPics">
 			<intent-filter>
 				<action android:name="com.pintu.activity.tadipics" />
-				<category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
-		</activity>
-		<!-- 他滴品图 -->
-		<activity android:name=".activity.TadiPintu">
-			<intent-filter>
-				<action android:name="com.pintu.activity.tadipintu" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>

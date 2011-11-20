@@ -15,7 +15,7 @@
 	<!-- 登录框 -->
 	<LinearLayout android:id="@+id/login_div"
 		android:orientation="vertical" android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:padding="15dp"
+		android:layout_height="wrap_content" android:padding="10dp"
 		android:layout_marginLeft="15dp"
 		android:layout_marginRight="15dp"
 		android:layout_marginTop="30dp"
@@ -24,7 +24,7 @@
 		<!-- account -->
 		<LinearLayout android:orientation="horizontal"
 			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:layout_marginBottom="15dp">
+			android:layout_marginBottom="10dp">
 			<!-- 用户名 text -->
 			<TextView android:id="@+id/login_user_input"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
 		<!-- password -->
 		<LinearLayout android:orientation="horizontal"
 			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:layout_marginBottom="15dp">
+			android:layout_marginBottom="10dp">
 			<!-- 密码 text -->
 			<TextView android:id="@+id/login_password_input"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"

@@ -103,8 +103,13 @@ public class HomeGallery extends FullScreenActivity {
 		List<TPicDesc> items = PintuApp.dbApi.getCachedThumbnails();
 		Log.i(TAG, ">>> cached recode size: "+items.size()); 
 		//先读取缓存
-		if(items.size()>0)
-			gridAdptr.refresh(items);					
+		if(items.size()>0){
+			gridAdptr.refresh(items);								
+		}else{
+			//如果缓存没有，就从远程查询
+			//这往往发生在用户第一次登陆
+			retrieveRemoteGallery();
+		}
     }    
 
     	

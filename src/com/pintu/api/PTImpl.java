@@ -535,6 +535,37 @@ public class PTImpl implements PTApi {
 		return resp.asString();
 	}
 
+	@Override
+	public JSONArray getPicDaren() throws HttpException ,JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",PTApi.PICDARENSTATISTICS);		
+
+		params.add(methodParam);	
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json daren: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+
+	}
+
+	@Override
+	public JSONArray getCmntDaren() throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",PTApi.CMTDARENSTATISTICS);		
+
+		params.add(methodParam);	
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json daren: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+
 
 	
 } // end of class

@@ -62,6 +62,12 @@ public interface PTApi {
 	
 	public static final String GETPICCOOLCOUNT= "getPicCoolCount";
 	
+    //贴图达人
+    public static final String PICDARENSTATISTICS = "pictureDarenStatistics";
+    
+    //评论达人
+    public static final String CMTDARENSTATISTICS = "commentDarenStatistics";
+	
 	//TODO, ADD OTHER REMOTE METHODS...
 	
 	public boolean isDebugMode();
@@ -122,6 +128,12 @@ public interface PTApi {
 	public String updateMsgReaded(String msgIds) throws HttpException;
 	//登录验证
 	public String logon(String account, String password) throws HttpException;
+	
+	//获取贴图达人
+	public JSONArray getPicDaren() throws HttpException, JSONException;
+	
+	//获取评论达人
+	public JSONArray getCmntDaren() throws HttpException, JSONException;
 	
 	
 } //end of  interface

@@ -1,12 +1,11 @@
 package com.pintu.activity;
 
-import com.pintu.R;
-import com.pintu.activity.base.HeadSwitchActivity;
-import com.pintu.util.Preferences;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+
+import com.pintu.R;
+import com.pintu.activity.base.HeadSwitchActivity;
 
 /**
  * 图片详情中，点击作者信息的“>”图标打开的活动容器
@@ -43,13 +42,13 @@ public class TadiAssets extends HeadSwitchActivity {
 
 	@Override
 	public int[] initNavIcons() {
-		int[] icons = { R.drawable.tadi, R.drawable.picutures, R.drawable.pintu };
+		int[] icons = { R.drawable.wealth_32, R.drawable.home_post_pic_32 };
 		return icons;
 	}
 
 	@Override
 	public int[] initNavTxts() {
-		int[] txts = { R.string.baseinfo, R.string.picutues, R.string.pintu, };
+		int[] txts = { R.string.baseinfo, R.string.tadipic};
 		return txts;
 	}
 
@@ -63,9 +62,7 @@ public class TadiAssets extends HeadSwitchActivity {
 		case 1:
 			result = new Intent(this, TadiPics.class);
 			break;
-		case 2:
-			result = new Intent(this, TadiPintu.class);
-			break;
+		
 		}
 		// 传递给子活动用户
 		result.putExtra("userId", currentUser);

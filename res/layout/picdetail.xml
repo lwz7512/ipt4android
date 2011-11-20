@@ -12,7 +12,8 @@
 			android:layout_width="fill_parent"
 			android:layout_height="fill_parent">
 			<!-- 个人栏 -->
-			<RelativeLayout android:layout_width="fill_parent"
+			<RelativeLayout android:id="@+id/usercolumn"
+			android:layout_width="fill_parent"
 				android:layout_height="56dp" android:paddingTop="10dp"
 				android:paddingRight="15dp" android:paddingLeft="10dp">
 				<!-- profile image -->

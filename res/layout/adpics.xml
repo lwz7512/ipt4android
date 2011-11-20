@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 贴图列表 -->
 <ListView xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/adpics_lv" android:layout_width="fill_parent"
-	android:layout_height="fill_parent" android:cacheColorHint="#00000000"
-	android:fadeScrollbars="true" android:dividerHeight="1dip"
-	android:fastScrollEnabled="true" android:divider="@drawable/dashed_line" />
+	android:id="@+id/adpics_lv" android:layout_width="match_parent"
+	android:layout_height="match_parent" 
+	android:orientation="vertical"
+	android:cacheColorHint="#00000000"
+	android:fadeScrollbars="true" 
+	android:dividerHeight="1dip"
+	android:divider="@drawable/dashed_line"/>

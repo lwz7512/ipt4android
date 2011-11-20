@@ -55,28 +55,34 @@ public class SimpleImageLoader {
             @Override
             public void refresh(String url, Bitmap bitmap) {
                 if (url.equals(imageView.getTag())) {
-                	if(bitmap==null) return;                	            	
-                	imageView.setImageBitmap(bitmap);
+                	if(bitmap==null) return;  
+                	//取回后重新布局
+                	relayoutBitmap(bitmap, imageView);
                 }
             }
         };
         Bitmap bitmap = PintuApp.mImageLoader.get(url, resize);        
-        //如果取回默认小图片，就用空白大图片先来展示  
+        //如果没有缓存该图片，就用空白大图片先来展示  
         if(bitmap==ImageManager.mDefaultBitmap){
         	imageView.setImageResource(R.drawable.mockpic_gray);        	
         }else{
-        	//重新定义图片所在的布局容器
-        	//注意，应当是在线性布局下才行
-        	int picWidth = bitmap.getWidth();
-    		int picHeight = bitmap.getHeight();
-    		LinearLayout.LayoutParams layouts = new LinearLayout.LayoutParams(
-    				picWidth, picHeight);
-    		layouts.topMargin = 2;
-    		layouts.bottomMargin = 2;            		
-    		layouts.gravity = Gravity.CENTER;
-    		imageView.setLayoutParams(layouts);
-        	imageView.setImageBitmap(bitmap);
+        	//如果已经缓存了就直接显示        	
+        	relayoutBitmap(bitmap, imageView);
         }
+	}
+	
+	//重新定义图片所在的布局容器
+	//注意，应当是在线性布局下才行
+	private static void relayoutBitmap(Bitmap bitmap, ImageView imageView){
+    	int picWidth = bitmap.getWidth();
+		int picHeight = bitmap.getHeight();
+		LinearLayout.LayoutParams layouts = new LinearLayout.LayoutParams(
+				picWidth, picHeight);
+		layouts.topMargin = 2;
+		layouts.bottomMargin = 2;            		
+		layouts.gravity = Gravity.CENTER;
+		imageView.setLayoutParams(layouts);
+    	imageView.setImageBitmap(bitmap);
 	}
    
     private static ImageLoaderCallback createImageViewCallback(final ImageView imageView, String url) {

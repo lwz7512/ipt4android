@@ -6,17 +6,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +35,6 @@ import com.pintu.task.TaskManager;
 import com.pintu.task.TaskParams;
 import com.pintu.task.TaskResult;
 import com.pintu.tool.SimpleImageLoader;
-import com.pintu.tool.LazyImageLoader.ImageLoaderCallback;
 import com.pintu.util.DateTimeHelper;
 import com.pintu.util.IptHelper;
 
@@ -54,6 +51,7 @@ public class PictureDetails extends FullScreenActivity {
 	private ProgressBar details_prgrsBar;
 	
 	//Body
+	private ViewGroup usercolumn;
 	//头像
 	private ImageView profile_image;
 	//贴图作者
@@ -141,6 +139,7 @@ public class PictureDetails extends FullScreenActivity {
 		tv_title.setText(R.string.picdetails);
 		details_prgrsBar = (ProgressBar) findViewById(R.id.details_prgrsBar);
 		
+		usercolumn = (ViewGroup) findViewById(R.id.usercolumn);
 		profile_image = (ImageView) findViewById(R.id.profile_image);
 		user_name = (TextView) findViewById(R.id.user_name);
 		user_info = (TextView) findViewById(R.id.user_info);
@@ -166,9 +165,7 @@ public class PictureDetails extends FullScreenActivity {
 	private void addEventListeners(){
 		top_back.setOnClickListener(mGoListener);
 		//查看作者详情
-		person_more.setOnClickListener(viewUserAction);
-		//头像上也加上查看动作
-		profile_image.setOnClickListener(viewUserAction);
+		usercolumn.setOnClickListener(viewUserAction);		
 
 		//查看评论列表
 		commentnum.setOnClickListener(commentsAction);

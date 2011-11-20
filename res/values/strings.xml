@@ -65,6 +65,7 @@
 	<string name="marketshopping">可购商品</string>
 	<string name="marketnote">张贴便条</string>
 	<string name="baseinfo">基本资料</string>
+	<string name="tadipic">他的贴图</string>
 	<string name="assets">资产</string>
 	<string name="picutues">贴图</string>
 	<string name="pintu">品图</string>
@@ -75,7 +76,7 @@
 	<string name="totalscore">总积分</string>
 	<string name="excgscore">可用积分</string>
 	<string name="picnum">贴图数</string>
-	<string name="storynum">品图数</string>
+	<string name="storynum">评论数</string>
 	<string name="shellunit">个</string>
 
 	<!-- 专属提示 -->

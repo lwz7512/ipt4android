@@ -7,6 +7,11 @@ import com.pintu.R;
 import com.pintu.activity.base.HeadSwitchActivity;
 import com.pintu.util.Preferences;
 
+/**
+ * 社区达人，主模块之三
+ * @author lwz
+ *
+ */
 public class CmntDaren extends HeadSwitchActivity  {
 
 	private int currentTabIndex = 0;
