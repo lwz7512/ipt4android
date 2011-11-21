@@ -235,11 +235,10 @@ public class PictureDetails extends FullScreenActivity {
 		@Override
 		public void onClick(View v) {
 			String tpicUrl = null;
-			Intent it = new Intent();
-			//准备启动StoryList
-//			it.setClass(PictureDetails.this, CommentList.class);
-			//仍然是讲故事当做评论
+			Intent it = new Intent();			
+			//仍然是将故事当做评论
 			it.setClass(PictureDetails.this, StoryList.class);
+			
 			if(details!=null && details.id!=null){
 				tpicUrl = PintuApp.mApi.composeImgUrlById(details.mobImgId);
 				it.putExtra("tpicUrl", tpicUrl);

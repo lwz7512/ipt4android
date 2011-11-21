@@ -18,7 +18,7 @@
 		android:layout_width="fill_parent" android:textSize="15sp"
 		android:textColor="@drawable/tweet_color" android:lineSpacingExtra="2sp"
 		android:layout_marginLeft="60dp" android:text="story..." />
-	<!-- 投票，左边空出60dp，与图片对齐 -->
+	<!-- 废弃掉的投票选项 -->
 	<!-- <LinearLayout android:paddingTop="10dp" android:paddingBottom="0dp" 
 		android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="42dp" 
 		android:layout_marginLeft="60dp"> <TextView android:id="@+id/heart_num" android:layout_width="wrap_content" 

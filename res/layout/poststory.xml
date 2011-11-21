@@ -13,9 +13,10 @@
 		<EditText android:id="@+id/story_edit" android:layout_width="fill_parent"
 			android:layout_height="fill_parent" android:gravity="top"
 			android:maxLength="140" android:hint="@string/writestory"
+			android:inputType="text"
 			android:imeOptions="actionDone" />
 		<!-- 文字统计 -->
-		<LinearLayout android:id="@+id/clear_story_btn"  android:layout_width="46dp"
+		<LinearLayout android:id="@+id/clear_story_btn"  android:layout_width="56dp"
 			android:layout_height="25dp" android:layout_alignParentRight="true"
 			android:layout_marginBottom="14dp" android:layout_marginRight="10dp"
 			android:layout_alignParentBottom="true" android:background="@drawable/write_corner"

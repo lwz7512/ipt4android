@@ -27,6 +27,14 @@ import com.pintu.task.TaskParams;
 import com.pintu.tool.SimpleImageLoader;
 import com.pintu.widget.StateListView;
 
+/**
+ * 目前称之为评论列表
+ * 其实最初打算是叫故事来着，后来简化为评论了
+ * 但是这个Story的称呼还留着，意思是精彩的评论
+ * 2011//11/21
+ * @author lwz
+ *
+ */
 public class StoryList extends TempletActivity {
 
 	private static String TAG = "StoryList";

@@ -19,7 +19,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+/**
+ * @deprecated 此类已经不再使用了：2011/11/21
+ * @author lwz
+ *
+ */
 public class StoryInfoAdapter extends BaseAdapter {
 
 	private LayoutInflater mInflater;

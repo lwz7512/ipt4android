@@ -78,13 +78,8 @@ public class StoryVoteAdapter extends BaseAdapter {
 					.findViewById(R.id.story_author);
 			holder.story_pubtime = (TextView) view
 					.findViewById(R.id.story_pubtime);
-			holder.story_txt = (TextView) view.findViewById(R.id.story_txt);
+			holder.story_txt = (TextView) view.findViewById(R.id.story_txt);					
 			
-			//FIXME, 这些投票都用不着了
-//			holder.heart_num = (TextView) view.findViewById(R.id.heart_num);
-//			holder.flower_num = (TextView) view.findViewById(R.id.flower_num);
-//			holder.egg_num = (TextView) view.findViewById(R.id.egg_num);
-//			holder.classic_num = (TextView) view.findViewById(R.id.classic_num);
 			// 缓存起来
 			view.setTag(holder);
 		} else {
@@ -92,9 +87,7 @@ public class StoryVoteAdapter extends BaseAdapter {
 		}
 
 		// 显示内容
-		ViewHolder holder = (ViewHolder) view.getTag();
-		// 添加投票交互
-//		if (voteListener != null) addVoteAction(holder);
+		ViewHolder holder = (ViewHolder) view.getTag();		
 
 		StoryInfo si = items.get(position);
 		//保存故事ID，以便投票使用
@@ -115,16 +108,14 @@ public class StoryVoteAdapter extends BaseAdapter {
 			e.printStackTrace();
 		}
 		holder.story_txt.setText(si.content);
-		
-		//FIXME, 这些投票项先不用了
-//		holder.heart_num.setText(String.valueOf(si.heart));
-//		holder.egg_num.setText(String.valueOf(si.egg));
-//		holder.flower_num.setText(String.valueOf(si.flower));
-//		holder.classic_num.setText(String.valueOf(si.star));
-
+				
 		return view;
 	}
 
+	/**
+	 * @deprecated 不再给故事投票了：2011/11/21
+	 * @param holder
+	 */
 	private void addVoteAction(ViewHolder holder) {
 		// 需要变成final的才能在内部类调用
 		final ViewHolder fv = holder;

@@ -63,12 +63,19 @@
 			</intent-filter>
 		</activity>
 		<!-- 评论列表 -->
+		<activity android:name=".activity.StoryList">
+			<intent-filter>
+				<action android:name="com.pintu.activity.storyies" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- 评论列表，不再使用了：2011/11/21
 		<activity android:name=".activity.CommentList">
 			<intent-filter>
 				<action android:name="com.pintu.activity.comments" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
-		</activity>
+		</activity> -->
 		<!-- 故事详情 -->
 		<activity android:name=".activity.StoryDetails">
 			<intent-filter>
@@ -196,7 +203,7 @@
 				<action android:name="com.pintu.activity.adpics" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
-		</activity>		
+		</activity>
 		<!-- 俺滴收藏 -->
 		<activity android:name=".activity.AndiFavorite">
 			<intent-filter>
