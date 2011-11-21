@@ -53,7 +53,9 @@ public class LogonSys extends TempletActivity {
 	@Override
 	protected void addEventListeners() {
 		signin_button.setOnClickListener(signinListener);
+		//当密码获得焦点时，校验邮箱账号
 		password_edit.setOnFocusChangeListener(pwdInputListener);
+		//密码输入结束时
 		password_edit.setOnEditorActionListener(editorActionListener);
 	}
 	
@@ -70,20 +72,30 @@ public class LogonSys extends TempletActivity {
 			if(hasFocus){//捕获焦点时，判断是否为邮箱
 				String account = account_edit.getText().toString();
 				boolean actBlank =  TextUtils.isEmpty(account);
-				if(!actBlank) checkEmail(account);
+				if(actBlank){
+					//移除聚焦
+					password_edit.clearFocus();
+					//返回重新输入
+					account_edit.requestFocus();
+				}else{
+					checkEmail(account);
+				}				
 			}			
 		}		
 	};
 	
 	private void checkEmail(String account){
 		String emailFormat = "\\p{Alpha}\\w{2,15}[@][a-z0-9]{3,}[.]\\p{Lower}{2,}"; 
+		//输入时可能默认给加了个空格，去除下后面的空格
+		account = account.trim();
 		if(!account.matches(emailFormat)){
-			hint_text.setText(R.string.login_not_email_format);
 			//移除聚焦
 			password_edit.clearFocus();
 			//返回重新输入
 			account_edit.requestFocus();
-			account_edit.selectAll();
+			account_edit.selectAll();		
+			//提示邮箱账号非法
+			hint_text.setText(R.string.login_not_email_format);
 		}else{
 			hint_text.setText("");
 		}
@@ -109,6 +121,7 @@ public class LogonSys extends TempletActivity {
 		
 		boolean actBlank =  TextUtils.isEmpty(account);
 		boolean pwdBlank = TextUtils.isEmpty(pswd);
+		//前面密码焦点获得时已经校验过格式了
 		if(actBlank || pwdBlank){			
 			checkResult = false;
 			hint_text.setText(R.string.login_status_null_username_or_password);
