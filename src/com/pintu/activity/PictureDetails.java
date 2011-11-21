@@ -59,9 +59,7 @@ public class PictureDetails extends FullScreenActivity {
 	//用户资料
 	private TextView user_info;
 	//发布时间
-	private TextView created_at;
-	//更多用户资料
-	private ImageButton person_more;
+	private TextView created_at;	
 	
 	//品图图片
 	private ImageView t_picture;
@@ -144,7 +142,7 @@ public class PictureDetails extends FullScreenActivity {
 		user_name = (TextView) findViewById(R.id.user_name);
 		user_info = (TextView) findViewById(R.id.user_info);
 		created_at = (TextView) findViewById(R.id.created_at);
-		person_more = (ImageButton) findViewById(R.id.person_more);
+		
 		t_picture = (ImageView) findViewById(R.id.t_picture);
 		tv_tags = (TextView) findViewById(R.id.tv_tags);
 		tv_description = (TextView) findViewById(R.id.tv_description);
@@ -466,10 +464,8 @@ public class PictureDetails extends FullScreenActivity {
 		}
 		@Override
 		public void onPostExecute(GenericTask task, TaskResult result) {
-			if (result == TaskResult.OK) {// 成功发送
-				//查询喜欢人数...
-				fetchLikeNumOfPic();
-				
+			if (result == TaskResult.OK) {
+				// 成功发送				
 			} else if (result == TaskResult.IO_ERROR) {
 				updateProgress(getString(R.string.page_status_unable_to_update));
 			}else if(result==TaskResult.JSON_PARSE_ERROR){
@@ -494,6 +490,9 @@ public class PictureDetails extends FullScreenActivity {
 		}
     };
     
+    /**
+     * @deprecated not use anymore...
+     */
     private void fetchLikeNumOfPic(){
     	
     	mRetrieveTask = new SimpleTask();
@@ -509,6 +508,9 @@ public class PictureDetails extends FullScreenActivity {
         taskManager.addTask(mRetrieveTask);
     }
     
+    /**
+     * @deprecated not use anymore...
+     */
     private TaskListener likeTaskListener = new TaskAdapter() {	
 		@Override
 		public void deliverResponseString(String response) {
@@ -564,8 +566,11 @@ public class PictureDetails extends FullScreenActivity {
     		commentnum.setText(details.commentNum+" "+comment);    		
     	}
     	if(details.browseCount!=null){
+    		int browseNum = Integer.valueOf(details.browseCount);
+    		//每次浏览客户端加1
+    		browseNum ++;
     		String prefix = getText(R.string.browsenum).toString();
-    		browseCount.setText(details.browseCount+" "+prefix);
+    		browseCount.setText(browseNum+" "+prefix);
     	}
     	
     	if(details.isOriginal==1){
@@ -575,6 +580,15 @@ public class PictureDetails extends FullScreenActivity {
     	}else{    		
     		isOriginal.setText(R.string.notoriginal);
     	}
+    	
+		String suffix = getText(R.string.peoplelike).toString();
+		//没人投票
+		if(details.coolCount.equals("0")){
+			String none = getText(R.string.none).toString();
+			likeNum.setText(none+suffix);			
+		}else{
+			likeNum.setText(details.coolCount+" "+suffix);			
+		}
     	
     }
     

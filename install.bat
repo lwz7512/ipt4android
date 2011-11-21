@@ -1,1 +1,1 @@
-adb install bin/PintuMain-release.apk
+adb -d install -r bin/PintuMain-release.apk

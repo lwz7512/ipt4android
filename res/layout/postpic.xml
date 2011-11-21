@@ -33,8 +33,10 @@
 	<EditText android:id="@+id/tags" android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:textSize="15dp"
 		android:layout_marginLeft="2dp" android:layout_marginRight="2dp"
-		android:hint="@string/tags" android:maxLength="16" 
-		android:imeOptions="actionNext" />
+		android:hint="@string/tags" 
+		android:inputType="text"
+		android:imeOptions="actionNext" 
+		android:maxLength="12" />
 	<!-- 图片描述, amazing layout_weight attribute! -->
 	<EditText android:id="@+id/description" android:hint="@string/description"
 		android:layout_width="fill_parent" android:layout_height="fill_parent"
@@ -42,7 +44,9 @@
 		android:layout_marginLeft="2dp"
 		android:layout_marginRight="2dp" 
 		android:gravity="top" 
-		android:imeOptions="actionDone" />
+		android:inputType="text"
+		android:imeOptions="actionDone" 
+		android:maxLength="140"/>
 	<!-- 是否为原创 -->
 	<CheckBox android:id="@+id/isOriginal" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:text="@string/isOriginal"

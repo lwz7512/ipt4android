@@ -22,7 +22,7 @@
 			android:layout_width="match_parent" android:layout_height="match_parent"
 			android:gravity="top" android:layout_weight="1"
 			android:layout_marginLeft="60dp" android:layout_below="@id/receiver_edit"
-			android:maxLength="63" android:imeOptions="actionDone" />
+			android:maxLength="140" android:imeOptions="actionDone" />
 
 		<!-- 字数提示 -->
 		<LinearLayout android:id="@+id/clear_story_btn"

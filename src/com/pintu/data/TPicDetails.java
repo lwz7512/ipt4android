@@ -42,6 +42,8 @@ public class TPicDetails {
 	public String commentNum;
 	//浏览数目
 	public String browseCount;
+	//喜欢人数
+	public String coolCount;
 	
 	
 	public static TPicDetails parseJsonToObj(JSONObject json) throws JSONException{
@@ -64,6 +66,8 @@ public class TPicDetails {
 		//评论数目
 		details.commentNum = json.optString("storiesNum");
 		details.browseCount = json.optString("browseCount");
+		//喜欢数目
+		details.coolCount = json.optString("coolCount");
 		
 		return details;
 	}

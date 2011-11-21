@@ -1,1 +1,1 @@
-adb uninstall com.pintu
+adb -d uninstall -d com.pintu
