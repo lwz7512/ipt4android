@@ -42,7 +42,7 @@
 	</style>
 
 	<style name="normalText.span">
-		<item name="android:textColor">#999</item>
+		<item name="android:textColor">#666</item>
 	</style>
 
 	<!-- ADD ON 2011/08/16 FOR header_back.xml -->
