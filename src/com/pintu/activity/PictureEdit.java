@@ -255,7 +255,7 @@ public class PictureEdit extends FullScreenActivity {
 		dialog = ProgressDialog.show(this, "",
 				getString(R.string.page_status_updating), true);
 		if (dialog != null) {
-			dialog.setCancelable(false);
+			dialog.setCancelable(true);
 		}
 	}
 
