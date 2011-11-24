@@ -12,7 +12,7 @@ import com.pintu.activity.base.FullScreenActivity;
 public class PintuMain extends FullScreenActivity {
 	// 停留3秒
 	private final int SPLASH_DISPLAY_LENGHT = 3000; 
-	
+		
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

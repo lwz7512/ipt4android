@@ -40,8 +40,7 @@ public class ImageManager  {
     		.drawableToBitmap(PintuApp.mContext.getResources().getDrawable(R.drawable.greenframe));
     public static final int DEFAULT_COMPRESS_QUALITY = 90;    
     
-    //品图移动客户端上传图片大小限制：1200/800
-    //超过这个大小，宽高各裁剪一半，为原来的1/4
+    //品图移动客户端上传图片大小限制：1200/800   
     private static final int IMAGE_MAX_WIDTH  = 1200;
     private static final int IMAGE_MAX_HEIGHT = 800;    
 
@@ -265,8 +264,10 @@ public class ImageManager  {
         o.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(filepath, o);
         if (o.outWidth > IMAGE_MAX_WIDTH || o.outHeight > IMAGE_MAX_HEIGHT) {        	
-        	//缩小为1/4
-            scale = 2;
+        	 scale = (int) Math.pow( 2.0,
+                     (int) Math.round(Math.log(IMAGE_MAX_WIDTH
+                             / (double) Math.max(o.outHeight, o.outWidth))
+                             / Math.log(0.5)));
         	Log.d(TAG, scale + " scale");
         }
 

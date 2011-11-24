@@ -133,6 +133,7 @@ public class SendTask extends GenericTask {
 				String tags = param.get("tags").toString();
 				String description = param.get("description").toString();
 				String allowStory = param.get("isOriginal").toString();
+				//必须得压缩下，否则发送半天都发送不完
 				mFile = SimpleImageLoader.compressRawImage(mFile);
 				postResult = PintuApp.mApi.postPicture(mFile, tags,description, allowStory);
 			} catch (HttpException e) {				
