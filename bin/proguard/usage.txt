@@ -97,8 +97,8 @@ com.pintu.activity.PictureEdit:
     private static final int REQUEST_IMAGE_CAPTURE
     private static final int REQUEST_PHOTO_LIBRARY
     private static final int MAX_BITMAP_SIZE
-    454:468:public static java.io.File bitmapToFile(android.graphics.Bitmap)
-    474:484:public static android.graphics.Bitmap createFitinBitmap(java.lang.String,int,int)
+    470:484:public static java.io.File bitmapToFile(android.graphics.Bitmap)
+    490:500:public static android.graphics.Bitmap createFitinBitmap(java.lang.String,int,int)
 com.pintu.activity.StoryList:
     private java.lang.String owner
     private java.lang.String storyId
@@ -137,8 +137,8 @@ com.pintu.activity.base.TempletActivity:
 com.pintu.adapter.ClassicStoryAdapter
 com.pintu.adapter.ClassicStoryAdapter$ViewHolder
 com.pintu.adapter.GalleryImageAdapter:
-    118:119:public void refresh()
-    122:122:public java.util.List getCells()
+    120:121:public void refresh()
+    124:124:public java.util.List getCells()
 com.pintu.adapter.GalleryImageAdapter$ViewHolder
 com.pintu.adapter.StoryInfoAdapter
 com.pintu.adapter.StoryInfoAdapter$ViewHolder

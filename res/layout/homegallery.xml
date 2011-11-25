@@ -10,12 +10,12 @@
     <include layout="@layout/header_logo"/>
     
     <!-- Amazing attribute:  android:layout_weight="1"-->
+    <!-- fix grid layout,mainly controlled by GalleryImageAdapter
+    		2011/11/25
+     -->
    <GridView android:id="@+id/ptgallery"
 		android:layout_width="fill_parent" 
-		android:layout_height="fill_parent"
-		android:padding="4dp"    	
-    	android:verticalSpacing="4dp"    
-    	android:horizontalSpacing="4dp"
+		android:layout_height="fill_parent"		
     	android:numColumns="4"    	
     	android:stretchMode="columnWidth"        	
     	android:layout_weight="1"

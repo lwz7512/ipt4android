@@ -32360,7 +32360,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 533):
+Constant Pool (count = 552):
   - Integer [2130903074]
   - Integer [2131165250]
   - Integer [2131165252]
@@ -32383,6 +32383,8 @@ Constant Pool (count = 533):
   - String [Create Thumbnail, SampleSize: ]
   - String [PictureEdit]
   - String [_data]
+  - String [android.intent.action.SEND]
+  - String [android.intent.extra.STREAM]
   - String [android.media.action.IMAGE_CAPTURE]
   - String [content]
   - String [description]
@@ -32486,7 +32488,9 @@ Constant Pool (count = 533):
   - Methodref [android/content/ContentResolver.openInputStream (Landroid/net/Uri;)Ljava/io/InputStream;]
   - Methodref [android/content/Intent.<init> ()V]
   - Methodref [android/content/Intent.<init> (Ljava/lang/String;)V]
+  - Methodref [android/content/Intent.getAction ()Ljava/lang/String;]
   - Methodref [android/content/Intent.getData ()Landroid/net/Uri;]
+  - Methodref [android/content/Intent.getExtras ()Landroid/os/Bundle;]
   - Methodref [android/content/Intent.putExtra (Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;]
   - Methodref [android/content/Intent.setClass (Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;]
   - Methodref [android/graphics/Bitmap.getHeight ()I]
@@ -32495,6 +32499,7 @@ Constant Pool (count = 533):
   - Methodref [android/graphics/BitmapFactory$Options.<init> ()V]
   - Methodref [android/net/Uri.fromFile (Ljava/io/File;)Landroid/net/Uri;]
   - Methodref [android/net/Uri.getScheme ()Ljava/lang/String;]
+  - Methodref [android/os/Bundle.get (Ljava/lang/String;)Ljava/lang/Object;]
   - Methodref [android/os/Bundle.putBoolean (Ljava/lang/String;Z)V]
   - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
   - Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
@@ -32518,6 +32523,7 @@ Constant Pool (count = 533):
   - Methodref [com/pintu/activity/PictureEdit.findViewById (I)Landroid/view/View;]
   - Methodref [com/pintu/activity/PictureEdit.finish ()V]
   - Methodref [com/pintu/activity/PictureEdit.getContentResolver ()Landroid/content/ContentResolver;]
+  - Methodref [com/pintu/activity/PictureEdit.getIntent ()Landroid/content/Intent;]
   - Methodref [com/pintu/activity/PictureEdit.getString (I)Ljava/lang/String;]
   - Methodref [com/pintu/activity/PictureEdit.managedQuery (Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;]
   - Methodref [com/pintu/activity/PictureEdit.setContentView (I)V]
@@ -32606,10 +32612,14 @@ Constant Pool (count = 533):
   + NameAndType [format (Ljava/util/Date;)Ljava/lang/String;]
   + NameAndType [fromFile (Ljava/io/File;)Landroid/net/Uri;]
   + NameAndType [g Landroid/widget/ImageButton;]
+  + NameAndType [get (Ljava/lang/String;)Ljava/lang/Object;]
+  + NameAndType [getAction ()Ljava/lang/String;]
   + NameAndType [getColumnIndexOrThrow (Ljava/lang/String;)I]
   + NameAndType [getContentResolver ()Landroid/content/ContentResolver;]
   + NameAndType [getData ()Landroid/net/Uri;]
+  + NameAndType [getExtras ()Landroid/os/Bundle;]
   + NameAndType [getHeight ()I]
+  + NameAndType [getIntent ()Landroid/content/Intent;]
   + NameAndType [getMessage ()Ljava/lang/String;]
   + NameAndType [getScheme ()Ljava/lang/String;]
   + NameAndType [getStatus ()Landroid/os/AsyncTask$Status;]
@@ -32668,9 +32678,11 @@ Constant Pool (count = 533):
   + Utf8 []
   + Utf8 [()I]
   + Utf8 [()Landroid/content/ContentResolver;]
+  + Utf8 [()Landroid/content/Intent;]
   + Utf8 [()Landroid/content/SharedPreferences$Editor;]
   + Utf8 [()Landroid/net/Uri;]
   + Utf8 [()Landroid/os/AsyncTask$Status;]
+  + Utf8 [()Landroid/os/Bundle;]
   + Utf8 [()Landroid/text/Editable;]
   + Utf8 [()Ljava/io/File;]
   + Utf8 [()Ljava/lang/String;]
@@ -32707,6 +32719,7 @@ Constant Pool (count = 533):
   + Utf8 [(Ljava/lang/Object;)Ljava/lang/String;]
   + Utf8 [(Ljava/lang/Object;)Z]
   + Utf8 [(Ljava/lang/String;)I]
+  + Utf8 [(Ljava/lang/String;)Ljava/lang/Object;]
   + Utf8 [(Ljava/lang/String;)Ljava/lang/StringBuilder;]
   + Utf8 [(Ljava/lang/String;)V]
   + Utf8 [(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;]
@@ -32751,6 +32764,8 @@ Constant Pool (count = 533):
   + Utf8 [Z]
   + Utf8 [_data]
   + Utf8 [a]
+  + Utf8 [android.intent.action.SEND]
+  + Utf8 [android.intent.extra.STREAM]
   + Utf8 [android.media.action.IMAGE_CAPTURE]
   + Utf8 [android/app/ProgressDialog]
   + Utf8 [android/content/ContentResolver]
@@ -32819,10 +32834,14 @@ Constant Pool (count = 533):
   + Utf8 [format]
   + Utf8 [fromFile]
   + Utf8 [g]
+  + Utf8 [get]
+  + Utf8 [getAction]
   + Utf8 [getColumnIndexOrThrow]
   + Utf8 [getContentResolver]
   + Utf8 [getData]
+  + Utf8 [getExtras]
   + Utf8 [getHeight]
+  + Utf8 [getIntent]
   + Utf8 [getMessage]
   + Utf8 [getScheme]
   + Utf8 [getStatus]
@@ -32962,66 +32981,66 @@ Methods (count = 17):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 84, locals = 1, stack = 4):
       [0] aload_0 v0
-      [1] invokespecial #165
+      [1] invokespecial #171
         - Methodref [com/pintu/activity/base/FullScreenActivity.<init> ()V]
       [4] aload_0 v0
       [5] iconst_0
-      [6] putfield #107
+      [6] putfield #109
         - Fieldref [com/pintu/activity/PictureEdit.i Z]
       [9] aload_0 v0
-      [10] ldc2_w #88
+      [10] ldc2_w #90
         - Long [-1]
-      [13] putfield #109
+      [13] putfield #111
         - Fieldref [com/pintu/activity/PictureEdit.k J]
       [16] aload_0 v0
-      [17] ldc2_w #88
+      [17] ldc2_w #90
         - Long [-1]
-      [20] putfield #110
+      [20] putfield #112
         - Fieldref [com/pintu/activity/PictureEdit.l J]
       [23] aload_0 v0
-      [24] new #69
+      [24] new #71
         - Class [com/pintu/activity/c]
       [27] dup
       [28] aload_0 v0
-      [29] invokespecial #170
+      [29] invokespecial #176
         - Methodref [com/pintu/activity/c.<init> (Lcom/pintu/activity/PictureEdit;)V]
-      [32] putfield #114
+      [32] putfield #116
         - Fieldref [com/pintu/activity/PictureEdit.p Landroid/view/View$OnClickListener;]
       [35] aload_0 v0
-      [36] new #67
+      [36] new #69
         - Class [com/pintu/activity/b]
       [39] dup
       [40] aload_0 v0
-      [41] invokespecial #164
+      [41] invokespecial #170
         - Methodref [com/pintu/activity/b.<init> (Lcom/pintu/activity/PictureEdit;)V]
-      [44] putfield #115
+      [44] putfield #117
         - Fieldref [com/pintu/activity/PictureEdit.q Landroid/view/View$OnClickListener;]
       [47] aload_0 v0
-      [48] new #71
+      [48] new #73
         - Class [com/pintu/activity/e]
       [51] dup
       [52] aload_0 v0
-      [53] invokespecial #172
+      [53] invokespecial #178
         - Methodref [com/pintu/activity/e.<init> (Lcom/pintu/activity/PictureEdit;)V]
-      [56] putfield #116
+      [56] putfield #118
         - Fieldref [com/pintu/activity/PictureEdit.r Landroid/view/View$OnClickListener;]
       [59] aload_0 v0
-      [60] new #70
+      [60] new #72
         - Class [com/pintu/activity/d]
       [63] dup
       [64] aload_0 v0
-      [65] invokespecial #171
+      [65] invokespecial #177
         - Methodref [com/pintu/activity/d.<init> (Lcom/pintu/activity/PictureEdit;)V]
-      [68] putfield #117
+      [68] putfield #119
         - Fieldref [com/pintu/activity/PictureEdit.s Landroid/view/View$OnClickListener;]
       [71] aload_0 v0
-      [72] new #72
+      [72] new #74
         - Class [com/pintu/activity/f]
       [75] dup
       [76] aload_0 v0
-      [77] invokespecial #173
+      [77] invokespecial #179
         - Methodref [com/pintu/activity/f.<init> (Lcom/pintu/activity/PictureEdit;)V]
-      [80] putfield #118
+      [80] putfield #120
         - Fieldref [com/pintu/activity/PictureEdit.t Lcom/pintu/f/m;]
       [83] return
       Code attribute exceptions (count = 0):
@@ -33030,40 +33049,40 @@ Methods (count = 17):
     Access flags: 0x1
       = public void onCreate(android.os.Bundle)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 197, locals = 3, stack = 3):
+    + Code attribute instructions (code length = 250, locals = 5, stack = 3):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #167
+      [2] invokespecial #173
         - Methodref [com/pintu/activity/base/FullScreenActivity.onCreate (Landroid/os/Bundle;)V]
       [5] aload_0 v0
       [6] astore_1 v1
-      [7] invokestatic #151
+      [7] invokestatic #156
         - Methodref [com/pintu/PintuApp.a ()Z]
       [10] ifne +28 (target=38)
-      [13] new #37
+      [13] new #39
         - Class [android/content/Intent]
       [16] dup
-      [17] invokespecial #125
+      [17] invokespecial #127
         - Methodref [android/content/Intent.<init> ()V]
       [20] dup
-      [21] astore_2 v2
+      [21] astore_3 v3
       [22] aload_1 v1
-      [23] ldc #65
+      [23] ldc #67
         - Class [com/pintu/activity/LogonSys]
-      [25] invokevirtual #129
+      [25] invokevirtual #133
         - Methodref [android/content/Intent.setClass (Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;]
       [28] pop
       [29] aload_1 v1
-      [30] aload_2 v2
-      [31] invokevirtual #162
+      [30] aload_3 v3
+      [31] invokevirtual #168
         - Methodref [com/pintu/activity/PictureEdit.startActivity (Landroid/content/Intent;)V]
       [34] aload_1 v1
-      [35] invokevirtual #157
+      [35] invokevirtual #162
         - Methodref [com/pintu/activity/PictureEdit.finish ()V]
       [38] aload_0 v0
       [39] ldc #1
         - Integer [2130903074]
-      [41] invokevirtual #161
+      [41] invokevirtual #167
         - Methodref [com/pintu/activity/PictureEdit.setContentView (I)V]
       [44] aload_0 v0
       [45] dup
@@ -33071,117 +33090,153 @@ Methods (count = 17):
       [47] astore_1 v1
       [48] ldc #6
         - Integer [2131296299]
-      [50] invokevirtual #156
+      [50] invokevirtual #161
         - Methodref [com/pintu/activity/PictureEdit.findViewById (I)Landroid/view/View;]
-      [53] checkcast #59
+      [53] checkcast #61
         - Class [android/widget/ImageButton]
-      [56] putfield #99
+      [56] putfield #101
         - Fieldref [com/pintu/activity/PictureEdit.a Landroid/widget/ImageButton;]
       [59] aload_1 v1
       [60] aload_1 v1
       [61] ldc #7
         - Integer [2131296307]
-      [63] invokevirtual #156
+      [63] invokevirtual #161
         - Methodref [com/pintu/activity/PictureEdit.findViewById (I)Landroid/view/View;]
-      [66] checkcast #56
+      [66] checkcast #58
         - Class [android/widget/Button]
-      [69] putfield #100
+      [69] putfield #102
         - Fieldref [com/pintu/activity/PictureEdit.b Landroid/widget/Button;]
       [72] aload_1 v1
       [73] aload_1 v1
       [74] ldc #10
         - Integer [2131296368]
-      [76] invokevirtual #156
+      [76] invokevirtual #161
         - Methodref [com/pintu/activity/PictureEdit.findViewById (I)Landroid/view/View;]
-      [79] checkcast #60
+      [79] checkcast #62
         - Class [android/widget/ImageView]
-      [82] putfield #108
+      [82] putfield #110
         - Fieldref [com/pintu/activity/PictureEdit.j Landroid/widget/ImageView;]
       [85] aload_1 v1
       [86] aload_1 v1
       [87] ldc #11
         - Integer [2131296369]
-      [89] invokevirtual #156
+      [89] invokevirtual #161
         - Methodref [com/pintu/activity/PictureEdit.findViewById (I)Landroid/view/View;]
-      [92] checkcast #58
+      [92] checkcast #60
         - Class [android/widget/EditText]
-      [95] putfield #101
+      [95] putfield #103
         - Fieldref [com/pintu/activity/PictureEdit.c Landroid/widget/EditText;]
       [98] aload_1 v1
       [99] aload_1 v1
       [100] ldc #12
         - Integer [2131296370]
-      [102] invokevirtual #156
+      [102] invokevirtual #161
         - Methodref [com/pintu/activity/PictureEdit.findViewById (I)Landroid/view/View;]
-      [105] checkcast #58
+      [105] checkcast #60
         - Class [android/widget/EditText]
-      [108] putfield #102
+      [108] putfield #104
         - Fieldref [com/pintu/activity/PictureEdit.d Landroid/widget/EditText;]
       [111] aload_1 v1
       [112] aload_1 v1
       [113] ldc #13
         - Integer [2131296371]
-      [115] invokevirtual #156
+      [115] invokevirtual #161
         - Methodref [com/pintu/activity/PictureEdit.findViewById (I)Landroid/view/View;]
-      [118] checkcast #57
+      [118] checkcast #59
         - Class [android/widget/CheckBox]
-      [121] putfield #103
+      [121] putfield #105
         - Fieldref [com/pintu/activity/PictureEdit.e Landroid/widget/CheckBox;]
       [124] aload_1 v1
       [125] aload_1 v1
       [126] ldc #8
         - Integer [2131296366]
-      [128] invokevirtual #156
+      [128] invokevirtual #161
         - Methodref [com/pintu/activity/PictureEdit.findViewById (I)Landroid/view/View;]
-      [131] checkcast #59
+      [131] checkcast #61
         - Class [android/widget/ImageButton]
-      [134] putfield #105
+      [134] putfield #107
         - Fieldref [com/pintu/activity/PictureEdit.g Landroid/widget/ImageButton;]
       [137] aload_1 v1
       [138] aload_1 v1
       [139] ldc #9
         - Integer [2131296367]
-      [141] invokevirtual #156
+      [141] invokevirtual #161
         - Methodref [com/pintu/activity/PictureEdit.findViewById (I)Landroid/view/View;]
-      [144] checkcast #59
+      [144] checkcast #61
         - Class [android/widget/ImageButton]
-      [147] putfield #104
+      [147] putfield #106
         - Fieldref [com/pintu/activity/PictureEdit.f Landroid/widget/ImageButton;]
       [150] aload_0 v0
       [151] dup
       [152] astore_1 v1
-      [153] getfield #99
+      [153] getfield #101
         - Fieldref [com/pintu/activity/PictureEdit.a Landroid/widget/ImageButton;]
       [156] aload_1 v1
-      [157] getfield #114
+      [157] getfield #116
         - Fieldref [com/pintu/activity/PictureEdit.p Landroid/view/View$OnClickListener;]
-      [160] invokevirtual #145
+      [160] invokevirtual #150
         - Methodref [android/widget/ImageButton.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [163] aload_1 v1
-      [164] getfield #100
+      [164] getfield #102
         - Fieldref [com/pintu/activity/PictureEdit.b Landroid/widget/Button;]
       [167] aload_1 v1
-      [168] getfield #115
+      [168] getfield #117
         - Fieldref [com/pintu/activity/PictureEdit.q Landroid/view/View$OnClickListener;]
-      [171] invokevirtual #140
+      [171] invokevirtual #145
         - Methodref [android/widget/Button.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [174] aload_1 v1
-      [175] getfield #104
+      [175] getfield #106
         - Fieldref [com/pintu/activity/PictureEdit.f Landroid/widget/ImageButton;]
       [178] aload_1 v1
-      [179] getfield #116
+      [179] getfield #118
         - Fieldref [com/pintu/activity/PictureEdit.r Landroid/view/View$OnClickListener;]
-      [182] invokevirtual #145
+      [182] invokevirtual #150
         - Methodref [android/widget/ImageButton.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [185] aload_1 v1
-      [186] getfield #105
+      [186] getfield #107
         - Fieldref [com/pintu/activity/PictureEdit.g Landroid/widget/ImageButton;]
       [189] aload_1 v1
-      [190] getfield #117
+      [190] getfield #119
         - Fieldref [com/pintu/activity/PictureEdit.s Landroid/view/View$OnClickListener;]
-      [193] invokevirtual #145
+      [193] invokevirtual #150
         - Methodref [android/widget/ImageButton.setOnClickListener (Landroid/view/View$OnClickListener;)V]
-      [196] return
+      [196] aload_0 v0
+      [197] dup
+      [198] astore_1 v1
+      [199] invokevirtual #164
+        - Methodref [com/pintu/activity/PictureEdit.getIntent ()Landroid/content/Intent;]
+      [202] dup
+      [203] astore_2 v2
+      [204] invokevirtual #131
+        - Methodref [android/content/Intent.getExtras ()Landroid/os/Bundle;]
+      [207] astore_3 v3
+      [208] aconst_null
+      [209] astore v4
+      [211] aload_3 v3
+      [212] ifnull +14 (target=226)
+      [215] aload_3 v3
+      [216] ldc #24
+        - String [android.intent.extra.STREAM]
+      [218] invokevirtual #140
+        - Methodref [android/os/Bundle.get (Ljava/lang/String;)Ljava/lang/Object;]
+      [221] checkcast #48
+        - Class [android/net/Uri]
+      [224] astore v4
+      [226] ldc #23
+        - String [android.intent.action.SEND]
+      [228] aload_2 v2
+      [229] invokevirtual #129
+        - Methodref [android/content/Intent.getAction ()Ljava/lang/String;]
+      [232] invokevirtual #194
+        - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
+      [235] ifeq +14 (target=249)
+      [238] aload v4
+      [240] ifnull +9 (target=249)
+      [243] aload_1 v1
+      [244] aload v4
+      [246] invokespecial #158
+        - Methodref [com/pintu/activity/PictureEdit.a (Landroid/net/Uri;)V]
+      [249] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       onDestroy()V
@@ -33191,45 +33246,45 @@ Methods (count = 17):
     + Code attribute instructions (code length = 61, locals = 1, stack = 2):
       [0] ldc #21
         - String [PictureEdit]
-      [2] ldc #30
+      [2] ldc #32
         - String [onDestroy.]
-      [4] invokestatic #137
+      [4] invokestatic #142
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [7] pop
       [8] aload_0 v0
-      [9] getfield #111
+      [9] getfield #113
         - Fieldref [com/pintu/activity/PictureEdit.m Lcom/pintu/f/g;]
       [12] ifnull +25 (target=37)
       [15] aload_0 v0
-      [16] getfield #111
+      [16] getfield #113
         - Fieldref [com/pintu/activity/PictureEdit.m Lcom/pintu/f/g;]
-      [19] invokevirtual #178
+      [19] invokevirtual #184
         - Methodref [com/pintu/f/g.getStatus ()Landroid/os/AsyncTask$Status;]
-      [22] getstatic #94
+      [22] getstatic #96
         - Fieldref [android/os/AsyncTask$Status.RUNNING Landroid/os/AsyncTask$Status;]
       [25] ifacmpne +12 (target=37)
       [28] aload_0 v0
-      [29] getfield #111
+      [29] getfield #113
         - Fieldref [com/pintu/activity/PictureEdit.m Lcom/pintu/f/g;]
       [32] iconst_1
-      [33] invokevirtual #176
+      [33] invokevirtual #182
         - Methodref [com/pintu/f/g.cancel (Z)Z]
       [36] pop
       [37] aload_0 v0
       [38] aconst_null
-      [39] putfield #111
+      [39] putfield #113
         - Fieldref [com/pintu/activity/PictureEdit.m Lcom/pintu/f/g;]
       [42] aload_0 v0
-      [43] getfield #106
+      [43] getfield #108
         - Fieldref [com/pintu/activity/PictureEdit.h Landroid/app/ProgressDialog;]
       [46] ifnull +10 (target=56)
       [49] aload_0 v0
-      [50] getfield #106
+      [50] getfield #108
         - Fieldref [com/pintu/activity/PictureEdit.h Landroid/app/ProgressDialog;]
-      [53] invokevirtual #120
+      [53] invokevirtual #122
         - Methodref [android/app/ProgressDialog.dismiss ()V]
       [56] aload_0 v0
-      [57] invokespecial #168
+      [57] invokespecial #174
         - Methodref [com/pintu/activity/base/FullScreenActivity.onDestroy ()V]
       [60] return
       Code attribute exceptions (count = 0):
@@ -33244,25 +33299,25 @@ Methods (count = 17):
     + Code attribute instructions (code length = 33, locals = 2, stack = 3):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #169
+      [2] invokespecial #175
         - Methodref [com/pintu/activity/base/FullScreenActivity.onSaveInstanceState (Landroid/os/Bundle;)V]
       [5] aload_0 v0
-      [6] getfield #111
+      [6] getfield #113
         - Fieldref [com/pintu/activity/PictureEdit.m Lcom/pintu/f/g;]
       [9] ifnull +23 (target=32)
       [12] aload_0 v0
-      [13] getfield #111
+      [13] getfield #113
         - Fieldref [com/pintu/activity/PictureEdit.m Lcom/pintu/f/g;]
-      [16] invokevirtual #178
+      [16] invokevirtual #184
         - Methodref [com/pintu/f/g.getStatus ()Landroid/os/AsyncTask$Status;]
-      [19] getstatic #94
+      [19] getstatic #96
         - Fieldref [android/os/AsyncTask$Status.RUNNING Landroid/os/AsyncTask$Status;]
       [22] ifacmpne +10 (target=32)
       [25] aload_1 v1
-      [26] ldc #32
+      [26] ldc #34
         - String [running]
       [28] iconst_1
-      [29] invokevirtual #136
+      [29] invokevirtual #141
         - Methodref [android/os/Bundle.putBoolean (Ljava/lang/String;Z)V]
       [32] return
       Code attribute exceptions (count = 0):
@@ -33277,9 +33332,9 @@ Methods (count = 17):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] iconst_1
-      [3] invokestatic #149
+      [3] invokestatic #154
         - Methodref [android/widget/Toast.makeText (Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
-      [6] invokevirtual #150
+      [6] invokevirtual #155
         - Methodref [android/widget/Toast.show ()V]
       [9] return
       Code attribute exceptions (count = 0):
@@ -33290,22 +33345,22 @@ Methods (count = 17):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 25, locals = 1, stack = 2):
       [0] aload_0 v0
-      [1] getfield #101
+      [1] getfield #103
         - Fieldref [com/pintu/activity/PictureEdit.c Landroid/widget/EditText;]
       [4] iconst_1
-      [5] invokevirtual #143
+      [5] invokevirtual #148
         - Methodref [android/widget/EditText.setEnabled (Z)V]
       [8] aload_0 v0
-      [9] getfield #102
+      [9] getfield #104
         - Fieldref [com/pintu/activity/PictureEdit.d Landroid/widget/EditText;]
       [12] iconst_1
-      [13] invokevirtual #143
+      [13] invokevirtual #148
         - Methodref [android/widget/EditText.setEnabled (Z)V]
       [16] aload_0 v0
-      [17] getfield #104
+      [17] getfield #106
         - Fieldref [com/pintu/activity/PictureEdit.f Landroid/widget/ImageButton;]
       [20] iconst_1
-      [21] invokevirtual #144
+      [21] invokevirtual #149
         - Methodref [android/widget/ImageButton.setEnabled (Z)V]
       [24] return
       Code attribute exceptions (count = 0):
@@ -33319,13 +33374,13 @@ Methods (count = 17):
       [1] iload_1 v1
       [2] iload_2 v2
       [3] aload_3 v3
-      [4] invokespecial #166
+      [4] invokespecial #172
         - Methodref [com/pintu/activity/base/FullScreenActivity.onActivityResult (IILandroid/content/Intent;)V]
       [7] ldc #21
         - String [PictureEdit]
       [9] ldc #18
         - String [>>> onActivityResult... to getPic]
-      [11] invokestatic #137
+      [11] invokestatic #142
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [14] pop
       [15] iload_1 v1
@@ -33336,9 +33391,9 @@ Methods (count = 17):
       [22] ificmpne +12 (target=34)
       [25] aload_0 v0
       [26] aload_0 v0
-      [27] getfield #113
+      [27] getfield #115
         - Fieldref [com/pintu/activity/PictureEdit.o Landroid/net/Uri;]
-      [30] invokespecial #153
+      [30] invokespecial #158
         - Methodref [com/pintu/activity/PictureEdit.a (Landroid/net/Uri;)V]
       [33] return
       [34] iload_1 v1
@@ -33349,9 +33404,9 @@ Methods (count = 17):
       [41] ificmpne +11 (target=52)
       [44] aload_0 v0
       [45] aload_3 v3
-      [46] invokevirtual #127
+      [46] invokevirtual #130
         - Methodref [android/content/Intent.getData ()Landroid/net/Uri;]
-      [49] invokespecial #153
+      [49] invokespecial #158
         - Methodref [com/pintu/activity/PictureEdit.a (Landroid/net/Uri;)V]
       [52] return
       Code attribute exceptions (count = 0):
@@ -33366,16 +33421,16 @@ Methods (count = 17):
     + Code attribute instructions (code length = 195, locals = 5, stack = 9):
       [0] aload_0 v0
       [1] iconst_1
-      [2] putfield #107
+      [2] putfield #109
         - Fieldref [com/pintu/activity/PictureEdit.i Z]
       [5] aload_1 v1
       [6] ifnonnull +56 (target=62)
-      [9] getstatic #98
+      [9] getstatic #100
         - Fieldref [com/pintu/PintuApp.d Landroid/content/SharedPreferences;]
-      [12] getstatic #119
+      [12] getstatic #121
         - Fieldref [com/pintu/e/b.e Ljava/lang/String;]
       [15] aconst_null
-      [16] invokeinterface #199
+      [16] invokeinterface #205
         - InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
       [21] dup
       [22] astore_2 v2
@@ -33383,39 +33438,39 @@ Methods (count = 17):
       [26] aload_0 v0
       [27] ldc #19
         - String [Caputured image file name is null!]
-      [29] invokespecial #154
+      [29] invokespecial #159
         - Methodref [com/pintu/activity/PictureEdit.a (Ljava/lang/String;)V]
       [32] return
       [33] aload_0 v0
-      [34] new #78
+      [34] new #80
         - Class [java/io/File]
       [37] dup
-      [38] invokestatic #174
+      [38] invokestatic #180
         - Methodref [com/pintu/e/c.a ()Ljava/io/File;]
       [41] aload_2 v2
-      [42] invokespecial #182
+      [42] invokespecial #188
         - Methodref [java/io/File.<init> (Ljava/io/File;Ljava/lang/String;)V]
-      [45] putfield #112
+      [45] putfield #114
         - Fieldref [com/pintu/activity/PictureEdit.n Ljava/io/File;]
       [48] aload_0 v0
-      [49] getfield #112
+      [49] getfield #114
         - Fieldref [com/pintu/activity/PictureEdit.n Ljava/io/File;]
-      [52] invokestatic #134
+      [52] invokestatic #138
         - Methodref [android/net/Uri.fromFile (Ljava/io/File;)Landroid/net/Uri;]
       [55] astore_1 v1
       [56] goto +6 (target=62)
-      [59] invokevirtual #184
+      [59] invokevirtual #190
         - Methodref [java/io/IOException.printStackTrace ()V]
       [62] aload_1 v1
-      [63] invokevirtual #135
+      [63] invokevirtual #139
         - Methodref [android/net/Uri.getScheme ()Ljava/lang/String;]
-      [66] ldc #24
+      [66] ldc #26
         - String [content]
-      [68] invokevirtual #188
+      [68] invokevirtual #194
         - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
       [71] ifeq +63 (target=134)
       [74] aload_0 v0
-      [75] new #78
+      [75] new #80
         - Class [java/io/File]
       [78] dup
       [79] aload_0 v0
@@ -33423,7 +33478,7 @@ Methods (count = 17):
       [81] astore_3 v3
       [82] astore_2 v2
       [83] iconst_1
-      [84] anewarray #83
+      [84] anewarray #85
         - Class [java/lang/String]
       [87] dup
       [88] iconst_0
@@ -33437,71 +33492,71 @@ Methods (count = 17):
       [98] aconst_null
       [99] aconst_null
       [100] aconst_null
-      [101] invokevirtual #160
+      [101] invokevirtual #166
         - Methodref [com/pintu/activity/PictureEdit.managedQuery (Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;]
       [104] dup
       [105] astore_2 v2
       [106] ldc #22
         - String [_data]
-      [108] invokeinterface #202
+      [108] invokeinterface #208
         - InterfaceMethodref [android/database/Cursor.getColumnIndexOrThrow (Ljava/lang/String;)I]
       [113] istore_3 v3
       [114] aload_2 v2
-      [115] invokeinterface #204
+      [115] invokeinterface #210
         - InterfaceMethodref [android/database/Cursor.moveToFirst ()Z]
       [120] pop
       [121] aload_2 v2
       [122] iload_3 v3
-      [123] invokeinterface #203
+      [123] invokeinterface #209
         - InterfaceMethodref [android/database/Cursor.getString (I)Ljava/lang/String;]
-      [128] invokespecial #183
+      [128] invokespecial #189
         - Methodref [java/io/File.<init> (Ljava/lang/String;)V]
-      [131] putfield #112
+      [131] putfield #114
         - Fieldref [com/pintu/activity/PictureEdit.n Ljava/io/File;]
       [134] aload_0 v0
       [135] aload_1 v1
-      [136] invokespecial #155
+      [136] invokespecial #160
         - Methodref [com/pintu/activity/PictureEdit.b (Landroid/net/Uri;)Landroid/graphics/Bitmap;]
       [139] dup
       [140] astore_2 v2
-      [141] invokevirtual #131
+      [141] invokevirtual #135
         - Methodref [android/graphics/Bitmap.getWidth ()I]
       [144] istore_1 v1
       [145] aload_2 v2
-      [146] invokevirtual #130
+      [146] invokevirtual #134
         - Methodref [android/graphics/Bitmap.getHeight ()I]
       [149] istore_3 v3
-      [150] new #62
+      [150] new #64
         - Class [android/widget/LinearLayout$LayoutParams]
       [153] dup
       [154] iload_1 v1
       [155] iload_3 v3
-      [156] invokespecial #148
+      [156] invokespecial #153
         - Methodref [android/widget/LinearLayout$LayoutParams.<init> (II)V]
       [159] dup
       [160] astore_1 v1
       [161] bipush 10
-      [163] putfield #95
+      [163] putfield #97
         - Fieldref [android/widget/LinearLayout$LayoutParams.bottomMargin I]
       [166] aload_1 v1
       [167] bipush 10
-      [169] putfield #97
+      [169] putfield #99
         - Fieldref [android/widget/LinearLayout$LayoutParams.topMargin I]
       [172] aload_1 v1
       [173] bipush 17
-      [175] putfield #96
+      [175] putfield #98
         - Fieldref [android/widget/LinearLayout$LayoutParams.gravity I]
       [178] aload_0 v0
-      [179] getfield #108
+      [179] getfield #110
         - Fieldref [com/pintu/activity/PictureEdit.j Landroid/widget/ImageView;]
       [182] aload_1 v1
-      [183] invokevirtual #147
+      [183] invokevirtual #152
         - Methodref [android/widget/ImageView.setLayoutParams (Landroid/view/ViewGroup$LayoutParams;)V]
       [186] aload_0 v0
-      [187] getfield #108
+      [187] getfield #110
         - Fieldref [com/pintu/activity/PictureEdit.j Landroid/widget/ImageView;]
       [190] aload_2 v2
-      [191] invokevirtual #146
+      [191] invokevirtual #151
         - Methodref [android/widget/ImageView.setImageBitmap (Landroid/graphics/Bitmap;)V]
       [194] return
       Code attribute exceptions (count = 2):
@@ -33523,30 +33578,30 @@ Methods (count = 17):
       [0] aconst_null
       [1] astore_2 v2
       [2] aload_0 v0
-      [3] invokevirtual #158
+      [3] invokevirtual #163
         - Methodref [com/pintu/activity/PictureEdit.getContentResolver ()Landroid/content/ContentResolver;]
       [6] aload_1 v1
-      [7] invokevirtual #124
+      [7] invokevirtual #126
         - Methodref [android/content/ContentResolver.openInputStream (Landroid/net/Uri;)Ljava/io/InputStream;]
       [10] astore_2 v2
-      [11] new #45
+      [11] new #47
         - Class [android/graphics/BitmapFactory$Options]
       [14] dup
-      [15] invokespecial #133
+      [15] invokespecial #137
         - Methodref [android/graphics/BitmapFactory$Options.<init> ()V]
       [18] dup
       [19] astore_3 v3
       [20] iconst_1
-      [21] putfield #90
+      [21] putfield #92
         - Fieldref [android/graphics/BitmapFactory$Options.inJustDecodeBounds Z]
       [24] aload_2 v2
       [25] aconst_null
       [26] aload_3 v3
-      [27] invokestatic #132
+      [27] invokestatic #136
         - Methodref [android/graphics/BitmapFactory.decodeStream (Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;]
       [30] pop
       [31] aload_2 v2
-      [32] invokevirtual #185
+      [32] invokevirtual #191
         - Methodref [java/io/InputStream.close ()V]
       [35] iconst_1
       [36] istore v4
@@ -33556,14 +33611,14 @@ Methods (count = 17):
       [44] imul
       [45] istore v4
       [47] aload_3 v3
-      [48] getfield #93
+      [48] getfield #95
         - Fieldref [android/graphics/BitmapFactory$Options.outWidth I]
       [51] iload v4
       [53] idiv
       [54] sipush 300
       [57] ificmpgt -16 (target=41)
       [60] aload_3 v3
-      [61] getfield #92
+      [61] getfield #94
         - Fieldref [android/graphics/BitmapFactory$Options.outHeight I]
       [64] iload v4
       [66] idiv
@@ -33571,53 +33626,53 @@ Methods (count = 17):
       [70] ificmpgt -29 (target=41)
       [73] aload_3 v3
       [74] iconst_0
-      [75] putfield #90
+      [75] putfield #92
         - Fieldref [android/graphics/BitmapFactory$Options.inJustDecodeBounds Z]
       [78] aload_3 v3
       [79] iload v4
-      [81] putfield #91
+      [81] putfield #93
         - Fieldref [android/graphics/BitmapFactory$Options.inSampleSize I]
       [84] ldc #21
         - String [PictureEdit]
-      [86] new #84
+      [86] new #86
         - Class [java/lang/StringBuilder]
       [89] dup
       [90] ldc #20
         - String [Create Thumbnail, SampleSize: ]
-      [92] invokespecial #190
+      [92] invokespecial #196
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [95] iload v4
-      [97] invokevirtual #191
+      [97] invokevirtual #197
         - Methodref [java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;]
-      [100] invokevirtual #194
+      [100] invokevirtual #200
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [103] invokestatic #137
+      [103] invokestatic #142
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [106] pop
       [107] aload_0 v0
-      [108] invokevirtual #158
+      [108] invokevirtual #163
         - Methodref [com/pintu/activity/PictureEdit.getContentResolver ()Landroid/content/ContentResolver;]
       [111] aload_1 v1
-      [112] invokevirtual #124
+      [112] invokevirtual #126
         - Methodref [android/content/ContentResolver.openInputStream (Landroid/net/Uri;)Ljava/io/InputStream;]
       [115] dup
       [116] astore_2 v2
       [117] aconst_null
       [118] aload_3 v3
-      [119] invokestatic #132
+      [119] invokestatic #136
         - Methodref [android/graphics/BitmapFactory.decodeStream (Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;]
       [122] astore_1 v1
       [123] aload_2 v2
       [124] ifnull +18 (target=142)
       [127] aload_2 v2
-      [128] invokevirtual #185
+      [128] invokevirtual #191
         - Methodref [java/io/InputStream.close ()V]
       [131] goto +11 (target=142)
       [134] astore_2 v2
       [135] ldc #21
         - String [PictureEdit]
       [137] aload_2 v2
-      [138] invokestatic #139
+      [138] invokestatic #144
         - Methodref [android/util/Log.w (Ljava/lang/String;Ljava/lang/Throwable;)I]
       [141] pop
       [142] aload_1 v1
@@ -33626,20 +33681,20 @@ Methods (count = 17):
       [145] ldc #21
         - String [PictureEdit]
       [147] aload_3 v3
-      [148] invokestatic #139
+      [148] invokestatic #144
         - Methodref [android/util/Log.w (Ljava/lang/String;Ljava/lang/Throwable;)I]
       [151] pop
       [152] aload_2 v2
       [153] ifnull +18 (target=171)
       [156] aload_2 v2
-      [157] invokevirtual #185
+      [157] invokevirtual #191
         - Methodref [java/io/InputStream.close ()V]
       [160] goto +11 (target=171)
       [163] astore_2 v2
       [164] ldc #21
         - String [PictureEdit]
       [166] aload_2 v2
-      [167] invokestatic #139
+      [167] invokestatic #144
         - Methodref [android/util/Log.w (Ljava/lang/String;Ljava/lang/Throwable;)I]
       [170] pop
       [171] aconst_null
@@ -33648,14 +33703,14 @@ Methods (count = 17):
       [174] aload_2 v2
       [175] ifnull +18 (target=193)
       [178] aload_2 v2
-      [179] invokevirtual #185
+      [179] invokevirtual #191
         - Methodref [java/io/InputStream.close ()V]
       [182] goto +11 (target=193)
       [185] astore_2 v2
       [186] ldc #21
         - String [PictureEdit]
       [188] aload_2 v2
-      [189] invokestatic #139
+      [189] invokestatic #144
         - Methodref [android/util/Log.w (Ljava/lang/String;Ljava/lang/Throwable;)I]
       [192] pop
       [193] aload_1 v1
@@ -33692,125 +33747,125 @@ Methods (count = 17):
       [1] astore_0 v0
       [2] ldc #21
         - String [PictureEdit]
-      [4] new #84
+      [4] new #86
         - Class [java/lang/StringBuilder]
       [7] dup
-      [8] ldc #26
+      [8] ldc #28
         - String [dosend  ]
-      [10] invokespecial #190
+      [10] invokespecial #196
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [13] aload_0 v0
-      [14] getfield #107
+      [14] getfield #109
         - Fieldref [com/pintu/activity/PictureEdit.i Z]
-      [17] invokevirtual #193
+      [17] invokevirtual #199
         - Methodref [java/lang/StringBuilder.append (Z)Ljava/lang/StringBuilder;]
-      [20] invokevirtual #194
+      [20] invokevirtual #200
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [23] invokestatic #137
+      [23] invokestatic #142
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [26] pop
       [27] aload_0 v0
-      [28] getfield #111
+      [28] getfield #113
         - Fieldref [com/pintu/activity/PictureEdit.m Lcom/pintu/f/g;]
       [31] ifnull +16 (target=47)
       [34] aload_0 v0
-      [35] getfield #111
+      [35] getfield #113
         - Fieldref [com/pintu/activity/PictureEdit.m Lcom/pintu/f/g;]
-      [38] invokevirtual #178
+      [38] invokevirtual #184
         - Methodref [com/pintu/f/g.getStatus ()Landroid/os/AsyncTask$Status;]
-      [41] getstatic #94
+      [41] getstatic #96
         - Fieldref [android/os/AsyncTask$Status.RUNNING Landroid/os/AsyncTask$Status;]
       [44] ifacmpeq +179 (target=223)
       [47] aload_0 v0
-      [48] getfield #102
+      [48] getfield #104
         - Fieldref [com/pintu/activity/PictureEdit.d Landroid/widget/EditText;]
-      [51] invokevirtual #142
+      [51] invokevirtual #147
         - Methodref [android/widget/EditText.getText ()Landroid/text/Editable;]
-      [54] invokeinterface #205
+      [54] invokeinterface #211
         - InterfaceMethodref [android/text/Editable.toString ()Ljava/lang/String;]
       [59] astore_1 v1
       [60] aload_0 v0
-      [61] getfield #101
+      [61] getfield #103
         - Fieldref [com/pintu/activity/PictureEdit.c Landroid/widget/EditText;]
-      [64] invokevirtual #142
+      [64] invokevirtual #147
         - Methodref [android/widget/EditText.getText ()Landroid/text/Editable;]
-      [67] invokeinterface #205
+      [67] invokeinterface #211
         - InterfaceMethodref [android/text/Editable.toString ()Ljava/lang/String;]
       [72] astore_2 v2
       [73] aload_0 v0
-      [74] getfield #103
+      [74] getfield #105
         - Fieldref [com/pintu/activity/PictureEdit.e Landroid/widget/CheckBox;]
-      [77] invokevirtual #141
+      [77] invokevirtual #146
         - Methodref [android/widget/CheckBox.isChecked ()Z]
       [80] istore_3 v3
       [81] aload_0 v0
-      [82] getfield #107
+      [82] getfield #109
         - Fieldref [com/pintu/activity/PictureEdit.i Z]
       [85] ifne +10 (target=95)
       [88] aload_0 v0
-      [89] getfield #112
+      [89] getfield #114
         - Fieldref [com/pintu/activity/PictureEdit.n Ljava/io/File;]
       [92] ifnull +121 (target=213)
       [95] iconst_0
       [96] istore v4
       [98] aload_0 v0
-      [99] getfield #107
+      [99] getfield #109
         - Fieldref [com/pintu/activity/PictureEdit.i Z]
       [102] ifeq +6 (target=108)
       [105] iconst_1
       [106] istore v4
       [108] aload_0 v0
-      [109] new #76
+      [109] new #78
         - Class [com/pintu/f/h]
       [112] dup
-      [113] invokespecial #179
+      [113] invokespecial #185
         - Methodref [com/pintu/f/h.<init> ()V]
-      [116] putfield #111
+      [116] putfield #113
         - Fieldref [com/pintu/activity/PictureEdit.m Lcom/pintu/f/g;]
       [119] aload_0 v0
-      [120] getfield #111
+      [120] getfield #113
         - Fieldref [com/pintu/activity/PictureEdit.m Lcom/pintu/f/g;]
       [123] aload_0 v0
-      [124] getfield #118
+      [124] getfield #120
         - Fieldref [com/pintu/activity/PictureEdit.t Lcom/pintu/f/m;]
-      [127] invokevirtual #175
+      [127] invokevirtual #181
         - Methodref [com/pintu/f/g.a (Lcom/pintu/f/m;)V]
-      [130] new #77
+      [130] new #79
         - Class [com/pintu/f/p]
       [133] dup
-      [134] invokespecial #180
+      [134] invokespecial #186
         - Methodref [com/pintu/f/p.<init> ()V]
       [137] dup
       [138] astore v5
-      [140] ldc #29
+      [140] ldc #31
         - String [mode]
       [142] iload v4
-      [144] invokestatic #187
+      [144] invokestatic #193
         - Methodref [java/lang/Integer.valueOf (I)Ljava/lang/Integer;]
-      [147] invokevirtual #181
+      [147] invokevirtual #187
         - Methodref [com/pintu/f/p.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [150] aload v5
-      [152] ldc #27
+      [152] ldc #29
         - String [file]
       [154] aload_0 v0
-      [155] getfield #112
+      [155] getfield #114
         - Fieldref [com/pintu/activity/PictureEdit.n Ljava/io/File;]
-      [158] invokevirtual #181
+      [158] invokevirtual #187
         - Methodref [com/pintu/f/p.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [161] aload v5
-      [163] ldc #25
+      [163] ldc #27
         - String [description]
       [165] aload_1 v1
-      [166] invokevirtual #181
+      [166] invokevirtual #187
         - Methodref [com/pintu/f/p.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [169] aload v5
-      [171] ldc #33
+      [171] ldc #35
         - String [tags]
       [173] aload_2 v2
-      [174] invokevirtual #181
+      [174] invokevirtual #187
         - Methodref [com/pintu/f/p.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [177] aload v5
-      [179] ldc #28
+      [179] ldc #30
         - String [isOriginal]
       [181] iload_3 v3
       [182] ifeq +8 (target=190)
@@ -33819,19 +33874,19 @@ Methods (count = 17):
       [187] goto +5 (target=192)
       [190] ldc #16
         - String [0]
-      [192] invokevirtual #181
+      [192] invokevirtual #187
         - Methodref [com/pintu/f/p.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [195] aload_0 v0
-      [196] getfield #111
+      [196] getfield #113
         - Fieldref [com/pintu/activity/PictureEdit.m Lcom/pintu/f/g;]
       [199] iconst_1
-      [200] anewarray #77
+      [200] anewarray #79
         - Class [com/pintu/f/p]
       [203] dup
       [204] iconst_0
       [205] aload v5
       [207] aastore
-      [208] invokevirtual #177
+      [208] invokevirtual #183
         - Methodref [com/pintu/f/g.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
       [211] pop
       [212] return
@@ -33839,9 +33894,9 @@ Methods (count = 17):
       [214] aload_0 v0
       [215] ldc #5
         - Integer [2131165257]
-      [217] invokevirtual #159
+      [217] invokevirtual #165
         - Methodref [com/pintu/activity/PictureEdit.getString (I)Ljava/lang/String;]
-      [220] invokespecial #154
+      [220] invokespecial #159
         - Methodref [com/pintu/activity/PictureEdit.a (Ljava/lang/String;)V]
       [223] return
       Code attribute exceptions (count = 0):
@@ -33853,101 +33908,101 @@ Methods (count = 17):
     + Code attribute instructions (code length = 135, locals = 3, stack = 5):
       [0] aload_0 v0
       [1] astore_0 v0
-      [2] new #87
+      [2] new #89
         - Class [java/util/Date]
       [5] dup
-      [6] invokespecial #197
+      [6] invokespecial #203
         - Methodref [java/util/Date.<init> ()V]
       [9] astore_2 v2
-      [10] new #86
+      [10] new #88
         - Class [java/text/SimpleDateFormat]
       [13] dup
-      [14] ldc #34
+      [14] ldc #36
         - String [yyyyMMdd_HHmmss]
-      [16] invokespecial #195
+      [16] invokespecial #201
         - Methodref [java/text/SimpleDateFormat.<init> (Ljava/lang/String;)V]
       [19] astore_1 v1
-      [20] new #84
+      [20] new #86
         - Class [java/lang/StringBuilder]
       [23] dup
       [24] aload_1 v1
       [25] aload_2 v2
-      [26] invokevirtual #196
+      [26] invokevirtual #202
         - Methodref [java/text/SimpleDateFormat.format (Ljava/util/Date;)Ljava/lang/String;]
-      [29] invokestatic #189
+      [29] invokestatic #195
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [32] invokespecial #190
+      [32] invokespecial #196
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [35] ldc #15
         - String [.jpg]
-      [37] invokevirtual #192
+      [37] invokevirtual #198
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [40] invokevirtual #194
+      [40] invokevirtual #200
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [43] dup
       [44] astore_1 v1
       [45] astore_2 v2
-      [46] getstatic #98
+      [46] getstatic #100
         - Fieldref [com/pintu/PintuApp.d Landroid/content/SharedPreferences;]
-      [49] invokeinterface #198
+      [49] invokeinterface #204
         - InterfaceMethodref [android/content/SharedPreferences.edit ()Landroid/content/SharedPreferences$Editor;]
-      [54] getstatic #119
+      [54] getstatic #121
         - Fieldref [com/pintu/e/b.e Ljava/lang/String;]
       [57] aload_2 v2
-      [58] invokeinterface #201
+      [58] invokeinterface #207
         - InterfaceMethodref [android/content/SharedPreferences$Editor.putString (Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;]
-      [63] invokeinterface #200
+      [63] invokeinterface #206
         - InterfaceMethodref [android/content/SharedPreferences$Editor.commit ()Z]
       [68] pop
       [69] aload_0 v0
-      [70] new #78
+      [70] new #80
         - Class [java/io/File]
       [73] dup
-      [74] invokestatic #174
+      [74] invokestatic #180
         - Methodref [com/pintu/e/c.a ()Ljava/io/File;]
       [77] aload_1 v1
-      [78] invokespecial #182
+      [78] invokespecial #188
         - Methodref [java/io/File.<init> (Ljava/io/File;Ljava/lang/String;)V]
-      [81] putfield #112
+      [81] putfield #114
         - Fieldref [com/pintu/activity/PictureEdit.n Ljava/io/File;]
       [84] aload_0 v0
       [85] aload_0 v0
-      [86] getfield #112
+      [86] getfield #114
         - Fieldref [com/pintu/activity/PictureEdit.n Ljava/io/File;]
-      [89] invokestatic #134
+      [89] invokestatic #138
         - Methodref [android/net/Uri.fromFile (Ljava/io/File;)Landroid/net/Uri;]
-      [92] putfield #113
+      [92] putfield #115
         - Fieldref [com/pintu/activity/PictureEdit.o Landroid/net/Uri;]
-      [95] new #37
+      [95] new #39
         - Class [android/content/Intent]
       [98] dup
-      [99] ldc #23
+      [99] ldc #25
         - String [android.media.action.IMAGE_CAPTURE]
-      [101] invokespecial #126
+      [101] invokespecial #128
         - Methodref [android/content/Intent.<init> (Ljava/lang/String;)V]
       [104] dup
       [105] astore_1 v1
-      [106] ldc #31
+      [106] ldc #33
         - String [output]
       [108] aload_0 v0
-      [109] getfield #113
+      [109] getfield #115
         - Fieldref [com/pintu/activity/PictureEdit.o Landroid/net/Uri;]
-      [112] invokevirtual #128
+      [112] invokevirtual #132
         - Methodref [android/content/Intent.putExtra (Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;]
       [115] pop
       [116] aload_0 v0
       [117] aload_1 v1
       [118] iconst_2
-      [119] invokevirtual #163
+      [119] invokevirtual #169
         - Methodref [com/pintu/activity/PictureEdit.startActivityForResult (Landroid/content/Intent;I)V]
       [122] return
       [123] astore_1 v1
       [124] ldc #21
         - String [PictureEdit]
       [126] aload_1 v1
-      [127] invokevirtual #186
+      [127] invokevirtual #192
         - Methodref [java/lang/Exception.getMessage ()Ljava/lang/String;]
-      [130] invokestatic #138
+      [130] invokestatic #143
         - Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
       [133] pop
       [134] return
@@ -33965,22 +34020,22 @@ Methods (count = 17):
       [2] astore_0 v0
       [3] dup
       [4] astore_1 v1
-      [5] getfield #101
+      [5] getfield #103
         - Fieldref [com/pintu/activity/PictureEdit.c Landroid/widget/EditText;]
       [8] iconst_0
-      [9] invokevirtual #143
+      [9] invokevirtual #148
         - Methodref [android/widget/EditText.setEnabled (Z)V]
       [12] aload_1 v1
-      [13] getfield #102
+      [13] getfield #104
         - Fieldref [com/pintu/activity/PictureEdit.d Landroid/widget/EditText;]
       [16] iconst_0
-      [17] invokevirtual #143
+      [17] invokevirtual #148
         - Methodref [android/widget/EditText.setEnabled (Z)V]
       [20] aload_1 v1
-      [21] getfield #104
+      [21] getfield #106
         - Fieldref [com/pintu/activity/PictureEdit.f Landroid/widget/ImageButton;]
       [24] iconst_0
-      [25] invokevirtual #144
+      [25] invokevirtual #149
         - Methodref [android/widget/ImageButton.setEnabled (Z)V]
       [28] aload_0 v0
       [29] aload_0 v0
@@ -33989,22 +34044,22 @@ Methods (count = 17):
       [32] aload_0 v0
       [33] ldc #2
         - Integer [2131165250]
-      [35] invokevirtual #159
+      [35] invokevirtual #165
         - Methodref [com/pintu/activity/PictureEdit.getString (I)Ljava/lang/String;]
       [38] iconst_1
-      [39] invokestatic #123
+      [39] invokestatic #125
         - Methodref [android/app/ProgressDialog.show (Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Landroid/app/ProgressDialog;]
-      [42] putfield #106
+      [42] putfield #108
         - Fieldref [com/pintu/activity/PictureEdit.h Landroid/app/ProgressDialog;]
       [45] aload_0 v0
-      [46] getfield #106
+      [46] getfield #108
         - Fieldref [com/pintu/activity/PictureEdit.h Landroid/app/ProgressDialog;]
       [49] ifnull +11 (target=60)
       [52] aload_0 v0
-      [53] getfield #106
+      [53] getfield #108
         - Fieldref [com/pintu/activity/PictureEdit.h Landroid/app/ProgressDialog;]
       [56] iconst_1
-      [57] invokevirtual #121
+      [57] invokevirtual #123
         - Methodref [android/app/ProgressDialog.setCancelable (Z)V]
       [60] return
       Code attribute exceptions (count = 0):
@@ -34016,7 +34071,7 @@ Methods (count = 17):
     + Code attribute instructions (code length = 6, locals = 3, stack = 3):
       [0] aload_0 v0
       [1] lload_1 v1
-      [2] putfield #110
+      [2] putfield #112
         - Fieldref [com/pintu/activity/PictureEdit.l J]
       [5] return
       Code attribute exceptions (count = 0):
@@ -34027,7 +34082,7 @@ Methods (count = 17):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 2):
       [0] aload_0 v0
-      [1] getfield #110
+      [1] getfield #112
         - Fieldref [com/pintu/activity/PictureEdit.l J]
       [4] lreturn
       Code attribute exceptions (count = 0):
@@ -34038,7 +34093,7 @@ Methods (count = 17):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 2):
       [0] aload_0 v0
-      [1] getfield #109
+      [1] getfield #111
         - Fieldref [com/pintu/activity/PictureEdit.k J]
       [4] lreturn
       Code attribute exceptions (count = 0):
@@ -34051,37 +34106,37 @@ Methods (count = 17):
       [0] aload_0 v0
       [1] dup
       [2] astore_0 v0
-      [3] getfield #106
+      [3] getfield #108
         - Fieldref [com/pintu/activity/PictureEdit.h Landroid/app/ProgressDialog;]
       [6] ifnull +23 (target=29)
       [9] aload_0 v0
-      [10] getfield #106
+      [10] getfield #108
         - Fieldref [com/pintu/activity/PictureEdit.h Landroid/app/ProgressDialog;]
       [13] aload_0 v0
       [14] ldc #3
         - Integer [2131165252]
-      [16] invokevirtual #159
+      [16] invokevirtual #165
         - Methodref [com/pintu/activity/PictureEdit.getString (I)Ljava/lang/String;]
-      [19] invokevirtual #122
+      [19] invokevirtual #124
         - Methodref [android/app/ProgressDialog.setMessage (Ljava/lang/CharSequence;)V]
       [22] aload_0 v0
-      [23] getfield #106
+      [23] getfield #108
         - Fieldref [com/pintu/activity/PictureEdit.h Landroid/app/ProgressDialog;]
-      [26] invokevirtual #120
+      [26] invokevirtual #122
         - Methodref [android/app/ProgressDialog.dismiss ()V]
       [29] aload_0 v0
       [30] aload_0 v0
       [31] ldc #3
         - Integer [2131165252]
-      [33] invokevirtual #159
+      [33] invokevirtual #165
         - Methodref [com/pintu/activity/PictureEdit.getString (I)Ljava/lang/String;]
-      [36] invokespecial #154
+      [36] invokespecial #159
         - Methodref [com/pintu/activity/PictureEdit.a (Ljava/lang/String;)V]
       [39] aload_0 v0
-      [40] invokespecial #152
+      [40] invokespecial #157
         - Methodref [com/pintu/activity/PictureEdit.a ()V]
       [43] aload_0 v0
-      [44] invokevirtual #157
+      [44] invokevirtual #162
         - Methodref [com/pintu/activity/PictureEdit.finish ()V]
       [47] return
       Code attribute exceptions (count = 0):
@@ -34094,30 +34149,30 @@ Methods (count = 17):
       [0] aload_0 v0
       [1] dup
       [2] astore_0 v0
-      [3] getfield #106
+      [3] getfield #108
         - Fieldref [com/pintu/activity/PictureEdit.h Landroid/app/ProgressDialog;]
       [6] aload_0 v0
       [7] ldc #4
         - Integer [2131165253]
-      [9] invokevirtual #159
+      [9] invokevirtual #165
         - Methodref [com/pintu/activity/PictureEdit.getString (I)Ljava/lang/String;]
-      [12] invokevirtual #122
+      [12] invokevirtual #124
         - Methodref [android/app/ProgressDialog.setMessage (Ljava/lang/CharSequence;)V]
       [15] aload_0 v0
-      [16] getfield #106
+      [16] getfield #108
         - Fieldref [com/pintu/activity/PictureEdit.h Landroid/app/ProgressDialog;]
-      [19] invokevirtual #120
+      [19] invokevirtual #122
         - Methodref [android/app/ProgressDialog.dismiss ()V]
       [22] aload_0 v0
       [23] aload_0 v0
       [24] ldc #4
         - Integer [2131165253]
-      [26] invokevirtual #159
+      [26] invokevirtual #165
         - Methodref [com/pintu/activity/PictureEdit.getString (I)Ljava/lang/String;]
-      [29] invokespecial #154
+      [29] invokespecial #159
         - Methodref [com/pintu/activity/PictureEdit.a (Ljava/lang/String;)V]
       [32] aload_0 v0
-      [33] invokespecial #152
+      [33] invokespecial #157
         - Methodref [com/pintu/activity/PictureEdit.a ()V]
       [36] return
       Code attribute exceptions (count = 0):
@@ -37529,7 +37584,7 @@ Methods (count = 7):
       [1] invokespecial #31
         - Methodref [android/widget/BaseAdapter.<init> ()V]
       [4] aload_0 v0
-      [5] bipush 8
+      [5] bipush 12
       [7] putfield #21
         - Fieldref [com/pintu/c/h.b I]
       [10] aload_0 v0
@@ -37616,9 +37671,9 @@ Methods (count = 7):
     Access flags: 0x11
       = public final android.view.View getView(int,android.view.View,android.view.ViewGroup)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 96, locals = 4, stack = 5):
+    + Code attribute instructions (code length = 104, locals = 4, stack = 5):
       [0] aload_2 v2
-      [1] ifnonnull +66 (target=67)
+      [1] ifnonnull +74 (target=75)
       [4] new #11
         - Class [android/widget/ImageView]
       [7] dup
@@ -37635,64 +37690,70 @@ Methods (count = 7):
         - Fieldref [android/util/DisplayMetrics.widthPixels I]
       [23] iconst_4
       [24] idiv
-      [25] aload_0 v0
-      [26] getfield #21
+      [25] iconst_2
+      [26] aload_0 v0
+      [27] getfield #21
         - Fieldref [com/pintu/c/h.b I]
-      [29] isub
-      [30] istore_3 v3
-      [31] aload_2 v2
-      [32] new #9
+      [30] imul
+      [31] isub
+      [32] istore_3 v3
+      [33] aload_2 v2
+      [34] new #9
         - Class [android/widget/AbsListView$LayoutParams]
-      [35] dup
-      [36] iload_3 v3
-      [37] iload_3 v3
-      [38] invokespecial #30
+      [37] dup
+      [38] iload_3 v3
+      [39] iload_3 v3
+      [40] invokespecial #30
         - Methodref [android/widget/AbsListView$LayoutParams.<init> (II)V]
-      [41] invokevirtual #34
+      [43] invokevirtual #34
         - Methodref [android/widget/ImageView.setLayoutParams (Landroid/view/ViewGroup$LayoutParams;)V]
-      [44] aload_2 v2
-      [45] iconst_0
-      [46] invokevirtual #33
+      [46] aload_2 v2
+      [47] iconst_0
+      [48] invokevirtual #33
         - Methodref [android/widget/ImageView.setAdjustViewBounds (Z)V]
-      [49] aload_2 v2
-      [50] getstatic #19
+      [51] aload_2 v2
+      [52] getstatic #19
         - Fieldref [android/widget/ImageView$ScaleType.CENTER_CROP Landroid/widget/ImageView$ScaleType;]
-      [53] invokevirtual #36
+      [55] invokevirtual #36
         - Methodref [android/widget/ImageView.setScaleType (Landroid/widget/ImageView$ScaleType;)V]
-      [56] aload_2 v2
-      [57] iconst_0
-      [58] iconst_0
-      [59] iconst_0
-      [60] iconst_0
-      [61] invokevirtual #35
+      [58] aload_2 v2
+      [59] aload_0 v0
+      [60] getfield #21
+        - Fieldref [com/pintu/c/h.b I]
+      [63] aload_0 v0
+      [64] getfield #21
+        - Fieldref [com/pintu/c/h.b I]
+      [67] iconst_0
+      [68] iconst_0
+      [69] invokevirtual #35
         - Methodref [android/widget/ImageView.setPadding (IIII)V]
-      [64] goto +8 (target=72)
-      [67] aload_2 v2
-      [68] checkcast #11
+      [72] goto +8 (target=80)
+      [75] aload_2 v2
+      [76] checkcast #11
         - Class [android/widget/ImageView]
-      [71] astore_2 v2
-      [72] aload_0 v0
-      [73] getfield #22
+      [79] astore_2 v2
+      [80] aload_0 v0
+      [81] getfield #22
         - Fieldref [com/pintu/c/h.c Ljava/util/List;]
-      [76] iload_1 v1
-      [77] invokeinterface #42
+      [84] iload_1 v1
+      [85] invokeinterface #42
         - InterfaceMethodref [java/util/List.get (I)Ljava/lang/Object;]
-      [82] checkcast #15
+      [90] checkcast #15
         - Class [com/pintu/d/e]
-      [85] astore_3 v3
-      [86] aload_2 v2
-      [87] aload_3 v3
-      [88] getfield #25
-        - Fieldref [com/pintu/d/e.d Ljava/lang/String;]
-      [91] invokestatic #37
-        - Methodref [com/pintu/a/d.a (Landroid/widget/ImageView;Ljava/lang/String;)V]
+      [93] astore_3 v3
       [94] aload_2 v2
-      [95] areturn
+      [95] aload_3 v3
+      [96] getfield #25
+        - Fieldref [com/pintu/d/e.d Ljava/lang/String;]
+      [99] invokestatic #37
+        - Methodref [com/pintu/a/d.a (Landroid/widget/ImageView;Ljava/lang/String;)V]
+      [102] aload_2 v2
+      [103] areturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 2):
-        - [67] Var: ..., Stack: (empty)
-        - [72] Var: ...[a:android/widget/ImageView], Stack: (empty)
+        - [75] Var: ..., Stack: (empty)
+        - [80] Var: ...[a:android/widget/ImageView], Stack: (empty)
   + Method:       a(Ljava/util/List;)V
     Access flags: 0x11
       = public final void a(java.util.List)
@@ -51449,7 +51510,7 @@ Constant Pool (count = 384):
   - Class [java/util/Map]
   - Double [0.5]
   - Double [2.0]
-  - Double [800.0]
+  - Double [960.0]
   - Fieldref [android/graphics/Bitmap$CompressFormat.JPEG Landroid/graphics/Bitmap$CompressFormat;]
   - Fieldref [android/graphics/Bitmap$Config.ARGB_8888 Landroid/graphics/Bitmap$Config;]
   - Fieldref [android/graphics/Bitmap$Config.RGB_565 Landroid/graphics/Bitmap$Config;]
@@ -52527,17 +52588,17 @@ Methods (count = 11):
       [26] aload_3 v3
       [27] getfield #67
         - Fieldref [android/graphics/BitmapFactory$Options.outWidth I]
-      [30] sipush 800
+      [30] sipush 960
       [33] ificmpgt +13 (target=46)
       [36] aload_3 v3
       [37] getfield #66
         - Fieldref [android/graphics/BitmapFactory$Options.outHeight I]
-      [40] sipush 600
+      [40] sipush 640
       [43] ificmple +67 (target=110)
       [46] ldc2_w #57
         - Double [2.0]
       [49] ldc2_w #59
-        - Double [800.0]
+        - Double [960.0]
       [52] aload_3 v3
       [53] getfield #66
         - Fieldref [android/graphics/BitmapFactory$Options.outHeight I]

@@ -40,9 +40,11 @@ public class ImageManager  {
     		.drawableToBitmap(PintuApp.mContext.getResources().getDrawable(R.drawable.greenframe));
     public static final int DEFAULT_COMPRESS_QUALITY = 90;    
     
-    //品图移动客户端上传图片大小限制：1200/800   
-    private static final int IMAGE_MAX_WIDTH  = 1200;
-    private static final int IMAGE_MAX_HEIGHT = 800;    
+    //品图移动客户端上传图片大小限制：960/640
+    //这个尺寸应该比较合适了，大了传送时间长，小了屏幕看不全
+    //2011/11/25
+    private static final int IMAGE_MAX_WIDTH  = 960;
+    private static final int IMAGE_MAX_HEIGHT = 640;    
 
     private Context mContext;
     // In memory cache.

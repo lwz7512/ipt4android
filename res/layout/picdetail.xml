@@ -12,10 +12,15 @@
 			android:layout_width="fill_parent"
 			android:layout_height="fill_parent">
 			<!-- 个人栏 -->
-			<RelativeLayout android:id="@+id/usercolumn"
-			android:layout_width="fill_parent"
-				android:layout_height="56dp" android:paddingTop="10dp"
-				android:paddingRight="15dp" android:paddingLeft="10dp">
+
+			<RelativeLayout
+			    android:id="@+id/usercolumn"
+			    android:layout_width="fill_parent"
+			    android:layout_height="56dp"
+			    android:paddingLeft="10dp"
+			    android:paddingRight="15dp"
+			    android:paddingTop="10dp" >
+
 				<!-- profile image -->
 				<FrameLayout android:id="@+id/profile_image_wrapper"
 					android:layout_width="48dp" android:layout_height="48dp"
@@ -81,9 +86,10 @@
 					android:text="@string/comment" style="@style/Button" />
 			</LinearLayout>
 			<!-- 描述和标签 -->
-			<LinearLayout android:layout_width="wrap_content"
+			<LinearLayout android:layout_width="fill_parent"
 				android:layout_height="wrap_content" android:orientation="vertical"
-				android:paddingLeft="10dp">
+				android:paddingLeft="10dp"
+				android:paddingRight="10dp">
 				<!-- 标签 -->
 				<TextView android:id="@+id/tv_tags" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:text="..."

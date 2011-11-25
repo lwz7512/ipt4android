@@ -95,6 +95,21 @@ public class PictureEdit extends FullScreenActivity {
 		// 添加事件监听
 		addEventListeners();
 
+		//该活动有可能从画廊的分享菜单打开
+		//从相册中分享传送过来的图片
+		sharePicFromGallery();
+	}
+	
+	private void sharePicFromGallery(){
+		 Intent intent = getIntent();
+		 Bundle extras = intent.getExtras();
+		 Uri uri = null;
+		 if (extras != null) {
+			 uri = (Uri) (extras.get(Intent.EXTRA_STREAM));
+		 }
+        if (Intent.ACTION_SEND.equals(intent.getAction()) && uri != null) {
+            getPic(uri);
+        }
 	}
 
 	private void shouldEdit() {
@@ -300,6 +315,7 @@ public class PictureEdit extends FullScreenActivity {
 	private void openPhotoLibraryMenu() {
 		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 		intent.setType("image/*");
+//		intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*"); 
 		startActivityForResult(intent, REQUEST_PHOTO_LIBRARY);
 	}
 
