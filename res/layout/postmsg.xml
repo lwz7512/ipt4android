@@ -22,7 +22,9 @@
 			android:layout_width="match_parent" android:layout_height="match_parent"
 			android:gravity="top" android:layout_weight="1"
 			android:layout_marginLeft="60dp" android:layout_below="@id/receiver_edit"
-			android:maxLength="140" android:imeOptions="actionDone" />
+			android:maxLength="140" 
+			android:inputType="text|textMultiLine"
+			android:imeOptions="actionDone" />
 
 		<!-- 字数提示 -->
 		<LinearLayout android:id="@+id/clear_story_btn"
@@ -33,7 +35,7 @@
 			<TextView android:id="@+id/storytxt_left_hint"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
 				android:layout_marginRight="3dp" android:layout_marginLeft="6dp"
-				android:textSize="18sp" android:text="63" />
+				android:textSize="18sp" android:text="140" />
 			<TextView android:id="@+id/clearsign" android:layout_width="wrap_content"
 				android:layout_height="wrap_content" android:layout_alignParentTop="true"
 				android:layout_alignParentRight="true" android:layout_marginRight="2dp"

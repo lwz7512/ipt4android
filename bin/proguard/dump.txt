@@ -49589,15 +49589,15 @@ Methods (count = 19):
     Access flags: 0x8
       = static void <clinit>()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 11, locals = 0, stack = 1):
+    + Code attribute instructions (code length = 12, locals = 0, stack = 1):
       [0] ldc #11
         - String [MsgEdit]
       [2] putstatic #55
         - Fieldref [com/pintu/activity/MsgEdit.h Ljava/lang/String;]
-      [5] bipush 63
-      [7] putstatic #56
+      [5] sipush 140
+      [8] putstatic #56
         - Fieldref [com/pintu/activity/MsgEdit.i I]
-      [10] return
+      [11] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   - Method:       <init>()V

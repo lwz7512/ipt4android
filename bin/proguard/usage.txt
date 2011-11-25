@@ -137,8 +137,8 @@ com.pintu.activity.base.TempletActivity:
 com.pintu.adapter.ClassicStoryAdapter
 com.pintu.adapter.ClassicStoryAdapter$ViewHolder
 com.pintu.adapter.GalleryImageAdapter:
-    120:121:public void refresh()
-    124:124:public java.util.List getCells()
+    123:124:public void refresh()
+    127:127:public java.util.List getCells()
 com.pintu.adapter.GalleryImageAdapter$ViewHolder
 com.pintu.adapter.StoryInfoAdapter
 com.pintu.adapter.StoryInfoAdapter$ViewHolder

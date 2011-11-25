@@ -44,7 +44,7 @@
 		android:layout_marginLeft="2dp"
 		android:layout_marginRight="2dp" 
 		android:gravity="top" 
-		android:inputType="text"
+		android:inputType="text|textMultiLine"
 		android:imeOptions="actionDone" 
 		android:maxLength="140"/>
 	<!-- 是否为原创 -->

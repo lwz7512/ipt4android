@@ -31,7 +31,7 @@ import com.pintu.task.TaskParams;
 public class MsgEdit extends TempletActivity {
 	private static String TAG = "MsgEdit";
 	
-	private static int STORYLENGTH = 63;
+	private static int STORYLENGTH = 140;
 	
 	// Header
 	private ImageButton top_back;
