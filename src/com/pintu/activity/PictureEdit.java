@@ -19,6 +19,7 @@ import android.provider.MediaStore;
 import android.provider.MediaStore.MediaColumns;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.inputmethod.*;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -160,6 +161,7 @@ public class PictureEdit extends FullScreenActivity {
 		mPreview = (ImageView) findViewById(R.id.preview);
 		tagsEditText = (EditText) findViewById(R.id.tags);
 		descEditText = (EditText) findViewById(R.id.description);
+		
 		isOriginal = (CheckBox) findViewById(R.id.isOriginal);
 
 		mCameraButton = (ImageButton) findViewById(R.id.camera_button);

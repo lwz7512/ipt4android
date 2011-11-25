@@ -97,8 +97,8 @@ com.pintu.activity.PictureEdit:
     private static final int REQUEST_IMAGE_CAPTURE
     private static final int REQUEST_PHOTO_LIBRARY
     private static final int MAX_BITMAP_SIZE
-    470:484:public static java.io.File bitmapToFile(android.graphics.Bitmap)
-    490:500:public static android.graphics.Bitmap createFitinBitmap(java.lang.String,int,int)
+    474:488:public static java.io.File bitmapToFile(android.graphics.Bitmap)
+    494:504:public static android.graphics.Bitmap createFitinBitmap(java.lang.String,int,int)
 com.pintu.activity.StoryList:
     private java.lang.String owner
     private java.lang.String storyId
