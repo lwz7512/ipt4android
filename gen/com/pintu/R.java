@@ -244,7 +244,7 @@ public final class R {
         public static final int coppershell=0x7f09000a;
         public static final int coppershell_num=0x7f09000b;
         public static final int created_at=0x7f090052;
-        public static final int description=0x7f090072;
+        public static final int description=0x7f090073;
         public static final int details_prgrsBar=0x7f09002d;
         public static final int egg_num=0x7f090082;
         public static final int favpic=0x7f090077;
@@ -267,7 +267,7 @@ public final class R {
         public static final int hotpic_pubtime=0x7f09005f;
         public static final int hotpics_lv=0x7f090087;
         public static final int ipintu_logo=0x7f090000;
-        public static final int isOriginal=0x7f090073;
+        public static final int isOriginal=0x7f090071;
         public static final int layout_root=0x7f09006c;
         public static final int likenum=0x7f090058;
         public static final int login_div=0x7f09003d;
@@ -322,7 +322,7 @@ public final class R {
         public static final int story_votes=0x7f09007a;
         public static final int storytxt_left_hint=0x7f09006a;
         public static final int t_picture=0x7f090055;
-        public static final int tags=0x7f090071;
+        public static final int tags=0x7f090072;
         public static final int thumb_image=0x7f090075;
         public static final int top_back=0x7f09002b;
         public static final int top_refresh_progressBar=0x7f090032;
