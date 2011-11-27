@@ -1547,7 +1547,7 @@ com.pintu.util.DebugTimer -> com.pintu.e.d:
     java.lang.String toString() -> toString
 com.pintu.util.FileHelper -> com.pintu.e.c:
     java.io.File getBasePath() -> a
-com.pintu.util.IptHelper -> com.pintu.e.f:
+com.pintu.util.IptHelper -> com.pintu.e.e:
     java.lang.String getShortUserName(java.lang.String) -> a
 com.pintu.util.Preferences -> com.pintu.e.b:
     java.lang.String LOGON_USERID -> a
@@ -1556,8 +1556,6 @@ com.pintu.util.Preferences -> com.pintu.e.b:
     java.lang.String LAST_GALLERY_REFRESH_TIME -> c
     java.lang.String LAST_VISIT_TIME -> d
     java.lang.String LAST_CAPTURE_FILE -> e
-com.pintu.util.UTF8Formater -> com.pintu.e.e:
-    java.lang.String changeToUnicode(java.lang.String) -> a
 com.pintu.widget.StateListView -> com.pintu.widget.StateListView:
     int scrollState -> a
     boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent

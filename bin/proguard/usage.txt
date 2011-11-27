@@ -192,7 +192,7 @@ com.pintu.api.PTApi:
     public static final java.lang.String CMTDARENSTATISTICS
     public abstract java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String)
 com.pintu.api.PTImpl:
-    525:534:public java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String)
+    520:529:public java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String)
 com.pintu.data.UserDetails:
     1:1:public static com.pintu.data.UserInfo parseJsonToObj(org.json.JSONObject)
 com.pintu.db.CacheDao:
@@ -363,8 +363,6 @@ com.pintu.util.Preferences:
     public static final java.lang.String MYASSETS_INDEX
     public static final java.lang.String CMNT_INDEX
     public static final java.lang.String MARKET_INDEX
-com.pintu.util.UTF8Formater:
-    34:48:public static java.lang.String changeToWord(java.lang.String)
 com.pintu.widget.StateImage
 com.pintu.widget.StateListView:
     21:21:public boolean isStatic()
@@ -497,6 +495,5 @@ org.apache.http.entity.mime.content.StringBody:
     58:60:public static org.apache.http.entity.mime.content.StringBody create(java.lang.String,java.lang.String,java.nio.charset.Charset)
     69:69:public static org.apache.http.entity.mime.content.StringBody create(java.lang.String,java.nio.charset.Charset)
     76:76:public static org.apache.http.entity.mime.content.StringBody create(java.lang.String)
-    113:114:public StringBody(java.lang.String,java.nio.charset.Charset)
     130:130:public java.io.Reader getReader()
     140:141:public void writeTo(java.io.OutputStream,int)

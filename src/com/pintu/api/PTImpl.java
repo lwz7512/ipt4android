@@ -3,7 +3,9 @@ package com.pintu.api;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.SortedMap;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -24,7 +26,6 @@ import android.util.Log;
 import com.pintu.http.HttpException;
 import com.pintu.http.Response;
 import com.pintu.http.SimpleHttpClient;
-import com.pintu.util.UTF8Formater;
 
 /**
  * 此类为远程查询方法的实现：
@@ -50,7 +51,7 @@ public class PTImpl implements PTApi {
 	private String service = "/ipintu/pintuapi";
 	
 	//debug or release flag
-	private boolean isDebug = false;
+	private boolean isDebug = true;
 
 	public PTImpl(String userId) {
 		client = new SimpleHttpClient(userId);
@@ -119,19 +120,21 @@ public class PTImpl implements PTApi {
 			StringBody userValue = null;
 			StringBody sourceValue = null;
 			try {
-				methodValue = new StringBody(PTApi.UPLOADPICTURE);
+				methodValue = new StringBody(PTApi.UPLOADPICTURE);	
 				
-				tags = UTF8Formater.changeToUnicode(tags);
-				tagsValue = new StringBody(tags);				
-				desc = UTF8Formater.changeToUnicode(desc);
-				descriptionValue = new StringBody(desc);				
+				//FIXME, 修正中文字符编码的问题，在这里设置下就行了
+				//2011/11/27
+				Charset cs = Charset.forName("UTF-8");	
+				tagsValue = new StringBody(tags, cs);
+				descriptionValue = new StringBody(desc, cs);
+							
 				isOriginalValue = new StringBody(isOriginal);
 				
 				userValue = new StringBody(client.getUserId());
 				sourceValue = new StringBody("android");				
 				
 			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
+				Log.e(TAG, "param encoding error!!!");
 				e.printStackTrace();
 			}
 
@@ -211,11 +214,8 @@ public class PTImpl implements PTApi {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.ADDSTORY);
-		BasicNameValuePair tpIdParam = new BasicNameValuePair("follow", follow);
-		// 中文编码下，解决乱码问题
-		story = UTF8Formater.changeToUnicode(story);
-		BasicNameValuePair contentParam = new BasicNameValuePair("content",
-				story);
+		BasicNameValuePair tpIdParam = new BasicNameValuePair("follow", follow);		
+		BasicNameValuePair contentParam = new BasicNameValuePair("content",story);
 		params.add(methodParam);
 		params.add(tpIdParam);
 		params.add(contentParam);
@@ -249,11 +249,8 @@ public class PTImpl implements PTApi {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.ADDCOMMENT);
-		BasicNameValuePair tpIdParam = new BasicNameValuePair("follow", follow);
-		// 中文编码下，解决乱码问题
-		comment = UTF8Formater.changeToUnicode(comment);
-		BasicNameValuePair contentParam = new BasicNameValuePair("content",
-				comment);
+		BasicNameValuePair tpIdParam = new BasicNameValuePair("follow", follow);		
+		BasicNameValuePair contentParam = new BasicNameValuePair("content",comment);
 		params.add(methodParam);
 		params.add(tpIdParam);
 		params.add(contentParam);
@@ -455,9 +452,7 @@ public class PTImpl implements PTApi {
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.SENDMSG);
 		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
-		BasicNameValuePair targetParam = new BasicNameValuePair("receiver", receiver);
-		// 中文编码下，解决乱码问题
-		content  = UTF8Formater.changeToUnicode(content);		
+		BasicNameValuePair targetParam = new BasicNameValuePair("receiver", receiver);		
 		BasicNameValuePair contentParam = new BasicNameValuePair("content", content);
 
 		params.add(methodParam);
