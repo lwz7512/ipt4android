@@ -21460,7 +21460,7 @@ Methods (count = 30):
       [19] putfield #103
         - Fieldref [com/pintu/h/a.e Ljava/lang/String;]
       [22] aload_0 v0
-      [23] iconst_1
+      [23] iconst_0
       [24] putfield #104
         - Fieldref [com/pintu/h/a.f Z]
       [27] aload_0 v0
@@ -37610,7 +37610,7 @@ Methods (count = 7):
       [1] invokespecial #31
         - Methodref [android/widget/BaseAdapter.<init> ()V]
       [4] aload_0 v0
-      [5] bipush 12
+      [5] bipush 8
       [7] putfield #21
         - Fieldref [com/pintu/c/h.b I]
       [10] aload_0 v0
@@ -37697,9 +37697,9 @@ Methods (count = 7):
     Access flags: 0x11
       = public final android.view.View getView(int,android.view.View,android.view.ViewGroup)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 104, locals = 4, stack = 5):
+    + Code attribute instructions (code length = 96, locals = 4, stack = 5):
       [0] aload_2 v2
-      [1] ifnonnull +74 (target=75)
+      [1] ifnonnull +66 (target=67)
       [4] new #11
         - Class [android/widget/ImageView]
       [7] dup
@@ -37716,70 +37716,64 @@ Methods (count = 7):
         - Fieldref [android/util/DisplayMetrics.widthPixels I]
       [23] iconst_4
       [24] idiv
-      [25] iconst_2
-      [26] aload_0 v0
-      [27] getfield #21
+      [25] aload_0 v0
+      [26] getfield #21
         - Fieldref [com/pintu/c/h.b I]
-      [30] imul
-      [31] isub
-      [32] istore_3 v3
-      [33] aload_2 v2
-      [34] new #9
+      [29] isub
+      [30] istore_3 v3
+      [31] aload_2 v2
+      [32] new #9
         - Class [android/widget/AbsListView$LayoutParams]
-      [37] dup
-      [38] iload_3 v3
-      [39] iload_3 v3
-      [40] invokespecial #30
+      [35] dup
+      [36] iload_3 v3
+      [37] iload_3 v3
+      [38] invokespecial #30
         - Methodref [android/widget/AbsListView$LayoutParams.<init> (II)V]
-      [43] invokevirtual #34
+      [41] invokevirtual #34
         - Methodref [android/widget/ImageView.setLayoutParams (Landroid/view/ViewGroup$LayoutParams;)V]
-      [46] aload_2 v2
-      [47] iconst_0
-      [48] invokevirtual #33
+      [44] aload_2 v2
+      [45] iconst_0
+      [46] invokevirtual #33
         - Methodref [android/widget/ImageView.setAdjustViewBounds (Z)V]
-      [51] aload_2 v2
-      [52] getstatic #19
+      [49] aload_2 v2
+      [50] getstatic #19
         - Fieldref [android/widget/ImageView$ScaleType.CENTER_CROP Landroid/widget/ImageView$ScaleType;]
-      [55] invokevirtual #36
+      [53] invokevirtual #36
         - Methodref [android/widget/ImageView.setScaleType (Landroid/widget/ImageView$ScaleType;)V]
-      [58] aload_2 v2
-      [59] aload_0 v0
-      [60] getfield #21
-        - Fieldref [com/pintu/c/h.b I]
-      [63] aload_0 v0
-      [64] getfield #21
-        - Fieldref [com/pintu/c/h.b I]
-      [67] iconst_0
-      [68] iconst_0
-      [69] invokevirtual #35
+      [56] aload_2 v2
+      [57] iconst_0
+      [58] iconst_0
+      [59] iconst_0
+      [60] iconst_0
+      [61] invokevirtual #35
         - Methodref [android/widget/ImageView.setPadding (IIII)V]
-      [72] goto +8 (target=80)
-      [75] aload_2 v2
-      [76] checkcast #11
+      [64] goto +8 (target=72)
+      [67] aload_2 v2
+      [68] checkcast #11
         - Class [android/widget/ImageView]
-      [79] astore_2 v2
-      [80] aload_0 v0
-      [81] getfield #22
+      [71] astore_2 v2
+      [72] aload_0 v0
+      [73] getfield #22
         - Fieldref [com/pintu/c/h.c Ljava/util/List;]
-      [84] iload_1 v1
-      [85] invokeinterface #42
+      [76] iload_1 v1
+      [77] invokeinterface #42
         - InterfaceMethodref [java/util/List.get (I)Ljava/lang/Object;]
-      [90] checkcast #15
+      [82] checkcast #15
         - Class [com/pintu/d/e]
-      [93] astore_3 v3
-      [94] aload_2 v2
-      [95] aload_3 v3
-      [96] getfield #25
+      [85] astore_3 v3
+      [86] aload_2 v2
+      [87] aload_3 v3
+      [88] getfield #25
         - Fieldref [com/pintu/d/e.d Ljava/lang/String;]
-      [99] invokestatic #37
+      [91] invokestatic #37
         - Methodref [com/pintu/a/d.a (Landroid/widget/ImageView;Ljava/lang/String;)V]
-      [102] aload_2 v2
-      [103] areturn
+      [94] aload_2 v2
+      [95] areturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 2):
-        - [75] Var: ..., Stack: (empty)
-        - [80] Var: ...[a:android/widget/ImageView], Stack: (empty)
+        - [67] Var: ..., Stack: (empty)
+        - [72] Var: ...[a:android/widget/ImageView], Stack: (empty)
   + Method:       a(Ljava/util/List;)V
     Access flags: 0x11
       = public final void a(java.util.List)

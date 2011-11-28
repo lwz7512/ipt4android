@@ -23,7 +23,7 @@ public class GalleryImageAdapter extends BaseAdapter {
 	// 网格间距单位像素
 	//FIXME, 以后如果觉得距离有点大，就减小这个值就行了
 	//2011/11/25
-	private int horiGap = 12;
+	private int horiGap = 8;
 
 	// 画廊使用的列表数据
 	private List<TPicDesc> cells;
@@ -61,14 +61,14 @@ public class GalleryImageAdapter extends BaseAdapter {
 		if (convertView == null) {
 			imageView = new ImageView(mContext);			
 			//xml布局设置列数为4列，不要随便改
-			int cellWidth = dm.widthPixels/4-2*horiGap;
+			int cellWidth = dm.widthPixels/4-horiGap;
 			imageView.setLayoutParams(new GridView.LayoutParams(cellWidth, cellWidth));
 			imageView.setAdjustViewBounds(false);
 			imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 			//FIXME, 修正了排列方式，这样间距比较合适，上下左右距离相等了
 			//以后不要动这里了，算法就固定了
 			//2011/11/25
-			imageView.setPadding(horiGap, horiGap, 0, 0);
+			imageView.setPadding(0, 0, 0, 0);
 		} else {
 			imageView = (ImageView) convertView;
 		}

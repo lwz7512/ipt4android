@@ -190,6 +190,7 @@ com.pintu.api.PTApi:
     public static final java.lang.String GETPICCOOLCOUNT
     public static final java.lang.String PICDARENSTATISTICS
     public static final java.lang.String CMTDARENSTATISTICS
+    public static final java.lang.String GETRANDGALLERY
     public abstract java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String)
 com.pintu.api.PTImpl:
     520:529:public java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String)

@@ -67,6 +67,9 @@ public interface PTApi {
     
     //评论达人
     public static final String CMTDARENSTATISTICS = "commentDarenStatistics";
+    
+  //随机获取系统32个图~
+    public static final String GETRANDGALLERY = "getRandGallery";
 	
 	//TODO, ADD OTHER REMOTE METHODS...
 	
