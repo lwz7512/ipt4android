@@ -5,6 +5,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.SoftReference;
@@ -25,6 +26,7 @@ import com.pintu.PintuApp;
 import com.pintu.R;
 import com.pintu.http.HttpException;
 import com.pintu.http.Response;
+import com.pintu.util.FileHelper;
 
 
 /**
@@ -89,7 +91,7 @@ public class ImageManager  {
         } else { //get from web
         	String url = file;
         	//TODO, 真正的下载文件方法，并写文件；
-            bitmap = downloadImage2(url);
+            bitmap = downloadImage(url);
             //这里不做缓存，思路有点怪异啊
             return bitmap;
         }
@@ -180,13 +182,58 @@ public class ImageManager  {
     }
     
 
-    
-    private Bitmap downloadImage2(String url) throws HttpException {
+    //下载到应用目录
+    private Bitmap downloadImage(String url) throws HttpException {
         Log.d(TAG, "[NEW]Fetching image: " + url);
         final Response res = PintuApp.mApi.getImgByUrl(url);
         String file = writeToFile(res.asStream(), getMd5(url));
         return BitmapFactory.decodeFile(file);
     }    
+    
+    /**
+     * 下载图片文件到SD卡上
+     * @param url
+     * @return file
+     * @throws HttpException
+     */
+    public String downloadImage2SD(String url) throws HttpException {
+        Log.d(TAG, "[NEW]Fetching image: " + url);
+        final Response res = PintuApp.mApi.getImgByUrl(url);
+        String file = writeToFile2SD(res.asStream(), getMd5(url));
+        return file;
+    }  
+    
+    private String writeToFile2SD(InputStream is, String filename) {
+        Log.d("LDS", "new write to file");
+        BufferedInputStream in = null;
+        FileOutputStream out = null;
+        File file = null;
+        try {
+        	file = new File(FileHelper.getBasePath(), filename);
+        	out = new FileOutputStream(file);
+            in  = new BufferedInputStream(is);            
+            byte[] buffer = new byte[1024];
+            int l;
+            while ((l = in.read(buffer)) != -1) {
+                out.write(buffer, 0, l);
+            }
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } finally {
+            try {
+                if (in  != null) in.close();
+                if (out != null) {
+                    Log.d("LDS", "new write to file to -> " + filename);
+                    out.flush();
+                    out.close();
+                }
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+    	
+    	return file.getAbsolutePath();
+    }
     
  
      /**

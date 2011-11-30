@@ -1,7 +1,6 @@
 package com.pintu.tool;
 
 import java.io.File;
-import java.io.IOException;
 import java.lang.Thread.State;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import com.pintu.PintuApp;
 import com.pintu.http.HttpException;
 
 public class LazyImageLoader {
@@ -45,6 +43,15 @@ public class LazyImageLoader {
     //发送前压缩图片，节省流量和响应时间
     public File compreseImage(File targetFile) {
     	return mImageManager.compressImage(targetFile, ImageManager.DEFAULT_COMPRESS_QUALITY);
+    }
+    /**
+     * 下载原图到SD卡上
+     * @param url
+     * @return filePath
+     * @throws HttpException
+     */
+    public String downloadImage(String url) throws HttpException {
+    	return mImageManager.downloadImage2SD(url);
     }
     
     

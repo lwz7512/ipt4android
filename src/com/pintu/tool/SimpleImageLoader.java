@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 
 import com.pintu.PintuApp;
 import com.pintu.R;
+import com.pintu.http.HttpException;
 import com.pintu.tool.LazyImageLoader.ImageLoaderCallback;
 
 public class SimpleImageLoader {
@@ -71,6 +72,27 @@ public class SimpleImageLoader {
 			// 如果已经缓存了就直接显示
 			relayoutBitmap(bitmap, imageView);
 		}
+	}
+	
+	//对外暴露的第6个方法
+	/**
+	 * 根据图片编号和类型下载文件到SD卡
+	 * 注意该方法在UI线程中做
+	 * 
+	 * @param picId
+	 * @param picType .png .jpg
+	 * @return 保存在SD卡中的完整路径
+	 */
+	public static String downloadImage(String picId, String picType){
+		String url = PintuApp.mApi.composeImgUrlById(picId);
+		String completeFile = null;
+		try {
+			completeFile = PintuApp.mImageLoader.downloadImage(url)+picType;
+		} catch (HttpException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return completeFile;
 	}
 
 	// 重新定义图片所在的布局容器
