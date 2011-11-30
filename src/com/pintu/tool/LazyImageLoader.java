@@ -50,8 +50,8 @@ public class LazyImageLoader {
      * @return filePath
      * @throws HttpException
      */
-    public String downloadImage(String url) throws HttpException {
-    	return mImageManager.downloadImage2SD(url);
+    public String downloadImage(String url, String picType) throws HttpException {
+    	return mImageManager.downloadImage2SD(url, picType);
     }
     
     

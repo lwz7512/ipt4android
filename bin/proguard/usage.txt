@@ -90,7 +90,7 @@ com.pintu.activity.PicDaren:
     private static final java.lang.String PICDAREN_DATA
     85:85:protected void doSend()
 com.pintu.activity.PictureDetails:
-    497:508:private void fetchLikeNumOfPic()
+    513:524:private void fetchLikeNumOfPic()
 com.pintu.activity.PictureEdit:
     private static final java.lang.String TAG
     private static final java.lang.String SIS_RUNNING_KEY
@@ -191,9 +191,6 @@ com.pintu.api.PTApi:
     public static final java.lang.String PICDARENSTATISTICS
     public static final java.lang.String CMTDARENSTATISTICS
     public static final java.lang.String GETRANDGALLERY
-    public abstract java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String)
-com.pintu.api.PTImpl:
-    520:529:public java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String)
 com.pintu.data.UserDetails:
     1:1:public static com.pintu.data.UserInfo parseJsonToObj(org.json.JSONObject)
 com.pintu.db.CacheDao:
@@ -311,7 +308,6 @@ com.pintu.task.SendTask:
     public static final int TYPE_MARK
     public static final int TYPE_XUETANG
     private static final java.lang.String TAG
-com.pintu.task.SimpleTask
 com.pintu.task.TaskManager:
     private static final java.lang.String TAG
 com.pintu.task.TaskParams:
@@ -333,9 +329,9 @@ com.pintu.tool.LazyImageLoader$CallbackManager:
     private static final java.lang.String TAG
 com.pintu.tool.LazyImageLoader$GetImageTask:
     private static final int TIMEOUT
-    159:159:public boolean isPermanent()
-    164:165:public void setPermanent(boolean)
-    169:170:public void shutDown()
+    166:166:public boolean isPermanent()
+    171:172:public void setPermanent(boolean)
+    176:177:public void shutDown()
 com.pintu.util.DateTimeHelper:
     private static final java.lang.String TAG
     29:33:public static final java.util.Date parseDateTime(java.lang.String)

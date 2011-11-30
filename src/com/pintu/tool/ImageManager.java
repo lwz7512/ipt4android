@@ -11,6 +11,8 @@ import java.io.InputStream;
 import java.lang.ref.SoftReference;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -196,12 +198,18 @@ public class ImageManager  {
      * @return file
      * @throws HttpException
      */
-    public String downloadImage2SD(String url) throws HttpException {
+    public String downloadImage2SD(String url, String picType) throws HttpException {
         Log.d(TAG, "[NEW]Fetching image: " + url);
         final Response res = PintuApp.mApi.getImgByUrl(url);
-        String file = writeToFile2SD(res.asStream(), getMd5(url));
-        return file;
-    }  
+        String fileName = createImgFileName(picType);
+        String filePath = writeToFile2SD(res.asStream(), fileName);
+        return filePath;
+    }
+    
+    private String createImgFileName(String picType){
+    	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+		return dateFormat.format(new Date()) + picType;
+    }
     
     private String writeToFile2SD(InputStream is, String filename) {
         Log.d("LDS", "new write to file");

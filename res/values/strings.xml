@@ -20,6 +20,7 @@
 	<!-- 对话框 -->
 	<string name="note">提示</string>
 	<string name="suretologout">确实要注销吗?</string>
+	<string name="suretosave">确实要保存该图吗?</string>
 	<string name="yes">确定</string>
 	<string name="cancel">取消</string>
 	
@@ -37,6 +38,7 @@
 	<string name="favorite">收藏</string>
 	<string name="forward">转发</string>
 	<string name="report">举报</string>
+	<string name="save">保存图片</string>
 	<string name="level_zh">级别</string>
 	<string name="score_zh">积分</string>
 	<string name="original">原创</string>

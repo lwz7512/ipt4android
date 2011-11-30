@@ -7,6 +7,8 @@ public class TPicDetails {
 	
 	//贴图ID
 	public String id;
+	//图片名称
+	public String name;
 	//作者ID
 	public String owner;
 	//贴图作者
@@ -49,6 +51,7 @@ public class TPicDetails {
 	public static TPicDetails parseJsonToObj(JSONObject json) throws JSONException{
 		TPicDetails details = new TPicDetails();
 		details.id = json.optString("id");
+		details.name = json.optString("name");
 		details.owner = json.optString("owner");
 		details.author = json.optString("author");
 		details.avatarImgPath = json.optString("avatarImgPath");

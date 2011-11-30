@@ -87,7 +87,7 @@ public class SimpleImageLoader {
 		String url = PintuApp.mApi.composeImgUrlById(picId);
 		String completeFile = null;
 		try {
-			completeFile = PintuApp.mImageLoader.downloadImage(url)+picType;
+			completeFile = PintuApp.mImageLoader.downloadImage(url, picType);
 		} catch (HttpException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
