@@ -3,5 +3,5 @@
 	<item android:state_focused="true" android:drawable="@drawable/btn_back_pressed" />
 	<item android:state_pressed="true" android:drawable="@drawable/btn_back_pressed" />
 	<item android:state_selected="true" android:drawable="@drawable/btn_back_focused" />
-	<item android:drawable="@drawable/btn_back_default" />
+	<item android:drawable="@drawable/btn_back_default" />	
 </selector>

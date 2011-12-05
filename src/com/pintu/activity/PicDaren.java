@@ -135,6 +135,8 @@ public class PicDaren extends TempletActivity  implements SubMainCallBack {
 	@Override
 	protected void onRetrieveFailure() {
 		this.updateProgress(R.string.page_status_unable_to_update);
+		if (this.pb != null)
+			this.pb.setVisibility(View.GONE);
 	}
 
 	@Override
