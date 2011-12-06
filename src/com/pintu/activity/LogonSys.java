@@ -5,6 +5,7 @@ import java.util.List;
 import org.json.JSONObject;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -154,11 +155,16 @@ public class LogonSys extends TempletActivity {
 
 	@Override
 	protected void onSendBegin() {
+		//打开对话框
 		dialog = ProgressDialog.show(this, "",
 				getString(R.string.login_status_logging_in), true);
 		if (dialog != null) {
-			dialog.setCancelable(false);
+			dialog.setCancelable(true);
 		}
+		
+		 // 关闭软键盘
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(password_edit.getWindowToken(),0);
 	}
 
 	@Override

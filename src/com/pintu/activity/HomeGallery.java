@@ -66,8 +66,8 @@ public class HomeGallery extends FullScreenActivity {
 	
 	
     // Refresh data at startup if last refresh was this long ago or greater.
-	// 默认10秒后才能刷新，小于这个间隔不给取
-    private static final long REFRESH_THRESHOLD = 1 * 10 * 1000;
+	// 默认2秒后才能刷新，小于这个间隔不给取
+    private static final long REFRESH_THRESHOLD = 1 * 2 * 1000;
     
     protected TaskManager taskManager = new TaskManager();
 
@@ -139,7 +139,6 @@ public class HomeGallery extends FullScreenActivity {
 		
 		refresh = (ImageButton)findViewById(R.id.refresh_btn);
 		progressbar = (ProgressBar)findViewById(R.id.top_refresh_progressBar);
-		
 		gallery = (GridView)findViewById(R.id.ptgallery);
 		//初始化画廊数据
 		gridAdptr = new GalleryImageAdapter(this);

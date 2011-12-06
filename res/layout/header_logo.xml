@@ -9,7 +9,7 @@
       >
       
        <!-- LOGO Image -->
-        <ImageButton android:id="@+id/post_image_btn"
+        <ImageView android:id="@+id/post_image_btn"
             android:background="@null"
 			android:layout_width="wrap_content" 
 			android:layout_height="wrap_content"

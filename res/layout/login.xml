@@ -5,13 +5,12 @@
 	<!-- header -->
 	<RelativeLayout android:layout_width="fill_parent"
 		android:layout_height="48dp" android:background="@drawable/bg_header"
-		android:gravity="center_vertical" android:layout_alignParentTop="true">
-		<!-- LOGO Image -->
-		<ImageView android:id="@+id/post_image_btn"
+		android:gravity="center_vertical" android:layout_alignParentTop="true">		
+		<ImageView android:id="@+id/product_logo"
 			android:background="@null" android:layout_width="wrap_content"
 			android:layout_height="wrap_content" android:src="@drawable/header_logo"
 			 android:layout_alignParentLeft="true" />
-	</RelativeLayout>
+	</RelativeLayout>	    
 	<!-- 登录框 -->
 	<LinearLayout android:id="@+id/login_div"
 		android:orientation="vertical" android:layout_width="fill_parent"
