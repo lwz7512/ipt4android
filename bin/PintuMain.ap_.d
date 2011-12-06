@@ -14,6 +14,7 @@ D:\java\jworkspace\ipt4Android\res\drawable\arrow_1_p.png \
 D:\java\jworkspace\ipt4Android\res\drawable\background_bottombar.xml \
 D:\java\jworkspace\ipt4Android\res\drawable\background_login.xml \
 D:\java\jworkspace\ipt4Android\res\drawable\background_login_div_bg.xml \
+D:\java\jworkspace\ipt4Android\res\drawable\back_gray.png \
 D:\java\jworkspace\ipt4Android\res\drawable\back_selector.xml \
 D:\java\jworkspace\ipt4Android\res\drawable\bg_dot_dashed.png \
 D:\java\jworkspace\ipt4Android\res\drawable\bg_header.xml \
@@ -226,6 +227,7 @@ D:\java\jworkspace\ipt4Android\res\values\style.xml \
 D:\java\jworkspace\ipt4Android\res\values\theme.xml \
 D:\java\jworkspace\ipt4Android\bin\res\drawable\arrow_1.png \
 D:\java\jworkspace\ipt4Android\bin\res\drawable\arrow_1_p.png \
+D:\java\jworkspace\ipt4Android\bin\res\drawable\back_gray.png \
 D:\java\jworkspace\ipt4Android\bin\res\drawable\bg_dot_dashed.png \
 D:\java\jworkspace\ipt4Android\bin\res\drawable\btn_back_default.png \
 D:\java\jworkspace\ipt4Android\bin\res\drawable\btn_back_focused.png \

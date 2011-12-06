@@ -27,8 +27,9 @@
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
-		<!-- 贴图编辑 -->
-		<activity android:name=".activity.PictureEdit">
+		<!-- 贴图编辑 -->		
+		<activity android:name=".activity.PictureEdit"
+		    android:screenOrientation="portrait">
 			<intent-filter>
 				<action android:name="com.pintu.activity.sendpic" />
 				<category android:name="android.intent.category.DEFAULT" />

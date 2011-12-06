@@ -700,26 +700,28 @@ com.pintu.activity.PictureEdit -> com.pintu.activity.PictureEdit:
     android.widget.ImageButton chooseImagesButton -> f
     android.widget.ImageButton mCameraButton -> g
     android.app.ProgressDialog dialog -> h
-    boolean withPic -> i
-    android.widget.ImageView mPreview -> j
-    long startTime -> k
-    long endTime -> l
-    com.pintu.task.GenericTask mSendTask -> m
-    java.io.File mFile -> n
-    android.net.Uri mImageUri -> o
-    android.view.View$OnClickListener mGoListener -> p
-    android.view.View$OnClickListener sendListener -> q
-    android.view.View$OnClickListener insertImgListener -> r
-    android.view.View$OnClickListener takeShotListener -> s
-    com.pintu.task.TaskListener mSendTaskListener -> t
+    android.widget.ImageView mPreview -> i
+    long startTime -> j
+    long endTime -> k
+    com.pintu.task.GenericTask mSendTask -> l
+    java.io.File mFile -> m
+    android.net.Uri mImageUri -> n
+    android.view.View$OnClickListener mGoListener -> o
+    android.view.View$OnClickListener sendListener -> p
+    android.view.View$OnClickListener insertImgListener -> q
+    android.view.View$OnClickListener takeShotListener -> r
+    com.pintu.task.TaskListener mSendTaskListener -> s
     void onCreate(android.os.Bundle) -> onCreate
+    void onResume() -> onResume
     void onDestroy() -> onDestroy
     void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
     void updateProgress(java.lang.String) -> a
     void enableEntry() -> a
     void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     void getPic(android.net.Uri) -> a
-    android.graphics.Bitmap createThumbnailBitmap$1c6d3aaf(android.net.Uri) -> b
+    void centerDisplayThumbnail(android.graphics.Bitmap) -> a
+    java.lang.String getRealPathFromURI(android.net.Uri) -> b
+    android.graphics.Bitmap createThumbnailBitmap$1c6d3aaf(android.net.Uri) -> c
     void access$0(com.pintu.activity.PictureEdit) -> a
     void access$2(com.pintu.activity.PictureEdit) -> b
     void access$3(com.pintu.activity.PictureEdit) -> c
@@ -1573,7 +1575,7 @@ com.pintu.util.DateTimeHelper -> com.pintu.e.a:
     java.lang.String getRelativeDate(java.util.Date) -> a
     java.lang.String getRelativeTimeByFormatDate(java.lang.String) -> a
     long getNowTime() -> a
-com.pintu.util.DebugTimer -> com.pintu.e.d:
+com.pintu.util.DebugTimer -> com.pintu.e.c:
     java.util.HashMap mTime -> a
     long mStartTime -> b
     long mLastTime -> c
@@ -1581,9 +1583,7 @@ com.pintu.util.DebugTimer -> com.pintu.e.d:
     long betweenStart(java.lang.String) -> a
     long betweenEnd(java.lang.String) -> b
     java.lang.String toString() -> toString
-com.pintu.util.FileHelper -> com.pintu.e.c:
-    java.io.File getBasePath() -> a
-com.pintu.util.IptHelper -> com.pintu.e.e:
+com.pintu.util.IptHelper -> com.pintu.e.d:
     java.lang.String getShortUserName(java.lang.String) -> a
 com.pintu.util.Preferences -> com.pintu.e.b:
     java.lang.String LOGON_USERID -> a

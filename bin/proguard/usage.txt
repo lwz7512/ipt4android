@@ -68,11 +68,11 @@ com.pintu.activity.HomeGallery:
     protected static final int OPTIONS_MENU_ID_PHOTO_LIBRARY
     protected static final int OPTIONS_MENU_ID_EXIT
     protected static final int OPTIONS_MENU_ID_HELP
-    362:362:protected int getLastOptionMenuId()
+    361:361:protected int getLastOptionMenuId()
 com.pintu.activity.LogonSys:
     private static final java.lang.String USERNOTEXIST
     private static final java.lang.String PASSWORDERROR
-    223:223:protected void doRetrieve()
+    229:229:protected void doRetrieve()
 com.pintu.activity.MarketNote:
     45:45:protected void doSend()
     69:69:protected void doRetrieve()
@@ -97,8 +97,10 @@ com.pintu.activity.PictureEdit:
     private static final int REQUEST_IMAGE_CAPTURE
     private static final int REQUEST_PHOTO_LIBRARY
     private static final int MAX_BITMAP_SIZE
-    472:486:public static java.io.File bitmapToFile(android.graphics.Bitmap)
-    492:502:public static android.graphics.Bitmap createFitinBitmap(java.lang.String,int,int)
+    402:413:private void openImageCaptureMenu()
+    495:514:private android.net.Uri findImageByName()
+    601:615:public static java.io.File bitmapToFile(android.graphics.Bitmap)
+    621:631:public static android.graphics.Bitmap createFitinBitmap(java.lang.String,int,int)
 com.pintu.activity.StoryList:
     private java.lang.String owner
     private java.lang.String storyId

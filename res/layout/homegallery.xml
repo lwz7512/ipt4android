@@ -4,10 +4,51 @@
 	  android:orientation="vertical"
 	  android:layout_width="match_parent"
 	  android:layout_height="match_parent"
-	  android:background="@color/body_background">
+	  android:background="@drawable/background_login">
   
   	<!-- Header -->
-    <include layout="@layout/header_logo"/>
+   <RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="48dp" android:background="@drawable/bg_header"
+		android:gravity="center_vertical" android:layout_alignParentTop="true">			
+		<!-- LOGO Image -->
+        <ImageView android:id="@+id/product_logo"
+			android:background="@null" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:src="@drawable/header_logo"
+			 android:layout_alignParentLeft="true" />
+          
+        <!-- 首页标题  -->
+        <TextView android:id="@+id/home_title"            
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+			android:layout_centerVertical="true"
+			style="@style/normalText.Big.While"
+			android:text="@string/gallery"			        
+           />
+           
+        <!-- 刷新按钮 -->
+        <ImageButton
+            android:id="@+id/refresh_btn"
+            android:background="@null"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"			
+			android:layout_marginRight="4dp" 
+			android:src="@drawable/top_refresh_selector"          
+           /> 
+        <!-- 旋转  --> 
+        <ProgressBar 
+            android:id="@+id/top_refresh_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"            
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"			
+			android:layout_marginRight="4dp" 
+            style="?android:progressBarStyleSmall"
+            android:visibility="gone"
+        />                   
+	</RelativeLayout>	    
     
     <!-- Amazing attribute:  android:layout_weight="1"-->
     <!-- fix grid layout,mainly controlled by GalleryImageAdapter
@@ -24,7 +65,7 @@
     	android:layout_weight="1"
     />
     
-   <!-- footer TODO: 更换背景色 -->
-   <include  layout="@layout/footer_home" />   
+   <!-- footer TODO: 更换背景色  -->
+   <include  layout="@layout/footer_home" />  
     
 </LinearLayout>

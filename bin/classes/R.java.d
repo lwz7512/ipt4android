@@ -14,6 +14,7 @@ D:\java\jworkspace\ipt4Android\res\drawable\arrow_1_p.png \
 D:\java\jworkspace\ipt4Android\res\drawable\background_bottombar.xml \
 D:\java\jworkspace\ipt4Android\res\drawable\background_login.xml \
 D:\java\jworkspace\ipt4Android\res\drawable\background_login_div_bg.xml \
+D:\java\jworkspace\ipt4Android\res\drawable\back_gray.png \
 D:\java\jworkspace\ipt4Android\res\drawable\back_selector.xml \
 D:\java\jworkspace\ipt4Android\res\drawable\bg_dot_dashed.png \
 D:\java\jworkspace\ipt4Android\res\drawable\bg_header.xml \

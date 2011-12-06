@@ -46,6 +46,7 @@ public class PTImpl implements PTApi {
 	private String emulator = "http://10.0.2.2:8080";
 	
 	//remote server used in product environment
+//	private String host = "http://192.168.0.100:8080";
 	private String host = "http://ipintu.com";
 	// Real service context
 	private String service = "/ipintu/pintuapi";

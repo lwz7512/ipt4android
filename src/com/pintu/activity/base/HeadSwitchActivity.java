@@ -160,16 +160,25 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 
 	/**
 	 * 根据ID打开指定的Activity
-	 * @param id GridView选中项的序号
+	 * @param index GridView选中项的序号
 	 */
-	protected void switchActivity(int id){
+	protected void switchActivity(int index){
+		
+		//FIXME, 这里不判断的话会造成FC，很奇怪这个值竟然会是3
+		//由小明修正的这个错误
+		//2012/12/06
+		if(index>topImgAdapter.getCount()-1){
+			//如果越界，就默认选中第一个
+			index = 0;
+		}
+		
 		//选中项获得高亮，将背景图设置到文字上去
-		topImgAdapter.SetFocus(id);
+		topImgAdapter.SetFocus(index);
 		//必须先清除容器中所有的View
 		container.removeAllViews();
 		
 		//获取子类给出的视图
-		Intent intent =switchByIndex(id);
+		Intent intent =switchByIndex(index);
 		if(intent==null) return;
 		//只创建一个活动
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
