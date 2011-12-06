@@ -163,6 +163,9 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	 * @param id GridView选中项的序号
 	 */
 	protected void switchActivity(int id){
+		if(id > topImgAdapter.getCount()-1){
+			id = 0;
+		}
 		//选中项获得高亮，将背景图设置到文字上去
 		topImgAdapter.SetFocus(id);
 		//必须先清除容器中所有的View
