@@ -52,7 +52,7 @@ public class PTImpl implements PTApi {
 	private String service = "/ipintu/pintuapi";
 	
 	//debug or release flag
-	private boolean isDebug = true;
+	private boolean isDebug = false;
 
 	public PTImpl(String userId) {
 		client = new SimpleHttpClient(userId);
@@ -220,7 +220,6 @@ public class PTImpl implements PTApi {
 		params.add(methodParam);
 		params.add(tpIdParam);
 		params.add(contentParam);
-
 		Response resp = client.post(getBaseURL(), params, null, false);
 
 		return resp.asString();

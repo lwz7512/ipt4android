@@ -162,14 +162,7 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 	 * 根据ID打开指定的Activity
 	 * @param index GridView选中项的序号
 	 */
-<<<<<<< HEAD
-	protected void switchActivity(int id){
-		if(id > topImgAdapter.getCount()-1){
-			id = 0;
-		}
-=======
 	protected void switchActivity(int index){
-		
 		//FIXME, 这里不判断的话会造成FC，很奇怪这个值竟然会是3
 		//由小明修正的这个错误
 		//2012/12/06
@@ -178,7 +171,6 @@ public abstract class HeadSwitchActivity extends ActivityGroup {
 			index = 0;
 		}
 		
->>>>>>> 29ecfebaf20b5efb9e1cc979e63551910c983df8
 		//选中项获得高亮，将背景图设置到文字上去
 		topImgAdapter.SetFocus(index);
 		//必须先清除容器中所有的View
