@@ -4486,8 +4486,8 @@ _____________________________________________________________________
 Interfaces (count = 0):
 
 Constant Pool (count = 52):
-  - Integer [2130837610]
-  - Integer [2130837611]
+  - Integer [2130837612]
+  - Integer [2130837613]
   - Integer [2131165231]
   - Integer [2131165232]
   - String [market_index]
@@ -4611,12 +4611,12 @@ Methods (count = 6):
       [3] dup
       [4] iconst_0
       [5] ldc #2
-        - Integer [2130837611]
+        - Integer [2130837613]
       [7] iastore
       [8] dup
       [9] iconst_1
       [10] ldc #1
-        - Integer [2130837610]
+        - Integer [2130837612]
       [12] iastore
       [13] areturn
       Code attribute exceptions (count = 0):
@@ -6272,7 +6272,7 @@ Interfaces (count = 0):
 
 Constant Pool (count = 101):
   - Integer [2130837559]
-  - Integer [2130837661]
+  - Integer [2130837663]
   - Integer [2131165233]
   - Integer [2131165234]
   - String [ must has extras.]
@@ -6460,7 +6460,7 @@ Methods (count = 5):
       [3] dup
       [4] iconst_0
       [5] ldc #2
-        - Integer [2130837661]
+        - Integer [2130837663]
       [7] iastore
       [8] dup
       [9] iconst_1
@@ -24570,7 +24570,7 @@ _____________________________________________________________________
 Interfaces (count = 0):
 
 Constant Pool (count = 114):
-  - Integer [2130837616]
+  - Integer [2130837618]
   - Class [android/graphics/Bitmap]
   - Class [android/view/ViewGroup]
   - Class [android/view/ViewGroup$LayoutParams]
@@ -24747,7 +24747,7 @@ Methods (count = 8):
       [21] ifacmpne +10 (target=31)
       [24] aload_0 v0
       [25] ldc #1
-        - Integer [2130837616]
+        - Integer [2130837618]
       [27] invokevirtual #28
         - Methodref [android/widget/ImageView.setImageResource (I)V]
       [30] return
@@ -24790,7 +24790,7 @@ Methods (count = 8):
       [27] ifacmpne +10 (target=37)
       [30] aload_0 v0
       [31] ldc #1
-        - Integer [2130837616]
+        - Integer [2130837618]
       [33] invokevirtual #28
         - Methodref [android/widget/ImageView.setImageResource (I)V]
       [36] return
@@ -24919,8 +24919,8 @@ Interfaces (count = 0):
 
 Constant Pool (count = 56):
   - Integer [2130837544]
-  - Integer [2130837569]
-  - Integer [2130837664]
+  - Integer [2130837571]
+  - Integer [2130837666]
   - Integer [2131165226]
   - Integer [2131165227]
   - Integer [2131165230]
@@ -25047,7 +25047,7 @@ Methods (count = 6):
       [3] dup
       [4] iconst_0
       [5] ldc #3
-        - Integer [2130837664]
+        - Integer [2130837666]
       [7] iastore
       [8] dup
       [9] iconst_1
@@ -25057,7 +25057,7 @@ Methods (count = 6):
       [13] dup
       [14] iconst_2
       [15] ldc #2
-        - Integer [2130837569]
+        - Integer [2130837571]
       [17] iastore
       [18] areturn
       Code attribute exceptions (count = 0):
@@ -42795,7 +42795,7 @@ Interfaces (count = 0):
 
 Constant Pool (count = 52):
   - Integer [2130837552]
-  - Integer [2130837643]
+  - Integer [2130837645]
   - Integer [2131165224]
   - Integer [2131165225]
   - String [myassets_index]
@@ -42919,7 +42919,7 @@ Methods (count = 6):
       [3] dup
       [4] iconst_0
       [5] ldc #2
-        - Integer [2130837643]
+        - Integer [2130837645]
       [7] iastore
       [8] dup
       [9] iconst_1
@@ -45595,7 +45595,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 442):
+Constant Pool (count = 444):
   - Integer [17301568]
   - Integer [17301569]
   - Integer [17301580]
@@ -45677,6 +45677,7 @@ Constant Pool (count = 442):
   - Class [java/util/Date]
   - Class [java/util/List]
   - Long [2000]
+  - Long [180000]
   - Fieldref [android/os/AsyncTask$Status.RUNNING Landroid/os/AsyncTask$Status;]
   - Fieldref [com/pintu/PintuApp.c Lcom/pintu/g/e;]
   - Fieldref [com/pintu/PintuApp.d Landroid/content/SharedPreferences;]
@@ -46109,105 +46110,105 @@ Methods (count = 15):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 136, locals = 1, stack = 4):
       [0] aload_0 v0
-      [1] invokespecial #137
+      [1] invokespecial #139
         - Methodref [com/pintu/activity/base/FullScreenActivity.<init> ()V]
       [4] aload_0 v0
       [5] new #73
         - Class [com/pintu/f/l]
       [8] dup
-      [9] invokespecial #161
+      [9] invokespecial #163
         - Methodref [com/pintu/f/l.<init> ()V]
-      [12] putfield #96
+      [12] putfield #98
         - Fieldref [com/pintu/activity/HomeGallery.k Lcom/pintu/f/l;]
       [15] aload_0 v0
       [16] new #59
         - Class [com/pintu/activity/k]
       [19] dup
       [20] aload_0 v0
-      [21] invokespecial #144
+      [21] invokespecial #146
         - Methodref [com/pintu/activity/k.<init> (Lcom/pintu/activity/HomeGallery;)V]
-      [24] putfield #97
+      [24] putfield #99
         - Fieldref [com/pintu/activity/HomeGallery.l Landroid/view/View$OnClickListener;]
       [27] aload_0 v0
       [28] new #65
         - Class [com/pintu/activity/q]
       [31] dup
       [32] aload_0 v0
-      [33] invokespecial #150
+      [33] invokespecial #152
         - Methodref [com/pintu/activity/q.<init> (Lcom/pintu/activity/HomeGallery;)V]
-      [36] putfield #98
+      [36] putfield #100
         - Fieldref [com/pintu/activity/HomeGallery.m Landroid/view/View$OnClickListener;]
       [39] aload_0 v0
       [40] new #64
         - Class [com/pintu/activity/p]
       [43] dup
       [44] aload_0 v0
-      [45] invokespecial #149
+      [45] invokespecial #151
         - Methodref [com/pintu/activity/p.<init> (Lcom/pintu/activity/HomeGallery;)V]
-      [48] putfield #99
+      [48] putfield #101
         - Fieldref [com/pintu/activity/HomeGallery.n Landroid/view/View$OnClickListener;]
       [51] aload_0 v0
       [52] new #67
         - Class [com/pintu/activity/s]
       [55] dup
       [56] aload_0 v0
-      [57] invokespecial #152
+      [57] invokespecial #154
         - Methodref [com/pintu/activity/s.<init> (Lcom/pintu/activity/HomeGallery;)V]
-      [60] putfield #100
+      [60] putfield #102
         - Fieldref [com/pintu/activity/HomeGallery.o Landroid/view/View$OnClickListener;]
       [63] aload_0 v0
       [64] new #66
         - Class [com/pintu/activity/r]
       [67] dup
       [68] aload_0 v0
-      [69] invokespecial #151
+      [69] invokespecial #153
         - Methodref [com/pintu/activity/r.<init> (Lcom/pintu/activity/HomeGallery;)V]
-      [72] putfield #101
+      [72] putfield #103
         - Fieldref [com/pintu/activity/HomeGallery.p Landroid/widget/AdapterView$OnItemClickListener;]
       [75] aload_0 v0
       [76] new #61
         - Class [com/pintu/activity/m]
       [79] dup
       [80] aload_0 v0
-      [81] invokespecial #146
+      [81] invokespecial #148
         - Methodref [com/pintu/activity/m.<init> (Lcom/pintu/activity/HomeGallery;)V]
-      [84] putfield #102
+      [84] putfield #104
         - Fieldref [com/pintu/activity/HomeGallery.q Landroid/view/View$OnClickListener;]
       [87] aload_0 v0
       [88] new #60
         - Class [com/pintu/activity/l]
       [91] dup
       [92] aload_0 v0
-      [93] invokespecial #145
+      [93] invokespecial #147
         - Methodref [com/pintu/activity/l.<init> (Lcom/pintu/activity/HomeGallery;)V]
-      [96] putfield #103
+      [96] putfield #105
         - Fieldref [com/pintu/activity/HomeGallery.r Landroid/view/View$OnClickListener;]
       [99] aload_0 v0
       [100] new #63
         - Class [com/pintu/activity/o]
       [103] dup
       [104] aload_0 v0
-      [105] invokespecial #148
+      [105] invokespecial #150
         - Methodref [com/pintu/activity/o.<init> (Lcom/pintu/activity/HomeGallery;)V]
-      [108] putfield #104
+      [108] putfield #106
         - Fieldref [com/pintu/activity/HomeGallery.s Lcom/pintu/f/n;]
       [111] aload_0 v0
       [112] new #62
         - Class [com/pintu/activity/n]
       [115] dup
       [116] aload_0 v0
-      [117] invokespecial #147
+      [117] invokespecial #149
         - Methodref [com/pintu/activity/n.<init> (Lcom/pintu/activity/HomeGallery;)V]
-      [120] putfield #105
+      [120] putfield #107
         - Fieldref [com/pintu/activity/HomeGallery.t Landroid/content/DialogInterface$OnClickListener;]
       [123] aload_0 v0
       [124] new #58
         - Class [com/pintu/activity/bn]
       [127] dup
       [128] aload_0 v0
-      [129] invokespecial #143
+      [129] invokespecial #145
         - Methodref [com/pintu/activity/bn.<init> (Lcom/pintu/activity/HomeGallery;)V]
-      [132] putfield #106
+      [132] putfield #108
         - Fieldref [com/pintu/activity/HomeGallery.u Landroid/content/DialogInterface$OnClickListener;]
       [135] return
       Code attribute exceptions (count = 0):
@@ -46219,12 +46220,12 @@ Methods (count = 15):
     + Code attribute instructions (code length = 248, locals = 3, stack = 4):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #138
+      [2] invokespecial #140
         - Methodref [com/pintu/activity/base/FullScreenActivity.onCreate (Landroid/os/Bundle;)V]
       [5] aload_0 v0
       [6] ldc #5
         - Integer [2130903061]
-      [8] invokevirtual #134
+      [8] invokevirtual #136
         - Methodref [com/pintu/activity/HomeGallery.setContentView (I)V]
       [11] aload_0 v0
       [12] dup
@@ -46232,178 +46233,178 @@ Methods (count = 15):
       [14] astore_1 v1
       [15] ldc #19
         - Integer [2131296305]
-      [17] invokevirtual #131
+      [17] invokevirtual #133
         - Methodref [com/pintu/activity/HomeGallery.findViewById (I)Landroid/view/View;]
       [20] checkcast #49
         - Class [android/widget/ImageButton]
-      [23] putfield #86
+      [23] putfield #88
         - Fieldref [com/pintu/activity/HomeGallery.a Landroid/widget/ImageButton;]
       [26] aload_1 v1
       [27] aload_1 v1
       [28] ldc #20
         - Integer [2131296306]
-      [30] invokevirtual #131
+      [30] invokevirtual #133
         - Methodref [com/pintu/activity/HomeGallery.findViewById (I)Landroid/view/View;]
       [33] checkcast #50
         - Class [android/widget/ProgressBar]
-      [36] putfield #87
+      [36] putfield #89
         - Fieldref [com/pintu/activity/HomeGallery.b Landroid/widget/ProgressBar;]
       [39] aload_1 v1
       [40] aload_1 v1
       [41] ldc #21
         - Integer [2131296313]
-      [43] invokevirtual #131
+      [43] invokevirtual #133
         - Methodref [com/pintu/activity/HomeGallery.findViewById (I)Landroid/view/View;]
       [46] checkcast #48
         - Class [android/widget/GridView]
-      [49] putfield #88
+      [49] putfield #90
         - Fieldref [com/pintu/activity/HomeGallery.c Landroid/widget/GridView;]
       [52] aload_1 v1
       [53] new #68
         - Class [com/pintu/c/h]
       [56] dup
       [57] aload_1 v1
-      [58] invokespecial #153
+      [58] invokespecial #155
         - Methodref [com/pintu/c/h.<init> (Landroid/content/Context;)V]
-      [61] putfield #94
+      [61] putfield #96
         - Fieldref [com/pintu/activity/HomeGallery.i Lcom/pintu/c/h;]
       [64] aload_1 v1
-      [65] getfield #88
+      [65] getfield #90
         - Fieldref [com/pintu/activity/HomeGallery.c Landroid/widget/GridView;]
       [68] aload_1 v1
-      [69] getfield #94
+      [69] getfield #96
         - Fieldref [com/pintu/activity/HomeGallery.i Lcom/pintu/c/h;]
-      [72] invokevirtual #122
+      [72] invokevirtual #124
         - Methodref [android/widget/GridView.setAdapter (Landroid/widget/ListAdapter;)V]
       [75] aload_1 v1
       [76] aload_1 v1
       [77] ldc #14
         - Integer [2131296294]
-      [79] invokevirtual #131
+      [79] invokevirtual #133
         - Methodref [com/pintu/activity/HomeGallery.findViewById (I)Landroid/view/View;]
       [82] checkcast #51
         - Class [android/widget/TextView]
-      [85] putfield #89
+      [85] putfield #91
         - Fieldref [com/pintu/activity/HomeGallery.d Landroid/widget/TextView;]
       [88] aload_1 v1
       [89] aload_1 v1
       [90] ldc #15
         - Integer [2131296295]
-      [92] invokevirtual #131
+      [92] invokevirtual #133
         - Methodref [com/pintu/activity/HomeGallery.findViewById (I)Landroid/view/View;]
       [95] checkcast #51
         - Class [android/widget/TextView]
-      [98] putfield #90
+      [98] putfield #92
         - Fieldref [com/pintu/activity/HomeGallery.e Landroid/widget/TextView;]
       [101] aload_1 v1
       [102] aload_1 v1
       [103] ldc #16
         - Integer [2131296296]
-      [105] invokevirtual #131
+      [105] invokevirtual #133
         - Methodref [com/pintu/activity/HomeGallery.findViewById (I)Landroid/view/View;]
       [108] checkcast #51
         - Class [android/widget/TextView]
-      [111] putfield #91
+      [111] putfield #93
         - Fieldref [com/pintu/activity/HomeGallery.f Landroid/widget/TextView;]
       [114] aload_1 v1
       [115] aload_1 v1
       [116] ldc #17
         - Integer [2131296297]
-      [118] invokevirtual #131
+      [118] invokevirtual #133
         - Methodref [com/pintu/activity/HomeGallery.findViewById (I)Landroid/view/View;]
       [121] checkcast #51
         - Class [android/widget/TextView]
-      [124] putfield #92
+      [124] putfield #94
         - Fieldref [com/pintu/activity/HomeGallery.g Landroid/widget/TextView;]
       [127] aload_1 v1
       [128] aload_1 v1
       [129] ldc #18
         - Integer [2131296298]
-      [131] invokevirtual #131
+      [131] invokevirtual #133
         - Methodref [com/pintu/activity/HomeGallery.findViewById (I)Landroid/view/View;]
       [134] checkcast #51
         - Class [android/widget/TextView]
-      [137] putfield #93
+      [137] putfield #95
         - Fieldref [com/pintu/activity/HomeGallery.h Landroid/widget/TextView;]
       [140] aload_0 v0
       [141] dup
       [142] astore_1 v1
-      [143] getfield #86
+      [143] getfield #88
         - Fieldref [com/pintu/activity/HomeGallery.a Landroid/widget/ImageButton;]
       [146] aload_1 v1
-      [147] getfield #103
+      [147] getfield #105
         - Fieldref [com/pintu/activity/HomeGallery.r Landroid/view/View$OnClickListener;]
-      [150] invokevirtual #124
+      [150] invokevirtual #126
         - Methodref [android/widget/ImageButton.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [153] aload_1 v1
-      [154] getfield #88
+      [154] getfield #90
         - Fieldref [com/pintu/activity/HomeGallery.c Landroid/widget/GridView;]
       [157] aload_1 v1
-      [158] getfield #101
+      [158] getfield #103
         - Fieldref [com/pintu/activity/HomeGallery.p Landroid/widget/AdapterView$OnItemClickListener;]
-      [161] invokevirtual #123
+      [161] invokevirtual #125
         - Methodref [android/widget/GridView.setOnItemClickListener (Landroid/widget/AdapterView$OnItemClickListener;)V]
       [164] aload_1 v1
-      [165] getfield #89
+      [165] getfield #91
         - Fieldref [com/pintu/activity/HomeGallery.d Landroid/widget/TextView;]
       [168] aload_1 v1
-      [169] getfield #102
+      [169] getfield #104
         - Fieldref [com/pintu/activity/HomeGallery.q Landroid/view/View$OnClickListener;]
-      [172] invokevirtual #125
+      [172] invokevirtual #127
         - Methodref [android/widget/TextView.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [175] aload_1 v1
-      [176] getfield #90
+      [176] getfield #92
         - Fieldref [com/pintu/activity/HomeGallery.e Landroid/widget/TextView;]
       [179] aload_1 v1
-      [180] getfield #100
+      [180] getfield #102
         - Fieldref [com/pintu/activity/HomeGallery.o Landroid/view/View$OnClickListener;]
-      [183] invokevirtual #125
+      [183] invokevirtual #127
         - Methodref [android/widget/TextView.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [186] aload_1 v1
-      [187] getfield #91
+      [187] getfield #93
         - Fieldref [com/pintu/activity/HomeGallery.f Landroid/widget/TextView;]
       [190] aload_1 v1
-      [191] getfield #99
+      [191] getfield #101
         - Fieldref [com/pintu/activity/HomeGallery.n Landroid/view/View$OnClickListener;]
-      [194] invokevirtual #125
+      [194] invokevirtual #127
         - Methodref [android/widget/TextView.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [197] aload_1 v1
-      [198] getfield #92
+      [198] getfield #94
         - Fieldref [com/pintu/activity/HomeGallery.g Landroid/widget/TextView;]
       [201] aload_1 v1
-      [202] getfield #98
+      [202] getfield #100
         - Fieldref [com/pintu/activity/HomeGallery.m Landroid/view/View$OnClickListener;]
-      [205] invokevirtual #125
+      [205] invokevirtual #127
         - Methodref [android/widget/TextView.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [208] aload_1 v1
-      [209] getfield #93
+      [209] getfield #95
         - Fieldref [com/pintu/activity/HomeGallery.h Landroid/widget/TextView;]
       [212] aload_1 v1
-      [213] getfield #97
+      [213] getfield #99
         - Fieldref [com/pintu/activity/HomeGallery.l Landroid/view/View$OnClickListener;]
-      [216] invokevirtual #125
+      [216] invokevirtual #127
         - Methodref [android/widget/TextView.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [219] aload_0 v0
-      [220] invokespecial #128
+      [220] invokespecial #130
         - Methodref [com/pintu/activity/HomeGallery.a ()V]
       [223] aload_0 v0
       [224] astore_1 v1
       [225] new #35
         - Class [android/content/Intent]
       [228] dup
-      [229] invokespecial #116
+      [229] invokespecial #118
         - Methodref [android/content/Intent.<init> ()V]
       [232] dup
       [233] astore_2 v2
       [234] aload_1 v1
       [235] ldc #76
         - Class [com/pintu/service/MsgService]
-      [237] invokevirtual #117
+      [237] invokevirtual #119
         - Methodref [android/content/Intent.setClass (Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;]
       [240] pop
       [241] aload_1 v1
       [242] aload_2 v2
-      [243] invokevirtual #136
+      [243] invokevirtual #138
         - Methodref [com/pintu/activity/HomeGallery.startService (Landroid/content/Intent;)Landroid/content/ComponentName;]
       [246] pop
       [247] return
@@ -46415,7 +46416,7 @@ Methods (count = 15):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] invokespecial #142
+      [1] invokespecial #144
         - Methodref [com/pintu/activity/base/FullScreenActivity.onStart ()V]
       [4] return
       Code attribute exceptions (count = 0):
@@ -46425,9 +46426,9 @@ Methods (count = 15):
       = private void a()
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 59, locals = 2, stack = 4):
-      [0] getstatic #84
+      [0] getstatic #86
         - Fieldref [com/pintu/PintuApp.c Lcom/pintu/g/e;]
-      [3] invokeinterface #179
+      [3] invokeinterface #181
         - InterfaceMethodref [com/pintu/g/e.b ()Ljava/util/List;]
       [8] astore_1 v1
       [9] ldc #25
@@ -46437,31 +46438,31 @@ Methods (count = 15):
       [14] dup
       [15] ldc #23
         - String [>>> cached recode size: ]
-      [17] invokespecial #167
+      [17] invokespecial #169
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [20] aload_1 v1
-      [21] invokeinterface #180
+      [21] invokeinterface #182
         - InterfaceMethodref [java/util/List.size ()I]
-      [26] invokevirtual #168
+      [26] invokevirtual #170
         - Methodref [java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;]
-      [29] invokevirtual #170
+      [29] invokevirtual #172
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [32] invokestatic #121
+      [32] invokestatic #123
         - Methodref [android/util/Log.i (Ljava/lang/String;Ljava/lang/String;)I]
       [35] pop
       [36] aload_1 v1
-      [37] invokeinterface #180
+      [37] invokeinterface #182
         - InterfaceMethodref [java/util/List.size ()I]
       [42] ifle +12 (target=54)
       [45] aload_0 v0
-      [46] getfield #94
+      [46] getfield #96
         - Fieldref [com/pintu/activity/HomeGallery.i Lcom/pintu/c/h;]
       [49] aload_1 v1
-      [50] invokevirtual #154
+      [50] invokevirtual #156
         - Methodref [com/pintu/c/h.a (Ljava/util/List;)V]
       [53] return
       [54] aload_0 v0
-      [55] invokespecial #130
+      [55] invokespecial #132
         - Methodref [com/pintu/activity/HomeGallery.b ()V]
       [58] return
       Code attribute exceptions (count = 0):
@@ -46478,30 +46479,30 @@ Methods (count = 15):
         - String [HomeGallery]
       [2] ldc #28
         - String [onDestroy.]
-      [4] invokestatic #120
+      [4] invokestatic #122
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [7] pop
       [8] aload_0 v0
-      [9] invokespecial #140
+      [9] invokespecial #142
         - Methodref [com/pintu/activity/base/FullScreenActivity.onDestroy ()V]
       [12] aload_0 v0
-      [13] getfield #96
+      [13] getfield #98
         - Fieldref [com/pintu/activity/HomeGallery.k Lcom/pintu/f/l;]
-      [16] invokevirtual #162
+      [16] invokevirtual #164
         - Methodref [com/pintu/f/l.a ()V]
-      [19] invokestatic #155
+      [19] invokestatic #157
         - Methodref [com/pintu/e/a.a ()J]
       [22] lstore_1 v1
-      [23] getstatic #85
+      [23] getstatic #87
         - Fieldref [com/pintu/PintuApp.d Landroid/content/SharedPreferences;]
-      [26] invokeinterface #172
+      [26] invokeinterface #174
         - InterfaceMethodref [android/content/SharedPreferences.edit ()Landroid/content/SharedPreferences$Editor;]
-      [31] getstatic #108
+      [31] getstatic #110
         - Fieldref [com/pintu/e/b.d Ljava/lang/String;]
       [34] lload_1 v1
-      [35] invokeinterface #175
+      [35] invokeinterface #177
         - InterfaceMethodref [android/content/SharedPreferences$Editor.putLong (Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;]
-      [40] invokeinterface #174
+      [40] invokeinterface #176
         - InterfaceMethodref [android/content/SharedPreferences$Editor.commit ()Z]
       [45] pop
       [46] ldc #25
@@ -46511,25 +46512,25 @@ Methods (count = 15):
       [51] dup
       [52] ldc #27
         - String [lastVisit: ]
-      [54] invokespecial #167
+      [54] invokespecial #169
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [57] new #79
         - Class [java/util/Date]
       [60] dup
-      [61] invokespecial #171
+      [61] invokespecial #173
         - Methodref [java/util/Date.<init> ()V]
-      [64] invokestatic #156
+      [64] invokestatic #158
         - Methodref [com/pintu/e/a.a (Ljava/util/Date;)Ljava/lang/String;]
-      [67] invokevirtual #169
+      [67] invokevirtual #171
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [70] invokevirtual #170
+      [70] invokevirtual #172
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [73] invokestatic #120
+      [73] invokestatic #122
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [76] pop
-      [77] invokestatic #119
+      [77] invokestatic #121
         - Methodref [android/os/Process.myPid ()I]
-      [80] invokestatic #118
+      [80] invokestatic #120
         - Methodref [android/os/Process.killProcess (I)V]
       [83] return
       Code attribute exceptions (count = 0):
@@ -46538,16 +46539,16 @@ Methods (count = 15):
     Access flags: 0x2
       = private void b()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 159, locals = 8, stack = 5):
-      [0] getstatic #85
+    + Code attribute instructions (code length = 165, locals = 8, stack = 5):
+      [0] getstatic #87
         - Fieldref [com/pintu/PintuApp.d Landroid/content/SharedPreferences;]
-      [3] getstatic #107
+      [3] getstatic #109
         - Fieldref [com/pintu/e/b.c Ljava/lang/String;]
       [6] lconst_0
-      [7] invokeinterface #173
+      [7] invokeinterface #175
         - InterfaceMethodref [android/content/SharedPreferences.getLong (Ljava/lang/String;J)J]
       [12] lstore_1 v1
-      [13] invokestatic #155
+      [13] invokestatic #157
         - Methodref [com/pintu/e/a.a ()J]
       [16] dup2
       [17] lstore_3 v3
@@ -46565,99 +46566,104 @@ Methods (count = 15):
       [36] aload_0 v0
       [37] ldc #22
         - String [10 seconds later to refresh...]
-      [39] invokespecial #129
+      [39] invokespecial #131
         - Methodref [com/pintu/activity/HomeGallery.a (Ljava/lang/String;)V]
       [42] iload v5
-      [44] ifeq +114 (target=158)
-      [47] aload_0 v0
-      [48] lload_1 v1
-      [49] lstore v6
-      [51] astore_1 v1
-      [52] ldc #25
+      [44] ifeq +120 (target=164)
+      [47] lload_1 v1
+      [48] ldc2_w #83
+        - Long [180000]
+      [51] lsub
+      [52] lstore_1 v1
+      [53] aload_0 v0
+      [54] lload_1 v1
+      [55] lstore v6
+      [57] astore_1 v1
+      [58] ldc #25
         - String [HomeGallery]
-      [54] ldc #24
+      [60] ldc #24
         - String [Attempting retrieve gallery data...]
-      [56] invokestatic #120
+      [62] invokestatic #122
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
-      [59] pop
-      [60] aload_1 v1
-      [61] getfield #95
+      [65] pop
+      [66] aload_1 v1
+      [67] getfield #97
         - Fieldref [com/pintu/activity/HomeGallery.j Lcom/pintu/f/g;]
-      [64] ifnull +16 (target=80)
-      [67] aload_1 v1
-      [68] getfield #95
+      [70] ifnull +16 (target=86)
+      [73] aload_1 v1
+      [74] getfield #97
         - Fieldref [com/pintu/activity/HomeGallery.j Lcom/pintu/f/g;]
-      [71] invokevirtual #160
+      [77] invokevirtual #162
         - Methodref [com/pintu/f/g.getStatus ()Landroid/os/AsyncTask$Status;]
-      [74] getstatic #83
+      [80] getstatic #85
         - Fieldref [android/os/AsyncTask$Status.RUNNING Landroid/os/AsyncTask$Status;]
-      [77] ifacmpeq +81 (target=158)
-      [80] aload_1 v1
-      [81] new #71
+      [83] ifacmpeq +81 (target=164)
+      [86] aload_1 v1
+      [87] new #71
         - Class [com/pintu/f/a]
-      [84] dup
-      [85] invokespecial #157
+      [90] dup
+      [91] invokespecial #159
         - Methodref [com/pintu/f/a.<init> ()V]
-      [88] putfield #95
+      [94] putfield #97
         - Fieldref [com/pintu/activity/HomeGallery.j Lcom/pintu/f/g;]
-      [91] aload_1 v1
-      [92] getfield #95
+      [97] aload_1 v1
+      [98] getfield #97
         - Fieldref [com/pintu/activity/HomeGallery.j Lcom/pintu/f/g;]
-      [95] aload_1 v1
-      [96] getfield #104
+      [101] aload_1 v1
+      [102] getfield #106
         - Fieldref [com/pintu/activity/HomeGallery.s Lcom/pintu/f/n;]
-      [99] invokevirtual #158
+      [105] invokevirtual #160
         - Methodref [com/pintu/f/g.a (Lcom/pintu/f/n;)V]
-      [102] new #74
+      [108] new #74
         - Class [com/pintu/f/q]
-      [105] dup
-      [106] invokespecial #164
+      [111] dup
+      [112] invokespecial #166
         - Methodref [com/pintu/f/q.<init> ()V]
-      [109] dup
-      [110] astore_2 v2
-      [111] ldc #29
+      [115] dup
+      [116] astore_2 v2
+      [117] ldc #29
         - String [startTime]
-      [113] lload v6
-      [115] invokestatic #166
+      [119] lload v6
+      [121] invokestatic #168
         - Methodref [java/lang/Long.valueOf (J)Ljava/lang/Long;]
-      [118] invokevirtual #165
+      [124] invokevirtual #167
         - Methodref [com/pintu/f/q.a (Ljava/lang/String;Ljava/lang/Object;)V]
-      [121] aload_2 v2
-      [122] ldc #26
+      [127] aload_2 v2
+      [128] ldc #26
         - String [endTime]
-      [124] lload_3 v3
-      [125] invokestatic #166
+      [130] lload_3 v3
+      [131] invokestatic #168
         - Methodref [java/lang/Long.valueOf (J)Ljava/lang/Long;]
-      [128] invokevirtual #165
+      [134] invokevirtual #167
         - Methodref [com/pintu/f/q.a (Ljava/lang/String;Ljava/lang/Object;)V]
-      [131] aload_1 v1
-      [132] getfield #95
+      [137] aload_1 v1
+      [138] getfield #97
         - Fieldref [com/pintu/activity/HomeGallery.j Lcom/pintu/f/g;]
-      [135] iconst_1
-      [136] anewarray #74
+      [141] iconst_1
+      [142] anewarray #74
         - Class [com/pintu/f/q]
-      [139] dup
-      [140] iconst_0
-      [141] aload_2 v2
-      [142] aastore
-      [143] invokevirtual #159
+      [145] dup
+      [146] iconst_0
+      [147] aload_2 v2
+      [148] aastore
+      [149] invokevirtual #161
         - Methodref [com/pintu/f/g.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
-      [146] pop
-      [147] aload_1 v1
-      [148] getfield #96
+      [152] pop
+      [153] aload_1 v1
+      [154] getfield #98
         - Fieldref [com/pintu/activity/HomeGallery.k Lcom/pintu/f/l;]
-      [151] aload_1 v1
-      [152] getfield #95
+      [157] aload_1 v1
+      [158] getfield #97
         - Fieldref [com/pintu/activity/HomeGallery.j Lcom/pintu/f/g;]
-      [155] invokevirtual #163
+      [161] invokevirtual #165
         - Methodref [com/pintu/f/l.a (Ljava/util/Observer;)V]
-      [158] return
+      [164] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 3):
         - [33] Var: ...[l][l][l], Stack: (empty)
         - [42] Var: ...[i], Stack: (empty)
-        - [158] Var: ..., Stack: (empty)
+        - [164] Var: ..., Stack: (empty)
   + Method:       a(Ljava/lang/String;)V
     Access flags: 0x2
       = private void a(java.lang.String)
@@ -46666,9 +46672,9 @@ Methods (count = 15):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] iconst_0
-      [3] invokestatic #126
+      [3] invokestatic #128
         - Methodref [android/widget/Toast.makeText (Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
-      [6] invokevirtual #127
+      [6] invokevirtual #129
         - Methodref [android/widget/Toast.show ()V]
       [9] return
       Code attribute exceptions (count = 0):
@@ -46680,7 +46686,7 @@ Methods (count = 15):
     + Code attribute instructions (code length = 86, locals = 2, stack = 5):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #139
+      [2] invokespecial #141
         - Methodref [com/pintu/activity/base/FullScreenActivity.onCreateOptionsMenu (Landroid/view/Menu;)Z]
       [5] pop
       [6] aload_1 v1
@@ -46689,11 +46695,11 @@ Methods (count = 15):
       [10] iconst_0
       [11] ldc #13
         - Integer [2131165275]
-      [13] invokeinterface #176
+      [13] invokeinterface #178
         - InterfaceMethodref [android/view/Menu.add (IIII)Landroid/view/MenuItem;]
       [18] ldc #1
         - Integer [17301568]
-      [20] invokeinterface #178
+      [20] invokeinterface #180
         - InterfaceMethodref [android/view/MenuItem.setIcon (I)Landroid/view/MenuItem;]
       [25] pop
       [26] aload_1 v1
@@ -46702,11 +46708,11 @@ Methods (count = 15):
       [29] iconst_0
       [30] ldc #10
         - Integer [2131165268]
-      [32] invokeinterface #176
+      [32] invokeinterface #178
         - InterfaceMethodref [android/view/Menu.add (IIII)Landroid/view/MenuItem;]
       [37] ldc #3
         - Integer [17301580]
-      [39] invokeinterface #178
+      [39] invokeinterface #180
         - InterfaceMethodref [android/view/MenuItem.setIcon (I)Landroid/view/MenuItem;]
       [44] pop
       [45] aload_1 v1
@@ -46715,11 +46721,11 @@ Methods (count = 15):
       [48] iconst_0
       [49] ldc #11
         - Integer [2131165273]
-      [51] invokeinterface #176
+      [51] invokeinterface #178
         - InterfaceMethodref [android/view/Menu.add (IIII)Landroid/view/MenuItem;]
       [56] ldc #2
         - Integer [17301569]
-      [58] invokeinterface #178
+      [58] invokeinterface #180
         - InterfaceMethodref [android/view/MenuItem.setIcon (I)Landroid/view/MenuItem;]
       [63] pop
       [64] aload_1 v1
@@ -46728,11 +46734,11 @@ Methods (count = 15):
       [68] iconst_0
       [69] ldc #12
         - Integer [2131165274]
-      [71] invokeinterface #176
+      [71] invokeinterface #178
         - InterfaceMethodref [android/view/Menu.add (IIII)Landroid/view/MenuItem;]
       [76] ldc #4
         - Integer [17301581]
-      [78] invokeinterface #178
+      [78] invokeinterface #180
         - InterfaceMethodref [android/view/MenuItem.setIcon (I)Landroid/view/MenuItem;]
       [83] pop
       [84] iconst_1
@@ -46745,7 +46751,7 @@ Methods (count = 15):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 174, locals = 3, stack = 3):
       [0] aload_1 v1
-      [1] invokeinterface #177
+      [1] invokeinterface #179
         - InterfaceMethodref [android/view/MenuItem.getItemId ()I]
       [6] lookupswitch (4 offsets, default=162) (target=168)
         1: offset = 42, target = 48
@@ -46759,100 +46765,100 @@ Methods (count = 15):
         - Class [android/app/AlertDialog$Builder]
       [53] dup
       [54] aload_1 v1
-      [55] invokespecial #109
+      [55] invokespecial #111
         - Methodref [android/app/AlertDialog$Builder.<init> (Landroid/content/Context;)V]
       [58] dup
       [59] astore_2 v2
       [60] aload_1 v1
       [61] ldc #6
         - Integer [2131165193]
-      [63] invokevirtual #133
+      [63] invokevirtual #135
         - Methodref [com/pintu/activity/HomeGallery.getText (I)Ljava/lang/CharSequence;]
-      [66] invokevirtual #114
+      [66] invokevirtual #116
         - Methodref [android/app/AlertDialog$Builder.setTitle (Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;]
       [69] pop
       [70] aload_2 v2
       [71] aload_1 v1
       [72] ldc #7
         - Integer [2131165194]
-      [74] invokevirtual #133
+      [74] invokevirtual #135
         - Methodref [com/pintu/activity/HomeGallery.getText (I)Ljava/lang/CharSequence;]
-      [77] invokevirtual #111
+      [77] invokevirtual #113
         - Methodref [android/app/AlertDialog$Builder.setMessage (Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;]
       [80] pop
       [81] aload_2 v2
       [82] aload_1 v1
       [83] ldc #8
         - Integer [2131165196]
-      [85] invokevirtual #133
+      [85] invokevirtual #135
         - Methodref [com/pintu/activity/HomeGallery.getText (I)Ljava/lang/CharSequence;]
       [88] aload_1 v1
-      [89] getfield #105
+      [89] getfield #107
         - Fieldref [com/pintu/activity/HomeGallery.t Landroid/content/DialogInterface$OnClickListener;]
-      [92] invokevirtual #113
+      [92] invokevirtual #115
         - Methodref [android/app/AlertDialog$Builder.setPositiveButton (Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;]
       [95] pop
       [96] aload_2 v2
       [97] aload_1 v1
       [98] ldc #9
         - Integer [2131165197]
-      [100] invokevirtual #133
+      [100] invokevirtual #135
         - Methodref [com/pintu/activity/HomeGallery.getText (I)Ljava/lang/CharSequence;]
       [103] aload_1 v1
-      [104] getfield #106
+      [104] getfield #108
         - Fieldref [com/pintu/activity/HomeGallery.u Landroid/content/DialogInterface$OnClickListener;]
-      [107] invokevirtual #112
+      [107] invokevirtual #114
         - Methodref [android/app/AlertDialog$Builder.setNegativeButton (Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;]
       [110] pop
       [111] aload_2 v2
-      [112] invokevirtual #110
+      [112] invokevirtual #112
         - Methodref [android/app/AlertDialog$Builder.create ()Landroid/app/AlertDialog;]
-      [115] invokevirtual #115
+      [115] invokevirtual #117
         - Methodref [android/app/Dialog.show ()V]
       [118] iconst_1
       [119] ireturn
       [120] new #35
         - Class [android/content/Intent]
       [123] dup
-      [124] invokespecial #116
+      [124] invokespecial #118
         - Methodref [android/content/Intent.<init> ()V]
       [127] aload_0 v0
       [128] ldc #56
         - Class [com/pintu/activity/HowTos]
-      [130] invokevirtual #117
+      [130] invokevirtual #119
         - Methodref [android/content/Intent.setClass (Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;]
       [133] astore_1 v1
       [134] aload_0 v0
       [135] aload_1 v1
-      [136] invokevirtual #135
+      [136] invokevirtual #137
         - Methodref [com/pintu/activity/HomeGallery.startActivity (Landroid/content/Intent;)V]
       [139] iconst_1
       [140] ireturn
       [141] new #35
         - Class [android/content/Intent]
       [144] dup
-      [145] invokespecial #116
+      [145] invokespecial #118
         - Methodref [android/content/Intent.<init> ()V]
       [148] aload_0 v0
       [149] ldc #54
         - Class [com/pintu/activity/AboutThis]
-      [151] invokevirtual #117
+      [151] invokevirtual #119
         - Methodref [android/content/Intent.setClass (Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;]
       [154] astore_1 v1
       [155] aload_0 v0
       [156] aload_1 v1
-      [157] invokevirtual #135
+      [157] invokevirtual #137
         - Methodref [com/pintu/activity/HomeGallery.startActivity (Landroid/content/Intent;)V]
       [160] iconst_1
       [161] ireturn
       [162] aload_0 v0
-      [163] invokevirtual #132
+      [163] invokevirtual #134
         - Methodref [com/pintu/activity/HomeGallery.finish ()V]
       [166] iconst_1
       [167] ireturn
       [168] aload_0 v0
       [169] aload_1 v1
-      [170] invokespecial #141
+      [170] invokespecial #143
         - Methodref [com/pintu/activity/base/FullScreenActivity.onOptionsItemSelected (Landroid/view/MenuItem;)Z]
       [173] ireturn
       Code attribute exceptions (count = 0):
@@ -46869,7 +46875,7 @@ Methods (count = 15):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #94
+      [1] getfield #96
         - Fieldref [com/pintu/activity/HomeGallery.i Lcom/pintu/c/h;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -46880,7 +46886,7 @@ Methods (count = 15):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] invokespecial #130
+      [1] invokespecial #132
         - Methodref [com/pintu/activity/HomeGallery.b ()V]
       [4] return
       Code attribute exceptions (count = 0):
@@ -46891,7 +46897,7 @@ Methods (count = 15):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #87
+      [1] getfield #89
         - Fieldref [com/pintu/activity/HomeGallery.b Landroid/widget/ProgressBar;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -46902,7 +46908,7 @@ Methods (count = 15):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #86
+      [1] getfield #88
         - Fieldref [com/pintu/activity/HomeGallery.a Landroid/widget/ImageButton;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -46914,7 +46920,7 @@ Methods (count = 15):
     + Code attribute instructions (code length = 6, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #129
+      [2] invokespecial #131
         - Methodref [com/pintu/activity/HomeGallery.a (Ljava/lang/String;)V]
       [5] return
       Code attribute exceptions (count = 0):
@@ -46925,7 +46931,7 @@ Methods (count = 15):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] invokespecial #128
+      [1] invokespecial #130
         - Methodref [com/pintu/activity/HomeGallery.a ()V]
       [4] return
       Code attribute exceptions (count = 0):
@@ -51341,7 +51347,7 @@ Interfaces (count = 0):
 
 Constant Pool (count = 49):
   - Integer [2130837528]
-  - Integer [2130837620]
+  - Integer [2130837622]
   - Integer [2131165228]
   - Integer [2131165229]
   - String [cmnt_index]
@@ -51459,7 +51465,7 @@ Methods (count = 6):
       [3] dup
       [4] iconst_0
       [5] ldc #2
-        - Integer [2130837620]
+        - Integer [2130837622]
       [7] iastore
       [8] dup
       [9] iconst_1
@@ -54543,8 +54549,8 @@ Interfaces (count = 0):
 Constant Pool (count = 85):
   - Integer [2130837546]
   - Integer [2130837558]
-  - Integer [2130837615]
-  - Integer [2130837660]
+  - Integer [2130837617]
+  - Integer [2130837662]
   - Integer [2131165206]
   - Integer [2131165235]
   - Integer [2131165236]
@@ -54740,7 +54746,7 @@ Methods (count = 7):
       [3] dup
       [4] iconst_0
       [5] ldc #4
-        - Integer [2130837660]
+        - Integer [2130837662]
       [7] iastore
       [8] dup
       [9] iconst_1
@@ -54755,7 +54761,7 @@ Methods (count = 7):
       [18] dup
       [19] iconst_3
       [20] ldc #3
-        - Integer [2130837615]
+        - Integer [2130837617]
       [22] iastore
       [23] areturn
       Code attribute exceptions (count = 0):
@@ -62416,7 +62422,7 @@ Interfaces (count = 0):
 
 Constant Pool (count = 314):
   - Integer [-8067846]
-  - Integer [2130837617]
+  - Integer [2130837619]
   - Integer [2131165238]
   - Integer [2131165244]
   - Integer [2131165247]
@@ -63161,7 +63167,7 @@ Methods (count = 7):
         - Class [android/app/Notification]
       [155] dup
       [156] ldc #2
-        - Integer [2130837617]
+        - Integer [2130837619]
       [158] aload_1 v1
       [159] invokestatic #108
         - Methodref [java/lang/System.currentTimeMillis ()J]

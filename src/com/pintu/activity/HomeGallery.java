@@ -244,7 +244,7 @@ public class HomeGallery extends FullScreenActivity {
 	};
 	
 	private void retrieveRemoteGallery(){
-		long lastRefreshTime = this.getPreferences().getLong(Preferences.LAST_GALLERY_REFRESH_TIME, 0);
+		long lastRefreshTime = this.getPreferences().getLong(Preferences.LAST_GALLERY_REFRESH_TIME, 0);				
 		long nowTime = DateTimeHelper.getNowTime();
 		long diff = nowTime - lastRefreshTime;
 		boolean shouldRetrieve;
@@ -255,6 +255,9 @@ public class HomeGallery extends FullScreenActivity {
 			this.updateProgress("10 seconds later to refresh...");
 		}
 		if(shouldRetrieve){
+			//FIXME, 将开始时间减小点，以解决服务器时间变慢引起的画廊为空问题
+			int minusLength = 3*60*1000;
+			lastRefreshTime -= minusLength;
 			doRetrieve(lastRefreshTime,nowTime);
 		}
 		
