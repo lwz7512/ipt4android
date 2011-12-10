@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.SortedMap;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -15,6 +14,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
+import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
@@ -23,18 +23,18 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
+import com.pintu.http.CountingMultiPartEntity;
+import com.pintu.http.CountingMultiPartEntity.ProgressListener;
 import com.pintu.http.HttpException;
 import com.pintu.http.Response;
 import com.pintu.http.SimpleHttpClient;
 
 /**
- * 此类为远程查询方法的实现：
- * 用于构造httpclient需要的参数并提交
- * 此类不主动获取用户，从接口方法中得到
- * 如果接口方法中没有用户，则使用httpclient中内置用户
- * 2011/09/09
+ * 此类为远程查询方法的实现： 用于构造httpclient需要的参数并提交 此类不主动获取用户，从接口方法中得到
+ * 如果接口方法中没有用户，则使用httpclient中内置用户 2011/09/09
+ * 
  * @author lwz
- *
+ * 
  */
 public class PTImpl implements PTApi {
 
@@ -44,37 +44,37 @@ public class PTImpl implements PTApi {
 
 	// localhost ip used by emulator!
 	private String emulator = "http://10.0.2.2:8080";
-	
-	//remote server used in product environment
-//	private String host = "http://192.168.0.100:8080";
+
+	// remote server used in product environment
+	// private String host = "http://192.168.0.100:8080";
 	private String host = "http://ipintu.com";
 	// Real service context
 	private String service = "/ipintu/pintuapi";
-	
-	//debug or release flag
+
+	// debug or release flag
 	private boolean isDebug = false;
 
 	public PTImpl(String userId) {
 		client = new SimpleHttpClient(userId);
 	}
-	
-	public boolean isDebugMode(){
-		if(isDebug){
+
+	public boolean isDebugMode() {
+		if (isDebug) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
-	
-	//登录成功后要更新记录在client中的用户
-	public void updateUser(String userId){
+
+	// 登录成功后要更新记录在client中的用户
+	public void updateUser(String userId) {
 		client.setUserId(userId);
 	}
 
 	private String getBaseURL() {
-		if(isDebug){
-			return emulator + service;			
-		}else{
+		if (isDebug) {
+			return emulator + service;
+		} else {
 			return host + service;
 		}
 	}
@@ -85,7 +85,7 @@ public class PTImpl implements PTApi {
 		// url参数没传到get中，get里面用的是getBaseURL()
 		// 低级错误啊！痛心啊！
 		// lwz7512 @ 2011/08/12
-		url = url+"&source=android";
+		url = url + "&source=android";
 		return client.get(url, false);
 	}
 
@@ -102,11 +102,11 @@ public class PTImpl implements PTApi {
 	}
 
 	/**
-	 * FIXME, 这里使用了独立的客户端来上传图片
-	 * 而不与其他操作共用，以解决底层传输错误：
-	 * java.net.SocketException: Broken pipe
-	 */	
-	public String postPicture(File pic, String tags, String desc, String isOriginal) throws HttpException {
+	 * FIXME, 这里使用了独立的客户端来上传图片 而不与其他操作共用，以解决底层传输错误： java.net.SocketException:
+	 * Broken pipe
+	 */
+	public String postPicture(File pic, String tags, String desc,
+			String isOriginal) throws HttpException {
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpEntity resEntity = null;
 		String response = null;
@@ -121,19 +121,19 @@ public class PTImpl implements PTApi {
 			StringBody userValue = null;
 			StringBody sourceValue = null;
 			try {
-				methodValue = new StringBody(PTApi.UPLOADPICTURE);	
-				
-				//FIXME, 修正中文字符编码的问题，在这里设置下就行了
-				//2011/11/27
-				Charset cs = Charset.forName("UTF-8");	
+				methodValue = new StringBody(PTApi.UPLOADPICTURE);
+
+				// FIXME, 修正中文字符编码的问题，在这里设置下就行了
+				// 2011/11/27
+				Charset cs = Charset.forName("UTF-8");
 				tagsValue = new StringBody(tags, cs);
 				descriptionValue = new StringBody(desc, cs);
-							
+
 				isOriginalValue = new StringBody(isOriginal);
-				
+
 				userValue = new StringBody(client.getUserId());
-				sourceValue = new StringBody("android");				
-				
+				sourceValue = new StringBody("android");
+
 			} catch (UnsupportedEncodingException e) {
 				Log.e(TAG, "param encoding error!!!");
 				e.printStackTrace();
@@ -149,11 +149,11 @@ public class PTImpl implements PTApi {
 			reqEntity.addPart("source", sourceValue);
 
 			httppost.setEntity(reqEntity);
-		
+
 			HttpResponse resp = httpclient.execute(httppost);
-			
+
 			resEntity = resp.getEntity();
-			
+
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -164,7 +164,74 @@ public class PTImpl implements PTApi {
 			} catch (Exception ignore) {
 			}
 		}
-		
+
+		if (resEntity != null) {
+			response = resEntity.toString();
+		}
+
+		return response;
+	}
+
+	@Override
+	public String postPictureWithProgress(File pic, String tags, String desc,
+			String isOriginal, ProgressListener listener) throws HttpException {
+		HttpClient httpclient = new DefaultHttpClient();
+		HttpEntity resEntity = null;
+		String response = null;
+		try {
+			HttpPost httppost = new HttpPost(getBaseURL());
+
+			FileBody file = new FileBody(pic);
+			StringBody methodValue = null;
+			StringBody tagsValue = null;
+			StringBody descriptionValue = null;
+			StringBody isOriginalValue = null;
+			StringBody userValue = null;
+			StringBody sourceValue = null;
+			try {
+				methodValue = new StringBody(PTApi.UPLOADPICTURE);
+
+				// FIXME, 修正中文字符编码的问题，在这里设置下就行了
+				// 2011/11/27
+				Charset cs = Charset.forName("UTF-8");
+				tagsValue = new StringBody(tags, cs);
+				descriptionValue = new StringBody(desc, cs);
+				isOriginalValue = new StringBody(isOriginal);
+
+				userValue = new StringBody(client.getUserId());
+				sourceValue = new StringBody("android");
+
+			} catch (UnsupportedEncodingException e) {
+				Log.e(TAG, "param encoding error!!!");
+				e.printStackTrace();
+			}
+			
+			CountingMultiPartEntity reqEntity = new CountingMultiPartEntity(listener);
+			reqEntity.addPart("method", methodValue);
+			reqEntity.addPart("photo", file);
+			reqEntity.addPart("tags", tagsValue);
+			reqEntity.addPart("description", descriptionValue);
+			reqEntity.addPart("isOriginal", isOriginalValue);
+			reqEntity.addPart("userId", userValue);
+			reqEntity.addPart("source", sourceValue);
+
+			httppost.setEntity(reqEntity);
+
+			HttpResponse resp = httpclient.execute(httppost);
+
+			resEntity = resp.getEntity();
+
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				httpclient.getConnectionManager().shutdown();
+			} catch (Exception ignore) {
+			}
+		}
+
 		if (resEntity != null) {
 			response = resEntity.toString();
 		}
@@ -215,8 +282,9 @@ public class PTImpl implements PTApi {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.ADDSTORY);
-		BasicNameValuePair tpIdParam = new BasicNameValuePair("follow", follow);		
-		BasicNameValuePair contentParam = new BasicNameValuePair("content",story);
+		BasicNameValuePair tpIdParam = new BasicNameValuePair("follow", follow);
+		BasicNameValuePair contentParam = new BasicNameValuePair("content",
+				story);
 		params.add(methodParam);
 		params.add(tpIdParam);
 		params.add(contentParam);
@@ -250,8 +318,9 @@ public class PTImpl implements PTApi {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.ADDCOMMENT);
-		BasicNameValuePair tpIdParam = new BasicNameValuePair("follow", follow);		
-		BasicNameValuePair contentParam = new BasicNameValuePair("content",comment);
+		BasicNameValuePair tpIdParam = new BasicNameValuePair("follow", follow);
+		BasicNameValuePair contentParam = new BasicNameValuePair("content",
+				comment);
 		params.add(methodParam);
 		params.add(tpIdParam);
 		params.add(contentParam);
@@ -280,17 +349,18 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public String postVote(String receiver, String follow, String type, String amount)
-			throws HttpException {
+	public String postVote(String receiver, String follow, String type,
+			String amount) throws HttpException {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.ADDVOTE);
-		BasicNameValuePair recvParam = new BasicNameValuePair("receiver", receiver);
+		BasicNameValuePair recvParam = new BasicNameValuePair("receiver",
+				receiver);
 		BasicNameValuePair foloParam = new BasicNameValuePair("follow", follow);
 		BasicNameValuePair typeParam = new BasicNameValuePair("type", type);
 		BasicNameValuePair amtParam = new BasicNameValuePair("amount", amount);
 
-		params.add(methodParam);		
+		params.add(methodParam);
 		params.add(recvParam);
 		params.add(foloParam);
 		params.add(typeParam);
@@ -316,8 +386,7 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public JSONArray getClassicPics() throws HttpException,
-			JSONException {
+	public JSONArray getClassicPics() throws HttpException, JSONException {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.GETClASSICALPICS);
@@ -409,7 +478,7 @@ public class PTImpl implements PTApi {
 
 		return new JSONArray(jsonStr);
 	}
-	
+
 	@Override
 	public JSONObject getUserDetail(String userId) throws HttpException,
 			JSONException {
@@ -453,8 +522,10 @@ public class PTImpl implements PTApi {
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.SENDMSG);
 		BasicNameValuePair userParam = new BasicNameValuePair("userId", userId);
-		BasicNameValuePair targetParam = new BasicNameValuePair("receiver", receiver);		
-		BasicNameValuePair contentParam = new BasicNameValuePair("content", content);
+		BasicNameValuePair targetParam = new BasicNameValuePair("receiver",
+				receiver);
+		BasicNameValuePair contentParam = new BasicNameValuePair("content",
+				content);
 
 		params.add(methodParam);
 		params.add(userParam);
@@ -468,7 +539,8 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public JSONArray getNewMessages(String userId) throws HttpException, JSONException {
+	public JSONArray getNewMessages(String userId) throws HttpException,
+			JSONException {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.GETUSERMSG);
@@ -505,7 +577,8 @@ public class PTImpl implements PTApi {
 		BasicNameValuePair methodParam = new BasicNameValuePair("method",
 				PTApi.LOGON);
 		BasicNameValuePair actParam = new BasicNameValuePair("account", account);
-		BasicNameValuePair pwdParam = new BasicNameValuePair("password", password);
+		BasicNameValuePair pwdParam = new BasicNameValuePair("password",
+				password);
 
 		params.add(methodParam);
 		params.add(actParam);
@@ -517,9 +590,11 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public String commonQuery(String method, String name, String value) throws HttpException {
+	public String commonQuery(String method, String name, String value)
+			throws HttpException {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
-		BasicNameValuePair methodParam = new BasicNameValuePair("method",method);
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				method);
 		BasicNameValuePair param = new BasicNameValuePair(name, value);
 
 		params.add(methodParam);
@@ -531,11 +606,12 @@ public class PTImpl implements PTApi {
 	}
 
 	@Override
-	public JSONArray getPicDaren() throws HttpException ,JSONException {
+	public JSONArray getPicDaren() throws HttpException, JSONException {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
-		BasicNameValuePair methodParam = new BasicNameValuePair("method",PTApi.PICDARENSTATISTICS);		
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.PICDARENSTATISTICS);
 
-		params.add(methodParam);	
+		params.add(methodParam);
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 
@@ -549,9 +625,10 @@ public class PTImpl implements PTApi {
 	@Override
 	public JSONArray getCmntDaren() throws HttpException, JSONException {
 		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
-		BasicNameValuePair methodParam = new BasicNameValuePair("method",PTApi.CMTDARENSTATISTICS);		
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.CMTDARENSTATISTICS);
 
-		params.add(methodParam);	
+		params.add(methodParam);
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 
@@ -561,6 +638,4 @@ public class PTImpl implements PTApi {
 		return new JSONArray(jsonStr);
 	}
 
-
-	
 } // end of class

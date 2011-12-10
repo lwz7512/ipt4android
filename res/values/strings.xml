@@ -98,6 +98,7 @@
 	<!-- 状态条提示 -->
 	<string name="page_status_refreshing">正在获取...</string>
 	<string name="page_status_updating">正在发送...</string>
+	<string name="page_status_compressing">正在压缩图片...</string>
 	<string name="page_status_deleting">正在删除...</string>
 	<string name="page_status_update_success">发送成功.</string>
 	<string name="page_status_unable_to_update">不好意思服务暂不可用</string>

@@ -170,8 +170,11 @@ D:\java\jworkspace\ipt4Android\res\drawable\write_corner.xml \
 D:\java\jworkspace\ipt4Android\res\drawable\write_msg.png \
 D:\java\jworkspace\ipt4Android\res\drawable\xuetang.png \
 D:\java\jworkspace\ipt4Android\res\drawable-hdpi\icon.png \
-D:\java\jworkspace\ipt4Android\res\drawable-ldpi\icon.png \
+D:\java\jworkspace\ipt4Android\res\drawable-hdpi\icon_96.png \
+D:\java\jworkspace\ipt4Android\res\drawable-hdpi\icon_old.png \
+D:\java\jworkspace\ipt4Android\res\drawable-ldpi\icon_old.png \
 D:\java\jworkspace\ipt4Android\res\drawable-mdpi\icon.png \
+D:\java\jworkspace\ipt4Android\res\drawable-mdpi\icon_old.png \
 D:\java\jworkspace\ipt4Android\res\layout\about.xml \
 D:\java\jworkspace\ipt4Android\res\layout\adfavorite.xml \
 D:\java\jworkspace\ipt4Android\res\layout\admsgs.xml \

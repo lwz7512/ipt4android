@@ -29,7 +29,7 @@ public class PintuMain extends FullScreenActivity {
 	
 	private void checkAppStatus() {
 		if(PintuApp.mApi.isDebugMode()){
-			Toast.makeText(this, "Warning, running in DEBUG mode!", 
+			Toast.makeText(this, "Warning: I'm running in DEBUG mode!", 
 					Toast.LENGTH_LONG).show();
 		}
 	}
