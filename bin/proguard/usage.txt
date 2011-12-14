@@ -97,10 +97,8 @@ com.pintu.activity.PictureEdit:
     private static final int REQUEST_IMAGE_CAPTURE
     private static final int REQUEST_PHOTO_LIBRARY
     private static final int MAX_BITMAP_SIZE
-    400:411:private void openImageCaptureMenu()
-    493:512:private android.net.Uri findImageByName()
-    599:613:public static java.io.File bitmapToFile(android.graphics.Bitmap)
-    619:629:public static android.graphics.Bitmap createFitinBitmap(java.lang.String,int,int)
+    592:606:public static java.io.File bitmapToFile(android.graphics.Bitmap)
+    612:622:public static android.graphics.Bitmap createFitinBitmap(java.lang.String,int,int)
 com.pintu.activity.StoryList:
     private java.lang.String owner
     private java.lang.String storyId
@@ -193,6 +191,9 @@ com.pintu.api.PTApi:
     public static final java.lang.String PICDARENSTATISTICS
     public static final java.lang.String CMTDARENSTATISTICS
     public static final java.lang.String GETRANDGALLERY
+    public abstract java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
+com.pintu.api.PTImpl:
+    110:172:public java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
 com.pintu.data.UserDetails:
     1:1:public static com.pintu.data.UserInfo parseJsonToObj(org.json.JSONObject)
 com.pintu.db.CacheDao:
@@ -247,6 +248,9 @@ com.pintu.db.Query:
     197:198:public com.pintu.db.Query having(java.lang.String)
     211:212:public com.pintu.db.Query groupBy(java.lang.String)
     342:342:public android.content.ContentValues getContentValues()
+com.pintu.http.CountingMultiPartEntity:
+    23:25:public CountingMultiPartEntity(org.apache.http.entity.mime.HttpMultipartMode,com.pintu.http.CountingMultiPartEntity$ProgressListener)
+    30:32:public CountingMultiPartEntity(org.apache.http.entity.mime.HttpMultipartMode,java.lang.String,java.nio.charset.Charset,com.pintu.http.CountingMultiPartEntity$ProgressListener)
 com.pintu.http.HttpAuthException:
     private static final long serialVersionUID
     12:14:public HttpAuthException(java.lang.Exception)
@@ -310,6 +314,7 @@ com.pintu.task.SendTask:
     public static final int TYPE_MARK
     public static final int TYPE_XUETANG
     private static final java.lang.String TAG
+    131:153:private com.pintu.task.TaskResult sendPic(com.pintu.task.TaskParams)
 com.pintu.task.TaskManager:
     private static final java.lang.String TAG
 com.pintu.task.TaskParams:

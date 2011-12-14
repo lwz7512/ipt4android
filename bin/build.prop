@@ -1,9 +1,13 @@
 #Last build type
 <<<<<<< HEAD
+<<<<<<< HEAD
 #Wed, 07 Dec 2011 11:26:45 +0800
 =======
 #Wed, 07 Dec 2011 17:30:47 +0800
 >>>>>>> 81418a230b54dcaa27c9abd54fe1a462fafd3c52
+=======
+#Sat, 10 Dec 2011 18:48:47 +0800
+>>>>>>> e22f9eb4f98a3c2b8b46ec8b7c1661ddfeff082a
 
 build.last.target=release
 
