@@ -50,15 +50,9 @@ public class PTImpl implements PTApi {
 	private String host = "http://ipintu.com";
 	// Real service context
 	private String service = "/ipintu/pintuapi";
-<<<<<<< HEAD
-	
-	//debug or release flag
-	private boolean isDebug = true;
-=======
 
 	// debug or release flag
 	private boolean isDebug = false;
->>>>>>> e22f9eb4f98a3c2b8b46ec8b7c1661ddfeff082a
 
 	public PTImpl(String userId) {
 		client = new SimpleHttpClient(userId);
