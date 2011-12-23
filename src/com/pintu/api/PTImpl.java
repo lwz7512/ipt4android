@@ -52,7 +52,7 @@ public class PTImpl implements PTApi {
 	private String service = "/ipintu/pintuapi";
 
 	// debug or release flag
-	private boolean isDebug = false;
+	private boolean isDebug = true;
 
 	public PTImpl(String userId) {
 		client = new SimpleHttpClient(userId);
@@ -636,5 +636,61 @@ public class PTImpl implements PTApi {
 
 		return new JSONArray(jsonStr);
 	}
+
+	@Override
+	public JSONArray getHotTags() throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETHOTTAGS);
+
+		params.add(methodParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json tags: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+
+	@Override
+	public JSONArray getThumbnailsByTag(String tagId, String pageNum)
+			throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETTHUMBNAILSBYTAG);
+		BasicNameValuePair tagParam = new BasicNameValuePair("tagId", tagId);
+		BasicNameValuePair pageParam = new BasicNameValuePair("pageNum", pageNum);
+		
+		params.add(methodParam);
+		params.add(tagParam);
+		params.add(pageParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json tags: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+
+	@Override
+	public JSONArray getRandomGallery() throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETRANDGALLERY);
+
+		params.add(methodParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json random gallery: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+	
+	
+	
 
 } // end of class

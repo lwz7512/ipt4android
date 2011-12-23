@@ -72,6 +72,12 @@ public interface PTApi {
 	// 随机获取系统32个图~
 	public static final String GETRANDGALLERY = "getRandGallery";
 
+	// 最热标签
+	public static final String GETHOTTAGS = "getHotTags";
+
+	// 查看某tag的所有图片
+	public static final String GETTHUMBNAILSBYTAG = "getThumbnailsByTag";
+
 	// TODO, ADD OTHER REMOTE METHODS...
 
 	/**
@@ -81,7 +87,8 @@ public interface PTApi {
 	 * @param tags
 	 * @param desc
 	 * @param isOriginal
-	 * @param listener 上传字节数回调函数
+	 * @param listener
+	 *            上传字节数回调函数
 	 * @return
 	 * @throws HttpException
 	 */
@@ -187,5 +194,15 @@ public interface PTApi {
 
 	// 获取评论达人
 	public JSONArray getCmntDaren() throws HttpException, JSONException;
+
+	// 获取热门标签
+	public JSONArray getHotTags() throws HttpException, JSONException;
+
+	// 获取某标签的图片
+	public JSONArray getThumbnailsByTag(String tagId, String pageNum)
+			throws HttpException, JSONException;
+
+	// 随便看看
+	public JSONArray getRandomGallery() throws HttpException, JSONException;
 
 } // end of interface

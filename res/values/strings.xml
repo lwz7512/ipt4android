@@ -55,6 +55,7 @@
 	<string name="commentlist">评论列表</string>
 	<string name="hotpicsview">热图浏览</string>
 	<string name="about">关于爱品图</string>
+	<string name="tagtitle">热门标签</string>	
 
 	<!-- 切换按钮文字 -->
 	<string name="todayhotpic">今日热图</string>
@@ -86,6 +87,8 @@
 		您已经达到了评论的最大长度32，如果继续，建议发表到品图内容中
 	</string>
 	<string name="marksuccess">收藏成功</string>
+	<string name="shake_toget_random">没有新图片了，摇摇手机试试？</string>
+	<string name="have_a_rest">没有新图片了，休息会儿吧</string>
 
 	<!-- 通知提示 -->
 	<string name="youhave">你有</string>
@@ -93,7 +96,8 @@
 
 	<!-- 编辑消息页面 -->
 	<string name="receiver">收信人</string>
-	<string name="kefu_xiaolajiao">客服小辣椒</string>
+	<string name="kefu_xiaolajiao">收信人：客服小辣椒</string>
+	<string name="msg_content">消息内容</string>
 
 	<!-- 状态条提示 -->
 	<string name="page_status_refreshing">正在获取...</string>

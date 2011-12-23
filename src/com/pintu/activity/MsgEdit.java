@@ -7,7 +7,9 @@ import org.json.JSONObject;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -59,11 +61,24 @@ public class MsgEdit extends TempletActivity {
 		sending_prgrsBar = (ProgressBar) findViewById(R.id.sending_prgrsBar);
 
 		msg_content_edit = (EditText) findViewById(R.id.msg_content_edit);
+		//自动聚焦
+		msg_content_edit.requestFocus();
+		
 		storytxt_left_hint = (TextView) findViewById(R.id.storytxt_left_hint);
 		// 保存初始文字颜色
 		originTextColor = storytxt_left_hint.getTextColors().getDefaultColor();
 		clear_story_btn = (LinearLayout) findViewById(R.id.clear_story_btn);
 
+		//如果时回复的消息，这里要显示原文和原作者
+		Intent it = getIntent();
+		Bundle extras = it.getExtras();
+		if(extras==null) return;
+		//显示回复原文
+		String sender = extras.getString("sender");
+		String content = extras.getString("content");
+		String replyTxt = "\n\n"+"------------------------------\n";
+		replyTxt = replyTxt+sender+":"+content;
+		msg_content_edit.setText(replyTxt);
 	}
 
 	@Override

@@ -217,9 +217,7 @@ public class PictureDetails extends FullScreenActivity {
 	private OnClickListener toCommentsActivity = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			Intent it = new Intent();
-			// 准备启动故事编辑
-			// it.setClass(PictureDetails.this, CommentEdit.class);
+			Intent it = new Intent();			
 			// 这里用故事当评论发了
 			it.setClass(PictureDetails.this, StoryEdit.class);
 			String tpicUrl = null;

@@ -82,35 +82,6 @@ public class GalleryImageAdapter extends BaseAdapter {
 		return imageView;
 	}
 
-//	public View getView(int position, View convertView, ViewGroup parent) {
-//		View view = null;
-//		if (convertView == null) {
-//			view = mInflater.inflate(R.layout.round_thumbnail, parent, false);
-//			ViewHolder holder = new ViewHolder();
-//			holder.thumbnail = (ImageView) view.findViewById(R.id.thumb_image);
-//			holder.thumbnail.setAdjustViewBounds(false);
-//			holder.thumbnail.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//			holder.thumbnail.setPadding(0, 0, 0, 0);
-//			view.setTag(holder);
-//		} else {
-//			view = convertView;
-//		}
-//
-//		ViewHolder holder = (ViewHolder) view.getTag();
-//
-//		// xml布局设置列数为4列，不要随便改
-//		int cellWidth = dm.widthPixels / 4 - horiGap;
-//		view.setLayoutParams(new GridView.LayoutParams(cellWidth, cellWidth));
-//		view.setPadding(0, 0, 0, 0);
-//
-//		TPicDesc thumbnail = cells.get(position);
-//
-//		// 获取图片，这个url是在RetrieveGalleryTask中取回数据后，
-//		// 根据thumbnail编号拼接而成，详见该任务的数据处理
-//		SimpleImageLoader.display(holder.thumbnail, thumbnail.url);
-//
-//		return view;
-//	}
 
 	// 为画廊指定数据
 	public void refresh(List<TPicDesc> items) {

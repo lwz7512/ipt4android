@@ -13,7 +13,8 @@
 			</intent-filter>
 		</activity>
 		<!-- 登录 -->
-		<activity android:name=".activity.LogonSys">
+		<activity android:name=".activity.LogonSys"
+		    android:windowSoftInputMode="adjustPan|stateHidden">
 			<intent-filter>
 				<action android:name="com.pintu.activity.logon" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -28,8 +29,8 @@
 			</intent-filter>
 		</activity>
 		<!-- 贴图编辑 -->		
-		<activity android:name=".activity.PictureEdit"
-		    android:screenOrientation="portrait">
+		<activity android:name=".activity.PictureEdit"		   
+		    android:windowSoftInputMode="adjustPan|stateHidden">
 			<intent-filter>
 				<action android:name="com.pintu.activity.sendpic" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -153,6 +154,13 @@
 				<action android:name="com.pintu.activity.tags" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
+		</activity>
+		<!-- 从标签打开的缩略图画廊 -->
+		<activity android:name=".activity.TagPicGallery">
+		    <intent-filter>
+				<action android:name="com.pintu.activity.tagpics" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>		    
 		</activity>
 		<!-- 行业动态 -->
 		<activity android:name=".activity.CmntNews">

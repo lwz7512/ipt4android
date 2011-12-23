@@ -9,7 +9,7 @@
 		<ImageView android:id="@+id/product_logo"
 			android:background="@null" android:layout_width="wrap_content"
 			android:layout_height="wrap_content" android:src="@drawable/header_logo"
-			 android:layout_alignParentLeft="true" />
+			android:layout_alignParentLeft="true" />
 	</RelativeLayout>	    
 	<!-- 登录框 -->
 	<LinearLayout android:id="@+id/login_div"
@@ -78,10 +78,11 @@
 	</LinearLayout>
 
 
-	<!-- 绑定微博登录选项 -->
+	<!-- 绑定微博登录选项 
 	<LinearLayout android:id="@+id/login_option"
 		android:layout_width="match_parent" android:layout_height="match_parent"
-		android:layout_marginLeft="15dp" android:orientation="vertical">
+		android:layout_marginLeft="15dp" android:orientation="vertical"
+		>
 
 		<CheckBox android:id="@+id/login_with_sina"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -92,5 +93,6 @@
 			android:text="@string/login_with_tx" android:textColor="#FF000000"
 			android:enabled="false" />
 	</LinearLayout>
+	-->
 
 </LinearLayout>

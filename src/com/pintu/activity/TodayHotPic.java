@@ -123,6 +123,8 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 
 	@Override
 	protected void onParseJSONResultFailue() {
+		if(this.pb!=null)
+			this.pb.setVisibility(View.GONE);
 		updateProgress(R.string.json_parse_error);
 	}
 

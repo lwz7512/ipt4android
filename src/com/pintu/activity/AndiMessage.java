@@ -20,6 +20,7 @@ import com.pintu.adapter.MessageAdapter;
 import com.pintu.data.TMsg;
 import com.pintu.task.SendTask;
 import com.pintu.task.TaskParams;
+import com.pintu.util.IptHelper;
 
 /**
  * 数据处理逻辑：
@@ -82,6 +83,17 @@ public class AndiMessage extends TempletActivity implements SubMainCallBack {
 			if(position == msges_lv.getCount()-1){
 				doMore();
 			}
+			//点击消息回复
+			if(position>0 && position<msges_lv.getCount()-1){
+				int realIndex = position - 1;
+				TMsg msg = (TMsg) msgAdptr.getItem(realIndex);
+				Intent it = new Intent();
+				it.putExtra("sender", IptHelper.getShortUserName(msg.senderName));
+				it.putExtra("content", msg.content);
+				it.setClass(AndiMessage.this, MsgEdit.class);
+				startActivity(it);
+			}
+			
 		}		
 	};
 
@@ -90,19 +102,22 @@ public class AndiMessage extends TempletActivity implements SubMainCallBack {
 		//从缓存中取未读消息
 		msgs = PintuApp.dbApi.getUnreadedMsgs(1);
 		if(msgs.size()>0){
-			msgAdptr.refresh(msgs);			
+			msgAdptr.refresh(msgs);	
+			//取消标题栏消息通知
+			PintuApp.cancelNotification();
 		}else{
 			//展示已读信息
 			doMore();
 			return;
-		}
-		//更新为已读，并提交远程消息状态
-		doSend();
+		}		
 		
-		//更新本地状态
+		//更新本地状态				
 		for(TMsg msg : msgs){
 			PintuApp.dbApi.updateMsgReaded(msg.id);
 		}
+		
+		//更新远程消息状态为已读
+		doSend();			
 		
 	}
 
