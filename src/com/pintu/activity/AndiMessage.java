@@ -131,7 +131,7 @@ public class AndiMessage extends TempletActivity implements SubMainCallBack {
 
 	@Override
 	protected void doSend() {
-		this.checkTaskStatus();
+		if(!checkTaskStatus()) return;
 		
 		mSendTask = new SendTask();
 		mSendTask.setListener(mSendTaskListener);

@@ -144,7 +144,7 @@ public class AndiWealth extends TempletActivity implements SubMainCallBack {
 
 	@Override
 	protected void doRetrieve() {
-		this.checkTaskStatus();
+		if(!checkTaskStatus()) return;
 
 		this.mRetrieveTask = new RetrieveMyWealthTask();
 		this.mRetrieveTask.setListener(mRetrieveTaskListener);

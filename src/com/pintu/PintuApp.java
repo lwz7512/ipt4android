@@ -67,7 +67,7 @@ public class PintuApp extends Application {
 
 	// 获得客服用户
 	public static String getKefu() {
-		return mPref.getString(Preferences.KEFU_USERID, "");
+		return Preferences.KEFU_USERID;
 	}
 
 	public static void cancelNotification() {

@@ -137,7 +137,7 @@ public class LogonSys extends TempletActivity {
 
 	@Override
 	protected void doSend() {
-		this.checkTaskStatus();
+		if(!checkTaskStatus()) return;
 		
 		this.mSendTask = new SendTask();
 		this.mSendTask.setListener(mSendTaskListener);

@@ -86,10 +86,12 @@ public class TagList extends TempletActivity {
 
 	@Override
 	protected void doRetrieve() {
-		this.checkTaskStatus();
+		if(!checkTaskStatus()) return;
+		
 		this.mRetrieveTask = new RetrieveHotTagsTask();
 		this.mRetrieveTask.setListener(mRetrieveTaskListener);
 		this.mRetrieveTask.execute(new TaskParams());
+		
 		this.manageTask(mRetrieveTask);	
 	}
 

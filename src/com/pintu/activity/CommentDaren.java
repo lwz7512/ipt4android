@@ -100,7 +100,7 @@ public class CommentDaren extends TempletActivity implements SubMainCallBack {
 
 	@Override
 	protected void doRetrieve() {
-		this.checkTaskStatus();
+		if(!checkTaskStatus()) return;
 
 		this.mRetrieveTask = new RetrieveDarenTask();
 		this.mRetrieveTask.setListener(mRetrieveTaskListener);

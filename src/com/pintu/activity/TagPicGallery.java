@@ -97,7 +97,8 @@ public class TagPicGallery extends TempletActivity {
 
 	@Override
 	protected void doRetrieve() {
-		this.checkTaskStatus();
+		if(!checkTaskStatus()) return;
+		
 		mRetrieveTask = new RetrieveGalleryTask();
         mRetrieveTask.setListener(mRetrieveTaskListener);
         

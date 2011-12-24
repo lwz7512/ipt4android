@@ -192,7 +192,7 @@ public class MsgEdit extends TempletActivity {
 			return;
 		}
 		
-		this.checkTaskStatus();
+		if(!checkTaskStatus()) return;
 		
 		this.mSendTask = new SendTask();
 		this.mSendTask.setListener(mSendTaskListener);

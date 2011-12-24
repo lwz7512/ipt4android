@@ -185,11 +185,9 @@ public class PictureDetails extends FullScreenActivity {
 		// FIXME, 先不做转发，禁用掉吧
 		tv_forward.setEnabled(false);
 		tv_forward.setTextColor(0xFF999999);
-		// 具备，跳转吗？似乎应该写点说明
-		tv_report.setOnClickListener(toReportActivity);
-		// FIXME, 先不做举报，禁用掉吧
-		tv_report.setEnabled(false);
-		tv_report.setTextColor(0xFF999999);
+		
+		// 举报
+		tv_report.setOnClickListener(toReportActivity);		
 
 		// 点击图片弹出保存
 		t_picture.setOnClickListener(popupSaveListener);
@@ -352,7 +350,7 @@ public class PictureDetails extends FullScreenActivity {
 		// 收藏此图片
 		int mode = SendTask.TYPE_MARK;
 		mSendTask = new SendTask();
-		mSendTask.setListener(mSendTaskListener);
+		mSendTask.setListener(markTaskListener);
 
 		TaskParams params = new TaskParams();
 		params.put("mode", mode);
@@ -368,7 +366,7 @@ public class PictureDetails extends FullScreenActivity {
 		taskManager.addTask(mSendTask);
 	}
 
-	private TaskListener mSendTaskListener = new TaskAdapter() {
+	private TaskListener markTaskListener = new TaskAdapter() {
 		@Override
 		public void onPreExecute(GenericTask task) {
 			onSendBegin();
@@ -422,12 +420,56 @@ public class PictureDetails extends FullScreenActivity {
 		}
 	};
 
-	// 举报，跳转吗？似乎应该写点说明
+	// 举报
 	private OnClickListener toReportActivity = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			// TODO, Forward to user activity...
+			reportIt();
 		}
+	};
+	
+	private void reportIt(){
+		if (mSendTask != null
+				&& mSendTask.getStatus() == GenericTask.Status.RUNNING) {
+			return;
+		}
+		this.mSendTask = new SendTask();
+		this.mSendTask.setListener(reportTaskListener);
+		
+		int mode = SendTask.TYPE_MESSAGE;
+		String sender = PintuApp.getUser();
+		String receiver = PintuApp.getKefu();
+		String msgContent = "I think the picture: "+tpId+" is illegal, isn't it?";
+		TaskParams params = new TaskParams();
+		params.put("mode", mode);
+		params.put("userId", sender);
+		params.put("receiver", receiver);
+		params.put("content", msgContent);
+		
+		this.mSendTask.execute(params);
+		
+		taskManager.addTask(mSendTask);
+	}
+	
+	private TaskListener reportTaskListener = new TaskAdapter() {
+		@Override
+		public void onPreExecute(GenericTask task) {
+			details_prgrsBar.setVisibility(View.VISIBLE);
+			tv_report.setEnabled(false);
+		}
+
+		@Override
+		public void onPostExecute(GenericTask task, TaskResult result) {
+			if (result == TaskResult.OK) {
+				details_prgrsBar.setVisibility(View.GONE);
+				updateProgress(getText(R.string.report_thanks).toString());
+			} else if (result == TaskResult.FAILED) {
+				onSendFailure();
+			} else if (result == TaskResult.IO_ERROR) {
+				onSendFailure();
+			}
+		}
+
 	};
 
 	private void shouldRetrieve() {
@@ -478,12 +520,12 @@ public class PictureDetails extends FullScreenActivity {
 		public void onPostExecute(GenericTask task, TaskResult result) {
 			if (result == TaskResult.OK) {
 				// 成功发送
+				details_prgrsBar.setVisibility(View.GONE);
 			} else if (result == TaskResult.IO_ERROR) {
 				updateProgress(getString(R.string.page_status_unable_to_update));
 			} else if (result == TaskResult.JSON_PARSE_ERROR) {
 				updateProgress("Response to json data parse Error!");
 			}
-			details_prgrsBar.setVisibility(View.GONE);
 		}
 
 		// Update UI elements with TPicDetails

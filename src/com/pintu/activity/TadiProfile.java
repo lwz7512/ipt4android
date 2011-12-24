@@ -158,7 +158,7 @@ public class TadiProfile extends TempletActivity implements SubMainCallBack {
 	 */
 	@Override
 	protected void doRetrieve() {
-		this.checkTaskStatus();
+		if(!checkTaskStatus()) return;
 
 		this.mRetrieveTask = new RetrieveUserInfoTask();
 		this.mRetrieveTask.setListener(mRetrieveTaskListener);
