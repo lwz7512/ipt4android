@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.pintu.PintuApp;
 import com.pintu.R;
@@ -14,8 +15,14 @@ import com.pintu.tool.LazyImageLoader.ImageLoaderCallback;
 
 public class SimpleImageLoader {
 
-	// 对外暴露的第一个方法，调用路径：
-	// LazyImageLoader-->GetImageTask-->ImageManager-->PintuApp.mApi.getImgByUrl(url)
+	/**
+	 * 对外暴露的第一个方法，调用路径：
+	 * LazyImageLoader-->GetImageTask-->ImageManager-->PintuApp.
+	 * mApi.getImgByUrl(url)
+	 * 
+	 * @param imageView
+	 * @param url
+	 */
 	public static void display(final ImageView imageView, String url) {
 		// 因为有多个组件，需要用地址匹配组件
 		imageView.setTag(url);
@@ -26,12 +33,20 @@ public class SimpleImageLoader {
 		imageView.setImageBitmap(image);
 	}
 
-	// 对外暴露的第二个方法
+	/**
+	 * 对外暴露的第二个方法
+	 */
 	public static void clearAll() {
 		PintuApp.mImageLoader.clearCache();
 	}
 
-	// 对外暴露的第三个方法
+	/**
+	 * 对外暴露的第三个方法
+	 * 
+	 * @param targetFile
+	 *            原文件
+	 * @return 压缩后的文件
+	 */
 	public static File compressRawImage(File targetFile) {
 		return PintuApp.mImageLoader.compreseImage(targetFile);
 	}
@@ -50,7 +65,12 @@ public class SimpleImageLoader {
 
 	}
 
-	// 对外暴露的第五个方法，查看图片详情时，用来修改图片的大小
+	/**
+	 * 对外暴露的第五个方法，查看图片详情时，用来修改图片的大小
+	 * 
+	 * @param imageView
+	 * @param url
+	 */
 	public static void displayForFit(final ImageView imageView, String url) {
 		imageView.setTag(url);
 		ImageLoaderCallback resize = new ImageLoaderCallback() {
@@ -73,24 +93,23 @@ public class SimpleImageLoader {
 			relayoutBitmap(bitmap, imageView);
 		}
 	}
-	
-	//对外暴露的第6个方法
+
 	/**
-	 * 根据图片编号和类型下载文件到SD卡
-	 * 注意该方法在UI线程中做
+	 * 对外暴露的第6个方法 根据图片编号和类型下载文件到SD卡 注意该方法在UI线程中做
 	 * 
 	 * @param picId
-	 * @param picType .png .jpg
+	 * @param picType
+	 *            .png .jpg
 	 * @return 保存在SD卡中的完整路径
 	 */
-	public static String downloadImage(String picId, String picType){
+	public static String downloadImage(String picId, String picType) {
 		String url = PintuApp.mApi.composeImgUrlById(picId);
 		String completeFile = null;
 		try {
 			completeFile = PintuApp.mImageLoader.downloadImage(url, picType);
 		} catch (HttpException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Toast.makeText(PintuApp.mContext, "Download Image file Failed!",
+					Toast.LENGTH_LONG);
 		}
 		return completeFile;
 	}

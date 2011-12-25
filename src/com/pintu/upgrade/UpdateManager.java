@@ -92,9 +92,8 @@ public class UpdateManager {
 				showUpdataDialog();
 			}
 		} catch (Exception e) {
-			// 待处理
-			Log.i(TAG, "check update config error!");
-			e.printStackTrace();
+			// 配置文件不存在，或者网络不给力
+			Log.e(TAG, "Check update config file ERROR: "+mDownloadURL);
 		}
 	}
 
@@ -127,13 +126,13 @@ public class UpdateManager {
 				is.close();
 				//下载结束
 				mHandler.sendEmptyMessage(DOWN_OVER);
-			}			
+			}
 		} catch (MalformedURLException e) {
-			e.printStackTrace();
+			Log.e(TAG, "apk url is malformed: "+info.getApkurl());
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}catch (IOException e) {			
-			e.printStackTrace();
+			Log.e(TAG, "save file write error: "+savePath);
+		}catch (IOException e) {	
+			Log.e(TAG, "URL Connection FAILED: "+info.getApkurl());
 		} 
 
 	}
@@ -158,12 +157,15 @@ public class UpdateManager {
 						mHandler.sendEmptyMessage(UPDATE_CLIENT);
 						//下载开始提示
 						Toast.makeText(mContext, R.string.backgrounddnld, Toast.LENGTH_SHORT);
+						//关闭对话框
+						dialog.dismiss();
 					}
 				});
 		// 当点取消按钮时进行登录
 		builer.setNegativeButton(mContext.getText(R.string.cancel), new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
-				// do nothing
+				//关闭对话框
+				dialog.dismiss();
 			}
 		});
 		AlertDialog dialog = builer.create();
@@ -200,8 +202,7 @@ public class UpdateManager {
 			packInfo = packageManager.getPackageInfo(mContext.getPackageName(),
 					0);
 		} catch (NameNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Log.e(TAG, "NameNotFoundException for getPackageInfo: "+mContext.getPackageName());
 		}
 		if (packInfo != null) {
 			return packInfo.versionName;

@@ -58,7 +58,11 @@ public class MsgService extends Service {
 	
 	private String mConfigFileURL;
 	
+	//如果没有得到更新配置文件地址，就不更新
 	private boolean updateAvailable = true;
+	
+	
+	
 
 	public void onCreate() {
 		Log.v(TAG, "MsgService Created!");
@@ -89,6 +93,8 @@ public class MsgService extends Service {
 
 		//记下来好结束它
 		currentServiceId = startId;
+		
+		//从启动该服务的活动中获取
 		Bundle extras = intent.getExtras();
 		if(extras!=null){
 			mConfigFileURL = extras.getString("configFileURL");
@@ -143,6 +149,7 @@ public class MsgService extends Service {
 				
 			case 	UpdateManager.DOWN_OVER:
 				Log.i(TAG, "to install new version...");
+				//通知用户点击来安装
 				notifyUserToInstallUpdate();
 				
 				//安装检查结束，停止服务
@@ -280,7 +287,6 @@ public class MsgService extends Service {
 
 	@Override
 	public IBinder onBind(Intent intent) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

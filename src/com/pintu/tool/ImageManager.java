@@ -23,6 +23,7 @@ import android.graphics.Canvas;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.pintu.PintuApp;
 import com.pintu.R;
@@ -200,6 +201,16 @@ public class ImageManager  {
      */
     public String downloadImage2SD(String url, String picType) throws HttpException {
         Log.d(TAG, "[NEW]Fetching image: " + url);
+        File dir = null;
+        try {
+			dir = FileHelper.getBasePath();
+		} catch (IOException e) {
+			Log.e(TAG, "SD Card not mounted!");
+		}
+        if(dir==null) {
+    		Toast.makeText(mContext, "SD Card not available!", Toast.LENGTH_LONG);
+    		return null;
+    	}
         final Response res = PintuApp.mApi.getImgByUrl(url);
         String fileName = createImgFileName(picType);
         String filePath = writeToFile2SD(res.asStream(), fileName);
@@ -211,12 +222,12 @@ public class ImageManager  {
 		return dateFormat.format(new Date()) + picType;
     }
     
-    private String writeToFile2SD(InputStream is, String filename) {
+	private String writeToFile2SD(InputStream is, String filename) {
         Log.d("LDS", "new write to file");
         BufferedInputStream in = null;
         FileOutputStream out = null;
-        File file = null;
-        try {
+        File file = null;        
+        try {        	        
         	file = new File(FileHelper.getBasePath(), filename);
         	out = new FileOutputStream(file);
             in  = new BufferedInputStream(is);            
@@ -239,8 +250,11 @@ public class ImageManager  {
                 ioe.printStackTrace();
             }
         }
-    	
-    	return file.getAbsolutePath();
+    	if(file!=null){
+    		return file.getAbsolutePath();    		
+    	}else{
+    		return null;
+    	}
     }
     
  

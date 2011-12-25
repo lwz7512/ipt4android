@@ -719,8 +719,10 @@ public class PictureDetails extends FullScreenActivity {
 
 				@Override
 				protected void onPostExecute(TaskResult result) {
-					updateProgress("saved in: " + downloadFile);
 					details_prgrsBar.setVisibility(View.GONE);
+					if(downloadFile!=null){
+						updateProgress("saved in: " + downloadFile);												
+					}
 				}
 
 			};
