@@ -99,6 +99,7 @@ public class HomeGallery extends FullScreenActivity {
     
     private void startRetrieveMsgs(){
     	Intent it = new Intent();
+    	it.putExtra("configFileURL", PintuApp.mApi.getConfigURL());
     	it.setClass(this, MsgService.class);
     	startService(it);
     }

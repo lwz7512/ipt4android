@@ -1,0 +1,515 @@
+com.hlidskialf.android.hardware.ShakeListener:
+    private static final int FORCE_THRESHOLD
+    private static final int TIME_THRESHOLD
+    private static final int SHAKE_TIMEOUT
+    private static final int SHAKE_DURATION
+    private static final int SHAKE_COUNT
+    60:65:public void pause()
+com.pintu.PintuApp:
+    85:90:public static boolean isLocalVersion()
+com.pintu.R
+com.pintu.R$anim
+com.pintu.R$array
+com.pintu.R$attr
+com.pintu.R$color
+com.pintu.R$drawable
+com.pintu.R$id
+com.pintu.R$layout
+com.pintu.R$string
+com.pintu.R$style
+com.pintu.activity.AndiFavorite:
+    89:89:protected void doSend()
+    212:212:public void putObj(java.lang.String,java.lang.Object)
+    218:218:public java.lang.Object getObj(java.lang.String)
+com.pintu.activity.AndiMessage:
+    174:174:protected void doRetrieve()
+    219:219:public void putObj(java.lang.String,java.lang.Object)
+    224:224:public java.lang.Object getObj(java.lang.String)
+com.pintu.activity.AndiPics:
+    94:94:protected void doSend()
+    218:218:public void putObj(java.lang.String,java.lang.Object)
+    224:224:public java.lang.Object getObj(java.lang.String)
+com.pintu.activity.AndiWealth:
+    private static final java.lang.String ANDIWEALTH_DATA
+    128:128:protected void doSend()
+com.pintu.activity.ClassicWorks:
+    179:179:public void putObj(java.lang.String,java.lang.Object)
+    184:184:public java.lang.Object getObj(java.lang.String)
+    191:191:protected void doSend()
+com.pintu.activity.CmntClassRoom:
+    44:44:protected void doSend()
+    68:68:protected void doRetrieve()
+    122:122:public void putObj(java.lang.String,java.lang.Object)
+    127:127:public java.lang.Object getObj(java.lang.String)
+com.pintu.activity.CmntEvent:
+    46:46:protected void doSend()
+    70:70:protected void doRetrieve()
+    124:124:public void putObj(java.lang.String,java.lang.Object)
+    129:129:public java.lang.Object getObj(java.lang.String)
+com.pintu.activity.CmntNews:
+    45:45:protected void doSend()
+    69:69:protected void doRetrieve()
+    123:123:public void putObj(java.lang.String,java.lang.Object)
+    128:128:public java.lang.Object getObj(java.lang.String)
+com.pintu.activity.CommentDaren:
+    private static final java.lang.String CMNTDAREN_DATA
+    84:84:protected void doSend()
+com.pintu.activity.CommentEdit:
+    212:212:protected void doRetrieve()
+com.pintu.activity.CommentList:
+    187:187:protected void doSend()
+com.pintu.activity.HomeGallery:
+    static final java.lang.String TAG
+    private static final long REFRESH_THRESHOLD
+    protected static final int OPTIONS_MENU_ID_LOGOUT
+    protected static final int OPTIONS_MENU_ID_PREFERENCES
+    protected static final int OPTIONS_MENU_ID_ABOUT
+    protected static final int OPTIONS_MENU_ID_SEARCH
+    protected static final int OPTIONS_MENU_ID_REPLIES
+    protected static final int OPTIONS_MENU_ID_DM
+    protected static final int OPTIONS_MENU_ID_TWEETS
+    protected static final int OPTIONS_MENU_ID_TOGGLE_REPLIES
+    protected static final int OPTIONS_MENU_ID_FOLLOW
+    protected static final int OPTIONS_MENU_ID_UNFOLLOW
+    protected static final int OPTIONS_MENU_ID_IMAGE_CAPTURE
+    protected static final int OPTIONS_MENU_ID_PHOTO_LIBRARY
+    protected static final int OPTIONS_MENU_ID_EXIT
+    protected static final int OPTIONS_MENU_ID_HELP
+    392:392:protected int getLastOptionMenuId()
+com.pintu.activity.LogonSys:
+    private static final java.lang.String USERNOTEXIST
+    private static final java.lang.String PASSWORDERROR
+    229:229:protected void doRetrieve()
+com.pintu.activity.MarketNote:
+    45:45:protected void doSend()
+    69:69:protected void doRetrieve()
+    123:123:public void putObj(java.lang.String,java.lang.Object)
+    128:128:public java.lang.Object getObj(java.lang.String)
+com.pintu.activity.MarketShopping:
+    45:45:protected void doSend()
+    69:69:protected void doRetrieve()
+    123:123:public void putObj(java.lang.String,java.lang.Object)
+    128:128:public java.lang.Object getObj(java.lang.String)
+com.pintu.activity.MsgEdit:
+    private android.widget.EditText receiver_edit
+    239:239:protected void doRetrieve()
+com.pintu.activity.PicDaren:
+    private static final java.lang.String PICDAREN_DATA
+    85:85:protected void doSend()
+com.pintu.activity.PictureDetails:
+    553:564:private void fetchLikeNumOfPic()
+com.pintu.activity.PictureEdit:
+    private static final java.lang.String TAG
+    private static final java.lang.String SIS_RUNNING_KEY
+    private static final int REQUEST_IMAGE_CAPTURE
+    private static final int REQUEST_PHOTO_LIBRARY
+    private static final int MAX_BITMAP_SIZE
+    592:606:public static java.io.File bitmapToFile(android.graphics.Bitmap)
+    612:622:public static android.graphics.Bitmap createFitinBitmap(java.lang.String,int,int)
+com.pintu.activity.StoryList:
+    private java.lang.String owner
+    private java.lang.String storyId
+    private java.lang.String voteType
+    115:123:private void postVoteForStory(java.lang.String,java.lang.String,java.lang.String)
+    185:201:protected void doSend()
+    56:56:static com.pintu.widget.StateListView access$0(com.pintu.activity.StoryList)
+    114:114:static void access$1(com.pintu.activity.StoryList,java.lang.String,java.lang.String,java.lang.String)
+com.pintu.activity.StoryList$1:
+    109:111:public void send(java.lang.String,java.lang.String,java.lang.String)
+com.pintu.activity.TadiAssets:
+    private static final java.lang.String TAG
+com.pintu.activity.TadiPics:
+    private static final java.lang.String TAG
+    private static final java.lang.String TADIPICS_DATA
+    119:119:protected void doSend()
+com.pintu.activity.TadiProfile:
+    private static final java.lang.String TAG
+    private static final java.lang.String TADIPROFILE_DATA
+    138:138:protected void doSend()
+com.pintu.activity.TagList:
+    142:142:protected void doSend()
+com.pintu.activity.TagPicGallery:
+    163:163:protected void doSend()
+com.pintu.activity.TodayHotPic:
+    175:175:public void putObj(java.lang.String,java.lang.Object)
+    180:180:public java.lang.Object getObj(java.lang.String)
+    187:187:protected void doSend()
+com.pintu.activity.base.HeadSwitchActivity:
+    private static final java.lang.String TAG
+com.pintu.activity.base.SubMainCallBack:
+    public abstract void putObj(java.lang.String,java.lang.Object)
+    public abstract java.lang.Object getObj(java.lang.String)
+com.pintu.activity.base.TempletActivity:
+    protected abstract void doSend()
+    protected abstract void doRetrieve()
+com.pintu.adapter.ClassicStoryAdapter
+com.pintu.adapter.ClassicStoryAdapter$ViewHolder
+com.pintu.adapter.GalleryImageAdapter:
+    94:95:public void refresh()
+    98:98:public java.util.List getCells()
+com.pintu.adapter.GalleryImageAdapter$ViewHolder
+com.pintu.adapter.StoryInfoAdapter
+com.pintu.adapter.StoryInfoAdapter$ViewHolder
+com.pintu.adapter.StoryVoteAdapter:
+    121:169:private void addVoteAction(com.pintu.adapter.StoryVoteAdapter$ViewHolder)
+    173:184:private void addVoteNum(android.widget.TextView)
+    26:26:static com.pintu.adapter.StoryVoteAdapter$VoteActionListener access$0(com.pintu.adapter.StoryVoteAdapter)
+    172:172:static void access$1(com.pintu.adapter.StoryVoteAdapter,android.widget.TextView)
+com.pintu.adapter.StoryVoteAdapter$1
+com.pintu.adapter.StoryVoteAdapter$2
+com.pintu.adapter.StoryVoteAdapter$3
+com.pintu.adapter.StoryVoteAdapter$4
+com.pintu.adapter.StoryVoteAdapter$5
+com.pintu.adapter.StoryVoteAdapter$ViewHolder:
+    public android.widget.TextView heart_num
+    public android.widget.TextView flower_num
+    public android.widget.TextView egg_num
+    public android.widget.TextView classic_num
+com.pintu.adapter.StoryVoteAdapter$VoteActionListener:
+    public abstract void send(java.lang.String,java.lang.String,java.lang.String)
+com.pintu.adapter.UserAdapter:
+    public static final java.lang.String PIC_DAREN
+    public static final java.lang.String CMT_DAREN
+com.pintu.api.PTApi:
+    public static final java.lang.String UPLOADPICTURE
+    public static final java.lang.String APPLYFORUSER
+    public static final java.lang.String OTHERMETHOD
+    public static final java.lang.String GETGALLERYBYTIME
+    public static final java.lang.String GETIMAGEFILE
+    public static final java.lang.String GETIMAGEBYPATH
+    public static final java.lang.String GETPICDETAIL
+    public static final java.lang.String ADDSTORY
+    public static final java.lang.String ADDCOMMENT
+    public static final java.lang.String GETSTORIESOFPIC
+    public static final java.lang.String GETCOMMENTSOFPIC
+    public static final java.lang.String ADDVOTE
+    public static final java.lang.String GETHOTPICTURE
+    public static final java.lang.String GETClASSICALPICS
+    public static final java.lang.String MARKTHEPIC
+    public static final java.lang.String GETFAVORITEPICS
+    public static final java.lang.String GETTPICSBYUSER
+    public static final java.lang.String GETSTORIESBYUSER
+    public static final java.lang.String GETUSERESTATE
+    public static final java.lang.String GETUSERDETAIL
+    public static final java.lang.String SENDMSG
+    public static final java.lang.String GETUSERMSG
+    public static final java.lang.String CHANGEMSGSTATE
+    public static final java.lang.String LOGON
+    public static final java.lang.String GETPICCOOLCOUNT
+    public static final java.lang.String PICDARENSTATISTICS
+    public static final java.lang.String CMTDARENSTATISTICS
+    public static final java.lang.String GETRANDGALLERY
+    public static final java.lang.String GETHOTTAGS
+    public static final java.lang.String GETTHUMBNAILSBYTAG
+    public abstract java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
+    public abstract org.json.JSONArray getRandomGallery()
+com.pintu.api.PTImpl:
+    113:175:public java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
+    682:693:public org.json.JSONArray getRandomGallery()
+com.pintu.data.UserDetails:
+    1:1:public static com.pintu.data.UserInfo parseJsonToObj(org.json.JSONObject)
+com.pintu.db.CacheDao:
+    public abstract void deleteOldThumbnails(int)
+    public abstract int cachedThumbnailSize()
+com.pintu.db.CacheImpl:
+    private static final java.lang.String TAG
+com.pintu.db.PintuDB:
+    private static final java.lang.String DATABASE_NAME
+    private static final int DATABASE_VERSION
+    47:47:public android.database.sqlite.SQLiteOpenHelper getSQLiteOpenHelper()
+    68:72:public void close()
+com.pintu.db.PintuTables$ClassicPics:
+    public static final java.lang.String TABLE_NAME
+    109:109:public static java.lang.String getDropSQL()
+    112:112:public static java.lang.String[] getIndexColumns()
+com.pintu.db.PintuTables$ClassicPics$Columns
+com.pintu.db.PintuTables$EventsTable
+com.pintu.db.PintuTables$FavoritePicsTable:
+    public static final java.lang.String TABLE_NAME
+    143:143:public static java.lang.String getDropSQL()
+    146:146:public static java.lang.String[] getIndexColumns()
+com.pintu.db.PintuTables$FavoritePicsTable$Columns
+com.pintu.db.PintuTables$HotpicTable:
+    public static final java.lang.String TABLE_NAME
+    70:70:public static java.lang.String getDropSQL()
+    73:73:public static java.lang.String[] getIndexColumns()
+com.pintu.db.PintuTables$HotpicTable$Columns
+com.pintu.db.PintuTables$MyMessageTable:
+    public static final java.lang.String TABLE_NAME
+    219:219:public static java.lang.String getDropSQL()
+    222:222:public static java.lang.String[] getIndexColumns()
+com.pintu.db.PintuTables$MyMessageTable$Columns
+com.pintu.db.PintuTables$MyPicsTable:
+    public static final java.lang.String TABLE_NAME
+    177:177:public static java.lang.String getDropSQL()
+    180:180:public static java.lang.String[] getIndexColumns()
+com.pintu.db.PintuTables$MyPicsTable$Columns
+com.pintu.db.PintuTables$NewsTable
+com.pintu.db.PintuTables$NotesTable
+com.pintu.db.PintuTables$ThumbnailTable:
+    public static final java.lang.String TABLE_NAME
+    public static final int MAX_ROW_NUMBER
+    32:32:public static java.lang.String getDropSQL()
+    35:35:public static java.lang.String[] getIndexColumns()
+com.pintu.db.PintuTables$ThumbnailTable$Columns
+com.pintu.db.PintuTables$XuetangTable
+com.pintu.db.Query:
+    private static final java.lang.String TAG
+    150:152:public com.pintu.db.Query where(java.lang.String,java.lang.String[])
+    168:169:public com.pintu.db.Query where(java.lang.String)
+    197:198:public com.pintu.db.Query having(java.lang.String)
+    211:212:public com.pintu.db.Query groupBy(java.lang.String)
+    342:342:public android.content.ContentValues getContentValues()
+com.pintu.http.CountingMultiPartEntity:
+    23:25:public CountingMultiPartEntity(org.apache.http.entity.mime.HttpMultipartMode,com.pintu.http.CountingMultiPartEntity$ProgressListener)
+    30:32:public CountingMultiPartEntity(org.apache.http.entity.mime.HttpMultipartMode,java.lang.String,java.nio.charset.Charset,com.pintu.http.CountingMultiPartEntity$ProgressListener)
+com.pintu.http.HttpAuthException:
+    private static final long serialVersionUID
+    12:14:public HttpAuthException(java.lang.Exception)
+    17:19:public HttpAuthException(java.lang.String,java.lang.Exception,int)
+com.pintu.http.HttpClientInterface
+com.pintu.http.HttpException:
+    private static final long serialVersionUID
+    19:20:public HttpException(java.lang.Exception)
+    32:34:public HttpException(java.lang.String,java.lang.Exception,int)
+    37:37:public int getStatusCode()
+com.pintu.http.HttpRefusedException:
+    private static final long serialVersionUID
+    private com.pintu.http.RefuseError mError
+    19:21:public HttpRefusedException(java.lang.Exception)
+    24:26:public HttpRefusedException(java.lang.String,java.lang.Exception,int)
+    44:44:public com.pintu.http.RefuseError getError()
+    48:49:public com.pintu.http.HttpRefusedException setError(com.pintu.http.RefuseError)
+com.pintu.http.HttpServerException:
+    private static final long serialVersionUID
+    18:20:public HttpServerException(java.lang.Exception)
+    23:25:public HttpServerException(java.lang.String,java.lang.Exception,int)
+com.pintu.http.RefuseError
+com.pintu.http.Response:
+    32:32:public org.apache.http.HttpResponse getHttpResponse()
+    116:118:public org.json.JSONObject asJSONObject()
+    125:127:public org.json.JSONArray asJSONArray()
+    133:134:private void setStreamConsumed(boolean)
+    137:137:public boolean isStreamConsumed()
+    151:158:public static java.lang.String unescape(java.lang.String)
+com.pintu.http.SimpleHttpClient:
+    private static final java.lang.String TAG
+com.pintu.http.XmlObject
+com.pintu.service.MsgService:
+    private static final java.lang.String TAG
+com.pintu.task.Feedback:
+    public abstract boolean isAvailable()
+    public abstract void cancel(java.lang.CharSequence)
+    public abstract void failed(java.lang.CharSequence)
+    public abstract void setIndeterminate(boolean)
+com.pintu.task.GenericTask:
+    private static final java.lang.String TAG
+    31:32:public void doPublishProgress(java.lang.Object[])
+    109:110:public void setCancelable(boolean)
+    113:114:public void setFeedback(com.pintu.task.Feedback)
+com.pintu.task.RetrieveDarenTask:
+    private static final java.lang.String TAG
+    public static final java.lang.String PIC_DAREN
+    public static final java.lang.String CMNT_DAREN
+com.pintu.task.RetrieveGalleryTask:
+    private java.lang.String _errorMsg
+    27:27:public java.lang.String getErrorMsg()
+com.pintu.task.SendTask:
+    public static final int TYPE_NORMAL
+    public static final int TYPE_PHOTO
+    public static final int TYPE_STORY
+    public static final int TYPE_COMMENT
+    public static final int TYPE_VOTE
+    public static final int TYPE_MESSAGE
+    public static final int TYPE_MSG_READED
+    public static final int TYPE_NOTE
+    public static final int TYPE_MARK
+    public static final int TYPE_XUETANG
+    private static final java.lang.String TAG
+    131:153:private com.pintu.task.TaskResult sendPic(com.pintu.task.TaskParams)
+com.pintu.task.TaskManager:
+    private static final java.lang.String TAG
+com.pintu.task.TaskParams:
+    24:26:public TaskParams(java.lang.String,java.lang.Object)
+    45:55:public boolean getBoolean(java.lang.String)
+    67:73:public double getDouble(java.lang.String)
+com.pintu.tool.BitmapProcessor
+com.pintu.tool.ImageManager:
+    private static final java.lang.String TAG
+    public static final int DEFAULT_COMPRESS_QUALITY
+    private static final int IMAGE_MAX_WIDTH
+    private static final int IMAGE_MAX_HEIGHT
+com.pintu.tool.LazyImageLoader:
+    private static final java.lang.String TAG
+    private static final int HANDLER_MESSAGE_ID
+    private static final java.lang.String EXTRA_BITMAP
+    private static final java.lang.String EXTRA_IMAGE_URL
+com.pintu.tool.LazyImageLoader$CallbackManager:
+    private static final java.lang.String TAG
+com.pintu.tool.LazyImageLoader$GetImageTask:
+    private static final int TIMEOUT
+    166:166:public boolean isPermanent()
+    171:172:public void setPermanent(boolean)
+    176:177:public void shutDown()
+com.pintu.util.DateTimeHelper:
+    private static final java.lang.String TAG
+    29:33:public static final java.util.Date parseDateTime(java.lang.String)
+    40:46:public static final java.util.Date parseDateTimeFromSqlite(java.lang.String)
+    52:56:public static final java.util.Date parseSearchApiDateTime(java.lang.String)
+    117:118:public static java.lang.String longTimeToDate(long)
+com.pintu.util.DebugProfile
+com.pintu.util.DebugTimer:
+    public static final int START
+    public static final int END
+    37:39:public static void start()
+    86:87:public static java.lang.String stop()
+    91:92:public static java.lang.String stop(java.lang.String)
+    102:102:public static long get(java.lang.String)
+    116:119:public static void reset()
+    131:131:private static long touch()
+    135:151:public static com.pintu.util.DebugProfile[] getProfile()
+    155:165:public static java.lang.String getProfileAsString()
+com.pintu.util.FileHelper:
+    private static final java.lang.String TAG
+    private static final java.lang.String BASE_PATH
+com.pintu.util.IptHelper:
+    26:28:public static int px2dip(android.content.Context,float)
+com.pintu.util.Preferences:
+    public static final java.lang.String HOT_INDEX
+    public static final java.lang.String MYASSETS_INDEX
+    public static final java.lang.String CMNT_INDEX
+    public static final java.lang.String MARKET_INDEX
+com.pintu.widget.StateImage
+com.pintu.widget.StateListView:
+    21:21:public boolean isStatic()
+org.acra.ACRA:
+    static final java.lang.String RES_NOTIF_ICON
+    static final java.lang.String RES_NOTIF_TICKER_TEXT
+    static final java.lang.String RES_NOTIF_TITLE
+    static final java.lang.String RES_NOTIF_TEXT
+    static final java.lang.String RES_DIALOG_ICON
+    static final java.lang.String RES_DIALOG_TITLE
+    static final java.lang.String RES_DIALOG_TEXT
+    static final java.lang.String RES_DIALOG_COMMENT_PROMPT
+    static final java.lang.String RES_DIALOG_OK_TOAST
+    static final java.lang.String RES_TOAST_TEXT
+    static final int NOTIF_CRASH_ID
+    public static final java.lang.String PREF_DISABLE_ACRA
+    public static final java.lang.String PREF_ENABLE_ACRA
+    private static android.app.Application mApplication
+    private static org.acra.annotation.ReportsCrashes mReportsCrashes
+    private static android.content.SharedPreferences$OnSharedPreferenceChangeListener mPrefListener
+    private static int[] $SWITCH_TABLE$org$acra$ReportingInteractionMode
+    114:177:public static void init(android.app.Application)
+    185:200:private static void initAcra()
+    203:230:static void initCrashResources()
+    238:238:private static android.net.Uri getFormUri()
+    250:256:public static android.content.SharedPreferences getACRASharedPreferences()
+    184:184:static void access$0()
+    38:38:static int[] $SWITCH_TABLE$org$acra$ReportingInteractionMode()
+org.acra.ACRA$1
+org.acra.ACRAConfigurationException
+org.acra.ConfigurationInspector:
+    private static final java.lang.String SUFFIX_MASK
+    private static final java.lang.String FIELD_SCREENLAYOUT
+    private static final java.lang.String FIELD_UIMODE
+    private static final java.lang.String FIELD_MNC
+    private static final java.lang.String FIELD_MCC
+    private static final java.lang.String PREFIX_UI_MODE
+    private static final java.lang.String PREFIX_TOUCHSCREEN
+    private static final java.lang.String PREFIX_SCREENLAYOUT
+    private static final java.lang.String PREFIX_ORIENTATION
+    private static final java.lang.String PREFIX_NAVIGATIONHIDDEN
+    private static final java.lang.String PREFIX_NAVIGATION
+    private static final java.lang.String PREFIX_KEYBOARDHIDDEN
+    private static final java.lang.String PREFIX_KEYBOARD
+    private static final java.lang.String PREFIX_HARDKEYBOARDHIDDEN
+org.acra.CrashReportDialog:
+    private static final int CRASH_DIALOG_LEFT_ICON
+org.acra.ErrorReporter:
+    private static final int MAX_SEND_REPORTS
+    private static final java.lang.String VERSION_NAME_KEY
+    private static final java.lang.String PACKAGE_NAME_KEY
+    private static final java.lang.String FILE_PATH_KEY
+    private static final java.lang.String PHONE_MODEL_KEY
+    private static final java.lang.String ANDROID_VERSION_KEY
+    private static final java.lang.String BOARD_KEY
+    private static final java.lang.String BRAND_KEY
+    private static final java.lang.String DEVICE_KEY
+    private static final java.lang.String BUILD_DISPLAY_KEY
+    private static final java.lang.String FINGERPRINT_KEY
+    private static final java.lang.String HOST_KEY
+    private static final java.lang.String ID_KEY
+    private static final java.lang.String MODEL_KEY
+    private static final java.lang.String PRODUCT_KEY
+    private static final java.lang.String TAGS_KEY
+    private static final java.lang.String TIME_KEY
+    private static final java.lang.String TYPE_KEY
+    private static final java.lang.String USER_KEY
+    private static final java.lang.String TOTAL_MEM_SIZE_KEY
+    private static final java.lang.String AVAILABLE_MEM_SIZE_KEY
+    private static final java.lang.String CUSTOM_DATA_KEY
+    private static final java.lang.String STACK_TRACE_KEY
+    private static final java.lang.String INITIAL_CONFIGURATION_KEY
+    private static final java.lang.String CRASH_CONFIGURATION_KEY
+    private static final java.lang.String DISPLAY_KEY
+    private static final java.lang.String USER_COMMENT_KEY
+    private static final java.lang.String USER_CRASH_DATE_KEY
+    static final java.lang.String IS_SILENT_KEY
+    static final java.lang.String SILENT_SUFFIX
+    static final java.lang.String EXTRA_REPORT_FILE_NAME
+    201:202:void setFormUri(android.net.Uri)
+    212:213:public void addCustomData(java.lang.String,java.lang.String)
+    237:237:public java.lang.String putCustomData(java.lang.String,java.lang.String)
+    250:250:public java.lang.String removeCustomData(java.lang.String)
+    263:263:public java.lang.String getCustomData(java.lang.String)
+    307:313:public void init(android.content.Context)
+    589:590:public org.acra.ErrorReporter$ReportsSenderWorker handleSilentException(java.lang.Throwable)
+    798:799:void setReportingInteractionMode(org.acra.ReportingInteractionMode)
+    806:830:public void checkReportsOnApplicationStart()
+    833:842:private java.lang.String getLatestNonSilentReport(java.lang.String[])
+    857:858:public void deletePendingSilentReports()
+    864:865:public void deletePendingNonSilentReports()
+    892:893:void setCrashResources(android.os.Bundle)
+    900:908:public void disable()
+    921:926:private boolean containsOnlySilentReports(java.lang.String[])
+org.acra.HttpUtils:
+    private static final int SOCKET_TIMEOUT
+org.acra.annotation.ReportsCrashes
+org.apache.http.entity.mime.Header:
+    68:68:public java.util.List getFields()
+    84:92:public java.util.List getFields(java.lang.String)
+    97:106:public int removeFields(java.lang.String)
+    110:133:public void setField(org.apache.http.entity.mime.MinimalField)
+org.apache.http.entity.mime.HttpMultipart:
+    138:139:public HttpMultipart(java.lang.String,java.nio.charset.Charset,java.lang.String)
+    142:143:public HttpMultipart(java.lang.String,java.lang.String)
+    146:146:public java.lang.String getSubType()
+    150:150:public java.nio.charset.Charset getCharset()
+    154:154:public org.apache.http.entity.mime.HttpMultipartMode getMode()
+org.apache.http.entity.mime.MIME:
+    public static final java.lang.String CONTENT_TYPE
+    public static final java.lang.String CONTENT_TRANSFER_ENC
+    public static final java.lang.String CONTENT_DISPOSITION
+    public static final java.lang.String ENC_8BIT
+    public static final java.lang.String ENC_BINARY
+org.apache.http.entity.mime.MultipartEntity:
+    93:94:public MultipartEntity(org.apache.http.entity.mime.HttpMultipartMode)
+org.apache.http.entity.mime.content.AbstractContentBody:
+    61:61:public java.lang.String getMediaType()
+    65:65:public java.lang.String getSubType()
+org.apache.http.entity.mime.content.ByteArrayBody
+org.apache.http.entity.mime.content.ContentDescriptor:
+    public abstract java.lang.String getMediaType()
+    public abstract java.lang.String getSubType()
+org.apache.http.entity.mime.content.FileBody:
+    85:85:public java.io.InputStream getInputStream()
+    93:94:public void writeTo(java.io.OutputStream,int)
+    130:130:public java.io.File getFile()
+org.apache.http.entity.mime.content.InputStreamBody
+org.apache.http.entity.mime.content.StringBody:
+    58:60:public static org.apache.http.entity.mime.content.StringBody create(java.lang.String,java.lang.String,java.nio.charset.Charset)
+    69:69:public static org.apache.http.entity.mime.content.StringBody create(java.lang.String,java.nio.charset.Charset)
+    76:76:public static org.apache.http.entity.mime.content.StringBody create(java.lang.String)
+    130:130:public java.io.Reader getReader()
+    140:141:public void writeTo(java.io.OutputStream,int)

@@ -79,6 +79,10 @@ public interface PTApi {
 	public static final String GETTHUMBNAILSBYTAG = "getThumbnailsByTag";
 
 	// TODO, ADD OTHER REMOTE METHODS...
+	
+	//获取更新配置文件的地址
+	//里面记录了更新包的信息
+	public String getConfigURL();
 
 	/**
 	 * 有上传进度的贴图API

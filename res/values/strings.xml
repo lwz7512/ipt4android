@@ -27,6 +27,9 @@
 	<string name="suretosave">确实要保存该图吗?</string>
 	<string name="yes">确定</string>
 	<string name="cancel">取消</string>
+	<string name="newversion">下载最新版本</string>
+	<string name="backgrounddnld">进入后台下载</string>
+	<string name="dnldover">更新包下载完成，可以安装了</string>
 	
 	<!-- 画廊主菜单 -->
 	<string name="postpic">贴图</string>

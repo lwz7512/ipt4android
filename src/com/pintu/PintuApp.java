@@ -4,7 +4,6 @@ import android.app.Application;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.widget.Toast;
 
 import com.pintu.api.PTApi;
 import com.pintu.api.PTImpl;
@@ -16,6 +15,10 @@ import com.pintu.util.Preferences;
 public class PintuApp extends Application {
 
 	private static String TAG = "PintuApp";
+	
+	private static String LOCAL_VERSION = "Local version";
+	private static String MARKET_VERSION = "Market version";
+	private static String VERSION_STATE = LOCAL_VERSION;
 
 	// 应用上下文
 	public static Context mContext;
@@ -30,6 +33,7 @@ public class PintuApp extends Application {
 
 	public static NotificationManager mNotificationManager;
 
+	
 
 	public void onCreate() {
 		super.onCreate();
@@ -69,9 +73,26 @@ public class PintuApp extends Application {
 	public static String getKefu() {
 		return Preferences.KEFU_USERID;
 	}
+	
+	/**
+	 * 本地版，从服务器上自动更新，而市场版只能通过Android Market更新
+	 * 所以如果是本地版，就启动版本检测，从服务器上拿版本配置文件信息
+	 * 然后分析版本号，当前应用比较，是否该进行升级
+	 * 
+	 * @return
+	 */
+	public static boolean isLocalVersion(){
+		if(VERSION_STATE.equals(LOCAL_VERSION)){
+			return true;
+		}else if(VERSION_STATE.equals(MARKET_VERSION)){
+			return false;
+		}
+		return false;
+	}
 
 	public static void cancelNotification() {
 		mNotificationManager.cancel(R.string.messages);
+//		mNotificationManager.cancel(R.string.dnldover);
 	}
 
 }

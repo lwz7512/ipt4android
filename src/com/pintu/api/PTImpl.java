@@ -51,6 +51,9 @@ public class PTImpl implements PTApi {
 	// Real service context
 	private String service = "/ipintu/pintuapi";
 
+	//本地安装包相对地址
+	private String configFilepath = "/ipintu/download/update.xml";
+	
 	// debug or release flag
 	private boolean isDebug = true;
 
@@ -70,6 +73,15 @@ public class PTImpl implements PTApi {
 	public void updateUser(String userId) {
 		client.setUserId(userId);
 	}
+	
+	//安装包的下载地址
+	public String getConfigURL(){
+		if (isDebug) {
+			return emulator + configFilepath;
+		} else {
+			return host + configFilepath;
+		}
+	}
 
 	private String getBaseURL() {
 		if (isDebug) {
@@ -78,6 +90,7 @@ public class PTImpl implements PTApi {
 			return host + service;
 		}
 	}
+	
 
 	@Override
 	public Response getImgByUrl(String url) throws HttpException {
