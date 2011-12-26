@@ -166,18 +166,25 @@ public abstract class TempletActivity extends FullScreenActivity {
 
 	};
 
-	protected void checkTaskStatus() {
+	/**
+	 * 如果任务正在运行返回false，表示不能进行新任务
+	 * 如果任务空闲返回true，可以新建任务
+	 * 
+	 * @return 是否可以新建任务
+	 */
+	protected boolean checkTaskStatus() {
 
 		if (mSendTask != null
 				&& mSendTask.getStatus() == GenericTask.Status.RUNNING) {
-			return;
+			return false;
 		}
 
 		if (mRetrieveTask != null
 				&& mRetrieveTask.getStatus() == GenericTask.Status.RUNNING) {
-			return;
+			return false;
 		}
 
+		return true;
 	}
 
 	protected void manageTask(GenericTask task) {

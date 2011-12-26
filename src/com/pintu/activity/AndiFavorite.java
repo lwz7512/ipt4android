@@ -24,24 +24,22 @@ import com.pintu.task.RetrieveFavoritesTask;
 import com.pintu.task.TaskParams;
 
 /**
- * 数据处理逻辑：
- * 先取缓存显示，调用刷新方法时，判断时间间隔
- * 超过1分钟了，允许重新查询
+ * 数据处理逻辑： 先取缓存显示，调用刷新方法时，判断时间间隔 超过1分钟了，允许重新查询
+ * 
  * @author lwz
- *
+ * 
  */
 public class AndiFavorite extends TempletActivity implements SubMainCallBack {
 
-	
 	private ListView markpics_lv;
 	private FavoPicsAdapter fpAdptr;
 	private ProgressBar pb;
 	private ImageButton refreshBtn;
-	//当前页码数目
+	// 当前页码数目
 	private int pageNum = 0;
-	//上次获取记录数
+	// 上次获取记录数
 	private int lastFetchNum = 0;
-	
+
 	@Override
 	protected int getLayout() {
 		return R.layout.adfavorite;
@@ -59,7 +57,7 @@ public class AndiFavorite extends TempletActivity implements SubMainCallBack {
 		markpics_lv.setOnItemClickListener(listener);
 
 	}
-	
+
 	private OnItemClickListener listener = new OnItemClickListener() {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
@@ -68,19 +66,22 @@ public class AndiFavorite extends TempletActivity implements SubMainCallBack {
 			TPicItem selectedPic = (TPicItem) fpAdptr.getItem(position);
 			String picId = selectedPic.id;
 			Intent it = new Intent();
-			it.setClass(AndiFavorite.this, PictureDetails.class);			
+			it.setClass(AndiFavorite.this, PictureDetails.class);
 			it.putExtra("tpId", picId);
-			//打开详情活动
+			// 打开详情活动
 			startActivity(it);
-		}		
+		}
 	};
 
 	@Override
 	protected void justDoIt() {
 		List<TPicItem> pics = PintuApp.dbApi.getCachedFavoritePics();
 		fpAdptr.refresh(pics);
-	}
 
+		// 如果缓存中没数据，请求主活动来调用刷新方法
+		if (pics.size() == 0)
+			this.AUTOREFRESH = true;
+	}
 
 	@Override
 	protected void doSend() {
@@ -104,42 +105,43 @@ public class AndiFavorite extends TempletActivity implements SubMainCallBack {
 
 	@Override
 	protected void doRetrieve() {
-		this.checkTaskStatus();
-		
+		if (!checkTaskStatus())
+			return;
+
 		this.mRetrieveTask = new RetrieveFavoritesTask();
 		this.mRetrieveTask.setListener(mRetrieveTaskListener);
 		TaskParams params = new TaskParams();
-		//查询前页码增加
-		pageNum ++;
+		// 查询前页码增加
+		pageNum++;
 		params.put("userId", PintuApp.getUser());
 		params.put("pageNum", pageNum);
-		//指明是查询收藏图片
+		// 指明是查询收藏图片
 		params.put("method", PTApi.GETFAVORITEPICS);
 		this.mRetrieveTask.execute(params);
-		
+
 		this.manageTask(mRetrieveTask);
 	}
 
 	@Override
 	protected void onRetrieveBegin() {
-		if(this.pb!=null){
-			this.pb.setVisibility(View.VISIBLE);			
-		}else{
+		if (this.pb != null) {
+			this.pb.setVisibility(View.VISIBLE);
+		} else {
 			this.updateProgress("Loading My favorite pics...");
 		}
-		if(this.refreshBtn!=null)
+		if (this.refreshBtn != null)
 			this.refreshBtn.setVisibility(View.GONE);
-		
+
 	}
 
 	@Override
 	protected void onRetrieveSuccess() {
-		if(this.pb!=null)
+		if (this.pb != null)
 			this.pb.setVisibility(View.GONE);
-		
-		if(this.refreshBtn!=null)
+
+		if (this.refreshBtn != null)
 			this.refreshBtn.setVisibility(View.VISIBLE);
-		
+
 		this.rememberLastVisit();
 	}
 
@@ -155,37 +157,36 @@ public class AndiFavorite extends TempletActivity implements SubMainCallBack {
 
 	@Override
 	protected void refreshListView(List<Object> results) {
-		if(results.size()==0){	
+		if (results.size() == 0) {
 			updateProgress("Ended, 10 sec Later to Refresh Newest!");
 			pageNum = 0;
 			return;
 		}
-		
-		if(results.size()<lastFetchNum){
+
+		if (results.size() < lastFetchNum) {
 			updateProgress("Ended, 10 sec Later to Refresh Newest!");
 			pageNum = 0;
 		}
-		
-		//记下上次取回记录数以便提醒
+
+		// 记下上次取回记录数以便提醒
 		lastFetchNum = results.size();
-		
+
 		ArrayList<TPicItem> pics = new ArrayList<TPicItem>();
-		for(Object o : results){
+		for (Object o : results) {
 			pics.add((TPicItem) o);
 		}
-		//先入库缓存
+		// 先入库缓存
 		PintuApp.dbApi.insertMarkedPics(pics);
-		//再从库中取出
-		List<TPicItem>cachedPics = PintuApp.dbApi.getCachedFavoritePics();
+		// 再从库中取出
+		List<TPicItem> cachedPics = PintuApp.dbApi.getCachedFavoritePics();
 		this.fpAdptr.refresh(cachedPics);
 	}
-
 
 	@Override
 	protected void refreshMultView(JSONObject json) {
 		// do nothing here...
 	}
-	
+
 	@Override
 	public void addProgress(ProgressBar pb) {
 		this.pb = pb;
@@ -195,25 +196,26 @@ public class AndiFavorite extends TempletActivity implements SubMainCallBack {
 	public void refresh(ImageButton refreshBtn) {
 		this.refreshBtn = refreshBtn;
 		long diff = this.elapsedFromLastVisit();
-		if(diff>this.tenSecsMiliSeconds){
+		// 过了时间间隔，或者无缓存数据都可以查询
+		if (diff > this.tenSecsMiliSeconds || this.AUTOREFRESH) {
 			this.doRetrieve();
-		}else{
+			this.AUTOREFRESH = false;
+		} else {
 			this.updateProgress("10 sec Later to Refresh ...");
 		}
 	}
 
 	@Override
 	public void putObj(String key, Object value) {
-		//do nothing here...
-		//use sqlite instead;
+		// do nothing here...
+		// use sqlite instead;
 	}
 
 	@Override
 	public Object getObj(String key) {
-		//do nothing here...
-		//use sqlite instead;
+		// do nothing here...
+		// use sqlite instead;
 		return null;
 	}
-
 
 }

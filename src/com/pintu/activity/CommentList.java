@@ -129,7 +129,7 @@ public class CommentList extends TempletActivity {
 
 	@Override
 	protected void doRetrieve() {
-		this.checkTaskStatus();
+		if(!checkTaskStatus()) return;
 		
 		mRetrieveTask = new RetrieveCommentsTask();
 		mRetrieveTask.setListener(mRetrieveTaskListener);

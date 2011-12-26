@@ -156,7 +156,7 @@ public class CommentEdit extends TempletActivity {
 	@Override
 	protected void doSend() {
 		//先检查任务是否在执行，是则退出
-		this.checkTaskStatus();
+		if(!checkTaskStatus()) return;
 		
 		String comment = comment_edit.getText().toString();
 		if (comment.length() > 0) {			

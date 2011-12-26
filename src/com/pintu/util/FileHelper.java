@@ -16,9 +16,13 @@ public class FileHelper {
     private static final String BASE_PATH="ipintu";
 	
     public static File getBasePath() throws IOException{
+    	//如果SD卡不可用返回空
+    	if(!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+    		return null;
+    	}
     	File basePath = new File(Environment.getExternalStorageDirectory(),
     			BASE_PATH);
-
+    	
     	if (!basePath.exists()){
     		if (!basePath.mkdirs()){
         		throw new IOException(String.format("%s cannot be created!", basePath.toString()));

@@ -17,12 +17,19 @@
 		\n北京远博畅享科技有限公司出品\n
 	</string>
 	
+	<!-- 帮助内容 -->
+	<string name="helpcontent">目前没有帮助内容，如有疑问请在：
+	    首页画廊>>俺滴>>消息，中给客服小辣椒发消息获得帮助</string>    
+	
 	<!-- 对话框 -->
 	<string name="note">提示</string>
 	<string name="suretologout">确实要注销吗?</string>
 	<string name="suretosave">确实要保存该图吗?</string>
 	<string name="yes">确定</string>
 	<string name="cancel">取消</string>
+	<string name="newversion">下载最新版本</string>
+	<string name="backgrounddnld">进入后台下载</string>
+	<string name="dnldover">更新包下载完成，可以安装了</string>
 	
 	<!-- 画廊主菜单 -->
 	<string name="postpic">贴图</string>
@@ -55,6 +62,7 @@
 	<string name="commentlist">评论列表</string>
 	<string name="hotpicsview">热图浏览</string>
 	<string name="about">关于爱品图</string>
+	<string name="tagtitle">热门标签</string>	
 
 	<!-- 切换按钮文字 -->
 	<string name="todayhotpic">今日热图</string>
@@ -86,6 +94,9 @@
 		您已经达到了评论的最大长度32，如果继续，建议发表到品图内容中
 	</string>
 	<string name="marksuccess">收藏成功</string>
+	<string name="shake_toget_random">没有新图片了，摇摇手机试试？</string>
+	<string name="have_a_rest">没有新图片了，休息会儿吧</string>
+	<string name="report_thanks">感谢您的举报，我们会及时处理</string>
 
 	<!-- 通知提示 -->
 	<string name="youhave">你有</string>
@@ -93,7 +104,10 @@
 
 	<!-- 编辑消息页面 -->
 	<string name="receiver">收信人</string>
-	<string name="kefu_xiaolajiao">客服小辣椒</string>
+	<string name="kefu_xiaolajiao">收信人：客服小辣椒</string>
+	<string name="msg_content">消息内容</string>
+	<string name="msg_send_success">消息发送成功</string>
+	<string name="clear_all">清除全部文字吗?</string>
 
 	<!-- 状态条提示 -->
 	<string name="page_status_refreshing">正在获取...</string>

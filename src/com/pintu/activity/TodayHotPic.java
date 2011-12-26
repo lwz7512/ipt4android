@@ -87,10 +87,12 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 
 	@Override
 	protected void doRetrieve() {
-		this.checkTaskStatus();
+		if(!checkTaskStatus()) return;
+		
 		this.mRetrieveTask = new RetrieveHotPicsTask();
 		this.mRetrieveTask.setListener(mRetrieveTaskListener);
 		this.mRetrieveTask.execute(new TaskParams());
+		
 		this.manageTask(mRetrieveTask);		
 	}
 
@@ -123,6 +125,8 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 
 	@Override
 	protected void onParseJSONResultFailue() {
+		if(this.pb!=null)
+			this.pb.setVisibility(View.GONE);
 		updateProgress(R.string.json_parse_error);
 	}
 

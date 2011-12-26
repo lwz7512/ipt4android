@@ -10,6 +10,7 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
@@ -17,14 +18,23 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.pintu.PintuApp;
 import com.pintu.R;
 import com.pintu.activity.AndiAssets;
 import com.pintu.data.TMsg;
 import com.pintu.http.HttpException;
+import com.pintu.upgrade.UpdateManager;
 import com.pintu.util.Preferences;
 
+/**
+ * 两项任务：查询个人消息、检查更新包并提示安装
+ * 2011/12/25
+ * 
+ * @author lwz
+ *
+ */
 public class MsgService extends Service {
 	private static final String TAG = "MsgService";
 	/**
@@ -38,9 +48,24 @@ public class MsgService extends Service {
 	 */
 	private volatile Looper mServiceLooper;
 	private volatile ServiceHandler mServiceHandler;
+	
+	private static final int FETCH_MSG = 1;
+	private static final int FINISH_ME = 2;
+	
+	private int currentServiceId;
+	
+	private UpdateManager updater;
+	
+	private String mConfigFileURL;
+	
+	//如果没有得到更新配置文件地址，就不更新
+	private boolean updateAvailable = true;
+	
+	
+	
 
 	public void onCreate() {
-		Log.v(TAG, "Server Created");
+		Log.v(TAG, "MsgService Created!");
 		super.onCreate();
 
 		// Start up the thread running the service. Note that we create a
@@ -58,20 +83,29 @@ public class MsgService extends Service {
 		// 2010/05/21 liwenzhi
 		mServiceHandler = new ServiceHandler(mServiceLooper);
 
+		//初始化更新器
+		updater = new UpdateManager(this, mServiceHandler);
 	}
 
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		Log.i(TAG, "Starting #" + startId + ": " + intent.getExtras());
 
-		Message msg = mServiceHandler.obtainMessage();
-		msg.arg1 = startId;
-		msg.arg2 = flags;
-		// 接收从主应用启动服务时传递的参数
-		// 2010/05/21 liwenzhi
-		msg.obj = intent.getExtras();
+		//记下来好结束它
+		currentServiceId = startId;
+		
+		//从启动该服务的活动中获取
+		Bundle extras = intent.getExtras();
+		if(extras!=null){
+			mConfigFileURL = extras.getString("configFileURL");
+		}else{
+			updateAvailable = false;
+		}
+		
+		Message msg = mServiceHandler.obtainMessage();		
+		msg.what = FETCH_MSG;		
 		mServiceHandler.sendMessage(msg);
-		Log.i(TAG, "Sending: " + msg);
+		Log.i(TAG, "to fetch my msg...");
 
 		// 不自动重启服务
 		return START_NOT_STICKY;
@@ -91,14 +125,50 @@ public class MsgService extends Service {
 		// 处理sendMessage(msg)添加到队列中的消息
 		@Override
 		public void handleMessage(Message msg) {
-			// 查询自己的消息
-			retrieveMyMsgs();
-			// 停止运行服务，准备下次运行
-			//会被系统触发onDestroy()
-			stopSelf(msg.arg1);
-		}
+			switch (msg.what) {
+			
+			case FETCH_MSG:
+				// 查询自己的消息
+				retrieveMyMsgs();
+				
+				//开始启动更新检查
+				if(updateAvailable){
+					mServiceHandler.sendEmptyMessage(UpdateManager.UPGRADE_CHECK);					
+				}
+				break;
+				
+			case 	UpdateManager.UPGRADE_CHECK:
+				Log.i(TAG, "to check update...");
+				updater.checkUpdateInfo(mConfigFileURL);				
+				break;
+				
+			case 	UpdateManager.UPDATE_CLIENT:
+				Log.i(TAG, "to download new installer...");
+				updater.downloadApk();
+				break;
+				
+			case 	UpdateManager.DOWN_OVER:
+				Log.i(TAG, "to install new version...");
+				//通知用户点击来安装
+				notifyUserToInstallUpdate();
+				
+				//安装检查结束，停止服务
+				mServiceHandler.sendEmptyMessage(FINISH_ME);	
+				break;
+				
+			case FINISH_ME:
+				// 停止运行服务，准备下次运行
+				//会被系统触发onDestroy()
+				stopSelf(currentServiceId);
+				
+			}
+			
+			
+		} //end of handleMessage
 
 	};
+	
+
 
 	private void retrieveMyMsgs() {
 		String userId = PintuApp.getUser();
@@ -143,12 +213,44 @@ public class MsgService extends Service {
 		}
 		return retrievedMsgs;
 	}
+	
+	private void notifyUserToInstallUpdate() {
+		Intent it = updater.getIntallIntent();
+		if(it!=null){
+			// 点击通知执行的动作
+			PendingIntent contentIntent = PendingIntent.getActivity(this, 0, it, 0);
+			// 消息内容
+			String content = getText(R.string.dnldover).toString();
+			// 状态栏显示内容
+			Notification notification = new Notification(R.drawable.dnloaded, content,
+					System.currentTimeMillis());
+			// 消息展开后显示内容，及触发动作
+			notification.setLatestEventInfo(this, getText(R.string.notification),
+					content, contentIntent);
+
+			//用户点一下就清除通知
+			notification.flags = Notification.FLAG_AUTO_CANCEL
+					| Notification.FLAG_ONLY_ALERT_ONCE
+					| Notification.FLAG_SHOW_LIGHTS;
+
+			notification.ledARGB = 0xFF84E4FA;
+			notification.ledOnMS = 5000;
+			notification.ledOffMS = 5000;
+
+			// 声音模式
+			notification.defaults = Notification.DEFAULT_SOUND;
+
+			// we use a string id because it is a unique number.
+			// we use it later to cancel the notification
+			PintuApp.mNotificationManager.notify(R.string.dnldover, notification);
+		}
+	}
 
 	private void notifyUserForNewMsg(int msgNum) {
 		// 打开俺滴家当
 		Intent it = new Intent(this, AndiAssets.class);
-		// 切换到消息子活动
-		it.putExtra(Preferences.MYASSETS_INDEX, 4);
+		// 因为是在俺滴中的消息中，所以要指明切换到消息子活动
+		it.putExtra(Preferences.MYASSETS_INDEX, 3);
 		// 点击通知执行的动作
 		PendingIntent contentIntent = PendingIntent.getActivity(this, 0, it, 0);
 		// 消息内容
@@ -179,13 +281,12 @@ public class MsgService extends Service {
 	}
 
 	public void onDestroy() {
-		Log.d(TAG, "Service Destroy.");
+		Log.d(TAG, "MsgService Destroyed!");
 		mServiceLooper.quit();
 	}
 
 	@Override
 	public IBinder onBind(Intent intent) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

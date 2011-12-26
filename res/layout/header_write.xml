@@ -1,27 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 顶部条 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="47dp"
-	android:background="@drawable/bg_header" android:gravity="center_vertical"
-	android:layout_alignParentTop="true">
+    android:layout_width="fill_parent"
+    android:layout_height="48dp"
+    android:layout_alignParentTop="true"
+    android:background="@drawable/bg_header"
+    android:gravity="center_vertical" >
 
-	<!-- BACK ImageButton -->
-	<ImageButton android:id="@+id/top_back" android:background="@null"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:layout_alignParentLeft="true" android:layout_marginLeft="4dp"
-		android:layout_centerVertical="true"
-		android:src="@drawable/back_selector"/>
+    <!-- BACK ImageButton -->
 
-	<!-- 发送按钮 -->
-	<Button android:id="@+id/top_send_btn" android:layout_width="wrap_content"
-		android:layout_height="fill_parent" android:layout_alignParentRight="true"
-		android:layout_marginRight="10dp" style="@style/simple_button"
-		android:text="@string/write_label_send" />
-	<!-- 旋转 -->
-	<ProgressBar android:id="@+id/sending_prgrsBar"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:layout_alignParentRight="true" android:layout_centerVertical="true"
-		android:layout_marginRight="4dp" style="?android:progressBarStyleSmall"
-		android:visibility="gone" />
+    <ImageButton
+        android:id="@+id/top_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="4dp"
+        android:background="@null"
+        android:src="@drawable/back_selector" />
+
+    <!-- 发送按钮 -->
+
+    <Button
+        android:id="@+id/top_send_btn"
+        style="@style/simple_button"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:text="@string/write_label_send" />
+    <!-- 旋转 -->
+
+    <ProgressBar
+        android:id="@+id/sending_prgrsBar"
+        style="?android:progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="4dp"
+        android:visibility="gone" />
 
 </RelativeLayout>

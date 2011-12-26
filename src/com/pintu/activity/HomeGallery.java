@@ -24,6 +24,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hlidskialf.android.hardware.ShakeListener;
 import com.pintu.PintuApp;
 import com.pintu.R;
 import com.pintu.activity.base.FullScreenActivity;
@@ -71,7 +72,9 @@ public class HomeGallery extends FullScreenActivity {
     
     protected TaskManager taskManager = new TaskManager();
 
-     
+    private ShakeListener shaker;
+    
+    
     @Override//Activity life cycle method
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -84,6 +87,7 @@ public class HomeGallery extends FullScreenActivity {
 		retrieveGalleryFromDB();
 		//启动服务
 		startRetrieveMsgs();
+				
 	}
     
     //每次画廊处于活动状态时都尝试获取远程数据
@@ -95,6 +99,10 @@ public class HomeGallery extends FullScreenActivity {
     
     private void startRetrieveMsgs(){
     	Intent it = new Intent();
+    	//只有本地版才会提供自动升级功能
+    	if(PintuApp.VERSION_STATE.equals(PintuApp.LOCAL_VERSION)){
+    		it.putExtra("configFileURL", PintuApp.mApi.getConfigURL());    		
+    	}
     	it.setClass(this, MsgService.class);
     	startService(it);
     }
@@ -123,6 +131,10 @@ public class HomeGallery extends FullScreenActivity {
         //记下本次结束访问的时间
         //下次启动时，作为其他视图是否获取数据的依据
         rememberLastVisit();
+        
+        //退出时取消消息通知
+        //2011/12/22
+        PintuApp.cancelNotification();
         
         //杀掉应用进程
         //这个真好使，所有的线程和异步任务都干掉了！
@@ -162,7 +174,26 @@ public class HomeGallery extends FullScreenActivity {
 		tv_tags.setOnClickListener(tagsListener);
 		tv_mine.setOnClickListener(mineListener);
 		
+		//初始化重力感应监听
+		addShakeListener();
 	}
+	
+	private void addShakeListener(){
+		try{			
+			shaker = new ShakeListener(this);
+		}catch(UnsupportedOperationException e){
+			updateProgress(e.getMessage());
+		}
+		if(shaker!=null){
+			shaker.setOnShakeListener(sklistener);			
+		}
+	}
+	
+	private ShakeListener.OnShakeListener sklistener = new ShakeListener.OnShakeListener(){
+		public void onShake(){
+			retrieveRandomGallery();
+		}
+	};
 
 	private OnClickListener mineListener = new OnClickListener(){
 		@Override
@@ -173,23 +204,14 @@ public class HomeGallery extends FullScreenActivity {
 			startActivity(intent);
 		}		
 	};
-	
-	
-//	private OnClickListener marketListener = new OnClickListener(){
-//		@Override
-//		public void onClick(View v) {
-//			Intent intent = new Intent();
-//			//启动夜市界面
-//			intent.setClass(HomeGallery.this, MarketExchange.class);
-//			startActivity(intent);
-//		}		
-//	};
+		
 	
 	private OnClickListener tagsListener = new OnClickListener() {		
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			
+			Intent intent = new Intent();
+			intent.setClass(HomeGallery.this, TagList.class);
+			startActivity(intent);
 		}
 	};
 	
@@ -252,12 +274,15 @@ public class HomeGallery extends FullScreenActivity {
 			shouldRetrieve = true;
 		}else{
 			shouldRetrieve = false;
-			this.updateProgress("10 seconds later to refresh...");
+			this.updateProgress("2 seconds later to refresh...");
 		}
 		if(shouldRetrieve){
-			//FIXME, 将开始时间减小点，以解决服务器时间变慢引起的画廊为空问题
+			//将开始时间减小点，以解决服务器时间变慢引起的画廊为空问题
+			//后来服务器已经修正时钟不同步的问题了，留着吧，这样能查多点
+			//2011/12/23
 			int minusLength = 3*60*1000;
 			lastRefreshTime -= minusLength;
+			//开始查询
 			doRetrieve(lastRefreshTime,nowTime);
 		}
 		
@@ -276,6 +301,25 @@ public class HomeGallery extends FullScreenActivity {
             TaskParams params = new TaskParams();
             params.put("startTime", startTime);
             params.put("endTime", endTime);
+            mRetrieveTask.execute(params);
+
+            // Add Task to manager
+            taskManager.addTask(mRetrieveTask);
+        }
+    }
+    
+    private void retrieveRandomGallery(){
+        Log.d(TAG, "Attempting retrieve gallery data...");
+
+        if (mRetrieveTask != null
+                && mRetrieveTask.getStatus() == GenericTask.Status.RUNNING) {
+            return;
+        } else {
+            mRetrieveTask = new RetrieveGalleryTask();
+            mRetrieveTask.setListener(mRetrieveTaskListener);
+              
+            TaskParams params = new TaskParams();
+            params.put("method", "getRandGallery");           
             mRetrieveTask.execute(params);
 
             // Add Task to manager
@@ -311,8 +355,14 @@ public class HomeGallery extends FullScreenActivity {
     	public void deliverRetrievedList(List<Object> results){
     		
     		//如果没有取到数据就不处理了
+    		String msg;
     		if(results.size()==0){
-    			updateProgress("No New pictures, Try later...");
+    			if(shaker!=null){//可以使用传感器，摇晃随便看看
+    				msg = getText(R.string.shake_toget_random).toString();    				
+    			}else{//没法随便看看，只能休息了
+    				msg = getText(R.string.have_a_rest).toString();
+    			}
+    			updateProgress(msg);
     			return;
     		}
     		
@@ -336,6 +386,7 @@ public class HomeGallery extends FullScreenActivity {
 	private void updateProgress(String message) {
 		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 	}	
+	
 	
 	
 //------------------- option menu definition ---------------------------------

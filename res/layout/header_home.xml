@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 顶部条 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="48dp"
+    android:layout_alignParentTop="true"
+    android:background="@drawable/bg_header"
+    android:gravity="center_vertical" >
+
+    <!-- LOGO Image -->
+
+    <ImageView
+        android:id="@+id/product_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="2dp"
+        android:background="@null"
+        android:src="@drawable/header_logo" />
+
+    <!-- 首页标题 -->
+
+    <TextView
+        android:id="@+id/home_title"
+        style="@style/normalText.Big.While"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/gallery" />
+
+    <!-- 刷新按钮 -->
+
+    <ImageButton
+        android:id="@+id/refresh_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="4dp"
+        android:background="@null"
+        android:src="@drawable/top_refresh_selector" />
+    <!-- 旋转 -->
+
+    <ProgressBar
+        android:id="@+id/top_refresh_progressBar"
+        style="?android:progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="4dp"
+        android:visibility="gone" />
+
+</RelativeLayout>

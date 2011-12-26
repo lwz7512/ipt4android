@@ -50,8 +50,16 @@ public class PTImpl implements PTApi {
 	private String host = "http://ipintu.com";
 	// Real service context
 	private String service = "/ipintu/pintuapi";
+<<<<<<< HEAD
 	
 	//debug or release flag
+=======
+
+	//本地安装包相对地址
+	private String configFilepath = "/ipintu/download/update.xml";
+	
+	// debug or release flag
+>>>>>>> 16c0bab507fe07f7f37115dc96f92d34ca46dd38
 	private boolean isDebug = false;
 
 	public PTImpl(String userId) {
@@ -70,6 +78,15 @@ public class PTImpl implements PTApi {
 	public void updateUser(String userId) {
 		client.setUserId(userId);
 	}
+	
+	//安装包的下载地址
+	public String getConfigURL(){
+		if (isDebug) {
+			return emulator + configFilepath;
+		} else {
+			return host + configFilepath;
+		}
+	}
 
 	private String getBaseURL() {
 		if (isDebug) {
@@ -78,6 +95,7 @@ public class PTImpl implements PTApi {
 			return host + service;
 		}
 	}
+	
 
 	@Override
 	public Response getImgByUrl(String url) throws HttpException {
@@ -636,5 +654,61 @@ public class PTImpl implements PTApi {
 
 		return new JSONArray(jsonStr);
 	}
+
+	@Override
+	public JSONArray getHotTags() throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETHOTTAGS);
+
+		params.add(methodParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json tags: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+
+	@Override
+	public JSONArray getThumbnailsByTag(String tagId, String pageNum)
+			throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETTHUMBNAILSBYTAG);
+		BasicNameValuePair tagParam = new BasicNameValuePair("tagId", tagId);
+		BasicNameValuePair pageParam = new BasicNameValuePair("pageNum", pageNum);
+		
+		params.add(methodParam);
+		params.add(tagParam);
+		params.add(pageParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json tags: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+
+	@Override
+	public JSONArray getRandomGallery() throws HttpException, JSONException {
+		ArrayList<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
+		BasicNameValuePair methodParam = new BasicNameValuePair("method",
+				PTApi.GETRANDGALLERY);
+
+		params.add(methodParam);
+
+		Response resp = client.post(getBaseURL(), params, null, false);
+
+		String jsonStr = resp.asString();
+		Log.d(TAG, ">>> json random gallery: " + jsonStr);
+
+		return new JSONArray(jsonStr);
+	}
+	
+	
+	
 
 } // end of class

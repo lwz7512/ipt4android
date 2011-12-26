@@ -90,13 +90,15 @@ public class ClassicWorks extends TempletActivity implements SubMainCallBack {
 
 	@Override
 	protected void doRetrieve() {
-		this.checkTaskStatus();
+		if(!checkTaskStatus()) return;
+		
 		//与查询热图共用一个任务，用参数区分
 		this.mRetrieveTask = new RetrieveHotPicsTask();
 		this.mRetrieveTask.setListener(mRetrieveTaskListener);
 		TaskParams method = new TaskParams();
 		method.put("method", PTApi.GETClASSICALPICS);
 		this.mRetrieveTask.execute(method);
+		
 		this.manageTask(mRetrieveTask);		
 	}
 

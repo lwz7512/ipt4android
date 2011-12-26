@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	  xmlns:android="http://schemas.android.com/apk/res/android"
+	  android:orientation="vertical"
+	  android:layout_width="match_parent"
+	  android:layout_height="match_parent"
+	  android:background="@drawable/background_login">
+
+    <!-- Header -->
+    <include layout="@layout/header_back" />
+    <!-- 热门标签 -->
+    <ListView
+        android:id="@+id/taglist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="@drawable/dashed_line"
+        android:dividerHeight="1dip"
+        android:fadeScrollbars="true"
+        android:orientation="vertical" />
+
+</LinearLayout>

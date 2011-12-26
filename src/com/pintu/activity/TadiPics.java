@@ -138,7 +138,7 @@ public class TadiPics extends TempletActivity implements SubMainCallBack {
 	 */
 	@Override
 	protected void doRetrieve() {
-		this.checkTaskStatus();
+		if(!checkTaskStatus()) return;
 
 		this.mRetrieveTask = new RetrieveFavoritesTask();
 		this.mRetrieveTask.setListener(mRetrieveTaskListener);

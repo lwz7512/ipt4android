@@ -166,7 +166,7 @@ public class StoryList extends TempletActivity {
 	}
 
 	protected void doRetrieve() {
-		this.checkTaskStatus();
+		if(!checkTaskStatus()) return;
 
 		mRetrieveTask = new RetrieveStoriesTask();
 		mRetrieveTask.setListener(mRetrieveTaskListener);
@@ -182,7 +182,7 @@ public class StoryList extends TempletActivity {
 
 	@Override
 	protected void doSend() {
-		this.checkTaskStatus();
+		if(!checkTaskStatus()) return;
 		
 		int mode = SendTask.TYPE_VOTE;
 		mSendTask = new SendTask();

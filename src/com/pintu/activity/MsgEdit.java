@@ -6,14 +6,18 @@ import org.json.JSONObject;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -59,11 +63,24 @@ public class MsgEdit extends TempletActivity {
 		sending_prgrsBar = (ProgressBar) findViewById(R.id.sending_prgrsBar);
 
 		msg_content_edit = (EditText) findViewById(R.id.msg_content_edit);
+		//自动聚焦
+		msg_content_edit.requestFocus();
+		
 		storytxt_left_hint = (TextView) findViewById(R.id.storytxt_left_hint);
 		// 保存初始文字颜色
 		originTextColor = storytxt_left_hint.getTextColors().getDefaultColor();
 		clear_story_btn = (LinearLayout) findViewById(R.id.clear_story_btn);
 
+		//如果时回复的消息，这里要显示原文和原作者
+		Intent it = getIntent();
+		Bundle extras = it.getExtras();
+		if(extras==null) return;
+		//显示回复原文
+		String sender = extras.getString("sender");
+		String content = extras.getString("content");
+		String replyTxt = "\n\n"+"------------------------------\n";
+		replyTxt = replyTxt+sender+":"+content;
+		msg_content_edit.setText(replyTxt);
 	}
 
 	@Override
@@ -138,10 +155,10 @@ public class MsgEdit extends TempletActivity {
 
 	private void clearContentWarning() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("提示");
-		builder.setMessage("清除全部文字吗?");
-		builder.setPositiveButton("确定", okListener);
-		builder.setNegativeButton("取消", cancelListener);
+		builder.setTitle(getText(R.string.note));
+		builder.setMessage(R.string.clear_all);
+		builder.setPositiveButton(getText(R.string.yes), okListener);
+		builder.setNegativeButton(getText(R.string.cancel), cancelListener);
 
 		Dialog dialog = builder.create();
 		dialog.show();
@@ -177,7 +194,7 @@ public class MsgEdit extends TempletActivity {
 			return;
 		}
 		
-		this.checkTaskStatus();
+		if(!checkTaskStatus()) return;
 		
 		this.mSendTask = new SendTask();
 		this.mSendTask.setListener(mSendTaskListener);
@@ -200,15 +217,21 @@ public class MsgEdit extends TempletActivity {
 	protected void onSendBegin() {
 		sending_prgrsBar.setVisibility(View.VISIBLE);
 		top_send_btn.setVisibility(View.GONE);
+		
+		// 关闭软键盘
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(msg_content_edit.getWindowToken(),0);
 	}
 
 	@Override
 	protected void onSendSuccess() {
 		sending_prgrsBar.setVisibility(View.GONE);
 		top_send_btn.setVisibility(View.VISIBLE);
+		
+		updateProgress(R.string.msg_send_success);
+		
 		//关闭当前窗口
 		finish();
-		updateProgress("Message successfull sended!");
 	}
 
 	@Override
