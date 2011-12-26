@@ -48,6 +48,7 @@ D:\java\jworkspace\ipt4android\res\drawable\detail_more_selected.png \
 D:\java\jworkspace\ipt4android\res\drawable\detail_refresh_selected.png \
 D:\java\jworkspace\ipt4android\res\drawable\detail_share_selected.png \
 D:\java\jworkspace\ipt4android\res\drawable\dialog_box_2.9.png \
+D:\java\jworkspace\ipt4android\res\drawable\dnloaded.png \
 D:\java\jworkspace\ipt4android\res\drawable\egg.png \
 D:\java\jworkspace\ipt4android\res\drawable\event.png \
 D:\java\jworkspace\ipt4android\res\drawable\favorited.png \

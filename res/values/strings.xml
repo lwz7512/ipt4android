@@ -106,6 +106,8 @@
 	<string name="receiver">收信人</string>
 	<string name="kefu_xiaolajiao">收信人：客服小辣椒</string>
 	<string name="msg_content">消息内容</string>
+	<string name="msg_send_success">消息发送成功</string>
+	<string name="clear_all">清除全部文字吗?</string>
 
 	<!-- 状态条提示 -->
 	<string name="page_status_refreshing">正在获取...</string>

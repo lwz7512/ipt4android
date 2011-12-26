@@ -455,7 +455,9 @@ public class PictureDetails extends FullScreenActivity {
 		@Override
 		public void onPreExecute(GenericTask task) {
 			details_prgrsBar.setVisibility(View.VISIBLE);
+			//禁用
 			tv_report.setEnabled(false);
+			tv_report.setTextColor(0xFF999999);
 		}
 
 		@Override

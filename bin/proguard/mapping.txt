@@ -16,16 +16,16 @@ com.hlidskialf.android.hardware.ShakeListener -> com.a.a.a.b:
 com.hlidskialf.android.hardware.ShakeListener$OnShakeListener -> com.a.a.a.a:
     void onShake() -> a
 com.pintu.PintuApp -> com.pintu.PintuApp:
-    java.lang.String TAG -> g
-    java.lang.String LOCAL_VERSION -> h
-    java.lang.String MARKET_VERSION -> i
-    java.lang.String VERSION_STATE -> j
-    android.content.Context mContext -> a
-    com.pintu.api.PTApi mApi -> b
-    com.pintu.db.CacheDao dbApi -> c
-    android.content.SharedPreferences mPref -> d
-    com.pintu.tool.LazyImageLoader mImageLoader -> e
-    android.app.NotificationManager mNotificationManager -> f
+    java.lang.String TAG -> i
+    java.lang.String LOCAL_VERSION -> a
+    java.lang.String MARKET_VERSION -> j
+    java.lang.String VERSION_STATE -> b
+    android.content.Context mContext -> c
+    com.pintu.api.PTApi mApi -> d
+    com.pintu.db.CacheDao dbApi -> e
+    android.content.SharedPreferences mPref -> f
+    com.pintu.tool.LazyImageLoader mImageLoader -> g
+    android.app.NotificationManager mNotificationManager -> h
     void onCreate() -> onCreate
     void rememberUser(java.lang.String) -> a
     boolean isLoggedin() -> a
@@ -135,7 +135,7 @@ com.pintu.activity.AndiPics -> com.pintu.activity.AndiPics:
     void addProgress(android.widget.ProgressBar) -> a
     void refresh(android.widget.ImageButton) -> a
     com.pintu.adapter.FavoPicsAdapter access$0(com.pintu.activity.AndiPics) -> a
-com.pintu.activity.AndiPics$1 -> com.pintu.activity.l:
+com.pintu.activity.AndiPics$1 -> com.pintu.activity.m:
     com.pintu.activity.AndiPics this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.pintu.activity.AndiWealth -> com.pintu.activity.AndiWealth:
@@ -273,7 +273,7 @@ com.pintu.activity.CommentDaren -> com.pintu.activity.CommentDaren:
     void refresh(android.widget.ImageButton) -> a
     java.lang.Object getObj(java.lang.String) -> c
     com.pintu.adapter.UserAdapter access$0(com.pintu.activity.CommentDaren) -> a
-com.pintu.activity.CommentDaren$1 -> com.pintu.activity.m:
+com.pintu.activity.CommentDaren$1 -> com.pintu.activity.l:
     com.pintu.activity.CommentDaren this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.pintu.activity.CommentEdit -> com.pintu.activity.CommentEdit:
@@ -389,11 +389,12 @@ com.pintu.activity.HomeGallery -> com.pintu.activity.HomeGallery:
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
     void access$0(com.pintu.activity.HomeGallery) -> a
     com.pintu.adapter.GalleryImageAdapter access$1(com.pintu.activity.HomeGallery) -> b
-    android.widget.ProgressBar access$2(com.pintu.activity.HomeGallery) -> c
-    android.widget.ImageButton access$3(com.pintu.activity.HomeGallery) -> d
-    void access$4(com.pintu.activity.HomeGallery,java.lang.String) -> a
-    com.hlidskialf.android.hardware.ShakeListener access$5(com.pintu.activity.HomeGallery) -> e
-    void access$6(com.pintu.activity.HomeGallery) -> f
+    void access$2(com.pintu.activity.HomeGallery) -> c
+    android.widget.ProgressBar access$3(com.pintu.activity.HomeGallery) -> d
+    android.widget.ImageButton access$4(com.pintu.activity.HomeGallery) -> e
+    void access$5(com.pintu.activity.HomeGallery,java.lang.String) -> a
+    com.hlidskialf.android.hardware.ShakeListener access$6(com.pintu.activity.HomeGallery) -> f
+    void access$7(com.pintu.activity.HomeGallery) -> g
 com.pintu.activity.HomeGallery$1 -> com.pintu.activity.o:
     com.pintu.activity.HomeGallery this$0 -> a
     void onShake() -> a
@@ -1248,7 +1249,8 @@ com.pintu.adapter.UserAdapter$ViewHolder -> com.pintu.c.e:
     android.widget.TextView user_score -> d
     android.widget.TextView user_picnum -> e
     android.widget.TextView user_storynum -> f
-com.pintu.api.PTApi -> com.pintu.h.b:
+com.pintu.api.PTApi -> com.pintu.i.b:
+    java.lang.String getConfigURL() -> b
     java.lang.String postPictureWithProgress(java.io.File,java.lang.String,java.lang.String,java.lang.String,com.pintu.http.CountingMultiPartEntity$ProgressListener) -> a
     boolean isDebugMode() -> a
     java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String) -> b
@@ -1263,8 +1265,8 @@ com.pintu.api.PTApi -> com.pintu.h.b:
     java.lang.String postComment(java.lang.String,java.lang.String) -> c
     org.json.JSONArray getCommensByTpId(java.lang.String) -> g
     java.lang.String postVote(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
-    org.json.JSONArray getHotPicToday() -> b
-    org.json.JSONArray getClassicPics() -> c
+    org.json.JSONArray getHotPicToday() -> c
+    org.json.JSONArray getClassicPics() -> d
     org.json.JSONObject getUserDetail(java.lang.String) -> h
     org.json.JSONObject getUserEstate(java.lang.String) -> i
     void markThePic(java.lang.String,java.lang.String) -> d
@@ -1275,21 +1277,23 @@ com.pintu.api.PTApi -> com.pintu.h.b:
     org.json.JSONArray getNewMessages(java.lang.String) -> j
     java.lang.String updateMsgReaded(java.lang.String) -> k
     java.lang.String logon(java.lang.String,java.lang.String) -> h
-    org.json.JSONArray getPicDaren() -> d
-    org.json.JSONArray getCmntDaren() -> e
-    org.json.JSONArray getHotTags() -> f
+    org.json.JSONArray getPicDaren() -> e
+    org.json.JSONArray getCmntDaren() -> f
+    org.json.JSONArray getHotTags() -> g
     org.json.JSONArray getThumbnailsByTag(java.lang.String,java.lang.String) -> i
-com.pintu.api.PTImpl -> com.pintu.h.a:
+    org.json.JSONArray getRandomGallery() -> h
+com.pintu.api.PTImpl -> com.pintu.i.a:
     java.lang.String TAG -> a
     com.pintu.http.SimpleHttpClient client -> b
     java.lang.String emulator -> c
     java.lang.String host -> d
     java.lang.String service -> e
-    java.lang.String apkpath -> f
+    java.lang.String configFilepath -> f
     boolean isDebug -> g
     boolean isDebugMode() -> a
     void updateUser(java.lang.String) -> a
-    java.lang.String getBaseURL() -> g
+    java.lang.String getConfigURL() -> b
+    java.lang.String getBaseURL() -> i
     com.pintu.http.Response getImgByUrl(java.lang.String) -> b
     java.lang.String composeImgUrlById(java.lang.String) -> c
     java.lang.String composeImgUrlByPath(java.lang.String) -> d
@@ -1301,8 +1305,8 @@ com.pintu.api.PTImpl -> com.pintu.h.a:
     java.lang.String postComment(java.lang.String,java.lang.String) -> c
     org.json.JSONArray getCommensByTpId(java.lang.String) -> g
     java.lang.String postVote(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
-    org.json.JSONArray getHotPicToday() -> b
-    org.json.JSONArray getClassicPics() -> c
+    org.json.JSONArray getHotPicToday() -> c
+    org.json.JSONArray getClassicPics() -> d
     void markThePic(java.lang.String,java.lang.String) -> d
     org.json.JSONArray getFavoriteTpics(java.lang.String,java.lang.String) -> e
     org.json.JSONArray getTpicsByUser(java.lang.String,java.lang.String) -> f
@@ -1314,10 +1318,11 @@ com.pintu.api.PTImpl -> com.pintu.h.a:
     java.lang.String updateMsgReaded(java.lang.String) -> k
     java.lang.String logon(java.lang.String,java.lang.String) -> h
     java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String) -> b
-    org.json.JSONArray getPicDaren() -> d
-    org.json.JSONArray getCmntDaren() -> e
-    org.json.JSONArray getHotTags() -> f
+    org.json.JSONArray getPicDaren() -> e
+    org.json.JSONArray getCmntDaren() -> f
+    org.json.JSONArray getHotTags() -> g
     org.json.JSONArray getThumbnailsByTag(java.lang.String,java.lang.String) -> i
+    org.json.JSONArray getRandomGallery() -> h
 com.pintu.data.CommentInfo -> com.pintu.d.c:
     java.lang.String id -> a
     java.lang.String follow -> b
@@ -1399,7 +1404,7 @@ com.pintu.data.UserInfo -> com.pintu.d.h:
     int tpicNum -> l
     int storyNum -> m
     com.pintu.data.UserInfo parseJsonToObj(org.json.JSONObject) -> a
-com.pintu.db.CacheDao -> com.pintu.g.e:
+com.pintu.db.CacheDao -> com.pintu.h.e:
     void clearData() -> a
     int insertThumbnails(java.util.List) -> a
     java.util.List getCachedThumbnails() -> b
@@ -1417,7 +1422,7 @@ com.pintu.db.CacheDao -> com.pintu.g.e:
     java.util.List getUnreadedMsgs$22f3aa59() -> f
     void updateMsgReaded(java.lang.String) -> c
     java.util.List getMoreMsgs(int) -> a
-com.pintu.db.CacheImpl -> com.pintu.g.a:
+com.pintu.db.CacheImpl -> com.pintu.h.a:
     android.database.sqlite.SQLiteDatabase ptdb -> a
     java.text.SimpleDateFormat dateFormat -> b
     void clearData() -> a
@@ -1446,17 +1451,17 @@ com.pintu.db.CacheImpl -> com.pintu.g.a:
     com.pintu.data.TMsg cursorToMessage(android.database.Cursor) -> d
     void updateMsgReaded(java.lang.String) -> c
     java.util.List getMoreMsgs(int) -> a
-com.pintu.db.PintuDB -> com.pintu.g.d:
+com.pintu.db.PintuDB -> com.pintu.h.d:
     java.lang.String TAG -> a
     com.pintu.db.PintuDB instance -> b
     com.pintu.db.PintuDB$DatabaseHelper mOpenHelper -> c
     com.pintu.db.PintuDB getInstance(android.content.Context) -> a
     android.database.sqlite.SQLiteDatabase getDb$522330d0() -> a
     java.lang.String access$0() -> b
-com.pintu.db.PintuDB$DatabaseHelper -> com.pintu.g.b:
+com.pintu.db.PintuDB$DatabaseHelper -> com.pintu.h.b:
     void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
     void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
-com.pintu.db.Query -> com.pintu.g.c:
+com.pintu.db.Query -> com.pintu.h.c:
     java.util.ArrayList binds -> a
     android.database.sqlite.SQLiteDatabase mDb -> b
     java.lang.String mTable -> c
@@ -1522,12 +1527,22 @@ com.pintu.http.SimpleHttpClient$1 -> com.pintu.b.j:
 com.pintu.service.MsgService -> com.pintu.service.MsgService:
     android.os.Looper mServiceLooper -> a
     com.pintu.service.MsgService$ServiceHandler mServiceHandler -> b
+    int currentServiceId -> c
+    com.pintu.upgrade.UpdateManager updater -> d
+    java.lang.String mConfigFileURL -> e
+    boolean updateAvailable -> f
     void onCreate() -> onCreate
     int onStartCommand(android.content.Intent,int,int) -> onStartCommand
     java.util.List jsonMsgToObjs(org.json.JSONArray) -> a
     void onDestroy() -> onDestroy
     android.os.IBinder onBind(android.content.Intent) -> onBind
     void access$0(com.pintu.service.MsgService) -> a
+    boolean access$1(com.pintu.service.MsgService) -> b
+    com.pintu.service.MsgService$ServiceHandler access$2(com.pintu.service.MsgService) -> c
+    com.pintu.upgrade.UpdateManager access$3(com.pintu.service.MsgService) -> d
+    java.lang.String access$4(com.pintu.service.MsgService) -> e
+    void access$5(com.pintu.service.MsgService) -> f
+    int access$6(com.pintu.service.MsgService) -> g
 com.pintu.service.MsgService$ServiceHandler -> com.pintu.service.a:
     com.pintu.service.MsgService this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
@@ -1673,6 +1688,7 @@ com.pintu.tool.LazyImageLoader -> com.pintu.a.a:
     android.os.Handler handler -> e
     void clearCache() -> a
     java.io.File compreseImage(java.io.File) -> a
+    java.lang.String downloadImage(java.lang.String,java.lang.String) -> a
     android.graphics.Bitmap get(java.lang.String,com.pintu.tool.LazyImageLoader$ImageLoaderCallback) -> a
     com.pintu.tool.LazyImageLoader$CallbackManager access$0(com.pintu.tool.LazyImageLoader) -> a
     java.util.concurrent.BlockingQueue access$1(com.pintu.tool.LazyImageLoader) -> b
@@ -1706,6 +1722,38 @@ com.pintu.tool.SimpleImageLoader$1 -> com.pintu.a.g:
 com.pintu.tool.SimpleImageLoader$2 -> com.pintu.a.h:
     android.widget.ImageView val$imageView -> a
     void refresh(java.lang.String,android.graphics.Bitmap) -> a
+com.pintu.upgrade.UpdateInfo -> com.pintu.g.c:
+    java.lang.String version -> a
+    java.lang.String size -> b
+    java.lang.String apkurl -> c
+    java.lang.String description -> d
+    java.lang.String getVersion() -> a
+    void setVersion(java.lang.String) -> a
+    void setSize(java.lang.String) -> b
+    java.lang.String getDescription() -> b
+    void setDescription(java.lang.String) -> c
+    java.lang.String getApkurl() -> c
+    void setApkurl(java.lang.String) -> d
+com.pintu.upgrade.UpdateInfoParser -> com.pintu.g.b:
+    com.pintu.upgrade.UpdateInfo getUpdataInfo(java.io.InputStream) -> a
+com.pintu.upgrade.UpdateManager -> com.pintu.g.a:
+    android.content.Context mContext -> a
+    android.os.Handler mHandler -> b
+    java.lang.String savePath -> c
+    java.lang.String mDownloadURL -> d
+    com.pintu.upgrade.UpdateInfo info -> e
+    void checkUpdateInfo(java.lang.String) -> a
+    void downloadApk() -> a
+    android.content.Intent getIntallIntent() -> b
+    java.lang.String getVersionName() -> c
+    android.os.Handler access$0(com.pintu.upgrade.UpdateManager) -> a
+    android.content.Context access$1(com.pintu.upgrade.UpdateManager) -> b
+com.pintu.upgrade.UpdateManager$1 -> com.pintu.g.e:
+    com.pintu.upgrade.UpdateManager this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.pintu.upgrade.UpdateManager$2 -> com.pintu.g.d:
+    com.pintu.upgrade.UpdateManager this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
 com.pintu.util.DateTimeHelper -> com.pintu.e.a:
     java.text.DateFormat TWITTER_DATE_FORMATTER -> a
     java.text.DateFormat TWITTER_SEARCH_API_DATE_FORMATTER -> b
@@ -1713,7 +1761,7 @@ com.pintu.util.DateTimeHelper -> com.pintu.e.a:
     java.lang.String getRelativeDate(java.util.Date) -> a
     java.lang.String getRelativeTimeByFormatDate(java.lang.String) -> a
     long getNowTime() -> a
-com.pintu.util.DebugTimer -> com.pintu.e.c:
+com.pintu.util.DebugTimer -> com.pintu.e.d:
     java.util.HashMap mTime -> a
     long mStartTime -> b
     long mLastTime -> c
@@ -1721,7 +1769,9 @@ com.pintu.util.DebugTimer -> com.pintu.e.c:
     long betweenStart(java.lang.String) -> a
     long betweenEnd(java.lang.String) -> b
     java.lang.String toString() -> toString
-com.pintu.util.IptHelper -> com.pintu.e.d:
+com.pintu.util.FileHelper -> com.pintu.e.c:
+    java.io.File getBasePath() -> a
+com.pintu.util.IptHelper -> com.pintu.e.e:
     java.lang.String getShortUserName(java.lang.String) -> a
 com.pintu.util.Preferences -> com.pintu.e.b:
     java.lang.String LOGON_USERID -> a

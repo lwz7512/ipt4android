@@ -55,7 +55,7 @@ public class PTImpl implements PTApi {
 	private String configFilepath = "/ipintu/download/update.xml";
 	
 	// debug or release flag
-	private boolean isDebug = true;
+	private boolean isDebug = false;
 
 	public PTImpl(String userId) {
 		client = new SimpleHttpClient(userId);

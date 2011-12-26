@@ -38,6 +38,8 @@ public class RetrieveGalleryTask extends GenericTask {
 	    		String tagId = param.getString("tagId").toString();
 	    		String pageNum = param.getString("pageNum");
 	    		jsPics = PintuApp.mApi.getThumbnailsByTag(tagId, pageNum);
+	    	}else if(param.has("method") && param.get("method").equals("getRandGallery")){
+	    		jsPics = PintuApp.mApi.getRandomGallery();
 	    	}else{
 	    		//首页画廊，根据时间参数查询最近的缩略图
 	        	String startTime = param.get("startTime").toString();

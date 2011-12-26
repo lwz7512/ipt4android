@@ -75,7 +75,7 @@ com.pintu.activity.HomeGallery:
     protected static final int OPTIONS_MENU_ID_PHOTO_LIBRARY
     protected static final int OPTIONS_MENU_ID_EXIT
     protected static final int OPTIONS_MENU_ID_HELP
-    392:392:protected int getLastOptionMenuId()
+    415:415:protected int getLastOptionMenuId()
 com.pintu.activity.LogonSys:
     private static final java.lang.String USERNOTEXIST
     private static final java.lang.String PASSWORDERROR
@@ -92,12 +92,12 @@ com.pintu.activity.MarketShopping:
     128:128:public java.lang.Object getObj(java.lang.String)
 com.pintu.activity.MsgEdit:
     private android.widget.EditText receiver_edit
-    239:239:protected void doRetrieve()
+    247:247:protected void doRetrieve()
 com.pintu.activity.PicDaren:
     private static final java.lang.String PICDAREN_DATA
     85:85:protected void doSend()
 com.pintu.activity.PictureDetails:
-    553:564:private void fetchLikeNumOfPic()
+    555:566:private void fetchLikeNumOfPic()
 com.pintu.activity.PictureEdit:
     private static final java.lang.String TAG
     private static final java.lang.String SIS_RUNNING_KEY
@@ -202,10 +202,8 @@ com.pintu.api.PTApi:
     public static final java.lang.String GETHOTTAGS
     public static final java.lang.String GETTHUMBNAILSBYTAG
     public abstract java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
-    public abstract org.json.JSONArray getRandomGallery()
 com.pintu.api.PTImpl:
-    113:175:public java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
-    682:693:public org.json.JSONArray getRandomGallery()
+    123:185:public java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
 com.pintu.data.UserDetails:
     1:1:public static com.pintu.data.UserInfo parseJsonToObj(org.json.JSONObject)
 com.pintu.db.CacheDao:
@@ -297,6 +295,8 @@ com.pintu.http.SimpleHttpClient:
 com.pintu.http.XmlObject
 com.pintu.service.MsgService:
     private static final java.lang.String TAG
+    private static final int FETCH_MSG
+    private static final int FINISH_ME
 com.pintu.task.Feedback:
     public abstract boolean isAvailable()
     public abstract void cancel(java.lang.CharSequence)
@@ -351,6 +351,15 @@ com.pintu.tool.LazyImageLoader$GetImageTask:
     166:166:public boolean isPermanent()
     171:172:public void setPermanent(boolean)
     176:177:public void shutDown()
+com.pintu.upgrade.SampleUpdateXML
+com.pintu.upgrade.UpdateInfo:
+    19:19:public java.lang.String getSize()
+com.pintu.upgrade.UpdateManager:
+    private static final java.lang.String TAG
+    public static final int UPGRADE_CHECK
+    public static final int UPDATE_CLIENT
+    public static final int DOWN_OVER
+    private static final java.lang.String saveFileName
 com.pintu.util.DateTimeHelper:
     private static final java.lang.String TAG
     29:33:public static final java.util.Date parseDateTime(java.lang.String)

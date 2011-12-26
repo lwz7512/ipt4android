@@ -229,7 +229,8 @@
 		</activity>
 		<!-- 他滴资料 -->
 		<!-- 撰写消息 -->
-		<activity android:name=".activity.MsgEdit">
+		<activity android:name=".activity.MsgEdit"
+		    android:windowSoftInputMode="adjustPan|stateHidden">
 			<intent-filter>
 				<action android:name="com.pintu.activity.writemsg" />
 				<category android:name="android.intent.category.DEFAULT" />

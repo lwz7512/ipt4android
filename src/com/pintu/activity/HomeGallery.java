@@ -99,7 +99,10 @@ public class HomeGallery extends FullScreenActivity {
     
     private void startRetrieveMsgs(){
     	Intent it = new Intent();
-    	it.putExtra("configFileURL", PintuApp.mApi.getConfigURL());
+    	//只有本地版才会提供自动升级功能
+    	if(PintuApp.VERSION_STATE.equals(PintuApp.LOCAL_VERSION)){
+    		it.putExtra("configFileURL", PintuApp.mApi.getConfigURL());    		
+    	}
     	it.setClass(this, MsgService.class);
     	startService(it);
     }
@@ -188,7 +191,7 @@ public class HomeGallery extends FullScreenActivity {
 	
 	private ShakeListener.OnShakeListener sklistener = new ShakeListener.OnShakeListener(){
 		public void onShake(){
-			retrieveRemoteGallery();
+			retrieveRandomGallery();
 		}
 	};
 
@@ -298,6 +301,25 @@ public class HomeGallery extends FullScreenActivity {
             TaskParams params = new TaskParams();
             params.put("startTime", startTime);
             params.put("endTime", endTime);
+            mRetrieveTask.execute(params);
+
+            // Add Task to manager
+            taskManager.addTask(mRetrieveTask);
+        }
+    }
+    
+    private void retrieveRandomGallery(){
+        Log.d(TAG, "Attempting retrieve gallery data...");
+
+        if (mRetrieveTask != null
+                && mRetrieveTask.getStatus() == GenericTask.Status.RUNNING) {
+            return;
+        } else {
+            mRetrieveTask = new RetrieveGalleryTask();
+            mRetrieveTask.setListener(mRetrieveTaskListener);
+              
+            TaskParams params = new TaskParams();
+            params.put("method", "getRandGallery");           
             mRetrieveTask.execute(params);
 
             // Add Task to manager
