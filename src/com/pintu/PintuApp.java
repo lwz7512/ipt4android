@@ -10,6 +10,7 @@ import com.pintu.api.PTImpl;
 import com.pintu.db.CacheDao;
 import com.pintu.db.CacheImpl;
 import com.pintu.tool.LazyImageLoader;
+import com.pintu.upgrade.UpdateManager;
 import com.pintu.util.Preferences;
 
 public class PintuApp extends Application {
@@ -32,7 +33,6 @@ public class PintuApp extends Application {
 	public static LazyImageLoader mImageLoader;
 
 	public static NotificationManager mNotificationManager;
-
 	
 
 	public void onCreate() {
@@ -92,7 +92,7 @@ public class PintuApp extends Application {
 
 	public static void cancelNotification() {
 		mNotificationManager.cancel(R.string.messages);
-//		mNotificationManager.cancel(R.string.dnldover);
+		mNotificationManager.cancel(R.string.dnldover);
 	}
 
 }

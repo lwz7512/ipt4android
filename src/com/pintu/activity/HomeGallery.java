@@ -10,6 +10,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.os.Process;
 import android.util.Log;
 import android.view.Menu;
@@ -30,6 +32,7 @@ import com.pintu.R;
 import com.pintu.activity.base.FullScreenActivity;
 import com.pintu.adapter.GalleryImageAdapter;
 import com.pintu.data.TPicDesc;
+import com.pintu.service.DnldApkService;
 import com.pintu.service.MsgService;
 import com.pintu.task.GenericTask;
 import com.pintu.task.RetrieveGalleryTask;
@@ -39,6 +42,7 @@ import com.pintu.task.TaskManager;
 import com.pintu.task.TaskParams;
 import com.pintu.task.TaskResult;
 import com.pintu.tool.SimpleImageLoader;
+import com.pintu.upgrade.UpdateManager;
 import com.pintu.util.DateTimeHelper;
 import com.pintu.util.Preferences;
 
@@ -74,6 +78,7 @@ public class HomeGallery extends FullScreenActivity {
 
     private ShakeListener shaker;
     
+    private UpdateManager updater;
     
     @Override//Activity life cycle method
 	protected void onCreate(Bundle savedInstanceState){
@@ -87,8 +92,18 @@ public class HomeGallery extends FullScreenActivity {
 		retrieveGalleryFromDB();
 		//启动服务
 		startRetrieveMsgs();
-				
+		//启动更新检查
+		startUpdateCheck();		
 	}
+    
+    private void startUpdateCheck(){
+    	//只有本地版才会提供自动升级功能
+    	if(PintuApp.VERSION_STATE.equals(PintuApp.LOCAL_VERSION)){
+    		//更新检查器，与一个下载服务进行交互
+    		updater = new UpdateManager(this,updateHandler);
+    		updateHandler.sendEmptyMessage(UpdateManager.UPGRADE_CHECK);
+    	}
+    }
     
     //每次画廊处于活动状态时都尝试获取远程数据
     protected void onStart(){
@@ -97,7 +112,8 @@ public class HomeGallery extends FullScreenActivity {
 //    	retrieveRemoteGallery();
     }
     
-    private void startRetrieveMsgs(){
+    private void startRetrieveMsgs(){    	    
+    	
     	Intent it = new Intent();
     	//只有本地版才会提供自动升级功能
     	if(PintuApp.VERSION_STATE.equals(PintuApp.LOCAL_VERSION)){
@@ -387,7 +403,49 @@ public class HomeGallery extends FullScreenActivity {
 		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 	}	
 	
+//------------------- update process -----------------------------------------
 	
+	private Handler updateHandler = new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case 	UpdateManager.UPGRADE_CHECK:
+				Log.i(TAG, "to check update...");
+				runCheckUpdateTask();
+				break;
+			
+			case 	UpdateManager.POPUP_DIALOG:
+				Log.i(TAG, "to show dialog...");
+				updater.showUpdataDialog();
+				
+				break;
+				
+			case 	UpdateManager.UPDATE_CLIENT:	
+				startDownloadApkService();
+				
+				break;
+							
+			}
+		}
+	};
+	
+	private void runCheckUpdateTask(){
+		new Thread(){
+			public void run(){
+				updater.checkUpdateInfo(PintuApp.mApi.getConfigURL());
+			}
+		}.start();
+	}
+	
+	private void startDownloadApkService(){
+    	Intent it = new Intent();
+    	it.putExtra("apkurl", updater.info.getApkurl());
+    	it.setClass(this, DnldApkService.class);
+    	startService(it);
+    	
+    	//下载开始提示
+		Toast.makeText(this, R.string.backgrounddnld, Toast.LENGTH_SHORT).show();
+	}
 	
 //------------------- option menu definition ---------------------------------
 

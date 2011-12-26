@@ -47,4 +47,5 @@ com.pintu.activity.HotPicClassic
 com.pintu.activity.CmntDaren
 com.pintu.activity.AndiAssets
 com.pintu.PintuApp
+com.pintu.service.DnldApkService
 com.pintu.service.MsgService

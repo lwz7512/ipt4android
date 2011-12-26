@@ -28,7 +28,7 @@ public class HowTos extends FullScreenActivity {
 		top_back.setOnClickListener(mGoListener);
 		
 		tv_title = (TextView) findViewById(R.id.tv_title);
-
+		tv_title.setText(R.string.omenu_help);
 	}
 
 	private OnClickListener mGoListener = new OnClickListener() {

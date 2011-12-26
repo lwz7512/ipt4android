@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.pintu.PintuApp;
 import com.pintu.R;
 import com.pintu.activity.base.FullScreenActivity;
 
@@ -20,6 +21,8 @@ public class AboutThis extends FullScreenActivity {
 	private ImageButton top_back;
 	//顶部标题
 	private TextView tv_title;
+	//版本信息
+	private TextView version;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,12 +41,15 @@ public class AboutThis extends FullScreenActivity {
 		
 		top_back = (ImageButton) findViewById(R.id.top_back);
 		top_back.setOnClickListener(mGoListener);
+		
 		tv_title = (TextView) findViewById(R.id.tv_title);
-
-		TextView version = (TextView) findViewById(R.id.version);
-		String appName = getText(R.string.app_name).toString();
-		version.setText(appName+" "+String.format("v %s", pinfo.versionName));			
 		tv_title.setText(R.string.about);
+
+		version = (TextView) findViewById(R.id.version);
+		String appName = getText(R.string.app_name).toString();
+		String versionName = String.format("v %s", pinfo.versionName);
+		String versionState = PintuApp.VERSION_STATE;
+		version.setText(appName+" "+versionName+" "+versionState);			
 		
 	}
 	

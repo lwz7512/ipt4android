@@ -75,7 +75,7 @@ com.pintu.activity.HomeGallery:
     protected static final int OPTIONS_MENU_ID_PHOTO_LIBRARY
     protected static final int OPTIONS_MENU_ID_EXIT
     protected static final int OPTIONS_MENU_ID_HELP
-    415:415:protected int getLastOptionMenuId()
+    473:473:protected int getLastOptionMenuId()
 com.pintu.activity.LogonSys:
     private static final java.lang.String USERNOTEXIST
     private static final java.lang.String PASSWORDERROR
@@ -293,6 +293,10 @@ com.pintu.http.Response:
 com.pintu.http.SimpleHttpClient:
     private static final java.lang.String TAG
 com.pintu.http.XmlObject
+com.pintu.service.DnldApkService:
+    private static final java.lang.String TAG
+    private static final int FINISH_ME
+    private static final int DOWNLOAD_INSTALLER
 com.pintu.service.MsgService:
     private static final java.lang.String TAG
     private static final int FETCH_MSG
@@ -357,9 +361,9 @@ com.pintu.upgrade.UpdateInfo:
 com.pintu.upgrade.UpdateManager:
     private static final java.lang.String TAG
     public static final int UPGRADE_CHECK
+    public static final int POPUP_DIALOG
     public static final int UPDATE_CLIENT
     public static final int DOWN_OVER
-    private static final java.lang.String saveFileName
 com.pintu.util.DateTimeHelper:
     private static final java.lang.String TAG
     29:33:public static final java.util.Date parseDateTime(java.lang.String)

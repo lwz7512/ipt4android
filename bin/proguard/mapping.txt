@@ -41,7 +41,8 @@ com.pintu.PintuMain$1 -> com.pintu.a:
 com.pintu.activity.AboutThis -> com.pintu.activity.AboutThis:
     android.widget.ImageButton top_back -> a
     android.widget.TextView tv_title -> b
-    android.view.View$OnClickListener mGoListener -> c
+    android.widget.TextView version -> c
+    android.view.View$OnClickListener mGoListener -> d
     void onCreate(android.os.Bundle) -> onCreate
 com.pintu.activity.AboutThis$1 -> com.pintu.activity.bl:
     com.pintu.activity.AboutThis this$0 -> a
@@ -368,17 +369,19 @@ com.pintu.activity.HomeGallery -> com.pintu.activity.HomeGallery:
     com.pintu.task.GenericTask mRetrieveTask -> j
     com.pintu.task.TaskManager taskManager -> k
     com.hlidskialf.android.hardware.ShakeListener shaker -> l
-    com.hlidskialf.android.hardware.ShakeListener$OnShakeListener sklistener -> m
-    android.view.View$OnClickListener mineListener -> n
-    android.view.View$OnClickListener tagsListener -> o
-    android.view.View$OnClickListener communityListener -> p
-    android.view.View$OnClickListener hotpicListener -> q
-    android.widget.AdapterView$OnItemClickListener cellClickListener -> r
-    android.view.View$OnClickListener postImgListener -> s
-    android.view.View$OnClickListener refreshListener -> t
-    com.pintu.task.TaskListener mRetrieveTaskListener -> u
-    android.content.DialogInterface$OnClickListener okListener -> v
-    android.content.DialogInterface$OnClickListener cancelListener -> w
+    com.pintu.upgrade.UpdateManager updater -> m
+    com.hlidskialf.android.hardware.ShakeListener$OnShakeListener sklistener -> n
+    android.view.View$OnClickListener mineListener -> o
+    android.view.View$OnClickListener tagsListener -> p
+    android.view.View$OnClickListener communityListener -> q
+    android.view.View$OnClickListener hotpicListener -> r
+    android.widget.AdapterView$OnItemClickListener cellClickListener -> s
+    android.view.View$OnClickListener postImgListener -> t
+    android.view.View$OnClickListener refreshListener -> u
+    com.pintu.task.TaskListener mRetrieveTaskListener -> v
+    android.os.Handler updateHandler -> w
+    android.content.DialogInterface$OnClickListener okListener -> x
+    android.content.DialogInterface$OnClickListener cancelListener -> y
     void onCreate(android.os.Bundle) -> onCreate
     void onStart() -> onStart
     void retrieveGalleryFromDB() -> a
@@ -395,15 +398,23 @@ com.pintu.activity.HomeGallery -> com.pintu.activity.HomeGallery:
     void access$5(com.pintu.activity.HomeGallery,java.lang.String) -> a
     com.hlidskialf.android.hardware.ShakeListener access$6(com.pintu.activity.HomeGallery) -> f
     void access$7(com.pintu.activity.HomeGallery) -> g
+    com.pintu.upgrade.UpdateManager access$9(com.pintu.activity.HomeGallery) -> h
+    void access$10(com.pintu.activity.HomeGallery) -> i
 com.pintu.activity.HomeGallery$1 -> com.pintu.activity.o:
     com.pintu.activity.HomeGallery this$0 -> a
     void onShake() -> a
-com.pintu.activity.HomeGallery$10 -> com.pintu.activity.bv:
+com.pintu.activity.HomeGallery$10 -> com.pintu.activity.bw:
     com.pintu.activity.HomeGallery this$0 -> a
-    void onClick(android.content.DialogInterface,int) -> onClick
+    void handleMessage(android.os.Message) -> handleMessage
 com.pintu.activity.HomeGallery$11 -> com.pintu.activity.bu:
     com.pintu.activity.HomeGallery this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
+com.pintu.activity.HomeGallery$12 -> com.pintu.activity.bv:
+    com.pintu.activity.HomeGallery this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.pintu.activity.HomeGallery$13 -> com.pintu.activity.bx:
+    com.pintu.activity.HomeGallery this$0 -> a
+    void run() -> run
 com.pintu.activity.HomeGallery$2 -> com.pintu.activity.u:
     com.pintu.activity.HomeGallery this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -1524,25 +1535,32 @@ com.pintu.http.SimpleHttpClient -> com.pintu.b.c:
     org.apache.http.client.methods.HttpUriRequest createMethod$1ff7fa58(java.lang.String,java.net.URI,java.util.ArrayList) -> a
 com.pintu.http.SimpleHttpClient$1 -> com.pintu.b.j:
     boolean retryRequest(java.io.IOException,int,org.apache.http.protocol.HttpContext) -> retryRequest
+com.pintu.service.DnldApkService -> com.pintu.service.DnldApkService:
+    android.os.Looper mServiceLooper -> a
+    com.pintu.service.DnldApkService$ServiceHandler mServiceHandler -> b
+    int currentServiceId -> c
+    java.lang.String saveFileName -> d
+    java.lang.String apkURL -> e
+    void onCreate() -> onCreate
+    int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    void onDestroy() -> onDestroy
+    void access$0(com.pintu.service.DnldApkService) -> a
+    int access$1(com.pintu.service.DnldApkService) -> b
+com.pintu.service.DnldApkService$ServiceHandler -> com.pintu.service.b:
+    com.pintu.service.DnldApkService this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
 com.pintu.service.MsgService -> com.pintu.service.MsgService:
     android.os.Looper mServiceLooper -> a
     com.pintu.service.MsgService$ServiceHandler mServiceHandler -> b
     int currentServiceId -> c
-    com.pintu.upgrade.UpdateManager updater -> d
-    java.lang.String mConfigFileURL -> e
-    boolean updateAvailable -> f
     void onCreate() -> onCreate
     int onStartCommand(android.content.Intent,int,int) -> onStartCommand
     java.util.List jsonMsgToObjs(org.json.JSONArray) -> a
     void onDestroy() -> onDestroy
     android.os.IBinder onBind(android.content.Intent) -> onBind
     void access$0(com.pintu.service.MsgService) -> a
-    boolean access$1(com.pintu.service.MsgService) -> b
-    com.pintu.service.MsgService$ServiceHandler access$2(com.pintu.service.MsgService) -> c
-    com.pintu.upgrade.UpdateManager access$3(com.pintu.service.MsgService) -> d
-    java.lang.String access$4(com.pintu.service.MsgService) -> e
-    void access$5(com.pintu.service.MsgService) -> f
-    int access$6(com.pintu.service.MsgService) -> g
+    int access$1(com.pintu.service.MsgService) -> b
 com.pintu.service.MsgService$ServiceHandler -> com.pintu.service.a:
     com.pintu.service.MsgService this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
@@ -1737,17 +1755,14 @@ com.pintu.upgrade.UpdateInfo -> com.pintu.g.c:
 com.pintu.upgrade.UpdateInfoParser -> com.pintu.g.b:
     com.pintu.upgrade.UpdateInfo getUpdataInfo(java.io.InputStream) -> a
 com.pintu.upgrade.UpdateManager -> com.pintu.g.a:
-    android.content.Context mContext -> a
-    android.os.Handler mHandler -> b
-    java.lang.String savePath -> c
+    android.content.Context mContext -> b
+    android.os.Handler mHandler -> c
     java.lang.String mDownloadURL -> d
-    com.pintu.upgrade.UpdateInfo info -> e
+    com.pintu.upgrade.UpdateInfo info -> a
     void checkUpdateInfo(java.lang.String) -> a
-    void downloadApk() -> a
-    android.content.Intent getIntallIntent() -> b
-    java.lang.String getVersionName() -> c
+    void showUpdataDialog() -> a
+    java.lang.String getVersionName() -> b
     android.os.Handler access$0(com.pintu.upgrade.UpdateManager) -> a
-    android.content.Context access$1(com.pintu.upgrade.UpdateManager) -> b
 com.pintu.upgrade.UpdateManager$1 -> com.pintu.g.e:
     com.pintu.upgrade.UpdateManager this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
