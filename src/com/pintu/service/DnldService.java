@@ -34,45 +34,35 @@ import com.pintu.R;
 import com.pintu.util.FileHelper;
 
 /**
- * 下载安装包apk文件，和下载原图文件
- * 采用这种方式不影响用户界面操作，体验较好
+ * 下载安装包apk文件，和下载原图文件 采用这种方式不影响用户界面操作，体验较好
  * 
- * @author lwz
- * 2012/12/27
- *
+ * @author lwz 2012/12/27
+ * 
  */
 public class DnldService extends Service {
 
 	private static final String TAG = "DnldApkService";
-
-	private volatile Looper mServiceLooper;
+	
 	private volatile ServiceHandler mServiceHandler;
 
 	private static final int DOWNLOAD_APK = 1;
 	private static final int DOWNLOAD_IMG = 2;
-	private static final int FINISH_ME = 3;
-	
+	private static final int DNLD_SUCCESS = 3;
+	private static final int FINISH_ME = 4;
 
 	private int currentServiceId;
 
 	private String apkURL;
 	private String apkFileName = "PintuMain-release.apk";
-	
+
 	private String imgURL;
 	private String imgType = ".jpg";
 
 	public void onCreate() {
-		Log.v(TAG, "DnldApkService Created!");
 		super.onCreate();
+		Log.v(TAG, "DnldApkService Created!");
 		
-		// 建立该服务实际运行的线程
-		HandlerThread thread = new HandlerThread(TAG,
-				Process.THREAD_PRIORITY_BACKGROUND);
-		thread.start();
-
-		mServiceLooper = thread.getLooper();
-		
-		mServiceHandler = new ServiceHandler(mServiceLooper);
+		mServiceHandler = new ServiceHandler();
 	}
 
 	@Override
@@ -85,20 +75,20 @@ public class DnldService extends Service {
 		// 从参数中，获取下载文件需要的信息
 		Bundle extras = intent.getExtras();
 		if (extras != null) {
-			//下载升级安装包
+			// 下载升级安装包
 			apkURL = extras.getString("apkurl");
-			if(apkURL!=null){
+			if (apkURL != null) {
 				mServiceHandler.sendEmptyMessage(DOWNLOAD_APK);
-				Log.i(TAG, "to download apk...");				
+				Log.i(TAG, "to download apk...");
 			}
-			//下载原图片，可能有点大
+			// 下载原图片，可能有点大
 			imgURL = extras.getString("imgurl");
 			imgType = extras.getString("imgtype");
-			if(imgURL!=null && imgType!=null){
+			if (imgURL != null && imgType != null) {
 				mServiceHandler.sendEmptyMessage(DOWNLOAD_IMG);
-				Log.i(TAG, "to download img...");	
+				Log.i(TAG, "to download img...");
 			}
-			
+
 		}
 
 		// 不自动重启服务
@@ -112,9 +102,6 @@ public class DnldService extends Service {
 	 * 
 	 */
 	private final class ServiceHandler extends Handler {
-		public ServiceHandler(Looper looper) {
-			super(looper);
-		}
 
 		// 处理sendMessage(msg)添加到队列中的消息
 		@Override
@@ -124,9 +111,15 @@ public class DnldService extends Service {
 			case DOWNLOAD_APK:
 				downloadApk();
 				break;
+
 			case DOWNLOAD_IMG:
-				downloadImg();				
+				downloadImg();
 				break;
+
+			case DNLD_SUCCESS:
+				// 弹出提示
+				String hint = (String) msg.obj;
+				showToast(hint);
 
 			case FINISH_ME:
 				// 停止运行服务，准备下次运行
@@ -143,7 +136,8 @@ public class DnldService extends Service {
 	 * 外部接口，让主服务来调用
 	 */
 	private void downloadApk() {
-		if (apkURL == null) return;
+		if (apkURL == null)
+			return;
 
 		URL url = null;
 		HttpURLConnection conn = null;
@@ -160,19 +154,18 @@ public class DnldService extends Service {
 				conn.setConnectTimeout(5000);
 				is = conn.getInputStream();
 				BufferedInputStream bis = new BufferedInputStream(is);
-				out = new BufferedOutputStream(this.openFileOutput(
-						apkFileName, Context.MODE_WORLD_READABLE));
+				out = new BufferedOutputStream(this.openFileOutput(apkFileName,
+						Context.MODE_WORLD_READABLE));
 				while ((len = bis.read(buffer)) != -1) {
 					out.write(buffer, 0, len);
 				}
 				out.close();
 				bis.close();
 				is.close();
-				
+
 				// 下载结束
 				notifyUserToInstallUpdate();
-				//停止服务
-				mServiceHandler.sendEmptyMessage(FINISH_ME);
+				
 			}
 		} catch (MalformedURLException e) {
 			Log.e(TAG, "apk url is malformed: " + apkURL);
@@ -184,23 +177,24 @@ public class DnldService extends Service {
 		}
 
 	}
-	
-	private void downloadImg(){
-		if(imgURL==null) return;
-		
+
+	private void downloadImg() {
+		if (imgURL == null)
+			return;
+
 		File dir = null;
 		try {
 			dir = FileHelper.getBasePath();
 		} catch (IOException e) {
 			Log.e(TAG, "SD Card not mounted!");
 		}
-        if(dir==null) {
-    		Toast.makeText(this, "SD Card not available!", Toast.LENGTH_LONG);    		
-    	}
-		
+		if (dir == null) {
+			showToast("SD Card not available!");
+		}
+
 		URL url = null;
 		HttpURLConnection conn = null;
-		InputStream is;		
+		InputStream is;
 
 		try {
 			url = new URL(imgURL);
@@ -209,16 +203,18 @@ public class DnldService extends Service {
 			if (conn != null) {
 				conn.setConnectTimeout(5000);
 				is = conn.getInputStream();
-				
+
 				String fileName = createImgFileName(imgType);
-			    String filePath = writeToFile2SD(is, fileName);
-			    
+				String filePath = writeToFile2SD(is, fileName);
+
 				String imgSaved = this.getText(R.string.img_saved).toString();
-				String successHint = imgSaved+filePath;
-				//弹出提示
-				Toast.makeText(this, successHint, Toast.LENGTH_LONG).show();
-				//停止服务
-				mServiceHandler.sendEmptyMessage(FINISH_ME);
+				String successHint = imgSaved + filePath;
+
+				// 下载成功
+				Message msg = new Message();
+				msg.what = DNLD_SUCCESS;
+				msg.obj = successHint;
+				mServiceHandler.sendMessage(msg);
 			}
 		} catch (MalformedURLException e) {
 			Log.e(TAG, "img url is malformed: " + imgURL);
@@ -227,49 +223,64 @@ public class DnldService extends Service {
 					+ imgURL);
 		} catch (IOException e) {
 			Log.e(TAG, "URL Connection FAILED: " + imgURL);
-		}				
-		
+		}
+
 	}
-	
+
+	private void showToast(String message) {
+		final String fmsg = message;
+		mServiceHandler.post(new Runnable(){
+			@Override
+			public void run() {
+				Log.d(TAG, "... to toast: "+fmsg);
+				Toast.makeText(getApplicationContext(), fmsg, Toast.LENGTH_LONG)
+				.show();	
+				// 停止服务
+				mServiceHandler.sendEmptyMessage(FINISH_ME);
+			}			
+		});		
+	}
+
 	private String writeToFile2SD(InputStream is, String filename) {
-        Log.d("LDS", "new write to file");
-        BufferedInputStream in = null;
-        FileOutputStream out = null;
-        File file = null;        
-        try {        	        
-        	file = new File(FileHelper.getBasePath(), filename);
-        	out = new FileOutputStream(file);
-            in  = new BufferedInputStream(is);            
-            byte[] buffer = new byte[1024];
-            int l;
-            while ((l = in.read(buffer)) != -1) {
-                out.write(buffer, 0, l);
-            }
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        } finally {
-            try {
-                if (in  != null) in.close();
-                if (out != null) {
-                    Log.d("LDS", "new write to file to -> " + filename);
-                    out.flush();
-                    out.close();
-                }
-            } catch (IOException ioe) {
-                ioe.printStackTrace();
-            }
-        }
-    	if(file!=null){
-    		return file.getAbsolutePath();    		
-    	}else{
-    		return null;
-    	}
-    }
-	
-    private String createImgFileName(String picType){
-    	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+		Log.d("LDS", "new write to file");
+		BufferedInputStream in = null;
+		FileOutputStream out = null;
+		File file = null;
+		try {
+			file = new File(FileHelper.getBasePath(), filename);
+			out = new FileOutputStream(file);
+			in = new BufferedInputStream(is);
+			byte[] buffer = new byte[1024];
+			int l;
+			while ((l = in.read(buffer)) != -1) {
+				out.write(buffer, 0, l);
+			}
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		} finally {
+			try {
+				if (in != null)
+					in.close();
+				if (out != null) {
+					Log.d("LDS", "new write to file to -> " + filename);
+					out.flush();
+					out.close();
+				}
+			} catch (IOException ioe) {
+				ioe.printStackTrace();
+			}
+		}
+		if (file != null) {
+			return file.getAbsolutePath();
+		} else {
+			return null;
+		}
+	}
+
+	private String createImgFileName(String picType) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
 		return dateFormat.format(new Date()) + picType;
-    }
+	}
 
 	private void notifyUserToInstallUpdate() {
 		Intent it = getIntallIntent();
@@ -313,7 +324,7 @@ public class DnldService extends Service {
 	 * @param url
 	 */
 	private Intent getIntallIntent() {
-		String installerPath = this.getFilesDir() + "/" + apkURL;
+		String installerPath = this.getFilesDir() + "/" + apkFileName;
 		Log.i(TAG, "installer path: " + installerPath);
 		File apkfile = new File(installerPath);
 		if (!apkfile.exists()) {
@@ -334,8 +345,7 @@ public class DnldService extends Service {
 	}
 
 	public void onDestroy() {
-		Log.d(TAG, "MsgService Destroyed!");
-		mServiceLooper.quit();
+		Log.d(TAG, "DnldService Destroyed!");		
 	}
 
 }

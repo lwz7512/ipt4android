@@ -269,7 +269,7 @@ public class PTImpl implements PTApi {
 		// 所有的请求，除了下载下载图片文件，都采用post的方式提交
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json Gallery: " + jsonStr);
+//		Log.d(TAG, ">>> json Gallery: " + jsonStr);
 		return new JSONArray(jsonStr);
 	}
 
@@ -285,7 +285,7 @@ public class PTImpl implements PTApi {
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json Pic Details: " + jsonStr);
+//		Log.d(TAG, ">>> json Pic Details: " + jsonStr);
 
 		return new JSONObject(jsonStr);
 	}
@@ -319,7 +319,7 @@ public class PTImpl implements PTApi {
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json Stories: " + jsonStr);
+//		Log.d(TAG, ">>> json Stories: " + jsonStr);
 
 		return new JSONArray(jsonStr);
 	}
@@ -355,7 +355,7 @@ public class PTImpl implements PTApi {
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json Stories: " + jsonStr);
+//		Log.d(TAG, ">>> json Stories: " + jsonStr);
 
 		return new JSONArray(jsonStr);
 	}
@@ -392,7 +392,7 @@ public class PTImpl implements PTApi {
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json pics: " + jsonStr);
+//		Log.d(TAG, ">>> json pics: " + jsonStr);
 
 		return new JSONArray(jsonStr);
 	}
@@ -406,7 +406,7 @@ public class PTImpl implements PTApi {
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json Stories: " + jsonStr);
+//		Log.d(TAG, ">>> json Stories: " + jsonStr);
 
 		return new JSONArray(jsonStr);
 	}
@@ -425,7 +425,7 @@ public class PTImpl implements PTApi {
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> mark the pic: " + jsonStr);
+//		Log.d(TAG, ">>> mark the pic: " + jsonStr);
 	}
 
 	@Override
@@ -444,7 +444,7 @@ public class PTImpl implements PTApi {
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json favorites: " + jsonStr);
+//		Log.d(TAG, ">>> json favorites: " + jsonStr);
 
 		return new JSONArray(jsonStr);
 	}
@@ -465,7 +465,7 @@ public class PTImpl implements PTApi {
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json tpics: " + jsonStr);
+//		Log.d(TAG, ">>> json tpics: " + jsonStr);
 
 		return new JSONArray(jsonStr);
 	}
@@ -486,7 +486,7 @@ public class PTImpl implements PTApi {
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json stories: " + jsonStr);
+//		Log.d(TAG, ">>> json stories: " + jsonStr);
 
 		return new JSONArray(jsonStr);
 	}
@@ -504,7 +504,7 @@ public class PTImpl implements PTApi {
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json user Details: " + jsonStr);
+//		Log.d(TAG, ">>> json user Details: " + jsonStr);
 
 		return new JSONObject(jsonStr);
 	}
@@ -522,7 +522,7 @@ public class PTImpl implements PTApi {
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json user Estate: " + jsonStr);
+//		Log.d(TAG, ">>> json user Estate: " + jsonStr);
 
 		return new JSONObject(jsonStr);
 	}
@@ -546,7 +546,7 @@ public class PTImpl implements PTApi {
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> post the msg: " + jsonStr);
+//		Log.d(TAG, ">>> post the msg: " + jsonStr);
 		return jsonStr;
 	}
 
@@ -563,7 +563,7 @@ public class PTImpl implements PTApi {
 
 		Response resp = client.post(getBaseURL(), params, null, false);
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json msgs: " + jsonStr);
+//		Log.d(TAG, ">>> json msgs: " + jsonStr);
 
 		return new JSONArray(jsonStr);
 	}
@@ -628,7 +628,7 @@ public class PTImpl implements PTApi {
 		Response resp = client.post(getBaseURL(), params, null, false);
 
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json daren: " + jsonStr);
+//		Log.d(TAG, ">>> json daren: " + jsonStr);
 
 		return new JSONArray(jsonStr);
 
@@ -645,7 +645,7 @@ public class PTImpl implements PTApi {
 		Response resp = client.post(getBaseURL(), params, null, false);
 
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json daren: " + jsonStr);
+//		Log.d(TAG, ">>> json daren: " + jsonStr);
 
 		return new JSONArray(jsonStr);
 	}
@@ -661,7 +661,7 @@ public class PTImpl implements PTApi {
 		Response resp = client.post(getBaseURL(), params, null, false);
 
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json tags: " + jsonStr);
+//		Log.d(TAG, ">>> json tags: " + jsonStr);
 
 		return new JSONArray(jsonStr);
 	}
@@ -682,7 +682,7 @@ public class PTImpl implements PTApi {
 		Response resp = client.post(getBaseURL(), params, null, false);
 
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json tags: " + jsonStr);
+//		Log.d(TAG, ">>> json tags: " + jsonStr);
 
 		return new JSONArray(jsonStr);
 	}
@@ -698,7 +698,7 @@ public class PTImpl implements PTApi {
 		Response resp = client.post(getBaseURL(), params, null, false);
 
 		String jsonStr = resp.asString();
-		Log.d(TAG, ">>> json random gallery: " + jsonStr);
+//		Log.d(TAG, ">>> json random gallery: " + jsonStr);
 
 		return new JSONArray(jsonStr);
 	}
