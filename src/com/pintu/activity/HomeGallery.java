@@ -32,7 +32,7 @@ import com.pintu.R;
 import com.pintu.activity.base.FullScreenActivity;
 import com.pintu.adapter.GalleryImageAdapter;
 import com.pintu.data.TPicDesc;
-import com.pintu.service.DnldApkService;
+import com.pintu.service.DnldService;
 import com.pintu.service.MsgService;
 import com.pintu.task.GenericTask;
 import com.pintu.task.RetrieveGalleryTask;
@@ -440,7 +440,7 @@ public class HomeGallery extends FullScreenActivity {
 	private void startDownloadApkService(){
     	Intent it = new Intent();
     	it.putExtra("apkurl", updater.info.getApkurl());
-    	it.setClass(this, DnldApkService.class);
+    	it.setClass(this, DnldService.class);
     	startService(it);
     	
     	//下载开始提示

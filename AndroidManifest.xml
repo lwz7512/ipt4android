@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.pintu" android:versionCode="1" android:versionName="1.01">
+	package="com.pintu" android:versionCode="1" android:versionName="1.0">
 	<uses-sdk android:minSdkVersion="7" />
 	<supports-screens android:anyDensity="true" />
 	<application android:name="PintuApp" android:icon="@drawable/icon"
@@ -276,7 +276,7 @@
 
 		<!-- Service -->
 		<service android:name=".service.MsgService" />
-		<service android:name=".service.DnldApkService" />
+		<service android:name=".service.DnldService" />
 
 	</application>
 	<uses-permission android:name="android.permission.INTERNET" />

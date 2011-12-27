@@ -41,13 +41,12 @@ public class UpdateManager {
 	private Handler mHandler;
 
 	//检查新版本
-	public static final int UPGRADE_CHECK = 3;
+	public static final int UPGRADE_CHECK = 1;
 	//弹出对话框
-	public static final int POPUP_DIALOG = 4;
+	public static final int POPUP_DIALOG = 2;
 	//下载安装包
-	public static final int UPDATE_CLIENT = 5;
-	//下载完成
-	public static final int DOWN_OVER = 6;
+	public static final int UPDATE_CLIENT = 3;
+	
 
 	
 

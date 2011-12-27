@@ -30,6 +30,7 @@ import com.pintu.activity.base.FullScreenActivity;
 import com.pintu.api.PTApi;
 import com.pintu.data.TPicDetails;
 import com.pintu.data.TPicItem;
+import com.pintu.service.DnldService;
 import com.pintu.task.GenericTask;
 import com.pintu.task.RetrieveDetailTask;
 import com.pintu.task.SendTask;
@@ -533,7 +534,7 @@ public class PictureDetails extends FullScreenActivity {
 		// Update UI elements with TPicDetails
 		public void deliveryResponseJson(JSONObject json) {
 			try {
-				// 保存下来，跳转时要用来传参
+				//FIXME,  保存下来，跳转时要用来传参
 				details = TPicDetails.parseJsonToObj(json);
 				if (details != null) {
 					updateUIwithPicDetails(details);
@@ -676,6 +677,9 @@ public class PictureDetails extends FullScreenActivity {
 	}
 
 	private void savePic() {
+		//等数据拿到了再启用
+		if(details==null) return;
+		
 		AlertDialog.Builder builder = new AlertDialog.Builder(
 				PictureDetails.this);
 		builder.setTitle(getText(R.string.save));
@@ -690,10 +694,28 @@ public class PictureDetails extends FullScreenActivity {
 	private final DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener() {
 		@Override
 		public void onClick(DialogInterface dialog, int which) {
-			saveFileToSDCard();
+			startDnldService();
 		}
 	};
+	
+	private void startDnldService(){
+		Intent it = new Intent();
+		String picType = (details.name == null) ? details.name.split(".")[1] : "jpg";
+		picType = "." + picType;
+		it.putExtra("imgtype", picType);
+    	it.putExtra("imgurl", PintuApp.mApi.composeImgUrlById(details.rawImgId));
+    	it.setClass(this, DnldService.class);
+    	startService(it);
+    	
+    	//下载开始提示
+		Toast.makeText(this, R.string.backgrounddnld, Toast.LENGTH_SHORT).show();
+	}
 
+	/**
+	 * 
+	 * @deprecated 弃用这种下载任务方式，该用服务方式
+	 * 2011/12/27
+	 */
 	private void saveFileToSDCard() {
 
 		if (mRetrieveTask != null
@@ -711,6 +733,7 @@ public class PictureDetails extends FullScreenActivity {
 				@Override
 				protected TaskResult doInBackground(TaskParams... params) {
 					String picId = details.rawImgId;
+					//默认是jpg格式，这只是一种猜想
 					String picType = (details.name == null) ? details.name
 							.split(".")[1] : "jpg";
 					picType = "." + picType;
