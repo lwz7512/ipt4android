@@ -1,1 +1,1 @@
-adb -d uninstall com.pintu
+adb -d uninstall com.ybcx
