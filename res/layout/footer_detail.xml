@@ -40,8 +40,8 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="1"
-        android:drawableTop="@drawable/detail_forward_selected"
-        android:text="@string/forward" />
+        android:drawableTop="@drawable/shopping_cart"
+        android:text="@string/purchase" />
 
     <TextView
         android:id="@+id/tv_report"
