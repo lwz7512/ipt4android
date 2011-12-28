@@ -30617,7 +30617,7 @@ _____________________________________________________________________
 Interfaces (count = 1):
   - Class [android/hardware/SensorEventListener]
 
-Constant Pool (count = 128):
+Constant Pool (count = 130):
   - Float [-1.0]
   - Float [700.0]
   - Float [10000.0]
@@ -30636,6 +30636,7 @@ Constant Pool (count = 128):
   - Class [java/lang/Object]
   - Class [java/lang/System]
   - Class [java/lang/UnsupportedOperationException]
+  - Long [100]
   - Long [500]
   - Long [1000]
   - Fieldref [android/hardware/SensorEvent.sensor Landroid/hardware/Sensor;]
@@ -30786,56 +30787,56 @@ Methods (count = 4):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 118, locals = 2, stack = 4):
       [0] aload_0 v0
-      [1] invokespecial #42
+      [1] invokespecial #44
         - Methodref [java/lang/Object.<init> ()V]
       [4] aload_0 v0
       [5] ldc #1
         - Float [-1.0]
-      [7] putfield #27
+      [7] putfield #29
         - Fieldref [com/a/a/a/b.c F]
       [10] aload_0 v0
       [11] ldc #1
         - Float [-1.0]
-      [13] putfield #28
+      [13] putfield #30
         - Fieldref [com/a/a/a/b.d F]
       [16] aload_0 v0
       [17] ldc #1
         - Float [-1.0]
-      [19] putfield #29
+      [19] putfield #31
         - Fieldref [com/a/a/a/b.e F]
       [22] aload_0 v0
       [23] iconst_0
-      [24] putfield #33
+      [24] putfield #35
         - Fieldref [com/a/a/a/b.i I]
       [27] aload_0 v0
       [28] aload_1 v1
-      [29] putfield #32
+      [29] putfield #34
         - Fieldref [com/a/a/a/b.h Landroid/content/Context;]
       [32] aload_0 v0
       [33] dup
       [34] dup
       [35] astore_1 v1
-      [36] getfield #32
+      [36] getfield #34
         - Fieldref [com/a/a/a/b.h Landroid/content/Context;]
       [39] ldc #6
         - String [sensor]
-      [41] invokevirtual #36
+      [41] invokevirtual #38
         - Methodref [android/content/Context.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
       [44] checkcast #12
         - Class [android/hardware/SensorManager]
-      [47] putfield #25
+      [47] putfield #27
         - Fieldref [com/a/a/a/b.a Landroid/hardware/SensorManager;]
       [50] aload_1 v1
       [51] aload_1 v1
-      [52] getfield #25
+      [52] getfield #27
         - Fieldref [com/a/a/a/b.a Landroid/hardware/SensorManager;]
       [55] iconst_2
-      [56] invokevirtual #38
+      [56] invokevirtual #40
         - Methodref [android/hardware/SensorManager.getDefaultSensor (I)Landroid/hardware/Sensor;]
-      [59] putfield #26
+      [59] putfield #28
         - Fieldref [com/a/a/a/b.b Landroid/hardware/Sensor;]
       [62] aload_1 v1
-      [63] getfield #25
+      [63] getfield #27
         - Fieldref [com/a/a/a/b.a Landroid/hardware/SensorManager;]
       [66] ifnonnull +13 (target=79)
       [69] new #18
@@ -30843,35 +30844,35 @@ Methods (count = 4):
       [72] dup
       [73] ldc #5
         - String [Sensors not supported]
-      [75] invokespecial #44
+      [75] invokespecial #46
         - Methodref [java/lang/UnsupportedOperationException.<init> (Ljava/lang/String;)V]
       [78] athrow
       [79] aload_1 v1
-      [80] getfield #25
+      [80] getfield #27
         - Fieldref [com/a/a/a/b.a Landroid/hardware/SensorManager;]
       [83] aload_1 v1
       [84] aload_1 v1
-      [85] getfield #26
+      [85] getfield #28
         - Fieldref [com/a/a/a/b.b Landroid/hardware/Sensor;]
       [88] iconst_1
-      [89] invokevirtual #39
+      [89] invokevirtual #41
         - Methodref [android/hardware/SensorManager.registerListener (Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z]
       [92] ifne +25 (target=117)
       [95] aload_1 v1
-      [96] getfield #25
+      [96] getfield #27
         - Fieldref [com/a/a/a/b.a Landroid/hardware/SensorManager;]
       [99] aload_1 v1
       [100] aload_1 v1
-      [101] getfield #26
+      [101] getfield #28
         - Fieldref [com/a/a/a/b.b Landroid/hardware/Sensor;]
-      [104] invokevirtual #40
+      [104] invokevirtual #42
         - Methodref [android/hardware/SensorManager.unregisterListener (Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;)V]
       [107] new #18
         - Class [java/lang/UnsupportedOperationException]
       [110] dup
       [111] ldc #4
         - String [Accelerometer not supported]
-      [113] invokespecial #44
+      [113] invokespecial #46
         - Methodref [java/lang/UnsupportedOperationException.<init> (Ljava/lang/String;)V]
       [116] athrow
       [117] return
@@ -30884,7 +30885,7 @@ Methods (count = 4):
     + Code attribute instructions (code length = 6, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] putfield #31
+      [2] putfield #33
         - Fieldref [com/a/a/a/b.g Lcom/a/a/a/a;]
       [5] return
       Code attribute exceptions (count = 0):
@@ -30903,47 +30904,47 @@ Methods (count = 4):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 190, locals = 7, stack = 4):
       [0] aload_1 v1
-      [1] getfield #23
+      [1] getfield #25
         - Fieldref [android/hardware/SensorEvent.sensor Landroid/hardware/Sensor;]
       [4] astore_2 v2
       [5] aload_1 v1
-      [6] getfield #24
+      [6] getfield #26
         - Fieldref [android/hardware/SensorEvent.values [F]
       [9] astore_1 v1
       [10] aload_2 v2
-      [11] invokevirtual #37
+      [11] invokevirtual #39
         - Methodref [android/hardware/Sensor.getType ()I]
       [14] iconst_2
       [15] ificmpeq +4 (target=19)
       [18] return
-      [19] invokestatic #43
+      [19] invokestatic #45
         - Methodref [java/lang/System.currentTimeMillis ()J]
       [22] dup2
       [23] lstore_3 v3
       [24] aload_0 v0
-      [25] getfield #35
+      [25] getfield #37
         - Fieldref [com/a/a/a/b.k J]
       [28] lsub
-      [29] ldc2_w #19
+      [29] ldc2_w #21
         - Long [500]
       [32] lcmp
       [33] ifle +8 (target=41)
       [36] aload_0 v0
       [37] iconst_0
-      [38] putfield #33
+      [38] putfield #35
         - Fieldref [com/a/a/a/b.i I]
       [41] lload_3 v3
       [42] aload_0 v0
-      [43] getfield #30
+      [43] getfield #32
         - Fieldref [com/a/a/a/b.f J]
       [46] lsub
-      [47] ldc2_w #21
-        - Long [1000]
+      [47] ldc2_w #19
+        - Long [100]
       [50] lcmp
       [51] ifle +138 (target=189)
       [54] lload_3 v3
       [55] aload_0 v0
-      [56] getfield #30
+      [56] getfield #32
         - Fieldref [com/a/a/a/b.f J]
       [59] lsub
       [60] lstore v5
@@ -30959,18 +30960,18 @@ Methods (count = 4):
       [71] faload
       [72] fadd
       [73] aload_0 v0
-      [74] getfield #27
+      [74] getfield #29
         - Fieldref [com/a/a/a/b.c F]
       [77] fsub
       [78] aload_0 v0
-      [79] getfield #28
+      [79] getfield #30
         - Fieldref [com/a/a/a/b.d F]
       [82] fsub
       [83] aload_0 v0
-      [84] getfield #29
+      [84] getfield #31
         - Fieldref [com/a/a/a/b.e F]
       [87] fsub
-      [88] invokestatic #41
+      [88] invokestatic #43
         - Methodref [java/lang/Math.abs (F)F]
       [91] lload v5
       [93] l2f
@@ -30984,66 +30985,66 @@ Methods (count = 4):
       [101] ifle +62 (target=163)
       [104] aload_0 v0
       [105] dup
-      [106] getfield #33
+      [106] getfield #35
         - Fieldref [com/a/a/a/b.i I]
       [109] iconst_1
       [110] iadd
       [111] dup_x1
-      [112] putfield #33
+      [112] putfield #35
         - Fieldref [com/a/a/a/b.i I]
       [115] iconst_3
       [116] ificmplt +42 (target=158)
       [119] lload_3 v3
       [120] aload_0 v0
-      [121] getfield #34
+      [121] getfield #36
         - Fieldref [com/a/a/a/b.j J]
       [124] lsub
-      [125] ldc2_w #21
+      [125] ldc2_w #23
         - Long [1000]
       [128] lcmp
       [129] ifle +29 (target=158)
       [132] aload_0 v0
       [133] lload_3 v3
-      [134] putfield #34
+      [134] putfield #36
         - Fieldref [com/a/a/a/b.j J]
       [137] aload_0 v0
       [138] iconst_0
-      [139] putfield #33
+      [139] putfield #35
         - Fieldref [com/a/a/a/b.i I]
       [142] aload_0 v0
-      [143] getfield #31
+      [143] getfield #33
         - Fieldref [com/a/a/a/b.g Lcom/a/a/a/a;]
       [146] ifnull +12 (target=158)
       [149] aload_0 v0
-      [150] getfield #31
+      [150] getfield #33
         - Fieldref [com/a/a/a/b.g Lcom/a/a/a/a;]
-      [153] invokeinterface #45
+      [153] invokeinterface #47
         - InterfaceMethodref [com/a/a/a/a.a ()V]
       [158] aload_0 v0
       [159] lload_3 v3
-      [160] putfield #35
+      [160] putfield #37
         - Fieldref [com/a/a/a/b.k J]
       [163] aload_0 v0
       [164] lload_3 v3
-      [165] putfield #30
+      [165] putfield #32
         - Fieldref [com/a/a/a/b.f J]
       [168] aload_0 v0
       [169] aload_1 v1
       [170] iconst_0
       [171] faload
-      [172] putfield #27
+      [172] putfield #29
         - Fieldref [com/a/a/a/b.c F]
       [175] aload_0 v0
       [176] aload_1 v1
       [177] iconst_1
       [178] faload
-      [179] putfield #28
+      [179] putfield #30
         - Fieldref [com/a/a/a/b.d F]
       [182] aload_0 v0
       [183] aload_1 v1
       [184] iconst_2
       [185] faload
-      [186] putfield #29
+      [186] putfield #31
         - Fieldref [com/a/a/a/b.e F]
       [189] return
       Code attribute exceptions (count = 0):

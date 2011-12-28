@@ -9,11 +9,10 @@ import android.util.Log;
 
 public class ShakeListener implements SensorEventListener {
 
-	//FIXME, 将这两个参数分别扩大原来的2倍和10倍
-	//这样摇晃就不至于太灵敏了
-	//2011/12/27
+	//增加抖动力度，原来是350太灵敏了
+	//2011/12/28
 	private static final int FORCE_THRESHOLD = 700;
-	private static final int TIME_THRESHOLD = 1000;
+	private static final int TIME_THRESHOLD = 100;
 	
 	private static final int SHAKE_TIMEOUT = 500;
 	private static final int SHAKE_DURATION = 1000;

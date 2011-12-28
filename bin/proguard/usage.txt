@@ -4,7 +4,7 @@ com.hlidskialf.android.hardware.ShakeListener:
     private static final int SHAKE_TIMEOUT
     private static final int SHAKE_DURATION
     private static final int SHAKE_COUNT
-    64:69:public void pause()
+    63:68:public void pause()
 com.pintu.PintuApp:
     85:90:public static boolean isLocalVersion()
 com.pintu.R
