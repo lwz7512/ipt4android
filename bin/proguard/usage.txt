@@ -106,16 +106,6 @@ com.pintu.activity.PictureEdit:
     private static final int MAX_BITMAP_SIZE
     592:606:public static java.io.File bitmapToFile(android.graphics.Bitmap)
     612:622:public static android.graphics.Bitmap createFitinBitmap(java.lang.String,int,int)
-com.pintu.activity.StoryList:
-    private java.lang.String owner
-    private java.lang.String storyId
-    private java.lang.String voteType
-    115:123:private void postVoteForStory(java.lang.String,java.lang.String,java.lang.String)
-    185:201:protected void doSend()
-    56:56:static com.pintu.widget.StateListView access$0(com.pintu.activity.StoryList)
-    114:114:static void access$1(com.pintu.activity.StoryList,java.lang.String,java.lang.String,java.lang.String)
-com.pintu.activity.StoryList$1:
-    109:111:public void send(java.lang.String,java.lang.String,java.lang.String)
 com.pintu.activity.TadiAssets:
     private static final java.lang.String TAG
 com.pintu.activity.TadiPics:
@@ -143,30 +133,26 @@ com.pintu.activity.base.TempletActivity:
     protected abstract void doSend()
     protected abstract void doRetrieve()
 com.pintu.adapter.ClassicStoryAdapter
+com.pintu.adapter.ClassicStoryAdapter$1
 com.pintu.adapter.ClassicStoryAdapter$ViewHolder
 com.pintu.adapter.GalleryImageAdapter:
     94:95:public void refresh()
     98:98:public java.util.List getCells()
 com.pintu.adapter.GalleryImageAdapter$ViewHolder
 com.pintu.adapter.StoryInfoAdapter
+com.pintu.adapter.StoryInfoAdapter$1
 com.pintu.adapter.StoryInfoAdapter$ViewHolder
 com.pintu.adapter.StoryVoteAdapter:
     121:169:private void addVoteAction(com.pintu.adapter.StoryVoteAdapter$ViewHolder)
-    173:184:private void addVoteNum(android.widget.TextView)
-    26:26:static com.pintu.adapter.StoryVoteAdapter$VoteActionListener access$0(com.pintu.adapter.StoryVoteAdapter)
-    172:172:static void access$1(com.pintu.adapter.StoryVoteAdapter,android.widget.TextView)
-com.pintu.adapter.StoryVoteAdapter$1
+com.pintu.adapter.StoryVoteAdapter$1:
+    123:123:StoryVoteAdapter$1(com.pintu.adapter.StoryVoteAdapter,com.pintu.adapter.StoryVoteAdapter$ViewHolder)
 com.pintu.adapter.StoryVoteAdapter$2
 com.pintu.adapter.StoryVoteAdapter$3
 com.pintu.adapter.StoryVoteAdapter$4
-com.pintu.adapter.StoryVoteAdapter$5
 com.pintu.adapter.StoryVoteAdapter$ViewHolder:
-    public android.widget.TextView heart_num
     public android.widget.TextView flower_num
     public android.widget.TextView egg_num
     public android.widget.TextView classic_num
-com.pintu.adapter.StoryVoteAdapter$VoteActionListener:
-    public abstract void send(java.lang.String,java.lang.String,java.lang.String)
 com.pintu.adapter.UserAdapter:
     public static final java.lang.String PIC_DAREN
     public static final java.lang.String CMT_DAREN
@@ -204,8 +190,6 @@ com.pintu.api.PTApi:
     public abstract java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
 com.pintu.api.PTImpl:
     123:185:public java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
-com.pintu.data.UserDetails:
-    1:1:public static com.pintu.data.UserInfo parseJsonToObj(org.json.JSONObject)
 com.pintu.db.CacheDao:
     public abstract void deleteOldThumbnails(int)
     public abstract int cachedThumbnailSize()
@@ -389,8 +373,6 @@ com.pintu.util.Preferences:
     public static final java.lang.String CMNT_INDEX
     public static final java.lang.String MARKET_INDEX
 com.pintu.widget.StateImage
-com.pintu.widget.StateListView:
-    21:21:public boolean isStatic()
 org.acra.ACRA:
     static final java.lang.String RES_NOTIF_ICON
     static final java.lang.String RES_NOTIF_TICKER_TEXT

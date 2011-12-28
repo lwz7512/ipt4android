@@ -50,16 +50,11 @@ public class PTImpl implements PTApi {
 	private String host = "http://ipintu.com";
 	// Real service context
 	private String service = "/ipintu/pintuapi";
-<<<<<<< HEAD
 	
-	//debug or release flag
-=======
-
 	//本地安装包相对地址
 	private String configFilepath = "/ipintu/download/update.xml";
 	
-	// debug or release flag
->>>>>>> 16c0bab507fe07f7f37115dc96f92d34ca46dd38
+	//debug or release flag
 	private boolean isDebug = false;
 
 	public PTImpl(String userId) {
