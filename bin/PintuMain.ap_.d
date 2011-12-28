@@ -142,6 +142,7 @@ D:\java\jworkspace\ipt4android\res\drawable\shell_copper.png \
 D:\java\jworkspace\ipt4android\res\drawable\shell_gold.png \
 D:\java\jworkspace\ipt4android\res\drawable\shell_sea.png \
 D:\java\jworkspace\ipt4android\res\drawable\shell_silver.png \
+D:\java\jworkspace\ipt4android\res\drawable\shopping_cart.png \
 D:\java\jworkspace\ipt4android\res\drawable\splash_background.png \
 D:\java\jworkspace\ipt4android\res\drawable\status_arr_selector.xml \
 D:\java\jworkspace\ipt4android\res\drawable\tadi.png \
@@ -359,6 +360,7 @@ D:\java\jworkspace\ipt4android\bin\res\drawable\shell_copper.png \
 D:\java\jworkspace\ipt4android\bin\res\drawable\shell_gold.png \
 D:\java\jworkspace\ipt4android\bin\res\drawable\shell_sea.png \
 D:\java\jworkspace\ipt4android\bin\res\drawable\shell_silver.png \
+D:\java\jworkspace\ipt4android\bin\res\drawable\shopping_cart.png \
 D:\java\jworkspace\ipt4android\bin\res\drawable\splash_background.png \
 D:\java\jworkspace\ipt4android\bin\res\drawable\tadi.png \
 D:\java\jworkspace\ipt4android\bin\res\drawable\tags.png \

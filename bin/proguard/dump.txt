@@ -4488,8 +4488,8 @@ Interfaces (count = 0):
 Constant Pool (count = 52):
   - Integer [2130837614]
   - Integer [2130837615]
-  - Integer [2131165236]
   - Integer [2131165237]
+  - Integer [2131165238]
   - String [market_index]
   - Class [android/content/Intent]
   - Class [com/pintu/activity/MarketExchange]
@@ -4631,12 +4631,12 @@ Methods (count = 6):
       [3] dup
       [4] iconst_0
       [5] ldc #3
-        - Integer [2131165236]
+        - Integer [2131165237]
       [7] iastore
       [8] dup
       [9] iconst_1
       [10] ldc #4
-        - Integer [2131165237]
+        - Integer [2131165238]
       [12] iastore
       [13] areturn
       Code attribute exceptions (count = 0):
@@ -4934,8 +4934,8 @@ Interfaces (count = 1):
 
 Constant Pool (count = 204):
   - Integer [2130903041]
-  - Integer [2131165268]
-  - Integer [2131165275]
+  - Integer [2131165269]
+  - Integer [2131165276]
   - Integer [2131296259]
   - String [10 sec Later to Refresh ...]
   - String [Ended, 10 sec Later to Refresh Newest!]
@@ -5381,7 +5381,7 @@ Methods (count = 17):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #2
-        - Integer [2131165268]
+        - Integer [2131165269]
       [3] invokevirtual #49
         - Methodref [com/pintu/activity/AndiFavorite.a (I)V]
       [6] return
@@ -5394,7 +5394,7 @@ Methods (count = 17):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #3
-        - Integer [2131165275]
+        - Integer [2131165276]
       [3] invokevirtual #49
         - Methodref [com/pintu/activity/AndiFavorite.a (I)V]
       [6] return
@@ -6150,11 +6150,11 @@ _____________________________________________________________________
 Interfaces (count = 0):
 
 Constant Pool (count = 109):
-  - Integer [2131165339]
   - Integer [2131165340]
   - Integer [2131165341]
   - Integer [2131165342]
   - Integer [2131165343]
+  - Integer [2131165344]
   - String [E MMM d HH:mm:ss Z yyyy]
   - String [E, d MMM yyyy HH:mm:ss Z]
   - String [yyyy-MM-dd HH:mm:ss]
@@ -6334,31 +6334,31 @@ Methods (count = 5):
       [11] dup
       [12] astore_2 v2
       [13] ldc #1
-        - Integer [2131165339]
+        - Integer [2131165340]
       [15] invokevirtual #32
         - Methodref [android/content/Context.getString (I)Ljava/lang/String;]
       [18] astore_3 v3
       [19] aload_2 v2
       [20] ldc #2
-        - Integer [2131165340]
+        - Integer [2131165341]
       [22] invokevirtual #32
         - Methodref [android/content/Context.getString (I)Ljava/lang/String;]
       [25] astore v4
       [27] aload_2 v2
       [28] ldc #3
-        - Integer [2131165341]
+        - Integer [2131165342]
       [30] invokevirtual #32
         - Methodref [android/content/Context.getString (I)Ljava/lang/String;]
       [33] astore v5
       [35] aload_2 v2
       [36] ldc #4
-        - Integer [2131165342]
+        - Integer [2131165343]
       [38] invokevirtual #32
         - Methodref [android/content/Context.getString (I)Ljava/lang/String;]
       [41] astore v6
       [43] aload_2 v2
       [44] ldc #5
-        - Integer [2131165343]
+        - Integer [2131165344]
       [46] invokevirtual #32
         - Methodref [android/content/Context.getString (I)Ljava/lang/String;]
       [49] astore_2 v2
@@ -6528,9 +6528,9 @@ Interfaces (count = 0):
 
 Constant Pool (count = 101):
   - Integer [2130837560]
-  - Integer [2130837667]
-  - Integer [2131165238]
+  - Integer [2130837668]
   - Integer [2131165239]
+  - Integer [2131165240]
   - String [ must has extras.]
   - String [TadiAssets]
   - String [userId]
@@ -6716,7 +6716,7 @@ Methods (count = 5):
       [3] dup
       [4] iconst_0
       [5] ldc #2
-        - Integer [2130837667]
+        - Integer [2130837668]
       [7] iastore
       [8] dup
       [9] iconst_1
@@ -6736,12 +6736,12 @@ Methods (count = 5):
       [3] dup
       [4] iconst_0
       [5] ldc #3
-        - Integer [2131165238]
+        - Integer [2131165239]
       [7] iastore
       [8] dup
       [9] iconst_1
       [10] ldc #4
-        - Integer [2131165239]
+        - Integer [2131165240]
       [12] iastore
       [13] areturn
       Code attribute exceptions (count = 0):
@@ -8586,8 +8586,8 @@ Interfaces (count = 1):
 
 Constant Pool (count = 236):
   - Integer [2130903043]
-  - Integer [2131165268]
-  - Integer [2131165275]
+  - Integer [2131165269]
+  - Integer [2131165276]
   - Integer [2131296261]
   - String [ must has extras.]
   - String [Loading TADI pics...]
@@ -9030,7 +9030,7 @@ Methods (count = 18):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #2
-        - Integer [2131165268]
+        - Integer [2131165269]
       [3] invokevirtual #52
         - Methodref [com/pintu/activity/TadiPics.a (I)V]
       [6] return
@@ -9043,7 +9043,7 @@ Methods (count = 18):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #3
-        - Integer [2131165275]
+        - Integer [2131165276]
       [3] invokevirtual #52
         - Methodref [com/pintu/activity/TadiPics.a (I)V]
       [6] return
@@ -12117,7 +12117,7 @@ Interfaces (count = 0):
 
 Constant Pool (count = 132):
   - Integer [2131165201]
-  - Integer [2131165243]
+  - Integer [2131165244]
   - String []
   - String [Local version]
   - String [Market version]
@@ -12454,7 +12454,7 @@ Methods (count = 8):
       [0] getstatic #26
         - Fieldref [com/pintu/PintuApp.h Landroid/app/NotificationManager;]
       [3] ldc #2
-        - Integer [2131165243]
+        - Integer [2131165244]
       [5] invokevirtual #33
         - Methodref [android/app/NotificationManager.cancel (I)V]
       [8] getstatic #26
@@ -15710,13 +15710,13 @@ Interfaces (count = 1):
 
 Constant Pool (count = 254):
   - Integer [2130903088]
-  - Integer [2131165244]
   - Integer [2131165245]
   - Integer [2131165246]
   - Integer [2131165247]
   - Integer [2131165248]
-  - Integer [2131165268]
-  - Integer [2131165275]
+  - Integer [2131165249]
+  - Integer [2131165269]
+  - Integer [2131165276]
   - Integer [2131296283]
   - Integer [2131296284]
   - Integer [2131296285]
@@ -16166,7 +16166,7 @@ Methods (count = 18):
         - Methodref [java/lang/StringBuilder.<init> ()V]
       [44] aload_0 v0
       [45] ldc #2
-        - Integer [2131165244]
+        - Integer [2131165245]
       [47] invokevirtual #78
         - Methodref [com/pintu/activity/TadiProfile.getText (I)Ljava/lang/CharSequence;]
       [50] invokevirtual #97
@@ -16196,7 +16196,7 @@ Methods (count = 18):
         - Methodref [java/lang/StringBuilder.<init> ()V]
       [84] aload_0 v0
       [85] ldc #3
-        - Integer [2131165245]
+        - Integer [2131165246]
       [87] invokevirtual #78
         - Methodref [com/pintu/activity/TadiProfile.getText (I)Ljava/lang/CharSequence;]
       [90] invokevirtual #97
@@ -16226,7 +16226,7 @@ Methods (count = 18):
         - Methodref [java/lang/StringBuilder.<init> ()V]
       [124] aload_0 v0
       [125] ldc #4
-        - Integer [2131165246]
+        - Integer [2131165247]
       [127] invokevirtual #78
         - Methodref [com/pintu/activity/TadiProfile.getText (I)Ljava/lang/CharSequence;]
       [130] invokevirtual #97
@@ -16256,7 +16256,7 @@ Methods (count = 18):
         - Methodref [java/lang/StringBuilder.<init> ()V]
       [164] aload_0 v0
       [165] ldc #5
-        - Integer [2131165247]
+        - Integer [2131165248]
       [167] invokevirtual #78
         - Methodref [com/pintu/activity/TadiProfile.getText (I)Ljava/lang/CharSequence;]
       [170] invokevirtual #97
@@ -16286,7 +16286,7 @@ Methods (count = 18):
         - Methodref [java/lang/StringBuilder.<init> ()V]
       [204] aload_0 v0
       [205] ldc #6
-        - Integer [2131165248]
+        - Integer [2131165249]
       [207] invokevirtual #78
         - Methodref [com/pintu/activity/TadiProfile.getText (I)Ljava/lang/CharSequence;]
       [210] invokevirtual #97
@@ -16402,7 +16402,7 @@ Methods (count = 18):
         - Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [16] aload_0 v0
       [17] ldc #7
-        - Integer [2131165268]
+        - Integer [2131165269]
       [19] invokevirtual #70
         - Methodref [com/pintu/activity/TadiProfile.a (I)V]
       [22] return
@@ -16427,7 +16427,7 @@ Methods (count = 18):
         - Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [16] aload_0 v0
       [17] ldc #8
-        - Integer [2131165275]
+        - Integer [2131165276]
       [19] invokevirtual #70
         - Methodref [com/pintu/activity/TadiProfile.a (I)V]
       [22] return
@@ -20926,8 +20926,8 @@ _____________________________________________________________________
 Interfaces (count = 0):
 
 Constant Pool (count = 167):
-  - Integer [2131165252]
   - Integer [2131165253]
+  - Integer [2131165254]
   - String [>>> inserted db record size: ]
   - String [Gallery data parse Error!]
   - String [Gallery retrieve thumbnail IO Error!]
@@ -21243,7 +21243,7 @@ Methods (count = 4):
       [20] getfield #30
         - Fieldref [com/pintu/activity/r.a Lcom/pintu/activity/HomeGallery;]
       [23] ldc #1
-        - Integer [2131165252]
+        - Integer [2131165253]
       [25] invokevirtual #44
         - Methodref [com/pintu/activity/HomeGallery.getText (I)Ljava/lang/CharSequence;]
       [28] invokeinterface #55
@@ -21254,7 +21254,7 @@ Methods (count = 4):
       [38] getfield #30
         - Fieldref [com/pintu/activity/r.a Lcom/pintu/activity/HomeGallery;]
       [41] ldc #2
-        - Integer [2131165253]
+        - Integer [2131165254]
       [43] invokevirtual #44
         - Methodref [com/pintu/activity/HomeGallery.getText (I)Ljava/lang/CharSequence;]
       [46] invokeinterface #55
@@ -21345,8 +21345,8 @@ Interfaces (count = 0):
 
 Constant Pool (count = 271):
   - Integer [2130903080]
-  - Integer [2131165225]
-  - Integer [2131165268]
+  - Integer [2131165226]
+  - Integer [2131165269]
   - Integer [2131296299]
   - Integer [2131296300]
   - Integer [2131296301]
@@ -21734,7 +21734,7 @@ Methods (count = 15):
       [27] getfield #53
         - Fieldref [com/pintu/activity/StoryList.j Landroid/widget/TextView;]
       [30] ldc #2
-        - Integer [2131165225]
+        - Integer [2131165226]
       [32] invokevirtual #68
         - Methodref [android/widget/TextView.setText (I)V]
       [35] aload_0 v0
@@ -22037,7 +22037,7 @@ Methods (count = 15):
       [0] aload_0 v0
       [1] aload_0 v0
       [2] ldc #3
-        - Integer [2131165268]
+        - Integer [2131165269]
       [4] invokevirtual #76
         - Methodref [com/pintu/activity/StoryList.getString (I)Ljava/lang/String;]
       [7] invokevirtual #72
@@ -22087,7 +22087,7 @@ Methods (count = 15):
       [0] aload_0 v0
       [1] aload_0 v0
       [2] ldc #3
-        - Integer [2131165268]
+        - Integer [2131165269]
       [4] invokevirtual #76
         - Methodref [com/pintu/activity/StoryList.getString (I)Ljava/lang/String;]
       [7] invokevirtual #72
@@ -22181,8 +22181,8 @@ Interfaces (count = 1):
 
 Constant Pool (count = 166):
   - Integer [2130903090]
-  - Integer [2131165268]
-  - Integer [2131165275]
+  - Integer [2131165269]
+  - Integer [2131165276]
   - Integer [2131296396]
   - String [Loading daren...]
   - String [picdaren]
@@ -22554,7 +22554,7 @@ Methods (count = 18):
     + Code attribute instructions (code length = 23, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #2
-        - Integer [2131165268]
+        - Integer [2131165269]
       [3] invokevirtual #34
         - Methodref [com/pintu/activity/PicDaren.a (I)V]
       [6] aload_0 v0
@@ -22579,7 +22579,7 @@ Methods (count = 18):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #3
-        - Integer [2131165275]
+        - Integer [2131165276]
       [3] invokevirtual #34
         - Methodref [com/pintu/activity/PicDaren.a (I)V]
       [6] return
@@ -25844,8 +25844,8 @@ Interfaces (count = 1):
 
 Constant Pool (count = 206):
   - Integer [2130903043]
-  - Integer [2131165268]
-  - Integer [2131165275]
+  - Integer [2131165269]
+  - Integer [2131165276]
   - Integer [2131296261]
   - String [10 sec Later to Refresh ...]
   - String [Ended, 10 sec Later to Refresh Newest!]
@@ -26302,7 +26302,7 @@ Methods (count = 17):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #2
-        - Integer [2131165268]
+        - Integer [2131165269]
       [3] invokevirtual #50
         - Methodref [com/pintu/activity/AndiPics.a (I)V]
       [6] return
@@ -26315,7 +26315,7 @@ Methods (count = 17):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #3
-        - Integer [2131165275]
+        - Integer [2131165276]
       [3] invokevirtual #50
         - Methodref [com/pintu/activity/AndiPics.a (I)V]
       [6] return
@@ -27239,10 +27239,10 @@ Interfaces (count = 0):
 Constant Pool (count = 56):
   - Integer [2130837545]
   - Integer [2130837572]
-  - Integer [2130837670]
-  - Integer [2131165231]
+  - Integer [2130837671]
   - Integer [2131165232]
-  - Integer [2131165235]
+  - Integer [2131165233]
+  - Integer [2131165236]
   - String [cmnt_index]
   - Class [android/content/Intent]
   - Class [com/pintu/activity/CmntClassRoom]
@@ -27366,7 +27366,7 @@ Methods (count = 6):
       [3] dup
       [4] iconst_0
       [5] ldc #3
-        - Integer [2130837670]
+        - Integer [2130837671]
       [7] iastore
       [8] dup
       [9] iconst_1
@@ -27391,17 +27391,17 @@ Methods (count = 6):
       [3] dup
       [4] iconst_0
       [5] ldc #4
-        - Integer [2131165231]
+        - Integer [2131165232]
       [7] iastore
       [8] dup
       [9] iconst_1
       [10] ldc #5
-        - Integer [2131165232]
+        - Integer [2131165233]
       [12] iastore
       [13] dup
       [14] iconst_2
       [15] ldc #6
-        - Integer [2131165235]
+        - Integer [2131165236]
       [17] iastore
       [18] areturn
       Code attribute exceptions (count = 0):
@@ -27525,8 +27525,8 @@ Interfaces (count = 1):
 
 Constant Pool (count = 168):
   - Integer [2130903090]
-  - Integer [2131165268]
-  - Integer [2131165275]
+  - Integer [2131165269]
+  - Integer [2131165276]
   - Integer [2131296396]
   - String [Loading daren...]
   - String [cmntdaren]
@@ -27900,7 +27900,7 @@ Methods (count = 18):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #2
-        - Integer [2131165268]
+        - Integer [2131165269]
       [3] invokevirtual #35
         - Methodref [com/pintu/activity/CommentDaren.a (I)V]
       [6] return
@@ -27913,7 +27913,7 @@ Methods (count = 18):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #3
-        - Integer [2131165275]
+        - Integer [2131165276]
       [3] invokevirtual #35
         - Methodref [com/pintu/activity/CommentDaren.a (I)V]
       [6] return
@@ -28137,8 +28137,8 @@ Interfaces (count = 1):
 
 Constant Pool (count = 191):
   - Integer [2130903087]
-  - Integer [2131165268]
-  - Integer [2131165275]
+  - Integer [2131165269]
+  - Integer [2131165276]
   - Integer [2131296392]
   - String [ClassicWorks]
   - String [No hot pictures in system currently!]
@@ -28571,7 +28571,7 @@ Methods (count = 18):
         - Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [16] aload_0 v0
       [17] ldc #2
-        - Integer [2131165268]
+        - Integer [2131165269]
       [19] invokevirtual #44
         - Methodref [com/pintu/activity/ClassicWorks.a (I)V]
       [22] return
@@ -28586,7 +28586,7 @@ Methods (count = 18):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #3
-        - Integer [2131165275]
+        - Integer [2131165276]
       [3] invokevirtual #44
         - Methodref [com/pintu/activity/ClassicWorks.a (I)V]
       [6] return
@@ -28841,7 +28841,7 @@ Interfaces (count = 0):
 
 Constant Pool (count = 58):
   - Integer [2130903059]
-  - Integer [2131165288]
+  - Integer [2131165289]
   - Integer [2131296299]
   - Integer [2131296300]
   - Class [android/view/View]
@@ -28976,7 +28976,7 @@ Methods (count = 2):
       [49] getfield #13
         - Fieldref [com/pintu/activity/HowTos.b Landroid/widget/TextView;]
       [52] ldc #2
-        - Integer [2131165288]
+        - Integer [2131165289]
       [54] invokevirtual #16
         - Methodref [android/widget/TextView.setText (I)V]
       [57] return
@@ -32962,7 +32962,7 @@ Interfaces (count = 0):
 
 Constant Pool (count = 71):
   - Integer [-6710887]
-  - Integer [2131165254]
+  - Integer [2131165255]
   - Class [android/widget/ProgressBar]
   - Class [android/widget/TextView]
   - Class [com/pintu/activity/PictureDetails]
@@ -33110,7 +33110,7 @@ Methods (count = 3):
       [24] getfield #10
         - Fieldref [com/pintu/activity/ab.a Lcom/pintu/activity/PictureDetails;]
       [27] ldc #2
-        - Integer [2131165254]
+        - Integer [2131165255]
       [29] invokevirtual #20
         - Methodref [com/pintu/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
       [32] invokeinterface #23
@@ -33304,7 +33304,7 @@ _____________________________________________________________________
 Interfaces (count = 0):
 
 Constant Pool (count = 74):
-  - Integer [2131165268]
+  - Integer [2131165269]
   - String [Parse json to details Error!]
   - String [Response to json data parse Error!]
   - String [details is null can not update UI!]
@@ -33444,7 +33444,7 @@ Methods (count = 4):
       [32] getfield #12
         - Fieldref [com/pintu/activity/ac.a Lcom/pintu/activity/PictureDetails;]
       [35] ldc #1
-        - Integer [2131165268]
+        - Integer [2131165269]
       [37] invokevirtual #22
         - Methodref [com/pintu/activity/PictureDetails.getString (I)Ljava/lang/String;]
       [40] invokestatic #19
@@ -33541,8 +33541,8 @@ _____________________________________________________________________
 Interfaces (count = 0):
 
 Constant Pool (count = 64):
-  - Integer [2131165219]
-  - Integer [2131165221]
+  - Integer [2131165220]
+  - Integer [2131165222]
   - String [ ]
   - String [0]
   - Class [android/widget/TextView]
@@ -33635,7 +33635,7 @@ Methods (count = 2):
       [1] getfield #12
         - Fieldref [com/pintu/activity/ad.a Lcom/pintu/activity/PictureDetails;]
       [4] ldc #1
-        - Integer [2131165219]
+        - Integer [2131165220]
       [6] invokevirtual #14
         - Methodref [com/pintu/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
       [9] invokeinterface #22
@@ -33651,7 +33651,7 @@ Methods (count = 2):
       [25] getfield #12
         - Fieldref [com/pintu/activity/ad.a Lcom/pintu/activity/PictureDetails;]
       [28] ldc #2
-        - Integer [2131165221]
+        - Integer [2131165222]
       [30] invokevirtual #14
         - Methodref [com/pintu/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
       [33] invokeinterface #22
@@ -36275,10 +36275,10 @@ Interfaces (count = 0):
 
 Constant Pool (count = 635):
   - Integer [2130903074]
-  - Integer [2131165264]
-  - Integer [2131165267]
+  - Integer [2131165265]
   - Integer [2131165268]
-  - Integer [2131165272]
+  - Integer [2131165269]
+  - Integer [2131165273]
   - Integer [2131296299]
   - Integer [2131296307]
   - Integer [2131296363]
@@ -38022,7 +38022,7 @@ Methods (count = 24):
       [167] aload_0 v0
       [168] aload_0 v0
       [169] ldc #5
-        - Integer [2131165272]
+        - Integer [2131165273]
       [171] invokevirtual #192
         - Methodref [com/pintu/activity/PictureEdit.getString (I)Ljava/lang/String;]
       [174] invokespecial #184
@@ -38194,7 +38194,7 @@ Methods (count = 24):
         - Fieldref [com/pintu/activity/PictureEdit.h Landroid/app/ProgressDialog;]
       [26] aload_0 v0
       [27] ldc #2
-        - Integer [2131165264]
+        - Integer [2131165265]
       [29] invokevirtual #192
         - Methodref [com/pintu/activity/PictureEdit.getString (I)Ljava/lang/String;]
       [32] invokevirtual #147
@@ -38296,7 +38296,7 @@ Methods (count = 24):
         - Fieldref [com/pintu/activity/PictureEdit.h Landroid/app/ProgressDialog;]
       [13] aload_0 v0
       [14] ldc #3
-        - Integer [2131165267]
+        - Integer [2131165268]
       [16] invokevirtual #192
         - Methodref [com/pintu/activity/PictureEdit.getString (I)Ljava/lang/String;]
       [19] invokevirtual #147
@@ -38309,7 +38309,7 @@ Methods (count = 24):
       [29] aload_0 v0
       [30] aload_0 v0
       [31] ldc #3
-        - Integer [2131165267]
+        - Integer [2131165268]
       [33] invokevirtual #192
         - Methodref [com/pintu/activity/PictureEdit.getString (I)Ljava/lang/String;]
       [36] invokespecial #184
@@ -38332,7 +38332,7 @@ Methods (count = 24):
         - Fieldref [com/pintu/activity/PictureEdit.h Landroid/app/ProgressDialog;]
       [6] aload_0 v0
       [7] ldc #4
-        - Integer [2131165268]
+        - Integer [2131165269]
       [9] invokevirtual #192
         - Methodref [com/pintu/activity/PictureEdit.getString (I)Ljava/lang/String;]
       [12] invokevirtual #147
@@ -38345,7 +38345,7 @@ Methods (count = 24):
       [22] aload_0 v0
       [23] aload_0 v0
       [24] ldc #4
-        - Integer [2131165268]
+        - Integer [2131165269]
       [26] invokevirtual #192
         - Methodref [com/pintu/activity/PictureEdit.getString (I)Ljava/lang/String;]
       [29] invokespecial #184
@@ -38401,8 +38401,8 @@ Interfaces (count = 0):
 
 Constant Pool (count = 278):
   - Integer [2130903072]
-  - Integer [2131165250]
-  - Integer [2131165268]
+  - Integer [2131165251]
+  - Integer [2131165269]
   - Integer [2131296299]
   - Integer [2131296307]
   - Integer [2131296308]
@@ -39163,7 +39163,7 @@ Methods (count = 17):
       [0] aload_0 v0
       [1] aload_0 v0
       [2] ldc #3
-        - Integer [2131165268]
+        - Integer [2131165269]
       [4] invokevirtual #84
         - Methodref [com/pintu/activity/CommentEdit.getString (I)Ljava/lang/String;]
       [7] invokevirtual #80
@@ -39236,7 +39236,7 @@ Methods (count = 17):
       [13] ificmpne +9 (target=22)
       [16] aload_0 v0
       [17] ldc #2
-        - Integer [2131165250]
+        - Integer [2131165251]
       [19] invokevirtual #78
         - Methodref [com/pintu/activity/CommentEdit.a (I)V]
       [22] return
@@ -42839,7 +42839,7 @@ Interfaces (count = 0):
 
 Constant Pool (count = 173):
   - Integer [2130903084]
-  - Integer [2131165228]
+  - Integer [2131165229]
   - Integer [2131296299]
   - Integer [2131296300]
   - Integer [2131296301]
@@ -43103,7 +43103,7 @@ Methods (count = 15):
       [27] getfield #35
         - Fieldref [com/pintu/activity/TagList.k Landroid/widget/TextView;]
       [30] ldc #2
-        - Integer [2131165228]
+        - Integer [2131165229]
       [32] invokevirtual #43
         - Methodref [android/widget/TextView.setText (I)V]
       [35] aload_0 v0
@@ -46918,9 +46918,9 @@ Interfaces (count = 0):
 
 Constant Pool (count = 52):
   - Integer [2130837553]
-  - Integer [2130837649]
-  - Integer [2131165229]
+  - Integer [2130837650]
   - Integer [2131165230]
+  - Integer [2131165231]
   - String [myassets_index]
   - Class [android/content/Intent]
   - Class [com/pintu/activity/ClassicWorks]
@@ -47042,7 +47042,7 @@ Methods (count = 6):
       [3] dup
       [4] iconst_0
       [5] ldc #2
-        - Integer [2130837649]
+        - Integer [2130837650]
       [7] iastore
       [8] dup
       [9] iconst_1
@@ -47062,12 +47062,12 @@ Methods (count = 6):
       [3] dup
       [4] iconst_0
       [5] ldc #3
-        - Integer [2131165229]
+        - Integer [2131165230]
       [7] iastore
       [8] dup
       [9] iconst_1
       [10] ldc #4
-        - Integer [2131165230]
+        - Integer [2131165231]
       [12] iastore
       [13] areturn
       Code attribute exceptions (count = 0):
@@ -47134,10 +47134,10 @@ Interfaces (count = 0):
 
 Constant Pool (count = 193):
   - Integer [2130903051]
-  - Integer [2131165244]
   - Integer [2131165245]
-  - Integer [2131165247]
+  - Integer [2131165246]
   - Integer [2131165248]
+  - Integer [2131165249]
   - Integer [2131296283]
   - Integer [2131296284]
   - Integer [2131296285]
@@ -47549,7 +47549,7 @@ Methods (count = 6):
       [178] getfield #41
         - Fieldref [com/pintu/c/k.c Landroid/content/Context;]
       [181] ldc #2
-        - Integer [2131165244]
+        - Integer [2131165245]
       [183] invokevirtual #49
         - Methodref [android/content/Context.getText (I)Ljava/lang/CharSequence;]
       [186] invokevirtual #66
@@ -47581,7 +47581,7 @@ Methods (count = 6):
       [223] getfield #41
         - Fieldref [com/pintu/c/k.c Landroid/content/Context;]
       [226] ldc #3
-        - Integer [2131165245]
+        - Integer [2131165246]
       [228] invokevirtual #49
         - Methodref [android/content/Context.getText (I)Ljava/lang/CharSequence;]
       [231] invokevirtual #66
@@ -47613,7 +47613,7 @@ Methods (count = 6):
       [268] getfield #41
         - Fieldref [com/pintu/c/k.c Landroid/content/Context;]
       [271] ldc #4
-        - Integer [2131165247]
+        - Integer [2131165248]
       [273] invokevirtual #49
         - Methodref [android/content/Context.getText (I)Ljava/lang/CharSequence;]
       [276] invokevirtual #66
@@ -47645,7 +47645,7 @@ Methods (count = 6):
       [313] getfield #41
         - Fieldref [com/pintu/c/k.c Landroid/content/Context;]
       [316] ldc #5
-        - Integer [2131165248]
+        - Integer [2131165249]
       [318] invokevirtual #49
         - Methodref [android/content/Context.getText (I)Ljava/lang/CharSequence;]
       [321] invokevirtual #66
@@ -47804,7 +47804,7 @@ Interfaces (count = 0):
 Constant Pool (count = 142):
   - Integer [2130903040]
   - Integer [2131165185]
-  - Integer [2131165227]
+  - Integer [2131165228]
   - Integer [2131296257]
   - Integer [2131296299]
   - Integer [2131296300]
@@ -48050,7 +48050,7 @@ Methods (count = 2):
       [83] getfield #29
         - Fieldref [com/pintu/activity/AboutThis.b Landroid/widget/TextView;]
       [86] ldc #3
-        - Integer [2131165227]
+        - Integer [2131165228]
       [88] invokevirtual #37
         - Methodref [android/widget/TextView.setText (I)V]
       [91] aload_0 v0
@@ -49487,8 +49487,8 @@ Constant Pool (count = 363):
   - Integer [268435456]
   - Integer [2130837543]
   - Integer [2131165201]
-  - Integer [2131165255]
-  - Integer [2131165257]
+  - Integer [2131165256]
+  - Integer [2131165258]
   - String [.jpg]
   - String [/]
   - String [: ]
@@ -50467,7 +50467,7 @@ Methods (count = 12):
       [259] aload_1 v1
       [260] aload_1 v1
       [261] ldc #6
-        - Integer [2131165257]
+        - Integer [2131165258]
       [263] invokevirtual #102
         - Methodref [com/pintu/service/DnldService.getText (I)Ljava/lang/CharSequence;]
       [266] aload_3 v3
@@ -50686,7 +50686,7 @@ Methods (count = 12):
       [120] astore_1 v1
       [121] aload_0 v0
       [122] ldc #5
-        - Integer [2131165255]
+        - Integer [2131165256]
       [124] invokevirtual #102
         - Methodref [com/pintu/service/DnldService.getText (I)Ljava/lang/CharSequence;]
       [127] invokeinterface #140
@@ -51443,10 +51443,10 @@ Constant Pool (count = 538):
   - Integer [2131165197]
   - Integer [2131165198]
   - Integer [2131165200]
-  - Integer [2131165281]
-  - Integer [2131165286]
+  - Integer [2131165282]
   - Integer [2131165287]
   - Integer [2131165288]
+  - Integer [2131165289]
   - Integer [2131296294]
   - Integer [2131296295]
   - Integer [2131296296]
@@ -52735,7 +52735,7 @@ Methods (count = 19):
       [8] bipush 14
       [10] iconst_0
       [11] ldc #14
-        - Integer [2131165288]
+        - Integer [2131165289]
       [13] invokeinterface #215
         - InterfaceMethodref [android/view/Menu.add (IIII)Landroid/view/MenuItem;]
       [18] ldc #1
@@ -52748,7 +52748,7 @@ Methods (count = 19):
       [28] iconst_1
       [29] iconst_0
       [30] ldc #11
-        - Integer [2131165281]
+        - Integer [2131165282]
       [32] invokeinterface #215
         - InterfaceMethodref [android/view/Menu.add (IIII)Landroid/view/MenuItem;]
       [37] ldc #3
@@ -52761,7 +52761,7 @@ Methods (count = 19):
       [47] iconst_3
       [48] iconst_0
       [49] ldc #12
-        - Integer [2131165286]
+        - Integer [2131165287]
       [51] invokeinterface #215
         - InterfaceMethodref [android/view/Menu.add (IIII)Landroid/view/MenuItem;]
       [56] ldc #2
@@ -52774,7 +52774,7 @@ Methods (count = 19):
       [66] bipush 13
       [68] iconst_0
       [69] ldc #13
-        - Integer [2131165287]
+        - Integer [2131165288]
       [71] invokeinterface #215
         - InterfaceMethodref [android/view/Menu.add (IIII)Landroid/view/MenuItem;]
       [76] ldc #4
@@ -54213,7 +54213,7 @@ Interfaces (count = 0):
 Constant Pool (count = 393):
   - Integer [-65536]
   - Integer [2130903075]
-  - Integer [2131165268]
+  - Integer [2131165269]
   - Integer [2131296299]
   - Integer [2131296307]
   - Integer [2131296308]
@@ -55345,7 +55345,7 @@ Methods (count = 12):
       [0] aload_0 v0
       [1] dup
       [2] ldc #3
-        - Integer [2131165268]
+        - Integer [2131165269]
       [4] invokevirtual #125
         - Methodref [com/pintu/activity/StoryEdit.getString (I)Ljava/lang/String;]
       [7] invokespecial #121
@@ -55437,14 +55437,14 @@ Interfaces (count = 1):
 
 Constant Pool (count = 293):
   - Integer [2130903045]
-  - Integer [2131165244]
   - Integer [2131165245]
   - Integer [2131165246]
   - Integer [2131165247]
   - Integer [2131165248]
   - Integer [2131165249]
-  - Integer [2131165268]
-  - Integer [2131165275]
+  - Integer [2131165250]
+  - Integer [2131165269]
+  - Integer [2131165276]
   - Integer [2131296265]
   - Integer [2131296267]
   - Integer [2131296269]
@@ -55990,7 +55990,7 @@ Methods (count = 18):
         - Methodref [java/lang/StringBuilder.<init> ()V]
       [44] aload_0 v0
       [45] ldc #2
-        - Integer [2131165244]
+        - Integer [2131165245]
       [47] invokevirtual #101
         - Methodref [com/pintu/activity/AndiWealth.getText (I)Ljava/lang/CharSequence;]
       [50] invokevirtual #118
@@ -56020,7 +56020,7 @@ Methods (count = 18):
         - Methodref [java/lang/StringBuilder.<init> ()V]
       [84] aload_0 v0
       [85] ldc #3
-        - Integer [2131165245]
+        - Integer [2131165246]
       [87] invokevirtual #101
         - Methodref [com/pintu/activity/AndiWealth.getText (I)Ljava/lang/CharSequence;]
       [90] invokevirtual #118
@@ -56050,7 +56050,7 @@ Methods (count = 18):
         - Methodref [java/lang/StringBuilder.<init> ()V]
       [124] aload_0 v0
       [125] ldc #4
-        - Integer [2131165246]
+        - Integer [2131165247]
       [127] invokevirtual #101
         - Methodref [com/pintu/activity/AndiWealth.getText (I)Ljava/lang/CharSequence;]
       [130] invokevirtual #118
@@ -56080,7 +56080,7 @@ Methods (count = 18):
         - Methodref [java/lang/StringBuilder.<init> ()V]
       [164] aload_0 v0
       [165] ldc #5
-        - Integer [2131165247]
+        - Integer [2131165248]
       [167] invokevirtual #101
         - Methodref [com/pintu/activity/AndiWealth.getText (I)Ljava/lang/CharSequence;]
       [170] invokevirtual #118
@@ -56110,7 +56110,7 @@ Methods (count = 18):
         - Methodref [java/lang/StringBuilder.<init> ()V]
       [204] aload_0 v0
       [205] ldc #6
-        - Integer [2131165248]
+        - Integer [2131165249]
       [207] invokevirtual #101
         - Methodref [com/pintu/activity/AndiWealth.getText (I)Ljava/lang/CharSequence;]
       [210] invokevirtual #118
@@ -56135,7 +56135,7 @@ Methods (count = 18):
         - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
       [237] aload_0 v0
       [238] ldc #7
-        - Integer [2131165249]
+        - Integer [2131165250]
       [240] invokevirtual #101
         - Methodref [com/pintu/activity/AndiWealth.getText (I)Ljava/lang/CharSequence;]
       [243] invokeinterface #124
@@ -56362,7 +56362,7 @@ Methods (count = 18):
         - Methodref [android/widget/ImageButton.setVisibility (I)V]
       [31] aload_0 v0
       [32] ldc #8
-        - Integer [2131165268]
+        - Integer [2131165269]
       [34] invokevirtual #94
         - Methodref [com/pintu/activity/AndiWealth.a (I)V]
       [37] return
@@ -56398,7 +56398,7 @@ Methods (count = 18):
         - Methodref [android/widget/ImageButton.setVisibility (I)V]
       [31] aload_0 v0
       [32] ldc #9
-        - Integer [2131165275]
+        - Integer [2131165276]
       [34] invokevirtual #94
         - Methodref [com/pintu/activity/AndiWealth.a (I)V]
       [37] return
@@ -56690,9 +56690,9 @@ Constant Pool (count = 352):
   - Integer [2131165194]
   - Integer [2131165197]
   - Integer [2131165198]
-  - Integer [2131165261]
   - Integer [2131165262]
-  - Integer [2131165268]
+  - Integer [2131165263]
+  - Integer [2131165269]
   - Integer [2131296299]
   - Integer [2131296307]
   - Integer [2131296308]
@@ -57604,7 +57604,7 @@ Methods (count = 19):
         - Methodref [android/widget/Button.setVisibility (I)V]
       [17] aload_0 v0
       [18] ldc #6
-        - Integer [2131165261]
+        - Integer [2131165262]
       [20] invokevirtual #106
         - Methodref [com/pintu/activity/MsgEdit.a (I)V]
       [23] aload_0 v0
@@ -57621,7 +57621,7 @@ Methods (count = 19):
       [0] aload_0 v0
       [1] aload_0 v0
       [2] ldc #8
-        - Integer [2131165268]
+        - Integer [2131165269]
       [4] invokevirtual #112
         - Methodref [com/pintu/activity/MsgEdit.getString (I)Ljava/lang/String;]
       [7] invokevirtual #108
@@ -57725,7 +57725,7 @@ Methods (count = 19):
       [21] pop
       [22] aload_1 v1
       [23] ldc #7
-        - Integer [2131165262]
+        - Integer [2131165263]
       [25] invokevirtual #80
         - Methodref [android/app/AlertDialog$Builder.setMessage (I)Landroid/app/AlertDialog$Builder;]
       [28] pop
@@ -58007,8 +58007,8 @@ Interfaces (count = 0):
 Constant Pool (count = 49):
   - Integer [2130837528]
   - Integer [2130837624]
-  - Integer [2131165233]
   - Integer [2131165234]
+  - Integer [2131165235]
   - String [cmnt_index]
   - Class [android/content/Intent]
   - Class [com/pintu/activity/CmntDaren]
@@ -58144,12 +58144,12 @@ Methods (count = 6):
       [3] dup
       [4] iconst_0
       [5] ldc #3
-        - Integer [2131165233]
+        - Integer [2131165234]
       [7] iastore
       [8] dup
       [9] iconst_1
       [10] ldc #4
-        - Integer [2131165234]
+        - Integer [2131165235]
       [12] iastore
       [13] areturn
       Code attribute exceptions (count = 0):
@@ -58217,8 +58217,8 @@ Interfaces (count = 1):
 
 Constant Pool (count = 184):
   - Integer [2130903087]
-  - Integer [2131165268]
-  - Integer [2131165275]
+  - Integer [2131165269]
+  - Integer [2131165276]
   - Integer [2131296392]
   - String [No hot pictures in system currently!]
   - String [TodayHotPic]
@@ -58644,7 +58644,7 @@ Methods (count = 18):
         - Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [16] aload_0 v0
       [17] ldc #2
-        - Integer [2131165268]
+        - Integer [2131165269]
       [19] invokevirtual #42
         - Methodref [com/pintu/activity/TodayHotPic.a (I)V]
       [22] return
@@ -58669,7 +58669,7 @@ Methods (count = 18):
         - Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [16] aload_0 v0
       [17] ldc #3
-        - Integer [2131165275]
+        - Integer [2131165276]
       [19] invokevirtual #42
         - Methodref [com/pintu/activity/TodayHotPic.a (I)V]
       [22] return
@@ -61122,11 +61122,11 @@ Constant Pool (count = 85):
   - Integer [2130837547]
   - Integer [2130837559]
   - Integer [2130837619]
-  - Integer [2130837666]
+  - Integer [2130837667]
   - Integer [2131165210]
-  - Integer [2131165240]
   - Integer [2131165241]
-  - Integer [2131165243]
+  - Integer [2131165242]
+  - Integer [2131165244]
   - String [myassets_index]
   - Class [android/content/Intent]
   - Class [android/os/Bundle]
@@ -61318,7 +61318,7 @@ Methods (count = 7):
       [3] dup
       [4] iconst_0
       [5] ldc #4
-        - Integer [2130837666]
+        - Integer [2130837667]
       [7] iastore
       [8] dup
       [9] iconst_1
@@ -61348,12 +61348,12 @@ Methods (count = 7):
       [3] dup
       [4] iconst_0
       [5] ldc #6
-        - Integer [2131165240]
+        - Integer [2131165241]
       [7] iastore
       [8] dup
       [9] iconst_1
       [10] ldc #7
-        - Integer [2131165241]
+        - Integer [2131165242]
       [12] iastore
       [13] dup
       [14] iconst_2
@@ -61363,7 +61363,7 @@ Methods (count = 7):
       [18] dup
       [19] iconst_3
       [20] ldc #8
-        - Integer [2131165243]
+        - Integer [2131165244]
       [22] iastore
       [23] areturn
       Code attribute exceptions (count = 0):
@@ -61737,7 +61737,6 @@ Constant Pool (count = 671):
   - Integer [2131165198]
   - Integer [2131165200]
   - Integer [2131165208]
-  - Integer [2131165213]
   - Integer [2131165214]
   - Integer [2131165215]
   - Integer [2131165216]
@@ -61746,9 +61745,10 @@ Constant Pool (count = 671):
   - Integer [2131165219]
   - Integer [2131165220]
   - Integer [2131165221]
-  - Integer [2131165223]
-  - Integer [2131165251]
-  - Integer [2131165268]
+  - Integer [2131165222]
+  - Integer [2131165224]
+  - Integer [2131165252]
+  - Integer [2131165269]
   - Integer [2131296283]
   - Integer [2131296284]
   - Integer [2131296289]
@@ -62749,7 +62749,7 @@ Methods (count = 24):
       [40] getfield #151
         - Fieldref [com/pintu/activity/PictureDetails.c Landroid/widget/TextView;]
       [43] ldc #20
-        - Integer [2131165223]
+        - Integer [2131165224]
       [45] invokevirtual #219
         - Methodref [android/widget/TextView.setText (I)V]
       [48] aload_1 v1
@@ -63247,7 +63247,7 @@ Methods (count = 24):
       [8] iconst_1
       [9] iconst_0
       [10] ldc #11
-        - Integer [2131165213]
+        - Integer [2131165214]
       [12] invokeinterface #289
         - InterfaceMethodref [android/view/Menu.add (IIII)Landroid/view/MenuItem;]
       [17] ldc #3
@@ -63305,7 +63305,7 @@ Methods (count = 24):
       [17] astore_1 v1
       [18] aload_0 v0
       [19] ldc #11
-        - Integer [2131165213]
+        - Integer [2131165214]
       [21] invokevirtual #237
         - Methodref [com/pintu/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
       [24] invokevirtual #201
@@ -63615,7 +63615,7 @@ Methods (count = 24):
       [11] aload_0 v0
       [12] aload_0 v0
       [13] ldc #22
-        - Integer [2131165268]
+        - Integer [2131165269]
       [15] invokevirtual #236
         - Methodref [com/pintu/activity/PictureDetails.getString (I)Ljava/lang/String;]
       [18] invokespecial #232
@@ -63721,7 +63721,7 @@ Methods (count = 24):
       [11] aload_0 v0
       [12] aload_0 v0
       [13] ldc #21
-        - Integer [2131165251]
+        - Integer [2131165252]
       [15] invokevirtual #236
         - Methodref [com/pintu/activity/PictureDetails.getString (I)Ljava/lang/String;]
       [18] invokespecial #232
@@ -63928,7 +63928,7 @@ Methods (count = 24):
         - Methodref [java/lang/StringBuilder.<init> ()V]
       [75] aload_0 v0
       [76] ldc #12
-        - Integer [2131165214]
+        - Integer [2131165215]
       [78] invokevirtual #237
         - Methodref [com/pintu/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
       [81] invokevirtual #285
@@ -63970,7 +63970,7 @@ Methods (count = 24):
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [131] aload_0 v0
       [132] ldc #13
-        - Integer [2131165215]
+        - Integer [2131165216]
       [134] invokevirtual #237
         - Methodref [com/pintu/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
       [137] invokevirtual #285
@@ -64045,7 +64045,7 @@ Methods (count = 24):
         - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
       [238] aload_0 v0
       [239] ldc #16
-        - Integer [2131165218]
+        - Integer [2131165219]
       [241] invokevirtual #237
         - Methodref [com/pintu/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
       [244] invokeinterface #296
@@ -64125,7 +64125,7 @@ Methods (count = 24):
       [351] iinc v2, 1
       [354] aload_0 v0
       [355] ldc #18
-        - Integer [2131165220]
+        - Integer [2131165221]
       [357] invokevirtual #237
         - Methodref [com/pintu/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
       [360] invokeinterface #296
@@ -64177,7 +64177,7 @@ Methods (count = 24):
       [424] getfield #162
         - Fieldref [com/pintu/activity/PictureDetails.n Landroid/widget/TextView;]
       [427] ldc #14
-        - Integer [2131165216]
+        - Integer [2131165217]
       [429] invokevirtual #219
         - Methodref [android/widget/TextView.setText (I)V]
       [432] goto +12 (target=444)
@@ -64185,12 +64185,12 @@ Methods (count = 24):
       [436] getfield #162
         - Fieldref [com/pintu/activity/PictureDetails.n Landroid/widget/TextView;]
       [439] ldc #15
-        - Integer [2131165217]
+        - Integer [2131165218]
       [441] invokevirtual #219
         - Methodref [android/widget/TextView.setText (I)V]
       [444] aload_0 v0
       [445] ldc #17
-        - Integer [2131165219]
+        - Integer [2131165220]
       [447] invokevirtual #237
         - Methodref [com/pintu/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
       [450] invokeinterface #296
@@ -64206,7 +64206,7 @@ Methods (count = 24):
       [465] ifeq +41 (target=506)
       [468] aload_0 v0
       [469] ldc #19
-        - Integer [2131165221]
+        - Integer [2131165222]
       [471] invokevirtual #237
         - Methodref [com/pintu/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
       [474] invokeinterface #296
@@ -65256,8 +65256,8 @@ Interfaces (count = 0):
 
 Constant Pool (count = 256):
   - Integer [2130903050]
-  - Integer [2131165225]
-  - Integer [2131165268]
+  - Integer [2131165226]
+  - Integer [2131165269]
   - Integer [2131296282]
   - Integer [2131296299]
   - Integer [2131296300]
@@ -65618,7 +65618,7 @@ Methods (count = 15):
       [27] getfield #49
         - Fieldref [com/pintu/activity/CommentList.j Landroid/widget/TextView;]
       [30] ldc #2
-        - Integer [2131165225]
+        - Integer [2131165226]
       [32] invokevirtual #64
         - Methodref [android/widget/TextView.setText (I)V]
       [35] aload_0 v0
@@ -65906,7 +65906,7 @@ Methods (count = 15):
       [0] aload_0 v0
       [1] aload_0 v0
       [2] ldc #3
-        - Integer [2131165268]
+        - Integer [2131165269]
       [4] invokevirtual #72
         - Methodref [com/pintu/activity/CommentList.getString (I)Ljava/lang/String;]
       [7] invokevirtual #68
@@ -67318,12 +67318,12 @@ Interfaces (count = 0):
 
 Constant Pool (count = 276):
   - Integer [2130903064]
-  - Integer [2131165268]
-  - Integer [2131165309]
+  - Integer [2131165269]
   - Integer [2131165310]
   - Integer [2131165311]
   - Integer [2131165312]
   - Integer [2131165313]
+  - Integer [2131165314]
   - Integer [2131296321]
   - Integer [2131296323]
   - Integer [2131296324]
@@ -67759,7 +67759,7 @@ Methods (count = 19):
         - String []
       [4] aload_0 v0
       [5] ldc #3
-        - Integer [2131165309]
+        - Integer [2131165310]
       [7] invokevirtual #82
         - Methodref [com/pintu/activity/LogonSys.getString (I)Ljava/lang/String;]
       [10] iconst_1
@@ -67833,7 +67833,7 @@ Methods (count = 19):
         - Methodref [android/app/ProgressDialog.dismiss ()V]
       [14] aload_0 v0
       [15] ldc #2
-        - Integer [2131165268]
+        - Integer [2131165269]
       [17] invokevirtual #77
         - Methodref [com/pintu/activity/LogonSys.a (I)V]
       [20] return
@@ -67892,7 +67892,7 @@ Methods (count = 19):
         - Methodref [android/widget/EditText.setText (Ljava/lang/CharSequence;)V]
       [59] aload_0 v0
       [60] ldc #6
-        - Integer [2131165312]
+        - Integer [2131165313]
       [62] invokevirtual #77
         - Methodref [com/pintu/activity/LogonSys.a (I)V]
       [65] return
@@ -67911,7 +67911,7 @@ Methods (count = 19):
         - Methodref [android/widget/EditText.setText (Ljava/lang/CharSequence;)V]
       [84] aload_0 v0
       [85] ldc #7
-        - Integer [2131165313]
+        - Integer [2131165314]
       [87] invokevirtual #77
         - Methodref [com/pintu/activity/LogonSys.a (I)V]
       [90] return
@@ -68066,7 +68066,7 @@ Methods (count = 19):
       [51] getfield #53
         - Fieldref [com/pintu/activity/LogonSys.k Landroid/widget/TextView;]
       [54] ldc #4
-        - Integer [2131165310]
+        - Integer [2131165311]
       [56] invokevirtual #74
         - Methodref [android/widget/TextView.setText (I)V]
       [59] iload_3 v3
@@ -68225,7 +68225,7 @@ Methods (count = 19):
       [41] getfield #53
         - Fieldref [com/pintu/activity/LogonSys.k Landroid/widget/TextView;]
       [44] ldc #5
-        - Integer [2131165311]
+        - Integer [2131165312]
       [46] invokevirtual #74
         - Methodref [android/widget/TextView.setText (I)V]
       [49] return
@@ -69511,10 +69511,10 @@ Interfaces (count = 0):
 Constant Pool (count = 314):
   - Integer [-8067846]
   - Integer [2130837621]
-  - Integer [2131165243]
-  - Integer [2131165249]
-  - Integer [2131165256]
+  - Integer [2131165244]
+  - Integer [2131165250]
   - Integer [2131165257]
+  - Integer [2131165258]
   - String [: ]
   - String [>>> json Array getJSONObject Exception!]
   - String [Fetching user unreaded message...]
@@ -70213,7 +70213,7 @@ Methods (count = 8):
         - Methodref [java/lang/StringBuilder.<init> ()V]
       [116] aload_1 v1
       [117] ldc #5
-        - Integer [2131165256]
+        - Integer [2131165257]
       [119] invokevirtual #96
         - Methodref [com/pintu/service/MsgService.getText (I)Ljava/lang/CharSequence;]
       [122] invokevirtual #105
@@ -70225,14 +70225,14 @@ Methods (count = 8):
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
       [132] aload_1 v1
       [133] ldc #4
-        - Integer [2131165249]
+        - Integer [2131165250]
       [135] invokevirtual #96
         - Methodref [com/pintu/service/MsgService.getText (I)Ljava/lang/CharSequence;]
       [138] invokevirtual #105
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
       [141] aload_1 v1
       [142] ldc #3
-        - Integer [2131165243]
+        - Integer [2131165244]
       [144] invokevirtual #96
         - Methodref [com/pintu/service/MsgService.getText (I)Ljava/lang/CharSequence;]
       [147] invokevirtual #105
@@ -70255,7 +70255,7 @@ Methods (count = 8):
       [170] aload_1 v1
       [171] aload_1 v1
       [172] ldc #6
-        - Integer [2131165257]
+        - Integer [2131165258]
       [174] invokevirtual #96
         - Methodref [com/pintu/service/MsgService.getText (I)Ljava/lang/CharSequence;]
       [177] aload_2 v2
@@ -70286,7 +70286,7 @@ Methods (count = 8):
       [218] getstatic #61
         - Fieldref [com/pintu/PintuApp.h Landroid/app/NotificationManager;]
       [221] ldc #3
-        - Integer [2131165243]
+        - Integer [2131165244]
       [223] aload v4
       [225] invokevirtual #76
         - Methodref [android/app/NotificationManager.notify (ILandroid/app/Notification;)V]
