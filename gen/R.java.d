@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 D:\workspace\ipt4Android\gen\com\pintu\R.java \
  : D:\workspace\ipt4Android\res\anim\loading_blue.xml \
 D:\workspace\ipt4Android\res\anim\loading_blue_16.xml \
@@ -241,6 +242,9 @@ D:\workspace\ipt4Android\res\values\theme.xml \
 D:\workspace\ipt4Android\AndroidManifest.xml \
 =======
 D:\java\jworkspace\ipt4android\gen\com\pintu\R.java \
+=======
+D:\java\jworkspace\ipt4android\gen\com\ybcx\R.java \
+>>>>>>> c0376d250fc25819802b99469f208b7eb0de77bb
  : D:\java\jworkspace\ipt4android\res\anim\loading_blue.xml \
 D:\java\jworkspace\ipt4android\res\anim\loading_blue_16.xml \
 D:\java\jworkspace\ipt4android\res\anim\push_left_in.xml \

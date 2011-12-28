@@ -4,61 +4,61 @@ com.hlidskialf.android.hardware.ShakeListener:
     private static final int SHAKE_TIMEOUT
     private static final int SHAKE_DURATION
     private static final int SHAKE_COUNT
-    64:69:public void pause()
-com.pintu.PintuApp:
-    85:90:public static boolean isLocalVersion()
-com.pintu.R
-com.pintu.R$anim
-com.pintu.R$array
-com.pintu.R$attr
-com.pintu.R$color
-com.pintu.R$drawable
-com.pintu.R$id
-com.pintu.R$layout
-com.pintu.R$string
-com.pintu.R$style
-com.pintu.activity.AndiFavorite:
+    63:68:public void pause()
+com.ybcx.PintuApp:
+    84:89:public static boolean isLocalVersion()
+com.ybcx.R
+com.ybcx.R$anim
+com.ybcx.R$array
+com.ybcx.R$attr
+com.ybcx.R$color
+com.ybcx.R$drawable
+com.ybcx.R$id
+com.ybcx.R$layout
+com.ybcx.R$string
+com.ybcx.R$style
+com.ybcx.activity.AndiFavorite:
     89:89:protected void doSend()
     212:212:public void putObj(java.lang.String,java.lang.Object)
     218:218:public java.lang.Object getObj(java.lang.String)
-com.pintu.activity.AndiMessage:
+com.ybcx.activity.AndiMessage:
     174:174:protected void doRetrieve()
     219:219:public void putObj(java.lang.String,java.lang.Object)
     224:224:public java.lang.Object getObj(java.lang.String)
-com.pintu.activity.AndiPics:
+com.ybcx.activity.AndiPics:
     94:94:protected void doSend()
     218:218:public void putObj(java.lang.String,java.lang.Object)
     224:224:public java.lang.Object getObj(java.lang.String)
-com.pintu.activity.AndiWealth:
+com.ybcx.activity.AndiWealth:
     private static final java.lang.String ANDIWEALTH_DATA
     128:128:protected void doSend()
-com.pintu.activity.ClassicWorks:
+com.ybcx.activity.ClassicWorks:
     179:179:public void putObj(java.lang.String,java.lang.Object)
     184:184:public java.lang.Object getObj(java.lang.String)
     191:191:protected void doSend()
-com.pintu.activity.CmntClassRoom:
+com.ybcx.activity.CmntClassRoom:
     44:44:protected void doSend()
     68:68:protected void doRetrieve()
     122:122:public void putObj(java.lang.String,java.lang.Object)
     127:127:public java.lang.Object getObj(java.lang.String)
-com.pintu.activity.CmntEvent:
+com.ybcx.activity.CmntEvent:
     46:46:protected void doSend()
     70:70:protected void doRetrieve()
     124:124:public void putObj(java.lang.String,java.lang.Object)
     129:129:public java.lang.Object getObj(java.lang.String)
-com.pintu.activity.CmntNews:
+com.ybcx.activity.CmntNews:
     45:45:protected void doSend()
     69:69:protected void doRetrieve()
     123:123:public void putObj(java.lang.String,java.lang.Object)
     128:128:public java.lang.Object getObj(java.lang.String)
-com.pintu.activity.CommentDaren:
+com.ybcx.activity.CommentDaren:
     private static final java.lang.String CMNTDAREN_DATA
     84:84:protected void doSend()
-com.pintu.activity.CommentEdit:
+com.ybcx.activity.CommentEdit:
     212:212:protected void doRetrieve()
-com.pintu.activity.CommentList:
-    187:187:protected void doSend()
-com.pintu.activity.HomeGallery:
+com.ybcx.activity.CommentList:
+    184:184:protected void doSend()
+com.ybcx.activity.HomeGallery:
     static final java.lang.String TAG
     private static final long REFRESH_THRESHOLD
     protected static final int OPTIONS_MENU_ID_LOGOUT
@@ -76,31 +76,31 @@ com.pintu.activity.HomeGallery:
     protected static final int OPTIONS_MENU_ID_EXIT
     protected static final int OPTIONS_MENU_ID_HELP
     473:473:protected int getLastOptionMenuId()
-com.pintu.activity.LogonSys:
+com.ybcx.activity.LogonSys:
     private static final java.lang.String USERNOTEXIST
     private static final java.lang.String PASSWORDERROR
     229:229:protected void doRetrieve()
-com.pintu.activity.MarketNote:
+com.ybcx.activity.MarketNote:
     45:45:protected void doSend()
     69:69:protected void doRetrieve()
     123:123:public void putObj(java.lang.String,java.lang.Object)
     128:128:public java.lang.Object getObj(java.lang.String)
-com.pintu.activity.MarketShopping:
+com.ybcx.activity.MarketShopping:
     45:45:protected void doSend()
     69:69:protected void doRetrieve()
     123:123:public void putObj(java.lang.String,java.lang.Object)
     128:128:public java.lang.Object getObj(java.lang.String)
-com.pintu.activity.MsgEdit:
+com.ybcx.activity.MsgEdit:
     private android.widget.EditText receiver_edit
     247:247:protected void doRetrieve()
-com.pintu.activity.PicDaren:
+com.ybcx.activity.PicDaren:
     private static final java.lang.String PICDAREN_DATA
     85:85:protected void doSend()
-com.pintu.activity.PictureDetails:
+com.ybcx.activity.PictureDetails:
     556:567:private void fetchLikeNumOfPic()
     721:760:private void saveFileToSDCard()
-com.pintu.activity.PictureDetails$17
-com.pintu.activity.PictureEdit:
+com.ybcx.activity.PictureDetails$17
+com.ybcx.activity.PictureEdit:
     private static final java.lang.String TAG
     private static final java.lang.String SIS_RUNNING_KEY
     private static final int REQUEST_IMAGE_CAPTURE
@@ -108,32 +108,47 @@ com.pintu.activity.PictureEdit:
     private static final int MAX_BITMAP_SIZE
     592:606:public static java.io.File bitmapToFile(android.graphics.Bitmap)
     612:622:public static android.graphics.Bitmap createFitinBitmap(java.lang.String,int,int)
+<<<<<<< HEAD
 com.pintu.activity.TadiAssets:
+=======
+com.ybcx.activity.StoryList:
+    private java.lang.String owner
+    private java.lang.String storyId
+    private java.lang.String voteType
+    115:123:private void postVoteForStory(java.lang.String,java.lang.String,java.lang.String)
+    185:201:protected void doSend()
+    56:56:static com.ybcx.widget.StateListView access$0(com.ybcx.activity.StoryList)
+    114:114:static void access$1(com.ybcx.activity.StoryList,java.lang.String,java.lang.String,java.lang.String)
+com.ybcx.activity.StoryList$1:
+    109:111:public void send(java.lang.String,java.lang.String,java.lang.String)
+com.ybcx.activity.TadiAssets:
+>>>>>>> c0376d250fc25819802b99469f208b7eb0de77bb
     private static final java.lang.String TAG
-com.pintu.activity.TadiPics:
+com.ybcx.activity.TadiPics:
     private static final java.lang.String TAG
     private static final java.lang.String TADIPICS_DATA
     119:119:protected void doSend()
-com.pintu.activity.TadiProfile:
+com.ybcx.activity.TadiProfile:
     private static final java.lang.String TAG
     private static final java.lang.String TADIPROFILE_DATA
     138:138:protected void doSend()
-com.pintu.activity.TagList:
+com.ybcx.activity.TagList:
     142:142:protected void doSend()
-com.pintu.activity.TagPicGallery:
+com.ybcx.activity.TagPicGallery:
     163:163:protected void doSend()
-com.pintu.activity.TodayHotPic:
+com.ybcx.activity.TodayHotPic:
     175:175:public void putObj(java.lang.String,java.lang.Object)
     180:180:public java.lang.Object getObj(java.lang.String)
     187:187:protected void doSend()
-com.pintu.activity.base.HeadSwitchActivity:
+com.ybcx.activity.base.HeadSwitchActivity:
     private static final java.lang.String TAG
-com.pintu.activity.base.SubMainCallBack:
+com.ybcx.activity.base.SubMainCallBack:
     public abstract void putObj(java.lang.String,java.lang.Object)
     public abstract java.lang.Object getObj(java.lang.String)
-com.pintu.activity.base.TempletActivity:
+com.ybcx.activity.base.TempletActivity:
     protected abstract void doSend()
     protected abstract void doRetrieve()
+<<<<<<< HEAD
 com.pintu.adapter.ClassicStoryAdapter
 com.pintu.adapter.ClassicStoryAdapter$1
 com.pintu.adapter.ClassicStoryAdapter$ViewHolder
@@ -156,9 +171,37 @@ com.pintu.adapter.StoryVoteAdapter$ViewHolder:
     public android.widget.TextView egg_num
     public android.widget.TextView classic_num
 com.pintu.adapter.UserAdapter:
+=======
+com.ybcx.adapter.ClassicStoryAdapter
+com.ybcx.adapter.ClassicStoryAdapter$ViewHolder
+com.ybcx.adapter.GalleryImageAdapter:
+    94:95:public void refresh()
+    98:98:public java.util.List getCells()
+com.ybcx.adapter.GalleryImageAdapter$ViewHolder
+com.ybcx.adapter.StoryInfoAdapter
+com.ybcx.adapter.StoryInfoAdapter$ViewHolder
+com.ybcx.adapter.StoryVoteAdapter:
+    121:169:private void addVoteAction(com.ybcx.adapter.StoryVoteAdapter$ViewHolder)
+    173:184:private void addVoteNum(android.widget.TextView)
+    26:26:static com.ybcx.adapter.StoryVoteAdapter$VoteActionListener access$0(com.ybcx.adapter.StoryVoteAdapter)
+    172:172:static void access$1(com.ybcx.adapter.StoryVoteAdapter,android.widget.TextView)
+com.ybcx.adapter.StoryVoteAdapter$1
+com.ybcx.adapter.StoryVoteAdapter$2
+com.ybcx.adapter.StoryVoteAdapter$3
+com.ybcx.adapter.StoryVoteAdapter$4
+com.ybcx.adapter.StoryVoteAdapter$5
+com.ybcx.adapter.StoryVoteAdapter$ViewHolder:
+    public android.widget.TextView heart_num
+    public android.widget.TextView flower_num
+    public android.widget.TextView egg_num
+    public android.widget.TextView classic_num
+com.ybcx.adapter.StoryVoteAdapter$VoteActionListener:
+    public abstract void send(java.lang.String,java.lang.String,java.lang.String)
+com.ybcx.adapter.UserAdapter:
+>>>>>>> c0376d250fc25819802b99469f208b7eb0de77bb
     public static final java.lang.String PIC_DAREN
     public static final java.lang.String CMT_DAREN
-com.pintu.api.PTApi:
+com.ybcx.api.PTApi:
     public static final java.lang.String UPLOADPICTURE
     public static final java.lang.String APPLYFORUSER
     public static final java.lang.String OTHERMETHOD
@@ -191,129 +234,135 @@ com.pintu.api.PTApi:
     public static final java.lang.String GETTHUMBNAILSBYTAG
     public abstract java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String)
     public abstract java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
-com.pintu.api.PTImpl:
+com.ybcx.api.PTImpl:
     123:185:public java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
 <<<<<<< HEAD
 =======
     607:617:public java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String)
+<<<<<<< HEAD
 com.pintu.data.UserDetails:
     1:1:public static com.pintu.data.UserInfo parseJsonToObj(org.json.JSONObject)
 >>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
 com.pintu.db.CacheDao:
+=======
+com.ybcx.data.UserDetails:
+    1:1:public static com.ybcx.data.UserInfo parseJsonToObj(org.json.JSONObject)
+com.ybcx.db.CacheDao:
+>>>>>>> c0376d250fc25819802b99469f208b7eb0de77bb
     public abstract void deleteOldThumbnails(int)
     public abstract int cachedThumbnailSize()
-com.pintu.db.CacheImpl:
+com.ybcx.db.CacheImpl:
     private static final java.lang.String TAG
-com.pintu.db.PintuDB:
+com.ybcx.db.PintuDB:
     private static final java.lang.String DATABASE_NAME
     private static final int DATABASE_VERSION
     47:47:public android.database.sqlite.SQLiteOpenHelper getSQLiteOpenHelper()
     68:72:public void close()
-com.pintu.db.PintuTables$ClassicPics:
+com.ybcx.db.PintuTables$ClassicPics:
     public static final java.lang.String TABLE_NAME
     109:109:public static java.lang.String getDropSQL()
     112:112:public static java.lang.String[] getIndexColumns()
-com.pintu.db.PintuTables$ClassicPics$Columns
-com.pintu.db.PintuTables$EventsTable
-com.pintu.db.PintuTables$FavoritePicsTable:
+com.ybcx.db.PintuTables$ClassicPics$Columns
+com.ybcx.db.PintuTables$EventsTable
+com.ybcx.db.PintuTables$FavoritePicsTable:
     public static final java.lang.String TABLE_NAME
     143:143:public static java.lang.String getDropSQL()
     146:146:public static java.lang.String[] getIndexColumns()
-com.pintu.db.PintuTables$FavoritePicsTable$Columns
-com.pintu.db.PintuTables$HotpicTable:
+com.ybcx.db.PintuTables$FavoritePicsTable$Columns
+com.ybcx.db.PintuTables$HotpicTable:
     public static final java.lang.String TABLE_NAME
     70:70:public static java.lang.String getDropSQL()
     73:73:public static java.lang.String[] getIndexColumns()
-com.pintu.db.PintuTables$HotpicTable$Columns
-com.pintu.db.PintuTables$MyMessageTable:
+com.ybcx.db.PintuTables$HotpicTable$Columns
+com.ybcx.db.PintuTables$MyMessageTable:
     public static final java.lang.String TABLE_NAME
     219:219:public static java.lang.String getDropSQL()
     222:222:public static java.lang.String[] getIndexColumns()
-com.pintu.db.PintuTables$MyMessageTable$Columns
-com.pintu.db.PintuTables$MyPicsTable:
+com.ybcx.db.PintuTables$MyMessageTable$Columns
+com.ybcx.db.PintuTables$MyPicsTable:
     public static final java.lang.String TABLE_NAME
     177:177:public static java.lang.String getDropSQL()
     180:180:public static java.lang.String[] getIndexColumns()
-com.pintu.db.PintuTables$MyPicsTable$Columns
-com.pintu.db.PintuTables$NewsTable
-com.pintu.db.PintuTables$NotesTable
-com.pintu.db.PintuTables$ThumbnailTable:
+com.ybcx.db.PintuTables$MyPicsTable$Columns
+com.ybcx.db.PintuTables$NewsTable
+com.ybcx.db.PintuTables$NotesTable
+com.ybcx.db.PintuTables$ThumbnailTable:
     public static final java.lang.String TABLE_NAME
     public static final int MAX_ROW_NUMBER
     32:32:public static java.lang.String getDropSQL()
     35:35:public static java.lang.String[] getIndexColumns()
-com.pintu.db.PintuTables$ThumbnailTable$Columns
-com.pintu.db.PintuTables$XuetangTable
-com.pintu.db.Query:
+com.ybcx.db.PintuTables$ThumbnailTable$Columns
+com.ybcx.db.PintuTables$XuetangTable
+com.ybcx.db.Query:
     private static final java.lang.String TAG
-    150:152:public com.pintu.db.Query where(java.lang.String,java.lang.String[])
-    168:169:public com.pintu.db.Query where(java.lang.String)
-    197:198:public com.pintu.db.Query having(java.lang.String)
-    211:212:public com.pintu.db.Query groupBy(java.lang.String)
+    150:152:public com.ybcx.db.Query where(java.lang.String,java.lang.String[])
+    168:169:public com.ybcx.db.Query where(java.lang.String)
+    197:198:public com.ybcx.db.Query having(java.lang.String)
+    211:212:public com.ybcx.db.Query groupBy(java.lang.String)
     342:342:public android.content.ContentValues getContentValues()
-com.pintu.http.CountingMultiPartEntity:
-    23:25:public CountingMultiPartEntity(org.apache.http.entity.mime.HttpMultipartMode,com.pintu.http.CountingMultiPartEntity$ProgressListener)
-    30:32:public CountingMultiPartEntity(org.apache.http.entity.mime.HttpMultipartMode,java.lang.String,java.nio.charset.Charset,com.pintu.http.CountingMultiPartEntity$ProgressListener)
-com.pintu.http.HttpAuthException:
+com.ybcx.http.CountingMultiPartEntity:
+    23:25:public CountingMultiPartEntity(org.apache.http.entity.mime.HttpMultipartMode,com.ybcx.http.CountingMultiPartEntity$ProgressListener)
+    30:32:public CountingMultiPartEntity(org.apache.http.entity.mime.HttpMultipartMode,java.lang.String,java.nio.charset.Charset,com.ybcx.http.CountingMultiPartEntity$ProgressListener)
+com.ybcx.http.HttpAuthException:
     private static final long serialVersionUID
     12:14:public HttpAuthException(java.lang.Exception)
     17:19:public HttpAuthException(java.lang.String,java.lang.Exception,int)
-com.pintu.http.HttpClientInterface
-com.pintu.http.HttpException:
+com.ybcx.http.HttpClientInterface
+com.ybcx.http.HttpException:
     private static final long serialVersionUID
     19:20:public HttpException(java.lang.Exception)
     32:34:public HttpException(java.lang.String,java.lang.Exception,int)
     37:37:public int getStatusCode()
-com.pintu.http.HttpRefusedException:
+com.ybcx.http.HttpRefusedException:
     private static final long serialVersionUID
-    private com.pintu.http.RefuseError mError
+    private com.ybcx.http.RefuseError mError
     19:21:public HttpRefusedException(java.lang.Exception)
     24:26:public HttpRefusedException(java.lang.String,java.lang.Exception,int)
-    44:44:public com.pintu.http.RefuseError getError()
-    48:49:public com.pintu.http.HttpRefusedException setError(com.pintu.http.RefuseError)
-com.pintu.http.HttpServerException:
+    44:44:public com.ybcx.http.RefuseError getError()
+    48:49:public com.ybcx.http.HttpRefusedException setError(com.ybcx.http.RefuseError)
+com.ybcx.http.HttpServerException:
     private static final long serialVersionUID
     18:20:public HttpServerException(java.lang.Exception)
     23:25:public HttpServerException(java.lang.String,java.lang.Exception,int)
-com.pintu.http.RefuseError
-com.pintu.http.Response:
+com.ybcx.http.RefuseError
+com.ybcx.http.Response:
     32:32:public org.apache.http.HttpResponse getHttpResponse()
     116:118:public org.json.JSONObject asJSONObject()
     125:127:public org.json.JSONArray asJSONArray()
     133:134:private void setStreamConsumed(boolean)
     137:137:public boolean isStreamConsumed()
     151:158:public static java.lang.String unescape(java.lang.String)
-com.pintu.http.SimpleHttpClient:
+com.ybcx.http.SimpleHttpClient:
     private static final java.lang.String TAG
-com.pintu.http.XmlObject
-com.pintu.service.DnldService:
+com.ybcx.http.XmlObject
+com.ybcx.service.DnldService:
     private static final java.lang.String TAG
     private static final int DOWNLOAD_APK
     private static final int DOWNLOAD_IMG
     private static final int DNLD_SUCCESS
     private static final int FINISH_ME
-com.pintu.service.MsgService:
+com.ybcx.service.MsgService:
     private static final java.lang.String TAG
     private static final int FETCH_MSG
     private static final int FINISH_ME
-com.pintu.task.Feedback:
+com.ybcx.task.Feedback:
     public abstract boolean isAvailable()
     public abstract void cancel(java.lang.CharSequence)
     public abstract void failed(java.lang.CharSequence)
     public abstract void setIndeterminate(boolean)
-com.pintu.task.GenericTask:
+com.ybcx.task.GenericTask:
     private static final java.lang.String TAG
     31:32:public void doPublishProgress(java.lang.Object[])
     109:110:public void setCancelable(boolean)
-    113:114:public void setFeedback(com.pintu.task.Feedback)
-com.pintu.task.RetrieveDarenTask:
+    113:114:public void setFeedback(com.ybcx.task.Feedback)
+com.ybcx.task.RetrieveDarenTask:
     private static final java.lang.String TAG
     public static final java.lang.String PIC_DAREN
     public static final java.lang.String CMNT_DAREN
-com.pintu.task.RetrieveGalleryTask:
+com.ybcx.task.RetrieveGalleryTask:
     private java.lang.String _errorMsg
     27:27:public java.lang.String getErrorMsg()
-com.pintu.task.SendTask:
+com.ybcx.task.SendTask:
     public static final int TYPE_NORMAL
     public static final int TYPE_PHOTO
     public static final int TYPE_STORY
@@ -325,16 +374,16 @@ com.pintu.task.SendTask:
     public static final int TYPE_MARK
     public static final int TYPE_XUETANG
     private static final java.lang.String TAG
-    131:153:private com.pintu.task.TaskResult sendPic(com.pintu.task.TaskParams)
-com.pintu.task.SimpleTask
-com.pintu.task.TaskManager:
+    131:153:private com.ybcx.task.TaskResult sendPic(com.ybcx.task.TaskParams)
+com.ybcx.task.SimpleTask
+com.ybcx.task.TaskManager:
     private static final java.lang.String TAG
-com.pintu.task.TaskParams:
+com.ybcx.task.TaskParams:
     24:26:public TaskParams(java.lang.String,java.lang.Object)
     45:55:public boolean getBoolean(java.lang.String)
     67:73:public double getDouble(java.lang.String)
-com.pintu.tool.BitmapProcessor
-com.pintu.tool.ImageManager:
+com.ybcx.tool.BitmapProcessor
+com.ybcx.tool.ImageManager:
     private static final java.lang.String TAG
     public static final int DEFAULT_COMPRESS_QUALITY
     private static final int IMAGE_MAX_WIDTH
@@ -342,37 +391,37 @@ com.pintu.tool.ImageManager:
     203:217:public java.lang.String downloadImage2SD(java.lang.String,java.lang.String)
     221:222:private java.lang.String createImgFileName(java.lang.String)
     226:256:private java.lang.String writeToFile2SD(java.io.InputStream,java.lang.String)
-com.pintu.tool.LazyImageLoader:
+com.ybcx.tool.LazyImageLoader:
     private static final java.lang.String TAG
     private static final int HANDLER_MESSAGE_ID
     private static final java.lang.String EXTRA_BITMAP
     private static final java.lang.String EXTRA_IMAGE_URL
     54:54:public java.lang.String downloadImage(java.lang.String,java.lang.String)
-com.pintu.tool.LazyImageLoader$CallbackManager:
+com.ybcx.tool.LazyImageLoader$CallbackManager:
     private static final java.lang.String TAG
-com.pintu.tool.LazyImageLoader$GetImageTask:
+com.ybcx.tool.LazyImageLoader$GetImageTask:
     private static final int TIMEOUT
     166:166:public boolean isPermanent()
     171:172:public void setPermanent(boolean)
     176:177:public void shutDown()
-com.pintu.tool.SimpleImageLoader:
+com.ybcx.tool.SimpleImageLoader:
     106:114:public static java.lang.String downloadImage(java.lang.String,java.lang.String)
-com.pintu.upgrade.SampleUpdateXML
-com.pintu.upgrade.UpdateInfo:
+com.ybcx.upgrade.SampleUpdateXML
+com.ybcx.upgrade.UpdateInfo:
     19:19:public java.lang.String getSize()
-com.pintu.upgrade.UpdateManager:
+com.ybcx.upgrade.UpdateManager:
     private static final java.lang.String TAG
     public static final int UPGRADE_CHECK
     public static final int POPUP_DIALOG
     public static final int UPDATE_CLIENT
-com.pintu.util.DateTimeHelper:
+com.ybcx.util.DateTimeHelper:
     private static final java.lang.String TAG
     29:33:public static final java.util.Date parseDateTime(java.lang.String)
     40:46:public static final java.util.Date parseDateTimeFromSqlite(java.lang.String)
     52:56:public static final java.util.Date parseSearchApiDateTime(java.lang.String)
     117:118:public static java.lang.String longTimeToDate(long)
-com.pintu.util.DebugProfile
-com.pintu.util.DebugTimer:
+com.ybcx.util.DebugProfile
+com.ybcx.util.DebugTimer:
     public static final int START
     public static final int END
     37:39:public static void start()
@@ -381,19 +430,25 @@ com.pintu.util.DebugTimer:
     102:102:public static long get(java.lang.String)
     116:119:public static void reset()
     131:131:private static long touch()
-    135:151:public static com.pintu.util.DebugProfile[] getProfile()
+    135:151:public static com.ybcx.util.DebugProfile[] getProfile()
     155:165:public static java.lang.String getProfileAsString()
-com.pintu.util.FileHelper:
+com.ybcx.util.FileHelper:
     private static final java.lang.String TAG
     private static final java.lang.String BASE_PATH
-com.pintu.util.IptHelper:
+com.ybcx.util.IptHelper:
     26:28:public static int px2dip(android.content.Context,float)
-com.pintu.util.Preferences:
+com.ybcx.util.Preferences:
     public static final java.lang.String HOT_INDEX
     public static final java.lang.String MYASSETS_INDEX
     public static final java.lang.String CMNT_INDEX
     public static final java.lang.String MARKET_INDEX
+<<<<<<< HEAD
 com.pintu.widget.StateImage
+=======
+com.ybcx.widget.StateImage
+com.ybcx.widget.StateListView:
+    21:21:public boolean isStatic()
+>>>>>>> c0376d250fc25819802b99469f208b7eb0de77bb
 org.acra.ACRA:
     static final java.lang.String RES_NOTIF_ICON
     static final java.lang.String RES_NOTIF_TICKER_TEXT
