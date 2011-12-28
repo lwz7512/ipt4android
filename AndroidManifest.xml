@@ -276,6 +276,7 @@
 
 		<!-- Service -->
 		<service android:name=".service.MsgService" />
+		<service android:name=".service.DnldService" />
 
 	</application>
 	<uses-permission android:name="android.permission.INTERNET" />

@@ -115,7 +115,7 @@ public final class R {
         public static final int icon_zb=0x7f020042;
         public static final int images_border_radius=0x7f020043;
         public static final int industry=0x7f020044;
-        public static final int label_color=0x7f0200a7;
+        public static final int label_color=0x7f0200a8;
         public static final int loading_blue_16_f0=0x7f020045;
         public static final int loading_blue_16_f1=0x7f020046;
         public static final int loading_blue_16_f10=0x7f020047;
@@ -183,41 +183,42 @@ public final class R {
         public static final int shell_gold=0x7f020085;
         public static final int shell_sea=0x7f020086;
         public static final int shell_silver=0x7f020087;
-        public static final int splash_background=0x7f020088;
-        public static final int status_arr_selector=0x7f020089;
-        public static final int status_color=0x7f0200a8;
-        public static final int tadi=0x7f02008a;
-        public static final int tags=0x7f02008b;
-        public static final int tags_w=0x7f02008c;
-        public static final int tags_xw=0x7f02008d;
-        public static final int tiny_square=0x7f02008e;
-        public static final int tiny_square_pressed=0x7f02008f;
-        public static final int tiny_square_selector=0x7f020090;
-        public static final int todayhot=0x7f020091;
-        public static final int tool_bar_background=0x7f020092;
-        public static final int toolbar_camera=0x7f020093;
-        public static final int toolbar_media=0x7f020094;
-        public static final int top_home=0x7f020095;
-        public static final int top_msg_selector=0x7f020096;
-        public static final int top_refresh_f00=0x7f020097;
-        public static final int top_refresh_f00_pressed=0x7f020098;
-        public static final int top_refresh_pressed=0x7f020099;
-        public static final int top_refresh_selector=0x7f02009a;
-        public static final int top_send=0x7f02009b;
-        public static final int transparent_button_background=0x7f02009c;
-        public static final int tweet_color=0x7f0200aa;
-        public static final int tweet_details_background_overlay=0x7f02009d;
-        public static final int tweet_details_divider=0x7f02009e;
-        public static final int tweet_details_notch=0x7f02009f;
-        public static final int tweet_meta_color=0x7f0200ab;
-        public static final int tweet_user_color=0x7f0200a9;
-        public static final int twitter_follow_me=0x7f0200a0;
-        public static final int user_default_photo=0x7f0200a1;
-        public static final int wealth=0x7f0200a2;
-        public static final int wealth_32=0x7f0200a3;
-        public static final int write_corner=0x7f0200a4;
-        public static final int write_msg=0x7f0200a5;
-        public static final int xuetang=0x7f0200a6;
+        public static final int shopping_cart=0x7f020088;
+        public static final int splash_background=0x7f020089;
+        public static final int status_arr_selector=0x7f02008a;
+        public static final int status_color=0x7f0200a9;
+        public static final int tadi=0x7f02008b;
+        public static final int tags=0x7f02008c;
+        public static final int tags_w=0x7f02008d;
+        public static final int tags_xw=0x7f02008e;
+        public static final int tiny_square=0x7f02008f;
+        public static final int tiny_square_pressed=0x7f020090;
+        public static final int tiny_square_selector=0x7f020091;
+        public static final int todayhot=0x7f020092;
+        public static final int tool_bar_background=0x7f020093;
+        public static final int toolbar_camera=0x7f020094;
+        public static final int toolbar_media=0x7f020095;
+        public static final int top_home=0x7f020096;
+        public static final int top_msg_selector=0x7f020097;
+        public static final int top_refresh_f00=0x7f020098;
+        public static final int top_refresh_f00_pressed=0x7f020099;
+        public static final int top_refresh_pressed=0x7f02009a;
+        public static final int top_refresh_selector=0x7f02009b;
+        public static final int top_send=0x7f02009c;
+        public static final int transparent_button_background=0x7f02009d;
+        public static final int tweet_color=0x7f0200ab;
+        public static final int tweet_details_background_overlay=0x7f02009e;
+        public static final int tweet_details_divider=0x7f02009f;
+        public static final int tweet_details_notch=0x7f0200a0;
+        public static final int tweet_meta_color=0x7f0200ac;
+        public static final int tweet_user_color=0x7f0200aa;
+        public static final int twitter_follow_me=0x7f0200a1;
+        public static final int user_default_photo=0x7f0200a2;
+        public static final int wealth=0x7f0200a3;
+        public static final int wealth_32=0x7f0200a4;
+        public static final int write_corner=0x7f0200a5;
+        public static final int write_msg=0x7f0200a6;
+        public static final int xuetang=0x7f0200a7;
     }
     public static final class id {
         public static final int Container=0x7f090035;
@@ -416,209 +417,211 @@ public final class R {
         public static final int userlist=0x7f030032;
     }
     public static final class string {
-        public static final int about=0x7f07002b;
+        public static final int about=0x7f07002c;
         public static final int about_developers=0x7f070008;
         public static final int about_introduce=0x7f070007;
         public static final int app_name=0x7f070001;
-        public static final int assets=0x7f070038;
+        public static final int assets=0x7f070039;
         public static final int backgrounddnld=0x7f070010;
-        public static final int baseinfo=0x7f070036;
-        public static final int browsenum=0x7f070024;
+        public static final int baseinfo=0x7f070037;
+        public static final int browsenum=0x7f070025;
         public static final int browsetxt=0x7f070019;
         public static final int cancel=0x7f07000e;
-        public static final int clear_all=0x7f07004d;
-        public static final int cmenu_add_fav=0x7f07006b;
-        public static final int cmenu_clipboard=0x7f07006f;
-        public static final int cmenu_del_fav=0x7f07006c;
-        public static final int cmenu_delete=0x7f07006d;
-        public static final int cmenu_direct_message=0x7f07006a;
-        public static final int cmenu_more=0x7f070070;
+        public static final int clear_all=0x7f07004f;
+        public static final int cmenu_add_fav=0x7f07006d;
+        public static final int cmenu_clipboard=0x7f070071;
+        public static final int cmenu_del_fav=0x7f07006e;
+        public static final int cmenu_delete=0x7f07006f;
+        public static final int cmenu_direct_message=0x7f07006c;
+        public static final int cmenu_more=0x7f070072;
         /**  context menu 
          */
-        public static final int cmenu_reply=0x7f070068;
-        public static final int cmenu_retweet=0x7f070069;
-        public static final int cmenu_share=0x7f07006e;
-        public static final int cmenu_user_addfriend_prefix=0x7f070073;
-        public static final int cmenu_user_delfriend_prefix=0x7f070075;
-        public static final int cmenu_user_friend_suffix=0x7f070074;
-        public static final int cmenu_user_profile_prefix=0x7f070071;
-        public static final int cmenu_user_send_prefix=0x7f070076;
-        public static final int cmenu_user_senddm_suffix=0x7f070077;
-        public static final int cmenu_user_sendmention_suffix=0x7f070078;
-        public static final int cmenu_user_status=0x7f070072;
-        public static final int cmtdaren=0x7f070032;
+        public static final int cmenu_reply=0x7f07006a;
+        public static final int cmenu_retweet=0x7f07006b;
+        public static final int cmenu_share=0x7f070070;
+        public static final int cmenu_user_addfriend_prefix=0x7f070075;
+        public static final int cmenu_user_delfriend_prefix=0x7f070077;
+        public static final int cmenu_user_friend_suffix=0x7f070076;
+        public static final int cmenu_user_profile_prefix=0x7f070073;
+        public static final int cmenu_user_send_prefix=0x7f070078;
+        public static final int cmenu_user_senddm_suffix=0x7f070079;
+        public static final int cmenu_user_sendmention_suffix=0x7f07007a;
+        public static final int cmenu_user_status=0x7f070074;
+        public static final int cmtdaren=0x7f070033;
         public static final int comment=0x7f070018;
         /**  专属提示 
          */
-        public static final int comment_length_note=0x7f070042;
-        public static final int commentlist=0x7f070029;
+        public static final int comment_length_note=0x7f070043;
+        public static final int commentlist=0x7f07002a;
         public static final int community=0x7f070014;
         public static final int description=0x7f070003;
         public static final int dnldover=0x7f070011;
-        public static final int error_not_authorized=0x7f07005b;
-        public static final int error_server_down=0x7f07005c;
-        public static final int event=0x7f070030;
-        public static final int excgscore=0x7f07003e;
+        public static final int error_not_authorized=0x7f07005d;
+        public static final int error_server_down=0x7f07005e;
+        public static final int event=0x7f070031;
+        public static final int excgscore=0x7f07003f;
         public static final int favorite=0x7f07001a;
         public static final int forward=0x7f07001b;
         /**  页面Title 
          */
-        public static final int gallery=0x7f070026;
-        public static final int have_a_rest=0x7f070045;
+        public static final int gallery=0x7f070027;
+        public static final int have_a_rest=0x7f070046;
         /**  帮助内容 
          */
         public static final int helpcontent=0x7f070009;
-        public static final int historyclassic=0x7f07002e;
+        public static final int historyclassic=0x7f07002f;
         public static final int hotpic=0x7f070013;
-        public static final int hotpicsview=0x7f07002a;
+        public static final int hotpicsview=0x7f07002b;
         public static final int hottags=0x7f070015;
-        public static final int industry=0x7f070033;
+        public static final int img_saved=0x7f070048;
+        public static final int industry=0x7f070034;
         public static final int isOriginal=0x7f070002;
         /**  错误提示 
          */
-        public static final int json_parse_error=0x7f07005a;
-        public static final int kefu_xiaolajiao=0x7f07004a;
-        public static final int level_zh=0x7f07001e;
+        public static final int json_parse_error=0x7f07005c;
+        public static final int kefu_xiaolajiao=0x7f07004c;
+        public static final int level_zh=0x7f07001f;
         /**  贴图详情主菜单 
          */
         public static final int like=0x7f070017;
-        public static final int login_label_password=0x7f07007a;
-        public static final int login_label_signin=0x7f07007b;
+        public static final int login_label_password=0x7f07007c;
+        public static final int login_label_signin=0x7f07007d;
         /**  Login页面 
          */
-        public static final int login_label_username=0x7f070079;
-        public static final int login_not_email_format=0x7f07007e;
-        public static final int login_register_link=0x7f070082;
-        public static final int login_status_failure=0x7f070083;
-        public static final int login_status_invalid__password=0x7f070080;
-        public static final int login_status_invalid_username=0x7f07007f;
-        public static final int login_status_logging_in=0x7f07007c;
-        public static final int login_status_network_or_connection_error=0x7f070081;
-        public static final int login_status_null_username_or_password=0x7f07007d;
-        public static final int login_with_sina=0x7f070084;
-        public static final int login_with_tx=0x7f070085;
-        public static final int marketnote=0x7f070035;
-        public static final int marketshopping=0x7f070034;
-        public static final int marksuccess=0x7f070043;
-        public static final int messages=0x7f07003b;
+        public static final int login_label_username=0x7f07007b;
+        public static final int login_not_email_format=0x7f070080;
+        public static final int login_register_link=0x7f070084;
+        public static final int login_status_failure=0x7f070085;
+        public static final int login_status_invalid__password=0x7f070082;
+        public static final int login_status_invalid_username=0x7f070081;
+        public static final int login_status_logging_in=0x7f07007e;
+        public static final int login_status_network_or_connection_error=0x7f070083;
+        public static final int login_status_null_username_or_password=0x7f07007f;
+        public static final int login_with_sina=0x7f070086;
+        public static final int login_with_tx=0x7f070087;
+        public static final int marketnote=0x7f070036;
+        public static final int marketshopping=0x7f070035;
+        public static final int marksuccess=0x7f070044;
+        public static final int messages=0x7f07003c;
         public static final int mine=0x7f070016;
-        public static final int msg_content=0x7f07004b;
-        public static final int msg_send_success=0x7f07004c;
+        public static final int msg_content=0x7f07004d;
+        public static final int msg_send_success=0x7f07004e;
         public static final int newversion=0x7f07000f;
-        public static final int none=0x7f070025;
+        public static final int none=0x7f070026;
         /**  对话框 
          */
         public static final int note=0x7f07000a;
-        public static final int notification=0x7f070048;
-        public static final int notoriginal=0x7f070021;
-        public static final int omenu_about=0x7f070065;
-        public static final int omenu_exit=0x7f070066;
-        public static final int omenu_help=0x7f070067;
-        public static final int omenu_preferences=0x7f070062;
-        public static final int omenu_refresh=0x7f070061;
-        public static final int omenu_search=0x7f070064;
-        public static final int omenu_settings=0x7f070063;
+        public static final int notification=0x7f07004a;
+        public static final int notoriginal=0x7f070022;
+        public static final int omenu_about=0x7f070067;
+        public static final int omenu_exit=0x7f070068;
+        public static final int omenu_help=0x7f070069;
+        public static final int omenu_preferences=0x7f070064;
+        public static final int omenu_refresh=0x7f070063;
+        public static final int omenu_search=0x7f070066;
+        public static final int omenu_settings=0x7f070065;
         /**  options menu 
          */
-        public static final int omenu_signout=0x7f070060;
-        public static final int original=0x7f070020;
-        public static final int page_dm_texting_is_null=0x7f070056;
-        public static final int page_dm_user_is_null=0x7f070058;
-        public static final int page_is_the_person_following_you=0x7f070059;
+        public static final int omenu_signout=0x7f070062;
+        public static final int original=0x7f070021;
+        public static final int page_dm_texting_is_null=0x7f070058;
+        public static final int page_dm_user_is_null=0x7f07005a;
+        public static final int page_is_the_person_following_you=0x7f07005b;
         /**  按钮提示 
          */
-        public static final int page_label_get_more=0x7f07005d;
-        public static final int page_label_go_back=0x7f07005e;
-        public static final int page_status_compressing=0x7f070050;
-        public static final int page_status_deleting=0x7f070051;
+        public static final int page_label_get_more=0x7f07005f;
+        public static final int page_label_go_back=0x7f070060;
+        public static final int page_status_compressing=0x7f070052;
+        public static final int page_status_deleting=0x7f070053;
         /**  状态条提示 
          */
-        public static final int page_status_refreshing=0x7f07004e;
-        public static final int page_status_same_page=0x7f070055;
-        public static final int page_status_timeout=0x7f070054;
-        public static final int page_status_unable_to_update=0x7f070053;
-        public static final int page_status_update_success=0x7f070052;
-        public static final int page_status_updating=0x7f07004f;
-        public static final int page_text_is_null=0x7f070057;
-        public static final int peoplelike=0x7f070023;
-        public static final int picdaren=0x7f070031;
-        public static final int picdetails=0x7f070027;
-        public static final int picfrom=0x7f070022;
-        public static final int picnum=0x7f07003f;
-        public static final int picutues=0x7f070039;
-        public static final int pintu=0x7f07003a;
+        public static final int page_status_refreshing=0x7f070050;
+        public static final int page_status_same_page=0x7f070057;
+        public static final int page_status_timeout=0x7f070056;
+        public static final int page_status_unable_to_update=0x7f070055;
+        public static final int page_status_update_success=0x7f070054;
+        public static final int page_status_updating=0x7f070051;
+        public static final int page_text_is_null=0x7f070059;
+        public static final int peoplelike=0x7f070024;
+        public static final int picdaren=0x7f070032;
+        public static final int picdetails=0x7f070028;
+        public static final int picfrom=0x7f070023;
+        public static final int picnum=0x7f070040;
+        public static final int picutues=0x7f07003a;
+        public static final int pintu=0x7f07003b;
         /**  画廊主菜单 
          */
         public static final int postpic=0x7f070012;
-        public static final int pref_network_type_3g=0x7f070093;
-        public static final int pref_network_type_cmnet=0x7f070091;
-        public static final int pref_network_type_cmwap=0x7f070092;
-        public static final int pref_network_type_summary=0x7f070094;
-        public static final int pref_network_type_title=0x7f070090;
-        public static final int pref_photo_preview_type_middle=0x7f070097;
+        public static final int pref_network_type_3g=0x7f070095;
+        public static final int pref_network_type_cmnet=0x7f070093;
+        public static final int pref_network_type_cmwap=0x7f070094;
+        public static final int pref_network_type_summary=0x7f070096;
+        public static final int pref_network_type_title=0x7f070092;
+        public static final int pref_photo_preview_type_middle=0x7f070099;
         /**  图片设置 
          */
-        public static final int pref_photo_preview_type_none=0x7f070095;
-        public static final int pref_photo_preview_type_original=0x7f070098;
+        public static final int pref_photo_preview_type_none=0x7f070097;
+        public static final int pref_photo_preview_type_original=0x7f07009a;
         /**  NOTE:缩略图尺寸在这里没有实用价值，在array.xml中被屏蔽 
          */
-        public static final int pref_photo_preview_type_thumbnail=0x7f070096;
+        public static final int pref_photo_preview_type_thumbnail=0x7f070098;
         /**  网络监测与设置 
          */
-        public static final int pref_title_network=0x7f07008f;
+        public static final int pref_title_network=0x7f070091;
+        public static final int purchase=0x7f07001c;
         /**  编辑消息页面 
          */
-        public static final int receiver=0x7f070049;
-        public static final int report=0x7f07001c;
-        public static final int report_thanks=0x7f070046;
-        public static final int save=0x7f07001d;
-        public static final int score_zh=0x7f07001f;
-        public static final int shake_toget_random=0x7f070044;
-        public static final int shellunit=0x7f070041;
+        public static final int receiver=0x7f07004b;
+        public static final int report=0x7f07001d;
+        public static final int report_thanks=0x7f070047;
+        public static final int save=0x7f07001e;
+        public static final int score_zh=0x7f070020;
+        public static final int shake_toget_random=0x7f070045;
+        public static final int shellunit=0x7f070042;
         /**  爱品图专属文字 
          */
         public static final int slogan=0x7f070000;
-        public static final int storylist=0x7f070028;
-        public static final int storynum=0x7f070040;
+        public static final int storylist=0x7f070029;
+        public static final int storynum=0x7f070041;
         public static final int suretologout=0x7f07000b;
         public static final int suretosave=0x7f07000c;
-        public static final int tadipic=0x7f070037;
+        public static final int tadipic=0x7f070038;
         public static final int tags=0x7f070004;
-        public static final int tagtitle=0x7f07002c;
+        public static final int tagtitle=0x7f07002d;
         /**  切换按钮文字 
          */
-        public static final int todayhotpic=0x7f07002d;
-        public static final int totalscore=0x7f07003d;
-        public static final int tweet_created_at_beautify_day=0x7f07009d;
-        public static final int tweet_created_at_beautify_hour=0x7f07009c;
-        public static final int tweet_created_at_beautify_min=0x7f07009b;
+        public static final int todayhotpic=0x7f07002e;
+        public static final int totalscore=0x7f07003e;
+        public static final int tweet_created_at_beautify_day=0x7f07009f;
+        public static final int tweet_created_at_beautify_hour=0x7f07009e;
+        public static final int tweet_created_at_beautify_min=0x7f07009d;
         /**  时间 
          */
-        public static final int tweet_created_at_beautify_prefix=0x7f070099;
-        public static final int tweet_created_at_beautify_sec=0x7f07009a;
-        public static final int tweet_created_at_beautify_suffix=0x7f07009e;
+        public static final int tweet_created_at_beautify_prefix=0x7f07009b;
+        public static final int tweet_created_at_beautify_sec=0x7f07009c;
+        public static final int tweet_created_at_beautify_suffix=0x7f0700a0;
         /**  我的资产页面文字 
          */
-        public static final int userlevel=0x7f07003c;
-        public static final int write_label_choose_a_picture=0x7f07008b;
-        public static final int write_label_choose_images=0x7f070088;
-        public static final int write_label_insert_picture=0x7f07008c;
+        public static final int userlevel=0x7f07003d;
+        public static final int write_label_choose_a_picture=0x7f07008d;
+        public static final int write_label_choose_images=0x7f07008a;
+        public static final int write_label_insert_picture=0x7f07008e;
         /**  Write页面 
          */
-        public static final int write_label_send=0x7f070086;
-        public static final int write_label_send_hint=0x7f070087;
-        public static final int write_label_send_in_background=0x7f070089;
-        public static final int write_label_take_a_picture=0x7f07008a;
-        public static final int write_label_you_can_type_prefix=0x7f07008d;
-        public static final int write_label_you_can_type_suffix=0x7f07008e;
+        public static final int write_label_send=0x7f070088;
+        public static final int write_label_send_hint=0x7f070089;
+        public static final int write_label_send_in_background=0x7f07008b;
+        public static final int write_label_take_a_picture=0x7f07008c;
+        public static final int write_label_you_can_type_prefix=0x7f07008f;
+        public static final int write_label_you_can_type_suffix=0x7f070090;
         public static final int writecomnt=0x7f070006;
-        public static final int writemsg=0x7f07005f;
+        public static final int writemsg=0x7f070061;
         public static final int writestory=0x7f070005;
-        public static final int xuetang=0x7f07002f;
+        public static final int xuetang=0x7f070030;
         public static final int yes=0x7f07000d;
         /**  通知提示 
          */
-        public static final int youhave=0x7f070047;
+        public static final int youhave=0x7f070049;
     }
     public static final class style {
         public static final int Button=0x7f080018;

@@ -41,9 +41,10 @@ com.pintu.PintuMain$1 -> com.pintu.a:
 com.pintu.activity.AboutThis -> com.pintu.activity.AboutThis:
     android.widget.ImageButton top_back -> a
     android.widget.TextView tv_title -> b
-    android.view.View$OnClickListener mGoListener -> c
+    android.widget.TextView version -> c
+    android.view.View$OnClickListener mGoListener -> d
     void onCreate(android.os.Bundle) -> onCreate
-com.pintu.activity.AboutThis$1 -> com.pintu.activity.bl:
+com.pintu.activity.AboutThis$1 -> com.pintu.activity.bk:
     com.pintu.activity.AboutThis this$0 -> a
     void onClick(android.view.View) -> onClick
 com.pintu.activity.AndiAssets -> com.pintu.activity.AndiAssets:
@@ -105,10 +106,17 @@ com.pintu.activity.AndiMessage -> com.pintu.activity.AndiMessage:
     void refreshMultView(org.json.JSONObject) -> a
     void addProgress(android.widget.ProgressBar) -> a
     void refresh(android.widget.ImageButton) -> a
+<<<<<<< HEAD
     android.widget.ListView access$000(com.pintu.activity.AndiMessage) -> a
     void access$100(com.pintu.activity.AndiMessage) -> b
     com.pintu.adapter.MessageAdapter access$200(com.pintu.activity.AndiMessage) -> c
 com.pintu.activity.AndiMessage$1 -> com.pintu.activity.bg:
+=======
+    android.widget.ListView access$0(com.pintu.activity.AndiMessage) -> a
+    void access$1(com.pintu.activity.AndiMessage) -> b
+    com.pintu.adapter.MessageAdapter access$2(com.pintu.activity.AndiMessage) -> c
+com.pintu.activity.AndiMessage$1 -> com.pintu.activity.bf:
+>>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
     com.pintu.activity.AndiMessage this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.pintu.activity.AndiPics -> com.pintu.activity.AndiPics:
@@ -134,8 +142,13 @@ com.pintu.activity.AndiPics -> com.pintu.activity.AndiPics:
     void refreshMultView(org.json.JSONObject) -> a
     void addProgress(android.widget.ProgressBar) -> a
     void refresh(android.widget.ImageButton) -> a
+<<<<<<< HEAD
     com.pintu.adapter.FavoPicsAdapter access$000(com.pintu.activity.AndiPics) -> a
 com.pintu.activity.AndiPics$1 -> com.pintu.activity.m:
+=======
+    com.pintu.adapter.FavoPicsAdapter access$0(com.pintu.activity.AndiPics) -> a
+com.pintu.activity.AndiPics$1 -> com.pintu.activity.l:
+>>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
     com.pintu.activity.AndiPics this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.pintu.activity.AndiWealth -> com.pintu.activity.AndiWealth:
@@ -192,8 +205,13 @@ com.pintu.activity.ClassicWorks -> com.pintu.activity.ClassicWorks:
     void onSendBegin() -> e
     void onSendSuccess() -> f
     void onSendFailure() -> g
+<<<<<<< HEAD
     com.pintu.adapter.HotPicsAdapter access$000(com.pintu.activity.ClassicWorks) -> a
 com.pintu.activity.ClassicWorks$1 -> com.pintu.activity.ay:
+=======
+    com.pintu.adapter.HotPicsAdapter access$0(com.pintu.activity.ClassicWorks) -> a
+com.pintu.activity.ClassicWorks$1 -> com.pintu.activity.ax:
+>>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
     com.pintu.activity.ClassicWorks this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.pintu.activity.CmntClassRoom -> com.pintu.activity.CmntClassRoom:
@@ -272,8 +290,13 @@ com.pintu.activity.CommentDaren -> com.pintu.activity.CommentDaren:
     void addProgress(android.widget.ProgressBar) -> a
     void refresh(android.widget.ImageButton) -> a
     java.lang.Object getObj(java.lang.String) -> c
+<<<<<<< HEAD
     com.pintu.adapter.UserAdapter access$000(com.pintu.activity.CommentDaren) -> a
 com.pintu.activity.CommentDaren$1 -> com.pintu.activity.l:
+=======
+    com.pintu.adapter.UserAdapter access$0(com.pintu.activity.CommentDaren) -> a
+com.pintu.activity.CommentDaren$1 -> com.pintu.activity.m:
+>>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
     com.pintu.activity.CommentDaren this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.pintu.activity.CommentEdit -> com.pintu.activity.CommentEdit:
@@ -305,17 +328,22 @@ com.pintu.activity.CommentEdit -> com.pintu.activity.CommentEdit:
     void onParseJSONResultFailue() -> k
     void refreshListView(java.util.List) -> a
     void refreshMultView(org.json.JSONObject) -> a
+<<<<<<< HEAD
     void access$000(com.pintu.activity.CommentEdit,android.text.Editable) -> a
 com.pintu.activity.CommentEdit$1 -> com.pintu.activity.bd:
+=======
+    void access$0(com.pintu.activity.CommentEdit,android.text.Editable) -> a
+com.pintu.activity.CommentEdit$1 -> com.pintu.activity.bc:
+>>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
     com.pintu.activity.CommentEdit this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.CommentEdit$2 -> com.pintu.activity.bb:
+com.pintu.activity.CommentEdit$2 -> com.pintu.activity.ba:
     com.pintu.activity.CommentEdit this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.CommentEdit$3 -> com.pintu.activity.bc:
+com.pintu.activity.CommentEdit$3 -> com.pintu.activity.bb:
     com.pintu.activity.CommentEdit this$0 -> a
     boolean onEditorAction(android.widget.TextView,int,android.view.KeyEvent) -> onEditorAction
-com.pintu.activity.CommentEdit$4 -> com.pintu.activity.ba:
+com.pintu.activity.CommentEdit$4 -> com.pintu.activity.az:
     com.pintu.activity.CommentEdit this$0 -> a
     void afterTextChanged(android.text.Editable) -> afterTextChanged
     void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
@@ -345,7 +373,7 @@ com.pintu.activity.CommentList -> com.pintu.activity.CommentList:
     void onSendBegin() -> e
     void onSendSuccess() -> f
     void onSendFailure() -> g
-com.pintu.activity.CommentList$1 -> com.pintu.activity.az:
+com.pintu.activity.CommentList$1 -> com.pintu.activity.ay:
     com.pintu.activity.CommentList this$0 -> a
     void onClick(android.view.View) -> onClick
 com.pintu.activity.CommunityTrends -> com.pintu.activity.CommunityTrends:
@@ -368,17 +396,19 @@ com.pintu.activity.HomeGallery -> com.pintu.activity.HomeGallery:
     com.pintu.task.GenericTask mRetrieveTask -> j
     com.pintu.task.TaskManager taskManager -> k
     com.hlidskialf.android.hardware.ShakeListener shaker -> l
-    com.hlidskialf.android.hardware.ShakeListener$OnShakeListener sklistener -> m
-    android.view.View$OnClickListener mineListener -> n
-    android.view.View$OnClickListener tagsListener -> o
-    android.view.View$OnClickListener communityListener -> p
-    android.view.View$OnClickListener hotpicListener -> q
-    android.widget.AdapterView$OnItemClickListener cellClickListener -> r
-    android.view.View$OnClickListener postImgListener -> s
-    android.view.View$OnClickListener refreshListener -> t
-    com.pintu.task.TaskListener mRetrieveTaskListener -> u
-    android.content.DialogInterface$OnClickListener okListener -> v
-    android.content.DialogInterface$OnClickListener cancelListener -> w
+    com.pintu.upgrade.UpdateManager updater -> m
+    com.hlidskialf.android.hardware.ShakeListener$OnShakeListener sklistener -> n
+    android.view.View$OnClickListener mineListener -> o
+    android.view.View$OnClickListener tagsListener -> p
+    android.view.View$OnClickListener communityListener -> q
+    android.view.View$OnClickListener hotpicListener -> r
+    android.widget.AdapterView$OnItemClickListener cellClickListener -> s
+    android.view.View$OnClickListener postImgListener -> t
+    android.view.View$OnClickListener refreshListener -> u
+    com.pintu.task.TaskListener mRetrieveTaskListener -> v
+    android.os.Handler updateHandler -> w
+    android.content.DialogInterface$OnClickListener okListener -> x
+    android.content.DialogInterface$OnClickListener cancelListener -> y
     void onCreate(android.os.Bundle) -> onCreate
     void onStart() -> onStart
     void retrieveGalleryFromDB() -> a
@@ -387,6 +417,7 @@ com.pintu.activity.HomeGallery -> com.pintu.activity.HomeGallery:
     void updateProgress(java.lang.String) -> a
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+<<<<<<< HEAD
     void access$000(com.pintu.activity.HomeGallery) -> a
     com.pintu.adapter.GalleryImageAdapter access$100(com.pintu.activity.HomeGallery) -> b
     void access$200(com.pintu.activity.HomeGallery) -> c
@@ -395,15 +426,33 @@ com.pintu.activity.HomeGallery -> com.pintu.activity.HomeGallery:
     void access$500(com.pintu.activity.HomeGallery,java.lang.String) -> a
     com.hlidskialf.android.hardware.ShakeListener access$600(com.pintu.activity.HomeGallery) -> f
     void access$700(com.pintu.activity.HomeGallery) -> g
+=======
+    void access$0(com.pintu.activity.HomeGallery) -> a
+    com.pintu.adapter.GalleryImageAdapter access$1(com.pintu.activity.HomeGallery) -> b
+    void access$2(com.pintu.activity.HomeGallery) -> c
+    android.widget.ProgressBar access$3(com.pintu.activity.HomeGallery) -> d
+    android.widget.ImageButton access$4(com.pintu.activity.HomeGallery) -> e
+    void access$5(com.pintu.activity.HomeGallery,java.lang.String) -> a
+    com.hlidskialf.android.hardware.ShakeListener access$6(com.pintu.activity.HomeGallery) -> f
+    void access$7(com.pintu.activity.HomeGallery) -> g
+    com.pintu.upgrade.UpdateManager access$9(com.pintu.activity.HomeGallery) -> h
+    void access$10(com.pintu.activity.HomeGallery) -> i
+>>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
 com.pintu.activity.HomeGallery$1 -> com.pintu.activity.o:
     com.pintu.activity.HomeGallery this$0 -> a
     void onShake() -> a
 com.pintu.activity.HomeGallery$10 -> com.pintu.activity.bv:
     com.pintu.activity.HomeGallery this$0 -> a
-    void onClick(android.content.DialogInterface,int) -> onClick
-com.pintu.activity.HomeGallery$11 -> com.pintu.activity.bu:
+    void handleMessage(android.os.Message) -> handleMessage
+com.pintu.activity.HomeGallery$11 -> com.pintu.activity.bt:
     com.pintu.activity.HomeGallery this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
+com.pintu.activity.HomeGallery$12 -> com.pintu.activity.bu:
+    com.pintu.activity.HomeGallery this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.pintu.activity.HomeGallery$13 -> com.pintu.activity.bw:
+    com.pintu.activity.HomeGallery this$0 -> a
+    void run() -> run
 com.pintu.activity.HomeGallery$2 -> com.pintu.activity.u:
     com.pintu.activity.HomeGallery this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -442,7 +491,7 @@ com.pintu.activity.HowTos -> com.pintu.activity.HowTos:
     android.widget.TextView tv_title -> b
     android.view.View$OnClickListener mGoListener -> c
     void onCreate(android.os.Bundle) -> onCreate
-com.pintu.activity.HowTos$1 -> com.pintu.activity.bt:
+com.pintu.activity.HowTos$1 -> com.pintu.activity.bs:
     com.pintu.activity.HowTos this$0 -> a
     void onClick(android.view.View) -> onClick
 com.pintu.activity.LogonSys -> com.pintu.activity.LogonSys:
@@ -552,29 +601,35 @@ com.pintu.activity.MsgEdit -> com.pintu.activity.MsgEdit:
     void onParseJSONResultFailue() -> k
     void refreshListView(java.util.List) -> a
     void refreshMultView(org.json.JSONObject) -> a
+<<<<<<< HEAD
     android.widget.EditText access$000(com.pintu.activity.MsgEdit) -> a
     void access$100(com.pintu.activity.MsgEdit) -> b
 com.pintu.activity.MsgEdit$1 -> com.pintu.activity.bj:
+=======
+    android.widget.EditText access$0(com.pintu.activity.MsgEdit) -> a
+    void access$1(com.pintu.activity.MsgEdit) -> b
+com.pintu.activity.MsgEdit$1 -> com.pintu.activity.bi:
+>>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
     com.pintu.activity.MsgEdit this$0 -> a
     void afterTextChanged(android.text.Editable) -> afterTextChanged
     void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
     void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
-com.pintu.activity.MsgEdit$2 -> com.pintu.activity.ax:
+com.pintu.activity.MsgEdit$2 -> com.pintu.activity.aw:
     com.pintu.activity.MsgEdit this$0 -> a
     boolean onEditorAction(android.widget.TextView,int,android.view.KeyEvent) -> onEditorAction
-com.pintu.activity.MsgEdit$3 -> com.pintu.activity.aw:
+com.pintu.activity.MsgEdit$3 -> com.pintu.activity.av:
     com.pintu.activity.MsgEdit this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.MsgEdit$4 -> com.pintu.activity.av:
+com.pintu.activity.MsgEdit$4 -> com.pintu.activity.au:
     com.pintu.activity.MsgEdit this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.MsgEdit$5 -> com.pintu.activity.au:
+com.pintu.activity.MsgEdit$5 -> com.pintu.activity.at:
     com.pintu.activity.MsgEdit this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.MsgEdit$6 -> com.pintu.activity.at:
+com.pintu.activity.MsgEdit$6 -> com.pintu.activity.as:
     com.pintu.activity.MsgEdit this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
-com.pintu.activity.MsgEdit$7 -> com.pintu.activity.as:
+com.pintu.activity.MsgEdit$7 -> com.pintu.activity.ar:
     com.pintu.activity.MsgEdit this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
 com.pintu.activity.PicDaren -> com.pintu.activity.PicDaren:
@@ -652,6 +707,7 @@ com.pintu.activity.PictureDetails -> com.pintu.activity.PictureDetails:
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
     void savePic() -> a
+<<<<<<< HEAD
     com.pintu.data.TPicDetails access$000(com.pintu.activity.PictureDetails) -> a
     void access$100(com.pintu.activity.PictureDetails) -> b
     void access$200(com.pintu.activity.PictureDetails,java.lang.String) -> a
@@ -669,30 +725,50 @@ com.pintu.activity.PictureDetails -> com.pintu.activity.PictureDetails:
     android.widget.TextView access$1300(com.pintu.activity.PictureDetails) -> l
     void access$1400(com.pintu.activity.PictureDetails) -> m
 com.pintu.activity.PictureDetails$1 -> com.pintu.activity.an:
+=======
+    com.pintu.data.TPicDetails access$0(com.pintu.activity.PictureDetails) -> a
+    void access$1(com.pintu.activity.PictureDetails) -> b
+    void access$2(com.pintu.activity.PictureDetails,java.lang.String) -> a
+    void access$3(com.pintu.activity.PictureDetails) -> c
+    void access$4(com.pintu.activity.PictureDetails) -> d
+    android.widget.ProgressBar access$5(com.pintu.activity.PictureDetails) -> e
+    android.widget.TextView access$6(com.pintu.activity.PictureDetails) -> f
+    void access$7(com.pintu.activity.PictureDetails) -> g
+    void access$8(com.pintu.activity.PictureDetails) -> h
+    void access$9(com.pintu.activity.PictureDetails) -> i
+    void access$10(com.pintu.activity.PictureDetails) -> j
+    android.widget.TextView access$11(com.pintu.activity.PictureDetails) -> k
+    void access$12(com.pintu.activity.PictureDetails,com.pintu.data.TPicDetails) -> a
+    void access$13(com.pintu.activity.PictureDetails,com.pintu.data.TPicDetails) -> b
+    android.widget.TextView access$14(com.pintu.activity.PictureDetails) -> l
+    void access$15(com.pintu.activity.PictureDetails) -> m
+com.pintu.activity.PictureDetails$1 -> com.pintu.activity.am:
+>>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
     com.pintu.activity.PictureDetails this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.PictureDetails$10 -> com.pintu.activity.ag:
+com.pintu.activity.PictureDetails$10 -> com.pintu.activity.af:
     com.pintu.activity.PictureDetails this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.PictureDetails$11 -> com.pintu.activity.ah:
+com.pintu.activity.PictureDetails$11 -> com.pintu.activity.ag:
     com.pintu.activity.PictureDetails this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.PictureDetails$12 -> com.pintu.activity.ac:
+com.pintu.activity.PictureDetails$12 -> com.pintu.activity.ab:
     com.pintu.activity.PictureDetails this$0 -> a
     void onPreExecute$322054cb() -> a
     void onPostExecute$2cad64ef(com.pintu.task.TaskResult) -> a
-com.pintu.activity.PictureDetails$13 -> com.pintu.activity.ad:
+com.pintu.activity.PictureDetails$13 -> com.pintu.activity.ac:
     com.pintu.activity.PictureDetails this$0 -> a
     void onPreExecute$322054cb() -> a
     void onPostExecute$2cad64ef(com.pintu.task.TaskResult) -> a
     void deliveryResponseJson(org.json.JSONObject) -> a
-com.pintu.activity.PictureDetails$14 -> com.pintu.activity.ae:
+com.pintu.activity.PictureDetails$14 -> com.pintu.activity.ad:
     com.pintu.activity.PictureDetails this$0 -> a
     void deliverResponseString(java.lang.String) -> a
-com.pintu.activity.PictureDetails$15 -> com.pintu.activity.af:
+com.pintu.activity.PictureDetails$15 -> com.pintu.activity.ae:
     com.pintu.activity.PictureDetails this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
 com.pintu.activity.PictureDetails$16 -> com.pintu.activity.aa:
+<<<<<<< HEAD
     java.lang.String downloadFile -> a
     com.pintu.activity.PictureDetails this$0 -> b
     void onPreExecute() -> onPreExecute
@@ -704,28 +780,33 @@ com.pintu.activity.PictureDetails$17 -> com.pintu.activity.ab:
     com.pintu.activity.PictureDetails this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
 com.pintu.activity.PictureDetails$2 -> com.pintu.activity.ao:
+=======
+    com.pintu.activity.PictureDetails this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.pintu.activity.PictureDetails$2 -> com.pintu.activity.an:
+>>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
     com.pintu.activity.PictureDetails this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.PictureDetails$3 -> com.pintu.activity.aj:
+com.pintu.activity.PictureDetails$3 -> com.pintu.activity.ai:
     com.pintu.activity.PictureDetails this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.PictureDetails$4 -> com.pintu.activity.ak:
+com.pintu.activity.PictureDetails$4 -> com.pintu.activity.aj:
     com.pintu.activity.PictureDetails this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.PictureDetails$5 -> com.pintu.activity.al:
+com.pintu.activity.PictureDetails$5 -> com.pintu.activity.ak:
     com.pintu.activity.PictureDetails this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.PictureDetails$6 -> com.pintu.activity.am:
+com.pintu.activity.PictureDetails$6 -> com.pintu.activity.al:
     com.pintu.activity.PictureDetails this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.PictureDetails$7 -> com.pintu.activity.aq:
+com.pintu.activity.PictureDetails$7 -> com.pintu.activity.ap:
     com.pintu.activity.PictureDetails this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.PictureDetails$8 -> com.pintu.activity.ap:
+com.pintu.activity.PictureDetails$8 -> com.pintu.activity.ao:
     com.pintu.activity.PictureDetails this$0 -> a
     void onPreExecute$322054cb() -> a
     void onPostExecute$2cad64ef(com.pintu.task.TaskResult) -> a
-com.pintu.activity.PictureDetails$9 -> com.pintu.activity.ar:
+com.pintu.activity.PictureDetails$9 -> com.pintu.activity.aq:
     com.pintu.activity.PictureDetails this$0 -> a
     void onPreExecute$322054cb() -> a
     void onPostExecute$2cad64ef(com.pintu.task.TaskResult) -> a
@@ -830,6 +911,7 @@ com.pintu.activity.StoryEdit -> com.pintu.activity.StoryEdit:
     void updateCharsRemain() -> a
     void onDestroy() -> onDestroy
     void updateProgress(java.lang.String) -> a
+<<<<<<< HEAD
     void access$000(com.pintu.activity.StoryEdit) -> a
     android.widget.EditText access$100(com.pintu.activity.StoryEdit) -> b
     void access$200(com.pintu.activity.StoryEdit) -> c
@@ -837,29 +919,38 @@ com.pintu.activity.StoryEdit -> com.pintu.activity.StoryEdit:
     void access$400(com.pintu.activity.StoryEdit) -> e
     void access$500(com.pintu.activity.StoryEdit) -> f
 com.pintu.activity.StoryEdit$1 -> com.pintu.activity.bs:
+=======
+    void access$0(com.pintu.activity.StoryEdit) -> a
+    android.widget.EditText access$1(com.pintu.activity.StoryEdit) -> b
+    void access$2(com.pintu.activity.StoryEdit) -> c
+    void access$3(com.pintu.activity.StoryEdit) -> d
+    void access$4(com.pintu.activity.StoryEdit) -> e
+    void access$5(com.pintu.activity.StoryEdit) -> f
+com.pintu.activity.StoryEdit$1 -> com.pintu.activity.br:
+>>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
     com.pintu.activity.StoryEdit this$0 -> a
     void afterTextChanged(android.text.Editable) -> afterTextChanged
     void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
     void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
-com.pintu.activity.StoryEdit$2 -> com.pintu.activity.bq:
+com.pintu.activity.StoryEdit$2 -> com.pintu.activity.bp:
     com.pintu.activity.StoryEdit this$0 -> a
     boolean onEditorAction(android.widget.TextView,int,android.view.KeyEvent) -> onEditorAction
-com.pintu.activity.StoryEdit$3 -> com.pintu.activity.br:
+com.pintu.activity.StoryEdit$3 -> com.pintu.activity.bq:
     com.pintu.activity.StoryEdit this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.StoryEdit$4 -> com.pintu.activity.bo:
+com.pintu.activity.StoryEdit$4 -> com.pintu.activity.bn:
     com.pintu.activity.StoryEdit this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.StoryEdit$5 -> com.pintu.activity.bp:
+com.pintu.activity.StoryEdit$5 -> com.pintu.activity.bo:
     com.pintu.activity.StoryEdit this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.StoryEdit$6 -> com.pintu.activity.bm:
+com.pintu.activity.StoryEdit$6 -> com.pintu.activity.bl:
     com.pintu.activity.StoryEdit this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
-com.pintu.activity.StoryEdit$7 -> com.pintu.activity.bn:
+com.pintu.activity.StoryEdit$7 -> com.pintu.activity.bm:
     com.pintu.activity.StoryEdit this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
-com.pintu.activity.StoryEdit$8 -> com.pintu.activity.bk:
+com.pintu.activity.StoryEdit$8 -> com.pintu.activity.bj:
     com.pintu.activity.StoryEdit this$0 -> a
     void onPreExecute$322054cb() -> a
     void onPostExecute$2cad64ef(com.pintu.task.TaskResult) -> a
@@ -889,9 +980,9 @@ com.pintu.activity.StoryList -> com.pintu.activity.StoryList:
     void onParseJSONResultFailue() -> k
     void refreshListView(java.util.List) -> a
     void refreshMultView(org.json.JSONObject) -> a
-com.pintu.activity.StoryList$1 -> com.pintu.activity.bf:
+com.pintu.activity.StoryList$1 -> com.pintu.activity.be:
     com.pintu.activity.StoryList this$0 -> a
-com.pintu.activity.StoryList$2 -> com.pintu.activity.be:
+com.pintu.activity.StoryList$2 -> com.pintu.activity.bd:
     com.pintu.activity.StoryList this$0 -> a
     void onClick(android.view.View) -> onClick
 com.pintu.activity.TadiAssets -> com.pintu.activity.TadiAssets:
@@ -1003,11 +1094,16 @@ com.pintu.activity.TagPicGallery -> com.pintu.activity.TagPicGallery:
     void onSendBegin() -> e
     void onSendSuccess() -> f
     void onSendFailure() -> g
+<<<<<<< HEAD
     com.pintu.adapter.GalleryImageAdapter access$000(com.pintu.activity.TagPicGallery) -> a
 com.pintu.activity.TagPicGallery$1 -> com.pintu.activity.bh:
+=======
+    com.pintu.adapter.GalleryImageAdapter access$0(com.pintu.activity.TagPicGallery) -> a
+com.pintu.activity.TagPicGallery$1 -> com.pintu.activity.bg:
+>>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
     com.pintu.activity.TagPicGallery this$0 -> a
     void onClick(android.view.View) -> onClick
-com.pintu.activity.TagPicGallery$2 -> com.pintu.activity.bi:
+com.pintu.activity.TagPicGallery$2 -> com.pintu.activity.bh:
     com.pintu.activity.TagPicGallery this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.pintu.activity.TodayHotPic -> com.pintu.activity.TodayHotPic:
@@ -1033,8 +1129,13 @@ com.pintu.activity.TodayHotPic -> com.pintu.activity.TodayHotPic:
     void onSendBegin() -> e
     void onSendSuccess() -> f
     void onSendFailure() -> g
+<<<<<<< HEAD
     com.pintu.adapter.HotPicsAdapter access$000(com.pintu.activity.TodayHotPic) -> a
 com.pintu.activity.TodayHotPic$1 -> com.pintu.activity.ai:
+=======
+    com.pintu.adapter.HotPicsAdapter access$0(com.pintu.activity.TodayHotPic) -> a
+com.pintu.activity.TodayHotPic$1 -> com.pintu.activity.ah:
+>>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
     com.pintu.activity.TodayHotPic this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.pintu.activity.base.FullScreenActivity -> com.pintu.activity.base.FullScreenActivity:
@@ -1255,7 +1356,6 @@ com.pintu.api.PTApi -> com.pintu.i.b:
     java.lang.String getConfigURL() -> b
     java.lang.String postPictureWithProgress(java.io.File,java.lang.String,java.lang.String,java.lang.String,com.pintu.http.CountingMultiPartEntity$ProgressListener) -> a
     boolean isDebugMode() -> a
-    java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String) -> b
     void updateUser(java.lang.String) -> a
     java.lang.String composeImgUrlById(java.lang.String) -> c
     java.lang.String composeImgUrlByPath(java.lang.String) -> d
@@ -1319,7 +1419,6 @@ com.pintu.api.PTImpl -> com.pintu.i.a:
     org.json.JSONArray getNewMessages(java.lang.String) -> j
     java.lang.String updateMsgReaded(java.lang.String) -> k
     java.lang.String logon(java.lang.String,java.lang.String) -> h
-    java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String) -> b
     org.json.JSONArray getPicDaren() -> e
     org.json.JSONArray getCmntDaren() -> f
     org.json.JSONArray getHotTags() -> g
@@ -1526,18 +1625,41 @@ com.pintu.http.SimpleHttpClient -> com.pintu.b.c:
     org.apache.http.client.methods.HttpUriRequest createMethod$1ff7fa58(java.lang.String,java.net.URI,java.util.ArrayList) -> a
 com.pintu.http.SimpleHttpClient$1 -> com.pintu.b.j:
     boolean retryRequest(java.io.IOException,int,org.apache.http.protocol.HttpContext) -> retryRequest
+com.pintu.service.DnldService -> com.pintu.service.DnldService:
+    com.pintu.service.DnldService$ServiceHandler mServiceHandler -> a
+    int currentServiceId -> b
+    java.lang.String apkURL -> c
+    java.lang.String apkFileName -> d
+    java.lang.String imgURL -> e
+    java.lang.String imgType -> f
+    void onCreate() -> onCreate
+    int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    void showToast(java.lang.String) -> a
+    java.lang.String writeToFile2SD(java.io.InputStream,java.lang.String) -> a
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    void onDestroy() -> onDestroy
+    void access$0(com.pintu.service.DnldService) -> a
+    void access$1(com.pintu.service.DnldService) -> b
+    void access$2(com.pintu.service.DnldService,java.lang.String) -> a
+    int access$3(com.pintu.service.DnldService) -> c
+    com.pintu.service.DnldService$ServiceHandler access$4(com.pintu.service.DnldService) -> d
+com.pintu.service.DnldService$1 -> com.pintu.service.a:
+    com.pintu.service.DnldService this$0 -> a
+    java.lang.String val$fmsg -> b
+    void run() -> run
+com.pintu.service.DnldService$ServiceHandler -> com.pintu.service.b:
+    com.pintu.service.DnldService this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
 com.pintu.service.MsgService -> com.pintu.service.MsgService:
     android.os.Looper mServiceLooper -> a
     com.pintu.service.MsgService$ServiceHandler mServiceHandler -> b
     int currentServiceId -> c
-    com.pintu.upgrade.UpdateManager updater -> d
-    java.lang.String mConfigFileURL -> e
-    boolean updateAvailable -> f
     void onCreate() -> onCreate
     int onStartCommand(android.content.Intent,int,int) -> onStartCommand
     java.util.List jsonMsgToObjs(org.json.JSONArray) -> a
     void onDestroy() -> onDestroy
     android.os.IBinder onBind(android.content.Intent) -> onBind
+<<<<<<< HEAD
     void access$000(com.pintu.service.MsgService) -> a
     boolean access$100(com.pintu.service.MsgService) -> b
     com.pintu.service.MsgService$ServiceHandler access$200(com.pintu.service.MsgService) -> c
@@ -1546,6 +1668,11 @@ com.pintu.service.MsgService -> com.pintu.service.MsgService:
     void access$500(com.pintu.service.MsgService) -> f
     int access$600(com.pintu.service.MsgService) -> g
 com.pintu.service.MsgService$ServiceHandler -> com.pintu.service.a:
+=======
+    void access$0(com.pintu.service.MsgService) -> a
+    int access$1(com.pintu.service.MsgService) -> b
+com.pintu.service.MsgService$ServiceHandler -> com.pintu.service.c:
+>>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
     com.pintu.service.MsgService this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
 com.pintu.task.Feedback -> com.pintu.f.c:
@@ -1558,10 +1685,8 @@ com.pintu.task.GenericTask -> com.pintu.f.h:
     void setListener(com.pintu.task.TaskListener) -> a
     com.pintu.task.TaskListener getListener() -> a
     void onCancelled() -> onCancelled
-    void onPostExecute(com.pintu.task.TaskResult) -> b
     void onPreExecute() -> onPreExecute
     void onProgressUpdate(java.lang.Object[]) -> onProgressUpdate
-    com.pintu.task.TaskResult doInBackground(com.pintu.task.TaskParams[]) -> b
     void update(java.util.Observable,java.lang.Object) -> update
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
@@ -1570,7 +1695,7 @@ com.pintu.task.RetrieveCommentsTask -> com.pintu.f.d:
     java.util.List retrievedComments -> b
     com.pintu.task.TaskResult _doInBackground(com.pintu.task.TaskParams[]) -> a
     void _onPostExecute(com.pintu.task.TaskResult) -> a
-com.pintu.task.RetrieveDarenTask -> com.pintu.f.t:
+com.pintu.task.RetrieveDarenTask -> com.pintu.f.s:
     java.util.List users -> a
     com.pintu.task.TaskResult _doInBackground(com.pintu.task.TaskParams[]) -> a
     void _onPostExecute(com.pintu.task.TaskResult) -> a
@@ -1589,7 +1714,7 @@ com.pintu.task.RetrieveGalleryTask -> com.pintu.f.a:
     java.util.List retrievedPics -> b
     com.pintu.task.TaskResult _doInBackground(com.pintu.task.TaskParams[]) -> a
     void _onPostExecute(com.pintu.task.TaskResult) -> a
-com.pintu.task.RetrieveHotPicsTask -> com.pintu.f.k:
+com.pintu.task.RetrieveHotPicsTask -> com.pintu.f.j:
     java.lang.String TAG -> a
     java.util.List retrievedHotpics -> b
     com.pintu.task.TaskResult _doInBackground(com.pintu.task.TaskParams[]) -> a
@@ -1599,56 +1724,51 @@ com.pintu.task.RetrieveHotTagsTask -> com.pintu.f.b:
     java.util.List retrievedHottags -> b
     com.pintu.task.TaskResult _doInBackground(com.pintu.task.TaskParams[]) -> a
     void _onPostExecute(com.pintu.task.TaskResult) -> a
-com.pintu.task.RetrieveMyWealthTask -> com.pintu.f.q:
+com.pintu.task.RetrieveMyWealthTask -> com.pintu.f.p:
     java.lang.String TAG -> a
     org.json.JSONObject usrDetails -> b
     com.pintu.task.TaskResult _doInBackground(com.pintu.task.TaskParams[]) -> a
     void _onPostExecute(com.pintu.task.TaskResult) -> a
-com.pintu.task.RetrieveStoriesTask -> com.pintu.f.l:
+com.pintu.task.RetrieveStoriesTask -> com.pintu.f.k:
     java.lang.String TAG -> a
     java.util.List retrievedStories -> b
     com.pintu.task.TaskResult _doInBackground(com.pintu.task.TaskParams[]) -> a
     void _onPostExecute(com.pintu.task.TaskResult) -> a
-com.pintu.task.RetrieveUserInfoTask -> com.pintu.f.n:
+com.pintu.task.RetrieveUserInfoTask -> com.pintu.f.m:
     java.lang.String TAG -> a
     org.json.JSONObject usrInfo -> b
     com.pintu.task.TaskResult _doInBackground(com.pintu.task.TaskParams[]) -> a
     void _onPostExecute(com.pintu.task.TaskResult) -> a
-com.pintu.task.SendTask -> com.pintu.f.j:
+com.pintu.task.SendTask -> com.pintu.f.i:
     java.lang.String postResult -> a
     com.pintu.http.CountingMultiPartEntity$ProgressListener listener -> b
     com.pintu.task.TaskResult _doInBackground(com.pintu.task.TaskParams[]) -> a
     com.pintu.task.TaskResult sendPicWithProgress(com.pintu.task.TaskParams) -> a
     void _onPostExecute(com.pintu.task.TaskResult) -> a
-com.pintu.task.SendTask$1 -> com.pintu.f.r:
+com.pintu.task.SendTask$1 -> com.pintu.f.q:
     long _totalFileSize -> a
     com.pintu.task.SendTask this$0 -> b
     void transferred(long) -> a
     void setTotalFileSize(long) -> b
-com.pintu.task.SimpleTask -> com.pintu.f.i:
-    java.lang.String TAG -> a
-    java.lang.String response -> b
-    com.pintu.task.TaskResult _doInBackground(com.pintu.task.TaskParams[]) -> a
-    void _onPostExecute(com.pintu.task.TaskResult) -> a
-com.pintu.task.TaskAdapter -> com.pintu.f.p:
+com.pintu.task.TaskAdapter -> com.pintu.f.o:
     void onPreExecute$322054cb() -> a
     void onPostExecute$2cad64ef(com.pintu.task.TaskResult) -> a
     void onProgressUpdate$1d92c7e7(java.lang.Object) -> a
     void deliverRetrievedList(java.util.List) -> a
     void deliverResponseString(java.lang.String) -> a
     void deliveryResponseJson(org.json.JSONObject) -> a
-com.pintu.task.TaskListener -> com.pintu.f.o:
+com.pintu.task.TaskListener -> com.pintu.f.n:
     void onPreExecute$322054cb() -> a
     void onPostExecute$2cad64ef(com.pintu.task.TaskResult) -> a
     void onProgressUpdate$1d92c7e7(java.lang.Object) -> a
     void deliverRetrievedList(java.util.List) -> a
     void deliverResponseString(java.lang.String) -> a
     void deliveryResponseJson(org.json.JSONObject) -> a
-com.pintu.task.TaskManager -> com.pintu.f.m:
+com.pintu.task.TaskManager -> com.pintu.f.l:
     java.lang.Integer CANCEL_ALL -> a
     void cancelAll() -> a
     void addTask(java.util.Observer) -> a
-com.pintu.task.TaskParams -> com.pintu.f.s:
+com.pintu.task.TaskParams -> com.pintu.f.r:
     java.util.HashMap params -> a
     void put(java.lang.String,java.lang.Object) -> a
     java.lang.Object get(java.lang.String) -> a
@@ -1675,9 +1795,7 @@ com.pintu.tool.ImageManager -> com.pintu.a.i:
     android.graphics.Bitmap get(java.lang.String) -> b
     java.lang.String getMd5(java.lang.String) -> d
     android.graphics.Bitmap lookupFile(java.lang.String) -> e
-    java.lang.String downloadImage2SD(java.lang.String,java.lang.String) -> a
-    java.lang.String writeToFile2SD(java.io.InputStream,java.lang.String) -> a
-    java.lang.String writeToFile(java.io.InputStream,java.lang.String) -> b
+    java.lang.String writeToFile(java.io.InputStream,java.lang.String) -> a
     boolean isContains(java.lang.String) -> c
     void clear() -> a
     java.io.File compressImage$79a339ea(java.io.File) -> a
@@ -1690,7 +1808,6 @@ com.pintu.tool.LazyImageLoader -> com.pintu.a.a:
     android.os.Handler handler -> e
     void clearCache() -> a
     java.io.File compreseImage(java.io.File) -> a
-    java.lang.String downloadImage(java.lang.String,java.lang.String) -> a
     android.graphics.Bitmap get(java.lang.String,com.pintu.tool.LazyImageLoader$ImageLoaderCallback) -> a
     com.pintu.tool.LazyImageLoader$CallbackManager access$100(com.pintu.tool.LazyImageLoader) -> a
     java.util.concurrent.BlockingQueue access$200(com.pintu.tool.LazyImageLoader) -> b
@@ -1714,7 +1831,6 @@ com.pintu.tool.SimpleImageLoader -> com.pintu.a.d:
     void display(android.widget.ImageView,java.lang.String) -> a
     void displayForLarge(android.widget.ImageView,java.lang.String) -> b
     void displayForFit(android.widget.ImageView,java.lang.String) -> c
-    java.lang.String downloadImage(java.lang.String,java.lang.String) -> a
     void relayoutBitmap(android.graphics.Bitmap,android.widget.ImageView) -> b
     com.pintu.tool.LazyImageLoader$ImageLoaderCallback createImageViewCallback$5b80516d(android.widget.ImageView) -> a
     void access$000(android.graphics.Bitmap,android.widget.ImageView) -> a
@@ -1739,17 +1855,22 @@ com.pintu.upgrade.UpdateInfo -> com.pintu.g.c:
 com.pintu.upgrade.UpdateInfoParser -> com.pintu.g.b:
     com.pintu.upgrade.UpdateInfo getUpdataInfo(java.io.InputStream) -> a
 com.pintu.upgrade.UpdateManager -> com.pintu.g.a:
-    android.content.Context mContext -> a
-    android.os.Handler mHandler -> b
-    java.lang.String savePath -> c
+    android.content.Context mContext -> b
+    android.os.Handler mHandler -> c
     java.lang.String mDownloadURL -> d
-    com.pintu.upgrade.UpdateInfo info -> e
+    com.pintu.upgrade.UpdateInfo info -> a
     void checkUpdateInfo(java.lang.String) -> a
+<<<<<<< HEAD
     void downloadApk() -> a
     android.content.Intent getIntallIntent() -> b
     java.lang.String getVersionName() -> c
     android.os.Handler access$000(com.pintu.upgrade.UpdateManager) -> a
     android.content.Context access$100(com.pintu.upgrade.UpdateManager) -> b
+=======
+    void showUpdataDialog() -> a
+    java.lang.String getVersionName() -> b
+    android.os.Handler access$0(com.pintu.upgrade.UpdateManager) -> a
+>>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
 com.pintu.upgrade.UpdateManager$1 -> com.pintu.g.e:
     com.pintu.upgrade.UpdateManager this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick

@@ -41,28 +41,29 @@ public class UpdateManager {
 	private Handler mHandler;
 
 	//检查新版本
-	public static final int UPGRADE_CHECK = 3;
+	public static final int UPGRADE_CHECK = 1;
+	//弹出对话框
+	public static final int POPUP_DIALOG = 2;
 	//下载安装包
-	public static final int UPDATE_CLIENT = 4;
-	//下载完成
-	public static final int DOWN_OVER = 5;
+	public static final int UPDATE_CLIENT = 3;
+	
 
-	// 下载包安装路径
-	private String savePath;
-	private static final String saveFileName = "PintuMain-release.apk";
+	
 
 	// 下载包以及配置文件的服务器路径
 	private String mDownloadURL;
+	
 	// 更新信息来自服务器xml配置文件
-	private UpdateInfo info;
+	//这个数据还要被HomeGallery接入
+	public UpdateInfo info;
 	
 
 	public UpdateManager(Context context, Handler handler) {
-		this.mContext = context;
+		this.mContext = context;		
 		this.mHandler = handler;
-
-		savePath = mContext.getFilesDir() + "/" + saveFileName;
+				
 	}
+	
 
 	/**
 	 * 外部接口，让主服务来调用
@@ -88,54 +89,16 @@ public class UpdateManager {
 				Log.i(TAG,
 						"there has a new version, to upgrade:  "
 								+ info.getVersion());
-				// 弹出提示
-				showUpdataDialog();
+				mHandler.sendEmptyMessage(POPUP_DIALOG);
 			}
 		} catch (Exception e) {
 			// 配置文件不存在，或者网络不给力
 			Log.e(TAG, "Check update config file ERROR: "+mDownloadURL);
+			e.printStackTrace();
 		}
 	}
 
-	/**
-	 * 外部接口，让主服务来调用
-	 */
-	public void downloadApk() {
-		URL url = null;
-		HttpURLConnection conn = null;
-		InputStream is;		
-		BufferedOutputStream out = null;
-		byte[] buffer = new byte[1024];
-		int len;
-		
-		try {
-			url = new URL(info.getApkurl());
-			if(url!=null)
-			conn = (HttpURLConnection) url.openConnection();
-			if(conn!=null){
-				conn.setConnectTimeout(5000);
-				is = conn.getInputStream();	
-				BufferedInputStream bis = new BufferedInputStream(is);				
-				out = new BufferedOutputStream(
-	                    mContext.openFileOutput(savePath, Context.MODE_PRIVATE));		
-				while ((len = bis.read(buffer)) != -1) {
-					out.write(buffer, 0, len);
-				}
-				out.close();
-				bis.close();
-				is.close();
-				//下载结束
-				mHandler.sendEmptyMessage(DOWN_OVER);
-			}
-		} catch (MalformedURLException e) {
-			Log.e(TAG, "apk url is malformed: "+info.getApkurl());
-		} catch (FileNotFoundException e) {
-			Log.e(TAG, "save file write error: "+savePath);
-		}catch (IOException e) {	
-			Log.e(TAG, "URL Connection FAILED: "+info.getApkurl());
-		} 
 
-	}
 
 	/*
 	 * 
@@ -144,9 +107,10 @@ public class UpdateManager {
 	 * 弹出对话框的步骤： 1.创建alertDialog的builder. 2.要给builder设置属性, 对话框的内容,样式,按钮
 	 * 3.通过builder 创建一个对话框 4.对话框show()出来
 	 */
-	private void showUpdataDialog() {
+	public void showUpdataDialog() {
+		
 		AlertDialog.Builder builer = new Builder(mContext);
-		builer.setTitle(mContext.getText(R.string.newversion));
+		builer.setTitle(mContext.getText(R.string.newversion)+" "+info.getVersion());
 		builer.setMessage(info.getDescription());
 		// 当点确定按钮时从服务器上下载 新的apk 然后安装
 		builer.setPositiveButton(mContext.getText(R.string.yes),
@@ -154,9 +118,7 @@ public class UpdateManager {
 					public void onClick(DialogInterface dialog, int which) {
 						Log.i(TAG, "download update apk...");
 						//启动下载任务
-						mHandler.sendEmptyMessage(UPDATE_CLIENT);
-						//下载开始提示
-						Toast.makeText(mContext, R.string.backgrounddnld, Toast.LENGTH_SHORT);
+						mHandler.sendEmptyMessage(UPDATE_CLIENT);						
 						//关闭对话框
 						dialog.dismiss();
 					}
@@ -172,23 +134,7 @@ public class UpdateManager {
 		dialog.show();
 	}
 
-	/**
-	 * 安装apk
-	 * 
-	 * @param url
-	 */
-	public  Intent getIntallIntent() {
-		File apkfile = new File(saveFileName);
-		if (!apkfile.exists()) {
-			return null;
-		}
-		Intent it = new Intent(Intent.ACTION_VIEW);
-		it.setDataAndType(Uri.parse("file://" + apkfile.toString()),
-				"application/vnd.android.package-archive");
-		mContext.startActivity(it);
 
-		return it;
-	}
 
 	/*
 	 * 获取当前程序的版本号

@@ -13,7 +13,7 @@ public class SampleUpdateXML {
 		 <info>  
 		    <version>2.0</version>  
 		    <size>500K</size>  
-		    <apkurl>http://192.168.1.187:8080/mobilesafe.apk</apkurl>  
+		    <apkurl>http://ipintu.com/ipintu/download/PintuMain-release.apk</apkurl>  
 		    <description>检测到最新版本，请及时更新！</description>  
 		</info>
 	 */

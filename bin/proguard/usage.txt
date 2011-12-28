@@ -4,7 +4,7 @@ com.hlidskialf.android.hardware.ShakeListener:
     private static final int SHAKE_TIMEOUT
     private static final int SHAKE_DURATION
     private static final int SHAKE_COUNT
-    60:65:public void pause()
+    64:69:public void pause()
 com.pintu.PintuApp:
     85:90:public static boolean isLocalVersion()
 com.pintu.R
@@ -75,7 +75,7 @@ com.pintu.activity.HomeGallery:
     protected static final int OPTIONS_MENU_ID_PHOTO_LIBRARY
     protected static final int OPTIONS_MENU_ID_EXIT
     protected static final int OPTIONS_MENU_ID_HELP
-    415:415:protected int getLastOptionMenuId()
+    473:473:protected int getLastOptionMenuId()
 com.pintu.activity.LogonSys:
     private static final java.lang.String USERNOTEXIST
     private static final java.lang.String PASSWORDERROR
@@ -97,7 +97,9 @@ com.pintu.activity.PicDaren:
     private static final java.lang.String PICDAREN_DATA
     85:85:protected void doSend()
 com.pintu.activity.PictureDetails:
-    555:566:private void fetchLikeNumOfPic()
+    556:567:private void fetchLikeNumOfPic()
+    721:760:private void saveFileToSDCard()
+com.pintu.activity.PictureDetails$17
 com.pintu.activity.PictureEdit:
     private static final java.lang.String TAG
     private static final java.lang.String SIS_RUNNING_KEY
@@ -187,9 +189,16 @@ com.pintu.api.PTApi:
     public static final java.lang.String GETRANDGALLERY
     public static final java.lang.String GETHOTTAGS
     public static final java.lang.String GETTHUMBNAILSBYTAG
+    public abstract java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String)
     public abstract java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
 com.pintu.api.PTImpl:
     123:185:public java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
+<<<<<<< HEAD
+=======
+    607:617:public java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String)
+com.pintu.data.UserDetails:
+    1:1:public static com.pintu.data.UserInfo parseJsonToObj(org.json.JSONObject)
+>>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
 com.pintu.db.CacheDao:
     public abstract void deleteOldThumbnails(int)
     public abstract int cachedThumbnailSize()
@@ -277,6 +286,12 @@ com.pintu.http.Response:
 com.pintu.http.SimpleHttpClient:
     private static final java.lang.String TAG
 com.pintu.http.XmlObject
+com.pintu.service.DnldService:
+    private static final java.lang.String TAG
+    private static final int DOWNLOAD_APK
+    private static final int DOWNLOAD_IMG
+    private static final int DNLD_SUCCESS
+    private static final int FINISH_ME
 com.pintu.service.MsgService:
     private static final java.lang.String TAG
     private static final int FETCH_MSG
@@ -311,6 +326,7 @@ com.pintu.task.SendTask:
     public static final int TYPE_XUETANG
     private static final java.lang.String TAG
     131:153:private com.pintu.task.TaskResult sendPic(com.pintu.task.TaskParams)
+com.pintu.task.SimpleTask
 com.pintu.task.TaskManager:
     private static final java.lang.String TAG
 com.pintu.task.TaskParams:
@@ -323,11 +339,15 @@ com.pintu.tool.ImageManager:
     public static final int DEFAULT_COMPRESS_QUALITY
     private static final int IMAGE_MAX_WIDTH
     private static final int IMAGE_MAX_HEIGHT
+    203:217:public java.lang.String downloadImage2SD(java.lang.String,java.lang.String)
+    221:222:private java.lang.String createImgFileName(java.lang.String)
+    226:256:private java.lang.String writeToFile2SD(java.io.InputStream,java.lang.String)
 com.pintu.tool.LazyImageLoader:
     private static final java.lang.String TAG
     private static final int HANDLER_MESSAGE_ID
     private static final java.lang.String EXTRA_BITMAP
     private static final java.lang.String EXTRA_IMAGE_URL
+    54:54:public java.lang.String downloadImage(java.lang.String,java.lang.String)
 com.pintu.tool.LazyImageLoader$CallbackManager:
     private static final java.lang.String TAG
 com.pintu.tool.LazyImageLoader$GetImageTask:
@@ -335,15 +355,16 @@ com.pintu.tool.LazyImageLoader$GetImageTask:
     166:166:public boolean isPermanent()
     171:172:public void setPermanent(boolean)
     176:177:public void shutDown()
+com.pintu.tool.SimpleImageLoader:
+    106:114:public static java.lang.String downloadImage(java.lang.String,java.lang.String)
 com.pintu.upgrade.SampleUpdateXML
 com.pintu.upgrade.UpdateInfo:
     19:19:public java.lang.String getSize()
 com.pintu.upgrade.UpdateManager:
     private static final java.lang.String TAG
     public static final int UPGRADE_CHECK
+    public static final int POPUP_DIALOG
     public static final int UPDATE_CLIENT
-    public static final int DOWN_OVER
-    private static final java.lang.String saveFileName
 com.pintu.util.DateTimeHelper:
     private static final java.lang.String TAG
     29:33:public static final java.util.Date parseDateTime(java.lang.String)
