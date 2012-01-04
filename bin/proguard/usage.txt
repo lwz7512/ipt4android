@@ -108,9 +108,6 @@ com.ybcx.activity.PictureEdit:
     private static final int MAX_BITMAP_SIZE
     592:606:public static java.io.File bitmapToFile(android.graphics.Bitmap)
     612:622:public static android.graphics.Bitmap createFitinBitmap(java.lang.String,int,int)
-<<<<<<< HEAD
-com.pintu.activity.TadiAssets:
-=======
 com.ybcx.activity.StoryList:
     private java.lang.String owner
     private java.lang.String storyId
@@ -122,7 +119,6 @@ com.ybcx.activity.StoryList:
 com.ybcx.activity.StoryList$1:
     109:111:public void send(java.lang.String,java.lang.String,java.lang.String)
 com.ybcx.activity.TadiAssets:
->>>>>>> c0376d250fc25819802b99469f208b7eb0de77bb
     private static final java.lang.String TAG
 com.ybcx.activity.TadiPics:
     private static final java.lang.String TAG
@@ -148,30 +144,6 @@ com.ybcx.activity.base.SubMainCallBack:
 com.ybcx.activity.base.TempletActivity:
     protected abstract void doSend()
     protected abstract void doRetrieve()
-<<<<<<< HEAD
-com.pintu.adapter.ClassicStoryAdapter
-com.pintu.adapter.ClassicStoryAdapter$1
-com.pintu.adapter.ClassicStoryAdapter$ViewHolder
-com.pintu.adapter.GalleryImageAdapter:
-    94:95:public void refresh()
-    98:98:public java.util.List getCells()
-com.pintu.adapter.GalleryImageAdapter$ViewHolder
-com.pintu.adapter.StoryInfoAdapter
-com.pintu.adapter.StoryInfoAdapter$1
-com.pintu.adapter.StoryInfoAdapter$ViewHolder
-com.pintu.adapter.StoryVoteAdapter:
-    121:169:private void addVoteAction(com.pintu.adapter.StoryVoteAdapter$ViewHolder)
-com.pintu.adapter.StoryVoteAdapter$1:
-    123:123:StoryVoteAdapter$1(com.pintu.adapter.StoryVoteAdapter,com.pintu.adapter.StoryVoteAdapter$ViewHolder)
-com.pintu.adapter.StoryVoteAdapter$2
-com.pintu.adapter.StoryVoteAdapter$3
-com.pintu.adapter.StoryVoteAdapter$4
-com.pintu.adapter.StoryVoteAdapter$ViewHolder:
-    public android.widget.TextView flower_num
-    public android.widget.TextView egg_num
-    public android.widget.TextView classic_num
-com.pintu.adapter.UserAdapter:
-=======
 com.ybcx.adapter.ClassicStoryAdapter
 com.ybcx.adapter.ClassicStoryAdapter$ViewHolder
 com.ybcx.adapter.GalleryImageAdapter:
@@ -198,7 +170,6 @@ com.ybcx.adapter.StoryVoteAdapter$ViewHolder:
 com.ybcx.adapter.StoryVoteAdapter$VoteActionListener:
     public abstract void send(java.lang.String,java.lang.String,java.lang.String)
 com.ybcx.adapter.UserAdapter:
->>>>>>> c0376d250fc25819802b99469f208b7eb0de77bb
     public static final java.lang.String PIC_DAREN
     public static final java.lang.String CMT_DAREN
 com.ybcx.api.PTApi:
@@ -236,19 +207,10 @@ com.ybcx.api.PTApi:
     public abstract java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
 com.ybcx.api.PTImpl:
     123:185:public java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
-<<<<<<< HEAD
-=======
     607:617:public java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String)
-<<<<<<< HEAD
-com.pintu.data.UserDetails:
-    1:1:public static com.pintu.data.UserInfo parseJsonToObj(org.json.JSONObject)
->>>>>>> 204e3da4fb9a509652feb2304a89b338e59f4c69
-com.pintu.db.CacheDao:
-=======
 com.ybcx.data.UserDetails:
     1:1:public static com.ybcx.data.UserInfo parseJsonToObj(org.json.JSONObject)
 com.ybcx.db.CacheDao:
->>>>>>> c0376d250fc25819802b99469f208b7eb0de77bb
     public abstract void deleteOldThumbnails(int)
     public abstract int cachedThumbnailSize()
 com.ybcx.db.CacheImpl:
@@ -442,13 +404,9 @@ com.ybcx.util.Preferences:
     public static final java.lang.String MYASSETS_INDEX
     public static final java.lang.String CMNT_INDEX
     public static final java.lang.String MARKET_INDEX
-<<<<<<< HEAD
-com.pintu.widget.StateImage
-=======
 com.ybcx.widget.StateImage
 com.ybcx.widget.StateListView:
     21:21:public boolean isStatic()
->>>>>>> c0376d250fc25819802b99469f208b7eb0de77bb
 org.acra.ACRA:
     static final java.lang.String RES_NOTIF_ICON
     static final java.lang.String RES_NOTIF_TICKER_TEXT
