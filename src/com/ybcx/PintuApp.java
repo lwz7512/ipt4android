@@ -18,6 +18,7 @@ public class PintuApp extends Application {
 	
 	public static String LOCAL_VERSION = "Local version";
 	public static String MARKET_VERSION = "Market version";
+//	public static String VERSION_STATE = MARKET_VERSION;
 	public static String VERSION_STATE = LOCAL_VERSION;
 
 	// 应用上下文

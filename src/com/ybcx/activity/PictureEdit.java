@@ -16,6 +16,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
@@ -248,6 +249,13 @@ public class PictureEdit extends FullScreenActivity {
 	private OnClickListener takeShotListener = new OnClickListener() {
 		public void onClick(View v) {
 			Log.d(TAG, "takeShot Button onClick");
+			//FIXME, CHECK SD CARD STATUS, BEFORE TAKE SHOT
+			//2011/12/29
+			//如果SD卡不可用返回空
+	    	if(!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+	    		Toast.makeText(getApplicationContext(), "SD Card NOT Available, can not take shot!", Toast.LENGTH_LONG).show();
+	    		return ;
+	    	}
 			takeShotToMediaLib();
 		}
 	};

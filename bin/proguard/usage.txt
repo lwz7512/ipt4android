@@ -6,7 +6,7 @@ com.hlidskialf.android.hardware.ShakeListener:
     private static final int SHAKE_COUNT
     63:68:public void pause()
 com.ybcx.PintuApp:
-    84:89:public static boolean isLocalVersion()
+    85:90:public static boolean isLocalVersion()
 com.ybcx.R
 com.ybcx.R$anim
 com.ybcx.R$array
@@ -106,8 +106,8 @@ com.ybcx.activity.PictureEdit:
     private static final int REQUEST_IMAGE_CAPTURE
     private static final int REQUEST_PHOTO_LIBRARY
     private static final int MAX_BITMAP_SIZE
-    592:606:public static java.io.File bitmapToFile(android.graphics.Bitmap)
-    612:622:public static android.graphics.Bitmap createFitinBitmap(java.lang.String,int,int)
+    600:614:public static java.io.File bitmapToFile(android.graphics.Bitmap)
+    620:630:public static android.graphics.Bitmap createFitinBitmap(java.lang.String,int,int)
 com.ybcx.activity.StoryList:
     private java.lang.String owner
     private java.lang.String storyId

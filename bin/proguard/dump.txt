@@ -61265,41 +61265,71 @@ _____________________________________________________________________
 Interfaces (count = 1):
   - Class [android/view/View$OnClickListener]
 
-Constant Pool (count = 36):
+Constant Pool (count = 66):
   - String [PictureEdit]
+  - String [SD Card NOT Available, can not take shot!]
+  - String [mounted]
   - String [takeShot Button onClick]
+  - Class [android/os/Environment]
   - Class [android/util/Log]
   - Class [android/view/View]
   - Class [android/view/View$OnClickListener]
+  - Class [android/widget/Toast]
   - Class [com/ybcx/activity/PictureEdit]
   - Class [com/ybcx/activity/bd]
   - Class [java/lang/Object]
+  - Class [java/lang/String]
   - Fieldref [com/ybcx/activity/bd.a Lcom/ybcx/activity/PictureEdit;]
+  - Methodref [android/os/Environment.getExternalStorageState ()Ljava/lang/String;]
   - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
+  - Methodref [android/widget/Toast.makeText (Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
+  - Methodref [android/widget/Toast.show ()V]
   - Methodref [com/ybcx/activity/PictureEdit.b (Lcom/ybcx/activity/PictureEdit;)V]
+  - Methodref [com/ybcx/activity/PictureEdit.getApplicationContext ()Landroid/content/Context;]
   - Methodref [java/lang/Object.<init> ()V]
+  - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
   + NameAndType [<init> ()V]
   + NameAndType [a Lcom/ybcx/activity/PictureEdit;]
   + NameAndType [b (Lcom/ybcx/activity/PictureEdit;)V]
   + NameAndType [d (Ljava/lang/String;Ljava/lang/String;)I]
+  + NameAndType [equals (Ljava/lang/Object;)Z]
+  + NameAndType [getApplicationContext ()Landroid/content/Context;]
+  + NameAndType [getExternalStorageState ()Ljava/lang/String;]
+  + NameAndType [makeText (Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
+  + NameAndType [show ()V]
+  + Utf8 [()Landroid/content/Context;]
+  + Utf8 [()Ljava/lang/String;]
   + Utf8 [()V]
+  + Utf8 [(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
   + Utf8 [(Landroid/view/View;)V]
   + Utf8 [(Lcom/ybcx/activity/PictureEdit;)V]
+  + Utf8 [(Ljava/lang/Object;)Z]
   + Utf8 [(Ljava/lang/String;Ljava/lang/String;)I]
   + Utf8 [<init>]
   + Utf8 [Code]
   + Utf8 [Lcom/ybcx/activity/PictureEdit;]
   + Utf8 [PictureEdit]
+  + Utf8 [SD Card NOT Available, can not take shot!]
+  + Utf8 [StackMapTable]
   + Utf8 [a]
+  + Utf8 [android/os/Environment]
   + Utf8 [android/util/Log]
   + Utf8 [android/view/View]
   + Utf8 [android/view/View$OnClickListener]
+  + Utf8 [android/widget/Toast]
   + Utf8 [b]
   + Utf8 [com/ybcx/activity/PictureEdit]
   + Utf8 [com/ybcx/activity/bd]
   + Utf8 [d]
+  + Utf8 [equals]
+  + Utf8 [getApplicationContext]
+  + Utf8 [getExternalStorageState]
   + Utf8 [java/lang/Object]
+  + Utf8 [java/lang/String]
+  + Utf8 [makeText]
+  + Utf8 [mounted]
   + Utf8 [onClick]
+  + Utf8 [show]
   + Utf8 [takeShot Button onClick]
 
 Fields (count = 1):
@@ -61315,10 +61345,10 @@ Methods (count = 2):
     + Code attribute instructions (code length = 10, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] putfield #9
+      [2] putfield #14
         - Fieldref [com/ybcx/activity/bd.a Lcom/ybcx/activity/PictureEdit;]
       [5] aload_0 v0
-      [6] invokespecial #12
+      [6] invokespecial #21
         - Methodref [java/lang/Object.<init> ()V]
       [9] return
       Code attribute exceptions (count = 0):
@@ -61327,22 +61357,44 @@ Methods (count = 2):
     Access flags: 0x11
       = public final void onClick(android.view.View)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 16, locals = 2, stack = 2):
+    + Code attribute instructions (code length = 44, locals = 2, stack = 3):
       [0] ldc #1
         - String [PictureEdit]
-      [2] ldc #2
+      [2] ldc #4
         - String [takeShot Button onClick]
-      [4] invokestatic #10
+      [4] invokestatic #16
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [7] pop
-      [8] aload_0 v0
-      [9] getfield #9
+      [8] invokestatic #15
+        - Methodref [android/os/Environment.getExternalStorageState ()Ljava/lang/String;]
+      [11] ldc #3
+        - String [mounted]
+      [13] invokevirtual #22
+        - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
+      [16] ifne +20 (target=36)
+      [19] aload_0 v0
+      [20] getfield #14
         - Fieldref [com/ybcx/activity/bd.a Lcom/ybcx/activity/PictureEdit;]
-      [12] invokestatic #11
+      [23] invokevirtual #20
+        - Methodref [com/ybcx/activity/PictureEdit.getApplicationContext ()Landroid/content/Context;]
+      [26] ldc #2
+        - String [SD Card NOT Available, can not take shot!]
+      [28] iconst_1
+      [29] invokestatic #17
+        - Methodref [android/widget/Toast.makeText (Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
+      [32] invokevirtual #18
+        - Methodref [android/widget/Toast.show ()V]
+      [35] return
+      [36] aload_0 v0
+      [37] getfield #14
+        - Fieldref [com/ybcx/activity/bd.a Lcom/ybcx/activity/PictureEdit;]
+      [40] invokestatic #19
         - Methodref [com/ybcx/activity/PictureEdit.b (Lcom/ybcx/activity/PictureEdit;)V]
-      [15] return
+      [43] return
       Code attribute exceptions (count = 0):
-      Code attribute attributes (attribute count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 1):
+        - [36] Var: ..., Stack: (empty)
 
 Class file attributes (count = 0):
 
