@@ -14892,7 +14892,7 @@ Constant Pool (count = 276):
   - String [Invalid user result!]
   - String [Logon Failed!]
   - String [Service inavailable!]
-  - String [\p{Alpha}\w{2,15}[@][a-z0-9]{3,}[.]\p{Lower}{2,}]
+  - String [[a-z0-9]\w{2,15}[@][a-z0-9]{2,}[.]\p{Lower}{2,}]
   - String [account]
   - String [input_method]
   - String [mode]
@@ -15077,7 +15077,7 @@ Constant Pool (count = 276):
   + Utf8 [Logon Failed!]
   + Utf8 [Service inavailable!]
   + Utf8 [StackMapTable]
-  + Utf8 [\p{Alpha}\w{2,15}[@][a-z0-9]{3,}[.]\p{Lower}{2,}]
+  + Utf8 [[a-z0-9]\w{2,15}[@][a-z0-9]{2,}[.]\p{Lower}{2,}]
   + Utf8 [a]
   + Utf8 [account]
   + Utf8 [android/app/ProgressDialog]
@@ -15753,7 +15753,7 @@ Methods (count = 19):
       [2] astore_1 v1
       [3] astore_0 v0
       [4] ldc #19
-        - String [\p{Alpha}\w{2,15}[@][a-z0-9]{3,}[.]\p{Lower}{2,}]
+        - String [[a-z0-9]\w{2,15}[@][a-z0-9]{2,}[.]\p{Lower}{2,}]
       [6] astore_2 v2
       [7] aload_1 v1
       [8] invokevirtual #100

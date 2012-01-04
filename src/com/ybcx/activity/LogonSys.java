@@ -86,7 +86,11 @@ public class LogonSys extends TempletActivity {
 	};
 	
 	private void checkEmail(String account){
-		String emailFormat = "\\p{Alpha}\\w{2,15}[@][a-z0-9]{3,}[.]\\p{Lower}{2,}"; 
+		//FIXME, 修改邮箱验证规则，以支持qq邮箱
+		//2012/01/04
+		String emailFormat = "[a-z0-9]\\w{2,15}[@][a-z0-9]{2,}[.]\\p{Lower}{2,}"; 
+		//这是最初的
+//		String emailFormat = "\\p{Alpha}\\w{2,15}[@][a-z0-9]{3,}[.]\\p{Lower}{2,}"; 
 		//输入时可能默认给加了个空格，去除下后面的空格
 		account = account.trim();
 		if(!account.matches(emailFormat)){

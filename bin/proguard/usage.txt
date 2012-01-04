@@ -79,7 +79,7 @@ com.ybcx.activity.HomeGallery:
 com.ybcx.activity.LogonSys:
     private static final java.lang.String USERNOTEXIST
     private static final java.lang.String PASSWORDERROR
-    229:229:protected void doRetrieve()
+    233:233:protected void doRetrieve()
 com.ybcx.activity.MarketNote:
     45:45:protected void doSend()
     69:69:protected void doRetrieve()
