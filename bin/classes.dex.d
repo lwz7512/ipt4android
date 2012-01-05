@@ -1,2 +1,2 @@
-D:\workspace\ipt4Android\bin\classes.dex : \
-D:\workspace\ipt4Android\bin\proguard\obfuscated.jar \
+D:\java\jworkspace\ipt4android\bin\classes.dex : \
+D:\java\jworkspace\ipt4android\bin\proguard\obfuscated.jar \

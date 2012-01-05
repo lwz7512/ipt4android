@@ -106,8 +106,8 @@ com.ybcx.activity.PictureEdit:
     private static final int REQUEST_IMAGE_CAPTURE
     private static final int REQUEST_PHOTO_LIBRARY
     private static final int MAX_BITMAP_SIZE
-    600:614:public static java.io.File bitmapToFile(android.graphics.Bitmap)
-    620:630:public static android.graphics.Bitmap createFitinBitmap(java.lang.String,int,int)
+    607:621:public static java.io.File bitmapToFile(android.graphics.Bitmap)
+    627:637:public static android.graphics.Bitmap createFitinBitmap(java.lang.String,int,int)
 com.ybcx.activity.StoryList:
     private java.lang.String owner
     private java.lang.String storyId
@@ -206,8 +206,8 @@ com.ybcx.api.PTApi:
     public abstract java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String)
     public abstract java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
 com.ybcx.api.PTImpl:
-    123:185:public java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
-    607:617:public java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String)
+    125:188:public java.lang.String postPicture(java.io.File,java.lang.String,java.lang.String,java.lang.String)
+    611:621:public java.lang.String commonQuery(java.lang.String,java.lang.String,java.lang.String)
 com.ybcx.data.UserDetails:
     1:1:public static com.ybcx.data.UserInfo parseJsonToObj(org.json.JSONObject)
 com.ybcx.db.CacheDao:

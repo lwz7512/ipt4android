@@ -81,6 +81,12 @@ public class PictureEdit extends FullScreenActivity {
 
 	// 已发送文件百分数，listener将值保留在这里，然后单独线程来读取
 	private int percent;
+	//线程运行开关
+	private boolean inProgress = true;
+	
+	
+	
+	
 
 	// -------------------- Construction UI Logic -------------------------
 
@@ -265,17 +271,18 @@ public class PictureEdit extends FullScreenActivity {
 		@Override
 		public void onPreExecute(GenericTask task) {			
 			showProgressDialog();
+			//打开开关
+			inProgress = true;
+			// 启动线程
+			onProgressNotification.start();
 		}
 
 		@Override
 		public void onProgressUpdate(GenericTask task, Object param) {
 			// 保存一个上传进度值
-			percent = Integer.valueOf(param.toString());
-			// 启动线程
-			if (!onProgressNotification.isAlive())
-				onProgressNotification.start();
+			percent = Integer.valueOf(param.toString());				
 
-			// Log.d(TAG, "sent percent: "+param);
+			 Log.d(TAG, "sent percent: "+percent);
 		}
 
 		@Override
@@ -302,14 +309,14 @@ public class PictureEdit extends FullScreenActivity {
 	};
 
 	private Thread onProgressNotification = new Thread() {
-		boolean inProgress = true;
-
+		
 		public void run() {
 			while (inProgress) {
 
-				if (percent >= 100) {
-					inProgress = false;
-				} else {
+				if (percent >= 100) {	
+					//停止运行
+					inProgress = false;					
+				} else if(percent>0) {
 					Message update = pbOperator.obtainMessage();
 					pbOperator.dispatchMessage(update);
 				}

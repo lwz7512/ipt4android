@@ -748,13 +748,14 @@ com.ybcx.activity.PictureEdit -> com.ybcx.activity.PictureEdit:
     java.io.File mFile -> m
     android.net.Uri mImageUri -> n
     int percent -> o
-    android.view.View$OnClickListener mGoListener -> p
-    android.view.View$OnClickListener sendListener -> q
-    android.view.View$OnClickListener insertImgListener -> r
-    android.view.View$OnClickListener takeShotListener -> s
-    com.ybcx.task.TaskListener mSendTaskListener -> t
-    java.lang.Thread onProgressNotification -> u
-    android.os.Handler pbOperator -> v
+    boolean inProgress -> p
+    android.view.View$OnClickListener mGoListener -> q
+    android.view.View$OnClickListener sendListener -> r
+    android.view.View$OnClickListener insertImgListener -> s
+    android.view.View$OnClickListener takeShotListener -> t
+    com.ybcx.task.TaskListener mSendTaskListener -> u
+    java.lang.Thread onProgressNotification -> v
+    android.os.Handler pbOperator -> w
     void onCreate(android.os.Bundle) -> onCreate
     void onResume() -> onResume
     void onDestroy() -> onDestroy
@@ -768,16 +769,18 @@ com.ybcx.activity.PictureEdit -> com.ybcx.activity.PictureEdit:
     void access$0(com.ybcx.activity.PictureEdit) -> a
     void access$2(com.ybcx.activity.PictureEdit) -> b
     void access$3(com.ybcx.activity.PictureEdit) -> c
-    void access$4(com.ybcx.activity.PictureEdit,int) -> a
+    void access$4(com.ybcx.activity.PictureEdit,boolean) -> a
     java.lang.Thread access$5(com.ybcx.activity.PictureEdit) -> d
-    void access$6(com.ybcx.activity.PictureEdit,long) -> a
-    long access$7(com.ybcx.activity.PictureEdit) -> e
-    long access$8(com.ybcx.activity.PictureEdit) -> f
-    void access$10(com.ybcx.activity.PictureEdit) -> g
-    void access$11(com.ybcx.activity.PictureEdit) -> h
-    int access$12(com.ybcx.activity.PictureEdit) -> i
-    android.os.Handler access$13(com.ybcx.activity.PictureEdit) -> j
-    android.app.ProgressDialog access$14(com.ybcx.activity.PictureEdit) -> k
+    void access$6(com.ybcx.activity.PictureEdit,int) -> a
+    int access$7(com.ybcx.activity.PictureEdit) -> e
+    void access$8(com.ybcx.activity.PictureEdit,long) -> a
+    long access$9(com.ybcx.activity.PictureEdit) -> f
+    long access$10(com.ybcx.activity.PictureEdit) -> g
+    void access$12(com.ybcx.activity.PictureEdit) -> h
+    void access$13(com.ybcx.activity.PictureEdit) -> i
+    boolean access$14(com.ybcx.activity.PictureEdit) -> j
+    android.os.Handler access$15(com.ybcx.activity.PictureEdit) -> k
+    android.app.ProgressDialog access$16(com.ybcx.activity.PictureEdit) -> l
 com.ybcx.activity.PictureEdit$1 -> com.ybcx.activity.bc:
     com.ybcx.activity.PictureEdit this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -797,8 +800,7 @@ com.ybcx.activity.PictureEdit$5 -> com.ybcx.activity.bg:
     void onPostExecute$42275483(com.ybcx.task.TaskResult) -> a
     void deliverResponseString(java.lang.String) -> a
 com.ybcx.activity.PictureEdit$6 -> com.ybcx.activity.bf:
-    boolean inProgress -> a
-    com.ybcx.activity.PictureEdit this$0 -> b
+    com.ybcx.activity.PictureEdit this$0 -> a
     void run() -> run
 com.ybcx.activity.PictureEdit$7 -> com.ybcx.activity.bh:
     com.ybcx.activity.PictureEdit this$0 -> a

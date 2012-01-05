@@ -38063,7 +38063,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 635):
+Constant Pool (count = 639):
   - Integer [2130903074]
   - Integer [2131165265]
   - Integer [2131165268]
@@ -38196,13 +38196,14 @@ Constant Pool (count = 635):
   - Fieldref [com/ybcx/activity/PictureEdit.m Ljava/io/File;]
   - Fieldref [com/ybcx/activity/PictureEdit.n Landroid/net/Uri;]
   - Fieldref [com/ybcx/activity/PictureEdit.o I]
-  - Fieldref [com/ybcx/activity/PictureEdit.p Landroid/view/View$OnClickListener;]
+  - Fieldref [com/ybcx/activity/PictureEdit.p Z]
   - Fieldref [com/ybcx/activity/PictureEdit.q Landroid/view/View$OnClickListener;]
   - Fieldref [com/ybcx/activity/PictureEdit.r Landroid/view/View$OnClickListener;]
   - Fieldref [com/ybcx/activity/PictureEdit.s Landroid/view/View$OnClickListener;]
-  - Fieldref [com/ybcx/activity/PictureEdit.t Lcom/ybcx/c/j;]
-  - Fieldref [com/ybcx/activity/PictureEdit.u Ljava/lang/Thread;]
-  - Fieldref [com/ybcx/activity/PictureEdit.v Landroid/os/Handler;]
+  - Fieldref [com/ybcx/activity/PictureEdit.t Landroid/view/View$OnClickListener;]
+  - Fieldref [com/ybcx/activity/PictureEdit.u Lcom/ybcx/c/j;]
+  - Fieldref [com/ybcx/activity/PictureEdit.v Ljava/lang/Thread;]
+  - Fieldref [com/ybcx/activity/PictureEdit.w Landroid/os/Handler;]
   - Fieldref [com/ybcx/i/a.e Ljava/lang/String;]
   - Methodref [android/app/ProgressDialog.<init> (Landroid/content/Context;)V]
   - Methodref [android/app/ProgressDialog.dismiss ()V]
@@ -38388,7 +38389,7 @@ Constant Pool (count = 635):
   + NameAndType [openInputStream (Landroid/net/Uri;)Ljava/io/InputStream;]
   + NameAndType [outHeight I]
   + NameAndType [outWidth I]
-  + NameAndType [p Landroid/view/View$OnClickListener;]
+  + NameAndType [p Z]
   + NameAndType [parse (Ljava/lang/String;)Landroid/net/Uri;]
   + NameAndType [put (Ljava/lang/String;Ljava/lang/String;)V]
   + NameAndType [putBoolean (Ljava/lang/String;Z)V]
@@ -38410,16 +38411,17 @@ Constant Pool (count = 635):
   + NameAndType [show ()V]
   + NameAndType [startActivity (Landroid/content/Intent;)V]
   + NameAndType [startActivityForResult (Landroid/content/Intent;I)V]
-  + NameAndType [t Lcom/ybcx/c/j;]
+  + NameAndType [t Landroid/view/View$OnClickListener;]
   + NameAndType [toString ()Ljava/lang/String;]
   + NameAndType [topMargin I]
-  + NameAndType [u Ljava/lang/Thread;]
-  + NameAndType [v Landroid/os/Handler;]
+  + NameAndType [u Lcom/ybcx/c/j;]
+  + NameAndType [v Ljava/lang/Thread;]
   + NameAndType [valueOf (I)Ljava/lang/Integer;]
   + NameAndType [valueOf (J)Ljava/lang/Long;]
   + NameAndType [valueOf (Ljava/lang/Object;)Ljava/lang/String;]
   + NameAndType [valueOf (Z)Ljava/lang/Boolean;]
   + NameAndType [w (Ljava/lang/String;Ljava/lang/Throwable;)I]
+  + NameAndType [w Landroid/os/Handler;]
   + Utf8 [()I]
   + Utf8 [()J]
   + Utf8 [()Landroid/content/ContentResolver;]
@@ -38460,8 +38462,10 @@ Constant Pool (count = 635):
   + Utf8 [(Lcom/ybcx/activity/PictureEdit;)Landroid/os/Handler;]
   + Utf8 [(Lcom/ybcx/activity/PictureEdit;)Ljava/lang/Thread;]
   + Utf8 [(Lcom/ybcx/activity/PictureEdit;)V]
+  + Utf8 [(Lcom/ybcx/activity/PictureEdit;)Z]
   + Utf8 [(Lcom/ybcx/activity/PictureEdit;I)V]
   + Utf8 [(Lcom/ybcx/activity/PictureEdit;J)V]
+  + Utf8 [(Lcom/ybcx/activity/PictureEdit;Z)V]
   + Utf8 [(Lcom/ybcx/c/j;)V]
   + Utf8 [(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;]
   + Utf8 [(Ljava/lang/CharSequence;)V]
@@ -38697,7 +38701,7 @@ Constant Pool (count = 635):
   + Utf8 [w]
   + Utf8 [yyyyMMdd_HHmmss]
 
-Fields (count = 22):
+Fields (count = 23):
   + Field:        a Landroid/widget/ImageButton;
     Access flags: 0x2
       = private android.widget.ImageButton a
@@ -38743,9 +38747,9 @@ Fields (count = 22):
   + Field:        o I
     Access flags: 0x2
       = private int o
-  + Field:        p Landroid/view/View$OnClickListener;
+  + Field:        p Z
     Access flags: 0x2
-      = private android.view.View$OnClickListener p
+      = private boolean p
   + Field:        q Landroid/view/View$OnClickListener;
     Access flags: 0x2
       = private android.view.View$OnClickListener q
@@ -38755,24 +38759,27 @@ Fields (count = 22):
   + Field:        s Landroid/view/View$OnClickListener;
     Access flags: 0x2
       = private android.view.View$OnClickListener s
-  + Field:        t Lcom/ybcx/c/j;
+  + Field:        t Landroid/view/View$OnClickListener;
     Access flags: 0x2
-      = private com.ybcx.c.j t
-  + Field:        u Ljava/lang/Thread;
+      = private android.view.View$OnClickListener t
+  + Field:        u Lcom/ybcx/c/j;
     Access flags: 0x2
-      = private java.lang.Thread u
-  + Field:        v Landroid/os/Handler;
+      = private com.ybcx.c.j u
+  + Field:        v Ljava/lang/Thread;
     Access flags: 0x2
-      = private android.os.Handler v
+      = private java.lang.Thread v
+  + Field:        w Landroid/os/Handler;
+    Access flags: 0x2
+      = private android.os.Handler w
 
-Methods (count = 24):
+Methods (count = 26):
   - Method:       <init>()V
     Access flags: 0x1
       = public PictureEdit()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 103, locals = 1, stack = 4):
+    + Code attribute instructions (code length = 108, locals = 1, stack = 4):
       [0] aload_0 v0
-      [1] invokespecial #197
+      [1] invokespecial #198
         - Methodref [com/ybcx/activity/base/FullScreenActivity.<init> ()V]
       [4] aload_0 v0
       [5] ldc2_w #106
@@ -38785,69 +38792,73 @@ Methods (count = 24):
       [15] putfield #130
         - Fieldref [com/ybcx/activity/PictureEdit.k J]
       [18] aload_0 v0
-      [19] new #85
-        - Class [com/ybcx/activity/bc]
-      [22] dup
+      [19] iconst_1
+      [20] putfield #135
+        - Fieldref [com/ybcx/activity/PictureEdit.p Z]
       [23] aload_0 v0
-      [24] invokespecial #204
+      [24] new #85
+        - Class [com/ybcx/activity/bc]
+      [27] dup
+      [28] aload_0 v0
+      [29] invokespecial #205
         - Methodref [com/ybcx/activity/bc.<init> (Lcom/ybcx/activity/PictureEdit;)V]
-      [27] putfield #135
-        - Fieldref [com/ybcx/activity/PictureEdit.p Landroid/view/View$OnClickListener;]
-      [30] aload_0 v0
-      [31] new #84
-        - Class [com/ybcx/activity/bb]
-      [34] dup
-      [35] aload_0 v0
-      [36] invokespecial #203
-        - Methodref [com/ybcx/activity/bb.<init> (Lcom/ybcx/activity/PictureEdit;)V]
-      [39] putfield #136
+      [32] putfield #136
         - Fieldref [com/ybcx/activity/PictureEdit.q Landroid/view/View$OnClickListener;]
-      [42] aload_0 v0
-      [43] new #87
-        - Class [com/ybcx/activity/be]
-      [46] dup
-      [47] aload_0 v0
-      [48] invokespecial #206
-        - Methodref [com/ybcx/activity/be.<init> (Lcom/ybcx/activity/PictureEdit;)V]
-      [51] putfield #137
+      [35] aload_0 v0
+      [36] new #84
+        - Class [com/ybcx/activity/bb]
+      [39] dup
+      [40] aload_0 v0
+      [41] invokespecial #204
+        - Methodref [com/ybcx/activity/bb.<init> (Lcom/ybcx/activity/PictureEdit;)V]
+      [44] putfield #137
         - Fieldref [com/ybcx/activity/PictureEdit.r Landroid/view/View$OnClickListener;]
-      [54] aload_0 v0
-      [55] new #86
-        - Class [com/ybcx/activity/bd]
-      [58] dup
-      [59] aload_0 v0
-      [60] invokespecial #205
-        - Methodref [com/ybcx/activity/bd.<init> (Lcom/ybcx/activity/PictureEdit;)V]
-      [63] putfield #138
+      [47] aload_0 v0
+      [48] new #87
+        - Class [com/ybcx/activity/be]
+      [51] dup
+      [52] aload_0 v0
+      [53] invokespecial #207
+        - Methodref [com/ybcx/activity/be.<init> (Lcom/ybcx/activity/PictureEdit;)V]
+      [56] putfield #138
         - Fieldref [com/ybcx/activity/PictureEdit.s Landroid/view/View$OnClickListener;]
-      [66] aload_0 v0
-      [67] new #89
-        - Class [com/ybcx/activity/bg]
-      [70] dup
+      [59] aload_0 v0
+      [60] new #86
+        - Class [com/ybcx/activity/bd]
+      [63] dup
+      [64] aload_0 v0
+      [65] invokespecial #206
+        - Methodref [com/ybcx/activity/bd.<init> (Lcom/ybcx/activity/PictureEdit;)V]
+      [68] putfield #139
+        - Fieldref [com/ybcx/activity/PictureEdit.t Landroid/view/View$OnClickListener;]
       [71] aload_0 v0
-      [72] invokespecial #208
+      [72] new #89
+        - Class [com/ybcx/activity/bg]
+      [75] dup
+      [76] aload_0 v0
+      [77] invokespecial #209
         - Methodref [com/ybcx/activity/bg.<init> (Lcom/ybcx/activity/PictureEdit;)V]
-      [75] putfield #139
-        - Fieldref [com/ybcx/activity/PictureEdit.t Lcom/ybcx/c/j;]
-      [78] aload_0 v0
-      [79] new #88
-        - Class [com/ybcx/activity/bf]
-      [82] dup
+      [80] putfield #140
+        - Fieldref [com/ybcx/activity/PictureEdit.u Lcom/ybcx/c/j;]
       [83] aload_0 v0
-      [84] invokespecial #207
+      [84] new #88
+        - Class [com/ybcx/activity/bf]
+      [87] dup
+      [88] aload_0 v0
+      [89] invokespecial #208
         - Methodref [com/ybcx/activity/bf.<init> (Lcom/ybcx/activity/PictureEdit;)V]
-      [87] putfield #140
-        - Fieldref [com/ybcx/activity/PictureEdit.u Ljava/lang/Thread;]
-      [90] aload_0 v0
-      [91] new #90
-        - Class [com/ybcx/activity/bh]
-      [94] dup
+      [92] putfield #141
+        - Fieldref [com/ybcx/activity/PictureEdit.v Ljava/lang/Thread;]
       [95] aload_0 v0
-      [96] invokespecial #209
+      [96] new #90
+        - Class [com/ybcx/activity/bh]
+      [99] dup
+      [100] aload_0 v0
+      [101] invokespecial #210
         - Methodref [com/ybcx/activity/bh.<init> (Lcom/ybcx/activity/PictureEdit;)V]
-      [99] putfield #141
-        - Fieldref [com/ybcx/activity/PictureEdit.v Landroid/os/Handler;]
-      [102] return
+      [104] putfield #142
+        - Fieldref [com/ybcx/activity/PictureEdit.w Landroid/os/Handler;]
+      [107] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       onCreate(Landroid/os/Bundle;)V
@@ -38857,44 +38868,44 @@ Methods (count = 24):
     + Code attribute instructions (code length = 258, locals = 5, stack = 3):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #199
+      [2] invokespecial #200
         - Methodref [com/ybcx/activity/base/FullScreenActivity.onCreate (Landroid/os/Bundle;)V]
       [5] ldc #20
         - String [PictureEdit]
       [7] ldc #18
         - String [>>> onCreate... to create pic edit...]
-      [9] invokestatic #170
+      [9] invokestatic #171
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [12] pop
       [13] aload_0 v0
       [14] astore_1 v1
-      [15] invokestatic #181
+      [15] invokestatic #182
         - Methodref [com/ybcx/PintuApp.a ()Z]
       [18] ifne +28 (target=46)
       [21] new #50
         - Class [android/content/Intent]
       [24] dup
-      [25] invokespecial #154
+      [25] invokespecial #155
         - Methodref [android/content/Intent.<init> ()V]
       [28] dup
       [29] astore_3 v3
       [30] aload_1 v1
       [31] ldc #81
         - Class [com/ybcx/activity/LogonSys]
-      [33] invokevirtual #160
+      [33] invokevirtual #161
         - Methodref [android/content/Intent.setClass (Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;]
       [36] pop
       [37] aload_1 v1
       [38] aload_3 v3
-      [39] invokevirtual #195
+      [39] invokevirtual #196
         - Methodref [com/ybcx/activity/PictureEdit.startActivity (Landroid/content/Intent;)V]
       [42] aload_1 v1
-      [43] invokevirtual #188
+      [43] invokevirtual #189
         - Methodref [com/ybcx/activity/PictureEdit.finish ()V]
       [46] aload_0 v0
       [47] ldc #1
         - Integer [2130903074]
-      [49] invokevirtual #194
+      [49] invokevirtual #195
         - Methodref [com/ybcx/activity/PictureEdit.setContentView (I)V]
       [52] aload_0 v0
       [53] dup
@@ -38902,7 +38913,7 @@ Methods (count = 24):
       [55] astore_1 v1
       [56] ldc #6
         - Integer [2131296299]
-      [58] invokevirtual #187
+      [58] invokevirtual #188
         - Methodref [com/ybcx/activity/PictureEdit.findViewById (I)Landroid/view/View;]
       [61] checkcast #75
         - Class [android/widget/ImageButton]
@@ -38912,7 +38923,7 @@ Methods (count = 24):
       [68] aload_1 v1
       [69] ldc #7
         - Integer [2131296307]
-      [71] invokevirtual #187
+      [71] invokevirtual #188
         - Methodref [com/ybcx/activity/PictureEdit.findViewById (I)Landroid/view/View;]
       [74] checkcast #72
         - Class [android/widget/Button]
@@ -38922,7 +38933,7 @@ Methods (count = 24):
       [81] aload_1 v1
       [82] ldc #10
         - Integer [2131296365]
-      [84] invokevirtual #187
+      [84] invokevirtual #188
         - Methodref [com/ybcx/activity/PictureEdit.findViewById (I)Landroid/view/View;]
       [87] checkcast #76
         - Class [android/widget/ImageView]
@@ -38932,7 +38943,7 @@ Methods (count = 24):
       [94] aload_1 v1
       [95] ldc #12
         - Integer [2131296367]
-      [97] invokevirtual #187
+      [97] invokevirtual #188
         - Methodref [com/ybcx/activity/PictureEdit.findViewById (I)Landroid/view/View;]
       [100] checkcast #74
         - Class [android/widget/EditText]
@@ -38942,7 +38953,7 @@ Methods (count = 24):
       [107] aload_1 v1
       [108] ldc #13
         - Integer [2131296368]
-      [110] invokevirtual #187
+      [110] invokevirtual #188
         - Methodref [com/ybcx/activity/PictureEdit.findViewById (I)Landroid/view/View;]
       [113] checkcast #74
         - Class [android/widget/EditText]
@@ -38952,7 +38963,7 @@ Methods (count = 24):
       [120] aload_1 v1
       [121] ldc #11
         - Integer [2131296366]
-      [123] invokevirtual #187
+      [123] invokevirtual #188
         - Methodref [com/ybcx/activity/PictureEdit.findViewById (I)Landroid/view/View;]
       [126] checkcast #73
         - Class [android/widget/CheckBox]
@@ -38962,7 +38973,7 @@ Methods (count = 24):
       [133] aload_1 v1
       [134] ldc #8
         - Integer [2131296363]
-      [136] invokevirtual #187
+      [136] invokevirtual #188
         - Methodref [com/ybcx/activity/PictureEdit.findViewById (I)Landroid/view/View;]
       [139] checkcast #75
         - Class [android/widget/ImageButton]
@@ -38972,7 +38983,7 @@ Methods (count = 24):
       [146] aload_1 v1
       [147] ldc #9
         - Integer [2131296364]
-      [149] invokevirtual #187
+      [149] invokevirtual #188
         - Methodref [com/ybcx/activity/PictureEdit.findViewById (I)Landroid/view/View;]
       [152] checkcast #75
         - Class [android/widget/ImageButton]
@@ -38984,42 +38995,42 @@ Methods (count = 24):
       [161] getfield #120
         - Fieldref [com/ybcx/activity/PictureEdit.a Landroid/widget/ImageButton;]
       [164] aload_1 v1
-      [165] getfield #135
-        - Fieldref [com/ybcx/activity/PictureEdit.p Landroid/view/View$OnClickListener;]
-      [168] invokevirtual #175
+      [165] getfield #136
+        - Fieldref [com/ybcx/activity/PictureEdit.q Landroid/view/View$OnClickListener;]
+      [168] invokevirtual #176
         - Methodref [android/widget/ImageButton.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [171] aload_1 v1
       [172] getfield #121
         - Fieldref [com/ybcx/activity/PictureEdit.b Landroid/widget/Button;]
       [175] aload_1 v1
-      [176] getfield #136
-        - Fieldref [com/ybcx/activity/PictureEdit.q Landroid/view/View$OnClickListener;]
-      [179] invokevirtual #172
+      [176] getfield #137
+        - Fieldref [com/ybcx/activity/PictureEdit.r Landroid/view/View$OnClickListener;]
+      [179] invokevirtual #173
         - Methodref [android/widget/Button.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [182] aload_1 v1
       [183] getfield #125
         - Fieldref [com/ybcx/activity/PictureEdit.f Landroid/widget/ImageButton;]
       [186] aload_1 v1
-      [187] getfield #137
-        - Fieldref [com/ybcx/activity/PictureEdit.r Landroid/view/View$OnClickListener;]
-      [190] invokevirtual #175
+      [187] getfield #138
+        - Fieldref [com/ybcx/activity/PictureEdit.s Landroid/view/View$OnClickListener;]
+      [190] invokevirtual #176
         - Methodref [android/widget/ImageButton.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [193] aload_1 v1
       [194] getfield #126
         - Fieldref [com/ybcx/activity/PictureEdit.g Landroid/widget/ImageButton;]
       [197] aload_1 v1
-      [198] getfield #138
-        - Fieldref [com/ybcx/activity/PictureEdit.s Landroid/view/View$OnClickListener;]
-      [201] invokevirtual #175
+      [198] getfield #139
+        - Fieldref [com/ybcx/activity/PictureEdit.t Landroid/view/View$OnClickListener;]
+      [201] invokevirtual #176
         - Methodref [android/widget/ImageButton.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [204] aload_0 v0
       [205] dup
       [206] astore_1 v1
-      [207] invokevirtual #190
+      [207] invokevirtual #191
         - Methodref [com/ybcx/activity/PictureEdit.getIntent ()Landroid/content/Intent;]
       [210] dup
       [211] astore_2 v2
-      [212] invokevirtual #158
+      [212] invokevirtual #159
         - Methodref [android/content/Intent.getExtras ()Landroid/os/Bundle;]
       [215] astore_3 v3
       [216] aconst_null
@@ -39029,7 +39040,7 @@ Methods (count = 24):
       [223] aload_3 v3
       [224] ldc #24
         - String [android.intent.extra.STREAM]
-      [226] invokevirtual #168
+      [226] invokevirtual #169
         - Methodref [android/os/Bundle.get (Ljava/lang/String;)Ljava/lang/Object;]
       [229] checkcast #59
         - Class [android/net/Uri]
@@ -39037,16 +39048,16 @@ Methods (count = 24):
       [234] ldc #23
         - String [android.intent.action.SEND]
       [236] aload_2 v2
-      [237] invokevirtual #156
+      [237] invokevirtual #157
         - Methodref [android/content/Intent.getAction ()Ljava/lang/String;]
-      [240] invokevirtual #224
+      [240] invokevirtual #225
         - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
       [243] ifeq +14 (target=257)
       [246] aload v4
       [248] ifnull +9 (target=257)
       [251] aload_1 v1
       [252] aload v4
-      [254] invokespecial #183
+      [254] invokespecial #184
         - Methodref [com/ybcx/activity/PictureEdit.a (Landroid/net/Uri;)V]
       [257] return
       Code attribute exceptions (count = 0):
@@ -39057,45 +39068,45 @@ Methods (count = 24):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 203, locals = 4, stack = 4):
       [0] aload_0 v0
-      [1] invokespecial #201
+      [1] invokespecial #202
         - Methodref [com/ybcx/activity/base/FullScreenActivity.onResume ()V]
       [4] ldc #20
         - String [PictureEdit]
       [6] ldc #36
         - String [on Resume...]
-      [8] invokestatic #170
+      [8] invokestatic #171
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [11] pop
       [12] iconst_0
-      [13] invokestatic #220
+      [13] invokestatic #221
         - Methodref [java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;]
       [16] pop
       [17] aload_0 v0
       [18] ldc #20
         - String [PictureEdit]
       [20] iconst_0
-      [21] invokevirtual #191
+      [21] invokevirtual #192
         - Methodref [com/ybcx/activity/PictureEdit.getSharedPreferences (Ljava/lang/String;I)Landroid/content/SharedPreferences;]
       [24] ldc #42
         - String [shottTime]
       [26] lconst_0
-      [27] invokeinterface #235
+      [27] invokeinterface #236
         - InterfaceMethodref [android/content/SharedPreferences.getLong (Ljava/lang/String;J)J]
-      [32] invokestatic #223
+      [32] invokestatic #224
         - Methodref [java/lang/Long.valueOf (J)Ljava/lang/Long;]
       [35] astore_1 v1
       [36] new #105
         - Class [java/util/Date]
       [39] dup
-      [40] invokespecial #232
+      [40] invokespecial #233
         - Methodref [java/util/Date.<init> ()V]
-      [43] invokevirtual #233
+      [43] invokevirtual #234
         - Methodref [java/util/Date.getTime ()J]
       [46] aload_1 v1
-      [47] invokevirtual #222
+      [47] invokevirtual #223
         - Methodref [java/lang/Long.longValue ()J]
       [50] lsub
-      [51] invokestatic #223
+      [51] invokestatic #224
         - Methodref [java/lang/Long.valueOf (J)Ljava/lang/Long;]
       [54] astore_1 v1
       [55] ldc #20
@@ -39105,18 +39116,18 @@ Methods (count = 24):
       [60] dup
       [61] ldc #40
         - String [shotDiff: ]
-      [63] invokespecial #226
+      [63] invokespecial #227
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [66] aload_1 v1
-      [67] invokevirtual #227
+      [67] invokevirtual #228
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
-      [70] invokevirtual #229
+      [70] invokevirtual #230
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [73] invokestatic #170
+      [73] invokestatic #171
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [76] pop
       [77] aload_1 v1
-      [78] invokevirtual #222
+      [78] invokevirtual #223
         - Methodref [java/lang/Long.longValue ()J]
       [81] ldc2_w #108
         - Long [2000]
@@ -39124,17 +39135,17 @@ Methods (count = 24):
       [85] ifle +4 (target=89)
       [88] return
       [89] iconst_1
-      [90] invokestatic #220
+      [90] invokestatic #221
         - Methodref [java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;]
       [93] astore_1 v1
       [94] aload_0 v0
       [95] astore_2 v2
       [96] getstatic #119
         - Fieldref [com/ybcx/PintuApp.f Landroid/content/SharedPreferences;]
-      [99] getstatic #142
+      [99] getstatic #143
         - Fieldref [com/ybcx/i/a.e Ljava/lang/String;]
       [102] aconst_null
-      [103] invokeinterface #236
+      [103] invokeinterface #237
         - InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
       [108] dup
       [109] astore_3 v3
@@ -39144,7 +39155,7 @@ Methods (count = 24):
       [117] aload_2 v2
       [118] ldc #26
         - String [captured picture name has losted!!]
-      [120] invokespecial #184
+      [120] invokespecial #185
         - Methodref [com/ybcx/activity/PictureEdit.a (Ljava/lang/String;)V]
       [123] aconst_null
       [124] dup
@@ -39153,30 +39164,30 @@ Methods (count = 24):
       [129] aload_0 v0
       [130] ldc #19
         - String [OH NO, last capture file not found!]
-      [132] invokespecial #184
+      [132] invokespecial #185
         - Methodref [com/ybcx/activity/PictureEdit.a (Ljava/lang/String;)V]
       [135] aload_2 v2
       [136] ifnull +66 (target=202)
       [139] aload_1 v1
-      [140] invokevirtual #219
+      [140] invokevirtual #220
         - Methodref [java/lang/Boolean.booleanValue ()Z]
       [143] ifeq +59 (target=202)
       [146] aload_2 v2
-      [147] invokestatic #166
+      [147] invokestatic #167
         - Methodref [android/net/Uri.parse (Ljava/lang/String;)Landroid/net/Uri;]
       [150] astore_1 v1
       [151] aload_0 v0
       [152] aload_1 v1
-      [153] invokespecial #186
+      [153] invokespecial #187
         - Methodref [com/ybcx/activity/PictureEdit.c (Landroid/net/Uri;)Landroid/graphics/Bitmap;]
       [156] astore_2 v2
       [157] aload_0 v0
       [158] aload_2 v2
-      [159] invokespecial #182
+      [159] invokespecial #183
         - Methodref [com/ybcx/activity/PictureEdit.a (Landroid/graphics/Bitmap;)V]
       [162] aload_0 v0
       [163] aload_1 v1
-      [164] invokespecial #185
+      [164] invokespecial #186
         - Methodref [com/ybcx/activity/PictureEdit.b (Landroid/net/Uri;)Ljava/lang/String;]
       [167] astore_1 v1
       [168] ldc #20
@@ -39186,14 +39197,14 @@ Methods (count = 24):
       [173] dup
       [174] ldc #31
         - String [filePath: ]
-      [176] invokespecial #226
+      [176] invokespecial #227
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [179] aload_1 v1
-      [180] invokevirtual #228
+      [180] invokevirtual #229
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [183] invokevirtual #229
+      [183] invokevirtual #230
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [186] invokestatic #170
+      [186] invokestatic #171
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [189] pop
       [190] aload_0 v0
@@ -39201,7 +39212,7 @@ Methods (count = 24):
         - Class [java/io/File]
       [194] dup
       [195] aload_1 v1
-      [196] invokespecial #217
+      [196] invokespecial #218
         - Methodref [java/io/File.<init> (Ljava/lang/String;)V]
       [199] putfield #132
         - Fieldref [com/ybcx/activity/PictureEdit.m Ljava/io/File;]
@@ -39221,7 +39232,7 @@ Methods (count = 24):
         - String [PictureEdit]
       [2] ldc #37
         - String [onDestroy.]
-      [4] invokestatic #170
+      [4] invokestatic #171
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [7] pop
       [8] aload_0 v0
@@ -39231,7 +39242,7 @@ Methods (count = 24):
       [15] aload_0 v0
       [16] getfield #131
         - Fieldref [com/ybcx/activity/PictureEdit.l Lcom/ybcx/c/l;]
-      [19] invokevirtual #213
+      [19] invokevirtual #214
         - Methodref [com/ybcx/c/l.getStatus ()Landroid/os/AsyncTask$Status;]
       [22] getstatic #114
         - Fieldref [android/os/AsyncTask$Status.RUNNING Landroid/os/AsyncTask$Status;]
@@ -39240,7 +39251,7 @@ Methods (count = 24):
       [29] getfield #131
         - Fieldref [com/ybcx/activity/PictureEdit.l Lcom/ybcx/c/l;]
       [32] iconst_1
-      [33] invokevirtual #211
+      [33] invokevirtual #212
         - Methodref [com/ybcx/c/l.cancel (Z)Z]
       [36] pop
       [37] aload_0 v0
@@ -39254,10 +39265,10 @@ Methods (count = 24):
       [49] aload_0 v0
       [50] getfield #127
         - Fieldref [com/ybcx/activity/PictureEdit.h Landroid/app/ProgressDialog;]
-      [53] invokevirtual #144
+      [53] invokevirtual #145
         - Methodref [android/app/ProgressDialog.dismiss ()V]
       [56] aload_0 v0
-      [57] invokespecial #200
+      [57] invokespecial #201
         - Methodref [com/ybcx/activity/base/FullScreenActivity.onDestroy ()V]
       [60] return
       Code attribute exceptions (count = 0):
@@ -39272,7 +39283,7 @@ Methods (count = 24):
     + Code attribute instructions (code length = 33, locals = 2, stack = 3):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #202
+      [2] invokespecial #203
         - Methodref [com/ybcx/activity/base/FullScreenActivity.onSaveInstanceState (Landroid/os/Bundle;)V]
       [5] aload_0 v0
       [6] getfield #131
@@ -39281,7 +39292,7 @@ Methods (count = 24):
       [12] aload_0 v0
       [13] getfield #131
         - Fieldref [com/ybcx/activity/PictureEdit.l Lcom/ybcx/c/l;]
-      [16] invokevirtual #213
+      [16] invokevirtual #214
         - Methodref [com/ybcx/c/l.getStatus ()Landroid/os/AsyncTask$Status;]
       [19] getstatic #114
         - Fieldref [android/os/AsyncTask$Status.RUNNING Landroid/os/AsyncTask$Status;]
@@ -39290,7 +39301,7 @@ Methods (count = 24):
       [26] ldc #39
         - String [running]
       [28] iconst_1
-      [29] invokevirtual #169
+      [29] invokevirtual #170
         - Methodref [android/os/Bundle.putBoolean (Ljava/lang/String;Z)V]
       [32] return
       Code attribute exceptions (count = 0):
@@ -39305,9 +39316,9 @@ Methods (count = 24):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] iconst_1
-      [3] invokestatic #179
+      [3] invokestatic #180
         - Methodref [android/widget/Toast.makeText (Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
-      [6] invokevirtual #180
+      [6] invokevirtual #181
         - Methodref [android/widget/Toast.show ()V]
       [9] return
       Code attribute exceptions (count = 0):
@@ -39321,13 +39332,13 @@ Methods (count = 24):
       [1] iload_1 v1
       [2] iload_2 v2
       [3] aload_3 v3
-      [4] invokespecial #198
+      [4] invokespecial #199
         - Methodref [com/ybcx/activity/base/FullScreenActivity.onActivityResult (IILandroid/content/Intent;)V]
       [7] ldc #20
         - String [PictureEdit]
       [9] ldc #17
         - String [>>> onActivityResult... to getPic]
-      [11] invokestatic #170
+      [11] invokestatic #171
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [14] pop
       [15] iload_1 v1
@@ -39339,29 +39350,29 @@ Methods (count = 24):
       [25] new #105
         - Class [java/util/Date]
       [28] dup
-      [29] invokespecial #232
+      [29] invokespecial #233
         - Methodref [java/util/Date.<init> ()V]
-      [32] invokevirtual #233
+      [32] invokevirtual #234
         - Methodref [java/util/Date.getTime ()J]
-      [35] invokestatic #223
+      [35] invokestatic #224
         - Methodref [java/lang/Long.valueOf (J)Ljava/lang/Long;]
       [38] astore_1 v1
       [39] aload_0 v0
       [40] ldc #20
         - String [PictureEdit]
       [42] iconst_0
-      [43] invokevirtual #191
+      [43] invokevirtual #192
         - Methodref [com/ybcx/activity/PictureEdit.getSharedPreferences (Ljava/lang/String;I)Landroid/content/SharedPreferences;]
-      [46] invokeinterface #234
+      [46] invokeinterface #235
         - InterfaceMethodref [android/content/SharedPreferences.edit ()Landroid/content/SharedPreferences$Editor;]
       [51] ldc #42
         - String [shottTime]
       [53] aload_1 v1
-      [54] invokevirtual #222
+      [54] invokevirtual #223
         - Methodref [java/lang/Long.longValue ()J]
-      [57] invokeinterface #238
+      [57] invokeinterface #239
         - InterfaceMethodref [android/content/SharedPreferences$Editor.putLong (Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;]
-      [62] invokeinterface #237
+      [62] invokeinterface #238
         - InterfaceMethodref [android/content/SharedPreferences$Editor.commit ()Z]
       [67] pop
       [68] ldc #20
@@ -39371,14 +39382,14 @@ Methods (count = 24):
       [73] dup
       [74] ldc #41
         - String [shotTime: ]
-      [76] invokespecial #226
+      [76] invokespecial #227
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [79] aload_1 v1
-      [80] invokevirtual #227
+      [80] invokevirtual #228
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
-      [83] invokevirtual #229
+      [83] invokevirtual #230
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [86] invokestatic #170
+      [86] invokestatic #171
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [89] pop
       [90] return
@@ -39390,9 +39401,9 @@ Methods (count = 24):
       [98] ificmpne +11 (target=109)
       [101] aload_0 v0
       [102] aload_3 v3
-      [103] invokevirtual #157
+      [103] invokevirtual #158
         - Methodref [android/content/Intent.getData ()Landroid/net/Uri;]
-      [106] invokespecial #183
+      [106] invokespecial #184
         - Methodref [com/ybcx/activity/PictureEdit.a (Landroid/net/Uri;)V]
       [109] return
       Code attribute exceptions (count = 0):
@@ -39408,11 +39419,11 @@ Methods (count = 24):
       [0] aload_1 v1
       [1] dup
       [2] astore_1 v1
-      [3] invokevirtual #165
+      [3] invokevirtual #166
         - Methodref [android/net/Uri.getScheme ()Ljava/lang/String;]
       [6] ldc #27
         - String [content]
-      [8] invokevirtual #224
+      [8] invokevirtual #225
         - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
       [11] ifeq +22 (target=33)
       [14] aload_0 v0
@@ -39421,9 +39432,9 @@ Methods (count = 24):
       [18] dup
       [19] aload_0 v0
       [20] aload_1 v1
-      [21] invokespecial #185
+      [21] invokespecial #186
         - Methodref [com/ybcx/activity/PictureEdit.b (Landroid/net/Uri;)Ljava/lang/String;]
-      [24] invokespecial #217
+      [24] invokespecial #218
         - Methodref [java/io/File.<init> (Ljava/lang/String;)V]
       [27] putfield #132
         - Fieldref [com/ybcx/activity/PictureEdit.m Ljava/io/File;]
@@ -39431,12 +39442,12 @@ Methods (count = 24):
       [33] return
       [34] aload_0 v0
       [35] aload_1 v1
-      [36] invokespecial #186
+      [36] invokespecial #187
         - Methodref [com/ybcx/activity/PictureEdit.c (Landroid/net/Uri;)Landroid/graphics/Bitmap;]
       [39] astore_1 v1
       [40] aload_0 v0
       [41] aload_1 v1
-      [42] invokespecial #182
+      [42] invokespecial #183
         - Methodref [com/ybcx/activity/PictureEdit.a (Landroid/graphics/Bitmap;)V]
       [45] return
       Code attribute exceptions (count = 0):
@@ -39450,11 +39461,11 @@ Methods (count = 24):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 55, locals = 4, stack = 4):
       [0] aload_1 v1
-      [1] invokevirtual #162
+      [1] invokevirtual #163
         - Methodref [android/graphics/Bitmap.getWidth ()I]
       [4] istore_2 v2
       [5] aload_1 v1
-      [6] invokevirtual #161
+      [6] invokevirtual #162
         - Methodref [android/graphics/Bitmap.getHeight ()I]
       [9] istore_3 v3
       [10] new #78
@@ -39462,7 +39473,7 @@ Methods (count = 24):
       [13] dup
       [14] iload_2 v2
       [15] iload_3 v3
-      [16] invokespecial #178
+      [16] invokespecial #179
         - Methodref [android/widget/LinearLayout$LayoutParams.<init> (II)V]
       [19] dup
       [20] astore_2 v2
@@ -39481,13 +39492,13 @@ Methods (count = 24):
       [39] getfield #128
         - Fieldref [com/ybcx/activity/PictureEdit.i Landroid/widget/ImageView;]
       [42] aload_2 v2
-      [43] invokevirtual #177
+      [43] invokevirtual #178
         - Methodref [android/widget/ImageView.setLayoutParams (Landroid/view/ViewGroup$LayoutParams;)V]
       [46] aload_0 v0
       [47] getfield #128
         - Fieldref [com/ybcx/activity/PictureEdit.i Landroid/widget/ImageView;]
       [50] aload_1 v1
-      [51] invokevirtual #176
+      [51] invokevirtual #177
         - Methodref [android/widget/ImageView.setImageBitmap (Landroid/graphics/Bitmap;)V]
       [54] return
       Code attribute exceptions (count = 0):
@@ -39512,22 +39523,22 @@ Methods (count = 24):
       [13] aconst_null
       [14] aconst_null
       [15] aconst_null
-      [16] invokevirtual #193
+      [16] invokevirtual #194
         - Methodref [com/ybcx/activity/PictureEdit.managedQuery (Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;]
       [19] dup
       [20] astore_1 v1
       [21] ldc #21
         - String [_data]
-      [23] invokeinterface #240
+      [23] invokeinterface #241
         - InterfaceMethodref [android/database/Cursor.getColumnIndexOrThrow (Ljava/lang/String;)I]
       [28] istore_2 v2
       [29] aload_1 v1
-      [30] invokeinterface #242
+      [30] invokeinterface #243
         - InterfaceMethodref [android/database/Cursor.moveToFirst ()Z]
       [35] pop
       [36] aload_1 v1
       [37] iload_2 v2
-      [38] invokeinterface #241
+      [38] invokeinterface #242
         - InterfaceMethodref [android/database/Cursor.getString (I)Ljava/lang/String;]
       [43] areturn
       Code attribute exceptions (count = 0):
@@ -39540,16 +39551,16 @@ Methods (count = 24):
       [0] aconst_null
       [1] astore_2 v2
       [2] aload_0 v0
-      [3] invokevirtual #189
+      [3] invokevirtual #190
         - Methodref [com/ybcx/activity/PictureEdit.getContentResolver ()Landroid/content/ContentResolver;]
       [6] aload_1 v1
-      [7] invokevirtual #151
+      [7] invokevirtual #152
         - Methodref [android/content/ContentResolver.openInputStream (Landroid/net/Uri;)Ljava/io/InputStream;]
       [10] astore_2 v2
       [11] new #58
         - Class [android/graphics/BitmapFactory$Options]
       [14] dup
-      [15] invokespecial #164
+      [15] invokespecial #165
         - Methodref [android/graphics/BitmapFactory$Options.<init> ()V]
       [18] dup
       [19] astore_3 v3
@@ -39559,11 +39570,11 @@ Methods (count = 24):
       [24] aload_2 v2
       [25] aconst_null
       [26] aload_3 v3
-      [27] invokestatic #163
+      [27] invokestatic #164
         - Methodref [android/graphics/BitmapFactory.decodeStream (Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;]
       [30] pop
       [31] aload_2 v2
-      [32] invokevirtual #218
+      [32] invokevirtual #219
         - Methodref [java/io/InputStream.close ()V]
       [35] iconst_1
       [36] istore v4
@@ -39595,29 +39606,29 @@ Methods (count = 24):
       [81] putfield #111
         - Fieldref [android/graphics/BitmapFactory$Options.inSampleSize I]
       [84] aload_0 v0
-      [85] invokevirtual #189
+      [85] invokevirtual #190
         - Methodref [com/ybcx/activity/PictureEdit.getContentResolver ()Landroid/content/ContentResolver;]
       [88] aload_1 v1
-      [89] invokevirtual #151
+      [89] invokevirtual #152
         - Methodref [android/content/ContentResolver.openInputStream (Landroid/net/Uri;)Ljava/io/InputStream;]
       [92] dup
       [93] astore_2 v2
       [94] aconst_null
       [95] aload_3 v3
-      [96] invokestatic #163
+      [96] invokestatic #164
         - Methodref [android/graphics/BitmapFactory.decodeStream (Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;]
       [99] astore_1 v1
       [100] aload_2 v2
       [101] ifnull +18 (target=119)
       [104] aload_2 v2
-      [105] invokevirtual #218
+      [105] invokevirtual #219
         - Methodref [java/io/InputStream.close ()V]
       [108] goto +11 (target=119)
       [111] astore_2 v2
       [112] ldc #20
         - String [PictureEdit]
       [114] aload_2 v2
-      [115] invokestatic #171
+      [115] invokestatic #172
         - Methodref [android/util/Log.w (Ljava/lang/String;Ljava/lang/Throwable;)I]
       [118] pop
       [119] aload_1 v1
@@ -39626,25 +39637,25 @@ Methods (count = 24):
       [122] ldc #20
         - String [PictureEdit]
       [124] aload_3 v3
-      [125] invokestatic #171
+      [125] invokestatic #172
         - Methodref [android/util/Log.w (Ljava/lang/String;Ljava/lang/Throwable;)I]
       [128] pop
       [129] aload_0 v0
       [130] ldc #30
         - String [file not found while create thumbnail!!!]
-      [132] invokespecial #184
+      [132] invokespecial #185
         - Methodref [com/ybcx/activity/PictureEdit.a (Ljava/lang/String;)V]
       [135] aload_2 v2
       [136] ifnull +18 (target=154)
       [139] aload_2 v2
-      [140] invokevirtual #218
+      [140] invokevirtual #219
         - Methodref [java/io/InputStream.close ()V]
       [143] goto +11 (target=154)
       [146] astore_2 v2
       [147] ldc #20
         - String [PictureEdit]
       [149] aload_2 v2
-      [150] invokestatic #171
+      [150] invokestatic #172
         - Methodref [android/util/Log.w (Ljava/lang/String;Ljava/lang/Throwable;)I]
       [153] pop
       [154] aconst_null
@@ -39653,14 +39664,14 @@ Methods (count = 24):
       [157] aload_2 v2
       [158] ifnull +18 (target=176)
       [161] aload_2 v2
-      [162] invokevirtual #218
+      [162] invokevirtual #219
         - Methodref [java/io/InputStream.close ()V]
       [165] goto +11 (target=176)
       [168] astore_2 v2
       [169] ldc #20
         - String [PictureEdit]
       [171] aload_2 v2
-      [172] invokestatic #171
+      [172] invokestatic #172
         - Methodref [android/util/Log.w (Ljava/lang/String;Ljava/lang/Throwable;)I]
       [175] pop
       [176] aload_1 v1
@@ -39702,7 +39713,7 @@ Methods (count = 24):
       [9] aload_0 v0
       [10] getfield #131
         - Fieldref [com/ybcx/activity/PictureEdit.l Lcom/ybcx/c/l;]
-      [13] invokevirtual #213
+      [13] invokevirtual #214
         - Methodref [com/ybcx/c/l.getStatus ()Landroid/os/AsyncTask$Status;]
       [16] getstatic #114
         - Fieldref [android/os/AsyncTask$Status.RUNNING Landroid/os/AsyncTask$Status;]
@@ -39710,23 +39721,23 @@ Methods (count = 24):
       [22] aload_0 v0
       [23] getfield #123
         - Fieldref [com/ybcx/activity/PictureEdit.d Landroid/widget/EditText;]
-      [26] invokevirtual #174
+      [26] invokevirtual #175
         - Methodref [android/widget/EditText.getText ()Landroid/text/Editable;]
-      [29] invokeinterface #243
+      [29] invokeinterface #244
         - InterfaceMethodref [android/text/Editable.toString ()Ljava/lang/String;]
       [34] astore_1 v1
       [35] aload_0 v0
       [36] getfield #122
         - Fieldref [com/ybcx/activity/PictureEdit.c Landroid/widget/EditText;]
-      [39] invokevirtual #174
+      [39] invokevirtual #175
         - Methodref [android/widget/EditText.getText ()Landroid/text/Editable;]
-      [42] invokeinterface #243
+      [42] invokeinterface #244
         - InterfaceMethodref [android/text/Editable.toString ()Ljava/lang/String;]
       [47] astore_2 v2
       [48] aload_0 v0
       [49] getfield #124
         - Fieldref [com/ybcx/activity/PictureEdit.e Landroid/widget/CheckBox;]
-      [52] invokevirtual #173
+      [52] invokevirtual #174
         - Methodref [android/widget/CheckBox.isChecked ()Z]
       [55] istore_3 v3
       [56] aload_0 v0
@@ -39737,7 +39748,7 @@ Methods (count = 24):
       [64] new #93
         - Class [com/ybcx/c/r]
       [67] dup
-      [68] invokespecial #216
+      [68] invokespecial #217
         - Methodref [com/ybcx/c/r.<init> ()V]
       [71] putfield #131
         - Fieldref [com/ybcx/activity/PictureEdit.l Lcom/ybcx/c/l;]
@@ -39745,23 +39756,23 @@ Methods (count = 24):
       [75] getfield #131
         - Fieldref [com/ybcx/activity/PictureEdit.l Lcom/ybcx/c/l;]
       [78] aload_0 v0
-      [79] getfield #139
-        - Fieldref [com/ybcx/activity/PictureEdit.t Lcom/ybcx/c/j;]
-      [82] invokevirtual #210
+      [79] getfield #140
+        - Fieldref [com/ybcx/activity/PictureEdit.u Lcom/ybcx/c/j;]
+      [82] invokevirtual #211
         - Methodref [com/ybcx/c/l.a (Lcom/ybcx/c/j;)V]
       [85] new #92
         - Class [com/ybcx/c/m]
       [88] dup
-      [89] invokespecial #214
+      [89] invokespecial #215
         - Methodref [com/ybcx/c/m.<init> ()V]
       [92] dup
       [93] astore v4
       [95] ldc #35
         - String [mode]
       [97] iconst_1
-      [98] invokestatic #221
+      [98] invokestatic #222
         - Methodref [java/lang/Integer.valueOf (I)Ljava/lang/Integer;]
-      [101] invokevirtual #215
+      [101] invokevirtual #216
         - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [104] aload v4
       [106] ldc #29
@@ -39769,19 +39780,19 @@ Methods (count = 24):
       [108] aload_0 v0
       [109] getfield #132
         - Fieldref [com/ybcx/activity/PictureEdit.m Ljava/io/File;]
-      [112] invokevirtual #215
+      [112] invokevirtual #216
         - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [115] aload v4
       [117] ldc #28
         - String [description]
       [119] aload_1 v1
-      [120] invokevirtual #215
+      [120] invokevirtual #216
         - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [123] aload v4
       [125] ldc #43
         - String [tags]
       [127] aload_2 v2
-      [128] invokevirtual #215
+      [128] invokevirtual #216
         - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [131] aload v4
       [133] ldc #33
@@ -39793,7 +39804,7 @@ Methods (count = 24):
       [141] goto +5 (target=146)
       [144] ldc #15
         - String [0]
-      [146] invokevirtual #215
+      [146] invokevirtual #216
         - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [149] aload_0 v0
       [150] getfield #131
@@ -39805,7 +39816,7 @@ Methods (count = 24):
       [158] iconst_0
       [159] aload v4
       [161] aastore
-      [162] invokevirtual #212
+      [162] invokevirtual #213
         - Methodref [com/ybcx/c/l.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
       [165] pop
       [166] return
@@ -39813,9 +39824,9 @@ Methods (count = 24):
       [168] aload_0 v0
       [169] ldc #5
         - Integer [2131165273]
-      [171] invokevirtual #192
+      [171] invokevirtual #193
         - Methodref [com/ybcx/activity/PictureEdit.getString (I)Ljava/lang/String;]
-      [174] invokespecial #184
+      [174] invokespecial #185
         - Methodref [com/ybcx/activity/PictureEdit.a (Ljava/lang/String;)V]
       [177] return
       Code attribute exceptions (count = 0):
@@ -39832,20 +39843,20 @@ Methods (count = 24):
       [5] dup
       [6] ldc #25
         - String [android.media.action.IMAGE_CAPTURE]
-      [8] invokespecial #155
+      [8] invokespecial #156
         - Methodref [android/content/Intent.<init> (Ljava/lang/String;)V]
       [11] astore_1 v1
       [12] new #49
         - Class [android/content/ContentValues]
       [15] dup
       [16] iconst_3
-      [17] invokespecial #152
+      [17] invokespecial #153
         - Methodref [android/content/ContentValues.<init> (I)V]
       [20] astore_2 v2
       [21] new #105
         - Class [java/util/Date]
       [24] dup
-      [25] invokespecial #232
+      [25] invokespecial #233
         - Methodref [java/util/Date.<init> ()V]
       [28] astore_3 v3
       [29] new #104
@@ -39853,7 +39864,7 @@ Methods (count = 24):
       [32] dup
       [33] ldc #46
         - String [yyyyMMdd_HHmmss]
-      [35] invokespecial #230
+      [35] invokespecial #231
         - Methodref [java/text/SimpleDateFormat.<init> (Ljava/lang/String;)V]
       [38] astore v4
       [40] new #102
@@ -39861,47 +39872,47 @@ Methods (count = 24):
       [43] dup
       [44] aload v4
       [46] aload_3 v3
-      [47] invokevirtual #231
+      [47] invokevirtual #232
         - Methodref [java/text/SimpleDateFormat.format (Ljava/util/Date;)Ljava/lang/String;]
-      [50] invokestatic #225
+      [50] invokestatic #226
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [53] invokespecial #226
+      [53] invokespecial #227
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [56] ldc #14
         - String [.jpg]
-      [58] invokevirtual #228
+      [58] invokevirtual #229
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [61] invokevirtual #229
+      [61] invokevirtual #230
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [64] astore_3 v3
       [65] aload_2 v2
       [66] ldc #22
         - String [_display_name]
       [68] aload_3 v3
-      [69] invokevirtual #153
+      [69] invokevirtual #154
         - Methodref [android/content/ContentValues.put (Ljava/lang/String;Ljava/lang/String;)V]
       [72] aload_2 v2
       [73] ldc #28
         - String [description]
       [75] ldc #44
         - String [this is description]
-      [77] invokevirtual #153
+      [77] invokevirtual #154
         - Methodref [android/content/ContentValues.put (Ljava/lang/String;Ljava/lang/String;)V]
       [80] aload_2 v2
       [81] ldc #34
         - String [mime_type]
       [83] ldc #32
         - String [image/jpeg]
-      [85] invokevirtual #153
+      [85] invokevirtual #154
         - Methodref [android/content/ContentValues.put (Ljava/lang/String;Ljava/lang/String;)V]
       [88] aload_0 v0
       [89] aload_0 v0
-      [90] invokevirtual #189
+      [90] invokevirtual #190
         - Methodref [com/ybcx/activity/PictureEdit.getContentResolver ()Landroid/content/ContentResolver;]
       [93] getstatic #115
         - Fieldref [android/provider/MediaStore$Images$Media.EXTERNAL_CONTENT_URI Landroid/net/Uri;]
       [96] aload_2 v2
-      [97] invokevirtual #150
+      [97] invokevirtual #151
         - Methodref [android/content/ContentResolver.insert (Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;]
       [100] putfield #133
         - Fieldref [com/ybcx/activity/PictureEdit.n Landroid/net/Uri;]
@@ -39911,13 +39922,13 @@ Methods (count = 24):
       [106] aload_0 v0
       [107] getfield #133
         - Fieldref [com/ybcx/activity/PictureEdit.n Landroid/net/Uri;]
-      [110] invokevirtual #159
+      [110] invokevirtual #160
         - Methodref [android/content/Intent.putExtra (Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;]
       [113] pop
       [114] aload_0 v0
       [115] getfield #133
         - Fieldref [com/ybcx/activity/PictureEdit.n Landroid/net/Uri;]
-      [118] invokevirtual #167
+      [118] invokevirtual #168
         - Methodref [android/net/Uri.toString ()Ljava/lang/String;]
       [121] astore_2 v2
       [122] ldc #20
@@ -39927,32 +39938,32 @@ Methods (count = 24):
       [127] dup
       [128] ldc #45
         - String [uriPath: ]
-      [130] invokespecial #226
+      [130] invokespecial #227
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [133] aload_2 v2
-      [134] invokevirtual #228
+      [134] invokevirtual #229
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [137] invokevirtual #229
+      [137] invokevirtual #230
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [140] invokestatic #170
+      [140] invokestatic #171
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [143] pop
       [144] getstatic #119
         - Fieldref [com/ybcx/PintuApp.f Landroid/content/SharedPreferences;]
-      [147] invokeinterface #234
+      [147] invokeinterface #235
         - InterfaceMethodref [android/content/SharedPreferences.edit ()Landroid/content/SharedPreferences$Editor;]
-      [152] getstatic #142
+      [152] getstatic #143
         - Fieldref [com/ybcx/i/a.e Ljava/lang/String;]
       [155] aload_2 v2
-      [156] invokeinterface #239
+      [156] invokeinterface #240
         - InterfaceMethodref [android/content/SharedPreferences$Editor.putString (Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;]
-      [161] invokeinterface #237
+      [161] invokeinterface #238
         - InterfaceMethodref [android/content/SharedPreferences$Editor.commit ()Z]
       [166] pop
       [167] aload_0 v0
       [168] aload_1 v1
       [169] iconst_2
-      [170] invokevirtual #196
+      [170] invokevirtual #197
         - Methodref [com/ybcx/activity/PictureEdit.startActivityForResult (Landroid/content/Intent;I)V]
       [173] return
       Code attribute exceptions (count = 0):
@@ -39969,7 +39980,7 @@ Methods (count = 24):
         - Class [android/app/ProgressDialog]
       [6] dup
       [7] aload_0 v0
-      [8] invokespecial #143
+      [8] invokespecial #144
         - Methodref [android/app/ProgressDialog.<init> (Landroid/content/Context;)V]
       [11] putfield #127
         - Fieldref [com/ybcx/activity/PictureEdit.h Landroid/app/ProgressDialog;]
@@ -39977,7 +39988,7 @@ Methods (count = 24):
       [15] getfield #127
         - Fieldref [com/ybcx/activity/PictureEdit.h Landroid/app/ProgressDialog;]
       [18] iconst_1
-      [19] invokevirtual #148
+      [19] invokevirtual #149
         - Methodref [android/app/ProgressDialog.setProgressStyle (I)V]
       [22] aload_0 v0
       [23] getfield #127
@@ -39985,20 +39996,20 @@ Methods (count = 24):
       [26] aload_0 v0
       [27] ldc #2
         - Integer [2131165265]
-      [29] invokevirtual #192
+      [29] invokevirtual #193
         - Methodref [com/ybcx/activity/PictureEdit.getString (I)Ljava/lang/String;]
-      [32] invokevirtual #147
+      [32] invokevirtual #148
         - Methodref [android/app/ProgressDialog.setMessage (Ljava/lang/CharSequence;)V]
       [35] aload_0 v0
       [36] getfield #127
         - Fieldref [com/ybcx/activity/PictureEdit.h Landroid/app/ProgressDialog;]
       [39] bipush 100
-      [41] invokevirtual #146
+      [41] invokevirtual #147
         - Methodref [android/app/ProgressDialog.setMax (I)V]
       [44] aload_0 v0
       [45] getfield #127
         - Fieldref [com/ybcx/activity/PictureEdit.h Landroid/app/ProgressDialog;]
-      [48] invokevirtual #149
+      [48] invokevirtual #150
         - Methodref [android/app/ProgressDialog.show ()V]
       [51] aload_0 v0
       [52] getfield #127
@@ -40008,9 +40019,32 @@ Methods (count = 24):
       [59] getfield #127
         - Fieldref [com/ybcx/activity/PictureEdit.h Landroid/app/ProgressDialog;]
       [62] iconst_1
-      [63] invokevirtual #145
+      [63] invokevirtual #146
         - Methodref [android/app/ProgressDialog.setCancelable (Z)V]
       [66] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Lcom/ybcx/activity/PictureEdit;Z)V
+    Access flags: 0x1008
+      = static void a(com.ybcx.activity.PictureEdit,boolean)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 6, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] iload_1 v1
+      [2] putfield #135
+        - Fieldref [com/ybcx/activity/PictureEdit.p Z]
+      [5] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       d(Lcom/ybcx/activity/PictureEdit;)Ljava/lang/Thread;
+    Access flags: 0x1008
+      = static java.lang.Thread d(com.ybcx.activity.PictureEdit)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #141
+        - Fieldref [com/ybcx/activity/PictureEdit.v Ljava/lang/Thread;]
+      [4] areturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       a(Lcom/ybcx/activity/PictureEdit;I)V
@@ -40025,15 +40059,15 @@ Methods (count = 24):
       [5] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
-  + Method:       d(Lcom/ybcx/activity/PictureEdit;)Ljava/lang/Thread;
+  + Method:       e(Lcom/ybcx/activity/PictureEdit;)I
     Access flags: 0x1008
-      = static java.lang.Thread d(com.ybcx.activity.PictureEdit)
+      = static int e(com.ybcx.activity.PictureEdit)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #140
-        - Fieldref [com/ybcx/activity/PictureEdit.u Ljava/lang/Thread;]
-      [4] areturn
+      [1] getfield #134
+        - Fieldref [com/ybcx/activity/PictureEdit.o I]
+      [4] ireturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       a(Lcom/ybcx/activity/PictureEdit;J)V
@@ -40048,9 +40082,9 @@ Methods (count = 24):
       [5] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
-  + Method:       e(Lcom/ybcx/activity/PictureEdit;)J
+  + Method:       f(Lcom/ybcx/activity/PictureEdit;)J
     Access flags: 0x1008
-      = static long e(com.ybcx.activity.PictureEdit)
+      = static long f(com.ybcx.activity.PictureEdit)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 2):
       [0] aload_0 v0
@@ -40059,9 +40093,9 @@ Methods (count = 24):
       [4] lreturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
-  + Method:       f(Lcom/ybcx/activity/PictureEdit;)J
+  + Method:       g(Lcom/ybcx/activity/PictureEdit;)J
     Access flags: 0x1008
-      = static long f(com.ybcx.activity.PictureEdit)
+      = static long g(com.ybcx.activity.PictureEdit)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 2):
       [0] aload_0 v0
@@ -40070,9 +40104,9 @@ Methods (count = 24):
       [4] lreturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
-  + Method:       g(Lcom/ybcx/activity/PictureEdit;)V
+  + Method:       h(Lcom/ybcx/activity/PictureEdit;)V
     Access flags: 0x1008
-      = static void g(com.ybcx.activity.PictureEdit)
+      = static void h(com.ybcx.activity.PictureEdit)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 44, locals = 1, stack = 3):
       [0] aload_0 v0
@@ -40087,32 +40121,32 @@ Methods (count = 24):
       [13] aload_0 v0
       [14] ldc #3
         - Integer [2131165268]
-      [16] invokevirtual #192
+      [16] invokevirtual #193
         - Methodref [com/ybcx/activity/PictureEdit.getString (I)Ljava/lang/String;]
-      [19] invokevirtual #147
+      [19] invokevirtual #148
         - Methodref [android/app/ProgressDialog.setMessage (Ljava/lang/CharSequence;)V]
       [22] aload_0 v0
       [23] getfield #127
         - Fieldref [com/ybcx/activity/PictureEdit.h Landroid/app/ProgressDialog;]
-      [26] invokevirtual #144
+      [26] invokevirtual #145
         - Methodref [android/app/ProgressDialog.dismiss ()V]
       [29] aload_0 v0
       [30] aload_0 v0
       [31] ldc #3
         - Integer [2131165268]
-      [33] invokevirtual #192
+      [33] invokevirtual #193
         - Methodref [com/ybcx/activity/PictureEdit.getString (I)Ljava/lang/String;]
-      [36] invokespecial #184
+      [36] invokespecial #185
         - Methodref [com/ybcx/activity/PictureEdit.a (Ljava/lang/String;)V]
       [39] aload_0 v0
-      [40] invokevirtual #188
+      [40] invokevirtual #189
         - Methodref [com/ybcx/activity/PictureEdit.finish ()V]
       [43] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
-  + Method:       h(Lcom/ybcx/activity/PictureEdit;)V
+  + Method:       i(Lcom/ybcx/activity/PictureEdit;)V
     Access flags: 0x1008
-      = static void h(com.ybcx.activity.PictureEdit)
+      = static void i(com.ybcx.activity.PictureEdit)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 33, locals = 1, stack = 3):
       [0] aload_0 v0
@@ -40123,51 +40157,51 @@ Methods (count = 24):
       [6] aload_0 v0
       [7] ldc #4
         - Integer [2131165269]
-      [9] invokevirtual #192
+      [9] invokevirtual #193
         - Methodref [com/ybcx/activity/PictureEdit.getString (I)Ljava/lang/String;]
-      [12] invokevirtual #147
+      [12] invokevirtual #148
         - Methodref [android/app/ProgressDialog.setMessage (Ljava/lang/CharSequence;)V]
       [15] aload_0 v0
       [16] getfield #127
         - Fieldref [com/ybcx/activity/PictureEdit.h Landroid/app/ProgressDialog;]
-      [19] invokevirtual #144
+      [19] invokevirtual #145
         - Methodref [android/app/ProgressDialog.dismiss ()V]
       [22] aload_0 v0
       [23] aload_0 v0
       [24] ldc #4
         - Integer [2131165269]
-      [26] invokevirtual #192
+      [26] invokevirtual #193
         - Methodref [com/ybcx/activity/PictureEdit.getString (I)Ljava/lang/String;]
-      [29] invokespecial #184
+      [29] invokespecial #185
         - Methodref [com/ybcx/activity/PictureEdit.a (Ljava/lang/String;)V]
       [32] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
-  + Method:       i(Lcom/ybcx/activity/PictureEdit;)I
+  + Method:       j(Lcom/ybcx/activity/PictureEdit;)Z
     Access flags: 0x1008
-      = static int i(com.ybcx.activity.PictureEdit)
+      = static boolean j(com.ybcx.activity.PictureEdit)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #134
-        - Fieldref [com/ybcx/activity/PictureEdit.o I]
+      [1] getfield #135
+        - Fieldref [com/ybcx/activity/PictureEdit.p Z]
       [4] ireturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
-  + Method:       j(Lcom/ybcx/activity/PictureEdit;)Landroid/os/Handler;
+  + Method:       k(Lcom/ybcx/activity/PictureEdit;)Landroid/os/Handler;
     Access flags: 0x1008
-      = static android.os.Handler j(com.ybcx.activity.PictureEdit)
+      = static android.os.Handler k(com.ybcx.activity.PictureEdit)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #141
-        - Fieldref [com/ybcx/activity/PictureEdit.v Landroid/os/Handler;]
+      [1] getfield #142
+        - Fieldref [com/ybcx/activity/PictureEdit.w Landroid/os/Handler;]
       [4] areturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
-  + Method:       k(Lcom/ybcx/activity/PictureEdit;)Landroid/app/ProgressDialog;
+  + Method:       l(Lcom/ybcx/activity/PictureEdit;)Landroid/app/ProgressDialog;
     Access flags: 0x1008
-      = static android.app.ProgressDialog k(com.ybcx.activity.PictureEdit)
+      = static android.app.ProgressDialog l(com.ybcx.activity.PictureEdit)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
@@ -61532,28 +61566,30 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 52):
+Constant Pool (count = 55):
   - Class [android/os/Handler]
   - Class [com/ybcx/activity/PictureEdit]
   - Class [com/ybcx/activity/bf]
   - Class [java/lang/InterruptedException]
   - Class [java/lang/Thread]
   - Long [100]
-  - Fieldref [com/ybcx/activity/bf.a Z]
-  - Fieldref [com/ybcx/activity/bf.b Lcom/ybcx/activity/PictureEdit;]
+  - Fieldref [com/ybcx/activity/bf.a Lcom/ybcx/activity/PictureEdit;]
   - Methodref [android/os/Handler.dispatchMessage (Landroid/os/Message;)V]
   - Methodref [android/os/Handler.obtainMessage ()Landroid/os/Message;]
-  - Methodref [com/ybcx/activity/PictureEdit.i (Lcom/ybcx/activity/PictureEdit;)I]
-  - Methodref [com/ybcx/activity/PictureEdit.j (Lcom/ybcx/activity/PictureEdit;)Landroid/os/Handler;]
+  - Methodref [com/ybcx/activity/PictureEdit.a (Lcom/ybcx/activity/PictureEdit;Z)V]
+  - Methodref [com/ybcx/activity/PictureEdit.e (Lcom/ybcx/activity/PictureEdit;)I]
+  - Methodref [com/ybcx/activity/PictureEdit.j (Lcom/ybcx/activity/PictureEdit;)Z]
+  - Methodref [com/ybcx/activity/PictureEdit.k (Lcom/ybcx/activity/PictureEdit;)Landroid/os/Handler;]
   - Methodref [java/lang/InterruptedException.printStackTrace ()V]
   - Methodref [java/lang/Thread.<init> ()V]
   - Methodref [java/lang/Thread.sleep (J)V]
   + NameAndType [<init> ()V]
-  + NameAndType [a Z]
-  + NameAndType [b Lcom/ybcx/activity/PictureEdit;]
+  + NameAndType [a (Lcom/ybcx/activity/PictureEdit;Z)V]
+  + NameAndType [a Lcom/ybcx/activity/PictureEdit;]
   + NameAndType [dispatchMessage (Landroid/os/Message;)V]
-  + NameAndType [i (Lcom/ybcx/activity/PictureEdit;)I]
-  + NameAndType [j (Lcom/ybcx/activity/PictureEdit;)Landroid/os/Handler;]
+  + NameAndType [e (Lcom/ybcx/activity/PictureEdit;)I]
+  + NameAndType [j (Lcom/ybcx/activity/PictureEdit;)Z]
+  + NameAndType [k (Lcom/ybcx/activity/PictureEdit;)Landroid/os/Handler;]
   + NameAndType [obtainMessage ()Landroid/os/Message;]
   + NameAndType [printStackTrace ()V]
   + NameAndType [sleep (J)V]
@@ -61564,110 +61600,114 @@ Constant Pool (count = 52):
   + Utf8 [(Lcom/ybcx/activity/PictureEdit;)I]
   + Utf8 [(Lcom/ybcx/activity/PictureEdit;)Landroid/os/Handler;]
   + Utf8 [(Lcom/ybcx/activity/PictureEdit;)V]
+  + Utf8 [(Lcom/ybcx/activity/PictureEdit;)Z]
+  + Utf8 [(Lcom/ybcx/activity/PictureEdit;Z)V]
   + Utf8 [<init>]
   + Utf8 [Code]
   + Utf8 [Lcom/ybcx/activity/PictureEdit;]
   + Utf8 [StackMapTable]
-  + Utf8 [Z]
   + Utf8 [a]
   + Utf8 [android/os/Handler]
-  + Utf8 [b]
   + Utf8 [com/ybcx/activity/PictureEdit]
   + Utf8 [com/ybcx/activity/bf]
   + Utf8 [dispatchMessage]
-  + Utf8 [i]
+  + Utf8 [e]
   + Utf8 [j]
   + Utf8 [java/lang/InterruptedException]
   + Utf8 [java/lang/Thread]
+  + Utf8 [k]
   + Utf8 [obtainMessage]
   + Utf8 [printStackTrace]
   + Utf8 [run]
   + Utf8 [sleep]
 
-Fields (count = 2):
-  + Field:        a Z
-    Access flags: 0x2
-      = private boolean a
-  + Field:        b Lcom/ybcx/activity/PictureEdit;
+Fields (count = 1):
+  + Field:        a Lcom/ybcx/activity/PictureEdit;
     Access flags: 0x1002
-      = private com.ybcx.activity.PictureEdit b
+      = private com.ybcx.activity.PictureEdit a
 
 Methods (count = 2):
   - Method:       <init>(Lcom/ybcx/activity/PictureEdit;)V
     Access flags: 0x0
       = bf(com.ybcx.activity.PictureEdit)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 15, locals = 2, stack = 2):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] putfield #9
-        - Fieldref [com/ybcx/activity/bf.b Lcom/ybcx/activity/PictureEdit;]
+      [2] putfield #8
+        - Fieldref [com/ybcx/activity/bf.a Lcom/ybcx/activity/PictureEdit;]
       [5] aload_0 v0
-      [6] invokespecial #15
+      [6] invokespecial #16
         - Methodref [java/lang/Thread.<init> ()V]
-      [9] aload_0 v0
-      [10] iconst_1
-      [11] putfield #8
-        - Fieldref [com/ybcx/activity/bf.a Z]
-      [14] return
+      [9] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       run()V
     Access flags: 0x11
       = public final void run()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 65, locals = 2, stack = 2):
-      [0] goto +57 (target=57)
+    + Code attribute instructions (code length = 81, locals = 2, stack = 2):
+      [0] goto +70 (target=70)
       [3] aload_0 v0
-      [4] getfield #9
-        - Fieldref [com/ybcx/activity/bf.b Lcom/ybcx/activity/PictureEdit;]
+      [4] getfield #8
+        - Fieldref [com/ybcx/activity/bf.a Lcom/ybcx/activity/PictureEdit;]
       [7] invokestatic #12
-        - Methodref [com/ybcx/activity/PictureEdit.i (Lcom/ybcx/activity/PictureEdit;)I]
+        - Methodref [com/ybcx/activity/PictureEdit.e (Lcom/ybcx/activity/PictureEdit;)I]
       [10] bipush 100
-      [12] ificmplt +11 (target=23)
+      [12] ificmplt +14 (target=26)
       [15] aload_0 v0
-      [16] iconst_0
-      [17] putfield #8
-        - Fieldref [com/ybcx/activity/bf.a Z]
-      [20] goto +25 (target=45)
-      [23] aload_0 v0
-      [24] getfield #9
-        - Fieldref [com/ybcx/activity/bf.b Lcom/ybcx/activity/PictureEdit;]
-      [27] invokestatic #13
-        - Methodref [com/ybcx/activity/PictureEdit.j (Lcom/ybcx/activity/PictureEdit;)Landroid/os/Handler;]
-      [30] invokevirtual #11
+      [16] getfield #8
+        - Fieldref [com/ybcx/activity/bf.a Lcom/ybcx/activity/PictureEdit;]
+      [19] iconst_0
+      [20] invokestatic #11
+        - Methodref [com/ybcx/activity/PictureEdit.a (Lcom/ybcx/activity/PictureEdit;Z)V]
+      [23] goto +35 (target=58)
+      [26] aload_0 v0
+      [27] getfield #8
+        - Fieldref [com/ybcx/activity/bf.a Lcom/ybcx/activity/PictureEdit;]
+      [30] invokestatic #12
+        - Methodref [com/ybcx/activity/PictureEdit.e (Lcom/ybcx/activity/PictureEdit;)I]
+      [33] ifle +25 (target=58)
+      [36] aload_0 v0
+      [37] getfield #8
+        - Fieldref [com/ybcx/activity/bf.a Lcom/ybcx/activity/PictureEdit;]
+      [40] invokestatic #14
+        - Methodref [com/ybcx/activity/PictureEdit.k (Lcom/ybcx/activity/PictureEdit;)Landroid/os/Handler;]
+      [43] invokevirtual #10
         - Methodref [android/os/Handler.obtainMessage ()Landroid/os/Message;]
-      [33] astore_1 v1
-      [34] aload_0 v0
-      [35] getfield #9
-        - Fieldref [com/ybcx/activity/bf.b Lcom/ybcx/activity/PictureEdit;]
-      [38] invokestatic #13
-        - Methodref [com/ybcx/activity/PictureEdit.j (Lcom/ybcx/activity/PictureEdit;)Landroid/os/Handler;]
-      [41] aload_1 v1
-      [42] invokevirtual #10
+      [46] astore_1 v1
+      [47] aload_0 v0
+      [48] getfield #8
+        - Fieldref [com/ybcx/activity/bf.a Lcom/ybcx/activity/PictureEdit;]
+      [51] invokestatic #14
+        - Methodref [com/ybcx/activity/PictureEdit.k (Lcom/ybcx/activity/PictureEdit;)Landroid/os/Handler;]
+      [54] aload_1 v1
+      [55] invokevirtual #9
         - Methodref [android/os/Handler.dispatchMessage (Landroid/os/Message;)V]
-      [45] ldc2_w #6
+      [58] ldc2_w #6
         - Long [100]
-      [48] invokestatic #16
+      [61] invokestatic #17
         - Methodref [java/lang/Thread.sleep (J)V]
-      [51] goto +6 (target=57)
-      [54] invokevirtual #14
+      [64] goto +6 (target=70)
+      [67] invokevirtual #15
         - Methodref [java/lang/InterruptedException.printStackTrace ()V]
-      [57] aload_0 v0
-      [58] getfield #8
-        - Fieldref [com/ybcx/activity/bf.a Z]
-      [61] ifne -58 (target=3)
-      [64] return
+      [70] aload_0 v0
+      [71] getfield #8
+        - Fieldref [com/ybcx/activity/bf.a Lcom/ybcx/activity/PictureEdit;]
+      [74] invokestatic #13
+        - Methodref [com/ybcx/activity/PictureEdit.j (Lcom/ybcx/activity/PictureEdit;)Z]
+      [77] ifne -74 (target=3)
+      [80] return
       Code attribute exceptions (count = 1):
-      - ExceptionInfo (45 -> 51: 54):
+      - ExceptionInfo (58 -> 64: 67):
       - Class [java/lang/InterruptedException]
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 5):
         - [3] Var: ..., Stack: (empty)
-        - [23] Var: ..., Stack: (empty)
-        - [45] Var: ..., Stack: (empty)
-        - [54] Var: ..., Stack: [a:java/lang/InterruptedException]
-        - [57] Var: ..., Stack: (empty)
+        - [26] Var: ..., Stack: (empty)
+        - [58] Var: ..., Stack: (empty)
+        - [67] Var: ..., Stack: [a:java/lang/InterruptedException]
+        - [70] Var: ..., Stack: (empty)
 
 Class file attributes (count = 0):
 
@@ -61741,9 +61781,11 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 108):
+Constant Pool (count = 118):
   - String [LDS]
+  - String [PictureEdit]
   - String [Sended a status in ]
+  - String [sent percent: ]
   - Class [android/util/Log]
   - Class [com/ybcx/activity/PictureEdit]
   - Class [com/ybcx/activity/bg]
@@ -61762,28 +61804,32 @@ Constant Pool (count = 108):
   - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
   - Methodref [com/ybcx/activity/PictureEdit.a (Lcom/ybcx/activity/PictureEdit;I)V]
   - Methodref [com/ybcx/activity/PictureEdit.a (Lcom/ybcx/activity/PictureEdit;J)V]
+  - Methodref [com/ybcx/activity/PictureEdit.a (Lcom/ybcx/activity/PictureEdit;Z)V]
   - Methodref [com/ybcx/activity/PictureEdit.c (Lcom/ybcx/activity/PictureEdit;)V]
   - Methodref [com/ybcx/activity/PictureEdit.d (Lcom/ybcx/activity/PictureEdit;)Ljava/lang/Thread;]
-  - Methodref [com/ybcx/activity/PictureEdit.e (Lcom/ybcx/activity/PictureEdit;)J]
+  - Methodref [com/ybcx/activity/PictureEdit.e (Lcom/ybcx/activity/PictureEdit;)I]
   - Methodref [com/ybcx/activity/PictureEdit.f (Lcom/ybcx/activity/PictureEdit;)J]
-  - Methodref [com/ybcx/activity/PictureEdit.g (Lcom/ybcx/activity/PictureEdit;)V]
+  - Methodref [com/ybcx/activity/PictureEdit.g (Lcom/ybcx/activity/PictureEdit;)J]
   - Methodref [com/ybcx/activity/PictureEdit.h (Lcom/ybcx/activity/PictureEdit;)V]
+  - Methodref [com/ybcx/activity/PictureEdit.i (Lcom/ybcx/activity/PictureEdit;)V]
   - Methodref [com/ybcx/c/q.<init> ()V]
   - Methodref [java/lang/Integer.intValue ()I]
   - Methodref [java/lang/Integer.valueOf (Ljava/lang/String;)Ljava/lang/Integer;]
   - Methodref [java/lang/Object.toString ()Ljava/lang/String;]
   - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
+  - Methodref [java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;]
   - Methodref [java/lang/StringBuilder.append (J)Ljava/lang/StringBuilder;]
   - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
   - Methodref [java/lang/System.currentTimeMillis ()J]
-  - Methodref [java/lang/Thread.isAlive ()Z]
   - Methodref [java/lang/Thread.start ()V]
   + NameAndType [<init> ()V]
   + NameAndType [<init> (Ljava/lang/String;)V]
   + NameAndType [a (Lcom/ybcx/activity/PictureEdit;I)V]
   + NameAndType [a (Lcom/ybcx/activity/PictureEdit;J)V]
+  + NameAndType [a (Lcom/ybcx/activity/PictureEdit;Z)V]
   + NameAndType [a Lcom/ybcx/activity/PictureEdit;]
   + NameAndType [a Lcom/ybcx/c/c;]
+  + NameAndType [append (I)Ljava/lang/StringBuilder;]
   + NameAndType [append (J)Ljava/lang/StringBuilder;]
   + NameAndType [b Lcom/ybcx/c/c;]
   + NameAndType [c (Lcom/ybcx/activity/PictureEdit;)V]
@@ -61791,13 +61837,13 @@ Constant Pool (count = 108):
   + NameAndType [d (Lcom/ybcx/activity/PictureEdit;)Ljava/lang/Thread;]
   + NameAndType [d (Ljava/lang/String;Ljava/lang/String;)I]
   + NameAndType [d Lcom/ybcx/c/c;]
-  + NameAndType [e (Lcom/ybcx/activity/PictureEdit;)J]
+  + NameAndType [e (Lcom/ybcx/activity/PictureEdit;)I]
   + NameAndType [e Lcom/ybcx/c/c;]
   + NameAndType [f (Lcom/ybcx/activity/PictureEdit;)J]
-  + NameAndType [g (Lcom/ybcx/activity/PictureEdit;)V]
+  + NameAndType [g (Lcom/ybcx/activity/PictureEdit;)J]
   + NameAndType [h (Lcom/ybcx/activity/PictureEdit;)V]
+  + NameAndType [i (Lcom/ybcx/activity/PictureEdit;)V]
   + NameAndType [intValue ()I]
-  + NameAndType [isAlive ()Z]
   + NameAndType [start ()V]
   + NameAndType [toString ()Ljava/lang/String;]
   + NameAndType [valueOf (Ljava/lang/String;)Ljava/lang/Integer;]
@@ -61805,13 +61851,15 @@ Constant Pool (count = 108):
   + Utf8 [()J]
   + Utf8 [()Ljava/lang/String;]
   + Utf8 [()V]
-  + Utf8 [()Z]
+  + Utf8 [(I)Ljava/lang/StringBuilder;]
   + Utf8 [(J)Ljava/lang/StringBuilder;]
+  + Utf8 [(Lcom/ybcx/activity/PictureEdit;)I]
   + Utf8 [(Lcom/ybcx/activity/PictureEdit;)J]
   + Utf8 [(Lcom/ybcx/activity/PictureEdit;)Ljava/lang/Thread;]
   + Utf8 [(Lcom/ybcx/activity/PictureEdit;)V]
   + Utf8 [(Lcom/ybcx/activity/PictureEdit;I)V]
   + Utf8 [(Lcom/ybcx/activity/PictureEdit;J)V]
+  + Utf8 [(Lcom/ybcx/activity/PictureEdit;Z)V]
   + Utf8 [(Lcom/ybcx/c/c;)V]
   + Utf8 [(Ljava/lang/Object;)V]
   + Utf8 [(Ljava/lang/String;)Ljava/lang/Integer;]
@@ -61822,6 +61870,7 @@ Constant Pool (count = 108):
   + Utf8 [LDS]
   + Utf8 [Lcom/ybcx/activity/PictureEdit;]
   + Utf8 [Lcom/ybcx/c/c;]
+  + Utf8 [PictureEdit]
   + Utf8 [Sended a status in ]
   + Utf8 [StackMapTable]
   + Utf8 [a]
@@ -61839,13 +61888,14 @@ Constant Pool (count = 108):
   + Utf8 [f]
   + Utf8 [g]
   + Utf8 [h]
+  + Utf8 [i]
   + Utf8 [intValue]
-  + Utf8 [isAlive]
   + Utf8 [java/lang/Integer]
   + Utf8 [java/lang/Object]
   + Utf8 [java/lang/StringBuilder]
   + Utf8 [java/lang/System]
   + Utf8 [java/lang/Thread]
+  + Utf8 [sent percent: ]
   + Utf8 [start]
   + Utf8 [toString]
   + Utf8 [valueOf]
@@ -61863,10 +61913,10 @@ Methods (count = 5):
     + Code attribute instructions (code length = 10, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] putfield #13
+      [2] putfield #15
         - Fieldref [com/ybcx/activity/bg.a Lcom/ybcx/activity/PictureEdit;]
       [5] aload_0 v0
-      [6] invokespecial #27
+      [6] invokespecial #31
         - Methodref [com/ybcx/c/q.<init> ()V]
       [9] return
       Code attribute exceptions (count = 0):
@@ -61875,124 +61925,141 @@ Methods (count = 5):
     Access flags: 0x11
       = public final void a()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 8, locals = 1, stack = 1):
+    + Code attribute instructions (code length = 26, locals = 1, stack = 2):
       [0] aload_0 v0
-      [1] getfield #13
+      [1] getfield #15
         - Fieldref [com/ybcx/activity/bg.a Lcom/ybcx/activity/PictureEdit;]
-      [4] invokestatic #21
+      [4] invokestatic #24
         - Methodref [com/ybcx/activity/PictureEdit.c (Lcom/ybcx/activity/PictureEdit;)V]
-      [7] return
+      [7] aload_0 v0
+      [8] getfield #15
+        - Fieldref [com/ybcx/activity/bg.a Lcom/ybcx/activity/PictureEdit;]
+      [11] iconst_1
+      [12] invokestatic #23
+        - Methodref [com/ybcx/activity/PictureEdit.a (Lcom/ybcx/activity/PictureEdit;Z)V]
+      [15] aload_0 v0
+      [16] getfield #15
+        - Fieldref [com/ybcx/activity/bg.a Lcom/ybcx/activity/PictureEdit;]
+      [19] invokestatic #25
+        - Methodref [com/ybcx/activity/PictureEdit.d (Lcom/ybcx/activity/PictureEdit;)Ljava/lang/Thread;]
+      [22] invokevirtual #40
+        - Methodref [java/lang/Thread.start ()V]
+      [25] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       a(Ljava/lang/Object;)V
     Access flags: 0x11
       = public final void a(java.lang.Object)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 41, locals = 2, stack = 2):
+    + Code attribute instructions (code length = 46, locals = 2, stack = 4):
       [0] aload_0 v0
-      [1] getfield #13
+      [1] getfield #15
         - Fieldref [com/ybcx/activity/bg.a Lcom/ybcx/activity/PictureEdit;]
       [4] aload_1 v1
-      [5] invokevirtual #30
+      [5] invokevirtual #34
         - Methodref [java/lang/Object.toString ()Ljava/lang/String;]
-      [8] invokestatic #29
+      [8] invokestatic #33
         - Methodref [java/lang/Integer.valueOf (Ljava/lang/String;)Ljava/lang/Integer;]
-      [11] invokevirtual #28
+      [11] invokevirtual #32
         - Methodref [java/lang/Integer.intValue ()I]
-      [14] invokestatic #19
+      [14] invokestatic #21
         - Methodref [com/ybcx/activity/PictureEdit.a (Lcom/ybcx/activity/PictureEdit;I)V]
-      [17] aload_0 v0
-      [18] getfield #13
+      [17] ldc #2
+        - String [PictureEdit]
+      [19] new #12
+        - Class [java/lang/StringBuilder]
+      [22] dup
+      [23] ldc #4
+        - String [sent percent: ]
+      [25] invokespecial #35
+        - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
+      [28] aload_0 v0
+      [29] getfield #15
         - Fieldref [com/ybcx/activity/bg.a Lcom/ybcx/activity/PictureEdit;]
-      [21] invokestatic #22
-        - Methodref [com/ybcx/activity/PictureEdit.d (Lcom/ybcx/activity/PictureEdit;)Ljava/lang/Thread;]
-      [24] invokevirtual #35
-        - Methodref [java/lang/Thread.isAlive ()Z]
-      [27] ifne +13 (target=40)
-      [30] aload_0 v0
-      [31] getfield #13
-        - Fieldref [com/ybcx/activity/bg.a Lcom/ybcx/activity/PictureEdit;]
-      [34] invokestatic #22
-        - Methodref [com/ybcx/activity/PictureEdit.d (Lcom/ybcx/activity/PictureEdit;)Ljava/lang/Thread;]
-      [37] invokevirtual #36
-        - Methodref [java/lang/Thread.start ()V]
-      [40] return
+      [32] invokestatic #26
+        - Methodref [com/ybcx/activity/PictureEdit.e (Lcom/ybcx/activity/PictureEdit;)I]
+      [35] invokevirtual #36
+        - Methodref [java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;]
+      [38] invokevirtual #38
+        - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
+      [41] invokestatic #20
+        - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
+      [44] pop
+      [45] return
       Code attribute exceptions (count = 0):
-      Code attribute attributes (attribute count = 1):
-      + Stack map table attribute (count = 1):
-        - [40] Var: ..., Stack: (empty)
+      Code attribute attributes (attribute count = 0):
   + Method:       a(Lcom/ybcx/c/c;)V
     Access flags: 0x11
       = public final void a(com.ybcx.c.c)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 98, locals = 2, stack = 6):
       [0] aload_0 v0
-      [1] getfield #13
+      [1] getfield #15
         - Fieldref [com/ybcx/activity/bg.a Lcom/ybcx/activity/PictureEdit;]
-      [4] invokestatic #34
+      [4] invokestatic #39
         - Methodref [java/lang/System.currentTimeMillis ()J]
-      [7] invokestatic #20
+      [7] invokestatic #22
         - Methodref [com/ybcx/activity/PictureEdit.a (Lcom/ybcx/activity/PictureEdit;J)V]
       [10] ldc #1
         - String [LDS]
-      [12] new #10
+      [12] new #12
         - Class [java/lang/StringBuilder]
       [15] dup
-      [16] ldc #2
+      [16] ldc #3
         - String [Sended a status in ]
-      [18] invokespecial #31
+      [18] invokespecial #35
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [21] aload_0 v0
-      [22] getfield #13
+      [22] getfield #15
         - Fieldref [com/ybcx/activity/bg.a Lcom/ybcx/activity/PictureEdit;]
-      [25] invokestatic #23
-        - Methodref [com/ybcx/activity/PictureEdit.e (Lcom/ybcx/activity/PictureEdit;)J]
-      [28] aload_0 v0
-      [29] getfield #13
-        - Fieldref [com/ybcx/activity/bg.a Lcom/ybcx/activity/PictureEdit;]
-      [32] invokestatic #24
+      [25] invokestatic #27
         - Methodref [com/ybcx/activity/PictureEdit.f (Lcom/ybcx/activity/PictureEdit;)J]
+      [28] aload_0 v0
+      [29] getfield #15
+        - Fieldref [com/ybcx/activity/bg.a Lcom/ybcx/activity/PictureEdit;]
+      [32] invokestatic #28
+        - Methodref [com/ybcx/activity/PictureEdit.g (Lcom/ybcx/activity/PictureEdit;)J]
       [35] lsub
-      [36] invokevirtual #32
+      [36] invokevirtual #37
         - Methodref [java/lang/StringBuilder.append (J)Ljava/lang/StringBuilder;]
-      [39] invokevirtual #33
+      [39] invokevirtual #38
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [42] invokestatic #18
+      [42] invokestatic #20
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [45] pop
       [46] aload_1 v1
-      [47] getstatic #17
+      [47] getstatic #19
         - Fieldref [com/ybcx/c/c.e Lcom/ybcx/c/c;]
       [50] ifacmpeq +47 (target=97)
       [53] aload_1 v1
-      [54] getstatic #14
+      [54] getstatic #16
         - Fieldref [com/ybcx/c/c.a Lcom/ybcx/c/c;]
       [57] ifacmpne +11 (target=68)
       [60] aload_0 v0
-      [61] getfield #13
+      [61] getfield #15
         - Fieldref [com/ybcx/activity/bg.a Lcom/ybcx/activity/PictureEdit;]
-      [64] invokestatic #25
-        - Methodref [com/ybcx/activity/PictureEdit.g (Lcom/ybcx/activity/PictureEdit;)V]
+      [64] invokestatic #29
+        - Methodref [com/ybcx/activity/PictureEdit.h (Lcom/ybcx/activity/PictureEdit;)V]
       [67] return
       [68] aload_1 v1
-      [69] getstatic #15
+      [69] getstatic #17
         - Fieldref [com/ybcx/c/c.b Lcom/ybcx/c/c;]
       [72] ifacmpne +11 (target=83)
       [75] aload_0 v0
-      [76] getfield #13
+      [76] getfield #15
         - Fieldref [com/ybcx/activity/bg.a Lcom/ybcx/activity/PictureEdit;]
-      [79] invokestatic #26
-        - Methodref [com/ybcx/activity/PictureEdit.h (Lcom/ybcx/activity/PictureEdit;)V]
+      [79] invokestatic #30
+        - Methodref [com/ybcx/activity/PictureEdit.i (Lcom/ybcx/activity/PictureEdit;)V]
       [82] return
       [83] aload_1 v1
-      [84] getstatic #16
+      [84] getstatic #18
         - Fieldref [com/ybcx/c/c.d Lcom/ybcx/c/c;]
       [87] ifacmpne +10 (target=97)
       [90] aload_0 v0
-      [91] getfield #13
+      [91] getfield #15
         - Fieldref [com/ybcx/activity/bg.a Lcom/ybcx/activity/PictureEdit;]
-      [94] invokestatic #26
-        - Methodref [com/ybcx/activity/PictureEdit.h (Lcom/ybcx/activity/PictureEdit;)V]
+      [94] invokestatic #30
+        - Methodref [com/ybcx/activity/PictureEdit.i (Lcom/ybcx/activity/PictureEdit;)V]
       [97] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
@@ -62193,12 +62260,12 @@ Constant Pool (count = 33):
   - Fieldref [com/ybcx/activity/bh.a Lcom/ybcx/activity/PictureEdit;]
   - Methodref [android/app/ProgressDialog.setProgress (I)V]
   - Methodref [android/os/Handler.<init> ()V]
-  - Methodref [com/ybcx/activity/PictureEdit.i (Lcom/ybcx/activity/PictureEdit;)I]
-  - Methodref [com/ybcx/activity/PictureEdit.k (Lcom/ybcx/activity/PictureEdit;)Landroid/app/ProgressDialog;]
+  - Methodref [com/ybcx/activity/PictureEdit.e (Lcom/ybcx/activity/PictureEdit;)I]
+  - Methodref [com/ybcx/activity/PictureEdit.l (Lcom/ybcx/activity/PictureEdit;)Landroid/app/ProgressDialog;]
   + NameAndType [<init> ()V]
   + NameAndType [a Lcom/ybcx/activity/PictureEdit;]
-  + NameAndType [i (Lcom/ybcx/activity/PictureEdit;)I]
-  + NameAndType [k (Lcom/ybcx/activity/PictureEdit;)Landroid/app/ProgressDialog;]
+  + NameAndType [e (Lcom/ybcx/activity/PictureEdit;)I]
+  + NameAndType [l (Lcom/ybcx/activity/PictureEdit;)Landroid/app/ProgressDialog;]
   + NameAndType [setProgress (I)V]
   + Utf8 [()V]
   + Utf8 [(I)V]
@@ -62214,9 +62281,9 @@ Constant Pool (count = 33):
   + Utf8 [android/os/Handler]
   + Utf8 [com/ybcx/activity/PictureEdit]
   + Utf8 [com/ybcx/activity/bh]
+  + Utf8 [e]
   + Utf8 [handleMessage]
-  + Utf8 [i]
-  + Utf8 [k]
+  + Utf8 [l]
   + Utf8 [setProgress]
 
 Fields (count = 1):
@@ -62249,12 +62316,12 @@ Methods (count = 2):
       [1] getfield #5
         - Fieldref [com/ybcx/activity/bh.a Lcom/ybcx/activity/PictureEdit;]
       [4] invokestatic #9
-        - Methodref [com/ybcx/activity/PictureEdit.k (Lcom/ybcx/activity/PictureEdit;)Landroid/app/ProgressDialog;]
+        - Methodref [com/ybcx/activity/PictureEdit.l (Lcom/ybcx/activity/PictureEdit;)Landroid/app/ProgressDialog;]
       [7] aload_0 v0
       [8] getfield #5
         - Fieldref [com/ybcx/activity/bh.a Lcom/ybcx/activity/PictureEdit;]
       [11] invokestatic #8
-        - Methodref [com/ybcx/activity/PictureEdit.i (Lcom/ybcx/activity/PictureEdit;)I]
+        - Methodref [com/ybcx/activity/PictureEdit.e (Lcom/ybcx/activity/PictureEdit;)I]
       [14] invokevirtual #6
         - Methodref [android/app/ProgressDialog.setProgress (I)V]
       [17] return
@@ -65684,7 +65751,7 @@ _____________________________________________________________________
 Interfaces (count = 1):
   - Class [com/ybcx/h/a]
 
-Constant Pool (count = 315):
+Constant Pool (count = 325):
   - String [&path=]
   - String [&source=android]
   - String [&tpId=]
@@ -65773,6 +65840,7 @@ Constant Pool (count = 315):
   - Class [org/apache/http/conn/ClientConnectionManager]
   - Class [org/apache/http/impl/client/DefaultHttpClient]
   - Class [org/apache/http/message/BasicNameValuePair]
+  - Class [org/apache/http/params/HttpConnectionParams]
   - Class [org/json/JSONArray]
   - Class [org/json/JSONException]
   - Class [org/json/JSONObject]
@@ -65809,9 +65877,11 @@ Constant Pool (count = 315):
   - Methodref [org/a/a/a/a/a/e.<init> (Ljava/io/File;)V]
   - Methodref [org/apache/http/client/ClientProtocolException.printStackTrace ()V]
   - Methodref [org/apache/http/client/methods/HttpPost.<init> (Ljava/lang/String;)V]
+  - Methodref [org/apache/http/client/methods/HttpPost.getParams ()Lorg/apache/http/params/HttpParams;]
   - Methodref [org/apache/http/client/methods/HttpPost.setEntity (Lorg/apache/http/HttpEntity;)V]
   - Methodref [org/apache/http/impl/client/DefaultHttpClient.<init> ()V]
   - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
+  - Methodref [org/apache/http/params/HttpConnectionParams.setConnectionTimeout (Lorg/apache/http/params/HttpParams;I)V]
   - Methodref [org/json/JSONArray.<init> (Ljava/lang/String;)V]
   - Methodref [org/json/JSONObject.<init> (Ljava/lang/String;)V]
   - InterfaceMethodref [org/apache/http/HttpResponse.getEntity ()Lorg/apache/http/HttpEntity;]
@@ -65844,8 +65914,10 @@ Constant Pool (count = 315):
   + NameAndType [g Z]
   + NameAndType [getConnectionManager ()Lorg/apache/http/conn/ClientConnectionManager;]
   + NameAndType [getEntity ()Lorg/apache/http/HttpEntity;]
+  + NameAndType [getParams ()Lorg/apache/http/params/HttpParams;]
   + NameAndType [i ()Ljava/lang/String;]
   + NameAndType [printStackTrace ()V]
+  + NameAndType [setConnectionTimeout (Lorg/apache/http/params/HttpParams;I)V]
   + NameAndType [setEntity (Lorg/apache/http/HttpEntity;)V]
   + NameAndType [shutdown ()V]
   + NameAndType [toString ()Ljava/lang/String;]
@@ -65856,6 +65928,7 @@ Constant Pool (count = 315):
   + Utf8 [()Ljava/lang/String;]
   + Utf8 [()Lorg/apache/http/HttpEntity;]
   + Utf8 [()Lorg/apache/http/conn/ClientConnectionManager;]
+  + Utf8 [()Lorg/apache/http/params/HttpParams;]
   + Utf8 [()Lorg/json/JSONArray;]
   + Utf8 [()V]
   + Utf8 [()Z]
@@ -65882,6 +65955,7 @@ Constant Pool (count = 315):
   + Utf8 [(Ljava/lang/String;Lorg/a/a/a/a/a/d;)V]
   + Utf8 [(Lorg/apache/http/HttpEntity;)V]
   + Utf8 [(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;]
+  + Utf8 [(Lorg/apache/http/params/HttpParams;I)V]
   + Utf8 [/ipintu/download/update.xml]
   + Utf8 [/ipintu/pintuapi]
   + Utf8 [<clinit>]
@@ -65935,6 +66009,7 @@ Constant Pool (count = 315):
   + Utf8 [getHotTags]
   + Utf8 [getImageByPath]
   + Utf8 [getImageFile]
+  + Utf8 [getParams]
   + Utf8 [getPicDetail]
   + Utf8 [getRandGallery]
   + Utf8 [getStoriesByUser]
@@ -65975,6 +66050,7 @@ Constant Pool (count = 315):
   + Utf8 [org/apache/http/conn/ClientConnectionManager]
   + Utf8 [org/apache/http/impl/client/DefaultHttpClient]
   + Utf8 [org/apache/http/message/BasicNameValuePair]
+  + Utf8 [org/apache/http/params/HttpConnectionParams]
   + Utf8 [org/json/JSONArray]
   + Utf8 [org/json/JSONException]
   + Utf8 [org/json/JSONObject]
@@ -65987,6 +66063,7 @@ Constant Pool (count = 315):
   + Utf8 [printStackTrace]
   + Utf8 [receiver]
   + Utf8 [sendMsg]
+  + Utf8 [setConnectionTimeout]
   + Utf8 [setEntity]
   + Utf8 [shutdown]
   + Utf8 [source]
@@ -66031,7 +66108,7 @@ Methods (count = 34):
     + Code attribute instructions (code length = 6, locals = 0, stack = 1):
       [0] ldc #7
         - String [PTImpl]
-      [2] putstatic #92
+      [2] putstatic #93
         - Fieldref [com/ybcx/h/b.a Ljava/lang/String;]
       [5] return
       Code attribute exceptions (count = 0):
@@ -66042,40 +66119,40 @@ Methods (count = 34):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 46, locals = 2, stack = 4):
       [0] aload_0 v0
-      [1] invokespecial #111
+      [1] invokespecial #112
         - Methodref [java/lang/Object.<init> ()V]
       [4] aload_0 v0
       [5] ldc #38
         - String [http://10.0.2.2:8080]
-      [7] putfield #94
+      [7] putfield #95
         - Fieldref [com/ybcx/h/b.c Ljava/lang/String;]
       [10] aload_0 v0
       [11] ldc #39
         - String [http://ipintu.com]
-      [13] putfield #95
+      [13] putfield #96
         - Fieldref [com/ybcx/h/b.d Ljava/lang/String;]
       [16] aload_0 v0
       [17] ldc #5
         - String [/ipintu/pintuapi]
-      [19] putfield #96
+      [19] putfield #97
         - Fieldref [com/ybcx/h/b.e Ljava/lang/String;]
       [22] aload_0 v0
       [23] ldc #4
         - String [/ipintu/download/update.xml]
-      [25] putfield #97
+      [25] putfield #98
         - Fieldref [com/ybcx/h/b.f Ljava/lang/String;]
       [28] aload_0 v0
       [29] iconst_0
-      [30] putfield #98
+      [30] putfield #99
         - Fieldref [com/ybcx/h/b.g Z]
       [33] aload_0 v0
       [34] new #65
         - Class [com/ybcx/f/e]
       [37] dup
       [38] aload_1 v1
-      [39] invokespecial #103
+      [39] invokespecial #104
         - Methodref [com/ybcx/f/e.<init> (Ljava/lang/String;)V]
-      [42] putfield #93
+      [42] putfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [45] return
       Code attribute exceptions (count = 0):
@@ -66086,7 +66163,7 @@ Methods (count = 34):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 11, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #98
+      [1] getfield #99
         - Fieldref [com/ybcx/h/b.g Z]
       [4] ifeq +5 (target=9)
       [7] iconst_1
@@ -66103,10 +66180,10 @@ Methods (count = 34):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 9, locals = 2, stack = 2):
       [0] aload_0 v0
-      [1] getfield #93
+      [1] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [4] aload_1 v1
-      [5] invokevirtual #105
+      [5] invokevirtual #106
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;)V]
       [8] return
       Code attribute exceptions (count = 0):
@@ -66117,43 +66194,43 @@ Methods (count = 34):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 57, locals = 1, stack = 3):
       [0] aload_0 v0
-      [1] getfield #98
+      [1] getfield #99
         - Fieldref [com/ybcx/h/b.g Z]
       [4] ifeq +28 (target=32)
       [7] new #75
         - Class [java/lang/StringBuilder]
       [10] dup
       [11] aload_0 v0
-      [12] getfield #94
+      [12] getfield #95
         - Fieldref [com/ybcx/h/b.c Ljava/lang/String;]
-      [15] invokestatic #113
+      [15] invokestatic #114
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [18] invokespecial #114
+      [18] invokespecial #115
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [21] aload_0 v0
-      [22] getfield #97
+      [22] getfield #98
         - Fieldref [com/ybcx/h/b.f Ljava/lang/String;]
-      [25] invokevirtual #115
+      [25] invokevirtual #116
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [28] invokevirtual #116
+      [28] invokevirtual #117
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [31] areturn
       [32] new #75
         - Class [java/lang/StringBuilder]
       [35] dup
       [36] aload_0 v0
-      [37] getfield #95
+      [37] getfield #96
         - Fieldref [com/ybcx/h/b.d Ljava/lang/String;]
-      [40] invokestatic #113
+      [40] invokestatic #114
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [43] invokespecial #114
+      [43] invokespecial #115
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [46] aload_0 v0
-      [47] getfield #97
+      [47] getfield #98
         - Fieldref [com/ybcx/h/b.f Ljava/lang/String;]
-      [50] invokevirtual #115
+      [50] invokevirtual #116
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [53] invokevirtual #116
+      [53] invokevirtual #117
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [56] areturn
       Code attribute exceptions (count = 0):
@@ -66166,43 +66243,43 @@ Methods (count = 34):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 57, locals = 1, stack = 3):
       [0] aload_0 v0
-      [1] getfield #98
+      [1] getfield #99
         - Fieldref [com/ybcx/h/b.g Z]
       [4] ifeq +28 (target=32)
       [7] new #75
         - Class [java/lang/StringBuilder]
       [10] dup
       [11] aload_0 v0
-      [12] getfield #94
+      [12] getfield #95
         - Fieldref [com/ybcx/h/b.c Ljava/lang/String;]
-      [15] invokestatic #113
+      [15] invokestatic #114
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [18] invokespecial #114
+      [18] invokespecial #115
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [21] aload_0 v0
-      [22] getfield #96
+      [22] getfield #97
         - Fieldref [com/ybcx/h/b.e Ljava/lang/String;]
-      [25] invokevirtual #115
+      [25] invokevirtual #116
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [28] invokevirtual #116
+      [28] invokevirtual #117
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [31] areturn
       [32] new #75
         - Class [java/lang/StringBuilder]
       [35] dup
       [36] aload_0 v0
-      [37] getfield #95
+      [37] getfield #96
         - Fieldref [com/ybcx/h/b.d Ljava/lang/String;]
-      [40] invokestatic #113
+      [40] invokestatic #114
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [43] invokespecial #114
+      [43] invokespecial #115
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [46] aload_0 v0
-      [47] getfield #96
+      [47] getfield #97
         - Fieldref [com/ybcx/h/b.e Ljava/lang/String;]
-      [50] invokevirtual #115
+      [50] invokevirtual #116
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [53] invokevirtual #116
+      [53] invokevirtual #117
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [56] areturn
       Code attribute exceptions (count = 0):
@@ -66218,22 +66295,22 @@ Methods (count = 34):
         - Class [java/lang/StringBuilder]
       [3] dup
       [4] aload_1 v1
-      [5] invokestatic #113
+      [5] invokestatic #114
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [8] invokespecial #114
+      [8] invokespecial #115
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [11] ldc #2
         - String [&source=android]
-      [13] invokevirtual #115
+      [13] invokevirtual #116
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [16] invokevirtual #116
+      [16] invokevirtual #117
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [19] astore_1 v1
       [20] aload_0 v0
-      [21] getfield #93
+      [21] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [24] aload_1 v1
-      [25] invokevirtual #107
+      [25] invokevirtual #108
         - Methodref [com/ybcx/f/e.b (Ljava/lang/String;)Lcom/ybcx/f/a;]
       [28] areturn
       Code attribute exceptions (count = 0):
@@ -66247,28 +66324,28 @@ Methods (count = 34):
         - Class [java/lang/StringBuilder]
       [3] dup
       [4] aload_0 v0
-      [5] invokespecial #108
+      [5] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
-      [8] invokestatic #113
+      [8] invokestatic #114
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [11] invokespecial #114
+      [11] invokespecial #115
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [14] ldc #6
         - String [?method=]
-      [16] invokevirtual #115
+      [16] invokevirtual #116
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
       [19] ldc #28
         - String [getImageFile]
-      [21] invokevirtual #115
+      [21] invokevirtual #116
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
       [24] ldc #3
         - String [&tpId=]
-      [26] invokevirtual #115
+      [26] invokevirtual #116
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
       [29] aload_1 v1
-      [30] invokevirtual #115
+      [30] invokevirtual #116
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [33] invokevirtual #116
+      [33] invokevirtual #117
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [36] areturn
       Code attribute exceptions (count = 0):
@@ -66282,28 +66359,28 @@ Methods (count = 34):
         - Class [java/lang/StringBuilder]
       [3] dup
       [4] aload_0 v0
-      [5] invokespecial #108
+      [5] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
-      [8] invokestatic #113
+      [8] invokestatic #114
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [11] invokespecial #114
+      [11] invokespecial #115
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [14] ldc #6
         - String [?method=]
-      [16] invokevirtual #115
+      [16] invokevirtual #116
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
       [19] ldc #27
         - String [getImageByPath]
-      [21] invokevirtual #115
+      [21] invokevirtual #116
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
       [24] ldc #1
         - String [&path=]
-      [26] invokevirtual #115
+      [26] invokevirtual #116
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
       [29] aload_1 v1
-      [30] invokevirtual #115
+      [30] invokevirtual #116
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [33] invokevirtual #116
+      [33] invokevirtual #117
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [36] areturn
       Code attribute exceptions (count = 0):
@@ -66312,11 +66389,11 @@ Methods (count = 34):
     Access flags: 0x11
       = public final java.lang.String a(java.io.File,java.lang.String,java.lang.String,java.lang.String,com.ybcx.f.g)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 346, locals = 17, stack = 4):
+    + Code attribute instructions (code length = 356, locals = 17, stack = 4):
       [0] new #87
         - Class [org/apache/http/impl/client/DefaultHttpClient]
       [3] dup
-      [4] invokespecial #126
+      [4] invokespecial #128
         - Methodref [org/apache/http/impl/client/DefaultHttpClient.<init> ()V]
       [7] astore v6
       [9] aconst_null
@@ -66327,237 +66404,243 @@ Methods (count = 34):
         - Class [org/apache/http/client/methods/HttpPost]
       [18] dup
       [19] aload_0 v0
-      [20] invokespecial #108
+      [20] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
-      [23] invokespecial #124
+      [23] invokespecial #125
         - Methodref [org/apache/http/client/methods/HttpPost.<init> (Ljava/lang/String;)V]
-      [26] astore v9
-      [28] new #80
+      [26] dup
+      [27] astore v9
+      [29] invokevirtual #126
+        - Methodref [org/apache/http/client/methods/HttpPost.getParams ()Lorg/apache/http/params/HttpParams;]
+      [32] sipush 30000
+      [35] invokestatic #130
+        - Methodref [org/apache/http/params/HttpConnectionParams.setConnectionTimeout (Lorg/apache/http/params/HttpParams;I)V]
+      [38] new #80
         - Class [org/a/a/a/a/a/e]
-      [31] dup
-      [32] aload_1 v1
-      [33] invokespecial #122
+      [41] dup
+      [42] aload_1 v1
+      [43] invokespecial #123
         - Methodref [org/a/a/a/a/a/e.<init> (Ljava/io/File;)V]
-      [36] astore_1 v1
-      [37] aconst_null
-      [38] astore v10
-      [40] aconst_null
-      [41] astore v11
-      [43] aconst_null
-      [44] astore v12
-      [46] aconst_null
-      [47] astore v13
-      [49] aconst_null
-      [50] astore v14
-      [52] aconst_null
-      [53] astore v15
-      [55] new #79
+      [46] astore_1 v1
+      [47] aconst_null
+      [48] astore v10
+      [50] aconst_null
+      [51] astore v11
+      [53] aconst_null
+      [54] astore v12
+      [56] aconst_null
+      [57] astore v13
+      [59] aconst_null
+      [60] astore v14
+      [62] aconst_null
+      [63] astore v15
+      [65] new #79
         - Class [org/a/a/a/a/a/b]
-      [58] dup
-      [59] ldc #59
+      [68] dup
+      [69] ldc #59
         - String [upload]
-      [61] invokespecial #120
+      [71] invokespecial #121
         - Methodref [org/a/a/a/a/a/b.<init> (Ljava/lang/String;)V]
-      [64] astore v10
-      [66] ldc #8
+      [74] astore v10
+      [76] ldc #8
         - String [UTF-8]
-      [68] invokestatic #117
+      [78] invokestatic #118
         - Methodref [java/nio/charset/Charset.forName (Ljava/lang/String;)Ljava/nio/charset/Charset;]
-      [71] astore v16
-      [73] new #79
+      [81] astore v16
+      [83] new #79
         - Class [org/a/a/a/a/a/b]
-      [76] dup
-      [77] aload_2 v2
-      [78] aload v16
-      [80] invokespecial #121
+      [86] dup
+      [87] aload_2 v2
+      [88] aload v16
+      [90] invokespecial #122
         - Methodref [org/a/a/a/a/a/b.<init> (Ljava/lang/String;Ljava/nio/charset/Charset;)V]
-      [83] astore v11
-      [85] new #79
+      [93] astore v11
+      [95] new #79
         - Class [org/a/a/a/a/a/b]
-      [88] dup
-      [89] aload_3 v3
-      [90] aload v16
-      [92] invokespecial #121
+      [98] dup
+      [99] aload_3 v3
+      [100] aload v16
+      [102] invokespecial #122
         - Methodref [org/a/a/a/a/a/b.<init> (Ljava/lang/String;Ljava/nio/charset/Charset;)V]
-      [95] astore v12
-      [97] new #79
+      [105] astore v12
+      [107] new #79
         - Class [org/a/a/a/a/a/b]
-      [100] dup
-      [101] aload v4
-      [103] invokespecial #120
+      [110] dup
+      [111] aload v4
+      [113] invokespecial #121
         - Methodref [org/a/a/a/a/a/b.<init> (Ljava/lang/String;)V]
-      [106] astore v13
-      [108] new #79
+      [116] astore v13
+      [118] new #79
         - Class [org/a/a/a/a/a/b]
-      [111] dup
-      [112] aload_0 v0
-      [113] getfield #93
+      [121] dup
+      [122] aload_0 v0
+      [123] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
-      [116] invokevirtual #104
+      [126] invokevirtual #105
         - Methodref [com/ybcx/f/e.a ()Ljava/lang/String;]
-      [119] invokespecial #120
+      [129] invokespecial #121
         - Methodref [org/a/a/a/a/a/b.<init> (Ljava/lang/String;)V]
-      [122] astore v14
-      [124] new #79
+      [132] astore v14
+      [134] new #79
         - Class [org/a/a/a/a/a/b]
-      [127] dup
-      [128] ldc #14
+      [137] dup
+      [138] ldc #14
         - String [android]
-      [130] invokespecial #120
+      [140] invokespecial #121
         - Methodref [org/a/a/a/a/a/b.<init> (Ljava/lang/String;)V]
-      [133] astore v15
-      [135] goto +19 (target=154)
-      [138] astore v16
-      [140] getstatic #92
+      [143] astore v15
+      [145] goto +19 (target=164)
+      [148] astore v16
+      [150] getstatic #93
         - Fieldref [com/ybcx/h/b.a Ljava/lang/String;]
-      [143] ldc #46
+      [153] ldc #46
         - String [param encoding error!!!]
-      [145] invokestatic #99
+      [155] invokestatic #100
         - Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
-      [148] pop
-      [149] aload v16
-      [151] invokevirtual #110
+      [158] pop
+      [159] aload v16
+      [161] invokevirtual #111
         - Methodref [java/io/UnsupportedEncodingException.printStackTrace ()V]
-      [154] new #64
+      [164] new #64
         - Class [com/ybcx/f/d]
-      [157] dup
-      [158] aload v5
-      [160] invokespecial #101
+      [167] dup
+      [168] aload v5
+      [170] invokespecial #102
         - Methodref [com/ybcx/f/d.<init> (Lcom/ybcx/f/g;)V]
-      [163] dup
-      [164] astore v16
-      [166] ldc #43
+      [173] dup
+      [174] astore v16
+      [176] ldc #43
         - String [method]
-      [168] aload v10
-      [170] invokevirtual #102
+      [178] aload v10
+      [180] invokevirtual #103
         - Methodref [com/ybcx/f/d.a (Ljava/lang/String;Lorg/a/a/a/a/a/d;)V]
-      [173] aload v16
-      [175] ldc #48
+      [183] aload v16
+      [185] ldc #48
         - String [photo]
-      [177] aload_1 v1
-      [178] invokevirtual #102
+      [187] aload_1 v1
+      [188] invokevirtual #103
         - Methodref [com/ybcx/f/d.a (Ljava/lang/String;Lorg/a/a/a/a/a/d;)V]
-      [181] aload v16
-      [183] ldc #56
+      [191] aload v16
+      [193] ldc #56
         - String [tags]
-      [185] aload v11
-      [187] invokevirtual #102
+      [195] aload v11
+      [197] invokevirtual #103
         - Methodref [com/ybcx/f/d.a (Ljava/lang/String;Lorg/a/a/a/a/a/d;)V]
-      [190] aload v16
-      [192] ldc #19
+      [200] aload v16
+      [202] ldc #19
         - String [description]
-      [194] aload v12
-      [196] invokevirtual #102
+      [204] aload v12
+      [206] invokevirtual #103
         - Methodref [com/ybcx/f/d.a (Ljava/lang/String;Lorg/a/a/a/a/a/d;)V]
-      [199] aload v16
-      [201] ldc #40
+      [209] aload v16
+      [211] ldc #40
         - String [isOriginal]
-      [203] aload v13
-      [205] invokevirtual #102
+      [213] aload v13
+      [215] invokevirtual #103
         - Methodref [com/ybcx/f/d.a (Ljava/lang/String;Lorg/a/a/a/a/a/d;)V]
-      [208] aload v16
-      [210] ldc #60
+      [218] aload v16
+      [220] ldc #60
         - String [userId]
-      [212] aload v14
-      [214] invokevirtual #102
+      [222] aload v14
+      [224] invokevirtual #103
         - Methodref [com/ybcx/f/d.a (Ljava/lang/String;Lorg/a/a/a/a/a/d;)V]
-      [217] aload v16
-      [219] ldc #53
+      [227] aload v16
+      [229] ldc #53
         - String [source]
-      [221] aload v15
-      [223] invokevirtual #102
+      [231] aload v15
+      [233] invokevirtual #103
         - Methodref [com/ybcx/f/d.a (Ljava/lang/String;Lorg/a/a/a/a/a/d;)V]
-      [226] aload v9
-      [228] aload v16
-      [230] invokevirtual #125
+      [236] aload v9
+      [238] aload v16
+      [240] invokevirtual #127
         - Methodref [org/apache/http/client/methods/HttpPost.setEntity (Lorg/apache/http/HttpEntity;)V]
-      [233] aload v6
-      [235] aload v9
-      [237] invokeinterface #131
+      [243] aload v6
+      [245] aload v9
+      [247] invokeinterface #134
         - InterfaceMethodref [org/apache/http/client/HttpClient.execute (Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;]
-      [242] invokeinterface #130
+      [252] invokeinterface #133
         - InterfaceMethodref [org/apache/http/HttpResponse.getEntity ()Lorg/apache/http/HttpEntity;]
-      [247] astore v7
-      [249] goto +66 (target=315)
-      [252] invokevirtual #123
+      [257] astore v7
+      [259] goto +66 (target=325)
+      [262] invokevirtual #124
         - Methodref [org/apache/http/client/ClientProtocolException.printStackTrace ()V]
-      [255] aload v6
-      [257] invokeinterface #132
+      [265] aload v6
+      [267] invokeinterface #135
         - InterfaceMethodref [org/apache/http/client/HttpClient.getConnectionManager ()Lorg/apache/http/conn/ClientConnectionManager;]
-      [262] invokeinterface #133
+      [272] invokeinterface #136
         - InterfaceMethodref [org/apache/http/conn/ClientConnectionManager.shutdown ()V]
-      [267] goto +64 (target=331)
-      [270] pop
-      [271] goto +60 (target=331)
-      [274] invokevirtual #109
+      [277] goto +64 (target=341)
+      [280] pop
+      [281] goto +60 (target=341)
+      [284] invokevirtual #110
         - Methodref [java/io/IOException.printStackTrace ()V]
-      [277] aload v6
-      [279] invokeinterface #132
+      [287] aload v6
+      [289] invokeinterface #135
         - InterfaceMethodref [org/apache/http/client/HttpClient.getConnectionManager ()Lorg/apache/http/conn/ClientConnectionManager;]
-      [284] invokeinterface #133
+      [294] invokeinterface #136
         - InterfaceMethodref [org/apache/http/conn/ClientConnectionManager.shutdown ()V]
-      [289] goto +42 (target=331)
-      [292] pop
-      [293] goto +38 (target=331)
-      [296] astore_1 v1
-      [297] aload v6
-      [299] invokeinterface #132
+      [299] goto +42 (target=341)
+      [302] pop
+      [303] goto +38 (target=341)
+      [306] astore_1 v1
+      [307] aload v6
+      [309] invokeinterface #135
         - InterfaceMethodref [org/apache/http/client/HttpClient.getConnectionManager ()Lorg/apache/http/conn/ClientConnectionManager;]
-      [304] invokeinterface #133
+      [314] invokeinterface #136
         - InterfaceMethodref [org/apache/http/conn/ClientConnectionManager.shutdown ()V]
-      [309] goto +4 (target=313)
-      [312] pop
-      [313] aload_1 v1
-      [314] athrow
-      [315] aload v6
-      [317] invokeinterface #132
+      [319] goto +4 (target=323)
+      [322] pop
+      [323] aload_1 v1
+      [324] athrow
+      [325] aload v6
+      [327] invokeinterface #135
         - InterfaceMethodref [org/apache/http/client/HttpClient.getConnectionManager ()Lorg/apache/http/conn/ClientConnectionManager;]
-      [322] invokeinterface #133
+      [332] invokeinterface #136
         - InterfaceMethodref [org/apache/http/conn/ClientConnectionManager.shutdown ()V]
-      [327] goto +4 (target=331)
-      [330] pop
-      [331] aload v7
-      [333] ifnull +10 (target=343)
-      [336] aload v7
-      [338] invokevirtual #112
+      [337] goto +4 (target=341)
+      [340] pop
+      [341] aload v7
+      [343] ifnull +10 (target=353)
+      [346] aload v7
+      [348] invokevirtual #113
         - Methodref [java/lang/Object.toString ()Ljava/lang/String;]
-      [341] astore v8
-      [343] aload v8
-      [345] areturn
+      [351] astore v8
+      [353] aload v8
+      [355] areturn
       Code attribute exceptions (count = 9):
-      - ExceptionInfo (55 -> 135: 138):
+      - ExceptionInfo (65 -> 145: 148):
       - Class [java/io/UnsupportedEncodingException]
-      - ExceptionInfo (15 -> 249: 252):
+      - ExceptionInfo (15 -> 259: 262):
       - Class [org/apache/http/client/ClientProtocolException]
-      - ExceptionInfo (255 -> 267: 270):
+      - ExceptionInfo (265 -> 277: 280):
       - Class [java/lang/Exception]
-      - ExceptionInfo (15 -> 249: 274):
+      - ExceptionInfo (15 -> 259: 284):
       - Class [java/io/IOException]
-      - ExceptionInfo (277 -> 289: 292):
+      - ExceptionInfo (287 -> 299: 302):
       - Class [java/lang/Exception]
-      - ExceptionInfo (15 -> 255: 296):
-      - ExceptionInfo (274 -> 277: 296):
-      - ExceptionInfo (297 -> 309: 312):
+      - ExceptionInfo (15 -> 265: 306):
+      - ExceptionInfo (284 -> 287: 306):
+      - ExceptionInfo (307 -> 319: 322):
       - Class [java/lang/Exception]
-      - ExceptionInfo (315 -> 327: 330):
+      - ExceptionInfo (325 -> 337: 340):
       - Class [java/lang/Exception]
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 15):
-        - [138] Var: [a:com/ybcx/h/b][a:java/io/File][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:com/ybcx/f/g][a:org/apache/http/client/HttpClient][a:org/apache/http/HttpEntity][a:java/lang/String][a:org/apache/http/client/methods/HttpPost][a:org/a/a/a/a/a/e][a:org/a/a/a/a/a/b][a:org/a/a/a/a/a/b][a:org/a/a/a/a/a/b][a:org/a/a/a/a/a/b][a:org/a/a/a/a/a/b][a:org/a/a/a/a/a/b], Stack: [a:java/io/UnsupportedEncodingException]
-        - [154] Var: ..., Stack: (empty)
-        - [252] Var: [a:com/ybcx/h/b][a:java/io/File][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:com/ybcx/f/g][a:org/apache/http/client/HttpClient][a:org/apache/http/HttpEntity][a:java/lang/String], Stack: [a:org/apache/http/client/ClientProtocolException]
-        - [270] Var: ..., Stack: [a:java/lang/Exception]
-        - [271] Var: ..., Stack: (empty)
-        - [274] Var: ..., Stack: [a:java/io/IOException]
-        - [292] Var: ..., Stack: [a:java/lang/Exception]
-        - [293] Var: ..., Stack: (empty)
-        - [296] Var: ..., Stack: [a:java/lang/Throwable]
-        - [312] Var: [a:com/ybcx/h/b][a:java/io/File][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:com/ybcx/f/g][a:org/apache/http/client/HttpClient][a:org/apache/http/HttpEntity][a:java/lang/String][T][T][T][T][T][T][T][T][T][T][a:java/lang/Throwable], Stack: [a:java/lang/Exception]
-        - [313] Var: ..., Stack: (empty)
-        - [315] Var: [a:com/ybcx/h/b][a:java/io/File][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:com/ybcx/f/g][a:org/apache/http/client/HttpClient][a:org/apache/http/HttpEntity][a:java/lang/String], Stack: 
-        - [330] Var: ..., Stack: [a:java/lang/Exception]
-        - [331] Var: ..., Stack: (empty)
-        - [343] Var: ..., Stack: (empty)
+        - [148] Var: [a:com/ybcx/h/b][a:java/io/File][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:com/ybcx/f/g][a:org/apache/http/client/HttpClient][a:org/apache/http/HttpEntity][a:java/lang/String][a:org/apache/http/client/methods/HttpPost][a:org/a/a/a/a/a/e][a:org/a/a/a/a/a/b][a:org/a/a/a/a/a/b][a:org/a/a/a/a/a/b][a:org/a/a/a/a/a/b][a:org/a/a/a/a/a/b][a:org/a/a/a/a/a/b], Stack: [a:java/io/UnsupportedEncodingException]
+        - [164] Var: ..., Stack: (empty)
+        - [262] Var: [a:com/ybcx/h/b][a:java/io/File][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:com/ybcx/f/g][a:org/apache/http/client/HttpClient][a:org/apache/http/HttpEntity][a:java/lang/String], Stack: [a:org/apache/http/client/ClientProtocolException]
+        - [280] Var: ..., Stack: [a:java/lang/Exception]
+        - [281] Var: ..., Stack: (empty)
+        - [284] Var: ..., Stack: [a:java/io/IOException]
+        - [302] Var: ..., Stack: [a:java/lang/Exception]
+        - [303] Var: ..., Stack: (empty)
+        - [306] Var: ..., Stack: [a:java/lang/Throwable]
+        - [322] Var: [a:com/ybcx/h/b][a:java/io/File][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:com/ybcx/f/g][a:org/apache/http/client/HttpClient][a:org/apache/http/HttpEntity][a:java/lang/String][T][T][T][T][T][T][T][T][T][T][a:java/lang/Throwable], Stack: [a:java/lang/Exception]
+        - [323] Var: ..., Stack: (empty)
+        - [325] Var: [a:com/ybcx/h/b][a:java/io/File][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:com/ybcx/f/g][a:org/apache/http/client/HttpClient][a:org/apache/http/HttpEntity][a:java/lang/String], Stack: 
+        - [340] Var: ..., Stack: [a:java/lang/Exception]
+        - [341] Var: ..., Stack: (empty)
+        - [353] Var: ..., Stack: (empty)
   + Method:       a(Ljava/lang/String;Ljava/lang/String;)Lorg/json/JSONArray;
     Access flags: 0x11
       = public final org.json.JSONArray a(java.lang.String,java.lang.String)
@@ -66566,7 +66649,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_3 v3
       [8] new #88
@@ -66576,7 +66659,7 @@ Methods (count = 34):
         - String [method]
       [14] ldc #24
         - String [getGalleryByTime]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore v4
       [21] new #88
@@ -66585,7 +66668,7 @@ Methods (count = 34):
       [25] ldc #54
         - String [startTime]
       [27] aload_1 v1
-      [28] invokespecial #127
+      [28] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [31] astore_1 v1
       [32] new #88
@@ -66594,41 +66677,41 @@ Methods (count = 34):
       [36] ldc #20
         - String [endTime]
       [38] aload_2 v2
-      [39] invokespecial #127
+      [39] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [42] astore_2 v2
       [43] aload_3 v3
       [44] aload v4
-      [46] invokevirtual #119
+      [46] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [49] pop
       [50] aload_3 v3
       [51] aload_1 v1
-      [52] invokevirtual #119
+      [52] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [55] pop
       [56] aload_3 v3
       [57] aload_2 v2
-      [58] invokevirtual #119
+      [58] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [61] pop
       [62] aload_0 v0
-      [63] getfield #93
+      [63] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [66] aload_0 v0
-      [67] invokespecial #108
+      [67] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [70] aload_3 v3
-      [71] invokevirtual #106
+      [71] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [74] invokevirtual #100
+      [74] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [77] astore_1 v1
-      [78] new #89
+      [78] new #90
         - Class [org/json/JSONArray]
       [81] dup
       [82] aload_1 v1
-      [83] invokespecial #128
+      [83] invokespecial #131
         - Methodref [org/json/JSONArray.<init> (Ljava/lang/String;)V]
       [86] areturn
       Code attribute exceptions (count = 0):
@@ -66641,7 +66724,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_2 v2
       [8] new #88
@@ -66651,7 +66734,7 @@ Methods (count = 34):
         - String [method]
       [14] ldc #29
         - String [getPicDetail]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore_3 v3
       [20] new #88
@@ -66660,36 +66743,36 @@ Methods (count = 34):
       [24] ldc #57
         - String [tpId]
       [26] aload_1 v1
-      [27] invokespecial #127
+      [27] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [30] astore_1 v1
       [31] aload_2 v2
       [32] aload_3 v3
-      [33] invokevirtual #119
+      [33] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [36] pop
       [37] aload_2 v2
       [38] aload_1 v1
-      [39] invokevirtual #119
+      [39] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [42] pop
       [43] aload_0 v0
-      [44] getfield #93
+      [44] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [47] aload_0 v0
-      [48] invokespecial #108
+      [48] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [51] aload_2 v2
-      [52] invokevirtual #106
+      [52] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [55] invokevirtual #100
+      [55] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [58] astore_1 v1
-      [59] new #91
+      [59] new #92
         - Class [org/json/JSONObject]
       [62] dup
       [63] aload_1 v1
-      [64] invokespecial #129
+      [64] invokespecial #132
         - Methodref [org/json/JSONObject.<init> (Ljava/lang/String;)V]
       [67] areturn
       Code attribute exceptions (count = 0):
@@ -66702,7 +66785,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_3 v3
       [8] new #88
@@ -66712,7 +66795,7 @@ Methods (count = 34):
         - String [method]
       [14] ldc #11
         - String [addStory]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore v4
       [21] new #88
@@ -66721,7 +66804,7 @@ Methods (count = 34):
       [25] ldc #21
         - String [follow]
       [27] aload_1 v1
-      [28] invokespecial #127
+      [28] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [31] astore_1 v1
       [32] new #88
@@ -66730,34 +66813,34 @@ Methods (count = 34):
       [36] ldc #18
         - String [content]
       [38] aload_2 v2
-      [39] invokespecial #127
+      [39] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [42] astore_2 v2
       [43] aload_3 v3
       [44] aload v4
-      [46] invokevirtual #119
+      [46] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [49] pop
       [50] aload_3 v3
       [51] aload_1 v1
-      [52] invokevirtual #119
+      [52] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [55] pop
       [56] aload_3 v3
       [57] aload_2 v2
-      [58] invokevirtual #119
+      [58] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [61] pop
       [62] aload_0 v0
-      [63] getfield #93
+      [63] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [66] aload_0 v0
-      [67] invokespecial #108
+      [67] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [70] aload_3 v3
-      [71] invokevirtual #106
+      [71] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [74] invokevirtual #100
+      [74] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [77] areturn
       Code attribute exceptions (count = 0):
@@ -66770,7 +66853,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_2 v2
       [8] new #88
@@ -66780,7 +66863,7 @@ Methods (count = 34):
         - String [method]
       [14] ldc #32
         - String [getStoriesOfPic]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore_3 v3
       [20] new #88
@@ -66789,36 +66872,36 @@ Methods (count = 34):
       [24] ldc #57
         - String [tpId]
       [26] aload_1 v1
-      [27] invokespecial #127
+      [27] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [30] astore_1 v1
       [31] aload_2 v2
       [32] aload_3 v3
-      [33] invokevirtual #119
+      [33] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [36] pop
       [37] aload_2 v2
       [38] aload_1 v1
-      [39] invokevirtual #119
+      [39] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [42] pop
       [43] aload_0 v0
-      [44] getfield #93
+      [44] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [47] aload_0 v0
-      [48] invokespecial #108
+      [48] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [51] aload_2 v2
-      [52] invokevirtual #106
+      [52] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [55] invokevirtual #100
+      [55] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [58] astore_1 v1
-      [59] new #89
+      [59] new #90
         - Class [org/json/JSONArray]
       [62] dup
       [63] aload_1 v1
-      [64] invokespecial #128
+      [64] invokespecial #131
         - Methodref [org/json/JSONArray.<init> (Ljava/lang/String;)V]
       [67] areturn
       Code attribute exceptions (count = 0):
@@ -66831,7 +66914,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_3 v3
       [8] new #88
@@ -66841,7 +66924,7 @@ Methods (count = 34):
         - String [method]
       [14] ldc #10
         - String [addComment]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore v4
       [21] new #88
@@ -66850,7 +66933,7 @@ Methods (count = 34):
       [25] ldc #21
         - String [follow]
       [27] aload_1 v1
-      [28] invokespecial #127
+      [28] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [31] astore_1 v1
       [32] new #88
@@ -66859,34 +66942,34 @@ Methods (count = 34):
       [36] ldc #18
         - String [content]
       [38] aload_2 v2
-      [39] invokespecial #127
+      [39] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [42] astore_2 v2
       [43] aload_3 v3
       [44] aload v4
-      [46] invokevirtual #119
+      [46] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [49] pop
       [50] aload_3 v3
       [51] aload_1 v1
-      [52] invokevirtual #119
+      [52] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [55] pop
       [56] aload_3 v3
       [57] aload_2 v2
-      [58] invokevirtual #119
+      [58] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [61] pop
       [62] aload_0 v0
-      [63] getfield #93
+      [63] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [66] aload_0 v0
-      [67] invokespecial #108
+      [67] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [70] aload_3 v3
-      [71] invokevirtual #106
+      [71] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [74] invokevirtual #100
+      [74] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [77] areturn
       Code attribute exceptions (count = 0):
@@ -66899,7 +66982,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_2 v2
       [8] new #88
@@ -66909,7 +66992,7 @@ Methods (count = 34):
         - String [method]
       [14] ldc #22
         - String [getCommentsOfPic]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore_3 v3
       [20] new #88
@@ -66918,36 +67001,36 @@ Methods (count = 34):
       [24] ldc #57
         - String [tpId]
       [26] aload_1 v1
-      [27] invokespecial #127
+      [27] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [30] astore_1 v1
       [31] aload_2 v2
       [32] aload_3 v3
-      [33] invokevirtual #119
+      [33] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [36] pop
       [37] aload_2 v2
       [38] aload_1 v1
-      [39] invokevirtual #119
+      [39] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [42] pop
       [43] aload_0 v0
-      [44] getfield #93
+      [44] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [47] aload_0 v0
-      [48] invokespecial #108
+      [48] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [51] aload_2 v2
-      [52] invokevirtual #106
+      [52] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [55] invokevirtual #100
+      [55] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [58] astore_1 v1
-      [59] new #89
+      [59] new #90
         - Class [org/json/JSONArray]
       [62] dup
       [63] aload_1 v1
-      [64] invokespecial #128
+      [64] invokespecial #131
         - Methodref [org/json/JSONArray.<init> (Ljava/lang/String;)V]
       [67] areturn
       Code attribute exceptions (count = 0):
@@ -66960,7 +67043,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore v5
       [9] new #88
@@ -66970,7 +67053,7 @@ Methods (count = 34):
         - String [method]
       [15] ldc #12
         - String [addVote]
-      [17] invokespecial #127
+      [17] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [20] astore v6
       [22] new #88
@@ -66979,7 +67062,7 @@ Methods (count = 34):
       [26] ldc #51
         - String [receiver]
       [28] aload_1 v1
-      [29] invokespecial #127
+      [29] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [32] astore_1 v1
       [33] new #88
@@ -66988,7 +67071,7 @@ Methods (count = 34):
       [37] ldc #21
         - String [follow]
       [39] aload_2 v2
-      [40] invokespecial #127
+      [40] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [43] astore_2 v2
       [44] new #88
@@ -66997,7 +67080,7 @@ Methods (count = 34):
       [48] ldc #58
         - String [type]
       [50] aload_3 v3
-      [51] invokespecial #127
+      [51] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [54] astore_3 v3
       [55] new #88
@@ -67006,44 +67089,44 @@ Methods (count = 34):
       [59] ldc #13
         - String [amount]
       [61] aload v4
-      [63] invokespecial #127
+      [63] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [66] astore v4
       [68] aload v5
       [70] aload v6
-      [72] invokevirtual #119
+      [72] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [75] pop
       [76] aload v5
       [78] aload_1 v1
-      [79] invokevirtual #119
+      [79] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [82] pop
       [83] aload v5
       [85] aload_2 v2
-      [86] invokevirtual #119
+      [86] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [89] pop
       [90] aload v5
       [92] aload_3 v3
-      [93] invokevirtual #119
+      [93] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [96] pop
       [97] aload v5
       [99] aload v4
-      [101] invokevirtual #119
+      [101] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [104] pop
       [105] aload_0 v0
-      [106] getfield #93
+      [106] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [109] aload_0 v0
-      [110] invokespecial #108
+      [110] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [113] aload v5
-      [115] invokevirtual #106
+      [115] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [118] invokevirtual #100
+      [118] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [121] areturn
       Code attribute exceptions (count = 0):
@@ -67056,7 +67139,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_1 v1
       [8] new #88
@@ -67066,31 +67149,31 @@ Methods (count = 34):
         - String [method]
       [14] ldc #25
         - String [getHotPicture]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore_2 v2
       [20] aload_1 v1
       [21] aload_2 v2
-      [22] invokevirtual #119
+      [22] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [25] pop
       [26] aload_0 v0
-      [27] getfield #93
+      [27] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [30] aload_0 v0
-      [31] invokespecial #108
+      [31] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [34] aload_1 v1
-      [35] invokevirtual #106
+      [35] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [38] invokevirtual #100
+      [38] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [41] astore_1 v1
-      [42] new #89
+      [42] new #90
         - Class [org/json/JSONArray]
       [45] dup
       [46] aload_1 v1
-      [47] invokespecial #128
+      [47] invokespecial #131
         - Methodref [org/json/JSONArray.<init> (Ljava/lang/String;)V]
       [50] areturn
       Code attribute exceptions (count = 0):
@@ -67103,7 +67186,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_1 v1
       [8] new #88
@@ -67113,31 +67196,31 @@ Methods (count = 34):
         - String [method]
       [14] ldc #16
         - String [classicalStatistics]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore_2 v2
       [20] aload_1 v1
       [21] aload_2 v2
-      [22] invokevirtual #119
+      [22] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [25] pop
       [26] aload_0 v0
-      [27] getfield #93
+      [27] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [30] aload_0 v0
-      [31] invokespecial #108
+      [31] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [34] aload_1 v1
-      [35] invokevirtual #106
+      [35] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [38] invokevirtual #100
+      [38] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [41] astore_1 v1
-      [42] new #89
+      [42] new #90
         - Class [org/json/JSONArray]
       [45] dup
       [46] aload_1 v1
-      [47] invokespecial #128
+      [47] invokespecial #131
         - Methodref [org/json/JSONArray.<init> (Ljava/lang/String;)V]
       [50] areturn
       Code attribute exceptions (count = 0):
@@ -67150,7 +67233,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_3 v3
       [8] new #88
@@ -67160,7 +67243,7 @@ Methods (count = 34):
         - String [method]
       [14] ldc #42
         - String [markThePic]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore v4
       [21] new #88
@@ -67169,7 +67252,7 @@ Methods (count = 34):
       [25] ldc #60
         - String [userId]
       [27] aload_1 v1
-      [28] invokespecial #127
+      [28] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [31] astore_1 v1
       [32] new #88
@@ -67178,34 +67261,34 @@ Methods (count = 34):
       [36] ldc #49
         - String [picId]
       [38] aload_2 v2
-      [39] invokespecial #127
+      [39] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [42] astore_2 v2
       [43] aload_3 v3
       [44] aload v4
-      [46] invokevirtual #119
+      [46] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [49] pop
       [50] aload_3 v3
       [51] aload_1 v1
-      [52] invokevirtual #119
+      [52] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [55] pop
       [56] aload_3 v3
       [57] aload_2 v2
-      [58] invokevirtual #119
+      [58] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [61] pop
       [62] aload_0 v0
-      [63] getfield #93
+      [63] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [66] aload_0 v0
-      [67] invokespecial #108
+      [67] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [70] aload_3 v3
-      [71] invokevirtual #106
+      [71] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [74] invokevirtual #100
+      [74] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [77] pop
       [78] return
@@ -67219,7 +67302,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_3 v3
       [8] new #88
@@ -67229,7 +67312,7 @@ Methods (count = 34):
         - String [method]
       [14] ldc #23
         - String [getFavoriteTpics]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore v4
       [21] new #88
@@ -67238,7 +67321,7 @@ Methods (count = 34):
       [25] ldc #60
         - String [userId]
       [27] aload_1 v1
-      [28] invokespecial #127
+      [28] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [31] astore_1 v1
       [32] new #88
@@ -67247,41 +67330,41 @@ Methods (count = 34):
       [36] ldc #45
         - String [pageNum]
       [38] aload_2 v2
-      [39] invokespecial #127
+      [39] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [42] astore_2 v2
       [43] aload_3 v3
       [44] aload v4
-      [46] invokevirtual #119
+      [46] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [49] pop
       [50] aload_3 v3
       [51] aload_1 v1
-      [52] invokevirtual #119
+      [52] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [55] pop
       [56] aload_3 v3
       [57] aload_2 v2
-      [58] invokevirtual #119
+      [58] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [61] pop
       [62] aload_0 v0
-      [63] getfield #93
+      [63] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [66] aload_0 v0
-      [67] invokespecial #108
+      [67] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [70] aload_3 v3
-      [71] invokevirtual #106
+      [71] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [74] invokevirtual #100
+      [74] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [77] astore_1 v1
-      [78] new #89
+      [78] new #90
         - Class [org/json/JSONArray]
       [81] dup
       [82] aload_1 v1
-      [83] invokespecial #128
+      [83] invokespecial #131
         - Methodref [org/json/JSONArray.<init> (Ljava/lang/String;)V]
       [86] areturn
       Code attribute exceptions (count = 0):
@@ -67294,7 +67377,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_3 v3
       [8] new #88
@@ -67304,7 +67387,7 @@ Methods (count = 34):
         - String [method]
       [14] ldc #34
         - String [getTpicsByUser]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore v4
       [21] new #88
@@ -67313,7 +67396,7 @@ Methods (count = 34):
       [25] ldc #60
         - String [userId]
       [27] aload_1 v1
-      [28] invokespecial #127
+      [28] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [31] astore_1 v1
       [32] new #88
@@ -67322,41 +67405,41 @@ Methods (count = 34):
       [36] ldc #45
         - String [pageNum]
       [38] aload_2 v2
-      [39] invokespecial #127
+      [39] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [42] astore_2 v2
       [43] aload_3 v3
       [44] aload v4
-      [46] invokevirtual #119
+      [46] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [49] pop
       [50] aload_3 v3
       [51] aload_1 v1
-      [52] invokevirtual #119
+      [52] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [55] pop
       [56] aload_3 v3
       [57] aload_2 v2
-      [58] invokevirtual #119
+      [58] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [61] pop
       [62] aload_0 v0
-      [63] getfield #93
+      [63] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [66] aload_0 v0
-      [67] invokespecial #108
+      [67] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [70] aload_3 v3
-      [71] invokevirtual #106
+      [71] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [74] invokevirtual #100
+      [74] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [77] astore_1 v1
-      [78] new #89
+      [78] new #90
         - Class [org/json/JSONArray]
       [81] dup
       [82] aload_1 v1
-      [83] invokespecial #128
+      [83] invokespecial #131
         - Methodref [org/json/JSONArray.<init> (Ljava/lang/String;)V]
       [86] areturn
       Code attribute exceptions (count = 0):
@@ -67369,7 +67452,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_3 v3
       [8] new #88
@@ -67379,7 +67462,7 @@ Methods (count = 34):
         - String [method]
       [14] ldc #31
         - String [getStoriesByUser]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore v4
       [21] new #88
@@ -67388,7 +67471,7 @@ Methods (count = 34):
       [25] ldc #60
         - String [userId]
       [27] aload_1 v1
-      [28] invokespecial #127
+      [28] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [31] astore_1 v1
       [32] new #88
@@ -67397,41 +67480,41 @@ Methods (count = 34):
       [36] ldc #45
         - String [pageNum]
       [38] aload_2 v2
-      [39] invokespecial #127
+      [39] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [42] astore_2 v2
       [43] aload_3 v3
       [44] aload v4
-      [46] invokevirtual #119
+      [46] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [49] pop
       [50] aload_3 v3
       [51] aload_1 v1
-      [52] invokevirtual #119
+      [52] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [55] pop
       [56] aload_3 v3
       [57] aload_2 v2
-      [58] invokevirtual #119
+      [58] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [61] pop
       [62] aload_0 v0
-      [63] getfield #93
+      [63] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [66] aload_0 v0
-      [67] invokespecial #108
+      [67] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [70] aload_3 v3
-      [71] invokevirtual #106
+      [71] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [74] invokevirtual #100
+      [74] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [77] astore_1 v1
-      [78] new #89
+      [78] new #90
         - Class [org/json/JSONArray]
       [81] dup
       [82] aload_1 v1
-      [83] invokespecial #128
+      [83] invokespecial #131
         - Methodref [org/json/JSONArray.<init> (Ljava/lang/String;)V]
       [86] areturn
       Code attribute exceptions (count = 0):
@@ -67444,7 +67527,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_2 v2
       [8] new #88
@@ -67454,7 +67537,7 @@ Methods (count = 34):
         - String [method]
       [14] ldc #35
         - String [getUserDetail]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore_3 v3
       [20] new #88
@@ -67463,36 +67546,36 @@ Methods (count = 34):
       [24] ldc #60
         - String [userId]
       [26] aload_1 v1
-      [27] invokespecial #127
+      [27] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [30] astore_1 v1
       [31] aload_2 v2
       [32] aload_3 v3
-      [33] invokevirtual #119
+      [33] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [36] pop
       [37] aload_2 v2
       [38] aload_1 v1
-      [39] invokevirtual #119
+      [39] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [42] pop
       [43] aload_0 v0
-      [44] getfield #93
+      [44] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [47] aload_0 v0
-      [48] invokespecial #108
+      [48] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [51] aload_2 v2
-      [52] invokevirtual #106
+      [52] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [55] invokevirtual #100
+      [55] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [58] astore_1 v1
-      [59] new #91
+      [59] new #92
         - Class [org/json/JSONObject]
       [62] dup
       [63] aload_1 v1
-      [64] invokespecial #129
+      [64] invokespecial #132
         - Methodref [org/json/JSONObject.<init> (Ljava/lang/String;)V]
       [67] areturn
       Code attribute exceptions (count = 0):
@@ -67505,7 +67588,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_2 v2
       [8] new #88
@@ -67515,7 +67598,7 @@ Methods (count = 34):
         - String [method]
       [14] ldc #36
         - String [getUserEstate]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore_3 v3
       [20] new #88
@@ -67524,36 +67607,36 @@ Methods (count = 34):
       [24] ldc #60
         - String [userId]
       [26] aload_1 v1
-      [27] invokespecial #127
+      [27] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [30] astore_1 v1
       [31] aload_2 v2
       [32] aload_3 v3
-      [33] invokevirtual #119
+      [33] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [36] pop
       [37] aload_2 v2
       [38] aload_1 v1
-      [39] invokevirtual #119
+      [39] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [42] pop
       [43] aload_0 v0
-      [44] getfield #93
+      [44] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [47] aload_0 v0
-      [48] invokespecial #108
+      [48] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [51] aload_2 v2
-      [52] invokevirtual #106
+      [52] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [55] invokevirtual #100
+      [55] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [58] astore_1 v1
-      [59] new #91
+      [59] new #92
         - Class [org/json/JSONObject]
       [62] dup
       [63] aload_1 v1
-      [64] invokespecial #129
+      [64] invokespecial #132
         - Methodref [org/json/JSONObject.<init> (Ljava/lang/String;)V]
       [67] areturn
       Code attribute exceptions (count = 0):
@@ -67566,7 +67649,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore v4
       [9] new #88
@@ -67576,7 +67659,7 @@ Methods (count = 34):
         - String [method]
       [15] ldc #52
         - String [sendMsg]
-      [17] invokespecial #127
+      [17] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [20] astore v5
       [22] new #88
@@ -67585,7 +67668,7 @@ Methods (count = 34):
       [26] ldc #60
         - String [userId]
       [28] aload_1 v1
-      [29] invokespecial #127
+      [29] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [32] astore_1 v1
       [33] new #88
@@ -67594,7 +67677,7 @@ Methods (count = 34):
       [37] ldc #51
         - String [receiver]
       [39] aload_2 v2
-      [40] invokespecial #127
+      [40] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [43] astore_2 v2
       [44] new #88
@@ -67603,39 +67686,39 @@ Methods (count = 34):
       [48] ldc #18
         - String [content]
       [50] aload_3 v3
-      [51] invokespecial #127
+      [51] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [54] astore_3 v3
       [55] aload v4
       [57] aload v5
-      [59] invokevirtual #119
+      [59] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [62] pop
       [63] aload v4
       [65] aload_1 v1
-      [66] invokevirtual #119
+      [66] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [69] pop
       [70] aload v4
       [72] aload_2 v2
-      [73] invokevirtual #119
+      [73] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [76] pop
       [77] aload v4
       [79] aload_3 v3
-      [80] invokevirtual #119
+      [80] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [83] pop
       [84] aload_0 v0
-      [85] getfield #93
+      [85] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [88] aload_0 v0
-      [89] invokespecial #108
+      [89] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [92] aload v4
-      [94] invokevirtual #106
+      [94] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [97] invokevirtual #100
+      [97] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [100] areturn
       Code attribute exceptions (count = 0):
@@ -67648,7 +67731,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_2 v2
       [8] new #88
@@ -67658,7 +67741,7 @@ Methods (count = 34):
         - String [method]
       [14] ldc #37
         - String [getUserMsg]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore_3 v3
       [20] new #88
@@ -67667,36 +67750,36 @@ Methods (count = 34):
       [24] ldc #60
         - String [userId]
       [26] aload_1 v1
-      [27] invokespecial #127
+      [27] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [30] astore_1 v1
       [31] aload_2 v2
       [32] aload_3 v3
-      [33] invokevirtual #119
+      [33] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [36] pop
       [37] aload_2 v2
       [38] aload_1 v1
-      [39] invokevirtual #119
+      [39] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [42] pop
       [43] aload_0 v0
-      [44] getfield #93
+      [44] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [47] aload_0 v0
-      [48] invokespecial #108
+      [48] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [51] aload_2 v2
-      [52] invokevirtual #106
+      [52] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [55] invokevirtual #100
+      [55] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [58] astore_1 v1
-      [59] new #89
+      [59] new #90
         - Class [org/json/JSONArray]
       [62] dup
       [63] aload_1 v1
-      [64] invokespecial #128
+      [64] invokespecial #131
         - Methodref [org/json/JSONArray.<init> (Ljava/lang/String;)V]
       [67] areturn
       Code attribute exceptions (count = 0):
@@ -67709,7 +67792,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_2 v2
       [8] new #88
@@ -67719,7 +67802,7 @@ Methods (count = 34):
         - String [method]
       [14] ldc #15
         - String [changeMsgState]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore_3 v3
       [20] new #88
@@ -67728,29 +67811,29 @@ Methods (count = 34):
       [24] ldc #44
         - String [msgIds]
       [26] aload_1 v1
-      [27] invokespecial #127
+      [27] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [30] astore_1 v1
       [31] aload_2 v2
       [32] aload_3 v3
-      [33] invokevirtual #119
+      [33] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [36] pop
       [37] aload_2 v2
       [38] aload_1 v1
-      [39] invokevirtual #119
+      [39] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [42] pop
       [43] aload_0 v0
-      [44] getfield #93
+      [44] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [47] aload_0 v0
-      [48] invokespecial #108
+      [48] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [51] aload_2 v2
-      [52] invokevirtual #106
+      [52] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [55] invokevirtual #100
+      [55] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [58] areturn
       Code attribute exceptions (count = 0):
@@ -67763,7 +67846,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_3 v3
       [8] new #88
@@ -67773,7 +67856,7 @@ Methods (count = 34):
         - String [method]
       [14] ldc #41
         - String [logon]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore v4
       [21] new #88
@@ -67782,7 +67865,7 @@ Methods (count = 34):
       [25] ldc #9
         - String [account]
       [27] aload_1 v1
-      [28] invokespecial #127
+      [28] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [31] astore_1 v1
       [32] new #88
@@ -67791,34 +67874,34 @@ Methods (count = 34):
       [36] ldc #47
         - String [password]
       [38] aload_2 v2
-      [39] invokespecial #127
+      [39] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [42] astore_2 v2
       [43] aload_3 v3
       [44] aload v4
-      [46] invokevirtual #119
+      [46] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [49] pop
       [50] aload_3 v3
       [51] aload_1 v1
-      [52] invokevirtual #119
+      [52] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [55] pop
       [56] aload_3 v3
       [57] aload_2 v2
-      [58] invokevirtual #119
+      [58] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [61] pop
       [62] aload_0 v0
-      [63] getfield #93
+      [63] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [66] aload_0 v0
-      [67] invokespecial #108
+      [67] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [70] aload_3 v3
-      [71] invokevirtual #106
+      [71] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [74] invokevirtual #100
+      [74] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [77] areturn
       Code attribute exceptions (count = 0):
@@ -67831,7 +67914,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_1 v1
       [8] new #88
@@ -67841,31 +67924,31 @@ Methods (count = 34):
         - String [method]
       [14] ldc #50
         - String [pictureDarenStatistics]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore_2 v2
       [20] aload_1 v1
       [21] aload_2 v2
-      [22] invokevirtual #119
+      [22] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [25] pop
       [26] aload_0 v0
-      [27] getfield #93
+      [27] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [30] aload_0 v0
-      [31] invokespecial #108
+      [31] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [34] aload_1 v1
-      [35] invokevirtual #106
+      [35] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [38] invokevirtual #100
+      [38] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [41] astore_1 v1
-      [42] new #89
+      [42] new #90
         - Class [org/json/JSONArray]
       [45] dup
       [46] aload_1 v1
-      [47] invokespecial #128
+      [47] invokespecial #131
         - Methodref [org/json/JSONArray.<init> (Ljava/lang/String;)V]
       [50] areturn
       Code attribute exceptions (count = 0):
@@ -67878,7 +67961,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_1 v1
       [8] new #88
@@ -67888,31 +67971,31 @@ Methods (count = 34):
         - String [method]
       [14] ldc #17
         - String [commentDarenStatistics]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore_2 v2
       [20] aload_1 v1
       [21] aload_2 v2
-      [22] invokevirtual #119
+      [22] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [25] pop
       [26] aload_0 v0
-      [27] getfield #93
+      [27] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [30] aload_0 v0
-      [31] invokespecial #108
+      [31] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [34] aload_1 v1
-      [35] invokevirtual #106
+      [35] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [38] invokevirtual #100
+      [38] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [41] astore_1 v1
-      [42] new #89
+      [42] new #90
         - Class [org/json/JSONArray]
       [45] dup
       [46] aload_1 v1
-      [47] invokespecial #128
+      [47] invokespecial #131
         - Methodref [org/json/JSONArray.<init> (Ljava/lang/String;)V]
       [50] areturn
       Code attribute exceptions (count = 0):
@@ -67925,7 +68008,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_1 v1
       [8] new #88
@@ -67935,31 +68018,31 @@ Methods (count = 34):
         - String [method]
       [14] ldc #26
         - String [getHotTags]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore_2 v2
       [20] aload_1 v1
       [21] aload_2 v2
-      [22] invokevirtual #119
+      [22] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [25] pop
       [26] aload_0 v0
-      [27] getfield #93
+      [27] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [30] aload_0 v0
-      [31] invokespecial #108
+      [31] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [34] aload_1 v1
-      [35] invokevirtual #106
+      [35] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [38] invokevirtual #100
+      [38] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [41] astore_1 v1
-      [42] new #89
+      [42] new #90
         - Class [org/json/JSONArray]
       [45] dup
       [46] aload_1 v1
-      [47] invokespecial #128
+      [47] invokespecial #131
         - Methodref [org/json/JSONArray.<init> (Ljava/lang/String;)V]
       [50] areturn
       Code attribute exceptions (count = 0):
@@ -67972,7 +68055,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_3 v3
       [8] new #88
@@ -67982,7 +68065,7 @@ Methods (count = 34):
         - String [method]
       [14] ldc #33
         - String [getThumbnailsByTag]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore v4
       [21] new #88
@@ -67991,7 +68074,7 @@ Methods (count = 34):
       [25] ldc #55
         - String [tagId]
       [27] aload_1 v1
-      [28] invokespecial #127
+      [28] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [31] astore_1 v1
       [32] new #88
@@ -68000,41 +68083,41 @@ Methods (count = 34):
       [36] ldc #45
         - String [pageNum]
       [38] aload_2 v2
-      [39] invokespecial #127
+      [39] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [42] astore_2 v2
       [43] aload_3 v3
       [44] aload v4
-      [46] invokevirtual #119
+      [46] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [49] pop
       [50] aload_3 v3
       [51] aload_1 v1
-      [52] invokevirtual #119
+      [52] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [55] pop
       [56] aload_3 v3
       [57] aload_2 v2
-      [58] invokevirtual #119
+      [58] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [61] pop
       [62] aload_0 v0
-      [63] getfield #93
+      [63] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [66] aload_0 v0
-      [67] invokespecial #108
+      [67] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [70] aload_3 v3
-      [71] invokevirtual #106
+      [71] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [74] invokevirtual #100
+      [74] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [77] astore_1 v1
-      [78] new #89
+      [78] new #90
         - Class [org/json/JSONArray]
       [81] dup
       [82] aload_1 v1
-      [83] invokespecial #128
+      [83] invokespecial #131
         - Methodref [org/json/JSONArray.<init> (Ljava/lang/String;)V]
       [86] areturn
       Code attribute exceptions (count = 0):
@@ -68047,7 +68130,7 @@ Methods (count = 34):
       [0] new #78
         - Class [java/util/ArrayList]
       [3] dup
-      [4] invokespecial #118
+      [4] invokespecial #119
         - Methodref [java/util/ArrayList.<init> ()V]
       [7] astore_1 v1
       [8] new #88
@@ -68057,31 +68140,31 @@ Methods (count = 34):
         - String [method]
       [14] ldc #30
         - String [getRandGallery]
-      [16] invokespecial #127
+      [16] invokespecial #129
         - Methodref [org/apache/http/message/BasicNameValuePair.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [19] astore_2 v2
       [20] aload_1 v1
       [21] aload_2 v2
-      [22] invokevirtual #119
+      [22] invokevirtual #120
         - Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [25] pop
       [26] aload_0 v0
-      [27] getfield #93
+      [27] getfield #94
         - Fieldref [com/ybcx/h/b.b Lcom/ybcx/f/e;]
       [30] aload_0 v0
-      [31] invokespecial #108
+      [31] invokespecial #109
         - Methodref [com/ybcx/h/b.i ()Ljava/lang/String;]
       [34] aload_1 v1
-      [35] invokevirtual #106
+      [35] invokevirtual #107
         - Methodref [com/ybcx/f/e.a (Ljava/lang/String;Ljava/util/ArrayList;)Lcom/ybcx/f/a;]
-      [38] invokevirtual #100
+      [38] invokevirtual #101
         - Methodref [com/ybcx/f/a.b ()Ljava/lang/String;]
       [41] astore_1 v1
-      [42] new #89
+      [42] new #90
         - Class [org/json/JSONArray]
       [45] dup
       [46] aload_1 v1
-      [47] invokespecial #128
+      [47] invokespecial #131
         - Methodref [org/json/JSONArray.<init> (Ljava/lang/String;)V]
       [50] areturn
       Code attribute exceptions (count = 0):

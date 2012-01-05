@@ -17,6 +17,7 @@ import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.HttpConnectionParams;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,6 +25,7 @@ import org.json.JSONObject;
 import android.util.Log;
 
 import com.ybcx.http.CountingMultiPartEntity;
+import com.ybcx.http.HttpClientInterface;
 import com.ybcx.http.HttpException;
 import com.ybcx.http.Response;
 import com.ybcx.http.SimpleHttpClient;
@@ -125,7 +127,8 @@ public class PTImpl implements PTApi {
 		String response = null;
 		try {
 			HttpPost httppost = new HttpPost(getBaseURL());
-
+			HttpConnectionParams.setConnectionTimeout(httppost.getParams(),
+					HttpClientInterface.CONNECTION_TIMEOUT_MS);
 			FileBody file = new FileBody(pic);
 			StringBody methodValue = null;
 			StringBody tagsValue = null;
@@ -193,7 +196,8 @@ public class PTImpl implements PTApi {
 		String response = null;
 		try {
 			HttpPost httppost = new HttpPost(getBaseURL());
-
+			HttpConnectionParams.setConnectionTimeout(httppost.getParams(),
+					HttpClientInterface.CONNECTION_TIMEOUT_MS);
 			FileBody file = new FileBody(pic);
 			StringBody methodValue = null;
 			StringBody tagsValue = null;
