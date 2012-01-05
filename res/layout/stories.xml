@@ -7,7 +7,7 @@
 	<!-- 图片信息 -->
 	<include layout="@layout/pic_info" />
 	<!-- 监测滚动状态的，故事和投票结果列表 -->
-	<com.pintu.widget.StateListView
+	<com.ybcx.widget.StateListView
 		android:id="@+id/story_votes" android:layout_width="fill_parent"
 		android:layout_height="fill_parent" android:layout_weight="1"
 		android:cacheColorHint="#00000000" android:fadeScrollbars="true"
