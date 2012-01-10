@@ -21,6 +21,7 @@ import com.ybcx.adapter.HotPicsAdapter;
 import com.ybcx.data.TPicDetails;
 import com.ybcx.task.RetrieveHotPicsTask;
 import com.ybcx.task.TaskParams;
+import com.ybcx.task.TaskResult;
 
 public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 
@@ -87,7 +88,13 @@ public class TodayHotPic extends TempletActivity implements SubMainCallBack{
 
 	@Override
 	protected void doRetrieve() {
-		if(!checkTaskStatus()) return;
+		//网络检查
+		if(!PintuApp.isNetworkAvailable()){
+			updateProgress("Network not Available, try later!");
+			return ;
+		}
+		
+		if(!checkTaskStatus()) return;		
 		
 		this.mRetrieveTask = new RetrieveHotPicsTask();
 		this.mRetrieveTask.setListener(mRetrieveTaskListener);

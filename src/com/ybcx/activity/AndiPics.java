@@ -110,6 +110,12 @@ public class AndiPics extends TempletActivity implements SubMainCallBack {
 
 	@Override
 	protected void doRetrieve() {
+		//网络检查
+		if(!PintuApp.isNetworkAvailable()){
+			updateProgress("Network not Available, try later!");
+			return ;
+		}
+		
 		if(!checkTaskStatus()) return;
 		
 		this.mRetrieveTask = new RetrieveFavoritesTask();

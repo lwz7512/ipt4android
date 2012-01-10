@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.ybcx" android:versionCode="3" android:versionName="1.02">
+	package="com.ybcx" android:versionCode="4" android:versionName="1.03">
 	<uses-sdk android:minSdkVersion="7" />
 	<supports-screens android:anyDensity="true" />
 	<application android:name="PintuApp" android:icon="@drawable/icon"

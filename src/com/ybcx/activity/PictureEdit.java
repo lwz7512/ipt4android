@@ -10,6 +10,7 @@ import java.util.Date;
 
 import android.app.ProgressDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -25,6 +26,8 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -52,7 +55,9 @@ public class PictureEdit extends FullScreenActivity {
 
 	private static final int REQUEST_IMAGE_CAPTURE = 2;
 	private static final int REQUEST_PHOTO_LIBRARY = 3;
-	private static final int MAX_BITMAP_SIZE = 400;
+	//FIXME, 减小一半，以方便发送图片
+	//2012/01/10
+	private static final int MAX_BITMAP_SIZE = 200;
 
 	// Header
 	private ImageButton mBackButton;
@@ -63,6 +68,9 @@ public class PictureEdit extends FullScreenActivity {
 	private CheckBox isOriginal;
 	private ImageButton chooseImagesButton;
 	private ImageButton mCameraButton;
+	//找到它，方便的时候隐藏
+	private LinearLayout post_button_bar;
+	
 	private ProgressDialog dialog;
 
 	// Picture
@@ -223,6 +231,7 @@ public class PictureEdit extends FullScreenActivity {
 		mCameraButton = (ImageButton) findViewById(R.id.camera_button);
 		chooseImagesButton = (ImageButton) findViewById(R.id.choose_images_button);
 
+		post_button_bar = (LinearLayout) findViewById(R.id.post_button_bar);
 	}
 
 	private void addEventListeners() {
@@ -230,8 +239,20 @@ public class PictureEdit extends FullScreenActivity {
 		mTopSendButton.setOnClickListener(sendListener);
 		chooseImagesButton.setOnClickListener(insertImgListener);
 		mCameraButton.setOnClickListener(takeShotListener);
-
+		
+		//点击后才执行隐藏工具栏动作
+		tagsEditText.setOnClickListener(editClickListener);
+		descEditText.setOnClickListener(editClickListener);
 	}
+	
+
+	private OnClickListener editClickListener = new OnClickListener() {
+		public void onClick(View v) {
+			//如果有了图片了，点击输入框就隐藏工具栏
+			if(post_button_bar.isShown() && mFile!=null) 
+				post_button_bar.setVisibility(View.GONE);
+		}
+	};
 
 	private OnClickListener mGoListener = new OnClickListener() {
 		public void onClick(View v) {
@@ -269,9 +290,13 @@ public class PictureEdit extends FullScreenActivity {
 	private TaskListener mSendTaskListener = new TaskAdapter() {
 
 		@Override
-		public void onPreExecute(GenericTask task) {			
+		public void onPreExecute(GenericTask task) {	
+			//关闭输入法
+			closeInputSoftKeyboard();
+			//打开进度条
 			showProgressDialog();
-			//打开开关
+			
+			//打开传送开关
 			inProgress = true;
 			// 启动线程
 			onProgressNotification.start();
@@ -307,6 +332,17 @@ public class PictureEdit extends FullScreenActivity {
 		}
 
 	};
+	
+	private void closeInputSoftKeyboard(){
+		 // 关闭软键盘
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        if(imm.isActive(tagsEditText)){        	
+        	imm.hideSoftInputFromWindow(tagsEditText.getWindowToken(),0);
+        }
+        if(imm.isActive(descEditText)){        	
+        	imm.hideSoftInputFromWindow(descEditText.getWindowToken(),0);
+        }
+	}
 
 	private Thread onProgressNotification = new Thread() {
 		
@@ -340,6 +376,12 @@ public class PictureEdit extends FullScreenActivity {
 
 	private void doSend() {
 
+		//网络检查
+		if(!PintuApp.isNetworkAvailable()){
+			updateProgress("Network not Available, try later!");
+			return ;
+		}
+		
 		if (mSendTask != null
 				&& mSendTask.getStatus() == GenericTask.Status.RUNNING)
 			return;

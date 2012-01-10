@@ -9,6 +9,8 @@ public class UserInfo {
 	public String account;
 	//肖像
 	public String avatar;
+	//昵称
+	public String nickName;
 	//角色
 	public String role;
 	//级别
@@ -29,6 +31,7 @@ public class UserInfo {
 		usr.id = json.optString("id");
 		usr.account = json.optString("account");
 		usr.avatar = json.optString("avatar");
+		usr.nickName = json.optString("nickName");
 		usr.exchangeScore = json.optInt("exchangeScore");
 		usr.level = json.optString("level");
 		usr.role = json.optString("role");

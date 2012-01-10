@@ -496,6 +496,12 @@ public class PictureDetails extends FullScreenActivity {
 
 	private void doRetrieve(String tpId) {
 		Log.d(TAG, "Attempting retrieve gallery data...");
+		
+		// 网络检查
+		if (!PintuApp.isNetworkAvailable()) {
+			updateProgress("Network not Available, try later!");
+			return;
+		}
 
 		if (mRetrieveTask != null
 				&& mRetrieveTask.getStatus() == GenericTask.Status.RUNNING) {

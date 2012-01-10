@@ -32,6 +32,7 @@ com.ybcx.PintuApp -> com.ybcx.PintuApp:
     java.lang.String getUser() -> b
     java.lang.String getKefu() -> c
     void cancelNotification() -> d
+    boolean isNetworkAvailable() -> e
 com.ybcx.PintuMain -> com.ybcx.PintuMain:
     int SPLASH_DISPLAY_LENGHT -> a
     void onCreate(android.os.Bundle) -> onCreate
@@ -307,16 +308,16 @@ com.ybcx.activity.CommentEdit -> com.ybcx.activity.CommentEdit:
     void refreshListView(java.util.List) -> a
     void refreshMultView(org.json.JSONObject) -> a
     void access$0(com.ybcx.activity.CommentEdit,android.text.Editable) -> a
-com.ybcx.activity.CommentEdit$1 -> com.ybcx.activity.bi:
+com.ybcx.activity.CommentEdit$1 -> com.ybcx.activity.bj:
     com.ybcx.activity.CommentEdit this$0 -> a
     void onClick(android.view.View) -> onClick
-com.ybcx.activity.CommentEdit$2 -> com.ybcx.activity.bk:
+com.ybcx.activity.CommentEdit$2 -> com.ybcx.activity.bl:
     com.ybcx.activity.CommentEdit this$0 -> a
     void onClick(android.view.View) -> onClick
-com.ybcx.activity.CommentEdit$3 -> com.ybcx.activity.bj:
+com.ybcx.activity.CommentEdit$3 -> com.ybcx.activity.bk:
     com.ybcx.activity.CommentEdit this$0 -> a
     boolean onEditorAction(android.widget.TextView,int,android.view.KeyEvent) -> onEditorAction
-com.ybcx.activity.CommentEdit$4 -> com.ybcx.activity.bl:
+com.ybcx.activity.CommentEdit$4 -> com.ybcx.activity.bm:
     com.ybcx.activity.CommentEdit this$0 -> a
     void afterTextChanged(android.text.Editable) -> afterTextChanged
     void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
@@ -400,7 +401,7 @@ com.ybcx.activity.HomeGallery -> com.ybcx.activity.HomeGallery:
     void access$7(com.ybcx.activity.HomeGallery) -> g
     com.ybcx.upgrade.UpdateManager access$9(com.ybcx.activity.HomeGallery) -> h
     void access$10(com.ybcx.activity.HomeGallery) -> i
-com.ybcx.activity.HomeGallery$1 -> com.ybcx.activity.bv:
+com.ybcx.activity.HomeGallery$1 -> com.ybcx.activity.bw:
     com.ybcx.activity.HomeGallery this$0 -> a
     void onShake() -> a
 com.ybcx.activity.HomeGallery$10 -> com.ybcx.activity.ay:
@@ -415,28 +416,28 @@ com.ybcx.activity.HomeGallery$12 -> com.ybcx.activity.ax:
 com.ybcx.activity.HomeGallery$13 -> com.ybcx.activity.az:
     com.ybcx.activity.HomeGallery this$0 -> a
     void run() -> run
-com.ybcx.activity.HomeGallery$2 -> com.ybcx.activity.br:
+com.ybcx.activity.HomeGallery$2 -> com.ybcx.activity.bs:
     com.ybcx.activity.HomeGallery this$0 -> a
     void onClick(android.view.View) -> onClick
-com.ybcx.activity.HomeGallery$3 -> com.ybcx.activity.bs:
+com.ybcx.activity.HomeGallery$3 -> com.ybcx.activity.bt:
     com.ybcx.activity.HomeGallery this$0 -> a
     void onClick(android.view.View) -> onClick
-com.ybcx.activity.HomeGallery$4 -> com.ybcx.activity.bt:
+com.ybcx.activity.HomeGallery$4 -> com.ybcx.activity.bu:
     com.ybcx.activity.HomeGallery this$0 -> a
     void onClick(android.view.View) -> onClick
-com.ybcx.activity.HomeGallery$5 -> com.ybcx.activity.bu:
+com.ybcx.activity.HomeGallery$5 -> com.ybcx.activity.bv:
     com.ybcx.activity.HomeGallery this$0 -> a
     void onClick(android.view.View) -> onClick
-com.ybcx.activity.HomeGallery$6 -> com.ybcx.activity.bn:
+com.ybcx.activity.HomeGallery$6 -> com.ybcx.activity.bo:
     com.ybcx.activity.HomeGallery this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.ybcx.activity.HomeGallery$7 -> com.ybcx.activity.bo:
+com.ybcx.activity.HomeGallery$7 -> com.ybcx.activity.bp:
     com.ybcx.activity.HomeGallery this$0 -> a
     void onClick(android.view.View) -> onClick
-com.ybcx.activity.HomeGallery$8 -> com.ybcx.activity.bp:
+com.ybcx.activity.HomeGallery$8 -> com.ybcx.activity.bq:
     com.ybcx.activity.HomeGallery this$0 -> a
     void onClick(android.view.View) -> onClick
-com.ybcx.activity.HomeGallery$9 -> com.ybcx.activity.bq:
+com.ybcx.activity.HomeGallery$9 -> com.ybcx.activity.br:
     com.ybcx.activity.HomeGallery this$0 -> a
     void onPreExecute$58d10729() -> a
     void onPostExecute$42275483(com.ybcx.task.TaskResult) -> a
@@ -453,7 +454,7 @@ com.ybcx.activity.HowTos -> com.ybcx.activity.HowTos:
     android.widget.TextView tv_title -> b
     android.view.View$OnClickListener mGoListener -> c
     void onCreate(android.os.Bundle) -> onCreate
-com.ybcx.activity.HowTos$1 -> com.ybcx.activity.bw:
+com.ybcx.activity.HowTos$1 -> com.ybcx.activity.bx:
     com.ybcx.activity.HowTos this$0 -> a
     void onClick(android.view.View) -> onClick
 com.ybcx.activity.LogonSys -> com.ybcx.activity.LogonSys:
@@ -740,22 +741,24 @@ com.ybcx.activity.PictureEdit -> com.ybcx.activity.PictureEdit:
     android.widget.CheckBox isOriginal -> e
     android.widget.ImageButton chooseImagesButton -> f
     android.widget.ImageButton mCameraButton -> g
-    android.app.ProgressDialog dialog -> h
-    android.widget.ImageView mPreview -> i
-    long startTime -> j
-    long endTime -> k
-    com.ybcx.task.GenericTask mSendTask -> l
-    java.io.File mFile -> m
-    android.net.Uri mImageUri -> n
-    int percent -> o
-    boolean inProgress -> p
-    android.view.View$OnClickListener mGoListener -> q
-    android.view.View$OnClickListener sendListener -> r
-    android.view.View$OnClickListener insertImgListener -> s
-    android.view.View$OnClickListener takeShotListener -> t
-    com.ybcx.task.TaskListener mSendTaskListener -> u
-    java.lang.Thread onProgressNotification -> v
-    android.os.Handler pbOperator -> w
+    android.widget.LinearLayout post_button_bar -> h
+    android.app.ProgressDialog dialog -> i
+    android.widget.ImageView mPreview -> j
+    long startTime -> k
+    long endTime -> l
+    com.ybcx.task.GenericTask mSendTask -> m
+    java.io.File mFile -> n
+    android.net.Uri mImageUri -> o
+    int percent -> p
+    boolean inProgress -> q
+    android.view.View$OnClickListener editClickListener -> r
+    android.view.View$OnClickListener mGoListener -> s
+    android.view.View$OnClickListener sendListener -> t
+    android.view.View$OnClickListener insertImgListener -> u
+    android.view.View$OnClickListener takeShotListener -> v
+    com.ybcx.task.TaskListener mSendTaskListener -> w
+    java.lang.Thread onProgressNotification -> x
+    android.os.Handler pbOperator -> y
     void onCreate(android.os.Bundle) -> onCreate
     void onResume() -> onResume
     void onDestroy() -> onDestroy
@@ -766,21 +769,24 @@ com.ybcx.activity.PictureEdit -> com.ybcx.activity.PictureEdit:
     void centerDisplayThumbnail(android.graphics.Bitmap) -> a
     java.lang.String getRealPathFromURI(android.net.Uri) -> b
     android.graphics.Bitmap createThumbnailBitmap$1c6d3aaf(android.net.Uri) -> c
-    void access$0(com.ybcx.activity.PictureEdit) -> a
-    void access$2(com.ybcx.activity.PictureEdit) -> b
-    void access$3(com.ybcx.activity.PictureEdit) -> c
-    void access$4(com.ybcx.activity.PictureEdit,boolean) -> a
-    java.lang.Thread access$5(com.ybcx.activity.PictureEdit) -> d
-    void access$6(com.ybcx.activity.PictureEdit,int) -> a
-    int access$7(com.ybcx.activity.PictureEdit) -> e
-    void access$8(com.ybcx.activity.PictureEdit,long) -> a
-    long access$9(com.ybcx.activity.PictureEdit) -> f
-    long access$10(com.ybcx.activity.PictureEdit) -> g
-    void access$12(com.ybcx.activity.PictureEdit) -> h
-    void access$13(com.ybcx.activity.PictureEdit) -> i
-    boolean access$14(com.ybcx.activity.PictureEdit) -> j
-    android.os.Handler access$15(com.ybcx.activity.PictureEdit) -> k
-    android.app.ProgressDialog access$16(com.ybcx.activity.PictureEdit) -> l
+    android.widget.LinearLayout access$0(com.ybcx.activity.PictureEdit) -> a
+    java.io.File access$1(com.ybcx.activity.PictureEdit) -> b
+    void access$2(com.ybcx.activity.PictureEdit) -> c
+    void access$4(com.ybcx.activity.PictureEdit) -> d
+    void access$5(com.ybcx.activity.PictureEdit) -> e
+    void access$6(com.ybcx.activity.PictureEdit) -> f
+    void access$7(com.ybcx.activity.PictureEdit,boolean) -> a
+    java.lang.Thread access$8(com.ybcx.activity.PictureEdit) -> g
+    void access$9(com.ybcx.activity.PictureEdit,int) -> a
+    int access$10(com.ybcx.activity.PictureEdit) -> h
+    void access$11(com.ybcx.activity.PictureEdit,long) -> a
+    long access$12(com.ybcx.activity.PictureEdit) -> i
+    long access$13(com.ybcx.activity.PictureEdit) -> j
+    void access$15(com.ybcx.activity.PictureEdit) -> k
+    void access$16(com.ybcx.activity.PictureEdit) -> l
+    boolean access$17(com.ybcx.activity.PictureEdit) -> m
+    android.os.Handler access$18(com.ybcx.activity.PictureEdit) -> n
+    android.app.ProgressDialog access$19(com.ybcx.activity.PictureEdit) -> o
 com.ybcx.activity.PictureEdit$1 -> com.ybcx.activity.bc:
     com.ybcx.activity.PictureEdit this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -795,14 +801,17 @@ com.ybcx.activity.PictureEdit$4 -> com.ybcx.activity.bd:
     void onClick(android.view.View) -> onClick
 com.ybcx.activity.PictureEdit$5 -> com.ybcx.activity.bg:
     com.ybcx.activity.PictureEdit this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.ybcx.activity.PictureEdit$6 -> com.ybcx.activity.bf:
+    com.ybcx.activity.PictureEdit this$0 -> a
     void onPreExecute$58d10729() -> a
     void onProgressUpdate$75bd00f3(java.lang.Object) -> a
     void onPostExecute$42275483(com.ybcx.task.TaskResult) -> a
     void deliverResponseString(java.lang.String) -> a
-com.ybcx.activity.PictureEdit$6 -> com.ybcx.activity.bf:
+com.ybcx.activity.PictureEdit$7 -> com.ybcx.activity.bi:
     com.ybcx.activity.PictureEdit this$0 -> a
     void run() -> run
-com.ybcx.activity.PictureEdit$7 -> com.ybcx.activity.bh:
+com.ybcx.activity.PictureEdit$8 -> com.ybcx.activity.bh:
     com.ybcx.activity.PictureEdit this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
 com.ybcx.activity.StoryDetails -> com.ybcx.activity.StoryDetails:
@@ -1039,7 +1048,7 @@ com.ybcx.activity.TodayHotPic -> com.ybcx.activity.TodayHotPic:
     void onSendSuccess() -> j
     void onSendFailure() -> k
     com.ybcx.adapter.HotPicsAdapter access$0(com.ybcx.activity.TodayHotPic) -> a
-com.ybcx.activity.TodayHotPic$1 -> com.ybcx.activity.bm:
+com.ybcx.activity.TodayHotPic$1 -> com.ybcx.activity.bn:
     com.ybcx.activity.TodayHotPic this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.ybcx.activity.base.FullScreenActivity -> com.ybcx.activity.base.FullScreenActivity:
@@ -1394,20 +1403,21 @@ com.ybcx.data.Tag -> com.ybcx.a.a:
     int browseCount -> c
     java.lang.String type -> d
 com.ybcx.data.UserDetails -> com.ybcx.a.e:
-    int seaShell -> j
-    int copperShell -> k
-    int silverShell -> l
-    int goldShell -> m
+    int seaShell -> k
+    int copperShell -> l
+    int silverShell -> m
+    int goldShell -> n
 com.ybcx.data.UserInfo -> com.ybcx.a.b:
     java.lang.String id -> a
     java.lang.String account -> b
     java.lang.String avatar -> c
-    java.lang.String role -> d
-    java.lang.String level -> e
-    int score -> f
-    int exchangeScore -> g
-    int tpicNum -> h
-    int storyNum -> i
+    java.lang.String nickName -> d
+    java.lang.String role -> e
+    java.lang.String level -> f
+    int score -> g
+    int exchangeScore -> h
+    int tpicNum -> i
+    int storyNum -> j
     com.ybcx.data.UserInfo parseJsonToObj(org.json.JSONObject) -> a
 com.ybcx.db.CacheDao -> com.ybcx.b.c:
     void clearData() -> a

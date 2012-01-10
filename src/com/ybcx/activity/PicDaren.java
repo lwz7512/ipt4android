@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import com.ybcx.PintuApp;
 import com.ybcx.R;
 import com.ybcx.activity.base.HeadSwitchActivity;
 import com.ybcx.activity.base.SubMainCallBack;
@@ -101,6 +102,12 @@ public class PicDaren extends TempletActivity  implements SubMainCallBack {
 
 	@Override
 	protected void doRetrieve() {
+		//网络检查
+		if(!PintuApp.isNetworkAvailable()){
+			updateProgress("Network not Available, try later!");
+			return ;
+		}
+		
 		if(!checkTaskStatus()) return;
 
 		this.mRetrieveTask = new RetrieveDarenTask();

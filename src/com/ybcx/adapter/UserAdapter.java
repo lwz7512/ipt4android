@@ -74,8 +74,8 @@ public class UserAdapter extends BaseAdapter {
 		// 显示头像
 		SimpleImageLoader.display(holder.profile_image, profileUrl);
 
-		String userName = IptHelper.getShortUserName(usr.account);
-		holder.user_name.setText(userName);
+//		String userName = IptHelper.getShortUserName(usr.account);
+		holder.user_name.setText(usr.nickName);
 		
 		String userLevel = ctxt.getText(R.string.userlevel)+"  "+usr.level;
 		holder.user_level.setText(userLevel);

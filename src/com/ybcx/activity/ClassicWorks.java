@@ -90,7 +90,13 @@ public class ClassicWorks extends TempletActivity implements SubMainCallBack {
 
 	@Override
 	protected void doRetrieve() {
-		if(!checkTaskStatus()) return;
+		//网络检查
+		if(!PintuApp.isNetworkAvailable()){
+			updateProgress("Network not Available, try later!");
+			return ;
+		}
+		
+		if(!checkTaskStatus()) return;		
 		
 		//与查询热图共用一个任务，用参数区分
 		this.mRetrieveTask = new RetrieveHotPicsTask();

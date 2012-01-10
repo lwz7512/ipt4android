@@ -164,29 +164,24 @@ public class SendTask extends GenericTask {
 		if(mFile==null) return TaskResult.FAILED;
 		
 		Log.d(TAG, "Orig File size: "+mFile.length());
-		if (null != mFile) {
-			try {
-				String tags = param.get("tags").toString();
-				String description = param.get("description").toString();
-				String allowStory = param.get("isOriginal").toString();
-				// 必须得压缩下，否则发送半天都发送不完
-				mFile = SimpleImageLoader.compressRawImage(mFile);
-				Log.d(TAG, "Compress File size: "+mFile.length());
-				//必须知道文件的总大小
-				listener.setTotalFileSize(mFile.length());
-				//开始发送
-				postResult = PintuApp.mApi.postPictureWithProgress(mFile, tags,
-						description, allowStory, listener);
-			} catch (HttpException e) {
-				e.printStackTrace();
-				return TaskResult.FAILED;
-			} catch (Exception e) {
-				Log.e("SendTask", "Compress image file Error!");
-				return TaskResult.IO_ERROR;
-			}
-		} else {
-			Log.e("SendTask",
-					"Cann't send status in PICTURE mode, photo is null");
+		try {
+			String tags = param.get("tags").toString();
+			String description = param.get("description").toString();
+			String allowStory = param.get("isOriginal").toString();
+			// 必须得压缩下，否则发送半天都发送不完
+			mFile = SimpleImageLoader.compressRawImage(mFile);
+			Log.d(TAG, "Compress File size: "+mFile.length());
+			//必须知道文件的总大小
+			listener.setTotalFileSize(mFile.length());
+			//开始发送
+			postResult = PintuApp.mApi.postPictureWithProgress(mFile, tags,
+					description, allowStory, listener);
+		} catch (HttpException e) {
+			e.printStackTrace();
+			return TaskResult.FAILED;
+		} catch (Exception e) {
+			Log.e("SendTask", "Compress image file Error!");
+			return TaskResult.IO_ERROR;
 		}
 
 		return TaskResult.OK;

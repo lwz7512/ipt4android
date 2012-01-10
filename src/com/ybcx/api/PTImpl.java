@@ -239,9 +239,11 @@ public class PTImpl implements PTApi {
 			resEntity = resp.getEntity();
 
 		} catch (ClientProtocolException e) {
-			e.printStackTrace();
+			//要通知SendTask
+			throw new HttpException(e.getMessage(), e);			
 		} catch (IOException e) {
-			e.printStackTrace();
+			//要通知SendTask
+			throw new HttpException(e.getMessage(), e);
 		} finally {
 			try {
 				httpclient.getConnectionManager().shutdown();

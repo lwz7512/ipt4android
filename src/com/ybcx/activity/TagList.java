@@ -15,6 +15,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.ybcx.PintuApp;
 import com.ybcx.R;
 import com.ybcx.activity.base.TempletActivity;
 import com.ybcx.adapter.TagsAdapter;
@@ -86,6 +87,12 @@ public class TagList extends TempletActivity {
 
 	@Override
 	protected void doRetrieve() {
+		//网络检查
+		if(!PintuApp.isNetworkAvailable()){
+			updateProgress("Network not Available, try later!");
+			return ;
+		}
+		
 		if(!checkTaskStatus()) return;
 		
 		this.mRetrieveTask = new RetrieveHotTagsTask();

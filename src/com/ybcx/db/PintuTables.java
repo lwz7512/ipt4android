@@ -6,8 +6,10 @@ public class PintuTables {
 	public static class ThumbnailTable{
 		
 		public static final String TABLE_NAME = "t_thumbnail";
-		//缩略图数目：4*8=32
-		public static final int MAX_ROW_NUMBER = 32;
+		
+		//增加缓存数目
+		//2012/01/09
+		public static final int MAX_ROW_NUMBER = 100;
 		
 		public static class Columns {			
 			public static final String TP_ID = "tpId";

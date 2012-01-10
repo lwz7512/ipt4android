@@ -40,7 +40,7 @@ public class CacheImpl implements CacheDao {
 		ptdb.execSQL("DELETE FROM " + PintuTables.FavoritePicsTable.TABLE_NAME);
 		ptdb.execSQL("DELETE FROM " + PintuTables.MyMessageTable.TABLE_NAME);
 		ptdb.execSQL("DELETE FROM " + PintuTables.MyPicsTable.TABLE_NAME);
-		
+
 		// TODO, DELETE CACHE DATA IN TABLE...
 
 	}
@@ -51,22 +51,20 @@ public class CacheImpl implements CacheDao {
 		if (results != null && results.size() == 0)
 			return;
 	}
-	
-	private boolean checkRecordExist(String table, String id){
+
+	private boolean checkRecordExist(String table, String id) {
 		StringBuilder sql = new StringBuilder();
-		sql.append("SELECT COUNT(*) FROM ")
-				.append(table)
-				.append(" WHERE ")
+		sql.append("SELECT COUNT(*) FROM ").append(table).append(" WHERE ")
 				.append(" id=?");
 
 		Cursor c = ptdb.rawQuery(sql.toString(), new String[] { id });
-		boolean exist = false; 
+		boolean exist = false;
 		if (c.moveToFirst()) {
-             exist = c.getInt(0) > 0;
-         }
+			exist = c.getInt(0) > 0;
+		}
 		c.close();
 		return exist;
-		
+
 	}
 
 	@Override
@@ -120,10 +118,10 @@ public class CacheImpl implements CacheDao {
 				.append(PintuTables.ThumbnailTable.Columns.TP_ID).append(" =?");
 
 		Cursor c = ptdb.rawQuery(sql.toString(), new String[] { tpId });
-		boolean exist = false; 
+		boolean exist = false;
 		if (c.moveToFirst()) {
-             exist = c.getInt(0) > 0;
-         }
+			exist = c.getInt(0) > 0;
+		}
 		c.close();
 
 		return exist;
@@ -144,6 +142,19 @@ public class CacheImpl implements CacheDao {
 		v.put(PintuTables.ThumbnailTable.Columns.CREATION_TIME, sqlDate);
 
 		return v;
+	}
+	
+	@Override
+	public int cachedThumbnailSize() {
+		Cursor c = ptdb.rawQuery("SELECT COUNT(*) FROM "
+				+ PintuTables.ThumbnailTable.TABLE_NAME, null);
+		int size = 0;
+		if (c.moveToFirst()) {
+			size = c.getInt(0);
+		}
+		c.close();
+
+		return size;
 	}
 
 	@Override
@@ -207,34 +218,25 @@ public class CacheImpl implements CacheDao {
 		try {
 			while (c.moveToNext()) {
 				toDeleteIds.add(c.getString(0));
+				Log.d(TAG, "found a thumbnail to be delete: " + c.getString(0));
 			}
 		} finally {
 			c.close();
 		}
+		Log.d(TAG, "total length for deleted thumbnails: " + toDeleteIds.size());
 		// 批量删除
-		try {
-			ptdb.beginTransaction();
-			for (String id : toDeleteIds) {
-				q.from(PintuTables.ThumbnailTable.TABLE_NAME)
-						.where(PintuTables.ThumbnailTable.Columns.TP_ID + "=?",
-								id).delete();
-			}
-			ptdb.setTransactionSuccessful();
-		} finally {
-			ptdb.endTransaction();
+		for (String id : toDeleteIds) {
+			//FIXME, 这里必须新建Query，才能逐个删除
+			//2012/01/09
+			Query del = new Query(ptdb);
+			del.from(PintuTables.ThumbnailTable.TABLE_NAME)
+					.where(PintuTables.ThumbnailTable.Columns.TP_ID + "=?", id)
+					.delete();
+			Log.d(TAG, "to delete thumbnail: " + id);
 		}
-
 	}
 
-	@Override
-	public int cachedThumbnailSize() {
-		Cursor c = ptdb.rawQuery("SELECT COUNT(*) FROM "
-				+ PintuTables.ThumbnailTable.TABLE_NAME, null);
-		int size = c.getCount();
-		c.close();
 
-		return size;
-	}
 
 	@Override
 	public void insertHotPics(List<TPicDetails> hotpics) {
@@ -365,7 +367,7 @@ public class CacheImpl implements CacheDao {
 		return list;
 
 	}
-	
+
 	@Override
 	public boolean hasAlreadyMarked(String tpId) {
 		// 检查此图是否已经被收藏，作为收藏按钮状态依据
@@ -376,16 +378,15 @@ public class CacheImpl implements CacheDao {
 				.append(PintuTables.FavoritePicsTable.Columns.ID).append(" =?");
 
 		Cursor c = ptdb.rawQuery(sql.toString(), new String[] { tpId });
-		boolean exist = false; 
+		boolean exist = false;
 		if (c.moveToFirst()) {
-             exist = c.getInt(0) > 0;
-         }
+			exist = c.getInt(0) > 0;
+		}
 		c.close();
 
 		return exist;
 	}
 
-	
 	@Override
 	public void insertOneMarkedPic(TPicItem pic) {
 		Query q = new Query(ptdb);
@@ -395,12 +396,10 @@ public class CacheImpl implements CacheDao {
 		if (-1 == result) {
 			Log.e(TAG, "cann't mark the pic : " + pic.id);
 		} else {
-			Log.v(TAG, String.format("Insert a pic into database : %s",
-					pic.id));
+			Log.v(TAG, String.format("Insert a pic into database : %s", pic.id));
 		}
 	}
 
-	
 	@Override
 	public void insertMarkedPics(List<TPicItem> pics) {
 		this.checkBlankList(pics);
@@ -486,8 +485,10 @@ public class CacheImpl implements CacheDao {
 			// 不分顺序插入
 			for (TPicItem pic : pics) {
 				// 如果已经缓存了，就跳过
-				boolean exist = checkRecordExist(PintuTables.MyPicsTable.TABLE_NAME,pic.id);
-				if (exist) continue;
+				boolean exist = checkRecordExist(
+						PintuTables.MyPicsTable.TABLE_NAME, pic.id);
+				if (exist)
+					continue;
 
 				long result = -1;
 				result = q.into(PintuTables.MyPicsTable.TABLE_NAME)
@@ -511,21 +512,24 @@ public class CacheImpl implements CacheDao {
 	 * 
 	 * 读取指定页数数据示例： SQL:Select * From TABLE_NAME Limit 9 Offset 10;
 	 * 表示从TABLE_NAME表获取数据，跳过10行，取9行
-	 * @param pageNum 页码数，从1开始取
+	 * 
+	 * @param pageNum
+	 *            页码数，从1开始取
 	 * @return List<TPicItem> 图片列表
 	 */
 	@Override
 	public List<TPicItem> getCachedMyPics(String owner, int pageNum) {
-		if(pageNum<1) return null;
-		
+		if (pageNum < 1)
+			return null;
+
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM ").append(PintuTables.MyPicsTable.TABLE_NAME)
-				.append(" WHERE ").append(PintuTables.MyPicsTable.Columns.OWNER)
-				.append("='").append(owner).append("'")
-				.append(" ORDER BY ")
+				.append(" WHERE ")
+				.append(PintuTables.MyPicsTable.Columns.OWNER).append("='")
+				.append(owner).append("'").append(" ORDER BY ")
 				.append(PintuTables.MyPicsTable.Columns.CREATION_TIME)
 				.append(" DESC").append(" LIMIT ").append(25)
-				.append(" OFFSET ").append((pageNum-1) * 25);
+				.append(" OFFSET ").append((pageNum - 1) * 25);
 
 		Cursor c = ptdb.rawQuery(sql.toString(), null);
 		List<TPicItem> list = new ArrayList<TPicItem>();
@@ -551,8 +555,10 @@ public class CacheImpl implements CacheDao {
 			// 不分顺序插入
 			for (TMsg msg : msgs) {
 				// 如果已经缓存了，就跳过
-				boolean exist = checkRecordExist(PintuTables.MyMessageTable.TABLE_NAME,msg.id);
-				if (exist) continue;
+				boolean exist = checkRecordExist(
+						PintuTables.MyMessageTable.TABLE_NAME, msg.id);
+				if (exist)
+					continue;
 
 				long result = -1;
 				result = q.into(PintuTables.MyMessageTable.TABLE_NAME)
@@ -560,7 +566,7 @@ public class CacheImpl implements CacheDao {
 				if (-1 == result) {
 					Log.e(TAG, "cann't insert the msg : " + msg.id);
 				} else {
-					inserted ++;
+					inserted++;
 					Log.v(TAG, String.format("Insert a msg into database : %s",
 							msg.id));
 				}
@@ -569,7 +575,7 @@ public class CacheImpl implements CacheDao {
 		} finally {
 			ptdb.endTransaction();
 		}
-		
+
 		return inserted;
 	}
 
@@ -578,17 +584,18 @@ public class CacheImpl implements CacheDao {
 	 */
 	@Override
 	public List<TMsg> getUnreadedMsgs(int pageNum) {
-		if(pageNum<1) return null;
-		
+		if (pageNum < 1)
+			return null;
+
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM ")
 				.append(PintuTables.MyMessageTable.TABLE_NAME)
-				.append(" WHERE ").append(PintuTables.MyMessageTable.Columns.READED)
-				.append("='0'")
-				.append(" ORDER BY ")
+				.append(" WHERE ")
+				.append(PintuTables.MyMessageTable.Columns.READED)
+				.append("='0'").append(" ORDER BY ")
 				.append(PintuTables.MyMessageTable.Columns.CREATION_TIME)
 				.append(" DESC").append(" LIMIT ").append(25)
-				.append(" OFFSET ").append((pageNum-1) * 25);
+				.append(" OFFSET ").append((pageNum - 1) * 25);
 
 		Cursor c = ptdb.rawQuery(sql.toString(), null);
 		List<TMsg> list = new ArrayList<TMsg>();
@@ -602,8 +609,6 @@ public class CacheImpl implements CacheDao {
 		return list;
 	}
 
-
-
 	private ContentValues msgToContentValues(TMsg msg) {
 		ContentValues v = new ContentValues();
 		v.put(PintuTables.MyMessageTable.Columns.ID, msg.id);
@@ -614,8 +619,7 @@ public class CacheImpl implements CacheDao {
 		v.put(PintuTables.MyMessageTable.Columns.RECEIVER, msg.receiver);
 		v.put(PintuTables.MyMessageTable.Columns.RECEIVERNAME, msg.receiverName);
 		v.put(PintuTables.MyMessageTable.Columns.READED, msg.readed);
-		v.put(PintuTables.MyMessageTable.Columns.CREATION_TIME,
-				msg.writeTime);
+		v.put(PintuTables.MyMessageTable.Columns.CREATION_TIME, msg.writeTime);
 
 		return v;
 	}
@@ -630,12 +634,14 @@ public class CacheImpl implements CacheDao {
 				.getColumnIndex(PintuTables.MyMessageTable.Columns.SENDER));
 		msg.senderName = c.getString(c
 				.getColumnIndex(PintuTables.MyMessageTable.Columns.SENDERNAME));
-		msg.senderAvatar = c.getString(c
-				.getColumnIndex(PintuTables.MyMessageTable.Columns.SENDERAVATAR));
+		msg.senderAvatar = c
+				.getString(c
+						.getColumnIndex(PintuTables.MyMessageTable.Columns.SENDERAVATAR));
 		msg.receiver = c.getString(c
 				.getColumnIndex(PintuTables.MyMessageTable.Columns.RECEIVER));
-		msg.receiverName = c.getString(c
-				.getColumnIndex(PintuTables.MyMessageTable.Columns.RECEIVERNAME));
+		msg.receiverName = c
+				.getString(c
+						.getColumnIndex(PintuTables.MyMessageTable.Columns.RECEIVERNAME));
 		msg.readed = c.getString(c
 				.getColumnIndex(PintuTables.MyMessageTable.Columns.READED));
 		msg.writeTime = c
@@ -649,23 +655,21 @@ public class CacheImpl implements CacheDao {
 	public void updateMsgReaded(String msgId) {
 		Query q = new Query(ptdb);
 		ContentValues v = new ContentValues();
-		v.put(PintuTables.MyMessageTable.Columns.READED, "1");	
-		
-		q.from(PintuTables.MyMessageTable.TABLE_NAME)
-		  .where("id=?", msgId)
-		  .values(v)
-		  .update();
+		v.put(PintuTables.MyMessageTable.Columns.READED, "1");
+
+		q.from(PintuTables.MyMessageTable.TABLE_NAME).where("id=?", msgId)
+				.values(v).update();
 	}
 
 	@Override
 	public List<TMsg> getMoreMsgs(int pageNum) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM ")
-				.append(PintuTables.MyMessageTable.TABLE_NAME)				
+				.append(PintuTables.MyMessageTable.TABLE_NAME)
 				.append(" ORDER BY ")
 				.append(PintuTables.MyMessageTable.Columns.CREATION_TIME)
 				.append(" DESC").append(" LIMIT ").append(25)
-				.append(" OFFSET ").append((pageNum-1) * 25);
+				.append(" OFFSET ").append((pageNum - 1) * 25);
 
 		Cursor c = ptdb.rawQuery(sql.toString(), null);
 		List<TMsg> list = new ArrayList<TMsg>();
@@ -678,11 +682,7 @@ public class CacheImpl implements CacheDao {
 		}
 		return list;
 
-		
 	}
-
-
-
 
 	// ----------- TODO, XIAOMING TO IMPLEMENT THE REMAINING...
 

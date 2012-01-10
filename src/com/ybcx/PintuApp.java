@@ -4,6 +4,7 @@ import android.app.Application;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 
 import com.ybcx.api.PTApi;
 import com.ybcx.api.PTImpl;
@@ -18,8 +19,8 @@ public class PintuApp extends Application {
 	
 	public static String LOCAL_VERSION = "Local version";
 	public static String MARKET_VERSION = "Market version";
-//	public static String VERSION_STATE = MARKET_VERSION;
-	public static String VERSION_STATE = LOCAL_VERSION;
+	public static String VERSION_STATE = MARKET_VERSION;
+//	public static String VERSION_STATE = LOCAL_VERSION;
 
 	// 应用上下文
 	public static Context mContext;
@@ -93,6 +94,23 @@ public class PintuApp extends Application {
 	public static void cancelNotification() {
 		mNotificationManager.cancel(R.string.messages);
 		mNotificationManager.cancel(R.string.dnldover);
+	}
+	
+	public static boolean isNetworkAvailable() {
+		boolean flag = false;
+		try{
+			//需要添加uses-permission, android.permission.ACCESS_NETWORK_STATE			
+			ConnectivityManager connectivity = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+			if (connectivity == null) {
+				flag = false;
+			} else {
+				flag = connectivity.getActiveNetworkInfo().isAvailable();
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return flag;
 	}
 
 }
