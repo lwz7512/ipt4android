@@ -6,7 +6,7 @@ com.hlidskialf.android.hardware.ShakeListener:
     private static final int SHAKE_COUNT
     63:68:public void pause()
 com.ybcx.PintuApp:
-    86:91:public static boolean isLocalVersion()
+    87:92:public static boolean isLocalVersion()
 com.ybcx.R
 com.ybcx.R$anim
 com.ybcx.R$array
@@ -61,6 +61,8 @@ com.ybcx.activity.CommentList:
 com.ybcx.activity.HomeGallery:
     static final java.lang.String TAG
     private static final long REFRESH_THRESHOLD
+    private static final long RANDOM_THRESHOLD
+    private static final int RANDOM_QUERY_MAX
     protected static final int OPTIONS_MENU_ID_LOGOUT
     protected static final int OPTIONS_MENU_ID_PREFERENCES
     protected static final int OPTIONS_MENU_ID_ABOUT
@@ -75,7 +77,7 @@ com.ybcx.activity.HomeGallery:
     protected static final int OPTIONS_MENU_ID_PHOTO_LIBRARY
     protected static final int OPTIONS_MENU_ID_EXIT
     protected static final int OPTIONS_MENU_ID_HELP
-    495:495:protected int getLastOptionMenuId()
+    523:523:protected int getLastOptionMenuId()
 com.ybcx.activity.LogonSys:
     private static final java.lang.String USERNOTEXIST
     private static final java.lang.String PASSWORDERROR

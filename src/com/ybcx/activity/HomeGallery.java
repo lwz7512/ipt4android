@@ -71,11 +71,20 @@ public class HomeGallery extends FullScreenActivity {
 	// 默认2秒后才能刷新，小于这个间隔不给取
 	private static final long REFRESH_THRESHOLD = 1 * 2 * 1000;
 
-	protected TaskManager taskManager = new TaskManager();
+	private TaskManager taskManager = new TaskManager();
 
 	private ShakeListener shaker;
 
 	private UpdateManager updater;
+	
+	//随机画廊数据获取间隔
+	//FIXME, 添加摇晃查询随机限制，以解决地铁上查看频繁查询问题
+	//2012/01/20
+	private static final long RANDOM_THRESHOLD = 10 * 2 * 1000;
+	//随机画廊数据查询次数限制
+	private static final int RANDOM_QUERY_MAX = 3;
+	//随机画廊查询计数器
+	private int randomQueryCounter = 0;
 
 	@Override
 	// Activity life cycle method
@@ -92,7 +101,7 @@ public class HomeGallery extends FullScreenActivity {
 		
 		// 网络检查
 		if (!PintuApp.isNetworkAvailable()) {
-			updateProgress("Network not Available, try later!");
+			updateProgress(R.string.network_ungeilivable);
 			return;
 		}
 		// 检查自己的消息
@@ -213,8 +222,31 @@ public class HomeGallery extends FullScreenActivity {
 
 	private ShakeListener.OnShakeListener sklistener = new ShakeListener.OnShakeListener() {
 		public void onShake() {
-			retrieveRandomGallery();
-		}
+			
+			// 网络检查
+			if (!PintuApp.isNetworkAvailable()) {
+				updateProgress(R.string.network_ungeilivable);
+				return;
+			}
+			
+			long lastRefreshTime = getPreferences().getLong(
+					Preferences.LAST_GALLERY_REFRESH_TIME, 0);
+			long nowTime = DateTimeHelper.getNowTime();
+			long diff = nowTime - lastRefreshTime;
+			//查询间隔检查	
+			if (diff < RANDOM_THRESHOLD) {
+				updateProgress(R.string.ten_sec_refresh);
+				return;
+			}
+			if(randomQueryCounter<RANDOM_QUERY_MAX){
+				//开始查询...
+				retrieveRandomGallery();
+				randomQueryCounter++;
+			}else{
+				updateProgress(R.string.shake_arrive_max);
+			}
+			
+		} //end of shake listen
 	};
 
 	private OnClickListener mineListener = new OnClickListener() {
@@ -289,7 +321,7 @@ public class HomeGallery extends FullScreenActivity {
 	private void retrieveRemoteGallery() {
 		// 网络检查
 		if (!PintuApp.isNetworkAvailable()) {
-			updateProgress("Network not Available, try later!");
+			updateProgress(R.string.network_ungeilivable);
 			return;
 		}
 
@@ -302,7 +334,7 @@ public class HomeGallery extends FullScreenActivity {
 			shouldRetrieve = true;
 		} else {
 			shouldRetrieve = false;
-			this.updateProgress("2 seconds later to refresh...");
+			this.updateProgress(R.string.two_sec_refresh);
 		}
 		if (shouldRetrieve) {
 			// 将开始时间减小点，以解决服务器时间变慢引起的画廊为空问题
@@ -339,12 +371,6 @@ public class HomeGallery extends FullScreenActivity {
 	private void retrieveRandomGallery() {
 		Log.d(TAG, "Attempting retrieve gallery data...");
 
-		// 网络检查
-		if (!PintuApp.isNetworkAvailable()) {
-			updateProgress("Network not Available, try later!");
-			return;
-		}
-
 		if (mRetrieveTask != null
 				&& mRetrieveTask.getStatus() == GenericTask.Status.RUNNING) {
 			return;
@@ -377,11 +403,11 @@ public class HomeGallery extends FullScreenActivity {
 				pref.commit();
 
 			} else if (result == TaskResult.FAILED) {
-				updateProgress("Gallery retrieve thumbnail failed!");
+				updateProgress(R.string.error_server_down);
 			} else if (result == TaskResult.IO_ERROR) {
-				updateProgress("Gallery retrieve thumbnail IO Error!");
+				updateProgress(R.string.network_ungeilivable);
 			} else if (result == TaskResult.JSON_PARSE_ERROR) {
-				updateProgress("Gallery data parse Error!");
+				updateProgress(R.string.json_parse_error);
 			}
 			progressbar.setVisibility(View.GONE);
 			refresh.setVisibility(View.VISIBLE);
@@ -421,9 +447,12 @@ public class HomeGallery extends FullScreenActivity {
 	private void updateProgress(String message) {
 		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 	}
+	
+	private void updateProgress(int message) {
+		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+	}
 
-	// ------------------- update process
-	// -----------------------------------------
+	// ------------------- update process ----------------------------------------------
 
 	private Handler updateHandler = new Handler() {
 		@Override
@@ -468,8 +497,7 @@ public class HomeGallery extends FullScreenActivity {
 				.show();
 	}
 
-	// ------------------- option menu definition
-	// ---------------------------------
+	// ------------------- option menu definition ----------------------------------------
 
 	protected static final int OPTIONS_MENU_ID_LOGOUT = 1;
 	protected static final int OPTIONS_MENU_ID_PREFERENCES = 2;
