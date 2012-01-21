@@ -378,7 +378,7 @@ public class PictureEdit extends FullScreenActivity {
 
 		//网络检查
 		if(!PintuApp.isNetworkAvailable()){
-			updateProgress("Network not Available, try later!");
+			updateProgress(R.string.network_ungeilivable);
 			return ;
 		}
 		
@@ -443,11 +443,14 @@ public class PictureEdit extends FullScreenActivity {
 	private void updateProgress(String message) {
 		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 	}
+	private void updateProgress(int message) {
+		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+	}
 
 	private void onSendFailure() {
 		dialog.setMessage(getString(R.string.page_status_unable_to_update));
 		dialog.dismiss();
-		updateProgress(getString(R.string.page_status_unable_to_update));
+		updateProgress(R.string.page_status_unable_to_update);
 		
 	}
 
@@ -538,13 +541,14 @@ public class PictureEdit extends FullScreenActivity {
 		}
 
 		Bitmap thumbnail = createThumbnailBitmap(tempImg, MAX_BITMAP_SIZE);
-		// 可以显示了
+		//FIXME,  居中显示
 		centerDisplayThumbnail(thumbnail);
 
 	}
 
 	/**
-	 * 这里必须编码设置一下布局，否则无法居中 xml布局文件中无法达到这种效果，老跑偏 lwz7512 @ 2011/08/18
+	 *这里必须编码设置一下布局，否则无法居中 xml布局文件中无法达到这种效果，老跑偏 
+	 * lwz7512 @ 2011/08/18
 	 * 
 	 * @param thumbnail
 	 */
@@ -553,8 +557,8 @@ public class PictureEdit extends FullScreenActivity {
 		int picHeight = thumbnail.getHeight();
 		LinearLayout.LayoutParams layouts = new LinearLayout.LayoutParams(
 				picWidth, picHeight);
-		layouts.bottomMargin = 10;
-		layouts.topMargin = 10;
+		layouts.bottomMargin = 2;
+		layouts.topMargin = 2;
 		layouts.gravity = Gravity.CENTER;
 
 		mPreview.setLayoutParams(layouts);

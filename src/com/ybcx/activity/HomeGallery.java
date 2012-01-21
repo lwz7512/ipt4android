@@ -85,6 +85,9 @@ public class HomeGallery extends FullScreenActivity {
 	private static final int RANDOM_QUERY_MAX = 3;
 	//随机画廊查询计数器
 	private int randomQueryCounter = 0;
+	
+	//当前活动状态
+	private boolean isAwake = true;;
 
 	@Override
 	// Activity life cycle method
@@ -124,6 +127,12 @@ public class HomeGallery extends FullScreenActivity {
 		super.onStart();
 		// 不自动查询远程了，手动刷新吧
 		// retrieveRemoteGallery();
+		isAwake = true;
+	}
+	
+	protected void onStop(){
+		super.onStop();
+		isAwake = false;
 	}
 
 	private void startRetrieveMsgs() {
@@ -222,6 +231,8 @@ public class HomeGallery extends FullScreenActivity {
 
 	private ShakeListener.OnShakeListener sklistener = new ShakeListener.OnShakeListener() {
 		public void onShake() {
+			//只有活动状态才监听
+			if(!isAwake) return;
 			
 			// 网络检查
 			if (!PintuApp.isNetworkAvailable()) {

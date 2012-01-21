@@ -7,9 +7,11 @@ public class PintuTables {
 		
 		public static final String TABLE_NAME = "t_thumbnail";
 		
-		//增加缓存数目
+		//增加缓存数目，定100
 		//2012/01/09
-		public static final int MAX_ROW_NUMBER = 100;
+		//减小点为好，定64，这样画廊更新时不至于明显停顿
+		//2012/01/20
+		public static final int MAX_ROW_NUMBER = 64;
 		
 		public static class Columns {			
 			public static final String TP_ID = "tpId";

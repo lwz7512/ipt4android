@@ -372,20 +372,22 @@ com.ybcx.activity.HomeGallery -> com.ybcx.activity.HomeGallery:
     com.hlidskialf.android.hardware.ShakeListener shaker -> l
     com.ybcx.upgrade.UpdateManager updater -> m
     int randomQueryCounter -> n
-    com.hlidskialf.android.hardware.ShakeListener$OnShakeListener sklistener -> o
-    android.view.View$OnClickListener mineListener -> p
-    android.view.View$OnClickListener tagsListener -> q
-    android.view.View$OnClickListener communityListener -> r
-    android.view.View$OnClickListener hotpicListener -> s
-    android.widget.AdapterView$OnItemClickListener cellClickListener -> t
-    android.view.View$OnClickListener postImgListener -> u
-    android.view.View$OnClickListener refreshListener -> v
-    com.ybcx.task.TaskListener mRetrieveTaskListener -> w
-    android.os.Handler updateHandler -> x
-    android.content.DialogInterface$OnClickListener okListener -> y
-    android.content.DialogInterface$OnClickListener cancelListener -> z
+    boolean isAwake -> o
+    com.hlidskialf.android.hardware.ShakeListener$OnShakeListener sklistener -> p
+    android.view.View$OnClickListener mineListener -> q
+    android.view.View$OnClickListener tagsListener -> r
+    android.view.View$OnClickListener communityListener -> s
+    android.view.View$OnClickListener hotpicListener -> t
+    android.widget.AdapterView$OnItemClickListener cellClickListener -> u
+    android.view.View$OnClickListener postImgListener -> v
+    android.view.View$OnClickListener refreshListener -> w
+    com.ybcx.task.TaskListener mRetrieveTaskListener -> x
+    android.os.Handler updateHandler -> y
+    android.content.DialogInterface$OnClickListener okListener -> z
+    android.content.DialogInterface$OnClickListener cancelListener -> A
     void onCreate(android.os.Bundle) -> onCreate
     void onStart() -> onStart
+    void onStop() -> onStop
     void retrieveGalleryFromDB() -> a
     void onDestroy() -> onDestroy
     void retrieveRemoteGallery() -> b
@@ -393,19 +395,20 @@ com.ybcx.activity.HomeGallery -> com.ybcx.activity.HomeGallery:
     void updateProgress(int) -> a
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    void access$0(com.ybcx.activity.HomeGallery,int) -> a
-    int access$1(com.ybcx.activity.HomeGallery) -> a
-    void access$2(com.ybcx.activity.HomeGallery) -> b
-    void access$3(com.ybcx.activity.HomeGallery,int) -> b
-    com.ybcx.adapter.GalleryImageAdapter access$4(com.ybcx.activity.HomeGallery) -> c
-    void access$5(com.ybcx.activity.HomeGallery) -> d
-    android.widget.ProgressBar access$6(com.ybcx.activity.HomeGallery) -> e
-    android.widget.ImageButton access$7(com.ybcx.activity.HomeGallery) -> f
-    com.hlidskialf.android.hardware.ShakeListener access$8(com.ybcx.activity.HomeGallery) -> g
-    void access$9(com.ybcx.activity.HomeGallery,java.lang.String) -> a
-    void access$10(com.ybcx.activity.HomeGallery) -> h
-    com.ybcx.upgrade.UpdateManager access$12(com.ybcx.activity.HomeGallery) -> i
-    void access$13(com.ybcx.activity.HomeGallery) -> j
+    boolean access$0(com.ybcx.activity.HomeGallery) -> a
+    void access$1(com.ybcx.activity.HomeGallery,int) -> a
+    int access$2(com.ybcx.activity.HomeGallery) -> b
+    void access$3(com.ybcx.activity.HomeGallery) -> c
+    void access$4(com.ybcx.activity.HomeGallery,int) -> b
+    com.ybcx.adapter.GalleryImageAdapter access$5(com.ybcx.activity.HomeGallery) -> d
+    void access$6(com.ybcx.activity.HomeGallery) -> e
+    android.widget.ProgressBar access$7(com.ybcx.activity.HomeGallery) -> f
+    android.widget.ImageButton access$8(com.ybcx.activity.HomeGallery) -> g
+    com.hlidskialf.android.hardware.ShakeListener access$9(com.ybcx.activity.HomeGallery) -> h
+    void access$10(com.ybcx.activity.HomeGallery,java.lang.String) -> a
+    void access$11(com.ybcx.activity.HomeGallery) -> i
+    com.ybcx.upgrade.UpdateManager access$13(com.ybcx.activity.HomeGallery) -> j
+    void access$14(com.ybcx.activity.HomeGallery) -> k
 com.ybcx.activity.HomeGallery$1 -> com.ybcx.activity.bw:
     com.ybcx.activity.HomeGallery this$0 -> a
     void onShake() -> a
@@ -769,6 +772,7 @@ com.ybcx.activity.PictureEdit -> com.ybcx.activity.PictureEdit:
     void onDestroy() -> onDestroy
     void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
     void updateProgress(java.lang.String) -> a
+    void updateProgress(int) -> a
     void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     void getPic(android.net.Uri) -> a
     void centerDisplayThumbnail(android.graphics.Bitmap) -> a
