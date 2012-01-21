@@ -48,8 +48,13 @@ import com.ybcx.util.Preferences;
 
 public class HomeGallery extends FullScreenActivity {
 
-	static final String TAG = "HomeGallery";
-
+	private static final String TAG = "HomeGallery";
+	
+	private TaskManager taskManager = new TaskManager();
+	
+	private ShakeListener shaker;
+	private UpdateManager updater;
+	
 	// Header
 	private ImageButton refresh;
 	private ProgressBar progressbar;
@@ -67,18 +72,12 @@ public class HomeGallery extends FullScreenActivity {
 	private GalleryImageAdapter gridAdptr;
 	private GenericTask mRetrieveTask;
 
-	// Refresh data at startup if last refresh was this long ago or greater.
+	
 	// 默认2秒后才能刷新，小于这个间隔不给取
 	private static final long REFRESH_THRESHOLD = 1 * 2 * 1000;
-
-	private TaskManager taskManager = new TaskManager();
-
-	private ShakeListener shaker;
-
-	private UpdateManager updater;
 	
 	//随机画廊数据获取间隔
-	//FIXME, 添加摇晃查询随机限制，以解决地铁上查看频繁查询问题
+	//FIXME, 添加摇晃查询随机限制，以解决地铁公交上查看首页频繁查询问题
 	//2012/01/20
 	private static final long RANDOM_THRESHOLD = 10 * 2 * 1000;
 	//随机画廊数据查询次数限制
@@ -87,8 +86,13 @@ public class HomeGallery extends FullScreenActivity {
 	private int randomQueryCounter = 0;
 	
 	//当前活动状态
-	private boolean isAwake = true;;
+	private boolean isAwake = true;
+	//即时晃动查询开关，没取到数据时就打开开关
+	private boolean shakeImmediately = false;
 
+	
+	
+	
 	@Override
 	// Activity life cycle method
 	protected void onCreate(Bundle savedInstanceState) {
@@ -240,6 +244,12 @@ public class HomeGallery extends FullScreenActivity {
 				return;
 			}
 			
+			if(shakeImmediately){
+				//开始查询...
+				retrieveRandomGallery();
+				return;
+			}
+			
 			long lastRefreshTime = getPreferences().getLong(
 					Preferences.LAST_GALLERY_REFRESH_TIME, 0);
 			long nowTime = DateTimeHelper.getNowTime();
@@ -249,10 +259,10 @@ public class HomeGallery extends FullScreenActivity {
 				updateProgress(R.string.ten_sec_refresh);
 				return;
 			}
+						
 			if(randomQueryCounter<RANDOM_QUERY_MAX){
 				//开始查询...
-				retrieveRandomGallery();
-				randomQueryCounter++;
+				retrieveRandomGallery();				
 			}else{
 				updateProgress(R.string.shake_arrive_max);
 			}
@@ -395,6 +405,8 @@ public class HomeGallery extends FullScreenActivity {
 
 			// Add Task to manager
 			taskManager.addTask(mRetrieveTask);
+			
+			randomQueryCounter++;
 		}
 	}
 
@@ -427,16 +439,21 @@ public class HomeGallery extends FullScreenActivity {
 		// 结果拿到了，填充视图并入库
 		public void deliverRetrievedList(List<Object> results) {
 
-			// 如果没有取到数据就不处理了
 			String msg;
+			// 如果没有取到数据就不处理了
 			if (results.size() == 0) {
 				if (shaker != null) {// 可以使用传感器，摇晃随便看看
-					msg = getText(R.string.shake_toget_random).toString();
+					msg = getText(R.string.shake_toget_random).toString();					
+					//即时晃动开关开启
+					shakeImmediately = true;					
 				} else {// 没法随便看看，只能休息了
 					msg = getText(R.string.have_a_rest).toString();
 				}
 				updateProgress(msg);
 				return;
+			}else{
+				//即时晃动开关关闭
+				shakeImmediately = false;
 			}
 
 			// 准备缓存数据

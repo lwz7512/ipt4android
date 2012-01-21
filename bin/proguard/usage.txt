@@ -59,7 +59,7 @@ com.ybcx.activity.CommentEdit:
 com.ybcx.activity.CommentList:
     184:184:protected void doSend()
 com.ybcx.activity.HomeGallery:
-    static final java.lang.String TAG
+    private static final java.lang.String TAG
     private static final long REFRESH_THRESHOLD
     private static final long RANDOM_THRESHOLD
     private static final int RANDOM_QUERY_MAX
@@ -77,7 +77,7 @@ com.ybcx.activity.HomeGallery:
     protected static final int OPTIONS_MENU_ID_PHOTO_LIBRARY
     protected static final int OPTIONS_MENU_ID_EXIT
     protected static final int OPTIONS_MENU_ID_HELP
-    534:534:protected int getLastOptionMenuId()
+    551:551:protected int getLastOptionMenuId()
 com.ybcx.activity.LogonSys:
     private static final java.lang.String USERNOTEXIST
     private static final java.lang.String PASSWORDERROR
