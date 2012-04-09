@@ -47,6 +47,10 @@ public class TPicDetails {
 	//喜欢人数
 	public String coolCount;
 	
+	//FIXME, 竟然把来源丢了
+	//2012/04/09
+	public String source;
+	
 	
 	public static TPicDetails parseJsonToObj(JSONObject json) throws JSONException{
 		TPicDetails details = new TPicDetails();
@@ -71,6 +75,8 @@ public class TPicDetails {
 		details.browseCount = json.optString("browseCount");
 		//喜欢数目
 		details.coolCount = json.optString("coolCount");
+		//图片来源
+		details.source = json.optString("source");
 		
 		return details;
 	}

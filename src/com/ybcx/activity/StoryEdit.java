@@ -35,6 +35,12 @@ import com.ybcx.task.TaskParams;
 import com.ybcx.task.TaskResult;
 import com.ybcx.tool.SimpleImageLoader;
 
+/**
+ * 目前当评论编辑视图使用，一个故事就是一条评论
+ * 
+ * @author lwz
+ *
+ */
 public class StoryEdit extends FullScreenActivity {
 
 	private static String TAG = "StoryEdit";
@@ -271,6 +277,7 @@ public class StoryEdit extends FullScreenActivity {
 
 	private void onSendFailure() {
 		updateProgress(getString(R.string.page_status_unable_to_update));
+		sending_prgrsBar.setVisibility(View.GONE);
 	}
 
 	protected void onDestroy() {

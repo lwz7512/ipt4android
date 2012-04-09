@@ -55,7 +55,7 @@ com.ybcx.activity.CommentDaren:
     private static final java.lang.String CMNTDAREN_DATA
     85:85:protected void doSend()
 com.ybcx.activity.CommentEdit:
-    212:212:protected void doRetrieve()
+    218:218:protected void doRetrieve()
 com.ybcx.activity.CommentList:
     184:184:protected void doSend()
 com.ybcx.activity.HomeGallery:
@@ -99,8 +99,8 @@ com.ybcx.activity.PicDaren:
     private static final java.lang.String PICDAREN_DATA
     86:86:protected void doSend()
 com.ybcx.activity.PictureDetails:
-    562:573:private void fetchLikeNumOfPic()
-    727:766:private void saveFileToSDCard()
+    571:582:private void fetchLikeNumOfPic()
+    737:776:private void saveFileToSDCard()
 com.ybcx.activity.PictureDetails$17
 com.ybcx.activity.PictureEdit:
     private static final java.lang.String TAG
@@ -352,9 +352,10 @@ com.ybcx.tool.ImageManager:
     public static final int DEFAULT_COMPRESS_QUALITY
     private static final int IMAGE_MAX_WIDTH
     private static final int IMAGE_MAX_HEIGHT
-    203:217:public java.lang.String downloadImage2SD(java.lang.String,java.lang.String)
-    221:222:private java.lang.String createImgFileName(java.lang.String)
-    226:256:private java.lang.String writeToFile2SD(java.io.InputStream,java.lang.String)
+    201:216:public java.lang.String downloadImage2SD(java.lang.String,java.lang.String)
+    220:221:private java.lang.String createImgFileName(java.lang.String)
+    225:256:private java.lang.String writeToFile2SD(java.io.InputStream,java.lang.String)
+    360:375:public static android.graphics.Bitmap rotate(android.graphics.Bitmap,int)
 com.ybcx.tool.LazyImageLoader:
     private static final java.lang.String TAG
     private static final int HANDLER_MESSAGE_ID

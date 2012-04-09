@@ -1402,6 +1402,7 @@ com.ybcx.data.TPicDetails -> com.ybcx.a.d:
     java.lang.String commentNum -> o
     java.lang.String browseCount -> p
     java.lang.String coolCount -> q
+    java.lang.String source -> r
     com.ybcx.data.TPicDetails parseJsonToObj(org.json.JSONObject) -> a
 com.ybcx.data.TPicItem -> com.ybcx.a.c:
     java.lang.String id -> a

@@ -27,6 +27,12 @@ import com.ybcx.task.SendTask;
 import com.ybcx.task.TaskParams;
 import com.ybcx.tool.SimpleImageLoader;
 
+/**
+ * @deprecated 目前没有使用该视图，而使用StoryEdit当评论编辑了
+ * 
+ * @author lwz
+ *
+ */
 public class CommentEdit extends TempletActivity {
 
 	private static String TAG = "CommentEdit";

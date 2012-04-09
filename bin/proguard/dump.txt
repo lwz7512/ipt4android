@@ -9663,8 +9663,8 @@ Interfaces (count = 1):
 
 Constant Pool (count = 189):
   - Integer [2130903087]
-  - Integer [2131165273]
-  - Integer [2131165280]
+  - Integer [2131165274]
+  - Integer [2131165281]
   - Integer [2131296392]
   - String [Network not Available, try later!]
   - String [No hot pictures in system currently!]
@@ -10095,7 +10095,7 @@ Methods (count = 18):
         - Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [16] aload_0 v0
       [17] ldc #2
-        - Integer [2131165273]
+        - Integer [2131165274]
       [19] invokevirtual #44
         - Methodref [com/ybcx/activity/TodayHotPic.a (I)V]
       [22] return
@@ -10120,7 +10120,7 @@ Methods (count = 18):
         - Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [16] aload_0 v0
       [17] ldc #3
-        - Integer [2131165280]
+        - Integer [2131165281]
       [19] invokevirtual #44
         - Methodref [com/ybcx/activity/TodayHotPic.a (I)V]
       [22] return
@@ -12664,7 +12664,7 @@ Interfaces (count = 0):
 Constant Pool (count = 271):
   - Integer [2130903080]
   - Integer [2131165226]
-  - Integer [2131165273]
+  - Integer [2131165274]
   - Integer [2131296299]
   - Integer [2131296300]
   - Integer [2131296301]
@@ -13355,7 +13355,7 @@ Methods (count = 15):
       [0] aload_0 v0
       [1] aload_0 v0
       [2] ldc #3
-        - Integer [2131165273]
+        - Integer [2131165274]
       [4] invokevirtual #75
         - Methodref [com/ybcx/activity/StoryList.getString (I)Ljava/lang/String;]
       [7] invokevirtual #71
@@ -13405,7 +13405,7 @@ Methods (count = 15):
       [0] aload_0 v0
       [1] aload_0 v0
       [2] ldc #3
-        - Integer [2131165273]
+        - Integer [2131165274]
       [4] invokevirtual #75
         - Methodref [com/ybcx/activity/StoryList.getString (I)Ljava/lang/String;]
       [7] invokevirtual #71
@@ -13817,8 +13817,8 @@ Interfaces (count = 1):
 
 Constant Pool (count = 209):
   - Integer [2130903041]
-  - Integer [2131165273]
-  - Integer [2131165280]
+  - Integer [2131165274]
+  - Integer [2131165281]
   - Integer [2131296259]
   - String [10 sec Later to Refresh ...]
   - String [Ended, 10 sec Later to Refresh Newest!]
@@ -14269,7 +14269,7 @@ Methods (count = 17):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #2
-        - Integer [2131165273]
+        - Integer [2131165274]
       [3] invokevirtual #51
         - Methodref [com/ybcx/activity/AndiFavorite.a (I)V]
       [6] return
@@ -14282,7 +14282,7 @@ Methods (count = 17):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #3
-        - Integer [2131165280]
+        - Integer [2131165281]
       [3] invokevirtual #51
         - Methodref [com/ybcx/activity/AndiFavorite.a (I)V]
       [6] return
@@ -14962,12 +14962,12 @@ Interfaces (count = 0):
 
 Constant Pool (count = 276):
   - Integer [2130903064]
-  - Integer [2131165273]
-  - Integer [2131165314]
+  - Integer [2131165274]
   - Integer [2131165315]
   - Integer [2131165316]
   - Integer [2131165317]
   - Integer [2131165318]
+  - Integer [2131165319]
   - Integer [2131296321]
   - Integer [2131296323]
   - Integer [2131296324]
@@ -15403,7 +15403,7 @@ Methods (count = 19):
         - String []
       [4] aload_0 v0
       [5] ldc #3
-        - Integer [2131165314]
+        - Integer [2131165315]
       [7] invokevirtual #82
         - Methodref [com/ybcx/activity/LogonSys.getString (I)Ljava/lang/String;]
       [10] iconst_1
@@ -15477,7 +15477,7 @@ Methods (count = 19):
         - Methodref [android/app/ProgressDialog.dismiss ()V]
       [14] aload_0 v0
       [15] ldc #2
-        - Integer [2131165273]
+        - Integer [2131165274]
       [17] invokevirtual #77
         - Methodref [com/ybcx/activity/LogonSys.a (I)V]
       [20] return
@@ -15536,7 +15536,7 @@ Methods (count = 19):
         - Methodref [android/widget/EditText.setText (Ljava/lang/CharSequence;)V]
       [59] aload_0 v0
       [60] ldc #6
-        - Integer [2131165317]
+        - Integer [2131165318]
       [62] invokevirtual #77
         - Methodref [com/ybcx/activity/LogonSys.a (I)V]
       [65] return
@@ -15555,7 +15555,7 @@ Methods (count = 19):
         - Methodref [android/widget/EditText.setText (Ljava/lang/CharSequence;)V]
       [84] aload_0 v0
       [85] ldc #7
-        - Integer [2131165318]
+        - Integer [2131165319]
       [87] invokevirtual #77
         - Methodref [com/ybcx/activity/LogonSys.a (I)V]
       [90] return
@@ -15710,7 +15710,7 @@ Methods (count = 19):
       [51] getfield #53
         - Fieldref [com/ybcx/activity/LogonSys.k Landroid/widget/TextView;]
       [54] ldc #4
-        - Integer [2131165315]
+        - Integer [2131165316]
       [56] invokevirtual #74
         - Methodref [android/widget/TextView.setText (I)V]
       [59] iload_3 v3
@@ -15869,7 +15869,7 @@ Methods (count = 19):
       [41] getfield #53
         - Fieldref [com/ybcx/activity/LogonSys.k Landroid/widget/TextView;]
       [44] ldc #5
-        - Integer [2131165316]
+        - Integer [2131165317]
       [46] invokevirtual #74
         - Methodref [android/widget/TextView.setText (I)V]
       [49] return
@@ -16594,8 +16594,8 @@ Interfaces (count = 1):
 
 Constant Pool (count = 172):
   - Integer [2130903090]
-  - Integer [2131165273]
-  - Integer [2131165280]
+  - Integer [2131165274]
+  - Integer [2131165281]
   - Integer [2131296396]
   - String [Loading daren...]
   - String [Network not Available, try later!]
@@ -16973,7 +16973,7 @@ Methods (count = 18):
     + Code attribute instructions (code length = 23, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #2
-        - Integer [2131165273]
+        - Integer [2131165274]
       [3] invokevirtual #37
         - Methodref [com/ybcx/activity/PicDaren.a (I)V]
       [6] aload_0 v0
@@ -16998,7 +16998,7 @@ Methods (count = 18):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #3
-        - Integer [2131165280]
+        - Integer [2131165281]
       [3] invokevirtual #37
         - Methodref [com/ybcx/activity/PicDaren.a (I)V]
       [6] return
@@ -17231,8 +17231,8 @@ Interfaces (count = 1):
 
 Constant Pool (count = 174):
   - Integer [2130903090]
-  - Integer [2131165273]
-  - Integer [2131165280]
+  - Integer [2131165274]
+  - Integer [2131165281]
   - Integer [2131296396]
   - String [Loading daren...]
   - String [Network not Available, try later!]
@@ -17612,7 +17612,7 @@ Methods (count = 18):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #2
-        - Integer [2131165273]
+        - Integer [2131165274]
       [3] invokevirtual #38
         - Methodref [com/ybcx/activity/CommentDaren.a (I)V]
       [6] return
@@ -17625,7 +17625,7 @@ Methods (count = 18):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #3
-        - Integer [2131165280]
+        - Integer [2131165281]
       [3] invokevirtual #38
         - Methodref [com/ybcx/activity/CommentDaren.a (I)V]
       [6] return
@@ -21541,8 +21541,8 @@ Interfaces (count = 1):
 
 Constant Pool (count = 196):
   - Integer [2130903087]
-  - Integer [2131165273]
-  - Integer [2131165280]
+  - Integer [2131165274]
+  - Integer [2131165281]
   - Integer [2131296392]
   - String [ClassicWorks]
   - String [Network not Available, try later!]
@@ -21980,7 +21980,7 @@ Methods (count = 18):
         - Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [16] aload_0 v0
       [17] ldc #2
-        - Integer [2131165273]
+        - Integer [2131165274]
       [19] invokevirtual #46
         - Methodref [com/ybcx/activity/ClassicWorks.a (I)V]
       [22] return
@@ -21995,7 +21995,7 @@ Methods (count = 18):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #3
-        - Integer [2131165280]
+        - Integer [2131165281]
       [3] invokevirtual #46
         - Methodref [com/ybcx/activity/ClassicWorks.a (I)V]
       [6] return
@@ -22857,8 +22857,8 @@ Interfaces (count = 1):
 
 Constant Pool (count = 243):
   - Integer [2130903043]
-  - Integer [2131165273]
-  - Integer [2131165280]
+  - Integer [2131165274]
+  - Integer [2131165281]
   - Integer [2131296261]
   - String [ must has extras.]
   - String [Loading TADI pics...]
@@ -23308,7 +23308,7 @@ Methods (count = 18):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #2
-        - Integer [2131165273]
+        - Integer [2131165274]
       [3] invokevirtual #55
         - Methodref [com/ybcx/activity/TadiPics.a (I)V]
       [6] return
@@ -23321,7 +23321,7 @@ Methods (count = 18):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #3
-        - Integer [2131165280]
+        - Integer [2131165281]
       [3] invokevirtual #55
         - Methodref [com/ybcx/activity/TadiPics.a (I)V]
       [6] return
@@ -24142,8 +24142,8 @@ Constant Pool (count = 314):
   - Integer [2130837621]
   - Integer [2131165244]
   - Integer [2131165250]
-  - Integer [2131165261]
   - Integer [2131165262]
+  - Integer [2131165263]
   - String [: ]
   - String [>>> json Array getJSONObject Exception!]
   - String [Fetching user unreaded message...]
@@ -24842,7 +24842,7 @@ Methods (count = 8):
         - Methodref [java/lang/StringBuilder.<init> ()V]
       [116] aload_1 v1
       [117] ldc #5
-        - Integer [2131165261]
+        - Integer [2131165262]
       [119] invokevirtual #96
         - Methodref [com/ybcx/service/MsgService.getText (I)Ljava/lang/CharSequence;]
       [122] invokevirtual #105
@@ -24884,7 +24884,7 @@ Methods (count = 8):
       [170] aload_1 v1
       [171] aload_1 v1
       [172] ldc #6
-        - Integer [2131165262]
+        - Integer [2131165263]
       [174] invokevirtual #96
         - Methodref [com/ybcx/service/MsgService.getText (I)Ljava/lang/CharSequence;]
       [177] aload_2 v2
@@ -25441,7 +25441,7 @@ Interfaces (count = 0):
 Constant Pool (count = 278):
   - Integer [2130903072]
   - Integer [2131165251]
-  - Integer [2131165273]
+  - Integer [2131165274]
   - Integer [2131296299]
   - Integer [2131296307]
   - Integer [2131296308]
@@ -26202,7 +26202,7 @@ Methods (count = 17):
       [0] aload_0 v0
       [1] aload_0 v0
       [2] ldc #3
-        - Integer [2131165273]
+        - Integer [2131165274]
       [4] invokevirtual #83
         - Methodref [com/ybcx/activity/CommentEdit.getString (I)Ljava/lang/String;]
       [7] invokevirtual #79
@@ -27019,7 +27019,7 @@ Interfaces (count = 0):
 Constant Pool (count = 256):
   - Integer [2130903050]
   - Integer [2131165226]
-  - Integer [2131165273]
+  - Integer [2131165274]
   - Integer [2131296282]
   - Integer [2131296299]
   - Integer [2131296300]
@@ -27668,7 +27668,7 @@ Methods (count = 15):
       [0] aload_0 v0
       [1] aload_0 v0
       [2] ldc #3
-        - Integer [2131165273]
+        - Integer [2131165274]
       [4] invokevirtual #71
         - Methodref [com/ybcx/activity/CommentList.getString (I)Ljava/lang/String;]
       [7] invokevirtual #67
@@ -29251,7 +29251,7 @@ _____________________________________________________________________
 Interfaces (count = 0):
 
 Constant Pool (count = 74):
-  - Integer [2131165273]
+  - Integer [2131165274]
   - String [Parse json to details Error!]
   - String [Response to json data parse Error!]
   - String [details is null can not update UI!]
@@ -29391,7 +29391,7 @@ Methods (count = 4):
       [32] getfield #12
         - Fieldref [com/ybcx/activity/ae.a Lcom/ybcx/activity/PictureDetails;]
       [35] ldc #1
-        - Integer [2131165273]
+        - Integer [2131165274]
       [37] invokevirtual #23
         - Methodref [com/ybcx/activity/PictureDetails.getString (I)Ljava/lang/String;]
       [40] invokestatic #20
@@ -32228,7 +32228,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 114):
+Constant Pool (count = 119):
   - String [author]
   - String [avatarImgPath]
   - String [browseCount]
@@ -32243,6 +32243,7 @@ Constant Pool (count = 114):
   - String [publishTime]
   - String [rawImgId]
   - String [score]
+  - String [source]
   - String [storiesNum]
   - String [tags]
   - Class [com/ybcx/a/d]
@@ -32266,6 +32267,7 @@ Constant Pool (count = 114):
   - Fieldref [com/ybcx/a/d.o Ljava/lang/String;]
   - Fieldref [com/ybcx/a/d.p Ljava/lang/String;]
   - Fieldref [com/ybcx/a/d.q Ljava/lang/String;]
+  - Fieldref [com/ybcx/a/d.r Ljava/lang/String;]
   - Methodref [com/ybcx/a/d.<init> ()V]
   - Methodref [java/lang/Integer.intValue ()I]
   - Methodref [java/lang/Integer.valueOf (Ljava/lang/String;)Ljava/lang/Integer;]
@@ -32290,6 +32292,7 @@ Constant Pool (count = 114):
   + NameAndType [optString (Ljava/lang/String;)Ljava/lang/String;]
   + NameAndType [p Ljava/lang/String;]
   + NameAndType [q Ljava/lang/String;]
+  + NameAndType [r Ljava/lang/String;]
   + NameAndType [valueOf (Ljava/lang/String;)Ljava/lang/Integer;]
   + Utf8 [()I]
   + Utf8 [()V]
@@ -32337,13 +32340,15 @@ Constant Pool (count = 114):
   + Utf8 [p]
   + Utf8 [publishTime]
   + Utf8 [q]
+  + Utf8 [r]
   + Utf8 [rawImgId]
   + Utf8 [score]
+  + Utf8 [source]
   + Utf8 [storiesNum]
   + Utf8 [tags]
   + Utf8 [valueOf]
 
-Fields (count = 17):
+Fields (count = 18):
   + Field:        a Ljava/lang/String;
     Access flags: 0x1
       = public java.lang.String a
@@ -32395,6 +32400,9 @@ Fields (count = 17):
   + Field:        q Ljava/lang/String;
     Access flags: 0x1
       = public java.lang.String q
+  + Field:        r Ljava/lang/String;
+    Access flags: 0x1
+      = public java.lang.String r
 
 Methods (count = 2):
   - Method:       <init>()V
@@ -32403,7 +32411,7 @@ Methods (count = 2):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] invokespecial #41
+      [1] invokespecial #43
         - Methodref [java/lang/Object.<init> ()V]
       [4] return
       Code attribute exceptions (count = 0):
@@ -32412,151 +32420,159 @@ Methods (count = 2):
     Access flags: 0x9
       = public static com.ybcx.a.d a(org.json.JSONObject)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 182, locals = 3, stack = 3):
-      [0] new #17
+    + Code attribute instructions (code length = 192, locals = 3, stack = 3):
+      [0] new #18
         - Class [com/ybcx/a/d]
       [3] dup
-      [4] invokespecial #38
+      [4] invokespecial #40
         - Methodref [com/ybcx/a/d.<init> ()V]
       [7] dup
       [8] astore_1 v1
       [9] aload_0 v0
       [10] ldc #6
         - String [id]
-      [12] invokevirtual #42
+      [12] invokevirtual #44
         - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
-      [15] putfield #22
+      [15] putfield #23
         - Fieldref [com/ybcx/a/d.a Ljava/lang/String;]
       [18] aload_1 v1
       [19] aload_0 v0
       [20] ldc #10
         - String [name]
-      [22] invokevirtual #42
+      [22] invokevirtual #44
         - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
-      [25] putfield #23
+      [25] putfield #24
         - Fieldref [com/ybcx/a/d.b Ljava/lang/String;]
       [28] aload_1 v1
       [29] aload_0 v0
       [30] ldc #11
         - String [owner]
-      [32] invokevirtual #42
+      [32] invokevirtual #44
         - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
-      [35] putfield #24
+      [35] putfield #25
         - Fieldref [com/ybcx/a/d.c Ljava/lang/String;]
       [38] aload_1 v1
       [39] aload_0 v0
       [40] ldc #1
         - String [author]
-      [42] invokevirtual #42
+      [42] invokevirtual #44
         - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
-      [45] putfield #25
+      [45] putfield #26
         - Fieldref [com/ybcx/a/d.d Ljava/lang/String;]
       [48] aload_1 v1
       [49] aload_0 v0
       [50] ldc #2
         - String [avatarImgPath]
-      [52] invokevirtual #42
+      [52] invokevirtual #44
         - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
-      [55] putfield #26
+      [55] putfield #27
         - Fieldref [com/ybcx/a/d.e Ljava/lang/String;]
       [58] aload_1 v1
       [59] aload_0 v0
       [60] ldc #14
         - String [score]
-      [62] invokevirtual #42
+      [62] invokevirtual #44
         - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
-      [65] putfield #27
+      [65] putfield #28
         - Fieldref [com/ybcx/a/d.f Ljava/lang/String;]
       [68] aload_1 v1
       [69] aload_0 v0
       [70] ldc #8
         - String [level]
-      [72] invokevirtual #42
+      [72] invokevirtual #44
         - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
-      [75] putfield #28
+      [75] putfield #29
         - Fieldref [com/ybcx/a/d.g Ljava/lang/String;]
       [78] aload_1 v1
       [79] aload_0 v0
       [80] ldc #12
         - String [publishTime]
-      [82] invokevirtual #42
+      [82] invokevirtual #44
         - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
-      [85] putfield #29
+      [85] putfield #30
         - Fieldref [com/ybcx/a/d.h Ljava/lang/String;]
       [88] aload_1 v1
       [89] aload_0 v0
-      [90] ldc #16
+      [90] ldc #17
         - String [tags]
-      [92] invokevirtual #42
+      [92] invokevirtual #44
         - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
-      [95] putfield #30
+      [95] putfield #31
         - Fieldref [com/ybcx/a/d.j Ljava/lang/String;]
       [98] aload_1 v1
       [99] aload_0 v0
       [100] ldc #5
         - String [description]
-      [102] invokevirtual #42
+      [102] invokevirtual #44
         - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
-      [105] putfield #31
+      [105] putfield #32
         - Fieldref [com/ybcx/a/d.k Ljava/lang/String;]
       [108] aload_0 v0
       [109] ldc #7
         - String [isOriginal]
-      [111] invokevirtual #42
+      [111] invokevirtual #44
         - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
-      [114] invokestatic #40
+      [114] invokestatic #42
         - Methodref [java/lang/Integer.valueOf (Ljava/lang/String;)Ljava/lang/Integer;]
-      [117] invokevirtual #39
+      [117] invokevirtual #41
         - Methodref [java/lang/Integer.intValue ()I]
       [120] dup
       [121] istore_2 v2
       [122] ifle +8 (target=130)
       [125] aload_1 v1
       [126] iload_2 v2
-      [127] putfield #32
+      [127] putfield #33
         - Fieldref [com/ybcx/a/d.l I]
       [130] aload_1 v1
       [131] aload_0 v0
       [132] ldc #9
         - String [mobImgId]
-      [134] invokevirtual #42
+      [134] invokevirtual #44
         - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
-      [137] putfield #33
+      [137] putfield #34
         - Fieldref [com/ybcx/a/d.m Ljava/lang/String;]
       [140] aload_1 v1
       [141] aload_0 v0
       [142] ldc #13
         - String [rawImgId]
-      [144] invokevirtual #42
+      [144] invokevirtual #44
         - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
-      [147] putfield #34
+      [147] putfield #35
         - Fieldref [com/ybcx/a/d.n Ljava/lang/String;]
       [150] aload_1 v1
       [151] aload_0 v0
-      [152] ldc #15
+      [152] ldc #16
         - String [storiesNum]
-      [154] invokevirtual #42
+      [154] invokevirtual #44
         - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
-      [157] putfield #35
+      [157] putfield #36
         - Fieldref [com/ybcx/a/d.o Ljava/lang/String;]
       [160] aload_1 v1
       [161] aload_0 v0
       [162] ldc #3
         - String [browseCount]
-      [164] invokevirtual #42
+      [164] invokevirtual #44
         - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
-      [167] putfield #36
+      [167] putfield #37
         - Fieldref [com/ybcx/a/d.p Ljava/lang/String;]
       [170] aload_1 v1
       [171] aload_0 v0
       [172] ldc #4
         - String [coolCount]
-      [174] invokevirtual #42
+      [174] invokevirtual #44
         - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
-      [177] putfield #37
+      [177] putfield #38
         - Fieldref [com/ybcx/a/d.q Ljava/lang/String;]
       [180] aload_1 v1
-      [181] areturn
+      [181] aload_0 v0
+      [182] ldc #15
+        - String [source]
+      [184] invokevirtual #44
+        - Methodref [org/json/JSONObject.optString (Ljava/lang/String;)Ljava/lang/String;]
+      [187] putfield #39
+        - Fieldref [com/ybcx/a/d.r Ljava/lang/String;]
+      [190] aload_1 v1
+      [191] areturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 1):
@@ -33371,8 +33387,8 @@ Interfaces (count = 1):
 
 Constant Pool (count = 211):
   - Integer [2130903043]
-  - Integer [2131165273]
-  - Integer [2131165280]
+  - Integer [2131165274]
+  - Integer [2131165281]
   - Integer [2131296261]
   - String [10 sec Later to Refresh ...]
   - String [Ended, 10 sec Later to Refresh Newest!]
@@ -33834,7 +33850,7 @@ Methods (count = 17):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #2
-        - Integer [2131165273]
+        - Integer [2131165274]
       [3] invokevirtual #52
         - Methodref [com/ybcx/activity/AndiPics.a (I)V]
       [6] return
@@ -33847,7 +33863,7 @@ Methods (count = 17):
     + Code attribute instructions (code length = 7, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] ldc #3
-        - Integer [2131165280]
+        - Integer [2131165281]
       [3] invokevirtual #52
         - Methodref [com/ybcx/activity/AndiPics.a (I)V]
       [6] return
@@ -35299,7 +35315,7 @@ Interfaces (count = 0):
 Constant Pool (count = 409):
   - Integer [-65536]
   - Integer [2130903075]
-  - Integer [2131165273]
+  - Integer [2131165274]
   - Integer [2131296299]
   - Integer [2131296307]
   - Integer [2131296308]
@@ -36459,16 +36475,24 @@ Methods (count = 12):
     Access flags: 0x1008
       = static void f(com.ybcx.activity.StoryEdit)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 11, locals = 1, stack = 3):
+    + Code attribute instructions (code length = 22, locals = 1, stack = 3):
       [0] aload_0 v0
       [1] dup
-      [2] ldc #3
-        - Integer [2131165273]
-      [4] invokevirtual #128
+      [2] dup
+      [3] astore_0 v0
+      [4] ldc #3
+        - Integer [2131165274]
+      [6] invokevirtual #128
         - Methodref [com/ybcx/activity/StoryEdit.getString (I)Ljava/lang/String;]
-      [7] invokespecial #124
+      [9] invokespecial #124
         - Methodref [com/ybcx/activity/StoryEdit.a (Ljava/lang/String;)V]
-      [10] return
+      [12] aload_0 v0
+      [13] getfield #78
+        - Fieldref [com/ybcx/activity/StoryEdit.e Landroid/widget/ProgressBar;]
+      [16] bipush 8
+      [18] invokevirtual #118
+        - Methodref [android/widget/ProgressBar.setVisibility (I)V]
+      [21] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
 
@@ -38332,11 +38356,11 @@ Interfaces (count = 0):
 
 Constant Pool (count = 680):
   - Integer [2130903074]
-  - Integer [2131165257]
-  - Integer [2131165269]
-  - Integer [2131165272]
+  - Integer [2131165258]
+  - Integer [2131165270]
   - Integer [2131165273]
-  - Integer [2131165277]
+  - Integer [2131165274]
+  - Integer [2131165278]
   - Integer [2131296299]
   - Integer [2131296307]
   - Integer [2131296362]
@@ -40097,7 +40121,7 @@ Methods (count = 30):
       [5] ifne +10 (target=15)
       [8] aload_0 v0
       [9] ldc #2
-        - Integer [2131165257]
+        - Integer [2131165258]
       [11] invokespecial #196
         - Methodref [com/ybcx/activity/PictureEdit.a (I)V]
       [14] return
@@ -40218,7 +40242,7 @@ Methods (count = 30):
       [180] aload_0 v0
       [181] aload_0 v0
       [182] ldc #6
-        - Integer [2131165277]
+        - Integer [2131165278]
       [184] invokevirtual #207
         - Methodref [com/ybcx/activity/PictureEdit.getString (I)Ljava/lang/String;]
       [187] invokespecial #199
@@ -40442,7 +40466,7 @@ Methods (count = 30):
         - Fieldref [com/ybcx/activity/PictureEdit.i Landroid/app/ProgressDialog;]
       [26] aload_0 v0
       [27] ldc #3
-        - Integer [2131165269]
+        - Integer [2131165270]
       [29] invokevirtual #207
         - Methodref [com/ybcx/activity/PictureEdit.getString (I)Ljava/lang/String;]
       [32] invokevirtual #155
@@ -40567,7 +40591,7 @@ Methods (count = 30):
         - Fieldref [com/ybcx/activity/PictureEdit.i Landroid/app/ProgressDialog;]
       [13] aload_0 v0
       [14] ldc #4
-        - Integer [2131165272]
+        - Integer [2131165273]
       [16] invokevirtual #207
         - Methodref [com/ybcx/activity/PictureEdit.getString (I)Ljava/lang/String;]
       [19] invokevirtual #155
@@ -40580,7 +40604,7 @@ Methods (count = 30):
       [29] aload_0 v0
       [30] aload_0 v0
       [31] ldc #4
-        - Integer [2131165272]
+        - Integer [2131165273]
       [33] invokevirtual #207
         - Methodref [com/ybcx/activity/PictureEdit.getString (I)Ljava/lang/String;]
       [36] invokespecial #199
@@ -40603,7 +40627,7 @@ Methods (count = 30):
         - Fieldref [com/ybcx/activity/PictureEdit.i Landroid/app/ProgressDialog;]
       [6] aload_0 v0
       [7] ldc #5
-        - Integer [2131165273]
+        - Integer [2131165274]
       [9] invokevirtual #207
         - Methodref [com/ybcx/activity/PictureEdit.getString (I)Ljava/lang/String;]
       [12] invokevirtual #155
@@ -40615,7 +40639,7 @@ Methods (count = 30):
         - Methodref [android/app/ProgressDialog.dismiss ()V]
       [22] aload_0 v0
       [23] ldc #5
-        - Integer [2131165273]
+        - Integer [2131165274]
       [25] invokespecial #196
         - Methodref [com/ybcx/activity/PictureEdit.a (I)V]
       [28] return
@@ -41360,7 +41384,7 @@ Interfaces (count = 0):
 
 Constant Pool (count = 58):
   - Integer [2130903059]
-  - Integer [2131165293]
+  - Integer [2131165294]
   - Integer [2131296299]
   - Integer [2131296300]
   - Class [android/view/View]
@@ -41495,7 +41519,7 @@ Methods (count = 2):
       [49] getfield #13
         - Fieldref [com/ybcx/activity/HowTos.b Landroid/widget/TextView;]
       [52] ldc #2
-        - Integer [2131165293]
+        - Integer [2131165294]
       [54] invokevirtual #16
         - Methodref [android/widget/TextView.setText (I)V]
       [57] return
@@ -42185,7 +42209,7 @@ Constant Pool (count = 363):
   - Integer [2130837543]
   - Integer [2131165201]
   - Integer [2131165256]
-  - Integer [2131165262]
+  - Integer [2131165263]
   - String [.jpg]
   - String [/]
   - String [: ]
@@ -43164,7 +43188,7 @@ Methods (count = 12):
       [259] aload_1 v1
       [260] aload_1 v1
       [261] ldc #6
-        - Integer [2131165262]
+        - Integer [2131165263]
       [263] invokevirtual #102
         - Methodref [com/ybcx/service/DnldService.getText (I)Ljava/lang/CharSequence;]
       [266] aload_3 v3
@@ -46226,12 +46250,12 @@ Constant Pool (count = 560):
   - Integer [2131165197]
   - Integer [2131165198]
   - Integer [2131165200]
-  - Integer [2131165257]
   - Integer [2131165258]
-  - Integer [2131165286]
-  - Integer [2131165291]
+  - Integer [2131165259]
+  - Integer [2131165287]
   - Integer [2131165292]
   - Integer [2131165293]
+  - Integer [2131165294]
   - Integer [2131296294]
   - Integer [2131296295]
   - Integer [2131296296]
@@ -47210,7 +47234,7 @@ Methods (count = 26):
       [270] ifne +10 (target=280)
       [273] aload_0 v0
       [274] ldc #11
-        - Integer [2131165257]
+        - Integer [2131165258]
       [276] invokespecial #167
         - Methodref [com/ybcx/activity/HomeGallery.a (I)V]
       [279] return
@@ -47442,7 +47466,7 @@ Methods (count = 26):
       [3] ifne +10 (target=13)
       [6] aload_0 v0
       [7] ldc #11
-        - Integer [2131165257]
+        - Integer [2131165258]
       [9] invokespecial #167
         - Methodref [com/ybcx/activity/HomeGallery.a (I)V]
       [12] return
@@ -47471,7 +47495,7 @@ Methods (count = 26):
       [47] istore v5
       [49] aload_0 v0
       [50] ldc #12
-        - Integer [2131165258]
+        - Integer [2131165259]
       [52] invokespecial #167
         - Methodref [com/ybcx/activity/HomeGallery.a (I)V]
       [55] iload v5
@@ -47616,7 +47640,7 @@ Methods (count = 26):
       [8] bipush 14
       [10] iconst_0
       [11] ldc #16
-        - Integer [2131165293]
+        - Integer [2131165294]
       [13] invokeinterface #222
         - InterfaceMethodref [android/view/Menu.add (IIII)Landroid/view/MenuItem;]
       [18] ldc #1
@@ -47629,7 +47653,7 @@ Methods (count = 26):
       [28] iconst_1
       [29] iconst_0
       [30] ldc #13
-        - Integer [2131165286]
+        - Integer [2131165287]
       [32] invokeinterface #222
         - InterfaceMethodref [android/view/Menu.add (IIII)Landroid/view/MenuItem;]
       [37] ldc #3
@@ -47642,7 +47666,7 @@ Methods (count = 26):
       [47] iconst_3
       [48] iconst_0
       [49] ldc #14
-        - Integer [2131165291]
+        - Integer [2131165292]
       [51] invokeinterface #222
         - InterfaceMethodref [android/view/Menu.add (IIII)Landroid/view/MenuItem;]
       [56] ldc #2
@@ -47655,7 +47679,7 @@ Methods (count = 26):
       [66] bipush 13
       [68] iconst_0
       [69] ldc #15
-        - Integer [2131165292]
+        - Integer [2131165293]
       [71] invokeinterface #222
         - InterfaceMethodref [android/view/Menu.add (IIII)Landroid/view/MenuItem;]
       [76] ldc #4
@@ -51985,8 +52009,8 @@ Constant Pool (count = 258):
   - Integer [2131165247]
   - Integer [2131165248]
   - Integer [2131165249]
-  - Integer [2131165273]
-  - Integer [2131165280]
+  - Integer [2131165274]
+  - Integer [2131165281]
   - Integer [2131296283]
   - Integer [2131296284]
   - Integer [2131296285]
@@ -52676,7 +52700,7 @@ Methods (count = 18):
         - Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [16] aload_0 v0
       [17] ldc #7
-        - Integer [2131165273]
+        - Integer [2131165274]
       [19] invokevirtual #72
         - Methodref [com/ybcx/activity/TadiProfile.a (I)V]
       [22] return
@@ -52701,7 +52725,7 @@ Methods (count = 18):
         - Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [16] aload_0 v0
       [17] ldc #8
-        - Integer [2131165280]
+        - Integer [2131165281]
       [19] invokevirtual #72
         - Methodref [com/ybcx/activity/TadiProfile.a (I)V]
       [22] return
@@ -54761,7 +54785,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 676):
+Constant Pool (count = 677):
   - Integer [-15955688]
   - Integer [-6710887]
   - Integer [17301582]
@@ -54783,7 +54807,8 @@ Constant Pool (count = 676):
   - Integer [2131165222]
   - Integer [2131165224]
   - Integer [2131165252]
-  - Integer [2131165273]
+  - Integer [2131165257]
+  - Integer [2131165274]
   - Integer [2131296283]
   - Integer [2131296284]
   - Integer [2131296289]
@@ -54814,7 +54839,6 @@ Constant Pool (count = 676):
   - String [ must has extras.]
   - String [.]
   - String [0]
-  - String [Android]
   - String [Attempting retrieve gallery data...]
   - String [DetailPicture]
   - String [I think the picture: ]
@@ -54915,6 +54939,7 @@ Constant Pool (count = 676):
   - Fieldref [com/ybcx/a/d.o Ljava/lang/String;]
   - Fieldref [com/ybcx/a/d.p Ljava/lang/String;]
   - Fieldref [com/ybcx/a/d.q Ljava/lang/String;]
+  - Fieldref [com/ybcx/a/d.r Ljava/lang/String;]
   - Fieldref [com/ybcx/activity/PictureDetails.A Ljava/lang/String;]
   - Fieldref [com/ybcx/activity/PictureDetails.B Landroid/view/View$OnClickListener;]
   - Fieldref [com/ybcx/activity/PictureDetails.C Landroid/view/View$OnClickListener;]
@@ -55161,6 +55186,7 @@ Constant Pool (count = 676):
   + NameAndType [q Landroid/widget/Button;]
   + NameAndType [q Ljava/lang/String;]
   + NameAndType [r Landroid/widget/TextView;]
+  + NameAndType [r Ljava/lang/String;]
   + NameAndType [s Landroid/widget/TextView;]
   + NameAndType [setClass (Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;]
   + NameAndType [setCompoundDrawablesWithIntrinsicBounds (IIII)V]
@@ -55257,7 +55283,6 @@ Constant Pool (count = 676):
   + Utf8 [<clinit>]
   + Utf8 [<init>]
   + Utf8 [A]
-  + Utf8 [Android]
   + Utf8 [Attempting retrieve gallery data...]
   + Utf8 [B]
   + Utf8 [C]
@@ -55577,7 +55602,7 @@ Methods (count = 24):
     + Code attribute instructions (code length = 6, locals = 0, stack = 1):
       [0] ldc #55
         - String [DetailPicture]
-      [2] putstatic #171
+      [2] putstatic #172
         - Fieldref [com/ybcx/activity/PictureDetails.a Ljava/lang/String;]
       [5] return
       Code attribute exceptions (count = 0):
@@ -55588,163 +55613,163 @@ Methods (count = 24):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 213, locals = 1, stack = 4):
       [0] aload_0 v0
-      [1] invokespecial #248
+      [1] invokespecial #249
         - Methodref [com/ybcx/activity/base/FullScreenActivity.<init> ()V]
       [4] aload_0 v0
       [5] new #113
         - Class [com/ybcx/c/a]
       [8] dup
-      [9] invokespecial #262
+      [9] invokespecial #263
         - Methodref [com/ybcx/c/a.<init> ()V]
-      [12] putfield #195
+      [12] putfield #196
         - Fieldref [com/ybcx/activity/PictureDetails.y Lcom/ybcx/c/a;]
       [15] aload_0 v0
       [16] aconst_null
-      [17] putfield #196
+      [17] putfield #197
         - Fieldref [com/ybcx/activity/PictureDetails.z Lcom/ybcx/a/d;]
       [20] aload_0 v0
       [21] new #103
         - Class [com/ybcx/activity/c]
       [24] dup
       [25] aload_0 v0
-      [26] invokespecial #253
+      [26] invokespecial #254
         - Methodref [com/ybcx/activity/c.<init> (Lcom/ybcx/activity/PictureDetails;)V]
-      [29] putfield #155
+      [29] putfield #156
         - Fieldref [com/ybcx/activity/PictureDetails.B Landroid/view/View$OnClickListener;]
       [32] aload_0 v0
       [33] new #104
         - Class [com/ybcx/activity/d]
       [36] dup
       [37] aload_0 v0
-      [38] invokespecial #254
+      [38] invokespecial #255
         - Methodref [com/ybcx/activity/d.<init> (Lcom/ybcx/activity/PictureDetails;)V]
-      [41] putfield #156
+      [41] putfield #157
         - Fieldref [com/ybcx/activity/PictureDetails.C Landroid/view/View$OnClickListener;]
       [44] aload_0 v0
       [45] new #111
         - Class [com/ybcx/activity/k]
       [48] dup
       [49] aload_0 v0
-      [50] invokespecial #261
+      [50] invokespecial #262
         - Methodref [com/ybcx/activity/k.<init> (Lcom/ybcx/activity/PictureDetails;)V]
-      [53] putfield #157
+      [53] putfield #158
         - Fieldref [com/ybcx/activity/PictureDetails.D Landroid/view/View$OnClickListener;]
       [56] aload_0 v0
       [57] new #110
         - Class [com/ybcx/activity/j]
       [60] dup
       [61] aload_0 v0
-      [62] invokespecial #260
+      [62] invokespecial #261
         - Methodref [com/ybcx/activity/j.<init> (Lcom/ybcx/activity/PictureDetails;)V]
-      [65] putfield #158
+      [65] putfield #159
         - Fieldref [com/ybcx/activity/PictureDetails.E Landroid/view/View$OnClickListener;]
       [68] aload_0 v0
       [69] new #109
         - Class [com/ybcx/activity/i]
       [72] dup
       [73] aload_0 v0
-      [74] invokespecial #259
+      [74] invokespecial #260
         - Methodref [com/ybcx/activity/i.<init> (Lcom/ybcx/activity/PictureDetails;)V]
-      [77] putfield #159
+      [77] putfield #160
         - Fieldref [com/ybcx/activity/PictureDetails.F Landroid/view/View$OnClickListener;]
       [80] aload_0 v0
       [81] new #108
         - Class [com/ybcx/activity/h]
       [84] dup
       [85] aload_0 v0
-      [86] invokespecial #258
+      [86] invokespecial #259
         - Methodref [com/ybcx/activity/h.<init> (Lcom/ybcx/activity/PictureDetails;)V]
-      [89] putfield #160
+      [89] putfield #161
         - Fieldref [com/ybcx/activity/PictureDetails.G Landroid/view/View$OnClickListener;]
       [92] aload_0 v0
       [93] new #107
         - Class [com/ybcx/activity/g]
       [96] dup
       [97] aload_0 v0
-      [98] invokespecial #257
+      [98] invokespecial #258
         - Methodref [com/ybcx/activity/g.<init> (Lcom/ybcx/activity/PictureDetails;)V]
-      [101] putfield #161
+      [101] putfield #162
         - Fieldref [com/ybcx/activity/PictureDetails.H Landroid/view/View$OnClickListener;]
       [104] aload_0 v0
       [105] new #106
         - Class [com/ybcx/activity/f]
       [108] dup
       [109] aload_0 v0
-      [110] invokespecial #256
+      [110] invokespecial #257
         - Methodref [com/ybcx/activity/f.<init> (Lcom/ybcx/activity/PictureDetails;)V]
-      [113] putfield #162
+      [113] putfield #163
         - Fieldref [com/ybcx/activity/PictureDetails.I Lcom/ybcx/c/j;]
       [116] aload_0 v0
       [117] new #105
         - Class [com/ybcx/activity/e]
       [120] dup
       [121] aload_0 v0
-      [122] invokespecial #255
+      [122] invokespecial #256
         - Methodref [com/ybcx/activity/e.<init> (Lcom/ybcx/activity/PictureDetails;)V]
-      [125] putfield #163
+      [125] putfield #164
         - Fieldref [com/ybcx/activity/PictureDetails.J Lcom/ybcx/c/j;]
       [128] aload_0 v0
       [129] new #100
         - Class [com/ybcx/activity/aj]
       [132] dup
       [133] aload_0 v0
-      [134] invokespecial #246
+      [134] invokespecial #247
         - Methodref [com/ybcx/activity/aj.<init> (Lcom/ybcx/activity/PictureDetails;)V]
-      [137] putfield #164
+      [137] putfield #165
         - Fieldref [com/ybcx/activity/PictureDetails.K Landroid/view/View$OnClickListener;]
       [140] aload_0 v0
       [141] new #99
         - Class [com/ybcx/activity/ai]
       [144] dup
       [145] aload_0 v0
-      [146] invokespecial #245
+      [146] invokespecial #246
         - Methodref [com/ybcx/activity/ai.<init> (Lcom/ybcx/activity/PictureDetails;)V]
-      [149] putfield #165
+      [149] putfield #166
         - Fieldref [com/ybcx/activity/PictureDetails.L Landroid/view/View$OnClickListener;]
       [152] aload_0 v0
       [153] new #96
         - Class [com/ybcx/activity/af]
       [156] dup
       [157] aload_0 v0
-      [158] invokespecial #242
+      [158] invokespecial #243
         - Methodref [com/ybcx/activity/af.<init> (Lcom/ybcx/activity/PictureDetails;)V]
-      [161] putfield #166
+      [161] putfield #167
         - Fieldref [com/ybcx/activity/PictureDetails.M Lcom/ybcx/c/j;]
       [164] aload_0 v0
       [165] new #95
         - Class [com/ybcx/activity/ae]
       [168] dup
       [169] aload_0 v0
-      [170] invokespecial #241
+      [170] invokespecial #242
         - Methodref [com/ybcx/activity/ae.<init> (Lcom/ybcx/activity/PictureDetails;)V]
-      [173] putfield #167
+      [173] putfield #168
         - Fieldref [com/ybcx/activity/PictureDetails.N Lcom/ybcx/c/j;]
       [176] aload_0 v0
       [177] new #98
         - Class [com/ybcx/activity/ah]
       [180] dup
       [181] aload_0 v0
-      [182] invokespecial #244
+      [182] invokespecial #245
         - Methodref [com/ybcx/activity/ah.<init> (Lcom/ybcx/activity/PictureDetails;)V]
-      [185] putfield #168
+      [185] putfield #169
         - Fieldref [com/ybcx/activity/PictureDetails.O Lcom/ybcx/c/j;]
       [188] aload_0 v0
       [189] new #97
         - Class [com/ybcx/activity/ag]
       [192] dup
       [193] aload_0 v0
-      [194] invokespecial #243
+      [194] invokespecial #244
         - Methodref [com/ybcx/activity/ag.<init> (Lcom/ybcx/activity/PictureDetails;)V]
-      [197] putfield #169
+      [197] putfield #170
         - Fieldref [com/ybcx/activity/PictureDetails.P Landroid/content/DialogInterface$OnClickListener;]
       [200] aload_0 v0
       [201] new #101
         - Class [com/ybcx/activity/al]
       [204] dup
       [205] aload_0 v0
-      [206] invokespecial #247
+      [206] invokespecial #248
         - Methodref [com/ybcx/activity/al.<init> (Lcom/ybcx/activity/PictureDetails;)V]
-      [209] putfield #170
+      [209] putfield #171
         - Fieldref [com/ybcx/activity/PictureDetails.Q Landroid/content/DialogInterface$OnClickListener;]
       [212] return
       Code attribute exceptions (count = 0):
@@ -55756,398 +55781,398 @@ Methods (count = 24):
     + Code attribute instructions (code length = 663, locals = 4, stack = 5):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #249
+      [2] invokespecial #250
         - Methodref [com/ybcx/activity/base/FullScreenActivity.onCreate (Landroid/os/Bundle;)V]
       [5] aload_0 v0
       [6] ldc #5
         - Integer [2130903070]
-      [8] invokevirtual #239
+      [8] invokevirtual #240
         - Methodref [com/ybcx/activity/PictureDetails.setContentView (I)V]
       [11] aload_0 v0
       [12] dup
       [13] dup
       [14] astore_1 v1
-      [15] ldc #31
+      [15] ldc #32
         - Integer [2131296299]
-      [17] invokevirtual #234
+      [17] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [20] checkcast #86
         - Class [android/widget/ImageButton]
-      [23] putfield #172
+      [23] putfield #173
         - Fieldref [com/ybcx/activity/PictureDetails.b Landroid/widget/ImageButton;]
       [26] aload_1 v1
       [27] aload_1 v1
-      [28] ldc #32
+      [28] ldc #33
         - Integer [2131296300]
-      [30] invokevirtual #234
+      [30] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [33] checkcast #89
         - Class [android/widget/TextView]
-      [36] putfield #173
+      [36] putfield #174
         - Fieldref [com/ybcx/activity/PictureDetails.c Landroid/widget/TextView;]
       [39] aload_1 v1
-      [40] getfield #173
+      [40] getfield #174
         - Fieldref [com/ybcx/activity/PictureDetails.c Landroid/widget/TextView;]
       [43] ldc #20
         - Integer [2131165224]
-      [45] invokevirtual #220
+      [45] invokevirtual #221
         - Methodref [android/widget/TextView.setText (I)V]
       [48] aload_1 v1
       [49] aload_1 v1
-      [50] ldc #33
+      [50] ldc #34
         - Integer [2131296301]
-      [52] invokevirtual #234
+      [52] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [55] checkcast #88
         - Class [android/widget/ProgressBar]
-      [58] putfield #174
+      [58] putfield #175
         - Fieldref [com/ybcx/activity/PictureDetails.d Landroid/widget/ProgressBar;]
       [61] aload_1 v1
       [62] aload_1 v1
-      [63] ldc #34
+      [63] ldc #35
         - Integer [2131296334]
-      [65] invokevirtual #234
+      [65] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [68] checkcast #84
         - Class [android/view/ViewGroup]
-      [71] putfield #175
+      [71] putfield #176
         - Fieldref [com/ybcx/activity/PictureDetails.e Landroid/view/ViewGroup;]
       [74] aload_1 v1
       [75] aload_1 v1
-      [76] ldc #23
+      [76] ldc #24
         - Integer [2131296283]
-      [78] invokevirtual #234
+      [78] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [81] checkcast #87
         - Class [android/widget/ImageView]
-      [84] putfield #176
+      [84] putfield #177
         - Fieldref [com/ybcx/activity/PictureDetails.f Landroid/widget/ImageView;]
       [87] aload_1 v1
       [88] aload_1 v1
-      [89] ldc #24
+      [89] ldc #25
         - Integer [2131296284]
-      [91] invokevirtual #234
+      [91] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [94] checkcast #89
         - Class [android/widget/TextView]
-      [97] putfield #177
+      [97] putfield #178
         - Fieldref [com/ybcx/activity/PictureDetails.g Landroid/widget/TextView;]
       [100] aload_1 v1
       [101] aload_1 v1
-      [102] ldc #35
+      [102] ldc #36
         - Integer [2131296336]
-      [104] invokevirtual #234
+      [104] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [107] checkcast #89
         - Class [android/widget/TextView]
-      [110] putfield #178
+      [110] putfield #179
         - Fieldref [com/ybcx/activity/PictureDetails.h Landroid/widget/TextView;]
       [113] aload_1 v1
       [114] aload_1 v1
-      [115] ldc #36
+      [115] ldc #37
         - Integer [2131296337]
-      [117] invokevirtual #234
+      [117] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [120] checkcast #89
         - Class [android/widget/TextView]
-      [123] putfield #179
+      [123] putfield #180
         - Fieldref [com/ybcx/activity/PictureDetails.i Landroid/widget/TextView;]
       [126] aload_1 v1
       [127] aload_1 v1
-      [128] ldc #37
+      [128] ldc #38
         - Integer [2131296340]
-      [130] invokevirtual #234
+      [130] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [133] checkcast #87
         - Class [android/widget/ImageView]
-      [136] putfield #180
+      [136] putfield #181
         - Fieldref [com/ybcx/activity/PictureDetails.j Landroid/widget/ImageView;]
       [139] aload_1 v1
       [140] aload_1 v1
-      [141] ldc #30
+      [141] ldc #31
         - Integer [2131296297]
-      [143] invokevirtual #234
+      [143] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [146] checkcast #89
         - Class [android/widget/TextView]
-      [149] putfield #181
+      [149] putfield #182
         - Fieldref [com/ybcx/activity/PictureDetails.k Landroid/widget/TextView;]
       [152] aload_1 v1
       [153] aload_1 v1
-      [154] ldc #42
+      [154] ldc #43
         - Integer [2131296345]
-      [156] invokevirtual #234
+      [156] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [159] checkcast #89
         - Class [android/widget/TextView]
-      [162] putfield #182
+      [162] putfield #183
         - Fieldref [com/ybcx/activity/PictureDetails.l Landroid/widget/TextView;]
       [165] aload_1 v1
       [166] aload_1 v1
-      [167] ldc #38
+      [167] ldc #39
         - Integer [2131296341]
-      [169] invokevirtual #234
+      [169] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [172] checkcast #89
         - Class [android/widget/TextView]
-      [175] putfield #184
+      [175] putfield #185
         - Fieldref [com/ybcx/activity/PictureDetails.n Landroid/widget/TextView;]
       [178] aload_1 v1
       [179] aload_1 v1
-      [180] ldc #40
+      [180] ldc #41
         - Integer [2131296343]
-      [182] invokevirtual #234
+      [182] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [185] checkcast #89
         - Class [android/widget/TextView]
-      [188] putfield #185
+      [188] putfield #186
         - Fieldref [com/ybcx/activity/PictureDetails.o Landroid/widget/TextView;]
       [191] aload_1 v1
       [192] aload_1 v1
-      [193] ldc #39
+      [193] ldc #40
         - Integer [2131296342]
-      [195] invokevirtual #234
+      [195] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [198] checkcast #89
         - Class [android/widget/TextView]
-      [201] putfield #186
+      [201] putfield #187
         - Fieldref [com/ybcx/activity/PictureDetails.p Landroid/widget/TextView;]
       [204] aload_1 v1
       [205] aload_1 v1
-      [206] ldc #41
+      [206] ldc #42
         - Integer [2131296344]
-      [208] invokevirtual #234
+      [208] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [211] checkcast #85
         - Class [android/widget/Button]
-      [214] putfield #187
+      [214] putfield #188
         - Fieldref [com/ybcx/activity/PictureDetails.q Landroid/widget/Button;]
       [217] aload_1 v1
       [218] aload_1 v1
-      [219] ldc #43
+      [219] ldc #44
         - Integer [2131296346]
-      [221] invokevirtual #234
+      [221] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [224] checkcast #89
         - Class [android/widget/TextView]
-      [227] putfield #183
+      [227] putfield #184
         - Fieldref [com/ybcx/activity/PictureDetails.m Landroid/widget/TextView;]
       [230] aload_1 v1
       [231] aload_1 v1
-      [232] ldc #26
+      [232] ldc #27
         - Integer [2131296290]
-      [234] invokevirtual #234
+      [234] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [237] checkcast #89
         - Class [android/widget/TextView]
-      [240] putfield #188
+      [240] putfield #189
         - Fieldref [com/ybcx/activity/PictureDetails.r Landroid/widget/TextView;]
       [243] aload_1 v1
       [244] aload_1 v1
-      [245] ldc #25
+      [245] ldc #26
         - Integer [2131296289]
-      [247] invokevirtual #234
+      [247] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [250] checkcast #89
         - Class [android/widget/TextView]
-      [253] putfield #189
+      [253] putfield #190
         - Fieldref [com/ybcx/activity/PictureDetails.s Landroid/widget/TextView;]
       [256] aload_1 v1
       [257] aload_1 v1
-      [258] ldc #27
+      [258] ldc #28
         - Integer [2131296291]
-      [260] invokevirtual #234
+      [260] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [263] checkcast #89
         - Class [android/widget/TextView]
-      [266] putfield #190
+      [266] putfield #191
         - Fieldref [com/ybcx/activity/PictureDetails.t Landroid/widget/TextView;]
       [269] aload_1 v1
       [270] aload_1 v1
-      [271] ldc #28
+      [271] ldc #29
         - Integer [2131296292]
-      [273] invokevirtual #234
+      [273] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [276] checkcast #89
         - Class [android/widget/TextView]
-      [279] putfield #191
+      [279] putfield #192
         - Fieldref [com/ybcx/activity/PictureDetails.u Landroid/widget/TextView;]
       [282] aload_1 v1
       [283] aload_1 v1
-      [284] ldc #29
+      [284] ldc #30
         - Integer [2131296293]
-      [286] invokevirtual #234
+      [286] invokevirtual #235
         - Methodref [com/ybcx/activity/PictureDetails.findViewById (I)Landroid/view/View;]
       [289] checkcast #89
         - Class [android/widget/TextView]
-      [292] putfield #192
+      [292] putfield #193
         - Fieldref [com/ybcx/activity/PictureDetails.v Landroid/widget/TextView;]
       [295] aload_0 v0
       [296] dup
       [297] astore_1 v1
-      [298] getfield #172
+      [298] getfield #173
         - Fieldref [com/ybcx/activity/PictureDetails.b Landroid/widget/ImageButton;]
       [301] aload_1 v1
-      [302] getfield #155
+      [302] getfield #156
         - Fieldref [com/ybcx/activity/PictureDetails.B Landroid/view/View$OnClickListener;]
-      [305] invokevirtual #214
+      [305] invokevirtual #215
         - Methodref [android/widget/ImageButton.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [308] aload_1 v1
-      [309] getfield #175
+      [309] getfield #176
         - Fieldref [com/ybcx/activity/PictureDetails.e Landroid/view/ViewGroup;]
       [312] aload_1 v1
-      [313] getfield #159
+      [313] getfield #160
         - Fieldref [com/ybcx/activity/PictureDetails.F Landroid/view/View$OnClickListener;]
-      [316] invokevirtual #211
+      [316] invokevirtual #212
         - Methodref [android/view/ViewGroup.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [319] aload_1 v1
-      [320] getfield #187
+      [320] getfield #188
         - Fieldref [com/ybcx/activity/PictureDetails.q Landroid/widget/Button;]
       [323] aload_1 v1
-      [324] getfield #158
+      [324] getfield #159
         - Fieldref [com/ybcx/activity/PictureDetails.E Landroid/view/View$OnClickListener;]
-      [327] invokevirtual #212
+      [327] invokevirtual #213
         - Methodref [android/widget/Button.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [330] aload_1 v1
-      [331] getfield #188
+      [331] getfield #189
         - Fieldref [com/ybcx/activity/PictureDetails.r Landroid/widget/TextView;]
       [334] aload_1 v1
-      [335] getfield #156
+      [335] getfield #157
         - Fieldref [com/ybcx/activity/PictureDetails.C Landroid/view/View$OnClickListener;]
-      [338] invokevirtual #219
+      [338] invokevirtual #220
         - Methodref [android/widget/TextView.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [341] aload_1 v1
-      [342] getfield #189
+      [342] getfield #190
         - Fieldref [com/ybcx/activity/PictureDetails.s Landroid/widget/TextView;]
       [345] aload_1 v1
-      [346] getfield #157
+      [346] getfield #158
         - Fieldref [com/ybcx/activity/PictureDetails.D Landroid/view/View$OnClickListener;]
-      [349] invokevirtual #219
+      [349] invokevirtual #220
         - Methodref [android/widget/TextView.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [352] aload_1 v1
-      [353] getfield #190
+      [353] getfield #191
         - Fieldref [com/ybcx/activity/PictureDetails.t Landroid/widget/TextView;]
       [356] aload_1 v1
-      [357] getfield #160
+      [357] getfield #161
         - Fieldref [com/ybcx/activity/PictureDetails.G Landroid/view/View$OnClickListener;]
-      [360] invokevirtual #219
+      [360] invokevirtual #220
         - Methodref [android/widget/TextView.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [363] aload_1 v1
-      [364] getfield #191
+      [364] getfield #192
         - Fieldref [com/ybcx/activity/PictureDetails.u Landroid/widget/TextView;]
       [367] aload_1 v1
-      [368] getfield #164
+      [368] getfield #165
         - Fieldref [com/ybcx/activity/PictureDetails.K Landroid/view/View$OnClickListener;]
-      [371] invokevirtual #219
+      [371] invokevirtual #220
         - Methodref [android/widget/TextView.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [374] aload_1 v1
-      [375] getfield #191
+      [375] getfield #192
         - Fieldref [com/ybcx/activity/PictureDetails.u Landroid/widget/TextView;]
       [378] iconst_0
-      [379] invokevirtual #218
+      [379] invokevirtual #219
         - Methodref [android/widget/TextView.setEnabled (Z)V]
       [382] aload_1 v1
-      [383] getfield #191
+      [383] getfield #192
         - Fieldref [com/ybcx/activity/PictureDetails.u Landroid/widget/TextView;]
       [386] ldc #2
         - Integer [-6710887]
-      [388] invokevirtual #222
+      [388] invokevirtual #223
         - Methodref [android/widget/TextView.setTextColor (I)V]
       [391] aload_1 v1
-      [392] getfield #192
+      [392] getfield #193
         - Fieldref [com/ybcx/activity/PictureDetails.v Landroid/widget/TextView;]
       [395] aload_1 v1
-      [396] getfield #165
+      [396] getfield #166
         - Fieldref [com/ybcx/activity/PictureDetails.L Landroid/view/View$OnClickListener;]
-      [399] invokevirtual #219
+      [399] invokevirtual #220
         - Methodref [android/widget/TextView.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [402] aload_1 v1
-      [403] getfield #180
+      [403] getfield #181
         - Fieldref [com/ybcx/activity/PictureDetails.j Landroid/widget/ImageView;]
       [406] aload_1 v1
-      [407] getfield #161
+      [407] getfield #162
         - Fieldref [com/ybcx/activity/PictureDetails.H Landroid/view/View$OnClickListener;]
-      [410] invokevirtual #215
+      [410] invokevirtual #216
         - Methodref [android/widget/ImageView.setOnClickListener (Landroid/view/View$OnClickListener;)V]
       [413] aload_0 v0
       [414] dup
       [415] astore_1 v1
-      [416] invokevirtual #236
+      [416] invokevirtual #237
         - Methodref [com/ybcx/activity/PictureDetails.getIntent ()Landroid/content/Intent;]
-      [419] invokevirtual #205
+      [419] invokevirtual #206
         - Methodref [android/content/Intent.getExtras ()Landroid/os/Bundle;]
       [422] dup
       [423] astore_2 v2
       [424] ifnonnull +42 (target=466)
-      [427] getstatic #171
+      [427] getstatic #172
         - Fieldref [com/ybcx/activity/PictureDetails.a Ljava/lang/String;]
       [430] new #128
         - Class [java/lang/StringBuilder]
       [433] dup
       [434] aload_1 v1
-      [435] invokevirtual #280
+      [435] invokevirtual #281
         - Methodref [java/lang/Object.getClass ()Ljava/lang/Class;]
-      [438] invokevirtual #276
+      [438] invokevirtual #277
         - Methodref [java/lang/Class.getName ()Ljava/lang/String;]
-      [441] invokestatic #284
+      [441] invokestatic #285
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [444] invokespecial #286
+      [444] invokespecial #287
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [447] ldc #50
+      [447] ldc #51
         - String [ must has extras.]
-      [449] invokevirtual #288
+      [449] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [452] invokevirtual #289
+      [452] invokevirtual #290
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [455] invokestatic #210
+      [455] invokestatic #211
         - Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
       [458] pop
       [459] aload_1 v1
-      [460] invokevirtual #235
+      [460] invokevirtual #236
         - Methodref [com/ybcx/activity/PictureDetails.finish ()V]
       [463] goto +153 (target=616)
       [466] aload_1 v1
       [467] aload_2 v2
       [468] ldc #68
         - String [tpId]
-      [470] invokevirtual #208
+      [470] invokevirtual #209
         - Methodref [android/os/Bundle.getString (Ljava/lang/String;)Ljava/lang/String;]
-      [473] putfield #154
+      [473] putfield #155
         - Fieldref [com/ybcx/activity/PictureDetails.A Ljava/lang/String;]
       [476] aload_1 v1
-      [477] getfield #154
+      [477] getfield #155
         - Fieldref [com/ybcx/activity/PictureDetails.A Ljava/lang/String;]
       [480] ifnull +121 (target=601)
       [483] aload_1 v1
       [484] aload_1 v1
-      [485] getfield #154
+      [485] getfield #155
         - Fieldref [com/ybcx/activity/PictureDetails.A Ljava/lang/String;]
       [488] astore_2 v2
       [489] astore_1 v1
-      [490] getstatic #171
+      [490] getstatic #172
         - Fieldref [com/ybcx/activity/PictureDetails.a Ljava/lang/String;]
       [493] ldc #54
         - String [Attempting retrieve gallery data...]
-      [495] invokestatic #209
+      [495] invokestatic #210
         - Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [498] pop
-      [499] invokestatic #230
+      [499] invokestatic #231
         - Methodref [com/ybcx/PintuApp.e ()Z]
       [502] ifne +12 (target=514)
       [505] aload_1 v1
       [506] ldc #57
         - String [Network not Available, try later!]
-      [508] invokespecial #233
+      [508] invokespecial #234
         - Methodref [com/ybcx/activity/PictureDetails.a (Ljava/lang/String;)V]
       [511] goto +105 (target=616)
       [514] aload_1 v1
-      [515] getfield #193
+      [515] getfield #194
         - Fieldref [com/ybcx/activity/PictureDetails.w Lcom/ybcx/c/l;]
       [518] ifnull +16 (target=534)
       [521] aload_1 v1
-      [522] getfield #193
+      [522] getfield #194
         - Fieldref [com/ybcx/activity/PictureDetails.w Lcom/ybcx/c/l;]
-      [525] invokevirtual #267
+      [525] invokevirtual #268
         - Methodref [com/ybcx/c/l.getStatus ()Landroid/os/AsyncTask$Status;]
       [528] getstatic #130
         - Fieldref [android/os/AsyncTask$Status.RUNNING Landroid/os/AsyncTask$Status;]
@@ -56156,32 +56181,32 @@ Methods (count = 24):
       [535] new #117
         - Class [com/ybcx/c/s]
       [538] dup
-      [539] invokespecial #271
+      [539] invokespecial #272
         - Methodref [com/ybcx/c/s.<init> ()V]
-      [542] putfield #193
+      [542] putfield #194
         - Fieldref [com/ybcx/activity/PictureDetails.w Lcom/ybcx/c/l;]
       [545] aload_1 v1
-      [546] getfield #193
+      [546] getfield #194
         - Fieldref [com/ybcx/activity/PictureDetails.w Lcom/ybcx/c/l;]
       [549] aload_1 v1
-      [550] getfield #167
+      [550] getfield #168
         - Fieldref [com/ybcx/activity/PictureDetails.N Lcom/ybcx/c/j;]
-      [553] invokevirtual #265
+      [553] invokevirtual #266
         - Methodref [com/ybcx/c/l.a (Lcom/ybcx/c/j;)V]
       [556] new #115
         - Class [com/ybcx/c/m]
       [559] dup
-      [560] invokespecial #268
+      [560] invokespecial #269
         - Methodref [com/ybcx/c/m.<init> ()V]
       [563] dup
       [564] astore_3 v3
       [565] ldc #68
         - String [tpId]
       [567] aload_2 v2
-      [568] invokevirtual #269
+      [568] invokevirtual #270
         - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [571] aload_1 v1
-      [572] getfield #193
+      [572] getfield #194
         - Fieldref [com/ybcx/activity/PictureDetails.w Lcom/ybcx/c/l;]
       [575] iconst_1
       [576] anewarray #115
@@ -56190,28 +56215,28 @@ Methods (count = 24):
       [580] iconst_0
       [581] aload_3 v3
       [582] aastore
-      [583] invokevirtual #266
+      [583] invokevirtual #267
         - Methodref [com/ybcx/c/l.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
       [586] pop
       [587] aload_1 v1
-      [588] getfield #195
+      [588] getfield #196
         - Fieldref [com/ybcx/activity/PictureDetails.y Lcom/ybcx/c/a;]
       [591] aload_1 v1
-      [592] getfield #193
+      [592] getfield #194
         - Fieldref [com/ybcx/activity/PictureDetails.w Lcom/ybcx/c/l;]
-      [595] invokevirtual #264
+      [595] invokevirtual #265
         - Methodref [com/ybcx/c/a.a (Ljava/util/Observer;)V]
       [598] goto +18 (target=616)
       [601] aload_1 v1
       [602] ldc #59
         - String [Warning, tpId is null!]
-      [604] invokespecial #233
+      [604] invokespecial #234
         - Methodref [com/ybcx/activity/PictureDetails.a (Ljava/lang/String;)V]
-      [607] getstatic #171
+      [607] getstatic #172
         - Fieldref [com/ybcx/activity/PictureDetails.a Ljava/lang/String;]
       [610] ldc #59
         - String [Warning, tpId is null!]
-      [612] invokestatic #210
+      [612] invokestatic #211
         - Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
       [615] pop
       [616] aload_0 v0
@@ -56219,33 +56244,33 @@ Methods (count = 24):
       [618] getstatic #132
         - Fieldref [com/ybcx/PintuApp.e Lcom/ybcx/b/c;]
       [621] aload_1 v1
-      [622] getfield #154
+      [622] getfield #155
         - Fieldref [com/ybcx/activity/PictureDetails.A Ljava/lang/String;]
-      [625] invokeinterface #295
+      [625] invokeinterface #296
         - InterfaceMethodref [com/ybcx/b/c.a (Ljava/lang/String;)Z]
       [630] ifeq +32 (target=662)
       [633] aload_1 v1
-      [634] getfield #190
+      [634] getfield #191
         - Fieldref [com/ybcx/activity/PictureDetails.t Landroid/widget/TextView;]
       [637] iconst_0
-      [638] invokevirtual #218
+      [638] invokevirtual #219
         - Methodref [android/widget/TextView.setEnabled (Z)V]
       [641] aload_1 v1
-      [642] getfield #190
+      [642] getfield #191
         - Fieldref [com/ybcx/activity/PictureDetails.t Landroid/widget/TextView;]
       [645] ldc #2
         - Integer [-6710887]
-      [647] invokevirtual #222
+      [647] invokevirtual #223
         - Methodref [android/widget/TextView.setTextColor (I)V]
       [650] aload_1 v1
-      [651] getfield #190
+      [651] getfield #191
         - Fieldref [com/ybcx/activity/PictureDetails.t Landroid/widget/TextView;]
       [654] iconst_0
       [655] ldc #4
         - Integer [2130837546]
       [657] iconst_0
       [658] iconst_0
-      [659] invokevirtual #217
+      [659] invokevirtual #218
         - Methodref [android/widget/TextView.setCompoundDrawablesWithIntrinsicBounds (IIII)V]
       [662] return
       Code attribute exceptions (count = 0):
@@ -56256,12 +56281,12 @@ Methods (count = 24):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 12, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] invokespecial #251
+      [1] invokespecial #252
         - Methodref [com/ybcx/activity/base/FullScreenActivity.onDestroy ()V]
       [4] aload_0 v0
-      [5] getfield #195
+      [5] getfield #196
         - Fieldref [com/ybcx/activity/PictureDetails.y Lcom/ybcx/c/a;]
-      [8] invokevirtual #263
+      [8] invokevirtual #264
         - Methodref [com/ybcx/c/a.a ()V]
       [11] return
       Code attribute exceptions (count = 0):
@@ -56274,9 +56299,9 @@ Methods (count = 24):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] iconst_1
-      [3] invokestatic #226
+      [3] invokestatic #227
         - Methodref [android/widget/Toast.makeText (Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
-      [6] invokevirtual #227
+      [6] invokevirtual #228
         - Methodref [android/widget/Toast.show ()V]
       [9] return
       Code attribute exceptions (count = 0):
@@ -56288,7 +56313,7 @@ Methods (count = 24):
     + Code attribute instructions (code length = 27, locals = 2, stack = 5):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #250
+      [2] invokespecial #251
         - Methodref [com/ybcx/activity/base/FullScreenActivity.onCreateOptionsMenu (Landroid/view/Menu;)Z]
       [5] pop
       [6] aload_1 v1
@@ -56297,11 +56322,11 @@ Methods (count = 24):
       [9] iconst_0
       [10] ldc #11
         - Integer [2131165214]
-      [12] invokeinterface #291
+      [12] invokeinterface #292
         - InterfaceMethodref [android/view/Menu.add (IIII)Landroid/view/MenuItem;]
       [17] ldc #3
         - Integer [17301582]
-      [19] invokeinterface #293
+      [19] invokeinterface #294
         - InterfaceMethodref [android/view/MenuItem.setIcon (I)Landroid/view/MenuItem;]
       [24] pop
       [25] iconst_1
@@ -56314,19 +56339,19 @@ Methods (count = 24):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 36, locals = 2, stack = 2):
       [0] aload_1 v1
-      [1] invokeinterface #292
+      [1] invokeinterface #293
         - InterfaceMethodref [android/view/MenuItem.getItemId ()I]
       [6] tableswitch (1 offsets, default=24) (target=30)
         1: offset = 18, target = 24
         default: offset = 24, target = 30
       [24] aload_0 v0
-      [25] invokespecial #232
+      [25] invokespecial #233
         - Methodref [com/ybcx/activity/PictureDetails.a ()V]
       [28] iconst_1
       [29] ireturn
       [30] aload_0 v0
       [31] aload_1 v1
-      [32] invokespecial #252
+      [32] invokespecial #253
         - Methodref [com/ybcx/activity/base/FullScreenActivity.onOptionsItemSelected (Landroid/view/MenuItem;)Z]
       [35] ireturn
       Code attribute exceptions (count = 0):
@@ -56340,7 +56365,7 @@ Methods (count = 24):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 77, locals = 2, stack = 3):
       [0] aload_0 v0
-      [1] getfield #196
+      [1] getfield #197
         - Fieldref [com/ybcx/activity/PictureDetails.z Lcom/ybcx/a/d;]
       [4] ifnonnull +4 (target=8)
       [7] return
@@ -56348,55 +56373,55 @@ Methods (count = 24):
         - Class [android/app/AlertDialog$Builder]
       [11] dup
       [12] aload_0 v0
-      [13] invokespecial #197
+      [13] invokespecial #198
         - Methodref [android/app/AlertDialog$Builder.<init> (Landroid/content/Context;)V]
       [16] dup
       [17] astore_1 v1
       [18] aload_0 v0
       [19] ldc #11
         - Integer [2131165214]
-      [21] invokevirtual #238
+      [21] invokevirtual #239
         - Methodref [com/ybcx/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
-      [24] invokevirtual #202
+      [24] invokevirtual #203
         - Methodref [android/app/AlertDialog$Builder.setTitle (Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;]
       [27] pop
       [28] aload_1 v1
       [29] aload_0 v0
       [30] ldc #6
         - Integer [2131165196]
-      [32] invokevirtual #238
+      [32] invokevirtual #239
         - Methodref [com/ybcx/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
-      [35] invokevirtual #199
+      [35] invokevirtual #200
         - Methodref [android/app/AlertDialog$Builder.setMessage (Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;]
       [38] pop
       [39] aload_1 v1
       [40] aload_0 v0
       [41] ldc #7
         - Integer [2131165197]
-      [43] invokevirtual #238
+      [43] invokevirtual #239
         - Methodref [com/ybcx/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
       [46] aload_0 v0
-      [47] getfield #169
+      [47] getfield #170
         - Fieldref [com/ybcx/activity/PictureDetails.P Landroid/content/DialogInterface$OnClickListener;]
-      [50] invokevirtual #201
+      [50] invokevirtual #202
         - Methodref [android/app/AlertDialog$Builder.setPositiveButton (Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;]
       [53] pop
       [54] aload_1 v1
       [55] aload_0 v0
       [56] ldc #8
         - Integer [2131165198]
-      [58] invokevirtual #238
+      [58] invokevirtual #239
         - Methodref [com/ybcx/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
       [61] aload_0 v0
-      [62] getfield #170
+      [62] getfield #171
         - Fieldref [com/ybcx/activity/PictureDetails.Q Landroid/content/DialogInterface$OnClickListener;]
-      [65] invokevirtual #200
+      [65] invokevirtual #201
         - Methodref [android/app/AlertDialog$Builder.setNegativeButton (Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;]
       [68] pop
       [69] aload_1 v1
-      [70] invokevirtual #198
+      [70] invokevirtual #199
         - Methodref [android/app/AlertDialog$Builder.create ()Landroid/app/AlertDialog;]
-      [73] invokevirtual #203
+      [73] invokevirtual #204
         - Methodref [android/app/Dialog.show ()V]
       [76] return
       Code attribute exceptions (count = 0):
@@ -56409,7 +56434,7 @@ Methods (count = 24):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #196
+      [1] getfield #197
         - Fieldref [com/ybcx/activity/PictureDetails.z Lcom/ybcx/a/d;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -56418,91 +56443,118 @@ Methods (count = 24):
     Access flags: 0x1008
       = static void b(com.ybcx.activity.PictureDetails)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 113, locals = 2, stack = 5):
+    + Code attribute instructions (code length = 154, locals = 2, stack = 5):
       [0] aload_0 v0
       [1] dup
       [2] astore_0 v0
-      [3] getfield #194
+      [3] getfield #195
         - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
       [6] ifnull +16 (target=22)
       [9] aload_0 v0
-      [10] getfield #194
+      [10] getfield #195
         - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
-      [13] invokevirtual #267
+      [13] invokevirtual #268
         - Methodref [com/ybcx/c/l.getStatus ()Landroid/os/AsyncTask$Status;]
       [16] getstatic #130
         - Fieldref [android/os/AsyncTask$Status.RUNNING Landroid/os/AsyncTask$Status;]
-      [19] ifacmpeq +93 (target=112)
+      [19] ifacmpeq +134 (target=153)
       [22] aload_0 v0
-      [23] new #116
-        - Class [com/ybcx/c/r]
-      [26] dup
-      [27] invokespecial #270
-        - Methodref [com/ybcx/c/r.<init> ()V]
-      [30] putfield #194
-        - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
-      [33] aload_0 v0
-      [34] getfield #194
-        - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
-      [37] aload_0 v0
-      [38] getfield #162
-        - Fieldref [com/ybcx/activity/PictureDetails.I Lcom/ybcx/c/j;]
-      [41] invokevirtual #265
-        - Methodref [com/ybcx/c/l.a (Lcom/ybcx/c/j;)V]
-      [44] new #115
-        - Class [com/ybcx/c/m]
-      [47] dup
-      [48] invokespecial #268
-        - Methodref [com/ybcx/c/m.<init> ()V]
-      [51] dup
-      [52] astore_1 v1
-      [53] ldc #65
-        - String [mode]
-      [55] iconst_4
-      [56] invokestatic #278
-        - Methodref [java/lang/Integer.valueOf (I)Ljava/lang/Integer;]
-      [59] invokevirtual #269
-        - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
-      [62] aload_1 v1
-      [63] ldc #67
-        - String [receiver]
-      [65] aload_0 v0
-      [66] getfield #196
+      [23] getfield #197
         - Fieldref [com/ybcx/activity/PictureDetails.z Lcom/ybcx/a/d;]
-      [69] getfield #139
+      [26] ifnull +37 (target=63)
+      [29] invokestatic #229
+        - Methodref [com/ybcx/PintuApp.b ()Ljava/lang/String;]
+      [32] aload_0 v0
+      [33] getfield #197
+        - Fieldref [com/ybcx/activity/PictureDetails.z Lcom/ybcx/a/d;]
+      [36] getfield #139
         - Fieldref [com/ybcx/a/d.c Ljava/lang/String;]
-      [72] invokevirtual #269
-        - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
-      [75] aload_1 v1
-      [76] ldc #61
-        - String [follow]
+      [39] invokevirtual #282
+        - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
+      [42] ifeq +21 (target=63)
+      [45] aload_0 v0
+      [46] ldc #22
+        - Integer [2131165257]
+      [48] invokevirtual #239
+        - Methodref [com/ybcx/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
+      [51] invokeinterface #299
+        - InterfaceMethodref [java/lang/CharSequence.toString ()Ljava/lang/String;]
+      [56] astore_1 v1
+      [57] aload_0 v0
+      [58] aload_1 v1
+      [59] invokespecial #234
+        - Methodref [com/ybcx/activity/PictureDetails.a (Ljava/lang/String;)V]
+      [62] return
+      [63] aload_0 v0
+      [64] new #116
+        - Class [com/ybcx/c/r]
+      [67] dup
+      [68] invokespecial #271
+        - Methodref [com/ybcx/c/r.<init> ()V]
+      [71] putfield #195
+        - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
+      [74] aload_0 v0
+      [75] getfield #195
+        - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
       [78] aload_0 v0
-      [79] getfield #154
-        - Fieldref [com/ybcx/activity/PictureDetails.A Ljava/lang/String;]
-      [82] invokevirtual #269
-        - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
-      [85] aload_0 v0
-      [86] getfield #194
-        - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
-      [89] iconst_1
-      [90] anewarray #115
+      [79] getfield #163
+        - Fieldref [com/ybcx/activity/PictureDetails.I Lcom/ybcx/c/j;]
+      [82] invokevirtual #266
+        - Methodref [com/ybcx/c/l.a (Lcom/ybcx/c/j;)V]
+      [85] new #115
         - Class [com/ybcx/c/m]
-      [93] dup
-      [94] iconst_0
-      [95] aload_1 v1
-      [96] aastore
-      [97] invokevirtual #266
-        - Methodref [com/ybcx/c/l.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
-      [100] pop
-      [101] aload_0 v0
-      [102] getfield #195
-        - Fieldref [com/ybcx/activity/PictureDetails.y Lcom/ybcx/c/a;]
-      [105] aload_0 v0
-      [106] getfield #194
+      [88] dup
+      [89] invokespecial #269
+        - Methodref [com/ybcx/c/m.<init> ()V]
+      [92] dup
+      [93] astore_1 v1
+      [94] ldc #65
+        - String [mode]
+      [96] iconst_4
+      [97] invokestatic #279
+        - Methodref [java/lang/Integer.valueOf (I)Ljava/lang/Integer;]
+      [100] invokevirtual #270
+        - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
+      [103] aload_1 v1
+      [104] ldc #67
+        - String [receiver]
+      [106] aload_0 v0
+      [107] getfield #197
+        - Fieldref [com/ybcx/activity/PictureDetails.z Lcom/ybcx/a/d;]
+      [110] getfield #139
+        - Fieldref [com/ybcx/a/d.c Ljava/lang/String;]
+      [113] invokevirtual #270
+        - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
+      [116] aload_1 v1
+      [117] ldc #61
+        - String [follow]
+      [119] aload_0 v0
+      [120] getfield #155
+        - Fieldref [com/ybcx/activity/PictureDetails.A Ljava/lang/String;]
+      [123] invokevirtual #270
+        - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
+      [126] aload_0 v0
+      [127] getfield #195
         - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
-      [109] invokevirtual #264
+      [130] iconst_1
+      [131] anewarray #115
+        - Class [com/ybcx/c/m]
+      [134] dup
+      [135] iconst_0
+      [136] aload_1 v1
+      [137] aastore
+      [138] invokevirtual #267
+        - Methodref [com/ybcx/c/l.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
+      [141] pop
+      [142] aload_0 v0
+      [143] getfield #196
+        - Fieldref [com/ybcx/activity/PictureDetails.y Lcom/ybcx/c/a;]
+      [146] aload_0 v0
+      [147] getfield #195
+        - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
+      [150] invokevirtual #265
         - Methodref [com/ybcx/c/a.a (Ljava/util/Observer;)V]
-      [112] return
+      [153] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       a(Lcom/ybcx/activity/PictureDetails;Ljava/lang/String;)V
@@ -56512,7 +56564,7 @@ Methods (count = 24):
     + Code attribute instructions (code length = 6, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #233
+      [2] invokespecial #234
         - Methodref [com/ybcx/activity/PictureDetails.a (Ljava/lang/String;)V]
       [5] return
       Code attribute exceptions (count = 0):
@@ -56525,13 +56577,13 @@ Methods (count = 24):
       [0] aload_0 v0
       [1] dup
       [2] astore_0 v0
-      [3] getfield #194
+      [3] getfield #195
         - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
       [6] ifnull +16 (target=22)
       [9] aload_0 v0
-      [10] getfield #194
+      [10] getfield #195
         - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
-      [13] invokevirtual #267
+      [13] invokevirtual #268
         - Methodref [com/ybcx/c/l.getStatus ()Landroid/os/AsyncTask$Status;]
       [16] getstatic #130
         - Fieldref [android/os/AsyncTask$Status.RUNNING Landroid/os/AsyncTask$Status;]
@@ -56540,53 +56592,53 @@ Methods (count = 24):
       [23] new #116
         - Class [com/ybcx/c/r]
       [26] dup
-      [27] invokespecial #270
+      [27] invokespecial #271
         - Methodref [com/ybcx/c/r.<init> ()V]
-      [30] putfield #194
+      [30] putfield #195
         - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
       [33] aload_0 v0
-      [34] getfield #194
+      [34] getfield #195
         - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
       [37] aload_0 v0
-      [38] getfield #163
+      [38] getfield #164
         - Fieldref [com/ybcx/activity/PictureDetails.J Lcom/ybcx/c/j;]
-      [41] invokevirtual #265
+      [41] invokevirtual #266
         - Methodref [com/ybcx/c/l.a (Lcom/ybcx/c/j;)V]
       [44] new #115
         - Class [com/ybcx/c/m]
       [47] dup
-      [48] invokespecial #268
+      [48] invokespecial #269
         - Methodref [com/ybcx/c/m.<init> ()V]
       [51] dup
       [52] astore_1 v1
       [53] ldc #65
         - String [mode]
       [55] bipush 8
-      [57] invokestatic #278
+      [57] invokestatic #279
         - Methodref [java/lang/Integer.valueOf (I)Ljava/lang/Integer;]
-      [60] invokevirtual #269
+      [60] invokevirtual #270
         - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [63] aload_1 v1
       [64] ldc #66
         - String [picId]
       [66] aload_0 v0
-      [67] getfield #154
+      [67] getfield #155
         - Fieldref [com/ybcx/activity/PictureDetails.A Ljava/lang/String;]
-      [70] invokevirtual #269
+      [70] invokevirtual #270
         - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [73] aload_1 v1
       [74] ldc #69
         - String [userId]
-      [76] invokestatic #228
+      [76] invokestatic #229
         - Methodref [com/ybcx/PintuApp.b ()Ljava/lang/String;]
-      [79] invokevirtual #269
+      [79] invokevirtual #270
         - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [82] aload_0 v0
-      [83] getfield #154
+      [83] getfield #155
         - Fieldref [com/ybcx/activity/PictureDetails.A Ljava/lang/String;]
       [86] ifnull +22 (target=108)
       [89] aload_0 v0
-      [90] getfield #194
+      [90] getfield #195
         - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
       [93] iconst_1
       [94] anewarray #115
@@ -56595,22 +56647,22 @@ Methods (count = 24):
       [98] iconst_0
       [99] aload_1 v1
       [100] aastore
-      [101] invokevirtual #266
+      [101] invokevirtual #267
         - Methodref [com/ybcx/c/l.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
       [104] pop
       [105] goto +9 (target=114)
       [108] aload_0 v0
       [109] ldc #58
         - String [Target pic id is null!]
-      [111] invokespecial #233
+      [111] invokespecial #234
         - Methodref [com/ybcx/activity/PictureDetails.a (Ljava/lang/String;)V]
       [114] aload_0 v0
-      [115] getfield #195
+      [115] getfield #196
         - Fieldref [com/ybcx/activity/PictureDetails.y Lcom/ybcx/c/a;]
       [118] aload_0 v0
-      [119] getfield #194
+      [119] getfield #195
         - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
-      [122] invokevirtual #264
+      [122] invokevirtual #265
         - Methodref [com/ybcx/c/a.a (Ljava/util/Observer;)V]
       [125] return
       Code attribute exceptions (count = 0):
@@ -56621,7 +56673,7 @@ Methods (count = 24):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] invokespecial #232
+      [1] invokespecial #233
         - Methodref [com/ybcx/activity/PictureDetails.a ()V]
       [4] return
       Code attribute exceptions (count = 0):
@@ -56632,7 +56684,7 @@ Methods (count = 24):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #174
+      [1] getfield #175
         - Fieldref [com/ybcx/activity/PictureDetails.d Landroid/widget/ProgressBar;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -56643,7 +56695,7 @@ Methods (count = 24):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #188
+      [1] getfield #189
         - Fieldref [com/ybcx/activity/PictureDetails.r Landroid/widget/TextView;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -56656,18 +56708,18 @@ Methods (count = 24):
       [0] aload_0 v0
       [1] dup
       [2] astore_0 v0
-      [3] getfield #174
+      [3] getfield #175
         - Fieldref [com/ybcx/activity/PictureDetails.d Landroid/widget/ProgressBar;]
       [6] bipush 8
-      [8] invokevirtual #216
+      [8] invokevirtual #217
         - Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [11] aload_0 v0
       [12] aload_0 v0
-      [13] ldc #22
-        - Integer [2131165273]
-      [15] invokevirtual #237
+      [13] ldc #23
+        - Integer [2131165274]
+      [15] invokevirtual #238
         - Methodref [com/ybcx/activity/PictureDetails.getString (I)Ljava/lang/String;]
-      [18] invokespecial #233
+      [18] invokespecial #234
         - Methodref [com/ybcx/activity/PictureDetails.a (Ljava/lang/String;)V]
       [21] return
       Code attribute exceptions (count = 0):
@@ -56680,43 +56732,43 @@ Methods (count = 24):
       [0] aload_0 v0
       [1] dup
       [2] astore_0 v0
-      [3] getfield #174
+      [3] getfield #175
         - Fieldref [com/ybcx/activity/PictureDetails.d Landroid/widget/ProgressBar;]
       [6] iconst_0
-      [7] invokevirtual #216
+      [7] invokevirtual #217
         - Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [10] aload_0 v0
-      [11] getfield #190
+      [11] getfield #191
         - Fieldref [com/ybcx/activity/PictureDetails.t Landroid/widget/TextView;]
       [14] iconst_0
-      [15] invokevirtual #218
+      [15] invokevirtual #219
         - Methodref [android/widget/TextView.setEnabled (Z)V]
       [18] aload_0 v0
-      [19] getfield #190
+      [19] getfield #191
         - Fieldref [com/ybcx/activity/PictureDetails.t Landroid/widget/TextView;]
       [22] ldc #2
         - Integer [-6710887]
-      [24] invokevirtual #222
+      [24] invokevirtual #223
         - Methodref [android/widget/TextView.setTextColor (I)V]
       [27] aload_0 v0
-      [28] getfield #190
+      [28] getfield #191
         - Fieldref [com/ybcx/activity/PictureDetails.t Landroid/widget/TextView;]
       [31] iconst_0
       [32] ldc #4
         - Integer [2130837546]
       [34] iconst_0
       [35] iconst_0
-      [36] invokevirtual #217
+      [36] invokevirtual #218
         - Methodref [android/widget/TextView.setCompoundDrawablesWithIntrinsicBounds (IIII)V]
       [39] new #92
         - Class [com/ybcx/a/c]
       [42] dup
-      [43] invokespecial #231
+      [43] invokespecial #232
         - Methodref [com/ybcx/a/c.<init> ()V]
       [46] dup
       [47] astore_1 v1
       [48] aload_0 v0
-      [49] getfield #196
+      [49] getfield #197
         - Fieldref [com/ybcx/activity/PictureDetails.z Lcom/ybcx/a/d;]
       [52] getfield #137
         - Fieldref [com/ybcx/a/d.a Ljava/lang/String;]
@@ -56724,7 +56776,7 @@ Methods (count = 24):
         - Fieldref [com/ybcx/a/c.a Ljava/lang/String;]
       [58] aload_1 v1
       [59] aload_0 v0
-      [60] getfield #196
+      [60] getfield #197
         - Fieldref [com/ybcx/activity/PictureDetails.z Lcom/ybcx/a/d;]
       [63] getfield #149
         - Fieldref [com/ybcx/a/d.m Ljava/lang/String;]
@@ -56732,7 +56784,7 @@ Methods (count = 24):
         - Fieldref [com/ybcx/a/c.d Ljava/lang/String;]
       [69] aload_1 v1
       [70] aload_0 v0
-      [71] getfield #196
+      [71] getfield #197
         - Fieldref [com/ybcx/activity/PictureDetails.z Lcom/ybcx/a/d;]
       [74] getfield #139
         - Fieldref [com/ybcx/a/d.c Ljava/lang/String;]
@@ -56740,7 +56792,7 @@ Methods (count = 24):
         - Fieldref [com/ybcx/a/c.b Ljava/lang/String;]
       [80] aload_1 v1
       [81] aload_0 v0
-      [82] getfield #196
+      [82] getfield #197
         - Fieldref [com/ybcx/activity/PictureDetails.z Lcom/ybcx/a/d;]
       [85] getfield #144
         - Fieldref [com/ybcx/a/d.h Ljava/lang/String;]
@@ -56749,7 +56801,7 @@ Methods (count = 24):
       [91] getstatic #132
         - Fieldref [com/ybcx/PintuApp.e Lcom/ybcx/b/c;]
       [94] aload_1 v1
-      [95] invokeinterface #294
+      [95] invokeinterface #295
         - InterfaceMethodref [com/ybcx/b/c.a (Lcom/ybcx/a/c;)V]
       [100] return
       Code attribute exceptions (count = 0):
@@ -56762,18 +56814,18 @@ Methods (count = 24):
       [0] aload_0 v0
       [1] dup
       [2] astore_0 v0
-      [3] getfield #174
+      [3] getfield #175
         - Fieldref [com/ybcx/activity/PictureDetails.d Landroid/widget/ProgressBar;]
       [6] bipush 8
-      [8] invokevirtual #216
+      [8] invokevirtual #217
         - Methodref [android/widget/ProgressBar.setVisibility (I)V]
       [11] aload_0 v0
       [12] aload_0 v0
       [13] ldc #21
         - Integer [2131165252]
-      [15] invokevirtual #237
+      [15] invokevirtual #238
         - Methodref [com/ybcx/activity/PictureDetails.getString (I)Ljava/lang/String;]
-      [18] invokespecial #233
+      [18] invokespecial #234
         - Methodref [com/ybcx/activity/PictureDetails.a (Ljava/lang/String;)V]
       [21] return
       Code attribute exceptions (count = 0):
@@ -56786,13 +56838,13 @@ Methods (count = 24):
       [0] aload_0 v0
       [1] dup
       [2] astore_0 v0
-      [3] getfield #194
+      [3] getfield #195
         - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
       [6] ifnull +16 (target=22)
       [9] aload_0 v0
-      [10] getfield #194
+      [10] getfield #195
         - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
-      [13] invokevirtual #267
+      [13] invokevirtual #268
         - Methodref [com/ybcx/c/l.getStatus ()Landroid/os/AsyncTask$Status;]
       [16] getstatic #130
         - Fieldref [android/os/AsyncTask$Status.RUNNING Landroid/os/AsyncTask$Status;]
@@ -56801,22 +56853,22 @@ Methods (count = 24):
       [23] new #116
         - Class [com/ybcx/c/r]
       [26] dup
-      [27] invokespecial #270
+      [27] invokespecial #271
         - Methodref [com/ybcx/c/r.<init> ()V]
-      [30] putfield #194
+      [30] putfield #195
         - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
       [33] aload_0 v0
-      [34] getfield #194
+      [34] getfield #195
         - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
       [37] aload_0 v0
-      [38] getfield #166
+      [38] getfield #167
         - Fieldref [com/ybcx/activity/PictureDetails.M Lcom/ybcx/c/j;]
-      [41] invokevirtual #265
+      [41] invokevirtual #266
         - Methodref [com/ybcx/c/l.a (Lcom/ybcx/c/j;)V]
-      [44] invokestatic #228
+      [44] invokestatic #229
         - Methodref [com/ybcx/PintuApp.b ()Ljava/lang/String;]
       [47] astore_1 v1
-      [48] invokestatic #229
+      [48] invokestatic #230
         - Methodref [com/ybcx/PintuApp.c ()Ljava/lang/String;]
       [51] astore_2 v2
       [52] new #128
@@ -56824,54 +56876,54 @@ Methods (count = 24):
       [55] dup
       [56] ldc #56
         - String [I think the picture: ]
-      [58] invokespecial #286
+      [58] invokespecial #287
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [61] aload_0 v0
-      [62] getfield #154
+      [62] getfield #155
         - Fieldref [com/ybcx/activity/PictureDetails.A Ljava/lang/String;]
-      [65] invokevirtual #288
+      [65] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [68] ldc #49
+      [68] ldc #50
         - String [ is illegal, isn't it?]
-      [70] invokevirtual #288
+      [70] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [73] invokevirtual #289
+      [73] invokevirtual #290
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [76] astore_3 v3
       [77] new #115
         - Class [com/ybcx/c/m]
       [80] dup
-      [81] invokespecial #268
+      [81] invokespecial #269
         - Methodref [com/ybcx/c/m.<init> ()V]
       [84] dup
       [85] astore v4
       [87] ldc #65
         - String [mode]
       [89] iconst_5
-      [90] invokestatic #278
+      [90] invokestatic #279
         - Methodref [java/lang/Integer.valueOf (I)Ljava/lang/Integer;]
-      [93] invokevirtual #269
+      [93] invokevirtual #270
         - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [96] aload v4
       [98] ldc #69
         - String [userId]
       [100] aload_1 v1
-      [101] invokevirtual #269
+      [101] invokevirtual #270
         - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [104] aload v4
       [106] ldc #67
         - String [receiver]
       [108] aload_2 v2
-      [109] invokevirtual #269
+      [109] invokevirtual #270
         - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [112] aload v4
       [114] ldc #60
         - String [content]
       [116] aload_3 v3
-      [117] invokevirtual #269
+      [117] invokevirtual #270
         - Methodref [com/ybcx/c/m.a (Ljava/lang/String;Ljava/lang/Object;)V]
       [120] aload_0 v0
-      [121] getfield #194
+      [121] getfield #195
         - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
       [124] iconst_1
       [125] anewarray #115
@@ -56880,16 +56932,16 @@ Methods (count = 24):
       [129] iconst_0
       [130] aload v4
       [132] aastore
-      [133] invokevirtual #266
+      [133] invokevirtual #267
         - Methodref [com/ybcx/c/l.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
       [136] pop
       [137] aload_0 v0
-      [138] getfield #195
+      [138] getfield #196
         - Fieldref [com/ybcx/activity/PictureDetails.y Lcom/ybcx/c/a;]
       [141] aload_0 v0
-      [142] getfield #194
+      [142] getfield #195
         - Fieldref [com/ybcx/activity/PictureDetails.x Lcom/ybcx/c/l;]
-      [145] invokevirtual #264
+      [145] invokevirtual #265
         - Methodref [com/ybcx/c/a.a (Ljava/util/Observer;)V]
       [148] return
       Code attribute exceptions (count = 0):
@@ -56900,7 +56952,7 @@ Methods (count = 24):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #192
+      [1] getfield #193
         - Fieldref [com/ybcx/activity/PictureDetails.v Landroid/widget/TextView;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -56912,7 +56964,7 @@ Methods (count = 24):
     + Code attribute instructions (code length = 6, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] putfield #196
+      [2] putfield #197
         - Fieldref [com/ybcx/activity/PictureDetails.z Lcom/ybcx/a/d;]
       [5] return
       Code attribute exceptions (count = 0):
@@ -56921,7 +56973,7 @@ Methods (count = 24):
     Access flags: 0x1008
       = static void b(com.ybcx.activity.PictureDetails,com.ybcx.a.d)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 540, locals = 4, stack = 4):
+    + Code attribute instructions (code length = 539, locals = 4, stack = 4):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] astore_1 v1
@@ -56931,380 +56983,380 @@ Methods (count = 24):
       [7] aload_1 v1
       [8] getfield #141
         - Fieldref [com/ybcx/a/d.e Ljava/lang/String;]
-      [11] invokeinterface #297
+      [11] invokeinterface #298
         - InterfaceMethodref [com/ybcx/h/a.c (Ljava/lang/String;)Ljava/lang/String;]
       [16] astore_2 v2
       [17] aload_0 v0
-      [18] getfield #176
+      [18] getfield #177
         - Fieldref [com/ybcx/activity/PictureDetails.f Landroid/widget/ImageView;]
       [21] aload_2 v2
-      [22] invokestatic #272
+      [22] invokestatic #273
         - Methodref [com/ybcx/d/g.a (Landroid/widget/ImageView;Ljava/lang/String;)V]
       [25] getstatic #131
         - Fieldref [com/ybcx/PintuApp.d Lcom/ybcx/h/a;]
       [28] aload_1 v1
       [29] getfield #149
         - Fieldref [com/ybcx/a/d.m Ljava/lang/String;]
-      [32] invokeinterface #296
+      [32] invokeinterface #297
         - InterfaceMethodref [com/ybcx/h/a.b (Ljava/lang/String;)Ljava/lang/String;]
       [37] astore_2 v2
       [38] aload_0 v0
-      [39] getfield #180
+      [39] getfield #181
         - Fieldref [com/ybcx/activity/PictureDetails.j Landroid/widget/ImageView;]
       [42] aload_2 v2
-      [43] invokestatic #273
+      [43] invokestatic #274
         - Methodref [com/ybcx/d/g.c (Landroid/widget/ImageView;Ljava/lang/String;)V]
       [46] aload_1 v1
       [47] aload_1 v1
       [48] getfield #140
         - Fieldref [com/ybcx/a/d.d Ljava/lang/String;]
-      [51] invokestatic #275
+      [51] invokestatic #276
         - Methodref [com/ybcx/i/e.a (Ljava/lang/String;)Ljava/lang/String;]
       [54] putfield #140
         - Fieldref [com/ybcx/a/d.d Ljava/lang/String;]
       [57] aload_0 v0
-      [58] getfield #177
+      [58] getfield #178
         - Fieldref [com/ybcx/activity/PictureDetails.g Landroid/widget/TextView;]
       [61] aload_1 v1
       [62] getfield #140
         - Fieldref [com/ybcx/a/d.d Ljava/lang/String;]
-      [65] invokevirtual #221
+      [65] invokevirtual #222
         - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
       [68] new #128
         - Class [java/lang/StringBuilder]
       [71] dup
-      [72] invokespecial #285
+      [72] invokespecial #286
         - Methodref [java/lang/StringBuilder.<init> ()V]
       [75] aload_0 v0
       [76] ldc #12
         - Integer [2131165215]
-      [78] invokevirtual #238
+      [78] invokevirtual #239
         - Methodref [com/ybcx/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
-      [81] invokevirtual #287
+      [81] invokevirtual #288
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
-      [84] ldc #47
+      [84] ldc #48
         - String [  ]
-      [86] invokevirtual #288
+      [86] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
       [89] aload_1 v1
       [90] getfield #143
         - Fieldref [com/ybcx/a/d.g Ljava/lang/String;]
-      [93] invokevirtual #288
+      [93] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [96] invokevirtual #289
+      [96] invokevirtual #290
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [99] astore_2 v2
       [100] new #128
         - Class [java/lang/StringBuilder]
       [103] dup
       [104] aload_2 v2
-      [105] invokestatic #284
+      [105] invokestatic #285
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [108] invokespecial #286
+      [108] invokespecial #287
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [111] ldc #48
+      [111] ldc #49
         - String [    ]
-      [113] invokevirtual #288
+      [113] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [116] invokevirtual #289
+      [116] invokevirtual #290
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [119] astore_2 v2
       [120] new #128
         - Class [java/lang/StringBuilder]
       [123] dup
       [124] aload_2 v2
-      [125] invokestatic #284
+      [125] invokestatic #285
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [128] invokespecial #286
+      [128] invokespecial #287
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [131] aload_0 v0
       [132] ldc #13
         - Integer [2131165216]
-      [134] invokevirtual #238
+      [134] invokevirtual #239
         - Methodref [com/ybcx/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
-      [137] invokevirtual #287
+      [137] invokevirtual #288
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/Object;)Ljava/lang/StringBuilder;]
-      [140] ldc #47
+      [140] ldc #48
         - String [  ]
-      [142] invokevirtual #288
+      [142] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
       [145] aload_1 v1
       [146] getfield #142
         - Fieldref [com/ybcx/a/d.f Ljava/lang/String;]
-      [149] invokevirtual #288
+      [149] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [152] invokevirtual #289
+      [152] invokevirtual #290
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [155] astore_2 v2
       [156] aload_0 v0
-      [157] getfield #178
+      [157] getfield #179
         - Fieldref [com/ybcx/activity/PictureDetails.h Landroid/widget/TextView;]
       [160] aload_2 v2
-      [161] invokevirtual #221
+      [161] invokevirtual #222
         - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
       [164] aload_1 v1
       [165] aload_1 v1
       [166] getfield #144
         - Fieldref [com/ybcx/a/d.h Ljava/lang/String;]
-      [169] invokestatic #274
+      [169] invokestatic #275
         - Methodref [com/ybcx/i/c.a (Ljava/lang/String;)Ljava/lang/String;]
       [172] putfield #145
         - Fieldref [com/ybcx/a/d.i Ljava/lang/String;]
       [175] goto +6 (target=181)
-      [178] invokevirtual #290
+      [178] invokevirtual #291
         - Methodref [java/text/ParseException.printStackTrace ()V]
       [181] aload_0 v0
-      [182] getfield #179
+      [182] getfield #180
         - Fieldref [com/ybcx/activity/PictureDetails.i Landroid/widget/TextView;]
       [185] aload_1 v1
       [186] getfield #145
         - Fieldref [com/ybcx/a/d.i Ljava/lang/String;]
-      [189] invokevirtual #221
+      [189] invokevirtual #222
         - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
       [192] aload_1 v1
       [193] getfield #146
         - Fieldref [com/ybcx/a/d.j Ljava/lang/String;]
-      [196] ldc #45
+      [196] ldc #46
         - String []
-      [198] invokevirtual #281
+      [198] invokevirtual #282
         - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
       [201] ifeq +15 (target=216)
       [204] aload_0 v0
-      [205] getfield #181
+      [205] getfield #182
         - Fieldref [com/ybcx/activity/PictureDetails.k Landroid/widget/TextView;]
       [208] bipush 8
-      [210] invokevirtual #224
+      [210] invokevirtual #225
         - Methodref [android/widget/TextView.setVisibility (I)V]
       [213] goto +14 (target=227)
       [216] aload_0 v0
-      [217] getfield #181
+      [217] getfield #182
         - Fieldref [com/ybcx/activity/PictureDetails.k Landroid/widget/TextView;]
       [220] aload_1 v1
       [221] getfield #146
         - Fieldref [com/ybcx/a/d.j Ljava/lang/String;]
-      [224] invokevirtual #221
+      [224] invokevirtual #222
         - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
       [227] aload_0 v0
-      [228] getfield #182
+      [228] getfield #183
         - Fieldref [com/ybcx/activity/PictureDetails.l Landroid/widget/TextView;]
       [231] aload_1 v1
       [232] getfield #147
         - Fieldref [com/ybcx/a/d.k Ljava/lang/String;]
-      [235] invokevirtual #221
+      [235] invokevirtual #222
         - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
       [238] aload_0 v0
       [239] ldc #16
         - Integer [2131165219]
-      [241] invokevirtual #238
+      [241] invokevirtual #239
         - Methodref [com/ybcx/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
-      [244] invokeinterface #298
+      [244] invokeinterface #299
         - InterfaceMethodref [java/lang/CharSequence.toString ()Ljava/lang/String;]
       [249] astore_2 v2
       [250] aload_0 v0
-      [251] getfield #183
+      [251] getfield #184
         - Fieldref [com/ybcx/activity/PictureDetails.m Landroid/widget/TextView;]
       [254] new #128
         - Class [java/lang/StringBuilder]
       [257] dup
       [258] aload_2 v2
-      [259] invokestatic #284
+      [259] invokestatic #285
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [262] invokespecial #286
+      [262] invokespecial #287
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [265] ldc #47
+      [265] ldc #48
         - String [  ]
-      [267] invokevirtual #288
+      [267] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [270] ldc #53
-        - String [Android]
-      [272] invokevirtual #288
+      [270] aload_1 v1
+      [271] getfield #154
+        - Fieldref [com/ybcx/a/d.r Ljava/lang/String;]
+      [274] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [275] invokevirtual #289
+      [277] invokevirtual #290
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [278] invokevirtual #221
+      [280] invokevirtual #222
         - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
-      [281] aload_1 v1
-      [282] getfield #151
+      [283] aload_1 v1
+      [284] getfield #151
         - Fieldref [com/ybcx/a/d.o Ljava/lang/String;]
-      [285] ifnull +48 (target=333)
-      [288] aload_0 v0
-      [289] ldc #10
+      [287] ifnull +48 (target=335)
+      [290] aload_0 v0
+      [291] ldc #10
         - Integer [2131165208]
-      [291] invokevirtual #238
+      [293] invokevirtual #239
         - Methodref [com/ybcx/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
-      [294] invokeinterface #298
+      [296] invokeinterface #299
         - InterfaceMethodref [java/lang/CharSequence.toString ()Ljava/lang/String;]
-      [299] astore_2 v2
-      [300] aload_0 v0
-      [301] getfield #187
+      [301] astore_2 v2
+      [302] aload_0 v0
+      [303] getfield #188
         - Fieldref [com/ybcx/activity/PictureDetails.q Landroid/widget/Button;]
-      [304] new #128
+      [306] new #128
         - Class [java/lang/StringBuilder]
-      [307] dup
-      [308] aload_1 v1
-      [309] getfield #151
+      [309] dup
+      [310] aload_1 v1
+      [311] getfield #151
         - Fieldref [com/ybcx/a/d.o Ljava/lang/String;]
-      [312] invokestatic #284
+      [314] invokestatic #285
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [315] invokespecial #286
+      [317] invokespecial #287
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [318] ldc #46
+      [320] ldc #47
         - String [ ]
-      [320] invokevirtual #288
+      [322] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [323] aload_2 v2
-      [324] invokevirtual #288
+      [325] aload_2 v2
+      [326] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [327] invokevirtual #289
+      [329] invokevirtual #290
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [330] invokevirtual #213
+      [332] invokevirtual #214
         - Methodref [android/widget/Button.setText (Ljava/lang/CharSequence;)V]
-      [333] aload_1 v1
-      [334] getfield #152
+      [335] aload_1 v1
+      [336] getfield #152
         - Fieldref [com/ybcx/a/d.p Ljava/lang/String;]
-      [337] ifnull +59 (target=396)
-      [340] aload_1 v1
-      [341] getfield #152
+      [339] ifnull +56 (target=395)
+      [342] aload_1 v1
+      [343] getfield #152
         - Fieldref [com/ybcx/a/d.p Ljava/lang/String;]
-      [344] invokestatic #279
+      [346] invokestatic #280
         - Methodref [java/lang/Integer.valueOf (Ljava/lang/String;)Ljava/lang/Integer;]
-      [347] invokevirtual #277
+      [349] invokevirtual #278
         - Methodref [java/lang/Integer.intValue ()I]
-      [350] istore_2 v2
-      [351] iinc v2, 1
-      [354] aload_0 v0
-      [355] ldc #18
+      [352] istore_2 v2
+      [353] aload_0 v0
+      [354] ldc #18
         - Integer [2131165221]
-      [357] invokevirtual #238
+      [356] invokevirtual #239
         - Methodref [com/ybcx/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
-      [360] invokeinterface #298
+      [359] invokeinterface #299
         - InterfaceMethodref [java/lang/CharSequence.toString ()Ljava/lang/String;]
-      [365] astore_3 v3
-      [366] aload_0 v0
-      [367] getfield #186
+      [364] astore_3 v3
+      [365] aload_0 v0
+      [366] getfield #187
         - Fieldref [com/ybcx/activity/PictureDetails.p Landroid/widget/TextView;]
-      [370] new #128
+      [369] new #128
         - Class [java/lang/StringBuilder]
-      [373] dup
-      [374] iload_2 v2
-      [375] invokestatic #283
+      [372] dup
+      [373] iload_2 v2
+      [374] invokestatic #284
         - Methodref [java/lang/String.valueOf (I)Ljava/lang/String;]
-      [378] invokespecial #286
+      [377] invokespecial #287
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [381] ldc #46
+      [380] ldc #47
         - String [ ]
-      [383] invokevirtual #288
+      [382] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [386] aload_3 v3
-      [387] invokevirtual #288
+      [385] aload_3 v3
+      [386] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [390] invokevirtual #289
+      [389] invokevirtual #290
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [393] invokevirtual #221
+      [392] invokevirtual #222
         - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
-      [396] aload_1 v1
-      [397] getfield #148
+      [395] aload_1 v1
+      [396] getfield #148
         - Fieldref [com/ybcx/a/d.l I]
-      [400] iconst_1
-      [401] ificmpne +34 (target=435)
-      [404] aload_0 v0
-      [405] getfield #184
+      [399] iconst_1
+      [400] ificmpne +34 (target=434)
+      [403] aload_0 v0
+      [404] getfield #185
         - Fieldref [com/ybcx/activity/PictureDetails.n Landroid/widget/TextView;]
-      [408] ldc #1
+      [407] ldc #1
         - Integer [-15955688]
-      [410] invokevirtual #222
+      [409] invokevirtual #223
         - Methodref [android/widget/TextView.setTextColor (I)V]
-      [413] aload_0 v0
-      [414] getfield #184
+      [412] aload_0 v0
+      [413] getfield #185
         - Fieldref [com/ybcx/activity/PictureDetails.n Landroid/widget/TextView;]
-      [417] iconst_2
-      [418] ldc #44
+      [416] iconst_2
+      [417] ldc #45
         - Float [18.0]
-      [420] invokevirtual #223
+      [419] invokevirtual #224
         - Methodref [android/widget/TextView.setTextSize (IF)V]
-      [423] aload_0 v0
-      [424] getfield #184
+      [422] aload_0 v0
+      [423] getfield #185
         - Fieldref [com/ybcx/activity/PictureDetails.n Landroid/widget/TextView;]
-      [427] ldc #14
+      [426] ldc #14
         - Integer [2131165217]
-      [429] invokevirtual #220
+      [428] invokevirtual #221
         - Methodref [android/widget/TextView.setText (I)V]
-      [432] goto +12 (target=444)
-      [435] aload_0 v0
-      [436] getfield #184
+      [431] goto +12 (target=443)
+      [434] aload_0 v0
+      [435] getfield #185
         - Fieldref [com/ybcx/activity/PictureDetails.n Landroid/widget/TextView;]
-      [439] ldc #15
+      [438] ldc #15
         - Integer [2131165218]
-      [441] invokevirtual #220
+      [440] invokevirtual #221
         - Methodref [android/widget/TextView.setText (I)V]
-      [444] aload_0 v0
-      [445] ldc #17
+      [443] aload_0 v0
+      [444] ldc #17
         - Integer [2131165220]
-      [447] invokevirtual #238
+      [446] invokevirtual #239
         - Methodref [com/ybcx/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
-      [450] invokeinterface #298
+      [449] invokeinterface #299
         - InterfaceMethodref [java/lang/CharSequence.toString ()Ljava/lang/String;]
-      [455] astore_2 v2
-      [456] aload_1 v1
-      [457] getfield #153
+      [454] astore_2 v2
+      [455] aload_1 v1
+      [456] getfield #153
         - Fieldref [com/ybcx/a/d.q Ljava/lang/String;]
-      [460] ldc #52
+      [459] ldc #53
         - String [0]
-      [462] invokevirtual #281
+      [461] invokevirtual #282
         - Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
-      [465] ifeq +41 (target=506)
-      [468] aload_0 v0
-      [469] ldc #19
+      [464] ifeq +41 (target=505)
+      [467] aload_0 v0
+      [468] ldc #19
         - Integer [2131165222]
-      [471] invokevirtual #238
+      [470] invokevirtual #239
         - Methodref [com/ybcx/activity/PictureDetails.getText (I)Ljava/lang/CharSequence;]
-      [474] invokeinterface #298
+      [473] invokeinterface #299
         - InterfaceMethodref [java/lang/CharSequence.toString ()Ljava/lang/String;]
-      [479] astore_3 v3
-      [480] aload_0 v0
-      [481] getfield #185
+      [478] astore_3 v3
+      [479] aload_0 v0
+      [480] getfield #186
         - Fieldref [com/ybcx/activity/PictureDetails.o Landroid/widget/TextView;]
-      [484] new #128
+      [483] new #128
         - Class [java/lang/StringBuilder]
-      [487] dup
-      [488] aload_3 v3
-      [489] invokestatic #284
+      [486] dup
+      [487] aload_3 v3
+      [488] invokestatic #285
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [492] invokespecial #286
+      [491] invokespecial #287
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [495] aload_2 v2
-      [496] invokevirtual #288
+      [494] aload_2 v2
+      [495] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [499] invokevirtual #289
+      [498] invokevirtual #290
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [502] invokevirtual #221
+      [501] invokevirtual #222
         - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
-      [505] return
-      [506] aload_0 v0
-      [507] getfield #185
+      [504] return
+      [505] aload_0 v0
+      [506] getfield #186
         - Fieldref [com/ybcx/activity/PictureDetails.o Landroid/widget/TextView;]
-      [510] new #128
+      [509] new #128
         - Class [java/lang/StringBuilder]
-      [513] dup
-      [514] aload_1 v1
-      [515] getfield #153
+      [512] dup
+      [513] aload_1 v1
+      [514] getfield #153
         - Fieldref [com/ybcx/a/d.q Ljava/lang/String;]
-      [518] invokestatic #284
+      [517] invokestatic #285
         - Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [521] invokespecial #286
+      [520] invokespecial #287
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [524] ldc #46
+      [523] ldc #47
         - String [ ]
-      [526] invokevirtual #288
+      [525] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [529] aload_2 v2
-      [530] invokevirtual #288
+      [528] aload_2 v2
+      [529] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [533] invokevirtual #289
+      [532] invokevirtual #290
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [536] invokevirtual #221
+      [535] invokevirtual #222
         - Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
-      [539] return
+      [538] return
       Code attribute exceptions (count = 1):
       - ExceptionInfo (164 -> 175: 178):
       - Class [java/text/ParseException]
@@ -57315,7 +57367,7 @@ Methods (count = 24):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #185
+      [1] getfield #186
         - Fieldref [com/ybcx/activity/PictureDetails.o Landroid/widget/TextView;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -57330,23 +57382,23 @@ Methods (count = 24):
       [2] new #75
         - Class [android/content/Intent]
       [5] dup
-      [6] invokespecial #204
+      [6] invokespecial #205
         - Methodref [android/content/Intent.<init> ()V]
       [9] astore_1 v1
       [10] aload_0 v0
-      [11] getfield #196
+      [11] getfield #197
         - Fieldref [com/ybcx/activity/PictureDetails.z Lcom/ybcx/a/d;]
       [14] getfield #138
         - Fieldref [com/ybcx/a/d.b Ljava/lang/String;]
       [17] ifnonnull +20 (target=37)
       [20] aload_0 v0
-      [21] getfield #196
+      [21] getfield #197
         - Fieldref [com/ybcx/activity/PictureDetails.z Lcom/ybcx/a/d;]
       [24] getfield #138
         - Fieldref [com/ybcx/a/d.b Ljava/lang/String;]
-      [27] ldc #51
+      [27] ldc #52
         - String [.]
-      [29] invokevirtual #282
+      [29] invokevirtual #283
         - Methodref [java/lang/String.split (Ljava/lang/String;)[Ljava/lang/String;]
       [32] iconst_1
       [33] aaload
@@ -57357,21 +57409,21 @@ Methods (count = 24):
       [40] new #128
         - Class [java/lang/StringBuilder]
       [43] dup
-      [44] ldc #51
+      [44] ldc #52
         - String [.]
-      [46] invokespecial #286
+      [46] invokespecial #287
         - Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [49] aload_2 v2
-      [50] invokevirtual #288
+      [50] invokevirtual #289
         - Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [53] invokevirtual #289
+      [53] invokevirtual #290
         - Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [56] astore_2 v2
       [57] aload_1 v1
       [58] ldc #62
         - String [imgtype]
       [60] aload_2 v2
-      [61] invokevirtual #206
+      [61] invokevirtual #207
         - Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
       [64] pop
       [65] aload_1 v1
@@ -57380,34 +57432,34 @@ Methods (count = 24):
       [68] getstatic #131
         - Fieldref [com/ybcx/PintuApp.d Lcom/ybcx/h/a;]
       [71] aload_0 v0
-      [72] getfield #196
+      [72] getfield #197
         - Fieldref [com/ybcx/activity/PictureDetails.z Lcom/ybcx/a/d;]
       [75] getfield #150
         - Fieldref [com/ybcx/a/d.n Ljava/lang/String;]
-      [78] invokeinterface #296
+      [78] invokeinterface #297
         - InterfaceMethodref [com/ybcx/h/a.b (Ljava/lang/String;)Ljava/lang/String;]
-      [83] invokevirtual #206
+      [83] invokevirtual #207
         - Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
       [86] pop
       [87] aload_1 v1
       [88] aload_0 v0
       [89] ldc #122
         - Class [com/ybcx/service/DnldService]
-      [91] invokevirtual #207
+      [91] invokevirtual #208
         - Methodref [android/content/Intent.setClass (Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;]
       [94] pop
       [95] aload_0 v0
       [96] aload_1 v1
-      [97] invokevirtual #240
+      [97] invokevirtual #241
         - Methodref [com/ybcx/activity/PictureDetails.startService (Landroid/content/Intent;)Landroid/content/ComponentName;]
       [100] pop
       [101] aload_0 v0
       [102] ldc #9
         - Integer [2131165200]
       [104] iconst_0
-      [105] invokestatic #225
+      [105] invokestatic #226
         - Methodref [android/widget/Toast.makeText (Landroid/content/Context;II)Landroid/widget/Toast;]
-      [108] invokevirtual #227
+      [108] invokevirtual #228
         - Methodref [android/widget/Toast.show ()V]
       [111] return
       Code attribute exceptions (count = 0):
@@ -63106,9 +63158,9 @@ Constant Pool (count = 352):
   - Integer [2131165194]
   - Integer [2131165197]
   - Integer [2131165198]
-  - Integer [2131165266]
   - Integer [2131165267]
-  - Integer [2131165273]
+  - Integer [2131165268]
+  - Integer [2131165274]
   - Integer [2131296299]
   - Integer [2131296307]
   - Integer [2131296308]
@@ -64020,7 +64072,7 @@ Methods (count = 19):
         - Methodref [android/widget/Button.setVisibility (I)V]
       [17] aload_0 v0
       [18] ldc #6
-        - Integer [2131165266]
+        - Integer [2131165267]
       [20] invokevirtual #106
         - Methodref [com/ybcx/activity/MsgEdit.a (I)V]
       [23] aload_0 v0
@@ -64037,7 +64089,7 @@ Methods (count = 19):
       [0] aload_0 v0
       [1] aload_0 v0
       [2] ldc #8
-        - Integer [2131165273]
+        - Integer [2131165274]
       [4] invokevirtual #112
         - Methodref [com/ybcx/activity/MsgEdit.getString (I)Ljava/lang/String;]
       [7] invokevirtual #108
@@ -64141,7 +64193,7 @@ Methods (count = 19):
       [21] pop
       [22] aload_1 v1
       [23] ldc #7
-        - Integer [2131165267]
+        - Integer [2131165268]
       [25] invokevirtual #80
         - Methodref [android/app/AlertDialog$Builder.setMessage (I)Landroid/app/AlertDialog$Builder;]
       [28] pop
@@ -64239,8 +64291,8 @@ Constant Pool (count = 297):
   - Integer [2131165248]
   - Integer [2131165249]
   - Integer [2131165250]
-  - Integer [2131165273]
-  - Integer [2131165280]
+  - Integer [2131165274]
+  - Integer [2131165281]
   - Integer [2131296265]
   - Integer [2131296267]
   - Integer [2131296269]
@@ -65162,7 +65214,7 @@ Methods (count = 18):
         - Methodref [android/widget/ImageButton.setVisibility (I)V]
       [31] aload_0 v0
       [32] ldc #8
-        - Integer [2131165273]
+        - Integer [2131165274]
       [34] invokevirtual #96
         - Methodref [com/ybcx/activity/AndiWealth.a (I)V]
       [37] return
@@ -65198,7 +65250,7 @@ Methods (count = 18):
         - Methodref [android/widget/ImageButton.setVisibility (I)V]
       [31] aload_0 v0
       [32] ldc #9
-        - Integer [2131165280]
+        - Integer [2131165281]
       [34] invokevirtual #96
         - Methodref [com/ybcx/activity/AndiWealth.a (I)V]
       [37] return
@@ -66006,11 +66058,11 @@ _____________________________________________________________________
 Interfaces (count = 0):
 
 Constant Pool (count = 109):
-  - Integer [2131165344]
   - Integer [2131165345]
   - Integer [2131165346]
   - Integer [2131165347]
   - Integer [2131165348]
+  - Integer [2131165349]
   - String [E MMM d HH:mm:ss Z yyyy]
   - String [E, d MMM yyyy HH:mm:ss Z]
   - String [yyyy-MM-dd HH:mm:ss]
@@ -66190,31 +66242,31 @@ Methods (count = 5):
       [11] dup
       [12] astore_2 v2
       [13] ldc #1
-        - Integer [2131165344]
+        - Integer [2131165345]
       [15] invokevirtual #32
         - Methodref [android/content/Context.getString (I)Ljava/lang/String;]
       [18] astore_3 v3
       [19] aload_2 v2
       [20] ldc #2
-        - Integer [2131165345]
+        - Integer [2131165346]
       [22] invokevirtual #32
         - Methodref [android/content/Context.getString (I)Ljava/lang/String;]
       [25] astore v4
       [27] aload_2 v2
       [28] ldc #3
-        - Integer [2131165346]
+        - Integer [2131165347]
       [30] invokevirtual #32
         - Methodref [android/content/Context.getString (I)Ljava/lang/String;]
       [33] astore v5
       [35] aload_2 v2
       [36] ldc #4
-        - Integer [2131165347]
+        - Integer [2131165348]
       [38] invokevirtual #32
         - Methodref [android/content/Context.getString (I)Ljava/lang/String;]
       [41] astore v6
       [43] aload_2 v2
       [44] ldc #5
-        - Integer [2131165348]
+        - Integer [2131165349]
       [46] invokevirtual #32
         - Methodref [android/content/Context.getString (I)Ljava/lang/String;]
       [49] astore_2 v2
@@ -70189,9 +70241,9 @@ Interfaces (count = 0):
 Constant Pool (count = 172):
   - Integer [2131165253]
   - Integer [2131165254]
-  - Integer [2131165257]
-  - Integer [2131165280]
-  - Integer [2131165282]
+  - Integer [2131165258]
+  - Integer [2131165281]
+  - Integer [2131165283]
   - String [>>> inserted db record size: ]
   - String [HomeGallery]
   - Class [android/content/SharedPreferences]
@@ -70439,7 +70491,7 @@ Methods (count = 4):
       [47] getfield #30
         - Fieldref [com/ybcx/activity/br.a Lcom/ybcx/activity/HomeGallery;]
       [50] ldc #5
-        - Integer [2131165282]
+        - Integer [2131165283]
       [52] invokestatic #39
         - Methodref [com/ybcx/activity/HomeGallery.a (Lcom/ybcx/activity/HomeGallery;I)V]
       [55] goto +38 (target=93)
@@ -70451,7 +70503,7 @@ Methods (count = 4):
       [66] getfield #30
         - Fieldref [com/ybcx/activity/br.a Lcom/ybcx/activity/HomeGallery;]
       [69] ldc #3
-        - Integer [2131165257]
+        - Integer [2131165258]
       [71] invokestatic #39
         - Methodref [com/ybcx/activity/HomeGallery.a (Lcom/ybcx/activity/HomeGallery;I)V]
       [74] goto +19 (target=93)
@@ -70463,7 +70515,7 @@ Methods (count = 4):
       [85] getfield #30
         - Fieldref [com/ybcx/activity/br.a Lcom/ybcx/activity/HomeGallery;]
       [88] ldc #4
-        - Integer [2131165280]
+        - Integer [2131165281]
       [90] invokestatic #39
         - Methodref [com/ybcx/activity/HomeGallery.a (Lcom/ybcx/activity/HomeGallery;I)V]
       [93] aload_0 v0
@@ -72057,9 +72109,9 @@ Interfaces (count = 1):
   - Class [com/a/a/a/a]
 
 Constant Pool (count = 69):
-  - Integer [2131165257]
-  - Integer [2131165259]
+  - Integer [2131165258]
   - Integer [2131165260]
+  - Integer [2131165261]
   - Class [android/content/SharedPreferences]
   - Class [com/a/a/a/a]
   - Class [com/a/a/a/b]
@@ -72165,7 +72217,7 @@ Methods (count = 2):
       [18] getfield #16
         - Fieldref [com/ybcx/activity/bw.a Lcom/ybcx/activity/HomeGallery;]
       [21] ldc #1
-        - Integer [2131165257]
+        - Integer [2131165258]
       [23] invokestatic #20
         - Methodref [com/ybcx/activity/HomeGallery.a (Lcom/ybcx/activity/HomeGallery;I)V]
       [26] return
@@ -72201,7 +72253,7 @@ Methods (count = 2):
       [71] getfield #16
         - Fieldref [com/ybcx/activity/bw.a Lcom/ybcx/activity/HomeGallery;]
       [74] ldc #2
-        - Integer [2131165259]
+        - Integer [2131165260]
       [76] invokestatic #20
         - Methodref [com/ybcx/activity/HomeGallery.a (Lcom/ybcx/activity/HomeGallery;I)V]
       [79] return
@@ -72222,7 +72274,7 @@ Methods (count = 2):
       [100] getfield #16
         - Fieldref [com/ybcx/activity/bw.a Lcom/ybcx/activity/HomeGallery;]
       [103] ldc #3
-        - Integer [2131165260]
+        - Integer [2131165261]
       [105] invokestatic #20
         - Methodref [com/ybcx/activity/HomeGallery.a (Lcom/ybcx/activity/HomeGallery;I)V]
       [108] return

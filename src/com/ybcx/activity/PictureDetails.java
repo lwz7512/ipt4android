@@ -301,6 +301,15 @@ public class PictureDetails extends FullScreenActivity {
 				&& mSendTask.getStatus() == GenericTask.Status.RUNNING) {
 			return;
 		}
+		
+		//FIXME, 自己不能给自己投票
+		//2012/04/09
+		if(details!=null && PintuApp.getUser().equals(details.owner)){
+			String message = getText(R.string.vote_notallowed).toString();
+			this.updateProgress(message);
+			return;
+		}
+		
 		int mode = SendTask.TYPE_VOTE;
 		mSendTask = new SendTask();
 		mSendTask.setListener(voteTaskListener);
@@ -624,8 +633,11 @@ public class PictureDetails extends FullScreenActivity {
 		}
 
 		tv_description.setText(details.description);
+		
 		String sourcePrefix = getText(R.string.picfrom).toString();
-		send_source.setText(sourcePrefix + "  " + "Android");
+		//FIXME, 来源竟然一直没写，都整成android的了
+		//2012/04/09
+		send_source.setText(sourcePrefix + "  " + details.source);
 
 		if (details.commentNum != null) {
 			String comment = getText(R.string.comment).toString();
@@ -633,8 +645,6 @@ public class PictureDetails extends FullScreenActivity {
 		}
 		if (details.browseCount != null) {
 			int browseNum = Integer.valueOf(details.browseCount);
-			// 每次浏览客户端加1
-			browseNum++;
 			String prefix = getText(R.string.browsenum).toString();
 			browseCount.setText(browseNum + " " + prefix);
 		}
